@@ -2645,7 +2645,6 @@ body {
 }
 .material-wide {
   grid-column: span 2;
-  grid-template-columns: 38% 62%;
   min-height: 260px;
 }
 .material-image,

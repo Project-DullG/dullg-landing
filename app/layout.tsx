@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Morrow — 좋은 일은 선명함에서 시작됩니다",
-  description: "팀의 생각을 정리하고 중요한 일에 집중하도록 돕는 업무 공간, Morrow.",
+  title: "DullG — 영어를 읽고, 추리하고, 설명하는 수업",
+  description: "초등 영어 학원을 위한 미스터리 프로젝트 수업. 단서를 읽고, 토론하고, 자신의 판단을 보고서로 남깁니다.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 

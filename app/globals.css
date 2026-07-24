@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap");
 @import "tailwindcss";
 
+
+/* ============================================================
+   1. TOKENS & BASE
+   ============================================================ */
 :root {
   --ink: #15251e;
   --cream: #f2efe7;
@@ -28,6 +32,10 @@ a {
   width: min(1180px, calc(100% - 64px));
   margin: 0 auto;
 }
+
+/* ============================================================
+   2. LAYOUT & NAV
+   ============================================================ */
 .nav {
   height: 92px;
   display: flex;
@@ -80,6 +88,10 @@ a {
   font-size: 18px;
   margin-left: 8px;
 }
+
+/* ============================================================
+   3. HOME HERO
+   ============================================================ */
 .hero {
   min-height: 650px;
   display: grid;
@@ -292,6 +304,10 @@ a {
   bottom: 25px;
   left: 28px;
 }
+
+/* ============================================================
+   4. STATEMENT / FEATURE / QUOTE
+   ============================================================ */
 .statement {
   padding: 145px 0 154px;
   display: grid;
@@ -389,6 +405,10 @@ blockquote em {
   font-size: 10px;
   color: rgba(21, 37, 30, 0.55);
 }
+
+/* ============================================================
+   5. FINAL CTA & FOOTER
+   ============================================================ */
 .final-cta {
   background: var(--orange);
   color: #fff;
@@ -503,7 +523,9 @@ blockquote em {
   }
 }
 
-/* Academy pages */
+/* ============================================================
+   6. ACADEMY PAGES (SHARED)
+   ============================================================ */
 .academy-hero {
   min-height: 650px;
   display: grid;
@@ -1052,113 +1074,6 @@ blockquote em {
   color: rgba(21, 37, 30, 0.55);
   line-height: 1.5;
 }
-@media (max-width: 760px) {
-  .academy-hero {
-    display: block;
-    padding: 72px 0 50px;
-  }
-  .academy-hero h1,
-  .inner-hero h1 {
-    font-size: 50px;
-  }
-  .case-board {
-    height: 390px;
-    margin-top: 55px;
-  }
-  .case-question {
-    font-size: 32px;
-    left: 30px;
-  }
-  .problem-band,
-  .flow-section,
-  .deliverables,
-  .proof-section {
-    padding: 90px 0;
-  }
-  .problem-grid,
-  .flow-section,
-  .deliverables,
-  .proof-section,
-  .sample-grid,
-  .sample-bottom,
-  .pilot-section {
-    display: block;
-  }
-  .problem-grid p {
-    margin-top: 28px;
-  }
-  .curriculum-list,
-  .deliverable-cards,
-  .report-card,
-  .proof-copy {
-    margin-top: 55px;
-  }
-  .curriculum-row {
-    grid-template-columns: 35px 1fr;
-    gap: 12px;
-  }
-  .curriculum-row > strong {
-    grid-column: 2;
-  }
-  .deliverable-cards {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  .deliverable-cards div:last-child {
-    grid-column: auto;
-  }
-  .proof-section {
-    display: flex;
-    flex-direction: column;
-  }
-  .proof-copy {
-    margin-top: 65px;
-  }
-  .detail-row {
-    display: block;
-    padding: 45px 0;
-  }
-  .detail-row h2 {
-    font-size: 30px;
-  }
-  .detail-art {
-    margin-top: 30px;
-  }
-  .sample-grid {
-    padding-bottom: 90px;
-  }
-  .sample-card {
-    margin: 28px 12px;
-    min-height: 330px;
-  }
-  .sample-bottom ul {
-    margin: 45px 0 30px;
-  }
-  .pilot-info {
-    margin-bottom: 60px;
-  }
-  .pilot-info li {
-    grid-template-columns: 110px 1fr;
-  }
-  .inner-hero {
-    padding: 90px 0 65px;
-  }
-  .story-section,
-  .sample-gallery {
-    display: block;
-    padding: 90px 0;
-  }
-  .story-assets,
-  .gallery-images {
-    margin-top: 52px;
-  }
-  .cast-strip {
-    gap: 7px;
-  }
-  .sample-card > img {
-    height: 180px;
-  }
-}
 .case-board .label-bottom {
   z-index: 2;
 }
@@ -1312,6 +1227,96 @@ blockquote em {
   color: rgba(21, 37, 30, 0.65);
 }
 @media (max-width: 760px) {
+  .academy-hero {
+    display: block;
+    padding: 72px 0 50px;
+  }
+  .academy-hero h1,
+  .inner-hero h1 {
+    font-size: 50px;
+  }
+  .case-board {
+    height: 390px;
+    margin-top: 55px;
+  }
+  .case-question {
+    font-size: 32px;
+    left: 30px;
+  }
+  .problem-band,
+  .flow-section,
+  .deliverables,
+  .proof-section {
+    padding: 90px 0;
+  }
+  .problem-grid,
+  .flow-section,
+  .deliverables,
+  .proof-section,
+  .sample-grid,
+  .sample-bottom,
+  .pilot-section {
+    display: block;
+  }
+  .problem-grid p {
+    margin-top: 28px;
+  }
+  .curriculum-list,
+  .deliverable-cards,
+  .report-card,
+  .proof-copy {
+    margin-top: 55px;
+  }
+  .curriculum-row {
+    grid-template-columns: 35px 1fr;
+    gap: 12px;
+  }
+  .curriculum-row > strong {
+    grid-column: 2;
+  }
+  .deliverable-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .deliverable-cards div:last-child {
+    grid-column: auto;
+  }
+  .proof-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .proof-copy {
+    margin-top: 65px;
+  }
+  .detail-row {
+    display: block;
+    padding: 45px 0;
+  }
+  .detail-row h2 {
+    font-size: 30px;
+  }
+  .detail-art {
+    margin-top: 30px;
+  }
+  .sample-grid {
+    padding-bottom: 90px;
+  }
+  .sample-card {
+    margin: 28px 12px;
+    min-height: 330px;
+  }
+  .sample-bottom ul {
+    margin: 45px 0 30px;
+  }
+  .pilot-info {
+    margin-bottom: 60px;
+  }
+  .pilot-info li {
+    grid-template-columns: 110px 1fr;
+  }
+  .inner-hero {
+    padding: 90px 0 65px;
+  }
   .story-section,
   .sample-gallery {
     display: block;
@@ -1328,6 +1333,27 @@ blockquote em {
     height: 180px;
   }
 }
+@media (max-width: 760px) {
+  .story-section,
+  .sample-gallery {
+    display: block;
+    padding: 90px 0;
+  }
+  .story-assets,
+  .gallery-images {
+    margin-top: 52px;
+  }
+  .cast-strip {
+    gap: 7px;
+  }
+  .sample-card > img {
+    height: 180px;
+  }
+}
+
+/* ============================================================
+   8. SAMPLE PAGE
+   ============================================================ */
 .sample-card {
   min-height: 500px;
   padding: 22px;
@@ -1373,6 +1399,10 @@ blockquote em {
     flex-basis: 260px;
   }
 }
+
+/* ============================================================
+   9. CURRICULUM PAGE
+   ============================================================ */
 .detail-row {
   grid-template-columns: 78px 1fr 280px;
   gap: 42px;
@@ -1486,29 +1516,6 @@ body {
 .story-copy h2 {
   font-weight: 700;
 }
-@media (max-width: 760px) {
-  .detail-row {
-    display: block;
-    padding: 42px 0;
-  }
-  .detail-index {
-    font-size: 34px;
-    margin-bottom: 22px;
-  }
-  .detail-row h2 {
-    font-size: 31px;
-  }
-  .detail-art {
-    height: 150px;
-    margin-top: 28px;
-  }
-  .detail-art:before {
-    width: 105px;
-    height: 105px;
-    top: 22px;
-    right: 22px;
-  }
-}
 .classroom-section {
   padding: 135px 0;
   display: grid;
@@ -1576,6 +1583,29 @@ body {
   object-fit: cover;
 }
 @media (max-width: 760px) {
+  .detail-row {
+    display: block;
+    padding: 42px 0;
+  }
+  .detail-index {
+    font-size: 34px;
+    margin-bottom: 22px;
+  }
+  .detail-row h2 {
+    font-size: 31px;
+  }
+  .detail-art {
+    height: 150px;
+    margin-top: 28px;
+  }
+  .detail-art:before {
+    width: 105px;
+    height: 105px;
+    top: 22px;
+    right: 22px;
+  }
+}
+@media (max-width: 760px) {
   .classroom-section {
     display: block;
     padding: 90px 0;
@@ -1599,6 +1629,10 @@ body {
     max-height: none;
   }
 }
+
+/* ============================================================
+   10. GATEWAY / PATH
+   ============================================================ */
 .gateway-hero {
   padding: 145px 0 125px;
 }
@@ -1683,29 +1717,6 @@ body {
   letter-spacing: -0.03em;
   margin: 0;
   color: rgba(21, 37, 30, 0.72);
-}
-@media (max-width: 760px) {
-  .gateway-hero {
-    padding: 95px 0 80px;
-  }
-  .gateway-hero h1 {
-    font-size: 50px;
-  }
-  .path-grid {
-    display: block;
-  }
-  .path-card {
-    min-height: 300px;
-    margin: 18px 0;
-  }
-  .gateway-note {
-    display: block;
-    padding: 90px 0;
-  }
-  .gateway-note p {
-    margin-top: 35px;
-    font-size: 16px;
-  }
 }
 .gateway-hero {
   min-height: 650px;
@@ -1829,6 +1840,29 @@ body {
 }
 @media (max-width: 760px) {
   .gateway-hero {
+    padding: 95px 0 80px;
+  }
+  .gateway-hero h1 {
+    font-size: 50px;
+  }
+  .path-grid {
+    display: block;
+  }
+  .path-card {
+    min-height: 300px;
+    margin: 18px 0;
+  }
+  .gateway-note {
+    display: block;
+    padding: 90px 0;
+  }
+  .gateway-note p {
+    margin-top: 35px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 760px) {
+  .gateway-hero {
     display: block;
     min-height: 0;
     padding: 90px 0 72px;
@@ -1871,6 +1905,10 @@ body {
     font-size: 17px;
   }
 }
+
+/* ============================================================
+   7. LANDING PAGE (/)
+   ============================================================ */
 .academy-landing {
   background: #f7f5ef;
 }
@@ -2372,135 +2410,6 @@ body {
   color: rgba(21, 37, 30, 0.55);
   line-height: 1.5;
 }
-@media (max-width: 760px) {
-  .landing-hero {
-    display: block;
-    padding: 72px 0 85px;
-  }
-  .landing-hero h1 {
-    font-size: 50px;
-  }
-  .landing-hero-copy > p {
-    font-size: 14px;
-  }
-  .landing-actions {
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .landing-proof {
-    flex-wrap: wrap;
-  }
-  .landing-hero-visual {
-    height: 360px;
-    margin-top: 55px;
-  }
-  .landing-problem {
-    display: block;
-    padding: 90px 0;
-  }
-  .landing-problem h2 {
-    font-size: 40px;
-  }
-  .problem-points {
-    display: block;
-    margin-top: 50px;
-  }
-  .problem-points p {
-    margin-bottom: 28px;
-  }
-  .landing-value {
-    display: block;
-    margin-top: 55px;
-  }
-  .landing-value p {
-    font-size: 20px;
-    margin-top: 22px;
-  }
-  .landing-flow {
-    display: block;
-    padding: 90px 0;
-  }
-  .flow-list {
-    margin-top: 55px;
-  }
-  .flow-item {
-    grid-template-columns: 48px 1fr 20px;
-    gap: 13px;
-  }
-  .flow-number {
-    font-size: 26px;
-  }
-  .flow-item h3 {
-    font-size: 20px;
-  }
-  .landing-materials {
-    padding: 90px 0;
-  }
-  .materials-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 45px;
-  }
-  .material-item {
-    min-height: 260px;
-  }
-  .material-image {
-    height: 110px;
-  }
-  .material-copy {
-    padding: 14px;
-  }
-  .material-copy h3 {
-    font-size: 15px;
-    margin-top: 10px;
-  }
-  .landing-results {
-    display: block;
-    padding: 90px 0;
-  }
-  .results-copy {
-    margin-top: 75px;
-  }
-  .result-sheet {
-    padding: 23px 20px;
-  }
-  .result-sheet h3 {
-    font-size: 27px;
-  }
-  .landing-fit {
-    padding: 90px 0;
-  }
-  .fit-grid {
-    display: block;
-    margin-top: 45px;
-  }
-  .fit-facts {
-    margin-bottom: 45px;
-  }
-  .fit-facts div {
-    grid-template-columns: 100px 1fr;
-  }
-  .pilot-callout {
-    padding: 25px 23px;
-  }
-  .landing-apply {
-    display: block;
-    padding: 90px 0 100px;
-  }
-  .apply-intro h2 {
-    font-size: 42px;
-  }
-  .apply-form {
-    margin-top: 55px;
-    padding: 25px 20px;
-  }
-  .apply-form .form-split {
-    display: block;
-  }
-  .apply-form .form-split label {
-    margin-bottom: 15px;
-  }
-}
 .landing-hero {
   grid-template-columns: 55% 45%;
   gap: 5%;
@@ -2794,104 +2703,6 @@ body {
 .apply-form label > small {
   color: rgba(21, 37, 30, 0.5);
 }
-@media (max-width: 760px) {
-  .landing-hero {
-    padding-top: 65px;
-  }
-  .landing-hero h1 {
-    font-size: 40px;
-  }
-  .landing-hero-visual {
-    height: 370px;
-    margin-top: 48px;
-    padding: 12px;
-  }
-  .landing-hero-visual:before {
-    inset: 12px;
-  }
-  .hero-material-back {
-    right: 23px;
-    top: 25px;
-    height: 77%;
-    width: 75%;
-  }
-  .hero-card-clue {
-    left: 20px;
-    top: 58px;
-    width: 48%;
-    height: 56%;
-  }
-  .hero-card-report {
-    left: 52px;
-    bottom: 23px;
-    width: 46%;
-    height: 46%;
-  }
-  .landing-trust {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px 20px;
-    padding: 18px 0;
-    font-size: 11px;
-  }
-  .landing-trust span:last-child {
-    grid-column: span 2;
-  }
-  .flow-item {
-    grid-template-columns: 42px 1fr;
-    gap: 12px;
-  }
-  .flow-thumb {
-    grid-column: 2;
-    width: 100%;
-    height: 120px;
-    margin-top: 10px;
-  }
-  .materials-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .material-large,
-  .material-wide {
-    grid-row: auto;
-    grid-column: auto;
-    display: flex;
-    min-height: 280px;
-  }
-  .material-wide .material-image {
-    height: 130px;
-  }
-  .material-image {
-    height: 125px;
-  }
-  .materials-more {
-    font-size: 12px;
-    line-height: 1.7;
-  }
-  .landing-benefits {
-    display: block;
-    padding: 90px 0;
-  }
-  .benefit-copy {
-    margin-top: 60px;
-  }
-  .benefit-copy h2 {
-    font-size: 38px;
-  }
-  .landing-faq {
-    display: block;
-    padding: 90px 0;
-  }
-  .faq-list {
-    margin-top: 50px;
-  }
-  .faq-list summary {
-    font-size: 15px;
-  }
-  .landing-apply {
-    padding-top: 90px;
-  }
-}
 .materials-grid {
   align-items: stretch;
 }
@@ -2944,36 +2755,6 @@ body {
 }
 .flow-thumb img {
   object-fit: contain;
-}
-@media (max-width: 760px) {
-  .material-item,
-  .material-wide {
-    display: grid;
-    grid-template-columns: 42% 58%;
-    min-height: 230px;
-  }
-  .material-image,
-  .material-large .material-image,
-  .material-wide .material-image {
-    min-height: 230px;
-    height: auto;
-    padding: 9px;
-  }
-  .material-copy {
-    padding: 16px;
-  }
-  .material-copy h3 {
-    font-size: 17px;
-  }
-  .material-copy p {
-    font-size: 12px;
-  }
-  .material-wide {
-    grid-column: auto;
-  }
-  .flow-thumb {
-    height: 110px;
-  }
 }
 .academy-landing,
 .academy-landing input,
@@ -3096,4 +2877,261 @@ body {
 .academy-landing .button:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 12px rgba(21, 37, 30, 0.12);
+}
+@media (max-width: 760px) {
+  .landing-hero {
+    display: block;
+    padding: 72px 0 85px;
+  }
+  .landing-hero h1 {
+    font-size: 50px;
+  }
+  .landing-hero-copy > p {
+    font-size: 14px;
+  }
+  .landing-actions {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .landing-proof {
+    flex-wrap: wrap;
+  }
+  .landing-hero-visual {
+    height: 360px;
+    margin-top: 55px;
+  }
+  .landing-problem {
+    display: block;
+    padding: 90px 0;
+  }
+  .landing-problem h2 {
+    font-size: 40px;
+  }
+  .problem-points {
+    display: block;
+    margin-top: 50px;
+  }
+  .problem-points p {
+    margin-bottom: 28px;
+  }
+  .landing-value {
+    display: block;
+    margin-top: 55px;
+  }
+  .landing-value p {
+    font-size: 20px;
+    margin-top: 22px;
+  }
+  .landing-flow {
+    display: block;
+    padding: 90px 0;
+  }
+  .flow-list {
+    margin-top: 55px;
+  }
+  .flow-item {
+    grid-template-columns: 48px 1fr 20px;
+    gap: 13px;
+  }
+  .flow-number {
+    font-size: 26px;
+  }
+  .flow-item h3 {
+    font-size: 20px;
+  }
+  .landing-materials {
+    padding: 90px 0;
+  }
+  .materials-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 45px;
+  }
+  .material-item {
+    min-height: 260px;
+  }
+  .material-image {
+    height: 110px;
+  }
+  .material-copy {
+    padding: 14px;
+  }
+  .material-copy h3 {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  .landing-results {
+    display: block;
+    padding: 90px 0;
+  }
+  .results-copy {
+    margin-top: 75px;
+  }
+  .result-sheet {
+    padding: 23px 20px;
+  }
+  .result-sheet h3 {
+    font-size: 27px;
+  }
+  .landing-fit {
+    padding: 90px 0;
+  }
+  .fit-grid {
+    display: block;
+    margin-top: 45px;
+  }
+  .fit-facts {
+    margin-bottom: 45px;
+  }
+  .fit-facts div {
+    grid-template-columns: 100px 1fr;
+  }
+  .pilot-callout {
+    padding: 25px 23px;
+  }
+  .landing-apply {
+    display: block;
+    padding: 90px 0 100px;
+  }
+  .apply-intro h2 {
+    font-size: 42px;
+  }
+  .apply-form {
+    margin-top: 55px;
+    padding: 25px 20px;
+  }
+  .apply-form .form-split {
+    display: block;
+  }
+  .apply-form .form-split label {
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 760px) {
+  .landing-hero {
+    padding-top: 65px;
+  }
+  .landing-hero h1 {
+    font-size: 40px;
+  }
+  .landing-hero-visual {
+    height: 370px;
+    margin-top: 48px;
+    padding: 12px;
+  }
+  .landing-hero-visual:before {
+    inset: 12px;
+  }
+  .hero-material-back {
+    right: 23px;
+    top: 25px;
+    height: 77%;
+    width: 75%;
+  }
+  .hero-card-clue {
+    left: 20px;
+    top: 58px;
+    width: 48%;
+    height: 56%;
+  }
+  .hero-card-report {
+    left: 52px;
+    bottom: 23px;
+    width: 46%;
+    height: 46%;
+  }
+  .landing-trust {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 20px;
+    padding: 18px 0;
+    font-size: 11px;
+  }
+  .landing-trust span:last-child {
+    grid-column: span 2;
+  }
+  .flow-item {
+    grid-template-columns: 42px 1fr;
+    gap: 12px;
+  }
+  .flow-thumb {
+    grid-column: 2;
+    width: 100%;
+    height: 120px;
+    margin-top: 10px;
+  }
+  .materials-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .material-large,
+  .material-wide {
+    grid-row: auto;
+    grid-column: auto;
+    display: flex;
+    min-height: 280px;
+  }
+  .material-wide .material-image {
+    height: 130px;
+  }
+  .material-image {
+    height: 125px;
+  }
+  .materials-more {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .landing-benefits {
+    display: block;
+    padding: 90px 0;
+  }
+  .benefit-copy {
+    margin-top: 60px;
+  }
+  .benefit-copy h2 {
+    font-size: 38px;
+  }
+  .landing-faq {
+    display: block;
+    padding: 90px 0;
+  }
+  .faq-list {
+    margin-top: 50px;
+  }
+  .faq-list summary {
+    font-size: 15px;
+  }
+  .landing-apply {
+    padding-top: 90px;
+  }
+}
+@media (max-width: 760px) {
+  .material-item,
+  .material-wide {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    min-height: 230px;
+  }
+  .material-image,
+  .material-large .material-image,
+  .material-wide .material-image {
+    min-height: 230px;
+    height: auto;
+    padding: 9px;
+  }
+  .material-copy {
+    padding: 16px;
+  }
+  .material-copy h3 {
+    font-size: 17px;
+  }
+  .material-copy p {
+    font-size: 12px;
+  }
+  .material-wide {
+    grid-column: auto;
+  }
+  .flow-thumb {
+    height: 110px;
+  }
 }

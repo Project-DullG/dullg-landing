@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { ArrowButton, Kicker, PageFrame, curriculum } from "@/components/site";
+
+export const metadata: Metadata = {
+  title: "Academy · DullG",
+  description: "영어 미스터리 프로젝트 수업. 4차시 완성형 키트로 학생이 직접 영어로 추리하고 보고서를 씁니다.",
+};
 
 export default function AcademyPage() {
   return <PageFrame>

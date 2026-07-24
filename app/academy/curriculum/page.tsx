@@ -1,0 +1,5 @@
+import { Kicker, PageFrame, curriculum, ArrowButton } from "@/components/site";
+
+export default function CurriculumPage() {
+  return <PageFrame><section className="inner-hero shell"><Kicker>THE CURRICULUM</Kicker><h1>한 사건을 따라가며<br /><em>네 번의 수업</em>을 완성합니다.</h1><p>초등 고학년~중등 학생을 위한 4차시 방학특강 구조입니다. 읽기와 추론이 자연스럽게 영어 말하기와 쓰기로 이어집니다.</p></section><section className="curriculum-detail shell">{curriculum.map((item, index) => <article key={item.session} className="detail-row"><div className="detail-index">{item.session}<span>0{index + 1} / 04</span></div><div><span className="mini-label">{item.label}</span><h2>{item.title}</h2><p>{item.body}</p><div className="output-pill">남는 결과물&nbsp; · &nbsp;{item.output}</div></div><div className={`detail-art detail-art-${index + 1}`}><span>{index === 0 ? "FIND" : index === 1 ? "LINK" : index === 2 ? "TEST" : "REPORT"}</span></div></article>)}</section><section className="note-section shell"><Kicker>DESIGNED FOR REAL CLASSES</Kicker><h2>기존 교사가 진행하고,<br /><span>30분 안에 준비하는 구조.</span></h2><p>조별 자리 배치, 출력물, 필기구만 있으면 시작할 수 있도록 교사용 진행안과 체크리스트를 함께 제공합니다.</p><ArrowButton>운영 자료 요청</ArrowButton></section></PageFrame>;
+}

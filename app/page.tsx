@@ -25,9 +25,9 @@ export default function Home() {
           <span>DullG</span>
         </a>
         <div className="nav-links">
-          <a href="#why">왜 Morrow인가</a>
-          <a href="#features">기능</a>
-          <a href="#stories">이야기</a>
+          <a href="/academy">영어 프로젝트</a>
+          <a href="/academy/curriculum">커리큘럼</a>
+          <a href="/academy/sample">샘플 보기</a>
         </div>
         <a className="nav-cta" href="#start">파일럿 문의하기 <span>↗</span></a>
       </nav>
@@ -42,7 +42,7 @@ export default function Home() {
             <a className="text-link" href="#why">수업 흐름 살펴보기 <span>↓</span></a>
           </div>
         </div>
-        <div className="hero-art" aria-label="Morrow workspace preview">
+        <div className="hero-art" aria-label="DullG mystery project preview">
           <div className="sun" />
           <div className="orbit orbit-one" /><div className="orbit orbit-two" />
           <div className="workspace-card">

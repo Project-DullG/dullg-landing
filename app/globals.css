@@ -2023,6 +2023,12 @@ body {
   max-width: 350px;
   margin: 28px 0 0;
 }
+.landing-flow-note {
+  font-size: 11px;
+  color: rgba(21, 37, 30, 0.45);
+  margin: 8px 0 0;
+  font-style: italic;
+}
 .flow-list {
   border-top: 1px solid var(--line);
 }

@@ -2074,7 +2074,8 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-top: 62px;
+  margin-top: 52px;
+  align-items: stretch;
 }
 .material-item {
   background: #f7f5ef;
@@ -2638,14 +2639,6 @@ body {
 }
 .apply-form label > small {
   color: rgba(21, 37, 30, 0.5);
-}
-.materials-grid {
-  align-items: stretch;
-}
-.material-item {
-  display: grid;
-  grid-template-columns: 38% 62%;
-  min-height: 260px;
 }
 .material-large {
   grid-row: auto;

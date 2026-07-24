@@ -7,11 +7,13 @@ const lessonFlow = [
   { number: "04", label: "WRITE THE REPORT", title: "사건보고서를 완성합니다", body: "최종 주장과 근거를 영어 문장으로 정리해 팀 보고서와 개인 결과물을 남깁니다.", image: "/assets/dullg/timeline-yoon.png" },
 ];
 
-const materials = [
-  ["01", "교사용 진행안", "수업 순서, 예상 질문, 힌트 제공 시점과 정답을 확인합니다.", "/assets/dullg/rulebook-flow-detailed.png", "material-large"],
-  ["02", "학생용 영어 단서 카드", "학생마다 다른 정보를 읽고 팀에 설명하도록 구성합니다.", "/assets/dullg/card-body-1.png", ""],
-  ["03", "학생 워크북", "가설, 근거, 반박과 수정 과정을 차시별로 기록합니다.", "/assets/dullg/timeline-yoon.png", ""],
-  ["04", "사건보고서·학부모 안내자료", "수업이 끝난 뒤 학생의 영어 활동 결과를 확인할 수 있습니다.", "/assets/dullg/rulebook-map-detailed.png", "material-wide"],
+const materials: [string, string, string, string][] = [
+  ["01", "게임 카드", "학생마다 다른 영어 단서가 담긴 역할별 카드입니다.", "/assets/dullg/card-body-1.png"],
+  ["02", "스토리 책자", "사건 배경과 인물 관계를 담은 이야기 자료입니다.", "/assets/dullg/rulebook-cover.png"],
+  ["03", "워크북", "단서 기록, 추론 과정, 최종 근거를 차시별로 씁니다.", "/assets/dullg/timeline-yoon.png"],
+  ["04", "규칙서", "수업 진행 순서와 역할 규칙을 담은 안내 자료입니다.", "/assets/dullg/rulebook-flow.png"],
+  ["05", "교사용 진행안", "차시별 진행 순서, 대본, 힌트와 정답을 포함합니다.", "/assets/dullg/rulebook-flow-detailed.png"],
+  ["06", "수업 결과 리포트 샘플", "학생 활동 기록을 정리한 학부모 전달용 예시 자료입니다.", "/assets/dullg/rulebook-map-detailed.png"],
 ];
 
 export default function Home() {
@@ -26,7 +28,18 @@ export default function Home() {
 
     <section className="landing-flow shell" id="flow"><div className="landing-section-head"><Kicker>HOW THE CLASS WORKS</Kicker><h2>학생들은 영어를<br /><em>사건 해결에 사용합니다.</em></h2><p>각자 가진 단서를 설명하고 팀의 판단을 함께 만들어가는 4단계 수업 흐름입니다.</p><p className="landing-flow-note">(예시 구성 · 변경될 수 있습니다)</p></div><div className="flow-list">{lessonFlow.map((item) => <article className="flow-item" key={item.number}><div className="flow-number">{item.number}</div><div><Kicker>{item.label}</Kicker><h3>{item.title}</h3><p>{item.body}</p></div><div className="flow-thumb"><img src={item.image} alt="" /></div><span className="flow-arrow" aria-hidden="true">→</span></article>)}</div></section>
 
-    <section className="landing-materials" id="materials"><div className="shell"><div className="landing-section-head"><Kicker>READY-TO-RUN MATERIALS</Kicker><h2>교사가 바로 운영할 수 있도록<br /><em>필요한 자료를 함께 제공합니다.</em></h2><p>교사 준비시간 30분 이내를 목표로, 수업을 바로 운영할 수 있는 완성형 패키지를 구성합니다.</p></div><div className="materials-grid">{materials.map(([number, title, body, image, className]) => <article className={`material-item ${className}`} key={number}><div className="material-image"><img src={image} alt="" /></div><div className="material-copy"><span>{number}</span><h3>{title}</h3><p>{body}</p></div></article>)}</div><p className="materials-more"><b>그 외 포함 자료</b> · 교사용 진행 대본 · 정답과 단계별 힌트 · 개인 영어 작성지 · 활동 결과 요약 템플릿</p></div></section>
+    <section className="landing-materials" id="materials"><div className="shell"><div className="landing-section-head"><Kicker>READY-TO-RUN MATERIALS</Kicker><h2>교사가 바로 운영할 수 있도록<br /><em>필요한 자료를 함께 제공합니다.</em></h2><p>교사 준비시간 30분 이내를 목표로, 수업을 바로 운영할 수 있는 완성형 패키지를 구성합니다.</p></div><div className="materials-grid">{materials.map(([number, title, body, image]) => (
+  <article className="material-item" key={number}>
+    <div className="material-image">
+      <img src={image} alt="" />
+    </div>
+    <div className="material-copy">
+      <span>{number}</span>
+      <h3>{title}</h3>
+      <p>{body}</p>
+    </div>
+  </article>
+))}</div><p className="materials-more"><b>그 외 포함 자료</b> · 교사용 진행 대본 · 정답과 단계별 힌트 · 개인 영어 작성지 · 활동 결과 요약 템플릿</p></div></section>
 
     <section className="landing-results shell" id="results"><div className="results-visual"><div className="result-sheet"><span>STUDENT ACTIVITY RECORD · EXAMPLE FORMAT</span><h3>이번 판단을<br /><em>이렇게 설명했습니다.</em></h3><div className="result-line"><b>핵심 단서 선택</b><i /><strong>03</strong></div><div className="result-line"><b>가설 수정</b><i /><strong>YES</strong></div><blockquote>“The key was in the office<br />because the note changed.”</blockquote><small>사건 결론과 관련된 근거를 선택하고, because와 however를 사용해 판단을 설명했습니다.</small></div></div><div className="results-copy"><Kicker>WHAT REMAINS AFTER CLASS</Kicker><h2>재미로 끝나지 않고<br /><em>학생의 활동 기록이 남습니다.</em></h2><ul><li>핵심 단서 선택</li><li>처음의 가설과 수정된 가설</li><li>주장과 근거를 연결한 영어 문장</li><li>팀별 사건보고서와 개인 작성지</li></ul><small>활동 결과 요약은 수업 중 관찰된 수행을 정리하며, 학생의 지능·성격 또는 공인 문해력 수준을 진단하지 않습니다.</small></div></section>
 

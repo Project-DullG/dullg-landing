@@ -1874,9 +1874,9 @@ body {
 .landing-section-head h2 em,
 .landing-results h2 em,
 .apply-intro h2 em {
-  font-family: "Noto Serif KR", "Playfair Display", serif;
+  font-style: normal;
   color: #1e5c5c;
-  font-weight: 600;
+  font-weight: 800;
 }
 .landing-hero-copy > p {
   max-width: 510px;
@@ -1966,15 +1966,17 @@ body {
 }
 .problem-points p {
   margin: 0;
-  padding: 16px 12px 0;
-  border-top: 1px solid var(--line);
+  padding: 20px 16px 28px;
+  border-top: 2px solid #e8784f;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 .problem-points b {
-  font: 25px "DM Mono";
+  font: 700 64px "DM Mono";
   color: #e8784f;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
 }
 .problem-points strong {
   font-size: 16px;
@@ -2134,9 +2136,9 @@ body {
   margin: 35px 0 30px;
 }
 .result-sheet h3 em {
-  font-family: "Noto Serif KR", "Playfair Display", serif;
+  font-style: normal;
   color: #e8784f;
-  font-weight: 500;
+  font-weight: 700;
 }
 .result-line {
   display: grid;
@@ -2297,6 +2299,7 @@ body {
   max-width: 620px;
   word-break: keep-all;
   line-height: 1.18;
+  letter-spacing: -0.05em;
 }
 .landing-hero-copy > p {
   max-width: 560px;
@@ -2389,23 +2392,36 @@ body {
 }
 .landing-trust {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px 0;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 22px 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  font-size: 12px;
-  color: rgba(21, 37, 30, 0.66);
+}
+.landing-trust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 13px;
+  background: rgba(21, 37, 30, 0.06);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(21, 37, 30, 0.75);
+  letter-spacing: -0.01em;
 }
 .landing-trust span:before {
   content: "✓";
   color: #1e5c5c;
-  margin-right: 7px;
   font-weight: 700;
+  font-size: 10px;
 }
 .landing-trust span:last-child {
+  background: rgba(232, 120, 79, 0.12);
   color: var(--orange);
   font-weight: 600;
+}
+.landing-trust span:last-child:before {
+  color: var(--orange);
 }
 .landing-problem {
   padding-top: 112px;
@@ -2517,9 +2533,12 @@ body {
 }
 .academy-landing h1,
 .academy-landing h2,
-.academy-landing h3,
-.academy-landing p {
+.academy-landing h3 {
   letter-spacing: -0.045em;
+  word-break: keep-all;
+}
+.academy-landing p {
+  letter-spacing: -0.02em;
   word-break: keep-all;
 }
 .academy-landing h1 {
@@ -2560,6 +2579,13 @@ body {
 .material-item {
   transform: none;
   box-shadow: 0 8px 20px rgba(21, 37, 30, 0.09);
+}
+.material-item {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.material-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(21, 37, 30, 0.14);
 }
 .landing-hero-visual {
   padding: 9px;
@@ -2850,8 +2876,9 @@ body {
   color: var(--cream);
 }
 .landing-value-props h2 em {
-  font-family: "Noto Serif KR", serif;
+  font-style: normal;
   color: var(--mint);
+  font-weight: 800;
 }
 .value-props-grid {
   display: grid;
@@ -2863,13 +2890,20 @@ body {
   background: var(--ink);
   padding: 48px 44px;
   position: relative;
+  overflow: hidden;
 }
 .value-prop-num {
   font-family: "DM Mono", monospace;
-  font-size: 11px;
-  color: var(--orange);
-  display: block;
-  margin-bottom: 20px;
+  font-size: 100px;
+  color: rgba(232, 120, 79, 0.1);
+  position: absolute;
+  bottom: -8px;
+  right: 20px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
 }
 .value-prop strong {
   display: block;
@@ -2903,6 +2937,13 @@ body {
 .for-whom-item {
   background: #f7f5ef;
   padding: 36px 40px;
+  border-top: 3px solid #1e5c5c;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.for-whom-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(21, 37, 30, 0.1);
+  z-index: 1;
 }
 .for-whom-item strong {
   display: block;
@@ -2933,6 +2974,13 @@ body {
 .process-step {
   background: #f7f5ef;
   padding: 48px 44px;
+  border-top: 3px solid var(--orange);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.process-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(21, 37, 30, 0.1);
+  z-index: 1;
 }
 .process-step span {
   font-family: "DM Mono", monospace;
@@ -3024,9 +3072,9 @@ body {
   margin: 0 0 18px;
 }
 .final-cta-copy h2 em {
-  font-family: "Noto Serif KR", serif;
+  font-style: normal;
   color: var(--mint);
-  font-weight: 600;
+  font-weight: 800;
 }
 .final-cta-copy p {
   color: rgba(242, 239, 231, 0.58);

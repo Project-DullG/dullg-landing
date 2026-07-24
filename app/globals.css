@@ -2459,6 +2459,10 @@ body {
   margin-right: 7px;
   font-weight: 700;
 }
+.landing-trust span:last-child {
+  color: var(--orange);
+  font-weight: 600;
+}
 .landing-problem {
   padding-top: 112px;
 }

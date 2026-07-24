@@ -2349,13 +2349,13 @@ body {
 .landing-hero-copy > p {
   max-width: 560px;
 }
-.landing-hero-sub {
-  margin-top: -20px !important;
+.landing-hero-copy > p.landing-hero-sub {
+  margin-top: -20px;
 }
-.landing-assurance {
-  font-size: 13px !important;
-  color: rgba(21, 37, 30, 0.58) !important;
-  margin: 20px 0 0 !important;
+.landing-hero-copy > p.landing-assurance {
+  font-size: 13px;
+  color: rgba(21, 37, 30, 0.58);
+  margin: 20px 0 0;
 }
 .landing-hero-visual {
   height: 500px;

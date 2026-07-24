@@ -2293,8 +2293,10 @@ body {
   padding-top: 64px;
 }
 .landing-hero h1 {
-  font-size: clamp(48px, 5.2vw, 64px);
-  max-width: 610px;
+  font-size: clamp(34px, 3.8vw, 52px);
+  max-width: 620px;
+  word-break: keep-all;
+  line-height: 1.18;
 }
 .landing-hero-copy > p {
   max-width: 560px;
@@ -2518,6 +2520,7 @@ body {
 .academy-landing h3,
 .academy-landing p {
   letter-spacing: -0.045em;
+  word-break: keep-all;
 }
 .academy-landing h1 {
   line-height: 1.12;
@@ -2624,7 +2627,7 @@ body {
     padding: 72px 0 85px;
   }
   .landing-hero h1 {
-    font-size: 50px;
+    font-size: 36px;
   }
   .landing-hero-copy > p {
     font-size: 14px;
@@ -2739,7 +2742,7 @@ body {
     padding-top: 65px;
   }
   .landing-hero h1 {
-    font-size: 40px;
+    font-size: 30px;
   }
   .landing-hero-visual {
     height: 370px;

@@ -18,7 +18,7 @@ const materials: [string, string, string, string][] = [
 
 export default function Home() {
   return <main className="academy-landing"><Header />
-    <section className="landing-hero shell"><div className="landing-hero-copy"><Kicker>영어학원 방학특강 · 4차시 수업팩</Kicker><h1>추리 게임으로 영어 읽기와<br /><em>근거 말하기를 연습하는</em><br />4차시 수업 키트</h1><p>초등 6학년~중학교 1학년 대상. 영어 단서를 읽고, 팀원과 의견을 비교하며, 사건 보고서를 완성합니다.</p><div className="landing-actions">
+    <section className="landing-hero shell"><div className="landing-hero-copy"><Kicker>영어학원 방학특강 · 4차시 수업팩</Kicker><h1>추리 게임으로 영어 읽기와 <em>근거 말하기를 연습하는</em><br />4차시 수업 키트</h1><p>초등 6학년~중학교 1학년 대상. 영어 단서를 읽고, 팀원과 의견을 비교하며, 사건 보고서를 완성합니다.</p><div className="landing-actions">
   <a className="button button-dark" href="#apply">샘플 자료 요청 <span>↗</span></a>
   <a className="text-link" href="#flow">수업 흐름 보기 →</a>
 </div></div><div className="landing-hero-visual" aria-label="수업자료 구성 예시"><div className="hero-material-back"><img src="/assets/dullg/rulebook-flow.png" alt="교사용 진행안 자료 예시" /></div><div className="hero-material-card hero-card-clue"><img src="/assets/dullg/card-body-1.png" alt="학생용 단서 카드 자료 예시" /></div><div className="hero-material-card hero-card-report"><img src="/assets/dullg/pre-survey.png" alt="학생 기록 자료 예시" /></div><span className="hero-material-label">수업자료 구성 예시</span></div></section>

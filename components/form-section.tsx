@@ -1,0 +1,215 @@
+"use client";
+
+import { useState, useRef } from "react";
+
+type State = "idle" | "submitting" | "success" | "error";
+
+// TODO: 실제 폼 백엔드 연결 방법 (아래 중 하나 선택)
+// Option 1: formsubmit.co (무료, 첫 제출 시 이메일 인증 필요)
+//   SUBMIT_URL = "https://formsubmit.co/ajax/hello@dullg.com"
+// Option 2: Next.js API 라우트
+//   app/api/apply/route.ts 생성 후 → SUBMIT_URL = "/api/apply"
+// Option 3: Formspree, EmailJS 등 SaaS 폼 서비스
+const SUBMIT_URL = "https://formsubmit.co/ajax/hello@dullg.com";
+
+export function FormSection() {
+  const [state, setState] = useState<State>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setErrorMsg("");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    // 클라이언트 유효성 검사
+    const requiredFields: [string, string][] = [
+      ["academy", "기관명"],
+      ["name", "담당자 이름"],
+      ["contact", "연락처 또는 이메일"],
+      ["interest", "관심 유형"],
+    ];
+    for (const [field, label] of requiredFields) {
+      if (!data.get(field)) {
+        setErrorMsg(`${label}을(를) 입력해주세요.`);
+        setState("error");
+        return;
+      }
+    }
+    if (!data.get("consent")) {
+      setErrorMsg("개인정보 수집·이용에 동의해주세요.");
+      setState("error");
+      return;
+    }
+
+    setState("submitting");
+
+    try {
+      const res = await fetch(SUBMIT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          기관명: data.get("academy"),
+          담당자: data.get("name"),
+          연락처: data.get("contact"),
+          학생수: data.get("students") || "미정",
+          관심유형: data.get("interest"),
+          추가내용: data.get("message") || "없음",
+          _subject: `[DullG] 샘플 요청 - ${data.get("academy")}`,
+          _template: "box",
+          _captcha: "false",
+        }),
+      });
+
+      if (!res.ok) throw new Error("서버 오류");
+      setState("success");
+    } catch {
+      setState("error");
+      setErrorMsg(
+        "일시적인 오류가 발생했습니다. hello@dullg.com으로 직접 문의해주세요."
+      );
+    }
+  }
+
+  if (state === "success") {
+    return (
+      <div className="apply-form form-success" role="status" aria-live="polite">
+        <div className="form-success-icon" aria-hidden="true">✓</div>
+        <h3>요청이 접수되었습니다</h3>
+        <p>영업일 1~2일 내 입력하신 연락처로 샘플 자료를 보내드립니다.</p>
+        <p className="form-success-contact">
+          추가 문의:{" "}
+          <a href="mailto:hello@dullg.com">hello@dullg.com</a>
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      ref={formRef}
+      className="apply-form"
+      onSubmit={handleSubmit}
+      noValidate
+      aria-label="샘플 자료 요청 양식"
+    >
+      <h3>샘플 자료 요청</h3>
+
+      <label htmlFor="af-academy">
+        기관명 <span className="field-required" aria-label="필수">*</span>
+        <input
+          id="af-academy"
+          name="academy"
+          type="text"
+          placeholder="학원 또는 공부방 이름"
+          autoComplete="organization"
+          disabled={state === "submitting"}
+        />
+      </label>
+
+      <label htmlFor="af-name">
+        담당자 이름 <span className="field-required" aria-label="필수">*</span>
+        <input
+          id="af-name"
+          name="name"
+          type="text"
+          placeholder="원장님 또는 선생님 이름"
+          autoComplete="name"
+          disabled={state === "submitting"}
+        />
+      </label>
+
+      <label htmlFor="af-contact">
+        연락처 또는 이메일 <span className="field-required" aria-label="필수">*</span>
+        <input
+          id="af-contact"
+          name="contact"
+          type="text"
+          placeholder="휴대전화 또는 이메일 주소"
+          autoComplete="email"
+          disabled={state === "submitting"}
+        />
+      </label>
+
+      <div className="form-split">
+        <label htmlFor="af-students">
+          예상 학생 수 <small>선택</small>
+          <select id="af-students" name="students" defaultValue="" disabled={state === "submitting"}>
+            <option value="">미정</option>
+            <option value="4~8명">4~8명</option>
+            <option value="9~16명">9~16명</option>
+            <option value="17명 이상">17명 이상</option>
+          </select>
+        </label>
+
+        <label htmlFor="af-interest">
+          관심 유형 <span className="field-required" aria-label="필수">*</span>
+          <select id="af-interest" name="interest" defaultValue="" disabled={state === "submitting"}>
+            <option value="" disabled>선택해주세요</option>
+            <option value="샘플 자료 요청">샘플 자료 요청</option>
+            <option value="파일럿 수업 문의">파일럿 수업 문의</option>
+            <option value="구매 문의">구매 문의</option>
+            <option value="기타 문의">기타 문의</option>
+          </select>
+        </label>
+      </div>
+
+      <label htmlFor="af-message">
+        전달하고 싶은 내용 <small>선택</small>
+        <textarea
+          id="af-message"
+          name="message"
+          placeholder="운영 일정, 학원 규모, 궁금한 점 등을 자유롭게 남겨주세요."
+          rows={3}
+          disabled={state === "submitting"}
+        />
+      </label>
+
+      {state === "error" && errorMsg && (
+        <p className="form-error" role="alert">{errorMsg}</p>
+      )}
+
+      <label className="consent" htmlFor="af-consent">
+        <input
+          type="checkbox"
+          id="af-consent"
+          name="consent"
+          disabled={state === "submitting"}
+        />
+        <span>
+          자료 발송 및 파일럿 안내를 위한 개인정보(이름·연락처) 수집·이용에
+          동의합니다.{" "}
+          <a href="mailto:hello@dullg.com" aria-label="개인정보 관련 문의">
+            개인정보 문의
+          </a>
+        </span>
+      </label>
+
+      <button
+        className="button button-dark"
+        type="submit"
+        disabled={state === "submitting"}
+        aria-busy={state === "submitting"}
+      >
+        {state === "submitting" ? (
+          <>
+            <span className="btn-spinner" aria-hidden="true" />
+            전송 중...
+          </>
+        ) : (
+          <>자료 요청하기 <span aria-hidden="true">↗</span></>
+        )}
+      </button>
+
+      <small>
+        영업일 1~2일 내 답변 · 직접 문의:{" "}
+        <a href="mailto:hello@dullg.com">hello@dullg.com</a>
+      </small>
+    </form>
+  );
+}

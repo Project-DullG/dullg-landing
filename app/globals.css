@@ -3090,6 +3090,171 @@ body {
   white-space: nowrap;
 }
 
+/* ============================================================
+   LANDING — ADDITIONS (form states, hero note, apply benefits)
+   ============================================================ */
+
+/* Hero CTA reassurance note */
+.landing-cta-note {
+  margin: 14px 0 0;
+  font-size: 11px;
+  color: rgba(21, 37, 30, 0.52);
+  letter-spacing: 0.01em;
+}
+
+/* Process step note */
+.step-note {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  font-style: normal;
+  color: var(--orange);
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.06em;
+}
+
+/* Apply section benefits list */
+.apply-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.apply-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.apply-benefits li {
+  font-size: 13px;
+  color: rgba(21, 37, 30, 0.72);
+  padding-left: 20px;
+  position: relative;
+}
+.apply-benefits li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #1e5c5c;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+/* Form field required marker */
+.field-required {
+  color: var(--orange);
+  margin-left: 2px;
+}
+
+/* Textarea */
+.apply-form textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(21, 37, 30, 0.2);
+  background: #f7f5ef;
+  padding: 12px;
+  margin-top: 7px;
+  font: 14px "Noto Sans KR", "DM Sans", sans-serif;
+  color: var(--ink);
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.65;
+}
+.apply-form textarea:focus {
+  border-color: #1e5c5c;
+}
+
+/* Form error message */
+.form-error {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  background: rgba(220, 53, 69, 0.08);
+  border-left: 3px solid #dc3545;
+  font-size: 13px;
+  color: #b02030;
+  line-height: 1.5;
+}
+
+/* Form success state */
+.form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 320px;
+  justify-content: center;
+}
+.form-success-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #1e5c5c;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.form-success h3 {
+  font-size: 24px;
+  letter-spacing: -0.05em;
+  margin: 0;
+}
+.form-success p {
+  margin: 0;
+  color: rgba(21, 37, 30, 0.68);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.form-success-contact {
+  font-size: 12px !important;
+  color: rgba(21, 37, 30, 0.5) !important;
+}
+.form-success-contact a {
+  color: #1e5c5c;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Submit button spinner */
+.btn-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-spinner {
+    animation: none;
+    border-top-color: rgba(255,255,255,0.6);
+  }
+}
+
+/* Disabled form state */
+.apply-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.apply-form input:disabled,
+.apply-form select:disabled,
+.apply-form textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* Mobile responsive for new sections */
 @media (max-width: 760px) {
   .for-whom-grid,

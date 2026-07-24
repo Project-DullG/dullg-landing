@@ -8,12 +8,12 @@ const lessonFlow = [
 ];
 
 const materials: [string, string, string, string][] = [
-  ["01", "게임 카드", "학생마다 다른 영어 단서가 담긴 역할별 카드입니다.", "/assets/dullg/card-body-1.png"],
-  ["02", "스토리 책자", "사건 배경과 인물 관계를 담은 이야기 자료입니다.", "/assets/dullg/rulebook-cover.png"],
-  ["03", "워크북", "단서 기록, 추론 과정, 최종 근거를 차시별로 씁니다.", "/assets/dullg/timeline-yoon.png"],
-  ["04", "규칙서", "수업 진행 순서와 역할 규칙을 담은 안내 자료입니다.", "/assets/dullg/rulebook-flow.png"],
-  ["05", "교사용 진행안", "차시별 진행 순서, 대본, 힌트와 정답을 포함합니다.", "/assets/dullg/rulebook-flow-detailed.png"],
-  ["06", "수업 결과 리포트 샘플", "학생 활동 기록을 정리한 학부모 전달용 예시 자료입니다.", "/assets/dullg/rulebook-map-detailed.png"],
+  ["01", "게임 카드", "학생마다 다른 영어 단서가 담긴 역할별 카드입니다.", "/assets/dullg/mat-game-cards.png"],
+  ["02", "스토리 책자", "사건 배경과 인물 관계를 담은 이야기 자료입니다.", "/assets/dullg/mat-story-book.png"],
+  ["03", "워크북", "단서 기록, 추론 과정, 최종 근거를 차시별로 씁니다.", "/assets/dullg/mat-workbook.png"],
+  ["04", "규칙서", "수업 진행 순서와 역할 규칙을 담은 안내 자료입니다.", "/assets/dullg/mat-rulebook.png"],
+  ["05", "교사용 진행안", "차시별 진행 순서, 대본, 힌트와 정답을 포함합니다.", "/assets/dullg/mat-teacher-guide.png"],
+  ["06", "수업 결과 리포트 샘플", "학생 활동 기록을 정리한 학부모 전달용 예시 자료입니다.", "/assets/dullg/mat-report.png"],
 ];
 
 export default function Home() {

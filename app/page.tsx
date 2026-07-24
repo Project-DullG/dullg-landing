@@ -318,6 +318,7 @@ export default function Home() {
             흐름입니다.
           </p>
           <p className="landing-flow-note">(예시 구성 · 변경될 수 있습니다)</p>
+          <a className="section-deep-link" href="/academy/curriculum">4차시 커리큘럼 전체 구성 <span>↗</span></a>
         </div>
         <div className="flow-list">
           {lessonFlow.map((item) => (
@@ -371,6 +372,7 @@ export default function Home() {
             현재 파일럿 단계입니다. 일부 자료는 수업 피드백에 따라 조정될 수
             있습니다.
           </p>
+          <a className="section-deep-link" href="/academy/sample">실제 수업 자료 샘플 보기 <span>↗</span></a>
         </div>
       </section>
 
@@ -466,6 +468,7 @@ export default function Home() {
             </p>
           </div>
         </div>
+        <a className="section-deep-link" href="/academy/pilot">파일럿 자세히 알아보기 <span>↗</span></a>
       </section>
 
       {/* ── NOT FOR EVERYONE — 이론: Radical Transparency ── */}

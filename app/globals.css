@@ -168,6 +168,22 @@ a {
 .text-link span {
   margin-left: 8px;
 }
+.section-deep-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 32px;
+  padding: 9px 16px;
+  border: 1px solid var(--line);
+  font-size: 13px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  transition: border-color 0.2s, background 0.2s;
+}
+.section-deep-link:hover {
+  border-color: var(--ink);
+  background: rgba(21, 37, 30, 0.04);
+}
 .hero-art {
   height: 480px;
   position: relative;
@@ -442,6 +458,7 @@ blockquote em {
 }
 .footer > div {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   color: rgba(21, 37, 30, 0.6);
 }
@@ -1635,26 +1652,13 @@ body {
   gap: 25px;
 }
 .landing-hero-visual {
-  height: 510px;
   position: relative;
-  padding: 12px;
-  background: #d8e8df;
-  box-shadow: 17px 19px 0 rgba(21, 37, 30, 0.13);
-  transform: rotate(1.1deg);
 }
 .landing-hero-visual:before {
   content: "";
   position: absolute;
-  inset: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.75);
   z-index: 1;
   pointer-events: none;
-}
-.landing-hero-visual img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
 }
 .landing-problem {
   padding: 120px 0 110px;

@@ -19,7 +19,9 @@ export function Footer() {
       <div>
         <a href="/about">소개</a>
         <a href="/episode">에피소드</a>
-        <a href="/academy">Academy</a>
+        <a href="/academy/curriculum">커리큘럼</a>
+        <a href="/academy/sample">샘플 자료</a>
+        <a href="/academy/pilot">파일럿 안내</a>
         <a href="/contact">Contact</a>
       </div>
     </footer>

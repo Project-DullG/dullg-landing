@@ -161,11 +161,11 @@ export default function Home() {
 
       {/* ── TRUST BAR ────────────────────────────────── */}
       <section className="landing-trust shell" aria-label="주요 특징">
-        <span>초6~중1 권장</span>
-        <span>총 4차시</span>
-        <span>교사 준비 30분 이내</span>
-        <span>학생 결과물 포함</span>
-        <span>파일럿 자료 무료 제공</span>
+        <div className="trust-stat"><b>4차시</b><span>완성형 수업팩</span></div>
+        <div className="trust-stat"><b>30분↓</b><span>교사 준비 시간</span></div>
+        <div className="trust-stat"><b>초6~중1</b><span>권장 학년</span></div>
+        <div className="trust-stat"><b>4~16명</b><span>운영 인원</span></div>
+        <div className="trust-stat trust-stat--cta"><b>무료</b><span>파일럿 자료</span></div>
       </section>
 
       {/* ── STANCE — 패턴 단절, 브랜드 입장 ──────────── */}
@@ -328,10 +328,6 @@ export default function Home() {
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
               </div>
-              <div className="flow-thumb">
-                <img src={item.image} alt={item.alt} />
-              </div>
-              <span className="flow-arrow" aria-hidden="true">→</span>
             </article>
           ))}
         </div>

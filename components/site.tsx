@@ -10,8 +10,8 @@ export const curriculum = [
 export function Header() {
   return <nav className="nav shell" aria-label="주요 메뉴">
     <a className="brand" href="/" aria-label="DullG 홈"><span className="brand-mark" aria-hidden="true"><i /><i /><i /></span><span>DullG</span></a>
-    <div className="nav-links"><a href="/academy">영어 프로젝트</a><a href="/academy/curriculum">커리큘럼</a><a href="/academy/sample">샘플 보기</a></div>
-    <a className="nav-cta" href="/academy/pilot">파일럿 문의하기 <span>↗</span></a>
+    <div className="nav-links"><a href="/#flow">수업 흐름</a><a href="/#materials">제공 자료</a><a href="/#results">결과물</a></div>
+    <a className="nav-cta" href="/#apply">샘플·파일럿 문의 <span>↗</span></a>
   </nav>;
 }
 

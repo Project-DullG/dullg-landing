@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Header } from "./header";
 
 export const curriculum = [
   { session: "01", title: "사건을 읽다", label: "READ THE CASE", body: "사건의 배경과 인물을 읽고, 직접 제시된 사실과 중요한 단서를 골라냅니다.", output: "단서 기록지" },

@@ -7,14 +7,6 @@ export const curriculum = [
   { session: "04", title: "사건을 보고하다", label: "TELL THE STORY", body: "최종 판단과 두 가지 근거를 영어 문장으로 정리해 팀 사건 보고서를 완성합니다.", output: "팀 보고서 · 개인 영작" },
 ];
 
-export function Header() {
-  return <nav className="nav shell" aria-label="주요 메뉴">
-    <a className="brand" href="/" aria-label="DullG 홈"><span className="brand-mark" aria-hidden="true"><i /><i /><i /></span><span>DullG</span></a>
-    <div className="nav-links"><a href="/#flow">수업 방식</a><a href="/#materials">제공 자료</a><a href="/#pilot">파일럿 안내</a><a href="/#apply">샘플 요청</a></div>
-    <a className="nav-cta" href="/#apply">샘플·파일럿 문의 <span>↗</span></a>
-  </nav>;
-}
-
 export function Footer() {
   return <footer className="footer shell"><a className="brand" href="/"><span className="brand-mark" aria-hidden="true"><i /><i /><i /></span><span>DullG</span></a><p>© 2026 DullG. Read the clues. Tell your story.</p><div><a href="/academy">Academy</a><a href="mailto:hello@dullg.com">Contact</a></div></footer>;
 }
@@ -25,3 +17,5 @@ export function PageFrame({ children, className = "" }: { children: ReactNode; c
 
 export function Kicker({ children }: { children: ReactNode }) { return <p className="section-kicker">{children}</p>; }
 export function ArrowButton({ children, light = false, href = "/academy/pilot" }: { children: ReactNode; light?: boolean; href?: string }) { return <a className={`button ${light ? "button-light" : "button-dark"}`} href={href}>{children} <span>↗</span></a>; }
+
+export { Header } from "./header";

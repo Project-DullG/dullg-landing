@@ -9,7 +9,21 @@ export const curriculum = [
 ];
 
 export function Footer() {
-  return <footer className="footer shell"><a className="brand" href="/"><span className="brand-mark" aria-hidden="true"><i /><i /><i /></span><span>DullG</span></a><p>© 2026 DullG. Read the clues. Tell your story.</p><div><a href="/academy">Academy</a><a href="mailto:hello@dullg.com">Contact</a></div></footer>;
+  return (
+    <footer className="footer shell">
+      <a className="brand" href="/">
+        <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
+        <span>DullG</span>
+      </a>
+      <p>© 2026 DullG. Read the clues. Tell your story.</p>
+      <div>
+        <a href="/about">소개</a>
+        <a href="/episode">에피소드</a>
+        <a href="/academy">Academy</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </footer>
+  );
 }
 
 export function PageFrame({ children, className = "" }: { children: ReactNode; className?: string }) {

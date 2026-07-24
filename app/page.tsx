@@ -43,6 +43,31 @@ export default function Home() {
 
     <section className="landing-results shell" id="results"><div className="results-visual"><div className="result-sheet"><span>STUDENT ACTIVITY RECORD · EXAMPLE FORMAT</span><h3>이번 판단을<br /><em>이렇게 설명했습니다.</em></h3><div className="result-line"><b>핵심 단서 선택</b><i /><strong>03</strong></div><div className="result-line"><b>가설 수정</b><i /><strong>YES</strong></div><blockquote>“The key was in the office<br />because the note changed.”</blockquote><small>사건 결론과 관련된 근거를 선택하고, because와 however를 사용해 판단을 설명했습니다.</small></div></div><div className="results-copy"><Kicker>WHAT REMAINS AFTER CLASS</Kicker><h2>재미로 끝나지 않고<br /><em>학생의 활동 기록이 남습니다.</em></h2><ul><li>핵심 단서 선택</li><li>처음의 가설과 수정된 가설</li><li>주장과 근거를 연결한 영어 문장</li><li>팀별 사건보고서와 개인 작성지</li></ul><small>활동 결과 요약은 수업 중 관찰된 수행을 정리하며, 학생의 지능·성격 또는 공인 문해력 수준을 진단하지 않습니다.</small></div></section>
 
-    <section className="landing-apply shell" id="apply"><div className="apply-intro"><Kicker>GET THE REVIEW PACK</Kicker><h2>우리 학원에서<br /><em>운영할 수 있는지</em><br />먼저 자료로 확인해보세요.</h2><p>4차시 커리큘럼과 1회차 학생용 단서 카드, 교사용 진행안 샘플을 보내드립니다.</p></div><form className="apply-form" action="mailto:hello@dullg.com" method="post" encType="text/plain"><h3>무료 검토자료 요청하기</h3><label>학원명 <span>필수</span><input name="academy" placeholder="학원 또는 공부방 이름" required /></label><label>담당자명 <span>필수</span><input name="name" placeholder="원장님 또는 선생님" required /></label><label>연락 가능한 연락처 <span>필수</span><input name="contact" placeholder="휴대전화 또는 이메일" required /></label><div className="form-split"><label>담당 학년 <span>필수</span><select name="grade" defaultValue="" required><option value="" disabled>선택해주세요</option><option>초등 6학년</option><option>중학교 1학년</option><option>초6~중1 혼합</option></select></label><label>예상 학생 수 <small>선택</small><input name="students" placeholder="예: 8명" /></label></div><label>요청 유형 <span>필수</span><select name="request" defaultValue="sample" required><option value="sample">1회차 샘플 요청</option><option value="pilot">파일럿 운영 상담</option></select></label><label className="consent"><input type="checkbox" name="consent" required /> 연락과 자료 발송을 위한 개인정보 수집에 동의합니다.</label><button className="button button-dark" type="submit">무료 검토자료 요청하기 <span>↗</span></button><small>요청하신 연락처로 커리큘럼과 1회차 샘플 자료를 안내드립니다.</small></form></section>
+    <section className="landing-apply shell" id="apply"><div className="apply-intro"><Kicker>GET THE REVIEW PACK</Kicker><h2>우리 학원에서<br /><em>운영할 수 있는지</em><br />먼저 자료로 확인해보세요.</h2><p>관심 유형에 따라 적합한 자료나 일정을 안내드립니다.</p></div><form className="apply-form" action="mailto:hello@dullg.com" method="post" encType="text/plain">
+  <h3>문의하기</h3>
+  <label>기관명 <span>필수</span>
+    <input name="academy" placeholder="학원 또는 공부방 이름" required />
+  </label>
+  <label>담당자 이름 <span>필수</span>
+    <input name="name" placeholder="원장님 또는 선생님" required />
+  </label>
+  <label>연락처 또는 이메일 <span>필수</span>
+    <input name="contact" placeholder="휴대전화 또는 이메일" required />
+  </label>
+  <label>관심 유형 <span>필수</span>
+    <select name="interest" defaultValue="" required>
+      <option value="" disabled>선택해주세요</option>
+      <option value="material">제품 자료 요청</option>
+      <option value="demo">데모 신청</option>
+      <option value="pilot">파일럿 수업 문의</option>
+      <option value="purchase">구매 문의</option>
+    </select>
+  </label>
+  <label className="consent">
+    <input type="checkbox" name="consent" required /> 연락과 자료 발송을 위한 개인정보 수집에 동의합니다.
+  </label>
+  <button className="button button-dark" type="submit">문의 보내기 <span>↗</span></button>
+  <small>이메일로 바로 연결됩니다. 확인 후 1~2일 내 답변드립니다.</small>
+</form></section>
     <Footer /></main>;
 }

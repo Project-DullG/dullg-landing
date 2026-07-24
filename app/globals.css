@@ -825,14 +825,6 @@ blockquote em {
 .curriculum-detail {
   border-top: 1px solid var(--line);
 }
-.detail-row {
-  display: grid;
-  grid-template-columns: 100px 1fr 340px;
-  gap: 50px;
-  padding: 65px 0;
-  border-bottom: 1px solid var(--line);
-  align-items: center;
-}
 .detail-index {
   font: 36px "DM Mono";
   color: var(--orange);
@@ -860,30 +852,6 @@ blockquote em {
   background: #dfeadd;
   padding: 9px 12px;
   font: 9px "DM Mono";
-}
-.detail-art {
-  height: 205px;
-  display: grid;
-  place-items: center;
-  background: #e5d8ac;
-  position: relative;
-  overflow: hidden;
-}
-.detail-art:before {
-  content: "";
-  width: 220px;
-  height: 220px;
-  border: 1px solid rgba(21, 37, 30, 0.25);
-  border-radius: 50%;
-  position: absolute;
-}
-.detail-art span {
-  z-index: 1;
-  color: var(--orange);
-  font: 12px "DM Mono";
-  border: 1px solid var(--orange);
-  padding: 10px 15px;
-  transform: rotate(-8deg);
 }
 .detail-art-2 {
   background: #c4ded1;
@@ -917,12 +885,6 @@ blockquote em {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   padding-bottom: 130px;
-}
-.sample-card {
-  min-height: 360px;
-  padding: 25px;
-  position: relative;
-  box-shadow: 10px 12px 0 rgba(21, 37, 30, 0.1);
 }
 .sample-clue {
   background: #f1c9a7;
@@ -1160,23 +1122,6 @@ blockquote em {
   background: #e4e9db;
   border-bottom: 3px solid var(--orange);
 }
-.sample-card {
-  overflow: hidden;
-}
-.sample-card > img {
-  width: 100%;
-  height: 220px;
-  display: block;
-  object-fit: cover;
-  object-position: top;
-}
-.sample-card > div {
-  padding-top: 20px;
-}
-.sample-card > div h2 {
-  margin: 12px 0 0;
-  font-size: 25px;
-}
 .sample-gallery {
   padding: 125px 0;
   display: grid;
@@ -1360,6 +1305,9 @@ blockquote em {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 10px 12px 0 rgba(21, 37, 30, 0.1);
 }
 .sample-card > img {
   height: 320px;
@@ -1404,9 +1352,12 @@ blockquote em {
    9. CURRICULUM PAGE
    ============================================================ */
 .detail-row {
+  display: grid;
   grid-template-columns: 78px 1fr 280px;
   gap: 42px;
   padding: 50px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
 }
 .detail-index {
   font-size: 42px;
@@ -1431,8 +1382,13 @@ blockquote em {
   justify-content: flex-end;
   background: #e5d8ac;
   border: 1px solid rgba(21, 37, 30, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 .detail-art:before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
   width: 126px;
   height: 126px;
   right: 28px;
@@ -1633,27 +1589,6 @@ body {
 /* ============================================================
    10. GATEWAY / PATH
    ============================================================ */
-.gateway-hero {
-  padding: 145px 0 125px;
-}
-.gateway-hero h1 {
-  font-size: clamp(48px, 6vw, 78px);
-  line-height: 1.05;
-  letter-spacing: -0.065em;
-  margin: 18px 0 28px;
-}
-.gateway-hero h1 em {
-  font-family: "Playfair Display";
-  font-weight: 500;
-  color: var(--orange);
-}
-.gateway-hero > p:not(.section-kicker) {
-  max-width: 500px;
-  font-size: 16px;
-  line-height: 1.8;
-  color: rgba(21, 37, 30, 0.64);
-  margin: 0 0 35px;
-}
 .path-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2142,19 +2077,11 @@ body {
   flex-direction: column;
   box-shadow: 7px 9px 0 rgba(21, 37, 30, 0.08);
 }
-.material-image {
-  height: 145px;
-  background: #eff1eb;
-  padding: 10px;
-}
 .material-image img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: contain;
-}
-.material-copy {
-  padding: 18px 20px 22px;
 }
 .material-copy > span {
   font: 10px "DM Mono";
@@ -2582,12 +2509,11 @@ body {
 }
 .material-image {
   height: 250px;
+  background: #eff1eb;
+  padding: 10px;
 }
 .material-large .material-image {
   height: 280px;
-}
-.material-copy {
-  padding: 20px 22px;
 }
 .materials-more {
   font-size: 13px;
@@ -2736,6 +2662,7 @@ body {
   object-fit: contain;
 }
 .material-copy {
+  padding: 20px 22px;
   align-self: center;
 }
 .material-copy h3 {

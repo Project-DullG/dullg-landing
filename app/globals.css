@@ -2834,6 +2834,58 @@ body {
    LANDING — NEW SECTIONS
    ============================================================ */
 
+/* Value Props */
+.landing-value-props {
+  padding: 120px 0;
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.landing-value-props .landing-section-head {
+  margin-bottom: 64px;
+}
+.landing-value-props .section-kicker {
+  color: var(--orange);
+}
+.landing-value-props h2 {
+  color: var(--cream);
+}
+.landing-value-props h2 em {
+  font-family: "Noto Serif KR", serif;
+  color: var(--mint);
+}
+.value-props-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.1);
+}
+.value-prop {
+  background: var(--ink);
+  padding: 48px 44px;
+  position: relative;
+}
+.value-prop-num {
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  color: var(--orange);
+  display: block;
+  margin-bottom: 20px;
+}
+.value-prop strong {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: var(--cream);
+  margin-bottom: 16px;
+}
+.value-prop p {
+  font-size: 15px;
+  color: rgba(242, 239, 231, 0.58);
+  margin: 0;
+  line-height: 1.75;
+}
+
 /* For-whom */
 .landing-for-whom {
   padding: 80px 0;
@@ -2993,7 +3045,8 @@ body {
 /* Mobile responsive for new sections */
 @media (max-width: 760px) {
   .for-whom-grid,
-  .process-steps {
+  .process-steps,
+  .value-props-grid {
     grid-template-columns: 1fr;
   }
   .for-whom-item,

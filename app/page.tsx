@@ -168,6 +168,21 @@ export default function Home() {
         <span>파일럿 자료 무료 제공</span>
       </section>
 
+      {/* ── STANCE — 패턴 단절, 브랜드 입장 ──────────── */}
+      {/* 이론: Pattern Interruption + Clear Stance */}
+      <section className="landing-stance shell">
+        <div className="stance-inner">
+          <p className="stance-line">영어를 가르치지 않습니다.</p>
+          <p className="stance-line stance-line--accent">
+            학생이 영어를 <em>써야 하는 상황</em>을 만듭니다.
+          </p>
+          <p className="stance-sub">
+            단서를 설명하고, 팀원에게 반박하고, 결론을 근거와 함께 영어로
+            써야 수업이 진행됩니다. 교사가 아니라 상황이 학생을 말하게 합니다.
+          </p>
+        </div>
+      </section>
+
       {/* ── FOR WHOM ─────────────────────────────────── */}
       <section className="landing-for-whom shell">
         <Kicker>이런 분들을 위해 만들었습니다</Kicker>
@@ -197,6 +212,7 @@ export default function Home() {
       </section>
 
       {/* ── PROBLEM ──────────────────────────────────── */}
+      {/* 이론: Specificity — 추상적 서술 대신 관찰 가능한 장면 */}
       <section className="landing-problem shell">
         <div>
           <Kicker>WHY THIS EXISTS</Kicker>
@@ -210,9 +226,8 @@ export default function Home() {
           <p>
             <b>01</b>
             <strong>
-              시험이 끝난 학생은
-              <br />
-              이미 방학 모드입니다
+              &ldquo;선생님, 오늘 뭐 해요?&rdquo;<br />
+              시험 다음날 교실에서 자주 듣는 말입니다
             </strong>
             <span>
               억지로 앉혀두는 수업이 아니라, 학생이 먼저 손을 드는 구조가
@@ -222,23 +237,21 @@ export default function Home() {
           <p>
             <b>02</b>
             <strong>
-              교사가 자료를 새로 만들면
-              <br />
-              방학특강이 더 힘들어집니다
+              활동 자료를 처음부터 만들면<br />
+              수업 준비가 수업보다 힘듭니다
             </strong>
             <span>
-              수업 운영에 집중할 수 있도록 자료 준비는 최소화되어야 합니다.
+              교사가 콘텐츠 제작자가 되는 순간, 수업의 질이 흔들립니다.
             </span>
           </p>
           <p>
             <b>03</b>
             <strong>
-              활동만 하고 끝나면
-              <br />
-              학부모 기억에 남지 않습니다
+              &ldquo;재미있었어요&rdquo;는<br />
+              학부모 상담에서 충분하지 않습니다
             </strong>
             <span>
-              재미 이상의 무언가가 있어야 학원이 기억에 남습니다.
+              눈에 보이는 무언가가 있어야 학원이 기억에 남습니다.
             </span>
           </p>
         </div>
@@ -357,6 +370,11 @@ export default function Home() {
             <b>그 외 포함 자료</b> · 교사용 진행 대본 · 정답과 단계별 힌트 ·
             개인 영어 작성지 · 활동 결과 요약 템플릿
           </p>
+          {/* 이론: Radical Transparency — 파일럿 상태를 숨기지 않음 */}
+          <p className="materials-caveat">
+            현재 파일럿 단계입니다. 일부 자료는 수업 피드백에 따라 조정될 수
+            있습니다.
+          </p>
         </div>
       </section>
 
@@ -440,7 +458,7 @@ export default function Home() {
             <strong>일정 조율</strong>
             <p>
               학원 방학 일정과 학생 수에 맞는 운영 방식을 함께 조율합니다.{" "}
-              <em className="step-note">전화 또는 이메일 상담</em>
+              <em className="step-note">이메일 또는 전화 상담</em>
             </p>
           </div>
           <div className="process-step">
@@ -451,6 +469,20 @@ export default function Home() {
               <em className="step-note">파일럿 피드백 수집</em>
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ── NOT FOR EVERYONE — 이론: Radical Transparency ── */}
+      {/* 한계를 먼저 인정하는 브랜드가 더 신뢰받는다 */}
+      <section className="landing-not-for shell">
+        <div className="not-for-inner">
+          <p className="not-for-label">이런 경우엔 맞지 않을 수 있습니다</p>
+          <ul className="not-for-list">
+            <li>단어 암기·문법 중심의 수업을 원하는 경우</li>
+            <li>참여 학생이 4명 미만인 소규모 수업</li>
+            <li>4주 이상 장기 특강의 대체가 목적인 경우</li>
+            <li>교사 없이 학생이 자율 학습하는 구조를 원하는 경우</li>
+          </ul>
         </div>
       </section>
 

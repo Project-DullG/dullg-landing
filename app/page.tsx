@@ -1,17 +1,17 @@
 import { Footer, Header, Kicker } from "@/components/site";
 
 const lessonFlow = [
-  { number: "01", label: "READ THE CLUES", title: "단서를 읽습니다", body: "인물·시간·장소에 관한 핵심 정보를 찾고 사실과 추측을 구분합니다.", image: "/assets/dullg/card-body-1.png" },
+  { number: "01", label: "READ THE CLUES", title: "단서를 읽습니다", body: "인물·시간·장소에 관한 핵심 정보를 찾고 사실과 추측을 구분합니다.", image: "/assets/dullg/case-intro.png" },
   { number: "02", label: "SHARE THE FACTS", title: "정보를 설명합니다", body: "자신이 가진 단서를 팀원에게 영어로 설명하며 서로 다른 정보를 모읍니다.", image: "/assets/dullg/card-cover-1.png" },
-  { number: "03", label: "TEST THE THEORY", title: "가설을 비교하고 수정합니다", body: "질문하고 반박하며 새 단서에 따라 처음의 판단을 다시 살펴봅니다.", image: "/assets/dullg/rulebook-flow.png" },
-  { number: "04", label: "WRITE THE REPORT", title: "사건보고서를 완성합니다", body: "최종 주장과 근거를 영어 문장으로 정리해 팀 보고서와 개인 결과물을 남깁니다.", image: "/assets/dullg/pre-survey.png" },
+  { number: "03", label: "TEST THE THEORY", title: "가설을 비교하고 수정합니다", body: "질문하고 반박하며 새 단서에 따라 처음의 판단을 다시 살펴봅니다.", image: "/assets/dullg/rulebook-map-detailed.png" },
+  { number: "04", label: "WRITE THE REPORT", title: "사건보고서를 완성합니다", body: "최종 주장과 근거를 영어 문장으로 정리해 팀 보고서와 개인 결과물을 남깁니다.", image: "/assets/dullg/timeline-yoon.png" },
 ];
 
 const materials = [
-  ["01", "교사용 진행안", "수업 순서, 예상 질문, 힌트 제공 시점과 정답을 확인합니다.", "/assets/dullg/rulebook-flow.png", "material-large"],
+  ["01", "교사용 진행안", "수업 순서, 예상 질문, 힌트 제공 시점과 정답을 확인합니다.", "/assets/dullg/rulebook-flow-detailed.png", "material-large"],
   ["02", "학생용 영어 단서 카드", "학생마다 다른 정보를 읽고 팀에 설명하도록 구성합니다.", "/assets/dullg/card-body-1.png", ""],
-  ["03", "학생 워크북", "가설, 근거, 반박과 수정 과정을 차시별로 기록합니다.", "/assets/dullg/pre-survey.png", ""],
-  ["04", "사건보고서·학부모 안내자료", "수업이 끝난 뒤 학생의 영어 활동 결과를 확인할 수 있습니다.", "/assets/dullg/classroom-case.png", "material-wide"],
+  ["03", "학생 워크북", "가설, 근거, 반박과 수정 과정을 차시별로 기록합니다.", "/assets/dullg/timeline-yoon.png", ""],
+  ["04", "사건보고서·학부모 안내자료", "수업이 끝난 뒤 학생의 영어 활동 결과를 확인할 수 있습니다.", "/assets/dullg/rulebook-map-detailed.png", "material-wide"],
 ];
 
 const faqs = [

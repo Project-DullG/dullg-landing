@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "DullG — 영어를 읽고, 추리하고, 설명하는 수업",
-  description: "초등 영어 학원을 위한 미스터리 프로젝트 수업. 단서를 읽고, 토론하고, 자신의 판단을 보고서로 남깁니다.",
+  title: "DullG — Story, Evidence, Judgment",
+  description: "이야기 속 증거를 읽고 자신의 판단을 설명하는 경험을 수업·게임·리포트로 연결하는 콘텐츠 플랫폼.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 

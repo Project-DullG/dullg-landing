@@ -2622,10 +2622,10 @@ body {
 @media (max-width: 760px) {
   .landing-hero {
     display: block;
-    padding: 72px 0 85px;
+    padding: 65px 0 85px;
   }
   .landing-hero h1 {
-    font-size: 36px;
+    font-size: 30px;
   }
   .landing-hero-copy > p {
     font-size: 14px;
@@ -2636,111 +2636,6 @@ body {
   }
   .landing-proof {
     flex-wrap: wrap;
-  }
-  .landing-hero-visual {
-    height: 360px;
-    margin-top: 55px;
-  }
-  .landing-problem {
-    display: block;
-    padding: 90px 0;
-  }
-  .landing-problem h2 {
-    font-size: 40px;
-  }
-  .problem-points {
-    display: block;
-    margin-top: 50px;
-  }
-  .problem-points p {
-    margin-bottom: 28px;
-  }
-  .landing-value {
-    display: block;
-    margin-top: 55px;
-  }
-  .landing-value p {
-    font-size: 20px;
-    margin-top: 22px;
-  }
-  .landing-flow {
-    display: block;
-    padding: 90px 0;
-  }
-  .flow-list {
-    margin-top: 55px;
-  }
-  .flow-item {
-    grid-template-columns: 48px 1fr 20px;
-    gap: 13px;
-  }
-  .flow-number {
-    font-size: 26px;
-  }
-  .flow-item h3 {
-    font-size: 20px;
-  }
-  .flow-arrow {
-    display: none;
-  }
-  .landing-materials {
-    padding: 90px 0;
-  }
-  .materials-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 45px;
-  }
-  .material-item {
-    min-height: 260px;
-  }
-  .material-image {
-    height: 110px;
-  }
-  .material-copy {
-    padding: 14px;
-  }
-  .material-copy h3 {
-    font-size: 15px;
-    margin-top: 10px;
-  }
-  .landing-results {
-    display: block;
-    padding: 90px 0;
-  }
-  .results-copy {
-    margin-top: 75px;
-  }
-  .result-sheet {
-    padding: 23px 20px;
-  }
-  .result-sheet h3 {
-    font-size: 27px;
-  }
-  .landing-apply {
-    display: block;
-    padding: 90px 0 100px;
-  }
-  .apply-intro h2 {
-    font-size: 42px;
-  }
-  .apply-form {
-    margin-top: 55px;
-    padding: 25px 20px;
-  }
-  .apply-form .form-split {
-    display: block;
-  }
-  .apply-form .form-split label {
-    margin-bottom: 15px;
-  }
-}
-@media (max-width: 760px) {
-  .landing-hero {
-    padding-top: 65px;
-  }
-  .landing-hero h1 {
-    font-size: 30px;
   }
   .landing-hero-visual {
     height: 370px;
@@ -2779,26 +2674,53 @@ body {
     border-right: 0;
     border-top: 1px solid var(--line);
   }
+  .landing-problem {
+    display: block;
+    padding: 90px 0;
+  }
+  .landing-problem h2 {
+    font-size: 40px;
+  }
+  .problem-points {
+    display: block;
+    margin-top: 50px;
+  }
+  .problem-points p {
+    margin-bottom: 28px;
+  }
+  .landing-value {
+    display: block;
+    margin-top: 55px;
+  }
+  .landing-value p {
+    font-size: 20px;
+    margin-top: 22px;
+  }
+  .landing-flow {
+    display: block;
+    padding: 90px 0;
+  }
+  .flow-list {
+    margin-top: 55px;
+  }
   .flow-item {
     grid-template-columns: 42px 1fr;
     gap: 12px;
   }
+  .flow-number {
+    font-size: 26px;
+  }
+  .flow-item h3 {
+    font-size: 20px;
+  }
+  .landing-materials {
+    padding: 90px 0;
+  }
   .materials-grid {
     grid-template-columns: 1fr;
     gap: 12px;
+    margin-top: 45px;
   }
-  .material-image {
-    height: 125px;
-  }
-  .materials-more {
-    font-size: 12px;
-    line-height: 1.7;
-  }
-  .landing-apply {
-    padding-top: 90px;
-  }
-}
-@media (max-width: 760px) {
   .material-item {
     display: grid;
     grid-template-columns: 42% 58%;
@@ -2814,11 +2736,45 @@ body {
   }
   .material-copy h3 {
     font-size: 17px;
+    margin-top: 10px;
   }
   .material-copy p {
     font-size: 12px;
   }
-
+  .materials-more {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .landing-results {
+    display: block;
+    padding: 90px 0;
+  }
+  .results-copy {
+    margin-top: 75px;
+  }
+  .result-sheet {
+    padding: 23px 20px;
+  }
+  .result-sheet h3 {
+    font-size: 27px;
+  }
+  .landing-apply {
+    display: block;
+    padding: 90px 0 100px;
+  }
+  .apply-intro h2 {
+    font-size: 42px;
+  }
+  .apply-form {
+    margin-top: 55px;
+    padding: 25px 20px;
+  }
+  .apply-form .form-split {
+    display: block;
+  }
+  .apply-form .form-split label {
+    margin-bottom: 15px;
+  }
 }
 
 /* ============================================================
@@ -3177,8 +3133,8 @@ body {
   line-height: 1.7;
 }
 .form-success-contact {
-  font-size: 12px !important;
-  color: rgba(21, 37, 30, 0.5) !important;
+  font-size: 12px;
+  color: rgba(21, 37, 30, 0.5);
 }
 .form-success-contact a {
   color: #1e5c5c;

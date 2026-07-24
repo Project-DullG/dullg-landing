@@ -10,7 +10,7 @@ export function Header() {
     ? [
         { href: "/#flow", label: "수업 방식" },
         { href: "/#materials", label: "제공 자료" },
-        { href: "/#apply", label: "파일럿 안내" },
+        { href: "/#process", label: "파일럿 안내" },
         { href: "/#apply", label: "샘플 요청" },
       ]
     : [

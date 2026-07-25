@@ -1661,7 +1661,7 @@ body {
   pointer-events: none;
 }
 .landing-problem {
-  padding: 120px 0 110px;
+  padding: 112px 0 110px;
   border-top: 1px solid var(--line);
   display: grid;
   grid-template-columns: 38% 62%;
@@ -1727,7 +1727,7 @@ body {
   color: #1e5c5c;
 }
 .landing-flow {
-  padding: 125px 0 140px;
+  padding: 116px 0 140px;
   display: grid;
   grid-template-columns: 37% 63%;
   gap: 8%;
@@ -1779,7 +1779,7 @@ body {
   max-width: 440px;
 }
 .landing-materials {
-  padding: 125px 0 145px;
+  padding: 112px 0 145px;
   background: #e8efe8;
   border-top: 1px solid var(--line);
 }
@@ -1792,7 +1792,6 @@ body {
 }
 .material-item {
   background: #f7f5ef;
-  min-height: 295px;
   display: flex;
   flex-direction: column;
   box-shadow: 7px 9px 0 rgba(21, 37, 30, 0.08);
@@ -1923,7 +1922,7 @@ body {
   color: rgba(21, 37, 30, 0.48);
 }
 .landing-apply {
-  padding: 145px 0 160px;
+  padding: 125px 0 160px;
   display: grid;
   grid-template-columns: 40% 60%;
   gap: 9%;
@@ -2133,18 +2132,6 @@ body {
 .trust-stat--cta b {
   color: #e8784f;
 }
-.landing-problem {
-  padding-top: 112px;
-}
-.landing-flow {
-  padding-top: 116px;
-}
-.landing-materials {
-  padding-top: 112px;
-}
-.material-item {
-  min-height: 0;
-}
 .materials-more {
   font-size: 13px;
   color: rgba(21, 37, 30, 0.62);
@@ -2152,9 +2139,6 @@ body {
 }
 .materials-more b {
   color: #1e5c5c;
-}
-.landing-apply {
-  padding-top: 125px;
 }
 .apply-form label > span,
 .apply-form label > small {

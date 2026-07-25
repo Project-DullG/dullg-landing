@@ -28,8 +28,8 @@ export function Footer() {
   );
 }
 
-export function PageFrame({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <main className={className}><Header />{children}<Footer /></main>;
+export function PageFrame({ children }: { children: ReactNode }) {
+  return <><Header /><main>{children}</main><Footer /></>;
 }
 
 export function Kicker({ children }: { children: ReactNode }) { return <p className="section-kicker">{children}</p>; }

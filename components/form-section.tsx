@@ -131,7 +131,7 @@ export function FormSection() {
           name="contact"
           type="text"
           placeholder="휴대전화 또는 이메일 주소"
-          autoComplete="email"
+          autoComplete="on"
           disabled={state === "submitting"}
         />
       </label>

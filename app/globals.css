@@ -1277,10 +1277,10 @@ body {
 }
 .landing-hero {
   display: grid;
-  grid-template-columns: 48% 52%;
-  gap: 6%;
+  grid-template-columns: 55% 45%;
+  gap: 5%;
   align-items: center;
-  padding: 76px 0 110px;
+  padding: 64px 0 110px;
   min-height: 680px;
 }
 .landing-hero-copy {
@@ -1288,11 +1288,13 @@ body {
   z-index: 1;
 }
 .landing-hero h1 {
-  font-size: clamp(48px, 5.8vw, 78px);
-  line-height: 1.06;
-  letter-spacing: -0.075em;
+  font-size: clamp(38px, 4.4vw, 60px);
+  line-height: 1.14;
+  letter-spacing: -0.055em;
   margin: 18px 0 27px;
   font-weight: 800;
+  max-width: 620px;
+  word-break: keep-all;
 }
 .landing-hero h1 em,
 .landing-problem h2 em,
@@ -1304,7 +1306,7 @@ body {
   font-weight: 800;
 }
 .landing-hero-copy > p {
-  max-width: 510px;
+  max-width: 560px;
   font-size: 16px;
   line-height: 1.85;
   color: rgba(21, 37, 30, 0.7);
@@ -1382,7 +1384,7 @@ body {
 }
 .landing-value p {
   font-size: 22px;
-  line-height: 1.6;
+  line-height: 1.75;
   letter-spacing: -0.05em;
   margin: 0;
   max-width: 520px;
@@ -1665,21 +1667,6 @@ body {
   color: rgba(21, 37, 30, 0.55);
   line-height: 1.5;
 }
-.landing-hero {
-  grid-template-columns: 55% 45%;
-  gap: 5%;
-  padding-top: 64px;
-}
-.landing-hero h1 {
-  font-size: clamp(38px, 4.4vw, 60px);
-  max-width: 620px;
-  word-break: keep-all;
-  line-height: 1.14;
-  letter-spacing: -0.055em;
-}
-.landing-hero-copy > p {
-  max-width: 560px;
-}
 .landing-hero-visual {
   height: 500px;
   background: #e8eee9;
@@ -1927,9 +1914,7 @@ body {
 .apply-intro p {
   letter-spacing: -0.02em;
 }
-.landing-value p {
-  line-height: 1.75;
-}
+
 .flow-item h3 {
   font-size: 23px;
 }

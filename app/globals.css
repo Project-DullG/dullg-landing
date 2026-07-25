@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap");
 @import "tailwindcss";
 
 
@@ -11,6 +10,12 @@
   --mint: #b8dcc9;
   --orange: #e8784f;
   --line: rgba(21, 37, 30, 0.18);
+  /* Font family fallbacks — overridden by next/font CSS vars on <html> */
+  --font-mono: var(--font-mono);
+  --font-sans: var(--font-sans);
+  --font-noto-sans: "Noto Sans KR";
+  --font-noto-serif: "Noto Serif KR";
+  --font-playfair: var(--font-playfair);
 }
 * {
   box-sizing: border-box;
@@ -22,7 +27,7 @@ body {
   margin: 0;
   background: var(--cream);
   color: var(--ink);
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-sans), sans-serif;
 }
 a {
   color: inherit;
@@ -95,7 +100,7 @@ a {
 .eyebrow,
 .section-kicker,
 .art-label {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.14em;
 }
@@ -112,7 +117,7 @@ a {
   border-radius: 50%;
 }
 .final-cta em {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-playfair), serif;
   font-weight: 500;
   color: var(--orange);
 }
@@ -197,12 +202,12 @@ a {
   margin: 0;
 }
 .feature-intro h2 span {
-  font-family: "Playfair Display";
+  font-family: var(--font-playfair);
   font-style: italic;
   font-weight: 500;
 }
 .feature-number {
-  font-family: "DM Mono";
+  font-family: var(--font-mono);
   font-size: 11px;
   color: var(--orange);
 }
@@ -213,7 +218,7 @@ blockquote {
   margin: 35px auto 25px;
 }
 blockquote em {
-  font-family: "Playfair Display";
+  font-family: var(--font-playfair);
   font-weight: 500;
   color: var(--orange);
 }
@@ -248,7 +253,7 @@ blockquote em {
 }
 .footer p {
   color: rgba(21, 37, 30, 0.48);
-  font-family: "DM Mono";
+  font-family: var(--font-mono);
   font-size: 9px;
 }
 .footer > div {
@@ -347,7 +352,7 @@ blockquote em {
   width: 92px;
   height: 92px;
   color: var(--orange);
-  font: 12px/1.1 "DM Mono";
+  font: 12px/1.1 var(--font-mono);
   display: grid;
   place-content: center;
   text-align: center;
@@ -379,7 +384,7 @@ blockquote em {
 .proof-copy h2 span,
 .note-section h2 span,
 .sample-bottom h2 span {
-  font-family: "Playfair Display";
+  font-family: var(--font-playfair);
   font-style: italic;
   font-weight: 500;
 }
@@ -432,14 +437,14 @@ blockquote em {
   max-width: 390px;
 }
 .curriculum-row > strong {
-  font: 9px "DM Mono";
+  font: 9px var(--font-mono);
   color: var(--orange);
   align-self: center;
   line-height: 1.5;
 }
 .mini-label,
 .sample-label {
-  font: 9px "DM Mono";
+  font: 9px var(--font-mono);
   letter-spacing: 0.08em;
   color: var(--orange);
 }
@@ -464,7 +469,7 @@ blockquote em {
   grid-column: span 2;
 }
 .deliverable-cards b {
-  font: 10px "DM Mono";
+  font: 10px var(--font-mono);
   color: var(--orange);
 }
 .deliverable-cards h3 {
@@ -497,7 +502,7 @@ blockquote em {
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
   padding-bottom: 13px;
-  font: 9px "DM Mono";
+  font: 9px var(--font-mono);
   color: rgba(21, 37, 30, 0.55);
 }
 .report-head b {
@@ -510,13 +515,13 @@ blockquote em {
   margin: 35px 0;
 }
 .report-card h3 em {
-  font-family: "Playfair Display";
+  font-family: var(--font-playfair);
   color: var(--orange);
 }
 .report-bars {
   display: grid;
   gap: 15px;
-  font: 10px "DM Mono";
+  font: 10px var(--font-mono);
 }
 .report-bars span {
   display: grid;
@@ -572,7 +577,7 @@ blockquote em {
   border-top: 1px solid var(--line);
 }
 .detail-index {
-  font: 42px "DM Mono";
+  font: 42px var(--font-mono);
   color: var(--orange);
 }
 .detail-index span {
@@ -597,7 +602,7 @@ blockquote em {
   display: inline-block;
   background: #dfeadd;
   padding: 10px 13px;
-  font: 9px "DM Mono";
+  font: 9px var(--font-mono);
 }
 .detail-art-2 {
   background: #c4ded1;
@@ -651,11 +656,11 @@ blockquote em {
   margin: 72px 0 0;
 }
 .sample-card h2 em {
-  font-family: "Playfair Display";
+  font-family: var(--font-playfair);
   color: var(--orange);
 }
 .sample-workbook h2 span {
-  font-family: "Playfair Display";
+  font-family: var(--font-playfair);
   color: var(--orange);
   font-size: 22px;
 }
@@ -741,7 +746,7 @@ blockquote em {
   margin: -9px 0 30px;
 }
 .hero-facts span {
-  font: 9px "DM Mono";
+  font: 9px var(--font-mono);
   padding: 8px 9px;
   background: #dfeadd;
   color: rgba(21, 37, 30, 0.7);
@@ -761,7 +766,7 @@ blockquote em {
   margin: 0 0 27px;
 }
 .story-copy h2 em {
-  font-family: "Playfair Display";
+  font-family: var(--font-playfair);
   font-weight: 500;
   color: var(--orange);
 }
@@ -793,7 +798,7 @@ blockquote em {
   left: 24px;
   background: rgba(255, 255, 255, 0.86);
   padding: 7px 9px;
-  font: 9px "DM Mono";
+  font: 9px var(--font-mono);
 }
 .cast-strip {
   display: grid;
@@ -821,7 +826,7 @@ blockquote em {
   margin: 0;
 }
 .sample-gallery h2 span {
-  font-family: "Playfair Display";
+  font-family: var(--font-playfair);
   font-style: italic;
   font-weight: 500;
 }
@@ -852,7 +857,7 @@ blockquote em {
   background: #fff;
 }
 .gallery-images figcaption {
-  font: 9px "DM Mono";
+  font: 9px var(--font-mono);
   padding: 10px 3px 2px;
   color: rgba(21, 37, 30, 0.65);
 }
@@ -1015,7 +1020,7 @@ blockquote em {
   font-size: 25px;
 }
 .sample-card > div h2 em {
-  font-family: "Playfair Display";
+  font-family: var(--font-playfair);
   font-weight: 500;
   color: var(--orange);
 }
@@ -1103,7 +1108,7 @@ blockquote em {
 .proof-copy h2 span,
 .sample-bottom h2 span,
 .final-cta em {
-  font-family: "Noto Serif KR", "Playfair Display", serif;
+  font-family: var(--font-noto-serif), var(--font-playfair), serif;
 }
 .detail-index,
 .mini-label,
@@ -1116,7 +1121,7 @@ blockquote em {
 .button,
 .text-link,
 .output-pill {
-  font-family: "Noto Sans KR", "DM Sans", sans-serif;
+  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
 }
 .detail-index,
 .mini-label,
@@ -1126,7 +1131,7 @@ blockquote em {
   letter-spacing: 0.08em;
 }
 body {
-  font-family: "Noto Sans KR", "DM Sans", sans-serif;
+  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
 }
 .detail-row h2,
 .problem-band h2,
@@ -1167,7 +1172,7 @@ body {
   bottom: 24px;
   background: rgba(242, 239, 231, 0.92);
   padding: 8px 10px;
-  font: 9px "DM Mono";
+  font: 9px var(--font-mono);
   color: rgba(21, 37, 30, 0.7);
 }
 .classroom-copy {
@@ -1180,7 +1185,7 @@ body {
   margin: 0 0 27px;
 }
 .classroom-copy h2 span {
-  font-family: "Playfair Display";
+  font-family: var(--font-playfair);
   font-style: italic;
   font-weight: 500;
 }
@@ -1356,7 +1361,7 @@ body {
   gap: 14px;
 }
 .problem-points b {
-  font: 700 64px "DM Mono";
+  font: 700 64px var(--font-mono);
   color: #e8784f;
   line-height: 0.85;
   letter-spacing: -0.04em;
@@ -1424,7 +1429,7 @@ body {
   align-items: start;
 }
 .flow-number {
-  font: 34px "DM Mono";
+  font: 34px var(--font-mono);
   color: #e8784f;
   line-height: 1;
 }
@@ -1472,7 +1477,7 @@ body {
   object-fit: contain;
 }
 .material-copy > span {
-  font: 10px "DM Mono";
+  font: 10px var(--font-mono);
   color: #e8784f;
 }
 .material-copy h3 {
@@ -1506,7 +1511,7 @@ body {
   min-height: 350px;
 }
 .result-sheet > span {
-  font: 9px "DM Mono";
+  font: 9px var(--font-mono);
   color: rgba(21, 37, 30, 0.52);
   letter-spacing: 0.08em;
 }
@@ -1527,7 +1532,7 @@ body {
   gap: 12px;
   align-items: center;
   margin: 17px 0;
-  font: 11px "DM Mono";
+  font: 11px var(--font-mono);
   color: rgba(21, 37, 30, 0.65);
 }
 .result-line i {
@@ -1632,10 +1637,7 @@ body {
   background: #f7f5ef;
   padding: 12px;
   margin-top: 7px;
-  font:
-    14px/1.5 "Noto Sans KR",
-    "DM Sans",
-    sans-serif;
+  font: 14px/1.5 var(--font-noto-sans), var(--font-sans), sans-serif;
   color: var(--ink);
   outline: none;
 }
@@ -1737,10 +1739,7 @@ body {
   bottom: 24px;
   padding: 7px 10px;
   background: rgba(247, 245, 239, 0.94);
-  font:
-    10px "Noto Sans KR",
-    "DM Sans",
-    sans-serif;
+  font: 10px var(--font-noto-sans), var(--font-sans), sans-serif;
   color: rgba(21, 37, 30, 0.67);
   z-index: 3;
 }
@@ -1762,7 +1761,7 @@ body {
   border-right: 0;
 }
 .trust-stat b {
-  font: 700 22px "DM Mono";
+  font: 700 22px var(--font-mono);
   color: var(--ink);
   letter-spacing: -0.04em;
   line-height: 1;
@@ -1822,7 +1821,7 @@ body {
 .academy-landing input,
 .academy-landing select,
 .academy-landing button {
-  font-family: "Noto Sans KR", "DM Sans", sans-serif;
+  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 .academy-landing h1,
@@ -1885,7 +1884,7 @@ body {
 }
 
 .result-sheet blockquote {
-  font-family: "DM Sans", "Noto Sans KR", sans-serif;
+  font-family: var(--font-sans), var(--font-noto-sans), sans-serif;
   letter-spacing: -0.02em;
 }
 .academy-landing .button:hover {
@@ -2087,7 +2086,7 @@ body {
   overflow: hidden;
 }
 .value-prop-num {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 100px;
   color: rgba(232, 120, 79, 0.1);
   position: absolute;
@@ -2177,7 +2176,7 @@ body {
   z-index: 1;
 }
 .process-step span {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 11px;
   color: var(--orange);
   display: block;
@@ -2303,7 +2302,7 @@ body {
   font-size: 11px;
   font-style: normal;
   color: var(--orange);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   letter-spacing: 0.06em;
 }
 
@@ -2350,7 +2349,7 @@ body {
   background: #f7f5ef;
   padding: 12px;
   margin-top: 7px;
-  font: 14px "Noto Sans KR", "DM Sans", sans-serif;
+  font: 14px var(--font-noto-sans), var(--font-sans), sans-serif;
   color: var(--ink);
   outline: none;
   resize: vertical;
@@ -2526,7 +2525,7 @@ body {
   max-width: 580px;
 }
 .not-for-label {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2623,7 +2622,7 @@ body {
   align-self: flex-end;
 }
 .about-hero-manifesto span {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: clamp(36px, 4vw, 56px);
   font-weight: 400;
   letter-spacing: -0.03em;
@@ -2705,7 +2704,7 @@ body {
   position: absolute;
   bottom: -14px;
   right: 16px;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 100px;
   font-weight: 400;
   line-height: 1;
@@ -2796,7 +2795,7 @@ body {
   text-align: center;
 }
 .about-now-badge span {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.14em;
   color: var(--mint);
@@ -2849,7 +2848,7 @@ body {
   flex-wrap: wrap;
 }
 .ep-hero-chips span {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.07em;
   padding: 7px 14px;
@@ -2868,7 +2867,7 @@ body {
   position: absolute;
   top: 16px;
   right: 16px;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 9px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -2916,7 +2915,7 @@ body {
   margin-top: 10px;
 }
 .ep-map-label span {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.1em;
   color: rgba(21, 37, 30, 0.38);
@@ -2972,7 +2971,7 @@ body {
   padding: 0 2px;
 }
 .ep-cast-index {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.1em;
   color: rgba(21, 37, 30, 0.35);
@@ -3016,7 +3015,7 @@ body {
   padding: 48px min(80px, 5%);
 }
 .ep-scene-label {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.12em;
   color: rgba(242, 239, 231, 0.55);
@@ -3071,7 +3070,7 @@ body {
   margin-bottom: 16px;
 }
 .ep-step-num {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 32px;
   font-weight: 400;
   letter-spacing: -0.03em;
@@ -3079,7 +3078,7 @@ body {
   line-height: 1;
 }
 .ep-step-label {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 9px;
   letter-spacing: 0.1em;
   color: var(--orange);
@@ -3098,7 +3097,7 @@ body {
   word-break: keep-all;
 }
 .ep-output {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.07em;
   color: rgba(21, 37, 30, 0.38);

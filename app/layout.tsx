@@ -1,5 +1,18 @@
 import type { Metadata } from "next";
+import {
+  DM_Mono,
+  DM_Sans,
+  Noto_Sans_KR,
+  Noto_Serif_KR,
+  Playfair_Display,
+} from "next/font/google";
 import "./globals.css";
+
+const dmMono = DM_Mono({ weight: "400", subsets: ["latin"], variable: "--font-mono", display: "swap" });
+const dmSans = DM_Sans({ weight: ["400", "500", "600", "700"], subsets: ["latin"], variable: "--font-sans", display: "swap" });
+const notoSansKR = Noto_Sans_KR({ weight: ["400", "500", "600", "700", "800"], preload: false, variable: "--font-noto-sans", display: "swap" });
+const notoSerifKR = Noto_Serif_KR({ weight: ["500", "600"], preload: false, variable: "--font-noto-serif", display: "swap" });
+const playfair = Playfair_Display({ weight: ["500", "600"], style: ["normal", "italic"], subsets: ["latin"], variable: "--font-playfair", display: "swap" });
 
 export const metadata: Metadata = {
   title: "DullG | 영어학원 방학특강 4차시 수업팩 — 교사 준비 30분, 학생 결과물 포함",
@@ -18,5 +31,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="ko"><body>{children}</body></html>;
+  const fontVars = `${dmMono.variable} ${dmSans.variable} ${notoSansKR.variable} ${notoSerifKR.variable} ${playfair.variable}`;
+  return <html lang="ko" className={fontVars}><body>{children}</body></html>;
 }

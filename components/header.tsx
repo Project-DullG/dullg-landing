@@ -9,10 +9,10 @@ export function Header() {
 
   const navLinks = isHome
     ? [
-        { href: "/#flow", label: "수업 방식" },
-        { href: "/#materials", label: "제공 자료" },
-        { href: "/#process", label: "파일럿 안내" },
-        { href: "/#apply", label: "샘플 요청" },
+        { href: "/about", label: "소개" },
+        { href: "/episode", label: "에피소드" },
+        { href: "/academy", label: "Academy" },
+        { href: "/contact", label: "Contact" },
       ]
     : [
         { href: "/academy/curriculum", label: "수업 방식" },

@@ -353,7 +353,7 @@ export default function Home() {
             {materials.map((m) => (
               <article className="material-item" key={m.num}>
                 <div className="material-image">
-                  <img src={m.image} alt={m.alt} />
+                  <img src={m.image} alt={m.alt} loading="lazy" />
                 </div>
                 <div className="material-copy">
                   <span>{m.num}</span>

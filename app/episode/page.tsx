@@ -77,6 +77,7 @@ export default function EpisodePage() {
             <img
               src="/assets/dullg/floor-map-3f.png"
               alt="3층 원장실과 자습실 평면도"
+              loading="lazy"
             />
             <div className="ep-map-label">
               <span>3F / FLOOR MAP</span>
@@ -100,7 +101,7 @@ export default function EpisodePage() {
           {cast.map((c) => (
             <div className="ep-cast-card" key={c.name}>
               <div className="ep-cast-img">
-                <img src={c.image} alt={`${c.name} 캐릭터`} />
+                <img src={c.image} alt={`${c.name} 캐릭터`} loading="lazy" />
               </div>
               <div className="ep-cast-info">
                 <span className="ep-cast-index">{c.num} / 04</span>
@@ -117,6 +118,7 @@ export default function EpisodePage() {
         <img
           src="/assets/dullg/students-investigation.png"
           alt="학생들이 단서와 평면도를 함께 살펴보는 수업 장면"
+          loading="lazy"
         />
         <div className="ep-scene-overlay">
           <span className="ep-scene-label">CLASSROOM / EVIDENCE REVIEW</span>

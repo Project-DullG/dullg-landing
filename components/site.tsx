@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 import { Header } from "./header";
 
@@ -11,10 +12,10 @@ export const curriculum = [
 export function Footer() {
   return (
     <footer className="footer shell">
-      <a className="brand" href="/">
+      <Link className="brand" href="/">
         <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
         <span>DullG</span>
-      </a>
+      </Link>
       <p>© 2026 DullG. Read the clues. Tell your story.</p>
       <div>
         <a href="/about">소개</a>

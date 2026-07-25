@@ -397,9 +397,9 @@ export default function Home() {
               <strong>YES</strong>
             </div>
             <blockquote>
-              "The key was in the office
+              &ldquo;The key was in the office
               <br />
-              because the note changed."
+              because the note changed.&rdquo;
             </blockquote>
             <small>
               사건 결론과 관련된 근거를 선택하고, because와 however를 사용해

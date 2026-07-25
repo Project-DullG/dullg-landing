@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export function Header() {
@@ -22,14 +23,14 @@ export function Header() {
 
   return (
     <nav className="nav shell" aria-label="주요 메뉴">
-      <a className="brand" href="/" aria-label="DullG 홈">
+      <Link className="brand" href="/" aria-label="DullG 홈">
         <span className="brand-mark" aria-hidden="true">
           <i />
           <i />
           <i />
         </span>
         <span>DullG</span>
-      </a>
+      </Link>
       <div className="nav-links">
         {navLinks.map((link) => (
           <a key={link.label} href={link.href}>
@@ -37,9 +38,9 @@ export function Header() {
           </a>
         ))}
       </div>
-      <a className="nav-cta" href="/#apply">
+      <Link className="nav-cta" href="/#apply">
         샘플·파일럿 문의 <span>↗</span>
-      </a>
+      </Link>
     </nav>
   );
 }

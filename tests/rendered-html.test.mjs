@@ -1,91 +1,80 @@
 import assert from "node:assert/strict";
-import { access, readFile, readdir } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const developmentPreviewMeta =
-  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
-const templateRoot = new URL("../", import.meta.url);
-const previewRoot = new URL("../app/_sites-preview/", import.meta.url);
+const routeHtml = (route) =>
+  new URL(`../.next/server/app/${route}`, import.meta.url);
 
-async function render() {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
+test("renders the home conversion path with real product evidence", async () => {
+  const html = await readFile(routeHtml("index.html"), "utf8");
 
-  return worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
-  );
-}
-
-test("server-renders the starter loading skeleton", async () => {
-  const response = await render();
-  assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
-
-  const html = await response.text();
-  assert.match(html, developmentPreviewMeta);
-  assert.match(html, /<title>Your site is taking shape<\/title>/i);
-  assert.match(html, /Building your site/);
-  assert.match(html, /Your site is taking shape/);
-  assert.match(
-    html,
-    /Your first version will appear here automatically when it’s ready\./,
-  );
-  assert.doesNotMatch(html, /Codex/);
-  assert.match(html, /react-loading-skeleton/);
-  assert.match(html, /role="status"/);
+  assert.match(html, /영어를 써야만 풀리는/);
+  assert.match(html, /4차시 미스터리 수업/);
+  assert.match(html, /샘플 자료 받아보기/);
+  assert.match(html, /4차시 수업 흐름/);
+  assert.match(html, /실제 자료를 보여드립니다/);
+  assert.match(html, /파일럿보다 먼저/);
+  assert.match(html, /\/assets\/dullg\/mat-game-cards\.png/);
+  assert.match(html, /\/assets\/dullg\/mat-workbook\.png/);
+  assert.match(html, /id="apply"/);
+  assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
-test("keeps the loading skeleton scoped and disposable", async () => {
-  const [preview, css, page, layout, packageJson, files] = await Promise.all([
-    readFile(new URL("SkeletonPreview.tsx", previewRoot), "utf8"),
-    readFile(new URL("preview.css", previewRoot), "utf8"),
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../package.json", import.meta.url), "utf8"),
-    readdir(previewRoot),
+test("renders detailed product routes with working navigation targets", async () => {
+  const [academy, curriculum, sample, pilot] = await Promise.all([
+    readFile(routeHtml("academy.html"), "utf8"),
+    readFile(routeHtml("academy/curriculum.html"), "utf8"),
+    readFile(routeHtml("academy/sample.html"), "utf8"),
+    readFile(routeHtml("academy/pilot.html"), "utf8"),
   ]);
 
-  assert.deepEqual(files.sort(), ["SkeletonPreview.tsx", "preview.css"]);
-  assert.match(preview, /from "react-loading-skeleton"/);
-  assert.match(preview, /baseColor="#eceae7"/);
-  assert.match(preview, /highlightColor="#f9f8f6"/);
-  assert.match(preview, /duration=\{2\.8\}/);
-  assert.match(preview, /sites-skeleton-search-placeholder/);
-  assert.match(packageJson, /"react-loading-skeleton": "3\.5\.0"/);
+  assert.match(academy, /DULLG PRODUCT OVERVIEW/);
+  assert.match(academy, /학생의 영어 기록으로/);
+  assert.match(academy, /href="\/academy\/curriculum"/);
+  assert.match(academy, /href="\/academy\/sample"/);
+  assert.match(academy, /href="\/academy\/pilot"/);
+  assert.match(curriculum, /4차시 커리큘럼/);
+  assert.match(sample, /실제 수업 자료/);
+  assert.match(pilot, /파일럿/);
+});
 
-  const shellIndex = preview.indexOf('className="sites-skeleton-shell"');
-  const statusIndex = preview.indexOf('className="sites-skeleton-status"');
-  assert.ok(shellIndex >= 0 && statusIndex > shellIndex);
-  assert.match(css, /position:\s*fixed/);
-  assert.match(css, /inset:\s*0/);
-  assert.match(css, /opacity:\s*0\.52/);
+test("keeps core navigation and interactions accessible", async () => {
+  const [header, explorer, layout, css] = await Promise.all([
+    readFile(new URL("../components/header.tsx", import.meta.url), "utf8"),
+    readFile(
+      new URL("../components/curriculum-explorer.tsx", import.meta.url),
+      "utf8",
+    ),
+    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(layout, /본문으로 바로가기/);
+  assert.match(header, /aria-expanded=\{isOpen\}/);
+  assert.match(header, /aria-controls="mobile-navigation"/);
+  assert.match(explorer, /role="tablist"/);
+  assert.match(explorer, /aria-selected=\{isActive\}/);
+  assert.match(explorer, /tabIndex=\{isActive \? 0 : -1\}/);
+  assert.match(explorer, /ArrowRight/);
+  assert.match(explorer, /ArrowLeft/);
+  assert.match(css, /:focus-visible/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
-  assert.doesNotMatch(css, /#020617|canvas|pets|progress/i);
-  assert.doesNotMatch(
-    preview,
-    /loading-spinner|status-mark|status-progress|canvas|cookie|random/i,
-  );
+});
 
-  assert.match(page, /export const metadata:\s*Metadata/);
-  assert.match(page, /"codex-preview": "development"/);
-  assert.match(page, /<SkeletonPreview \/>/);
-  assert.match(layout, /title:\s*"Starter Project"/);
-  assert.doesNotMatch(layout, /codex-preview|_sites-preview|themeColor|\bViewport\b/);
-  assert.doesNotMatch(css, /(^|\s)(html|body)\s*\{/m);
+test("publishes privacy guidance and deployment-aware discovery metadata", async () => {
+  const [privacy, sitemap, robots, layout, form] = await Promise.all([
+    readFile(routeHtml("privacy.html"), "utf8"),
+    readFile(routeHtml("sitemap.xml.body"), "utf8"),
+    readFile(routeHtml("robots.txt.body"), "utf8"),
+    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/form-section.tsx", import.meta.url), "utf8"),
+  ]);
 
-  await assert.rejects(
-    access(new URL("public/_sites-preview", templateRoot)),
-  );
+  assert.match(privacy, /개인정보를 필요한 만큼만 받고/);
+  assert.match(privacy, /FormSubmit/);
+  assert.match(sitemap, /\/privacy/);
+  assert.match(robots, /sitemap\.xml/);
+  assert.match(layout, /metadataBase/);
+  assert.match(form, /href="\/privacy"/);
+  assert.match(form, /aria-invalid/);
 });

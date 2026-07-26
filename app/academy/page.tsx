@@ -1,20 +1,249 @@
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BookOpenText,
+  FileText,
+  FolderOpen,
+  Printer,
+} from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
-import { ArrowButton, Kicker, PageFrame, curriculum } from "@/components/site";
+import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
-  title: "Academy · DullG",
-  description: "영어 미스터리 프로젝트 수업. 4차시 완성형 키트로 학생이 직접 영어로 추리하고 보고서를 씁니다.",
+  title: "제품 소개 · DullG",
+  description:
+    "초6~중1 영어학원을 위한 4차시 미스터리 수업팩. 수업 방식, 실제 자료, 학생 결과물과 파일럿 운영 조건을 확인하세요.",
 };
 
+const pathways = [
+  {
+    number: "01",
+    title: "4차시 수업 방식",
+    body: "단서 읽기에서 팀 토론과 사건보고서까지 이어지는 수업 구조를 확인합니다.",
+    href: "/academy/curriculum",
+    cta: "커리큘럼 보기",
+    icon: BookOpenText,
+  },
+  {
+    number: "02",
+    title: "실제 제공 자료",
+    body: "학생용 카드와 워크북, 교사용 진행안, 학부모 전달용 결과물을 살펴봅니다.",
+    href: "/academy/sample",
+    cta: "수업 자료 보기",
+    icon: FolderOpen,
+  },
+  {
+    number: "03",
+    title: "첫 번째 에피소드",
+    body: "보충반에서 열쇠가 사라진 사건과 네 명의 학생이 가진 단서를 미리 경험합니다.",
+    href: "/episode",
+    cta: "에피소드 01 보기",
+    icon: FileText,
+  },
+  {
+    number: "04",
+    title: "파일럿 운영 과정",
+    body: "샘플 요청, 일정 조율, 수업 운영과 피드백까지의 과정을 확인합니다.",
+    href: "/academy/pilot",
+    cta: "운영 안내 보기",
+    icon: Printer,
+  },
+];
+
 export default function AcademyPage() {
-  return <PageFrame>
-    <section className="academy-hero shell"><div><p className="eyebrow"><span className="eyebrow-dot" /> ENGLISH MYSTERY PROJECT CLASS</p><h1>영어를 읽고,<br /><em>추리하고</em>, 설명하는 수업.</h1><p className="hero-description">DullG는 초등학교 6학년 수준을 기준으로 만든 4차시 영어 미스터리 프로젝트입니다. 학생들은 단서를 읽고, 질문·추측·반박을 거쳐 사건 보고서를 완성합니다.</p><div className="hero-facts"><span>4차시 프로젝트</span><span>초6 기준</span><span>실물 키트 기반</span></div><div className="hero-actions"><ArrowButton>원장 검토팩 요청</ArrowButton><a className="text-link" href="#flow">수업 흐름 살펴보기 <span>↓</span></a></div></div><div className="case-board"><span className="art-label label-top">CASE FILE / 01</span><img className="case-cover" src="/assets/dullg/rulebook-cover.png" alt="보충반의 사라진 열쇠 룰북 표지" /><div className="case-stamp">DULLG<br /><b>OPEN CASE</b></div><span className="art-label label-bottom">보충반의 사라진 열쇠<br />TWO MISSING KEYS</span></div></section>
-    <section className="problem-band shell"><Kicker>FOR ACADEMY OWNERS & TEACHERS</Kicker><h2>재미있는 활동을 넘어,<br /><span>학부모에게 설명할 수 있는 수업.</span></h2><div className="problem-grid"><p>내신이 끝난 뒤에도 학생이 다시 오고 싶어 하는 특강이 필요합니다.</p><p>교사가 바로 운영할 수 있고, 학생의 읽기·말하기·쓰기 결과물이 남아야 합니다.</p><p>DullG는 이 세 가지를 하나의 사건 안에서 연결합니다.</p></div></section>
-    <section className="classroom-section shell"><div className="classroom-photo"><img src="/assets/dullg/students-investigation.png" alt="학생 네 명이 단서와 평면도를 함께 살펴보는 수업 장면" loading="lazy" /><span>CLASSROOM / EVIDENCE REVIEW</span></div><div className="classroom-copy"><Kicker>THE EXPERIENCE</Kicker><h2>단서는<br /><span>대화가 됩니다.</span></h2><p>학생들은 각자 다른 자료를 들고 시작합니다. 서로의 내용을 설명하고, 지도와 단서를 연결하면서 하나의 판단을 함께 완성합니다.</p><a className="text-link" href="/academy/sample">실제 자료 보기 <span>↗</span></a></div></section>
-    <section className="flow-section shell" id="flow"><div className="feature-intro"><Kicker>ONE MYSTERY · FOUR LESSONS</Kicker><h2>읽기에서 토론,<br /><span>보고서까지.</span></h2><p>문법 문제를 더 푸는 대신, 영어를 실제 판단의 도구로 사용합니다.</p></div><div className="curriculum-list">{curriculum.map((item) => <article className="curriculum-row" key={item.session}><span className="feature-number">{item.session}</span><div><span className="mini-label">{item.label}</span><h3>{item.title}</h3><p>{item.body}</p></div><strong>{item.output}</strong></article>)}</div></section>
-    <section className="deliverables shell"><div><Kicker>WHAT YOUR ACADEMY GETS</Kicker><h2>교사는 가볍게 준비하고,<br /><span>학생은 결과물을 남깁니다.</span></h2></div><div className="deliverable-cards"><div><b>01</b><h3>교사용 운영 패키지</h3><p>진행안, 대본, 정답·힌트와 차시별 준비 체크리스트</p></div><div><b>02</b><h3>학생용 사건 자료</h3><p>단서 카드, 워크북, 팀 추론 보드와 개인 영작지</p></div><div><b>03</b><h3>학부모 설명 자료</h3><p>수업에서 무엇을 읽고 말하고 썼는지 보여주는 결과 요약</p></div></div></section>
-    <section className="proof-section shell"><div className="report-card"><div className="report-head"><span>DULLG / ACTIVITY REPORT</span><b>CLASS 6A</b></div><h3>이번 수업에서<br /><em>이렇게 생각했습니다.</em></h3><div className="report-bars"><span><i style={{ width: "82%" }} />핵심 단서 찾기</span><span><i style={{ width: "68%" }} />근거 연결하기</span><span><i style={{ width: "74%" }} />영어 보고서 쓰기</span></div><small>* 활동 결과 요약이며 진단 또는 성적표가 아닙니다.</small></div><div className="proof-copy"><Kicker>RESULTS THAT STAY</Kicker><h2>“재미있었어요”에서<br /><span>“이렇게 생각했어요”로.</span></h2><p>정답 하나만 남기는 대신, 학생이 선택한 근거와 최종 보고를 남깁니다. 교사와 학부모가 수업의 가치를 같은 장면으로 확인할 수 있습니다.</p><a className="text-link" href="/academy/sample">결과물 샘플 보기 <span>↗</span></a></div></section>
-    <section className="story-section shell"><div className="story-copy"><Kicker>THE FIRST EPISODE</Kicker><h2>보충반의<br /><em>사라진 열쇠</em></h2><p>재시험을 시작하려던 순간, 원장실 벽면에 있어야 할 두 개의 열쇠가 사라졌습니다. 네 명의 학생이 남긴 영어 단서와 3층 공간의 관계를 연결하며 사건을 풀어가는 미스터리 추리 콘텐츠입니다.</p><a className="text-link" href="/academy/sample">에피소드 자료 살펴보기 <span>↗</span></a></div><div className="story-assets"><div className="story-map"><img src="/assets/dullg/floor-map-3f.png" alt="3층 원장실과 자습실 평면도" loading="lazy" /><span>3F / LOCATION MAP</span></div><div className="cast-strip"><img src="/assets/dullg/yoonjiwon.png" alt="윤지원 캐릭터" loading="lazy" /><img src="/assets/dullg/parksejun.png" alt="박세준 캐릭터" loading="lazy" /><img src="/assets/dullg/chaharin.png" alt="차하린 캐릭터" loading="lazy" /><img src="/assets/dullg/handokyung.png" alt="한도경 캐릭터" loading="lazy" /></div></div></section>
-    <section className="final-cta shell"><div><Kicker>BRING DULLG TO YOUR CLASS</Kicker><h2>우리 반의 첫 사건을<br /><em>함께 시작해보세요.</em></h2></div><ArrowButton light>파일럿 문의하기</ArrowButton></section>
-  </PageFrame>;
+  return (
+    <PageFrame>
+      <section className="academy-overview-hero shell">
+        <div>
+          <Kicker>DULLG PRODUCT OVERVIEW</Kicker>
+          <h1>
+            출력해서 바로 시작하고,
+            <br />
+            <em>학생의 영어 기록으로 마무리합니다.</em>
+          </h1>
+          <p>
+            DullG는 초등학교 6학년부터 중학교 1학년을 위한 4차시 영어
+            미스터리 수업팩입니다. 학생은 사건을 해결하기 위해 영어를 읽고
+            설명하며, 교사는 완성된 진행 자료로 수업을 운영합니다.
+          </p>
+          <div className="academy-overview-actions">
+            <ArrowButton href="/#apply">샘플 자료 받아보기</ArrowButton>
+            <a href="/academy/curriculum">
+              4차시 구성 먼저 보기
+              <ArrowRight size={17} weight="bold" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+
+        <figure className="academy-overview-cover">
+          <img
+            src="/assets/dullg/rulebook-cover.png"
+            alt="첫 번째 에피소드 보충반의 사라진 열쇠 규칙서 표지"
+          />
+          <figcaption>CASE FILE 01 · 보충반의 사라진 열쇠</figcaption>
+        </figure>
+      </section>
+
+      <section
+        className="academy-overview-facts shell"
+        aria-label="수업팩 운영 조건"
+      >
+        <div>
+          <b>4차시</b>
+          <span>읽기·토론·쓰기 통합</span>
+        </div>
+        <div>
+          <b>초6~중1</b>
+          <span>권장 학년</span>
+        </div>
+        <div>
+          <b>4~16명</b>
+          <span>권장 인원</span>
+        </div>
+        <div>
+          <b>30분 이내</b>
+          <span>첫 수업 준비 목표</span>
+        </div>
+      </section>
+
+      <section className="academy-overview-value shell">
+        <div className="academy-overview-value-head">
+          <Kicker>WHY DULLG</Kicker>
+          <h2>
+            활동이 재미있는 이유와
+            <br />
+            <em>학원에서 운영할 이유를 연결합니다.</em>
+          </h2>
+        </div>
+        <div className="academy-overview-value-list">
+          <article>
+            <span>FOR STUDENTS</span>
+            <h3>영어가 문제를 푸는 도구가 됩니다</h3>
+            <p>
+              각자 다른 단서를 가지고 있어 읽은 내용을 설명하고 질문해야 팀이
+              다음 단계로 이동할 수 있습니다.
+            </p>
+          </article>
+          <article>
+            <span>FOR TEACHERS</span>
+            <h3>수업 준비보다 학생에게 집중합니다</h3>
+            <p>
+              차시별 대본, 역할 배정, 힌트와 정답이 함께 제공되어 교사는
+              진행과 관찰에 집중할 수 있습니다.
+            </p>
+          </article>
+          <article>
+            <span>FOR ACADEMIES</span>
+            <h3>학부모에게 보여줄 결과물이 남습니다</h3>
+            <p>
+              팀 사건보고서와 개인 영어 작성지로 학생이 무엇을 읽고 말하고
+              썼는지 구체적으로 설명할 수 있습니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="academy-overview-map">
+        <div className="shell">
+          <div className="academy-overview-map-head">
+            <Kicker>EXPLORE THE PRODUCT</Kicker>
+            <h2>
+              검토에 필요한 정보를
+              <br />
+              <em>순서대로 확인하세요.</em>
+            </h2>
+            <p>
+              전체 설명을 반복하지 않고, 각 상세 페이지가 하나의 판단 질문에
+              답하도록 구성했습니다.
+            </p>
+          </div>
+
+          <div className="academy-overview-pathways">
+            {pathways.map((pathway) => {
+              const Icon = pathway.icon;
+              return (
+                <a href={pathway.href} key={pathway.number}>
+                  <span className="academy-overview-path-number">
+                    {pathway.number}
+                  </span>
+                  <span className="academy-overview-path-icon" aria-hidden="true">
+                    <Icon size={28} weight="duotone" />
+                  </span>
+                  <span>
+                    <h3>{pathway.title}</h3>
+                    <p>{pathway.body}</p>
+                  </span>
+                  <strong>
+                    {pathway.cta}
+                    <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
+                  </strong>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="academy-overview-experience shell">
+        <div className="academy-overview-experience-copy">
+          <Kicker>FROM CLUE TO REPORT</Kicker>
+          <h2>
+            단서는 대화가 되고,
+            <br />
+            <em>대화는 보고서가 됩니다.</em>
+          </h2>
+          <p>
+            학생들은 각자 가진 카드에서 사실을 찾고, 서로의 시간과 장소를
+            비교해 가설을 만듭니다. 새로운 단서가 나오면 판단을 수정하고,
+            마지막에는 근거를 영어 문장으로 정리합니다.
+          </p>
+          <a href="/episode">
+            실제 사건 흐름 보기
+            <ArrowRight size={17} weight="bold" aria-hidden="true" />
+          </a>
+        </div>
+        <div className="academy-overview-experience-images">
+          <figure>
+            <img
+              src="/assets/dullg/students-investigation.png"
+              alt="학생들이 단서와 평면도를 함께 살펴보는 수업 장면"
+              loading="lazy"
+            />
+            <figcaption>단서 공유와 팀 추론</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="/assets/dullg/mat-report.png"
+              alt="수업 뒤 학부모에게 전달할 수 있는 학생 결과 리포트"
+              loading="lazy"
+            />
+            <figcaption>수업 뒤에 남는 활동 결과</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section className="academy-overview-pilot">
+        <div className="shell academy-overview-pilot-grid">
+          <div>
+            <Kicker>CURRENT STATUS · PILOT</Kicker>
+            <h2>
+              먼저 자료를 확인하고,
+              <br />
+              <em>운영 여부는 그다음에 결정하세요.</em>
+            </h2>
+          </div>
+          <div>
+            <p>
+              현재 파일럿 단계로, 수업 피드백에 따라 일부 자료가 조정될 수
+              있습니다. 파일럿 기간에는 자료를 무료로 제공하며 구매 의무가
+              없습니다.
+            </p>
+            <ArrowButton light href="/#apply">
+              샘플 자료 요청하기
+            </ArrowButton>
+          </div>
+        </div>
+      </section>
+    </PageFrame>
+  );
 }

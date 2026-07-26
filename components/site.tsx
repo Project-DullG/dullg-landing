@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Header } from "./header";
@@ -11,29 +12,68 @@ export const curriculum = [
 
 export function Footer() {
   return (
-    <footer className="footer shell">
-      <Link className="brand" href="/">
-        <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
-        <span>DullG</span>
-      </Link>
-      <p>© 2026 DullG. Read the clues. Tell your story.</p>
-      <div>
-        <a href="/about">소개</a>
-        <a href="/episode">에피소드</a>
-        <a href="/academy/curriculum">커리큘럼</a>
-        <a href="/academy/sample">샘플 자료</a>
-        <a href="/academy/pilot">파일럿 안내</a>
-        <a href="/contact">Contact</a>
+    <footer className="site-footer">
+      <div className="shell site-footer-grid">
+        <div className="site-footer-brand">
+          <Link className="brand" href="/">
+            <span className="brand-mark" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+            </span>
+            <span>DullG</span>
+          </Link>
+          <p>
+            영어를 읽고, 추리하고, 설명하는
+            <br />
+            4차시 미스터리 수업팩
+          </p>
+        </div>
+
+        <div className="site-footer-links">
+          <strong>제품</strong>
+          <Link href="/academy">제품 소개</Link>
+          <Link href="/academy/curriculum">4차시 커리큘럼</Link>
+          <Link href="/academy/sample">실제 수업 자료</Link>
+          <Link href="/episode">에피소드 01</Link>
+        </div>
+
+        <div className="site-footer-links">
+          <strong>운영</strong>
+          <Link href="/academy/pilot">파일럿 운영 안내</Link>
+          <Link href="/about">DullG 소개</Link>
+          <Link href="/contact">문의하기</Link>
+          <a href="/sitemap.xml">사이트맵</a>
+        </div>
+
+        <div className="site-footer-contact">
+          <strong>문의</strong>
+          <a href="mailto:hello@dullg.com">hello@dullg.com</a>
+          <p>영업일 1~2일 내 답변</p>
+          <p>현재 파일럿 단계</p>
+        </div>
+      </div>
+
+      <div className="shell site-footer-bottom">
+        <p>© 2026 DullG. Read the clues. Tell your story.</p>
+        <Link href="/privacy">개인정보 처리 안내</Link>
       </div>
     </footer>
   );
 }
 
 export function PageFrame({ children }: { children: ReactNode }) {
-  return <><Header /><main>{children}</main><Footer /></>;
+  return <><Header /><main id="main-content">{children}</main><Footer /></>;
 }
 
 export function Kicker({ children }: { children: ReactNode }) { return <p className="section-kicker">{children}</p>; }
-export function ArrowButton({ children, light = false, href = "/academy/pilot" }: { children: ReactNode; light?: boolean; href?: string }) { return <a className={`button ${light ? "button-light" : "button-dark"}`} href={href}>{children} <span>↗</span></a>; }
+export function ArrowButton({ children, light = false, href = "/academy/pilot" }: { children: ReactNode; light?: boolean; href?: string }) {
+  return (
+    <a className={`button ${light ? "button-light" : "button-dark"}`} href={href}>
+      {children}
+      <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
+    </a>
+  );
+}
 
 export { Header } from "./header";

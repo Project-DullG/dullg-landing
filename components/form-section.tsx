@@ -1,8 +1,10 @@
 "use client";
 
+import { ArrowUpRight, CheckCircle } from "@phosphor-icons/react";
 import { useState, useRef } from "react";
 
 type State = "idle" | "submitting" | "success" | "error";
+type ErrorField = "academy" | "name" | "contact" | "interest" | "consent" | null;
 
 // TODO: 실제 폼 백엔드 연결 방법 (아래 중 하나 선택)
 // Option 1: formsubmit.co (무료, 첫 제출 시 이메일 인증 필요)
@@ -15,32 +17,56 @@ const SUBMIT_URL = "https://formsubmit.co/ajax/hello@dullg.com";
 export function FormSection() {
   const [state, setState] = useState<State>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [errorField, setErrorField] = useState<ErrorField>(null);
   const formRef = useRef<HTMLFormElement>(null);
+
+  function showFieldError(field: Exclude<ErrorField, null>, message: string) {
+    setErrorMsg(message);
+    setErrorField(field);
+    setState("error");
+    requestAnimationFrame(() => {
+      const control = formRef.current?.elements.namedItem(field);
+      if (control instanceof HTMLElement) control.focus();
+    });
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setErrorMsg("");
+    setErrorField(null);
 
     const form = e.currentTarget;
     const data = new FormData(form);
 
     // 클라이언트 유효성 검사
     const requiredFields: [string, string][] = [
-      ["academy", "기관명"],
-      ["name", "담당자 이름"],
-      ["contact", "연락처 또는 이메일"],
-      ["interest", "관심 유형"],
+      ["academy", "기관명을 입력해주세요."],
+      ["name", "담당자 이름을 입력해주세요."],
+      ["contact", "연락처 또는 이메일을 입력해주세요."],
+      ["interest", "관심 유형을 선택해주세요."],
     ];
-    for (const [field, label] of requiredFields) {
+    for (const [field, message] of requiredFields) {
       if (!data.get(field)) {
-        setErrorMsg(`${label}을(를) 입력해주세요.`);
-        setState("error");
+        showFieldError(
+          field as Exclude<ErrorField, "consent" | null>,
+          message,
+        );
         return;
       }
     }
+    const contact = String(data.get("contact")).trim();
+    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
+    const phoneDigits = contact.replace(/\D/g, "");
+    const isPhone = phoneDigits.length >= 9 && phoneDigits.length <= 11;
+    if (!isEmail && !isPhone) {
+      showFieldError(
+        "contact",
+        "연락 가능한 휴대전화 번호 또는 이메일 주소를 확인해주세요.",
+      );
+      return;
+    }
     if (!data.get("consent")) {
-      setErrorMsg("개인정보 수집·이용에 동의해주세요.");
-      setState("error");
+      showFieldError("consent", "개인정보 수집·이용에 동의해주세요.");
       return;
     }
 
@@ -70,6 +96,7 @@ export function FormSection() {
       setState("success");
     } catch {
       setState("error");
+      setErrorField(null);
       setErrorMsg(
         "일시적인 오류가 발생했습니다. hello@dullg.com으로 직접 문의해주세요."
       );
@@ -79,7 +106,9 @@ export function FormSection() {
   if (state === "success") {
     return (
       <div className="apply-form form-success" role="status" aria-live="polite">
-        <div className="form-success-icon" aria-hidden="true">✓</div>
+        <div className="form-success-icon" aria-hidden="true">
+          <CheckCircle size={42} weight="fill" />
+        </div>
         <h3>요청이 접수되었습니다</h3>
         <p>영업일 1~2일 내 입력하신 연락처로 샘플 자료를 보내드립니다.</p>
         <p className="form-success-contact">
@@ -108,6 +137,9 @@ export function FormSection() {
           type="text"
           placeholder="학원 또는 공부방 이름"
           autoComplete="organization"
+          required
+          aria-invalid={errorField === "academy"}
+          aria-describedby={errorField === "academy" ? "apply-form-error" : undefined}
           disabled={state === "submitting"}
         />
       </label>
@@ -120,6 +152,9 @@ export function FormSection() {
           type="text"
           placeholder="원장님 또는 선생님 이름"
           autoComplete="name"
+          required
+          aria-invalid={errorField === "name"}
+          aria-describedby={errorField === "name" ? "apply-form-error" : undefined}
           disabled={state === "submitting"}
         />
       </label>
@@ -132,6 +167,9 @@ export function FormSection() {
           type="text"
           placeholder="휴대전화 또는 이메일 주소"
           autoComplete="on"
+          required
+          aria-invalid={errorField === "contact"}
+          aria-describedby={errorField === "contact" ? "apply-form-error" : undefined}
           disabled={state === "submitting"}
         />
       </label>
@@ -149,7 +187,15 @@ export function FormSection() {
 
         <label htmlFor="af-interest">
           관심 유형 <span className="field-required" aria-label="필수">*</span>
-          <select id="af-interest" name="interest" defaultValue="" disabled={state === "submitting"}>
+          <select
+            id="af-interest"
+            name="interest"
+            defaultValue=""
+            required
+            aria-invalid={errorField === "interest"}
+            aria-describedby={errorField === "interest" ? "apply-form-error" : undefined}
+            disabled={state === "submitting"}
+          >
             <option value="" disabled>선택해주세요</option>
             <option value="샘플 자료 요청">샘플 자료 요청</option>
             <option value="파일럿 수업 문의">파일럿 수업 문의</option>
@@ -171,7 +217,9 @@ export function FormSection() {
       </label>
 
       {state === "error" && errorMsg && (
-        <p className="form-error" role="alert">{errorMsg}</p>
+        <p id="apply-form-error" className="form-error" role="alert">
+          {errorMsg}
+        </p>
       )}
 
       <label className="consent" htmlFor="af-consent">
@@ -179,13 +227,16 @@ export function FormSection() {
           type="checkbox"
           id="af-consent"
           name="consent"
+          required
+          aria-invalid={errorField === "consent"}
+          aria-describedby={errorField === "consent" ? "apply-form-error" : undefined}
           disabled={state === "submitting"}
         />
         <span>
           자료 발송 및 파일럿 안내를 위한 개인정보(이름·연락처) 수집·이용에
           동의합니다.{" "}
-          <a href="mailto:hello@dullg.com" aria-label="개인정보 관련 문의">
-            개인정보 문의
+          <a href="/privacy">
+            개인정보 처리 안내
           </a>
         </span>
       </label>
@@ -202,7 +253,10 @@ export function FormSection() {
             전송 중...
           </>
         ) : (
-          <>자료 요청하기 <span aria-hidden="true">↗</span></>
+          <>
+            자료 요청하기
+            <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
+          </>
         )}
       </button>
 

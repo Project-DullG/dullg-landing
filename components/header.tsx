@@ -49,7 +49,7 @@ export function Header() {
         </div>
 
         <Link className="nav-cta" href="/#apply">
-          샘플 자료 받아보기
+          무료 샘플 받아보기
           <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
         </Link>
 
@@ -84,7 +84,7 @@ export function Header() {
             href="/#apply"
             onClick={() => setIsOpen(false)}
           >
-            샘플 자료 받아보기
+            무료 샘플 받아보기
             <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
           </Link>
         </div>

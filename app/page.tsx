@@ -133,7 +133,7 @@ const faqs = [
     a: "단서 카드는 초등 6학년 수준 어휘를 기준으로 구성합니다. 정답보다 정보를 찾고 설명하는 과정이 중심이라 다양한 수준의 학생이 역할을 나눠 참여할 수 있습니다.",
   },
   {
-    q: "교사가 영어 원어민이 아니어도 운영할 수 있나요?",
+    q: "원어민 교사가 아니어도 운영할 수 있나요?",
     a: "교사용 진행안에 수업 순서, 대본, 단계별 힌트와 정답을 함께 제공합니다. 교사가 자료를 새로 만들지 않고 진행에 집중하도록 설계했습니다.",
   },
   {
@@ -164,12 +164,13 @@ export default function Home() {
             <em>4차시 미스터리 수업</em>
           </h1>
           <p>
-            완성된 자료를 출력하세요. 학생은 영어 단서를 읽고 팀원과
-            토론하며, 학부모에게 보여줄 사건보고서로 수업을 마무리합니다.
+            교사는 완성된 자료를 출력하고 역할만 배정합니다. 학생은 서로
+            다른 영어 단서를 읽고 설명하며, 마지막에는 근거가 담긴
+            사건보고서를 완성합니다.
           </p>
           <div className="product-hero-actions">
             <a className="button button-dark" href="#apply">
-              샘플 자료 받아보기
+              무료 샘플 받아보기
               <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
             </a>
             <a className="product-secondary-link" href="#curriculum">
@@ -177,7 +178,7 @@ export default function Home() {
               <ArrowDown size={17} weight="bold" aria-hidden="true" />
             </a>
           </div>
-          <small>샘플 요청 무료 · 구매 의무 없음 · 영업일 1~2일 내 답변</small>
+          <small>무료 검토팩 · 참여 의무 없음 · 영업일 1~2일 내 발송 안내</small>
         </div>
 
         <figure className="product-hero-visual">
@@ -224,17 +225,17 @@ export default function Home() {
 
       <section className="product-fit shell">
         <div className="product-section-heading">
-          <Kicker>BUILT FOR REAL ACADEMY CLASSES</Kicker>
+          <Kicker>학원 수업에 맞춘 설계</Kicker>
           <h2>
-            방학특강에서 필요한 세 가지를
+            학생 참여, 교사 준비, 학부모 설명을
             <br />
-            <em>한 수업 안에 넣었습니다.</em>
+            <em>한 흐름으로 연결했습니다.</em>
           </h2>
         </div>
         <div className="product-fit-list">
           <article>
             <span>01</span>
-            <h3>학생은 먼저 움직입니다</h3>
+            <h3>학생은 설명해야 다음으로 갑니다</h3>
             <p>
               각자 가진 단서가 달라 서로 설명하고 질문해야 사건을 해결할 수
               있습니다.
@@ -286,15 +287,15 @@ export default function Home() {
 
       <section className="product-routes shell" aria-labelledby="routes-title">
         <div className="product-section-heading">
-          <Kicker>EXPLORE DULLG</Kicker>
+          <Kicker>도입 전 확인하기</Kicker>
           <h2 id="routes-title">
-            필요한 정보부터
+            검토 순서에 맞춰
             <br />
-            <em>한눈에 확인하세요.</em>
+            <em>필요한 정보만 보세요.</em>
           </h2>
           <p>
-            홈에서는 전체 맥락을, 상세 페이지에서는 수업과 자료를 더
-            구체적으로 확인할 수 있습니다.
+            수업 구조, 실제 자료, 운영 조건 중 지금 필요한 내용부터
+            확인할 수 있습니다.
           </p>
         </div>
 
@@ -323,7 +324,7 @@ export default function Home() {
         <div className="shell">
           <div className="product-section-heading product-section-heading-row">
             <div>
-              <Kicker>REAL MATERIALS · NO PLACEHOLDERS</Kicker>
+              <Kicker>실제 제공 자료</Kicker>
               <h2>
                 설명보다 먼저,
                 <br />
@@ -366,7 +367,7 @@ export default function Home() {
           <figcaption>학생 활동 기록 예시 · 사건 타임라인</figcaption>
         </figure>
         <div className="product-outcome-copy">
-          <Kicker>WHAT REMAINS AFTER CLASS</Kicker>
+          <Kicker>수업 뒤에 남는 기록</Kicker>
           <h2>
             재미로 끝나지 않고,
             <br />
@@ -440,7 +441,7 @@ export default function Home() {
 
       <section className="product-trust shell">
         <div className="product-trust-intro">
-          <Kicker>WHY TRUST DULLG</Kicker>
+          <Kicker>현재 운영 원칙</Kicker>
           <h2>
             완성된 자료와
             <br />
@@ -492,7 +493,7 @@ export default function Home() {
       <section className="product-process" id="process">
         <div className="shell">
           <div className="product-section-heading">
-            <Kicker>HOW TO START</Kicker>
+            <Kicker>샘플부터 파일럿까지</Kicker>
             <h2>
               시작 이후의 과정을
               <br />
@@ -517,7 +518,7 @@ export default function Home() {
 
       <section className="product-faq shell">
         <div className="product-section-heading">
-          <Kicker>FREQUENTLY ASKED</Kicker>
+          <Kicker>도입 전 자주 묻는 질문</Kicker>
           <h2>검토 전에 많이 묻는 질문</h2>
         </div>
         <div className="product-faq-list">
@@ -533,7 +534,7 @@ export default function Home() {
       <section className="product-apply" id="apply">
         <div className="shell product-apply-grid">
           <div className="product-apply-copy">
-            <Kicker>GET THE SAMPLE PACK</Kicker>
+            <Kicker>무료 검토팩</Kicker>
             <h2>
               파일럿보다 먼저,
               <br />

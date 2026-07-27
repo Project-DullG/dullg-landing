@@ -165,11 +165,11 @@ export default function EpisodePage() {
           </h2>
           <p>
             단서 카드, 교사용 진행안, 학생 결과물 샘플을 묶어
-            보내드립니다. 파일럿 기간에는 무료입니다.
+            보내드립니다. 검토용 샘플 자료는 무료입니다.
           </p>
         </div>
         <div className="ep-cta-actions">
-          <ArrowButton href="/#apply">샘플 자료 요청</ArrowButton>
+          <ArrowButton href="/#apply">무료 샘플 받아보기</ArrowButton>
           <a className="text-link" href="/academy/sample">자료 미리 보기 →</a>
         </div>
       </section>

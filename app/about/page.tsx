@@ -115,11 +115,11 @@ export default function AboutPage() {
               자료를 다듬고, 다음 에피소드를 준비 중입니다.
             </p>
             <p>
-              아직 초기 단계입니다. 지금 함께하는 학원에는 자료를 무료로
+              아직 초기 단계입니다. 현재 검토용 샘플 자료를 무료로
               제공합니다. 먼저 확인하고, 그 이후를 결정하면 됩니다.
             </p>
             <div className="about-now-actions">
-              <ArrowButton light href="/#apply">샘플 자료 받아보기</ArrowButton>
+              <ArrowButton light href="/#apply">무료 샘플 받아보기</ArrowButton>
               <a className="text-link-light" href="/episode">
                 첫 번째 에피소드 →
               </a>

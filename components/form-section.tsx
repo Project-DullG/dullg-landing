@@ -125,9 +125,9 @@ export function FormSection() {
       className="apply-form"
       onSubmit={handleSubmit}
       noValidate
-      aria-label="샘플 자료 요청 양식"
+      aria-label="무료 샘플 요청 양식"
     >
-      <h3>샘플 자료 요청</h3>
+      <h3>무료 샘플 요청</h3>
 
       <label htmlFor="af-academy">
         기관명 <span className="field-required" aria-label="필수">*</span>
@@ -197,9 +197,9 @@ export function FormSection() {
             disabled={state === "submitting"}
           >
             <option value="" disabled>선택해주세요</option>
-            <option value="샘플 자료 요청">샘플 자료 요청</option>
+            <option value="무료 샘플 요청">무료 샘플 요청</option>
             <option value="파일럿 수업 문의">파일럿 수업 문의</option>
-            <option value="구매 문의">구매 문의</option>
+            <option value="운영 조건 문의">운영 조건 문의</option>
             <option value="기타 문의">기타 문의</option>
           </select>
         </label>
@@ -254,7 +254,7 @@ export function FormSection() {
           </>
         ) : (
           <>
-            자료 요청하기
+            무료 샘플 요청하기
             <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
           </>
         )}

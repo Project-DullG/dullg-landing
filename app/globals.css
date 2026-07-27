@@ -2388,8 +2388,8 @@ blockquote em {
 }
 .pilot-section {
   display: grid;
-  grid-template-columns: 43% 57%;
-  gap: 8%;
+  grid-template-columns: minmax(0, 43fr) minmax(0, 57fr);
+  gap: clamp(28px, 5vw, 70px);
   padding-bottom: 140px;
 }
 .pilot-info ol {
@@ -2507,8 +2507,8 @@ blockquote em {
 .sample-gallery {
   padding: 125px 0;
   display: grid;
-  grid-template-columns: 40% 60%;
-  gap: 8%;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: clamp(28px, 5vw, 70px);
   border-top: 1px solid var(--line);
 }
 .sample-gallery h2 {
@@ -2715,6 +2715,23 @@ blockquote em {
   font-family: var(--font-playfair);
   font-weight: 500;
   color: var(--orange);
+}
+@media (max-width: 1080px) {
+  .sample-grid {
+    padding-inline: 18px;
+  }
+  .sample-card {
+    box-shadow: 6px 8px 0 rgba(21, 37, 30, 0.1);
+  }
+  .sample-clue {
+    transform: rotate(-0.6deg);
+  }
+  .sample-workbook {
+    transform: rotate(0.6deg);
+  }
+  .sample-report {
+    transform: rotate(-0.4deg);
+  }
 }
 @media (max-width: 760px) {
   .sample-card {

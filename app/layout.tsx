@@ -17,9 +17,9 @@ const playfair = Playfair_Display({ weight: ["500", "600"], style: ["normal", "i
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "DullG | 영어학원 방학특강 4차시 수업팩 — 교사 준비 30분, 학생 결과물 포함",
+  title: "DullG | 영어학원 방학특강 4차시 수업팩 — 첫 수업 준비 30분 목표",
   description:
-    "초6~중1 영어학원을 위한 완성형 4차시 수업팩. 영어 미스터리 프로젝트 수업으로 학생이 참여하고 학부모에게 보여줄 결과물이 남습니다. 파일럿 자료 무료 제공.",
+    "초6~중1 영어학원을 위한 완성형 4차시 수업팩. 영어 미스터리 프로젝트 수업으로 학생이 참여하고, 학부모에게 보여줄 결과물이 남습니다. 무료 샘플 제공.",
   keywords: ["영어학원", "방학특강", "수업자료", "영어수업팩", "중등영어", "초등영어", "학원특강"],
   alternates: {
     canonical: "/",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     url: "/",
     title: "DullG | 영어학원 방학특강 4차시 수업팩",
     description:
-      "교사 준비 30분 이내. 학생은 영어로 사건을 해결하고, 학부모에겐 결과물이 남는 방학특강 수업팩.",
+      "첫 수업 준비 30분 이내를 목표로 설계했습니다. 학생은 영어로 사건을 해결하고, 학부모에게 보여줄 결과물이 남습니다.",
     siteName: "DullG",
     images: [
       {

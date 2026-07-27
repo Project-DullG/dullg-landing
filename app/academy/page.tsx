@@ -57,17 +57,17 @@ export default function AcademyPage() {
         <div>
           <Kicker>DULLG PRODUCT OVERVIEW</Kicker>
           <h1>
-            출력해서 바로 시작하고,
+            수업 준비부터 결과물까지,
             <br />
-            <em>학생의 영어 기록으로 마무리합니다.</em>
+            <em>4차시 운영 구조를 한눈에.</em>
           </h1>
           <p>
-            DullG는 초등학교 6학년부터 중학교 1학년을 위한 4차시 영어
-            미스터리 수업팩입니다. 학생은 사건을 해결하기 위해 영어를 읽고
-            설명하며, 교사는 완성된 진행 자료로 수업을 운영합니다.
+            학생용 단서 카드와 워크북, 교사용 진행안, 결과물 예시를 하나의
+            수업팩으로 제공합니다. 아래에서 수업 방식, 실제 자료, 운영
+            과정을 순서대로 확인하세요.
           </p>
           <div className="academy-overview-actions">
-            <ArrowButton href="/#apply">샘플 자료 받아보기</ArrowButton>
+            <ArrowButton href="/#apply">무료 샘플 받아보기</ArrowButton>
             <a href="/academy/curriculum">
               4차시 구성 먼저 보기
               <ArrowRight size={17} weight="bold" aria-hidden="true" />
@@ -235,11 +235,11 @@ export default function AcademyPage() {
           <div>
             <p>
               현재 파일럿 단계로, 수업 피드백에 따라 일부 자료가 조정될 수
-              있습니다. 파일럿 기간에는 자료를 무료로 제공하며 구매 의무가
-              없습니다.
+              있습니다. 현재 검토용 샘플 자료는 무료로 제공하며, 파일럿
+              참여 의무는 없습니다.
             </p>
             <ArrowButton light href="/#apply">
-              샘플 자료 요청하기
+              무료 샘플 받아보기
             </ArrowButton>
           </div>
         </div>

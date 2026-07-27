@@ -13,13 +13,13 @@ export default function SamplePage() {
       <section className="inner-hero shell">
         <Kicker>실제 제공 자료 · CASE FILE 01</Kicker>
         <h1>
-          어떤 자료가 오고,
+          어떤 자료를 받고,
           <br />
-          <em>수업에서 어떻게 쓰이는지 확인하세요.</em>
+          <em>어떻게 쓰는지 살펴보세요.</em>
         </h1>
         <p>
-          아래 이미지는 실제 1회차 단서 카드와 교사용 진행안입니다. 학생은
-          읽고 비교하고 기록하며, 교사는 정해진 순서대로 수업을 진행합니다.
+          실제 1회차 단서 카드와 교사용 진행안입니다. 학생은 읽고 비교해
+          기록하고, 교사는 안내된 순서에 따라 수업을 진행합니다.
         </p>
       </section>
 

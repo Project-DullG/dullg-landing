@@ -8,8 +8,8 @@ const routeHtml = (route) =>
 test("renders the home conversion path with real product evidence", async () => {
   const html = await readFile(routeHtml("index.html"), "utf8");
 
-  assert.match(html, /영어를 써야만 풀리는/);
-  assert.match(html, /4차시 미스터리 수업/);
+  assert.match(html, /영어로 단서를 읽고/);
+  assert.match(html, /함께 푸는 미스터리 수업/);
   assert.match(html, /무료 샘플 받아보기/);
   assert.match(html, /4차시 수업 흐름/);
   assert.match(html, /실제 자료를 보여드립니다/);
@@ -29,7 +29,7 @@ test("renders detailed product routes with working navigation targets", async ()
   ]);
 
   assert.match(academy, /DULLG PRODUCT OVERVIEW/);
-  assert.match(academy, /4차시 운영 구조를/);
+  assert.match(academy, /한눈에 보는 4차시 수업팩/);
   assert.match(academy, /href="\/academy\/curriculum"/);
   assert.match(academy, /href="\/academy\/sample"/);
   assert.match(academy, /href="\/academy\/pilot"/);

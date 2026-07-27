@@ -57,14 +57,14 @@ export default function AcademyPage() {
         <div>
           <Kicker>DULLG PRODUCT OVERVIEW</Kicker>
           <h1>
-            수업 준비부터 결과물까지,
+            준비부터 결과물까지,
             <br />
-            <em>4차시 운영 구조를 한눈에.</em>
+            <em>한눈에 보는 4차시 수업팩</em>
           </h1>
           <p>
-            학생용 단서 카드와 워크북, 교사용 진행안, 결과물 예시를 하나의
-            수업팩으로 제공합니다. 아래에서 수업 방식, 실제 자료, 운영
-            과정을 순서대로 확인하세요.
+            학생용 단서 카드와 워크북, 교사용 진행안, 결과물 예시를 한
+            수업팩에 담았습니다. 수업 방식과 실제 자료, 운영 과정을
+            차례로 확인해보세요.
           </p>
           <div className="academy-overview-actions">
             <ArrowButton href="/#apply">무료 샘플 받아보기</ArrowButton>

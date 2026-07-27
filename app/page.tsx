@@ -159,14 +159,14 @@ export default function Home() {
         <div className="product-hero-copy">
           <Kicker>초6~중1 영어학원 방학특강 · 4차시 완성형 수업팩</Kicker>
           <h1 id="home-title">
-            영어를 써야만 풀리는
+            영어로 단서를 읽고,
             <br />
-            <em>4차시 미스터리 수업</em>
+            <em>함께 푸는 미스터리 수업</em>
           </h1>
           <p>
-            교사는 완성된 자료를 출력하고 역할만 배정합니다. 학생은 서로
-            다른 영어 단서를 읽고 설명하며, 마지막에는 근거가 담긴
-            사건보고서를 완성합니다.
+            교사는 자료를 출력해 역할을 나누고, 학생은 서로 다른 영어
+            단서를 읽고 설명합니다. 마지막에는 근거를 정리한 사건보고서가
+            남습니다.
           </p>
           <div className="product-hero-actions">
             <a className="button button-dark" href="#apply">
@@ -178,7 +178,7 @@ export default function Home() {
               <ArrowDown size={17} weight="bold" aria-hidden="true" />
             </a>
           </div>
-          <small>무료 검토팩 · 참여 의무 없음 · 영업일 1~2일 내 발송 안내</small>
+          <small>무료 검토팩 · 참여 부담 없음 · 영업일 1~2일 내 발송 안내</small>
         </div>
 
         <figure className="product-hero-visual">
@@ -227,9 +227,9 @@ export default function Home() {
         <div className="product-section-heading">
           <Kicker>학원 수업에 맞춘 설계</Kicker>
           <h2>
-            학생 참여, 교사 준비, 학부모 설명을
+            학생은 참여하고,
             <br />
-            <em>한 흐름으로 연결했습니다.</em>
+            <em>교사는 진행에 집중합니다.</em>
           </h2>
         </div>
         <div className="product-fit-list">

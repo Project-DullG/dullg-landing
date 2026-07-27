@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/academy", label: "제품 소개" },
   { href: "/episode", label: "에피소드" },
   { href: "/academy/sample", label: "수업 자료" },
+  { href: "/activity", label: "활동 기록" },
   { href: "/academy/pilot", label: "운영 안내" },
 ];
 

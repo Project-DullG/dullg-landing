@@ -36,6 +36,7 @@ export function Footer() {
           <Link href="/academy/curriculum">4차시 커리큘럼</Link>
           <Link href="/academy/sample">실제 수업 자료</Link>
           <Link href="/episode">에피소드 01</Link>
+          <Link href="/activity">활동 기록</Link>
         </div>
 
         <div className="site-footer-links">

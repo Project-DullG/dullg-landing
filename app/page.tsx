@@ -490,6 +490,45 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="product-activity-proof">
+        <div className="shell product-activity-proof-grid">
+          <div>
+            <Kicker>지금 만드는 과정</Kicker>
+            <h2>
+              완성된 것과
+              <br />
+              <em>확인 중인 것을 구분합니다.</em>
+            </h2>
+            <p>
+              실제 제작 자료와 현재 진행 상황을 공개합니다. 수업 현장 사진과
+              팀 소개는 공개 동의를 확인한 뒤 순서대로 추가하겠습니다.
+            </p>
+            <a href="/activity">
+              DullG 활동 기록 보기
+              <ArrowRight size={17} weight="bold" aria-hidden="true" />
+            </a>
+          </div>
+          <div className="product-activity-proof-images">
+            <figure>
+              <img
+                src="/assets/dullg/mat-game-cards.png"
+                alt="제작을 완료한 학생용 게임 카드"
+                loading="lazy"
+              />
+              <figcaption>현재 공개 자료 · 학생용 게임 카드</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="/assets/dullg/mat-teacher-guide.png"
+                alt="제작을 완료한 교사용 진행안"
+                loading="lazy"
+              />
+              <figcaption>현재 공개 자료 · 교사용 진행안</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       <section className="product-process" id="process">
         <div className="shell">
           <div className="product-section-heading">

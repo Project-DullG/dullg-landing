@@ -120,8 +120,8 @@ export default function AboutPage() {
             </p>
             <div className="about-now-actions">
               <ArrowButton light href="/#apply">무료 샘플 받아보기</ArrowButton>
-              <a className="text-link-light" href="/episode">
-                첫 번째 에피소드 →
+              <a className="text-link-light" href="/activity">
+                활동 기록 보기 →
               </a>
             </div>
           </div>

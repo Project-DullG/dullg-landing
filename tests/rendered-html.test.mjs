@@ -21,11 +21,12 @@ test("renders the home conversion path with real product evidence", async () => 
 });
 
 test("renders detailed product routes with working navigation targets", async () => {
-  const [academy, curriculum, sample, pilot] = await Promise.all([
+  const [academy, curriculum, sample, pilot, activity] = await Promise.all([
     readFile(routeHtml("academy.html"), "utf8"),
     readFile(routeHtml("academy/curriculum.html"), "utf8"),
     readFile(routeHtml("academy/sample.html"), "utf8"),
     readFile(routeHtml("academy/pilot.html"), "utf8"),
+    readFile(routeHtml("activity.html"), "utf8"),
   ]);
 
   assert.match(academy, /DULLG PRODUCT OVERVIEW/);
@@ -36,6 +37,8 @@ test("renders detailed product routes with working navigation targets", async ()
   assert.match(curriculum, /4차시 커리큘럼/);
   assert.match(sample, /실제 수업 자료/);
   assert.match(pilot, /파일럿/);
+  assert.match(activity, /현장 기록을 준비하고 있습니다/);
+  assert.match(activity, /실제 제공을 준비한 수업 자료/);
 });
 
 test("keeps core navigation and interactions accessible", async () => {

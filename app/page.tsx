@@ -4,9 +4,7 @@ import {
   BookOpenText,
   Clock,
   FileText,
-  FolderOpen,
   GraduationCap,
-  MagnifyingGlass,
   Printer,
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
@@ -41,41 +39,6 @@ const facts = [
   },
 ];
 
-const productRoutes = [
-  {
-    label: "01 · PRODUCT",
-    title: "제품 소개",
-    body: "DullG 수업팩이 누구에게 맞고, 수업에서 무엇을 바꾸는지 한눈에 확인합니다.",
-    href: "/academy",
-    cta: "제품 전체 보기",
-    icon: MagnifyingGlass,
-  },
-  {
-    label: "02 · CURRICULUM",
-    title: "4차시 커리큘럼",
-    body: "읽기·질문·토론·쓰기가 한 사건 안에서 어떻게 이어지는지 살펴봅니다.",
-    href: "/academy/curriculum",
-    cta: "차시별 구성 보기",
-    icon: BookOpenText,
-  },
-  {
-    label: "03 · MATERIALS",
-    title: "실제 수업 자료",
-    body: "학생용 단서 카드, 워크북, 교사용 진행안과 결과물 예시를 직접 확인합니다.",
-    href: "/academy/sample",
-    cta: "자료 미리 보기",
-    icon: FolderOpen,
-  },
-  {
-    label: "04 · PILOT",
-    title: "파일럿 운영 안내",
-    body: "샘플 요청부터 일정 조율, 수업 운영과 피드백까지의 과정을 안내합니다.",
-    href: "/academy/pilot",
-    cta: "운영 방식 보기",
-    icon: Printer,
-  },
-];
-
 const materialPreviews = [
   {
     title: "학생용 게임 카드",
@@ -100,29 +63,6 @@ const materialPreviews = [
     caption: "학생이 무엇을 읽고 말하고 썼는지 정리한 예시",
     image: "/assets/dullg/mat-report.png",
     alt: "학생의 활동 결과를 정리한 학부모 전달용 리포트",
-  },
-];
-
-const process = [
-  {
-    number: "01",
-    title: "샘플 요청",
-    body: "기관 정보와 관심 유형을 남기면 검토할 수 있는 자료를 보내드립니다.",
-  },
-  {
-    number: "02",
-    title: "자료 확인",
-    body: "수업 난이도, 구성품과 교사 준비 범위를 시제품 자료로 확인합니다.",
-  },
-  {
-    number: "03",
-    title: "일정 조율",
-    body: "학원 일정과 학생 수에 맞춰 파일럿 운영 방식을 함께 정합니다.",
-  },
-  {
-    number: "04",
-    title: "수업과 피드백",
-    body: "완성형 자료로 수업을 진행하고, 이후 자료 개선 의견을 나눕니다.",
   },
 ];
 
@@ -263,7 +203,7 @@ export default function Home() {
         <div className="shell">
           <div className="product-section-heading product-section-heading-row">
             <div>
-              <Kicker>ONE MYSTERY · FOUR LESSONS</Kicker>
+              <Kicker>하나의 사건, 네 번의 수업</Kicker>
               <h2>
                 4차시 수업 흐름을
                 <br />
@@ -281,41 +221,6 @@ export default function Home() {
           </div>
 
           <CurriculumExplorer />
-        </div>
-      </section>
-
-      <section className="product-routes shell" aria-labelledby="routes-title">
-        <div className="product-section-heading">
-          <Kicker>도입 전 확인하기</Kicker>
-          <h2 id="routes-title">
-            검토 순서에 맞춰
-            <br />
-            <em>필요한 정보만 보세요.</em>
-          </h2>
-          <p>
-            수업 구조, 시제품 자료, 운영 조건 중 지금 필요한 내용부터
-            확인할 수 있습니다.
-          </p>
-        </div>
-
-        <div className="product-route-grid">
-          {productRoutes.map((route) => {
-            const Icon = route.icon;
-            return (
-              <a href={route.href} className="product-route" key={route.href}>
-                <span className="product-route-icon" aria-hidden="true">
-                  <Icon size={27} weight="duotone" />
-                </span>
-                <small>{route.label}</small>
-                <h3>{route.title}</h3>
-                <p>{route.body}</p>
-                <strong>
-                  {route.cta}
-                  <ArrowRight size={17} weight="bold" aria-hidden="true" />
-                </strong>
-              </a>
-            );
-          })}
         </div>
       </section>
 
@@ -401,7 +306,7 @@ export default function Home() {
       <section className="product-episode">
         <div className="shell product-episode-grid">
           <div className="product-episode-copy">
-            <Kicker>EPISODE 01 · FIRST CASE</Kicker>
+            <Kicker>첫 번째 사건</Kicker>
             <h2>
               보충반의
               <br />
@@ -486,71 +391,6 @@ export default function Home() {
               </p>
             </div>
           </article>
-        </div>
-      </section>
-
-      <section className="product-activity-proof">
-        <div className="shell product-activity-proof-grid">
-          <div>
-            <Kicker>지금 만드는 과정</Kicker>
-            <h2>
-              완성된 것과
-              <br />
-              <em>확인 중인 것을 구분합니다.</em>
-            </h2>
-            <p>
-              제작한 시제품과 현재 진행 상황을 공개합니다. 수업 현장 사진과
-              팀 소개는 공개 동의를 확인한 뒤 순서대로 추가하겠습니다.
-            </p>
-            <a href="/activity">
-              DullG 활동 기록 보기
-              <ArrowRight size={17} weight="bold" aria-hidden="true" />
-            </a>
-          </div>
-          <div className="product-activity-proof-images">
-            <figure>
-              <img
-                src="/assets/dullg/mat-game-cards.png"
-                alt="제작한 학생용 게임 카드 시제품"
-                loading="lazy"
-              />
-              <figcaption>현재 공개 시제품 · 학생용 게임 카드</figcaption>
-            </figure>
-            <figure>
-              <img
-                src="/assets/dullg/mat-teacher-guide.png"
-                alt="제작한 교사용 진행안 시제품"
-                loading="lazy"
-              />
-              <figcaption>현재 공개 시제품 · 교사용 진행안</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section className="product-process" id="process">
-        <div className="shell">
-          <div className="product-section-heading">
-            <Kicker>샘플부터 파일럿까지</Kicker>
-            <h2>
-              시작 이후의 과정을
-              <br />
-              <em>미리 확인하세요.</em>
-            </h2>
-          </div>
-          <ol className="product-process-list">
-            {process.map((step) => (
-              <li key={step.number}>
-                <span>{step.number}</span>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
-              </li>
-            ))}
-          </ol>
-          <a className="product-process-link" href="/academy/pilot">
-            파일럿 운영 과정 자세히 보기
-            <ArrowRight size={17} weight="bold" aria-hidden="true" />
-          </a>
         </div>
       </section>
 

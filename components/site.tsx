@@ -56,7 +56,7 @@ export function Footer() {
       </div>
 
       <div className="shell site-footer-bottom">
-        <p>© 2026 DullG. Read the clues. Tell your story.</p>
+        <p>© 2026 DullG. 영어를 읽고, 근거를 말하고, 판단을 씁니다.</p>
         <Link href="/privacy">개인정보 처리 안내</Link>
       </div>
     </footer>

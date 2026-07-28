@@ -24,25 +24,25 @@ export function Footer() {
             <span>DullG</span>
           </Link>
           <p>
-            영어를 읽고, 추리하고, 설명하는
+            영어 단서를 읽고, 함께 추리하고,
             <br />
-            4차시 미스터리 수업팩
+            근거를 글로 남기는 4차시 수업팩
           </p>
         </div>
 
         <div className="site-footer-links">
-          <strong>제품</strong>
-          <Link href="/academy">제품 소개</Link>
-          <Link href="/academy/curriculum">4차시 커리큘럼</Link>
-          <Link href="/academy/sample">실제 수업 자료</Link>
-          <Link href="/episode">에피소드 01</Link>
-          <Link href="/activity">활동 기록</Link>
+          <strong>수업팩 살펴보기</strong>
+          <Link href="/academy">한눈에 보기</Link>
+          <Link href="/academy/curriculum">4차시 수업 흐름</Link>
+          <Link href="/academy/sample">자료 미리보기</Link>
+          <Link href="/episode">첫 번째 사건</Link>
         </div>
 
         <div className="site-footer-links">
-          <strong>운영</strong>
-          <Link href="/academy/pilot">파일럿 운영 안내</Link>
+          <strong>프로젝트</strong>
           <Link href="/about">DullG 소개</Link>
+          <Link href="/activity">제작·활동 기록</Link>
+          <Link href="/academy/pilot">파일럿 안내</Link>
           <Link href="/contact">문의하기</Link>
           <Link href="/sitemap">전체 페이지</Link>
         </div>
@@ -50,8 +50,8 @@ export function Footer() {
         <div className="site-footer-contact">
           <strong>문의</strong>
           <a href="mailto:hello@dullg.com">hello@dullg.com</a>
-          <p>영업일 1~2일 내 답변</p>
-          <p>현재 파일럿 단계</p>
+          <p>영업일 기준 1~2일 내 답변</p>
+          <Link className="site-footer-sample" href="/#apply">무료 검토팩 요청 →</Link>
         </div>
       </div>
 

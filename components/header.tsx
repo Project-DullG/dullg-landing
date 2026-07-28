@@ -6,11 +6,10 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navLinks = [
-  { href: "/academy", label: "제품 소개" },
-  { href: "/episode", label: "에피소드" },
-  { href: "/academy/sample", label: "수업 자료" },
-  { href: "/activity", label: "활동 기록" },
-  { href: "/academy/pilot", label: "운영 안내" },
+  { href: "/academy", label: "수업팩" },
+  { href: "/academy/curriculum", label: "커리큘럼" },
+  { href: "/academy/sample", label: "자료 미리보기" },
+  { href: "/about", label: "프로젝트 소개" },
 ];
 
 export function Header() {
@@ -31,11 +30,7 @@ export function Header() {
 
         <div className="nav-links">
           {navLinks.map((link) => {
-            const isActive =
-              link.href === "/academy"
-                ? pathname === "/academy" ||
-                  pathname === "/academy/curriculum"
-                : pathname === link.href;
+            const isActive = pathname === link.href;
 
             return (
               <Link
@@ -50,7 +45,7 @@ export function Header() {
         </div>
 
         <Link className="nav-cta" href="/#apply">
-          무료 샘플 받아보기
+          샘플 요청
           <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
         </Link>
 
@@ -85,7 +80,7 @@ export function Header() {
             href="/#apply"
             onClick={() => setIsOpen(false)}
           >
-            무료 샘플 받아보기
+            무료 샘플 요청
             <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
           </Link>
         </div>

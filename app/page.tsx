@@ -1,5 +1,4 @@
 import {
-  ArrowDown,
   ArrowRight,
   ArrowUpRight,
   BookOpenText,
@@ -157,28 +156,28 @@ export default function Home() {
 
       <section className="product-hero shell" aria-labelledby="home-title">
         <div className="product-hero-copy">
-          <Kicker>초6 수준에서 시작하는 영어학원용 4차시 수업팩 시제품</Kicker>
+          <Kicker>영어학원용 4차시 미스터리 수업팩</Kicker>
           <h1 id="home-title">
             영어로 단서를 읽고,
             <br />
             <em>함께 푸는 미스터리 수업</em>
           </h1>
           <p>
-            교사는 자료를 출력해 역할을 나누고, 학생은 서로 다른 영어
-            단서를 읽고 설명합니다. 마지막에는 근거를 정리한 사건보고서가
-            남습니다.
+            서로 다른 영어 단서를 가진 학생들이 정보를 나누고 사건을
+            해결합니다. 교사는 준비 부담을 줄이고, 수업 뒤에는 학생의
+            근거가 담긴 보고서를 확인할 수 있습니다.
           </p>
           <div className="product-hero-actions">
             <a className="button button-dark" href="#apply">
-              무료 샘플 받아보기
+              무료 검토팩 요청
               <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
             </a>
-            <a className="product-secondary-link" href="#curriculum">
-              수업 전체 흐름 보기
-              <ArrowDown size={17} weight="bold" aria-hidden="true" />
+            <a className="product-secondary-link" href="/academy/sample">
+              실제 자료 먼저 보기
+              <ArrowRight size={17} weight="bold" aria-hidden="true" />
             </a>
           </div>
-          <small>무료 검토팩 · 참여 부담 없음 · 영업일 1~2일 내 발송 안내</small>
+          <small>정식 출시 전 시제품 · 검토 후 참여 결정 · 영업일 1~2일 내 안내</small>
         </div>
 
         <figure className="product-hero-visual">

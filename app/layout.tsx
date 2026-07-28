@@ -34,8 +34,10 @@ export const metadata: Metadata = {
     siteName: "DullG",
     images: [
       {
-        url: "/assets/dullg/classroom-case.png",
-        alt: "DullG 영어 미스터리 수업이 시작되는 교실",
+        url: "/og.png",
+        width: 1731,
+        height: 909,
+        alt: "DullG 영어 미스터리 수업팩과 단서 카드",
       },
     ],
   },
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
     title: "DullG | 영어학원용 4차시 미스터리 수업팩 시제품",
     description:
       "초6 수준에서 첫 검증을 준비하는 영어학원용 4차시 미스터리 수업팩 시제품.",
-    images: ["/assets/dullg/classroom-case.png"],
+    images: ["/og.png"],
   },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };

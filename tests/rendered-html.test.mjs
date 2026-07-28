@@ -10,7 +10,7 @@ test("renders the home conversion path with real product evidence", async () => 
 
   assert.match(html, /영어로 단서를 읽고/);
   assert.match(html, /함께 푸는 미스터리 수업/);
-  assert.match(html, /무료 샘플 받아보기/);
+  assert.match(html, /무료 검토팩 요청/);
   assert.match(html, /4차시 수업 흐름/);
   assert.match(html, /제작한 시제품을 보여드립니다/);
   assert.match(html, /파일럿보다 먼저/);
@@ -34,7 +34,7 @@ test("renders detailed product routes with working navigation targets", async ()
   assert.match(academy, /href="\/academy\/curriculum"/);
   assert.match(academy, /href="\/academy\/sample"/);
   assert.match(academy, /href="\/academy\/pilot"/);
-  assert.match(curriculum, /4차시 커리큘럼/);
+  assert.match(curriculum, /판단을 남기는 네 장면/);
   assert.match(sample, /수업용 시제품/);
   assert.match(pilot, /파일럿/);
   assert.match(activity, /현장 기록을 준비하고 있습니다/);

@@ -44,7 +44,7 @@ export function Footer() {
           <Link href="/academy/pilot">파일럿 운영 안내</Link>
           <Link href="/about">DullG 소개</Link>
           <Link href="/contact">문의하기</Link>
-          <a href="/sitemap.xml">사이트맵</a>
+          <Link href="/sitemap">전체 페이지</Link>
         </div>
 
         <div className="site-footer-contact">

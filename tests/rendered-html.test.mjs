@@ -66,19 +66,27 @@ test("keeps core navigation and interactions accessible", async () => {
 });
 
 test("publishes privacy guidance and deployment-aware discovery metadata", async () => {
-  const [privacy, sitemap, robots, layout, form] = await Promise.all([
+  const [privacy, sitemapPage, sitemap, robots, layout, form, footer] = await Promise.all([
     readFile(routeHtml("privacy.html"), "utf8"),
+    readFile(routeHtml("sitemap.html"), "utf8"),
     readFile(routeHtml("sitemap.xml.body"), "utf8"),
     readFile(routeHtml("robots.txt.body"), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../components/form-section.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/site.tsx", import.meta.url), "utf8"),
   ]);
 
   assert.match(privacy, /개인정보를 필요한 만큼만 받고/);
   assert.match(privacy, /FormSubmit/);
+  assert.match(sitemapPage, /필요한 내용을/);
+  assert.match(sitemapPage, /전체 페이지/);
+  assert.match(sitemapPage, /처음 방문하셨다면/);
   assert.match(sitemap, /\/privacy/);
+  assert.match(sitemap, /\/sitemap/);
   assert.match(robots, /sitemap\.xml/);
   assert.match(layout, /metadataBase/);
   assert.match(form, /href="\/privacy"/);
   assert.match(form, /aria-invalid/);
+  assert.match(footer, /href="\/sitemap"/);
+  assert.doesNotMatch(footer, /href="\/sitemap\.xml"/);
 });

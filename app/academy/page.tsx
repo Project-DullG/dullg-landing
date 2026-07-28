@@ -55,7 +55,7 @@ export default function AcademyPage() {
     <PageFrame>
       <section className="academy-overview-hero shell">
         <div>
-          <Kicker>DULLG PRODUCT OVERVIEW</Kicker>
+          <Kicker>제품 한눈에 보기</Kicker>
           <h1>
             준비부터 결과물까지,
             <br />
@@ -67,7 +67,7 @@ export default function AcademyPage() {
             차례로 확인해보세요.
           </p>
           <div className="academy-overview-actions">
-            <ArrowButton href="/#apply">무료 샘플 받아보기</ArrowButton>
+            <ArrowButton href="/#apply">무료 검토팩 요청</ArrowButton>
             <a href="/academy/curriculum">
               4차시 구성 먼저 보기
               <ArrowRight size={17} weight="bold" aria-hidden="true" />
@@ -108,7 +108,7 @@ export default function AcademyPage() {
 
       <section className="academy-overview-value shell">
         <div className="academy-overview-value-head">
-          <Kicker>WHY DULLG</Kicker>
+          <Kicker>이 수업이 필요한 이유</Kicker>
           <h2>
             활동이 재미있는 이유와
             <br />
@@ -117,7 +117,7 @@ export default function AcademyPage() {
         </div>
         <div className="academy-overview-value-list">
           <article>
-            <span>FOR STUDENTS</span>
+            <span>학생</span>
             <h3>영어가 문제를 푸는 도구가 됩니다</h3>
             <p>
               각자 다른 단서를 가지고 있어 읽은 내용을 설명하고 질문해야 팀이
@@ -125,7 +125,7 @@ export default function AcademyPage() {
             </p>
           </article>
           <article>
-            <span>FOR TEACHERS</span>
+            <span>교사</span>
             <h3>수업 준비보다 학생에게 집중합니다</h3>
             <p>
               차시별 대본, 역할 배정, 힌트와 정답이 함께 제공되어 교사는
@@ -133,7 +133,7 @@ export default function AcademyPage() {
             </p>
           </article>
           <article>
-            <span>FOR ACADEMIES</span>
+            <span>학원</span>
             <h3>학부모에게 보여줄 결과물이 남습니다</h3>
             <p>
               팀 사건보고서와 개인 영어 작성지로 학생이 무엇을 읽고 말하고
@@ -146,7 +146,7 @@ export default function AcademyPage() {
       <section className="academy-overview-map">
         <div className="shell">
           <div className="academy-overview-map-head">
-            <Kicker>EXPLORE THE PRODUCT</Kicker>
+            <Kicker>도입 전 확인 순서</Kicker>
             <h2>
               검토에 필요한 정보를
               <br />
@@ -186,7 +186,7 @@ export default function AcademyPage() {
 
       <section className="academy-overview-experience shell">
         <div className="academy-overview-experience-copy">
-          <Kicker>FROM CLUE TO REPORT</Kicker>
+          <Kicker>단서에서 보고서까지</Kicker>
           <h2>
             단서는 대화가 되고,
             <br />
@@ -205,16 +205,20 @@ export default function AcademyPage() {
         <div className="academy-overview-experience-images">
           <figure>
             <img
-              src="/assets/dullg/students-investigation.png"
-              alt="학생들이 단서와 평면도를 함께 살펴보는 수업 장면"
+              src="/assets/dullg/mat-game-cards.webp"
+              alt="학생들이 나누어 사용하는 역할별 영어 단서 카드"
+              width="1536"
+              height="1024"
               loading="lazy"
             />
-            <figcaption>단서 공유와 팀 추론</figcaption>
+            <figcaption>제작 완료 · 역할별 영어 단서 카드</figcaption>
           </figure>
           <figure>
             <img
-              src="/assets/dullg/mat-report.png"
+              src="/assets/dullg/mat-report.webp"
               alt="수업 뒤 학부모에게 전달할 수 있는 학생 결과 리포트"
+              width="1024"
+              height="1536"
               loading="lazy"
             />
             <figcaption>수업 뒤에 남는 활동 결과</figcaption>
@@ -225,7 +229,7 @@ export default function AcademyPage() {
       <section className="academy-overview-pilot">
         <div className="shell academy-overview-pilot-grid">
           <div>
-            <Kicker>CURRENT STATUS · PILOT</Kicker>
+            <Kicker>현재 단계 · 파일럿 준비</Kicker>
             <h2>
               먼저 자료를 확인하고,
               <br />
@@ -239,7 +243,7 @@ export default function AcademyPage() {
               파일럿에 참여할 의무는 없습니다.
             </p>
             <ArrowButton light href="/#apply">
-              무료 샘플 받아보기
+              무료 검토팩 요청
             </ArrowButton>
           </div>
         </div>

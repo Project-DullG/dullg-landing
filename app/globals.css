@@ -591,6 +591,14 @@ body {
   color: #fff !important;
   font-weight: 700;
 }
+.apply-form-intro {
+  margin: -4px 0 6px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
 
 @media (max-width: 900px) {
   .site-header .nav-links {
@@ -855,6 +863,7 @@ body {
   background: #f0eee7;
 }
 .product-material-grid {
+  grid-template-columns: repeat(2, 1fr);
   gap: 2px;
 }
 .product-material-grid figure {
@@ -960,6 +969,34 @@ body {
     gap: 14px;
   }
   .product-fit-list article p {
+    grid-column: 2;
+  }
+  .product-material-grid {
+    grid-template-columns: 1fr;
+  }
+  .academy-overview-hero {
+    padding-top: 62px;
+    padding-bottom: 52px;
+    gap: 34px;
+  }
+  .academy-overview-cover {
+    width: min(230px, 74vw);
+    margin-inline: auto;
+  }
+  .academy-overview-value,
+  .academy-overview-map .shell,
+  .academy-overview-experience {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .academy-overview-path-icon {
+    display: none;
+  }
+  .academy-overview-pathways a {
+    grid-template-columns: 34px 1fr;
+    padding: 24px 0;
+  }
+  .academy-overview-pathways a > strong {
     grid-column: 2;
   }
   .product-faq {

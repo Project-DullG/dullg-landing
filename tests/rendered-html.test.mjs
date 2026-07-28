@@ -14,8 +14,8 @@ test("renders the home conversion path with real product evidence", async () => 
   assert.match(html, /4차시 수업 흐름/);
   assert.match(html, /제작한 시제품을 보여드립니다/);
   assert.match(html, /파일럿보다 먼저/);
-  assert.match(html, /\/assets\/dullg\/mat-game-cards\.png/);
-  assert.match(html, /\/assets\/dullg\/mat-workbook\.png/);
+  assert.match(html, /\/assets\/dullg\/mat-game-cards\.webp/);
+  assert.match(html, /\/assets\/dullg\/mat-teacher-guide\.webp/);
   assert.match(html, /id="apply"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
@@ -29,7 +29,7 @@ test("renders detailed product routes with working navigation targets", async ()
     readFile(routeHtml("activity.html"), "utf8"),
   ]);
 
-  assert.match(academy, /DULLG PRODUCT OVERVIEW/);
+  assert.match(academy, /제품 한눈에 보기/);
   assert.match(academy, /한눈에 보는 4차시 수업팩/);
   assert.match(academy, /href="\/academy\/curriculum"/);
   assert.match(academy, /href="\/academy\/sample"/);
@@ -37,7 +37,7 @@ test("renders detailed product routes with working navigation targets", async ()
   assert.match(curriculum, /판단을 남기는 네 장면/);
   assert.match(sample, /수업용 시제품/);
   assert.match(pilot, /파일럿/);
-  assert.match(activity, /현장 기록을 준비하고 있습니다/);
+  assert.match(activity, /현재 공개 가능한 자료/);
   assert.match(activity, /영어학원용 수업 제품으로 검토 중인 시제품/);
   assert.match(activity, /사실과 계획을 섞지 않습니다/);
 });

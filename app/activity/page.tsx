@@ -3,7 +3,6 @@ import {
   Camera,
   CheckCircle,
   Package,
-  UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import { Kicker, PageFrame } from "@/components/site";
@@ -32,36 +31,6 @@ const progress = [
     title: "현장 기록 공개",
     body: "공개 동의를 받은 사진과 교사 의견부터 순서대로 업데이트할 예정입니다.",
     icon: Camera,
-  },
-];
-
-const fieldSlots = [
-  {
-    title: "수업 준비",
-    note: "출력물과 교구를 준비하는 실제 모습",
-  },
-  {
-    title: "학생 활동",
-    note: "단서를 읽고 팀으로 추론하는 수업 장면",
-  },
-  {
-    title: "수업 결과",
-    note: "학생 기록지와 사건보고서 결과물",
-  },
-];
-
-const teamSlots = [
-  {
-    role: "콘텐츠·제품 설계",
-    detail: "에피소드와 4차시 수업 구조를 설계합니다.",
-  },
-  {
-    role: "영어 교육 검토",
-    detail: "학생 수준에 맞춰 어휘와 활동 난이도를 검토합니다.",
-  },
-  {
-    role: "교실 운영 검토",
-    detail: "교사가 실제로 진행하기 쉬운 순서와 안내를 확인합니다.",
   },
 ];
 
@@ -163,73 +132,22 @@ export default function ActivityPage() {
           <div className="activity-making-media">
             <figure>
               <img
-                src="/assets/dullg/mat-game-cards.png"
+                src="/assets/dullg/mat-game-cards.webp"
                 alt="DullG 학생용 게임 카드 구성"
+                width="1536"
+                height="1024"
               />
               <figcaption>제작 자료 · 학생용 게임 카드</figcaption>
             </figure>
             <figure>
               <img
-                src="/assets/dullg/mat-teacher-guide.png"
+                src="/assets/dullg/mat-teacher-guide.webp"
                 alt="DullG 교사용 수업 진행안"
+                width="1024"
+                height="1536"
               />
               <figcaption>제작 자료 · 교사용 진행안</figcaption>
             </figure>
-          </div>
-        </div>
-      </section>
-
-      <section className="activity-field shell" aria-labelledby="field-title">
-        <div className="activity-section-head activity-section-head-row">
-          <div>
-            <Kicker>실제 활동사진</Kicker>
-            <h2 id="field-title">현장 기록을 준비하고 있습니다.</h2>
-          </div>
-          <p>
-            촬영일·수업 유형·공개 동의를 확인한 사진만 게시합니다. 자료가
-            준비되면 아래 공간에 실제 사진과 간단한 설명이 표시됩니다.
-          </p>
-        </div>
-        <div className="activity-field-grid">
-          {fieldSlots.map((slot, index) => (
-            <article key={slot.title}>
-              <div className="activity-photo-slot" aria-hidden="true">
-                <Camera size={30} weight="duotone" />
-                <span>PHOTO {String(index + 1).padStart(2, "0")}</span>
-              </div>
-              <div>
-                <span>사진 준비 중</span>
-                <h3>{slot.title}</h3>
-                <p>{slot.note}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="activity-team">
-        <div className="shell">
-          <div className="activity-section-head activity-section-head-row">
-            <div>
-              <Kicker>만드는 사람들</Kicker>
-              <h2>역할과 책임부터 공개합니다.</h2>
-            </div>
-            <p>
-              이름과 사진은 당사자 공개 동의 후 추가합니다. 현재는 제품을
-              만드는 데 필요한 역할과 책임을 먼저 안내합니다.
-            </p>
-          </div>
-          <div className="activity-team-grid">
-            {teamSlots.map((member) => (
-              <article key={member.role}>
-                <div className="activity-avatar-slot" aria-hidden="true">
-                  <UsersThree size={28} weight="duotone" />
-                </div>
-                <span>PROFILE 준비 중</span>
-                <h3>{member.role}</h3>
-                <p>{member.detail}</p>
-              </article>
-            ))}
           </div>
         </div>
       </section>

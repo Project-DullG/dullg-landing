@@ -43,26 +43,18 @@ const materialPreviews = [
   {
     title: "학생용 게임 카드",
     caption: "학생마다 다른 영어 단서가 담긴 역할별 카드",
-    image: "/assets/dullg/mat-game-cards.png",
+    image: "/assets/dullg/mat-game-cards.webp",
     alt: "책상 위에 펼쳐진 학생용 역할별 영어 단서 카드",
-  },
-  {
-    title: "학생 워크북",
-    caption: "단서·가설·근거를 차시별로 기록하는 활동지",
-    image: "/assets/dullg/mat-workbook.png",
-    alt: "학생이 단서와 추론 과정을 기록하는 워크북",
+    width: 1536,
+    height: 1024,
   },
   {
     title: "교사용 진행안",
     caption: "진행 순서, 대본, 힌트와 정답을 포함한 가이드",
-    image: "/assets/dullg/mat-teacher-guide.png",
+    image: "/assets/dullg/mat-teacher-guide.webp",
     alt: "교사용 4차시 진행안과 힌트 가이드",
-  },
-  {
-    title: "수업 결과 리포트",
-    caption: "학생이 무엇을 읽고 말하고 썼는지 정리한 예시",
-    image: "/assets/dullg/mat-report.png",
-    alt: "학생의 활동 결과를 정리한 학부모 전달용 리포트",
+    width: 1024,
+    height: 1536,
   },
 ];
 
@@ -249,7 +241,13 @@ export default function Home() {
             {materialPreviews.map((material) => (
               <figure key={material.title}>
                 <div>
-                  <img src={material.image} alt={material.alt} loading="lazy" />
+                  <img
+                    src={material.image}
+                    alt={material.alt}
+                    width={material.width}
+                    height={material.height}
+                    loading="lazy"
+                  />
                 </div>
                 <figcaption>
                   <strong>{material.title}</strong>
@@ -325,11 +323,13 @@ export default function Home() {
           <div className="product-episode-visual">
             <figure>
               <img
-                src="/assets/dullg/classroom-case.png"
-                alt="보충반의 사라진 열쇠 사건이 시작되는 교실"
+                src="/assets/dullg/mat-story-book.webp"
+                alt="보충반의 사라진 열쇠 사건 자료 시제품"
+                width="1448"
+                height="1086"
                 loading="lazy"
               />
-              <figcaption>사건이 시작되는 교실</figcaption>
+              <figcaption>제작 완료 · 사건 자료 시제품</figcaption>
             </figure>
             <figure>
               <img

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "DullG",
     images: [
       {
-        url: "/og.png",
+        url: "/og.webp",
         width: 1731,
         height: 909,
         alt: "DullG 영어 미스터리 수업팩과 단서 카드",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: "DullG | 영어학원용 4차시 미스터리 수업팩 시제품",
     description:
       "초6 수준에서 첫 검증을 준비하는 영어학원용 4차시 미스터리 수업팩 시제품.",
-    images: ["/og.png"],
+    images: ["/og.webp"],
   },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };

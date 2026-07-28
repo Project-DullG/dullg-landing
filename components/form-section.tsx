@@ -4,7 +4,7 @@ import { ArrowUpRight, CheckCircle } from "@phosphor-icons/react";
 import { useState, useRef } from "react";
 
 type State = "idle" | "submitting" | "success" | "error";
-type ErrorField = "academy" | "name" | "contact" | "interest" | "consent" | null;
+type ErrorField = "academy" | "contact" | "interest" | "consent" | null;
 
 // TODO: 실제 폼 백엔드 연결 방법 (아래 중 하나 선택)
 // Option 1: formsubmit.co (무료, 첫 제출 시 이메일 인증 필요)
@@ -41,7 +41,6 @@ export function FormSection() {
     // 클라이언트 유효성 검사
     const requiredFields: [string, string][] = [
       ["academy", "기관명을 입력해주세요."],
-      ["name", "담당자 이름을 입력해주세요."],
       ["contact", "연락처 또는 이메일을 입력해주세요."],
       ["interest", "관심 유형을 선택해주세요."],
     ];
@@ -81,12 +80,9 @@ export function FormSection() {
         },
         body: JSON.stringify({
           기관명: data.get("academy"),
-          담당자: data.get("name"),
           연락처: data.get("contact"),
-          학생수: data.get("students") || "미정",
           관심유형: data.get("interest"),
-          추가내용: data.get("message") || "없음",
-          _subject: `[DullG] 샘플 요청 - ${data.get("academy")}`,
+          _subject: `[DullG] 검토팩 요청 - ${data.get("academy")}`,
           _template: "box",
           _captcha: "false",
         }),
@@ -125,9 +121,13 @@ export function FormSection() {
       className="apply-form"
       onSubmit={handleSubmit}
       noValidate
-      aria-label="무료 샘플 요청 양식"
+      aria-label="무료 검토팩 요청 양식"
     >
-      <h3>무료 샘플 요청</h3>
+      <h3>무료 검토팩 요청</h3>
+      <p className="apply-form-intro">
+        구매나 파일럿 참여 의무가 없습니다. 영업일 기준 1~2일 내
+        입력하신 연락처로 안내드립니다.
+      </p>
 
       <label htmlFor="af-academy">
         기관명 <span className="field-required" aria-label="필수">*</span>
@@ -140,21 +140,6 @@ export function FormSection() {
           required
           aria-invalid={errorField === "academy"}
           aria-describedby={errorField === "academy" ? "apply-form-error" : undefined}
-          disabled={state === "submitting"}
-        />
-      </label>
-
-      <label htmlFor="af-name">
-        담당자 이름 <span className="field-required" aria-label="필수">*</span>
-        <input
-          id="af-name"
-          name="name"
-          type="text"
-          placeholder="원장님 또는 선생님 이름"
-          autoComplete="name"
-          required
-          aria-invalid={errorField === "name"}
-          aria-describedby={errorField === "name" ? "apply-form-error" : undefined}
           disabled={state === "submitting"}
         />
       </label>
@@ -174,46 +159,22 @@ export function FormSection() {
         />
       </label>
 
-      <div className="form-split">
-        <label htmlFor="af-students">
-          예상 학생 수 <small>선택</small>
-          <select id="af-students" name="students" defaultValue="" disabled={state === "submitting"}>
-            <option value="">미정</option>
-            <option value="4~8명">4~8명</option>
-            <option value="9~16명">9~16명</option>
-            <option value="17명 이상">17명 이상</option>
-          </select>
-        </label>
-
-        <label htmlFor="af-interest">
-          관심 유형 <span className="field-required" aria-label="필수">*</span>
-          <select
-            id="af-interest"
-            name="interest"
-            defaultValue=""
-            required
-            aria-invalid={errorField === "interest"}
-            aria-describedby={errorField === "interest" ? "apply-form-error" : undefined}
-            disabled={state === "submitting"}
-          >
-            <option value="" disabled>선택해주세요</option>
-            <option value="무료 샘플 요청">무료 샘플 요청</option>
-            <option value="파일럿 수업 문의">파일럿 수업 문의</option>
-            <option value="운영 조건 문의">운영 조건 문의</option>
-            <option value="기타 문의">기타 문의</option>
-          </select>
-        </label>
-      </div>
-
-      <label htmlFor="af-message">
-        전달하고 싶은 내용 <small>선택</small>
-        <textarea
-          id="af-message"
-          name="message"
-          placeholder="운영 일정, 학원 규모, 궁금한 점 등을 자유롭게 남겨주세요."
-          rows={3}
+      <label htmlFor="af-interest">
+        관심 유형 <span className="field-required" aria-label="필수">*</span>
+        <select
+          id="af-interest"
+          name="interest"
+          defaultValue=""
+          required
+          aria-invalid={errorField === "interest"}
+          aria-describedby={errorField === "interest" ? "apply-form-error" : undefined}
           disabled={state === "submitting"}
-        />
+        >
+          <option value="" disabled>선택해주세요</option>
+          <option value="무료 검토팩 요청">무료 검토팩 요청</option>
+          <option value="파일럿 운영 문의">파일럿 운영 문의</option>
+          <option value="일반 문의">일반 문의</option>
+        </select>
       </label>
 
       {state === "error" && errorMsg && (
@@ -233,7 +194,7 @@ export function FormSection() {
           disabled={state === "submitting"}
         />
         <span>
-          검토팩 발송 및 파일럿 준비 안내를 위한 개인정보(이름·연락처) 수집·이용에
+          검토팩 발송 및 파일럿 준비 안내를 위한 개인정보(기관명·연락처) 수집·이용에
           동의합니다.{" "}
           <a href="/privacy">
             개인정보 처리 안내
@@ -254,7 +215,7 @@ export function FormSection() {
           </>
         ) : (
           <>
-            무료 샘플 요청하기
+            무료 검토팩 요청
             <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
           </>
         )}

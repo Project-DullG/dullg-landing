@@ -26,7 +26,7 @@ export default function EpisodePage() {
       {/* ── HERO — split with case file cover ── */}
       <section className="ep-hero-split shell">
         <div className="ep-hero-copy">
-          <Kicker>CASE FILE · 01 · FIRST EPISODE</Kicker>
+          <Kicker>첫 번째 사건 · 에피소드 01</Kicker>
           <h1>
             보충반의
             <br />
@@ -56,7 +56,7 @@ export default function EpisodePage() {
       <section className="ep-setting">
         <div className="shell ep-setting-inner">
           <div className="ep-setting-copy">
-            <Kicker>THE SETTING</Kicker>
+            <Kicker>사건이 시작된 장소</Kicker>
             <h2>
               오후 4시 30분,
               <br />
@@ -90,7 +90,7 @@ export default function EpisodePage() {
       {/* ── CAST — profile cards ── */}
       <section className="ep-cast shell">
         <div className="ep-cast-head">
-          <Kicker>THE FOUR STUDENTS</Kicker>
+          <Kicker>서로 다른 단서를 가진 네 학생</Kicker>
           <h2>
             각자 다른 단서를
             <br />
@@ -113,26 +113,10 @@ export default function EpisodePage() {
         </div>
       </section>
 
-      {/* ── CLASSROOM IMAGE — wide band ── */}
-      <div className="ep-scene-band">
-        <img
-          src="/assets/dullg/students-investigation.png"
-          alt="학생들이 단서와 평면도를 함께 살펴보는 수업 장면"
-          loading="lazy"
-        />
-        <div className="ep-scene-overlay">
-          <span className="ep-scene-label">CLASSROOM / EVIDENCE REVIEW</span>
-          <p className="ep-scene-caption-text">
-            학생들은 각자 다른 자료를 들고 시작합니다.<br />
-            서로의 내용을 설명하고, 지도와 단서를 연결하면서 하나의 판단을 함께 완성합니다.
-          </p>
-        </div>
-      </div>
-
       {/* ── LESSON FLOW ── */}
       <section className="ep-flow shell">
         <div className="ep-flow-head">
-          <Kicker>HOW THE CASE UNFOLDS · 4 LESSONS</Kicker>
+          <Kicker>네 번의 수업으로 푸는 사건</Kicker>
           <h2>
             4차시 동안
             <br />
@@ -157,7 +141,7 @@ export default function EpisodePage() {
       {/* ── CTA ── */}
       <section className="ep-cta shell">
         <div className="ep-cta-copy">
-          <Kicker>SEE THE ACTUAL MATERIALS</Kicker>
+          <Kicker>실제 제작 자료 확인</Kicker>
           <h2>
             자료를 먼저
             <br />
@@ -169,7 +153,7 @@ export default function EpisodePage() {
           </p>
         </div>
         <div className="ep-cta-actions">
-          <ArrowButton href="/#apply">무료 샘플 받아보기</ArrowButton>
+          <ArrowButton href="/#apply">무료 검토팩 요청</ArrowButton>
           <a className="text-link" href="/academy/sample">자료 미리 보기 →</a>
         </div>
       </section>

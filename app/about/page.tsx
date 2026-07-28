@@ -48,7 +48,7 @@ export default function AboutPage() {
       {/* ── HERO — split with decorative manifesto ── */}
       <section className="about-hero shell">
         <div className="about-hero-copy">
-          <Kicker>ABOUT DULLG</Kicker>
+          <Kicker>DullG 소개</Kicker>
           <h1>
             수업이 끝나고
             <br />
@@ -76,7 +76,7 @@ export default function AboutPage() {
             얼마나 될까요?
           </blockquote>
           <div className="about-origin-body">
-            <Kicker>WHY WE STARTED</Kicker>
+            <Kicker>시작한 이유</Kicker>
             <p>
               대부분의 시간은 교사의 설명을 듣고 정답을 기다리는 데 씁니다.
               학생이 실제로 영어를 사용하는 순간은, 재보면 생각보다 짧습니다.
@@ -98,7 +98,7 @@ export default function AboutPage() {
 
       <section className="about-scope shell">
         <div className="about-scope-head">
-          <Kicker>PROJECT SCOPE</Kicker>
+          <Kicker>프로젝트 범위</Kicker>
           <h2>
             게임 하나가 아니라,
             <br />
@@ -123,7 +123,7 @@ export default function AboutPage() {
       {/* ── BELIEFS — ghost number cards ── */}
       <section className="about-beliefs shell">
         <div className="about-beliefs-head">
-          <Kicker>WHAT WE BELIEVE</Kicker>
+          <Kicker>만드는 원칙</Kicker>
           <h2>
             좋은 수업의
             <br />
@@ -149,7 +149,7 @@ export default function AboutPage() {
       <section className="about-now-dark">
         <div className="shell about-now-inner">
           <div className="about-now-copy">
-            <Kicker>WHERE WE ARE NOW</Kicker>
+            <Kicker>현재 단계</Kicker>
             <h2>첫 수업용 시제품과<br />파일럿을 준비하고 있습니다.</h2>
             <p>
               현재 중심은 첫 번째 에피소드 <em>보충반의 사라진 열쇠</em>를
@@ -161,7 +161,7 @@ export default function AboutPage() {
               파일럿에서는 운영 가능성과 학생 결과물을 확인할 예정입니다.
             </p>
             <div className="about-now-actions">
-              <ArrowButton light href="/#apply">무료 샘플 받아보기</ArrowButton>
+              <ArrowButton light href="/#apply">무료 검토팩 요청</ArrowButton>
               <a className="text-link-light" href="/activity">
                 활동 기록 보기 →
               </a>

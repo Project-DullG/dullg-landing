@@ -73,30 +73,34 @@ export default function SamplePage() {
 
       <section className="sample-gallery shell">
         <div>
-          <Kicker>자료가 쓰이는 장면</Kicker>
+          <Kicker>실제 제작 자료</Kicker>
           <h2>
-            사건을 이해하는
+            수업에서 사용하는
             <br />
-            <span>교실과 자료.</span>
+            <span>사건 자료와 규칙서.</span>
           </h2>
-          <p>교실의 분위기와 실제 활동 자료가 한 장면 안에서 연결됩니다.</p>
+          <p>연출 이미지 대신 현재 제작된 시제품을 그대로 보여드립니다.</p>
         </div>
         <div className="gallery-images">
           <figure>
             <img
-              src="/assets/dullg/classroom-case.png"
-              alt="잠긴 보관함과 단서 자료가 놓인 밝은 교실"
+              src="/assets/dullg/mat-story-book.webp"
+              alt="보충반의 사라진 열쇠 사건 자료 시제품"
+              width="1448"
+              height="1086"
               loading="lazy"
             />
-            <figcaption>사건이 시작되는 교실</figcaption>
+            <figcaption>제작 완료 · 사건 자료 시제품</figcaption>
           </figure>
           <figure>
             <img
-              src="/assets/dullg/students-investigation.png"
-              alt="학생들이 단서와 평면도를 함께 살펴보는 장면"
+              src="/assets/dullg/mat-rulebook.webp"
+              alt="진행 순서와 규칙이 담긴 수업 규칙서 시제품"
+              width="1536"
+              height="1024"
               loading="lazy"
             />
-            <figcaption>단서를 함께 읽는 시간</figcaption>
+            <figcaption>제작 완료 · 수업 규칙서 시제품</figcaption>
           </figure>
         </div>
       </section>
@@ -117,7 +121,7 @@ export default function SamplePage() {
           <li>교사용 진행안 샘플</li>
           <li>수업 운영 체크리스트</li>
         </ul>
-        <ArrowButton href="/#apply">무료 샘플 받아보기</ArrowButton>
+        <ArrowButton href="/#apply">무료 검토팩 요청</ArrowButton>
       </section>
     </PageFrame>
   );

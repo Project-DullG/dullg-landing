@@ -2582,6 +2582,69 @@ body {
   }
 }
 
+/* Final mobile density overrides */
+@media (max-width: 760px) {
+  .product-hero,
+  .product-fit,
+  .product-curriculum,
+  .product-materials,
+  .product-outcome,
+  .product-episode,
+  .product-trust,
+  .product-faq,
+  .product-apply {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .product-material-grid {
+    margin-top: 32px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .product-material-grid figure > div {
+    height: 180px;
+    padding: 6px;
+  }
+  .product-material-grid figcaption {
+    min-height: 96px;
+    padding: 12px 10px;
+  }
+  .product-episode-grid {
+    gap: 34px;
+  }
+  .product-episode-visual {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .product-episode-visual figure {
+    padding: 6px;
+  }
+  .product-episode-visual img {
+    height: 180px;
+  }
+  .product-trust {
+    gap: 30px;
+  }
+  .product-trust-points article {
+    padding: 17px 0;
+  }
+  .product-apply-grid {
+    gap: 30px;
+  }
+  .product-apply-copy ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .product-apply-copy li {
+    padding: 9px 0;
+    font-size: 11px;
+  }
+  .product-apply .apply-form {
+    padding: 22px;
+    box-shadow: none;
+  }
+}
+
 /* ============================================================
    16. BUSINESS MANUAL CONTENT
    ============================================================ */
@@ -6581,4 +6644,43 @@ body {
     font-size: 15px;
     line-height: 1.76;
   }
+}
+
+/* Mobile compaction must remain last in the cascade. */
+@media (max-width: 760px) {
+  .product-hero,
+  .product-fit,
+  .product-curriculum,
+  .product-materials,
+  .product-outcome,
+  .product-episode,
+  .product-trust,
+  .product-faq,
+  .product-apply {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .product-material-grid {
+    margin-top: 32px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .product-material-grid figure > div { height: 180px; padding: 6px; }
+  .product-material-grid figcaption { min-height: 96px; padding: 12px 10px; }
+  .product-episode-grid { gap: 34px; }
+  .product-episode-visual {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .product-episode-visual figure { padding: 6px; }
+  .product-episode-visual img { height: 180px; }
+  .product-trust { gap: 30px; }
+  .product-trust-points article { padding: 17px 0; }
+  .product-apply-grid { gap: 30px; }
+  .product-apply-copy ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .product-apply-copy li { padding: 9px 0; font-size: 11px; }
+  .product-apply .apply-form { padding: 22px; box-shadow: none; }
 }

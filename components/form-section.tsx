@@ -233,7 +233,7 @@ export function FormSection() {
           disabled={state === "submitting"}
         />
         <span>
-          자료 발송 및 파일럿 안내를 위한 개인정보(이름·연락처) 수집·이용에
+          검토팩 발송 및 파일럿 준비 안내를 위한 개인정보(이름·연락처) 수집·이용에
           동의합니다.{" "}
           <a href="/privacy">
             개인정보 처리 안내

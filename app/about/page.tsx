@@ -3,7 +3,7 @@ import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
   title: "About · DullG",
-  description: "DullG를 만든 이유와 우리가 믿는 수업의 조건.",
+  description: "스토리 기반 추론 경험을 교육과 콘텐츠로 만드는 Project DullG의 방향과 현재 단계.",
 };
 
 const beliefs = [
@@ -24,6 +24,24 @@ const beliefs = [
   },
 ];
 
+const projectTracks = [
+  {
+    status: "현재 중심",
+    title: "영어학원용 수업 키트",
+    body: "초6 수준에서 첫 검증을 준비하는 4차시 실물 미스터리 수업 시제품입니다.",
+  },
+  {
+    status: "축적 자산",
+    title: "스토리·추리 콘텐츠",
+    body: "역할, 비대칭 정보, 단서 공개와 최종 판단을 연결하는 콘텐츠 설계 경험입니다.",
+  },
+  {
+    status: "후속 가설",
+    title: "교육·지역 콘텐츠 확장",
+    body: "문해력, 역사·사회, 지역 창작과 관광 적용은 첫 제품 검증 이후 별도로 검토합니다.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <PageFrame>
@@ -37,8 +55,8 @@ export default function AboutPage() {
             <em>남는 것만 만듭니다.</em>
           </h1>
           <p>
-            DullG는 학생이 영어를 실제로 써야 하는 상황을 설계합니다.
-            재미는 방법이고, 기록은 결과입니다.
+            DullG는 역할과 서로 다른 정보를 바탕으로 읽고, 질문하고,
+            근거를 비교해 자신의 판단을 남기는 경험을 설계합니다.
           </p>
         </div>
         <div className="about-hero-manifesto" aria-hidden="true">
@@ -78,6 +96,30 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="about-scope shell">
+        <div className="about-scope-head">
+          <Kicker>PROJECT SCOPE</Kicker>
+          <h2>
+            게임 하나가 아니라,
+            <br />
+            <em>판단하는 경험을 만듭니다.</em>
+          </h2>
+          <p>
+            역할과 제한된 정보를 바탕으로 다른 사람과 상호작용하고, 자신의
+            결론과 근거를 말하거나 쓰게 하는 경험이 DullG의 공통 기반입니다.
+          </p>
+        </div>
+        <div className="about-scope-grid">
+          {projectTracks.map((track) => (
+            <article key={track.title}>
+              <span>{track.status}</span>
+              <h3>{track.title}</h3>
+              <p>{track.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* ── BELIEFS — ghost number cards ── */}
       <section className="about-beliefs shell">
         <div className="about-beliefs-head">
@@ -108,15 +150,15 @@ export default function AboutPage() {
         <div className="shell about-now-inner">
           <div className="about-now-copy">
             <Kicker>WHERE WE ARE NOW</Kicker>
-            <h2>파일럿 학원과<br />함께 만들고 있습니다.</h2>
+            <h2>첫 수업용 시제품과<br />파일럿을 준비하고 있습니다.</h2>
             <p>
-              첫 번째 에피소드 <em>보충반의 사라진 열쇠</em>를 실제
-              교실에서 테스트하고 있습니다. 참여 학원의 피드백을 반영해
-              자료를 다듬고, 다음 에피소드를 준비 중입니다.
+              현재 중심은 첫 번째 에피소드 <em>보충반의 사라진 열쇠</em>를
+              초6 수준에서 검토할 수 있는 영어학원용 4차시 수업 시제품으로
+              다듬는 일입니다.
             </p>
             <p>
-              아직 초기 단계입니다. 현재 검토용 샘플 자료를 무료로
-              제공합니다. 먼저 확인하고, 그 이후를 결정하면 됩니다.
+              아직 정식 출시 전 단계입니다. 검토용 샘플을 먼저 공개하고,
+              파일럿에서는 운영 가능성과 학생 결과물을 확인할 예정입니다.
             </p>
             <div className="about-now-actions">
               <ArrowButton light href="/#apply">무료 샘플 받아보기</ArrowButton>

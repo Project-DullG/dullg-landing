@@ -2,24 +2,24 @@ import type { Metadata } from "next";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
-  title: "실제 수업 자료 · DullG",
+  title: "수업용 시제품 자료 · DullG",
   description:
-    "DullG 학생용 단서 카드, 교사용 진행안과 무료 검토팩 구성을 확인하세요.",
+    "DullG 학생용 단서 카드와 교사용 진행안 시제품, 무료 검토팩 구성을 확인하세요.",
 };
 
 export default function SamplePage() {
   return (
     <PageFrame>
       <section className="inner-hero shell">
-        <Kicker>실제 제공 자료 · CASE FILE 01</Kicker>
+        <Kicker>수업용 시제품 · CASE FILE 01</Kicker>
         <h1>
           어떤 자료를 받고,
           <br />
           <em>어떻게 쓰는지 살펴보세요.</em>
         </h1>
         <p>
-          실제 1회차 단서 카드와 교사용 진행안입니다. 학생은 읽고 비교해
-          기록하고, 교사는 안내된 순서에 따라 수업을 진행합니다.
+          첫 영어 수업 제품의 골든 샘플로 검토 중인 단서 카드와 교사용
+          진행안입니다. 정식 제공본은 파일럿 결과에 따라 조정될 수 있습니다.
         </p>
       </section>
 

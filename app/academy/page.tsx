@@ -12,7 +12,7 @@ import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 export const metadata: Metadata = {
   title: "제품 소개 · DullG",
   description:
-    "초6~중1 영어학원을 위한 4차시 미스터리 수업팩. 수업 방식, 실제 자료, 학생 결과물과 파일럿 운영 조건을 확인하세요.",
+    "초6 수준에서 첫 검증을 준비하는 영어학원용 4차시 미스터리 수업팩 시제품의 구조와 파일럿 기준을 확인하세요.",
 };
 
 const pathways = [
@@ -26,8 +26,8 @@ const pathways = [
   },
   {
     number: "02",
-    title: "실제 제공 자료",
-    body: "학생용 카드와 워크북, 교사용 진행안, 학부모 전달용 결과물을 살펴봅니다.",
+    title: "수업용 시제품 자료",
+    body: "학생용 카드와 워크북, 교사용 진행안, 결과물 예시 시제품을 살펴봅니다.",
     href: "/academy/sample",
     cta: "수업 자료 보기",
     icon: FolderOpen,
@@ -63,7 +63,7 @@ export default function AcademyPage() {
           </h1>
           <p>
             학생용 단서 카드와 워크북, 교사용 진행안, 결과물 예시를 한
-            수업팩에 담았습니다. 수업 방식과 실제 자료, 운영 과정을
+            수업팩 시제품으로 구성했습니다. 수업 방식과 제작 자료, 운영 과정을
             차례로 확인해보세요.
           </p>
           <div className="academy-overview-actions">
@@ -90,11 +90,11 @@ export default function AcademyPage() {
       >
         <div>
           <b>4차시</b>
-          <span>읽기·토론·쓰기 통합</span>
+            <span>설계한 수업 구조</span>
         </div>
         <div>
           <b>초6~중1</b>
-          <span>권장 학년</span>
+            <span>첫 검증 기준</span>
         </div>
         <div>
           <b>4~16명</b>
@@ -234,9 +234,9 @@ export default function AcademyPage() {
           </div>
           <div>
             <p>
-              현재 파일럿 단계로, 수업 피드백에 따라 일부 자료가 조정될 수
-              있습니다. 현재 검토용 샘플 자료는 무료로 제공하며, 파일럿
-              참여 의무는 없습니다.
+              현재 정식 출시 전 시제품 단계이며, 파일럿 결과에 따라 일부
+              자료와 운영 방식이 조정될 수 있습니다. 무료 검토팩을 받은 뒤
+              파일럿에 참여할 의무는 없습니다.
             </p>
             <ArrowButton light href="/#apply">
               무료 샘플 받아보기

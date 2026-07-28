@@ -18,14 +18,14 @@ import { Footer, Header, Kicker } from "@/components/site";
 const facts = [
   {
     value: "4차시",
-    label: "완성형 수업팩",
+    label: "수업팩 시제품",
     note: "읽기부터 보고서까지",
     icon: BookOpenText,
   },
   {
-    value: "초6~중1",
-    label: "권장 학년",
-    note: "영어 단서 읽기 중심",
+    value: "초6 기준",
+    label: "첫 검증 수준",
+    note: "초등 고학년~중등 확장",
     icon: GraduationCap,
   },
   {
@@ -113,7 +113,7 @@ const process = [
   {
     number: "02",
     title: "자료 확인",
-    body: "수업 난이도, 구성품, 교사 준비 범위를 실제 자료로 확인합니다.",
+    body: "수업 난이도, 구성품과 교사 준비 범위를 시제품 자료로 확인합니다.",
   },
   {
     number: "03",
@@ -157,7 +157,7 @@ export default function Home() {
 
       <section className="product-hero shell" aria-labelledby="home-title">
         <div className="product-hero-copy">
-          <Kicker>초6~중1 영어학원 방학특강 · 4차시 완성형 수업팩</Kicker>
+          <Kicker>초6 수준에서 시작하는 영어학원용 4차시 수업팩 시제품</Kicker>
           <h1 id="home-title">
             영어로 단서를 읽고,
             <br />
@@ -202,7 +202,7 @@ export default function Home() {
           </div>
           <figcaption>
             <Printer size={18} aria-hidden="true" />
-            출력해서 바로 쓰는 실제 수업 자료
+            수업 운영 검토를 위해 제작한 시제품 자료
           </figcaption>
         </figure>
       </section>
@@ -245,8 +245,8 @@ export default function Home() {
             <span>02</span>
             <h3>교사는 진행에 집중합니다</h3>
             <p>
-              카드·워크북·대본·힌트·정답이 완성되어 있어 콘텐츠 제작 시간을
-              줄입니다.
+              카드·워크북·대본·힌트·정답을 한 세트로 구성해 교사가 새로
+              만들 범위를 줄이는 것이 목표입니다.
             </p>
           </article>
           <article>
@@ -294,7 +294,7 @@ export default function Home() {
             <em>필요한 정보만 보세요.</em>
           </h2>
           <p>
-            수업 구조, 실제 자료, 운영 조건 중 지금 필요한 내용부터
+            수업 구조, 시제품 자료, 운영 조건 중 지금 필요한 내용부터
             확인할 수 있습니다.
           </p>
         </div>
@@ -324,19 +324,19 @@ export default function Home() {
         <div className="shell">
           <div className="product-section-heading product-section-heading-row">
             <div>
-              <Kicker>실제 제공 자료</Kicker>
+              <Kicker>검토용 시제품 자료</Kicker>
               <h2>
                 설명보다 먼저,
                 <br />
-                <em>실제 자료를 보여드립니다.</em>
+                <em>제작한 시제품을 보여드립니다.</em>
               </h2>
               <p>
-                학생·교사·학부모가 각자 필요한 결과물을 한 수업팩에서
-                확인합니다.
+                카드, 워크북, 진행안과 결과물 예시가 어떤 역할을 하도록
+                설계했는지 확인할 수 있습니다.
               </p>
             </div>
             <a href="/academy/sample">
-              실제 자료 전체 보기
+              시제품 자료 전체 보기
               <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
             </a>
           </div>
@@ -374,9 +374,9 @@ export default function Home() {
             <em>영어로 쓴 판단이 남습니다.</em>
           </h2>
           <p>
-            수업이 끝나면 학생마다 선택한 단서, 수정한 가설, 최종 판단과
-            근거가 기록됩니다. 팀 보고서와 개인 영작을 학부모에게 전달하거나
-            포트폴리오로 보관할 수 있습니다.
+            학생마다 선택한 단서, 수정한 가설, 최종 판단과 근거를 남기도록
+            설계했습니다. 파일럿에서는 이 기록이 실제 수업 안에서 완성되는지
+            확인합니다.
           </p>
           <ul>
             <li>
@@ -443,13 +443,13 @@ export default function Home() {
         <div className="product-trust-intro">
           <Kicker>현재 운영 원칙</Kicker>
           <h2>
-            완성된 자료와
+            제작한 시제품과
             <br />
             <em>투명한 운영 원칙</em>
           </h2>
           <p>
-            아직 파일럿 단계라는 사실을 숨기지 않습니다. 실제 교실에서
-            확인한 피드백을 반영해 자료를 다듬고 있습니다.
+            현재는 수업용 시제품을 제작하고 파일럿 운영을 준비하는
+            단계입니다. 운영 결과가 생기면 확인된 내용부터 공개하겠습니다.
           </p>
           <a href="/about">
             DullG가 만드는 방식
@@ -460,10 +460,10 @@ export default function Home() {
           <article>
             <span>01</span>
             <div>
-              <h3>실제 자료를 먼저 확인합니다</h3>
+              <h3>시제품 자료를 먼저 공개합니다</h3>
               <p>
-                카드, 워크북, 교사용 진행안과 결과물 예시를 숨기지 않고
-                보여드립니다.
+                카드, 워크북, 교사용 진행안과 결과물 예시를 도입 전에
+                검토할 수 있도록 보여드립니다.
               </p>
             </div>
           </article>
@@ -472,8 +472,8 @@ export default function Home() {
             <div>
               <h3>파일럿 상태를 명확히 안내합니다</h3>
               <p>
-                수업 피드백에 따라 일부 자료가 조정될 수 있으며, 정식 운영
-                조건은 이후 안내합니다.
+                파일럿은 효과 증명이 아니라 시간·이해·참여·교사 부담과
+                결과물을 확인하는 과정입니다.
               </p>
             </div>
           </article>
@@ -500,7 +500,7 @@ export default function Home() {
               <em>확인 중인 것을 구분합니다.</em>
             </h2>
             <p>
-              실제 제작 자료와 현재 진행 상황을 공개합니다. 수업 현장 사진과
+              제작한 시제품과 현재 진행 상황을 공개합니다. 수업 현장 사진과
               팀 소개는 공개 동의를 확인한 뒤 순서대로 추가하겠습니다.
             </p>
             <a href="/activity">
@@ -512,18 +512,18 @@ export default function Home() {
             <figure>
               <img
                 src="/assets/dullg/mat-game-cards.png"
-                alt="제작을 완료한 학생용 게임 카드"
+                alt="제작한 학생용 게임 카드 시제품"
                 loading="lazy"
               />
-              <figcaption>현재 공개 자료 · 학생용 게임 카드</figcaption>
+              <figcaption>현재 공개 시제품 · 학생용 게임 카드</figcaption>
             </figure>
             <figure>
               <img
                 src="/assets/dullg/mat-teacher-guide.png"
-                alt="제작을 완료한 교사용 진행안"
+                alt="제작한 교사용 진행안 시제품"
                 loading="lazy"
               />
-              <figcaption>현재 공개 자료 · 교사용 진행안</figcaption>
+              <figcaption>현재 공개 시제품 · 교사용 진행안</figcaption>
             </figure>
           </div>
         </div>
@@ -580,7 +580,7 @@ export default function Home() {
               <em>자료부터 확인하세요.</em>
             </h2>
             <p>
-              샘플 요청은 무료이며 구매 의무가 없습니다. 실제 자료를 검토한
+              샘플 요청은 무료이며 구매 의무가 없습니다. 시제품 자료를 검토한
               뒤 파일럿 여부를 결정하시면 됩니다.
             </p>
             <ul>

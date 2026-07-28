@@ -164,8 +164,8 @@ export default function EpisodePage() {
             <span>직접 확인하세요.</span>
           </h2>
           <p>
-            단서 카드, 교사용 진행안, 학생 결과물 샘플을 묶어
-            보내드립니다. 검토용 샘플 자료는 무료입니다.
+            단서 카드, 교사용 진행안과 결과물 예시 시제품을 묶어
+            보내드립니다. 현재 검토용 샘플은 무료입니다.
           </p>
         </div>
         <div className="ep-cta-actions">

@@ -1689,6 +1689,173 @@ summary {
 }
 
 /* ============================================================
+   16. BUSINESS MANUAL CONTENT
+   ============================================================ */
+.about-scope {
+  padding: 108px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: 84px;
+  border-bottom: 1px solid var(--line);
+}
+.about-scope-head h2 {
+  margin: 0;
+  font-size: clamp(32px, 3.8vw, 48px);
+  line-height: 1.16;
+  letter-spacing: -0.045em;
+}
+.about-scope-head h2 em {
+  color: #1e5c5c;
+  font-style: normal;
+}
+.about-scope-head > p {
+  margin: 22px 0 0;
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgba(21, 37, 30, 0.64);
+  word-break: keep-all;
+}
+.about-scope-grid {
+  border-top: 1px solid var(--line);
+}
+.about-scope-grid article {
+  padding: 25px 0;
+  border-bottom: 1px solid var(--line);
+}
+.about-scope-grid span {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 0.06em;
+}
+.about-scope-grid h3 {
+  margin: 8px 0 8px;
+  font-size: 19px;
+  letter-spacing: -0.035em;
+}
+.about-scope-grid p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(21, 37, 30, 0.62);
+  word-break: keep-all;
+}
+
+.activity-evidence {
+  padding: 108px 0 120px;
+  border-top: 1px solid var(--line);
+}
+.activity-evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.activity-evidence-grid article {
+  min-height: 150px;
+  padding: 25px;
+  background: rgba(30, 102, 98, 0.06);
+  border: 1px solid rgba(30, 102, 98, 0.18);
+}
+.activity-evidence-grid strong {
+  display: block;
+  color: #1e6662;
+  font-size: 14px;
+}
+.activity-evidence-grid p {
+  margin: 28px 0 0;
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(21, 37, 30, 0.62);
+  word-break: keep-all;
+}
+
+.pilot-checks {
+  padding: 0 0 120px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: 80px;
+  border-top: 1px solid var(--line);
+}
+.pilot-checks > div:first-child {
+  padding-top: 74px;
+}
+.pilot-checks h2 {
+  margin: 0;
+  font-size: clamp(32px, 3.8vw, 48px);
+  line-height: 1.16;
+  letter-spacing: -0.045em;
+}
+.pilot-checks h2 span {
+  color: #1e5c5c;
+}
+.pilot-checks > div:first-child > p {
+  margin: 22px 0 0;
+  max-width: 480px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(21, 37, 30, 0.64);
+  word-break: keep-all;
+}
+.pilot-check-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.pilot-check-grid article {
+  padding: 28px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.pilot-check-grid article:nth-child(2n) {
+  border-right: 0;
+}
+.pilot-check-grid article > span {
+  font: 10px var(--font-mono);
+  color: var(--orange);
+}
+.pilot-check-grid h3 {
+  margin: 24px 0 9px;
+  font-size: 17px;
+}
+.pilot-check-grid p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.75;
+  color: rgba(21, 37, 30, 0.6);
+  word-break: keep-all;
+}
+
+@media (max-width: 900px) {
+  .about-scope,
+  .pilot-checks {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .activity-evidence-grid {
+    grid-template-columns: 1fr;
+  }
+  .pilot-checks > div:first-child {
+    padding-top: 68px;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-scope,
+  .activity-evidence {
+    padding-block: 76px;
+  }
+  .pilot-checks {
+    padding-bottom: 76px;
+  }
+  .pilot-check-grid {
+    grid-template-columns: 1fr;
+  }
+  .pilot-check-grid article,
+  .pilot-check-grid article:nth-child(2n) {
+    border-right: 0;
+  }
+}
+
+/* ============================================================
    15. ACTIVITY & PUBLIC PROOF
    ============================================================ */
 .activity-hero,

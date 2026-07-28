@@ -12,7 +12,7 @@ test("renders the home conversion path with real product evidence", async () => 
   assert.match(html, /함께 푸는 미스터리 수업/);
   assert.match(html, /무료 샘플 받아보기/);
   assert.match(html, /4차시 수업 흐름/);
-  assert.match(html, /실제 자료를 보여드립니다/);
+  assert.match(html, /제작한 시제품을 보여드립니다/);
   assert.match(html, /파일럿보다 먼저/);
   assert.match(html, /\/assets\/dullg\/mat-game-cards\.png/);
   assert.match(html, /\/assets\/dullg\/mat-workbook\.png/);
@@ -35,10 +35,11 @@ test("renders detailed product routes with working navigation targets", async ()
   assert.match(academy, /href="\/academy\/sample"/);
   assert.match(academy, /href="\/academy\/pilot"/);
   assert.match(curriculum, /4차시 커리큘럼/);
-  assert.match(sample, /실제 수업 자료/);
+  assert.match(sample, /수업용 시제품/);
   assert.match(pilot, /파일럿/);
   assert.match(activity, /현장 기록을 준비하고 있습니다/);
-  assert.match(activity, /실제 제공을 준비한 수업 자료/);
+  assert.match(activity, /영어학원용 수업 제품으로 검토 중인 시제품/);
+  assert.match(activity, /사실과 계획을 섞지 않습니다/);
 });
 
 test("keeps core navigation and interactions accessible", async () => {

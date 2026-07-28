@@ -17,14 +17,14 @@ export const metadata: Metadata = {
 const progress = [
   {
     label: "완료",
-    title: "첫 번째 에피소드 제작",
-    body: "학생용 단서 카드, 워크북, 교사용 진행안과 결과물 예시를 제작했습니다.",
+    title: "첫 수업용 시제품 제작",
+    body: "사건 구조와 학생용 단서 카드, 워크북, 교사용 진행안 시제품을 제작했습니다.",
     icon: Package,
   },
   {
-    label: "진행 중",
-    title: "수업 적용 검토",
-    body: "학원 환경에서 준비 시간, 난이도와 수업 흐름을 확인하고 있습니다.",
+    label: "준비 중",
+    title: "학원 파일럿 설계",
+    body: "준비 시간, 영어 단서 사용, 학생 참여와 결과물을 확인할 운영 기준을 정리했습니다.",
     icon: CheckCircle,
   },
   {
@@ -65,6 +65,21 @@ const teamSlots = [
   },
 ];
 
+const evidenceRules = [
+  {
+    label: "확인된 자산",
+    body: "제작 파일이나 공식 문서로 확인할 수 있는 내용",
+  },
+  {
+    label: "현재 결정",
+    body: "지금 실행 기준으로 정한 제품 범위와 우선순위",
+  },
+  {
+    label: "검증 예정",
+    body: "파일럿에서 확인해야 하며 아직 성과로 말하지 않는 내용",
+  },
+];
+
 export default function ActivityPage() {
   return (
     <PageFrame>
@@ -78,8 +93,8 @@ export default function ActivityPage() {
           </h1>
         </div>
         <p>
-          아직 파일럿 단계입니다. 완성된 자료와 진행 중인 검토, 앞으로
-          공개할 현장 기록을 구분해 안내하겠습니다.
+          현재 수업용 시제품을 제작하고 파일럿을 준비하는 단계입니다. 확인된
+          자산, 현재 결정과 앞으로 검증할 내용을 구분해 안내하겠습니다.
         </p>
       </section>
 
@@ -105,6 +120,27 @@ export default function ActivityPage() {
         </div>
       </section>
 
+      <section className="activity-evidence shell">
+        <div className="activity-section-head activity-section-head-row">
+          <div>
+            <Kicker>공개 기준</Kicker>
+            <h2>사실과 계획을 섞지 않습니다.</h2>
+          </div>
+          <p>
+            목표, 기대 효과와 확장 아이디어를 이미 확인된 성과처럼 표현하지
+            않습니다. 공개할 때는 아래 기준을 함께 표시합니다.
+          </p>
+        </div>
+        <div className="activity-evidence-grid">
+          {evidenceRules.map((rule) => (
+            <article key={rule.label}>
+              <strong>{rule.label}</strong>
+              <p>{rule.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="activity-making">
         <div className="shell activity-making-grid">
           <div className="activity-making-copy">
@@ -115,7 +151,7 @@ export default function ActivityPage() {
               <span>만든 자료를 보여드립니다.</span>
             </h2>
             <p>
-              아래 이미지는 실제 제공을 준비한 수업 자료입니다. 교실 장면
+              아래 이미지는 영어학원용 수업 제품으로 검토 중인 시제품입니다. 교실 장면
               이미지는 수업 구성을 설명하기 위한 연출 이미지이며, 실제
               파일럿 현장 사진과 구분해 표시합니다.
             </p>

@@ -1,0 +1,120 @@
+.activity-ledger {
+  padding: 96px 0 112px;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.6fr) minmax(0, 1.4fr);
+  gap: 80px;
+}
+
+.activity-ledger h2 {
+  margin: 12px 0 0;
+  font-size: clamp(32px, 3.6vw, 46px);
+  letter-spacing: -0.05em;
+}
+
+.activity-ledger-list {
+  border-top: 1px solid #171917;
+}
+
+.activity-ledger-list a {
+  min-height: 116px;
+  display: grid;
+  grid-template-columns: 132px 64px minmax(140px, 1fr) minmax(180px, 1.25fr) 24px;
+  gap: 20px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.activity-ledger-list time,
+.activity-ledger-list > a > span {
+  color: #858a86;
+  font-size: 11px;
+}
+
+.activity-ledger-list strong {
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+
+.activity-ledger-list p {
+  margin: 0;
+  color: #6a6f6b;
+  font-size: 13px;
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
+.activity-ledger-list svg {
+  justify-self: end;
+}
+
+.activity-disclosure {
+  padding: 82px 0;
+  background: #f4f5f2;
+}
+
+.activity-disclosure .shell {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.6fr) 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.activity-disclosure h2 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+
+.activity-disclosure p {
+  margin: 0;
+  color: #656a66;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+@media (max-width: 760px) {
+  .site-header .brand,
+  .contact-email-link,
+  .site-footer .brand,
+  .site-footer-links a,
+  .site-footer-contact a,
+  .site-footer-bottom a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .activity-ledger {
+    padding: 68px 0 76px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .activity-ledger-list a {
+    padding: 22px 0;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 7px 16px;
+  }
+
+  .activity-ledger-list time,
+  .activity-ledger-list strong,
+  .activity-ledger-list p {
+    grid-column: 1;
+  }
+
+  .activity-ledger-list > a > span {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .activity-ledger-list svg {
+    grid-column: 2;
+    grid-row: 2 / 5;
+  }
+
+  .activity-disclosure .shell {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

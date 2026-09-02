@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = { title: "작품과 펀딩 · 단서공방", description: "단서공방(ProjectDullG)이 공개한 머더미스터리, 인터랙티브 콘텐츠와 텀블벅 펀딩 기록을 소개합니다." };
@@ -39,6 +38,5 @@ export default function WorksPage() {
       </div>
     </section>
 
-    <section className="education-bridge shell"><div><Kicker>교육 콘텐츠</Kicker><h2>영어 미스터리 수업팩을 준비하고 있습니다.</h2></div><p>학생이 영어 단서를 읽고 근거를 설명하는 4차시 수업팩입니다. 머더미스터리 제작 이력과 별개로, 실제 수업에서 운영할 수 있는지는 파일럿을 통해 확인할 예정입니다.</p><Link href="/academy">수업팩 살펴보기 →</Link></section>
   </PageFrame>;
 }

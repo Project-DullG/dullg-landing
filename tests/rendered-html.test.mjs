@@ -31,17 +31,17 @@ test("renders detailed product routes with working navigation targets", async ()
     readFile(routeHtml("materials.html"), "utf8"),
   ]);
 
-  assert.match(academy, /제품 한눈에 보기/);
-  assert.match(academy, /한눈에 보는 4차시 수업팩/);
+  assert.match(academy, /영어 미스터리 수업팩/);
+  assert.match(academy, /영어 단서를 읽고/);
   assert.match(academy, /href="\/academy\/curriculum"/);
   assert.match(academy, /href="\/academy\/sample"/);
   assert.match(academy, /href="\/academy\/pilot"/);
   assert.match(curriculum, /판단을 남기는 네 장면/);
   assert.match(sample, /수업용 시제품/);
   assert.match(pilot, /파일럿/);
-  assert.match(activity, /현재 공개 가능한 자료/);
-  assert.match(activity, /영어학원용 수업 제품으로 검토 중인 시제품/);
-  assert.match(activity, /사실과 계획을 섞지 않습니다/);
+  assert.match(activity, /제작·활동 기록/);
+  assert.match(activity, /울릉고 리빙랩 특강 자료/);
+  assert.match(activity, /확인된 내용만 공개합니다/);
   assert.match(materials, /울릉고 리빙랩 특강/);
   assert.match(materials, /2026년 9월 5일/);
   assert.match(materials, /울릉군 생태관광 AI 교육/);

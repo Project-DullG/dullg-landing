@@ -93,17 +93,6 @@
 .activity-case-nav a { min-height:44px; display:flex; align-items:center; gap:8px; color:var(--ink); font-size:13px; font-weight:700; }
 
 @media (max-width: 760px) {
-  .site-header .brand,
-  .contact-email-link,
-  .site-footer .brand,
-  .site-footer-links a,
-  .site-footer-contact a,
-  .site-footer-bottom a {
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-  }
-
   .activity-ledger {
     padding: 68px 0 76px;
     grid-template-columns: 1fr;

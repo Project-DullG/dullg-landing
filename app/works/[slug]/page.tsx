@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Kicker, PageFrame } from "@/components/site";
 import { getWork, works } from "@/lib/works";
@@ -40,7 +41,7 @@ export default async function WorkDetailPage({ params }: Props) {
             <div><dt>형태</dt><dd>{work.platform}</dd></div>
           </dl>
         </div>
-        <figure><img src={work.image} width="1000" height="1000" alt={work.alt} /></figure>
+        <figure><Image src={work.image} width={1000} height={1000} alt={work.alt} sizes="(max-width: 760px) 100vw, 40vw" priority /></figure>
       </header>
 
       <section className="work-detail-story shell" aria-labelledby="work-story-title">

@@ -130,6 +130,7 @@ export const works: Work[] = [
 
 export const publishedWorks = works.filter((work) => work.status !== "펀딩 중");
 export const currentWorks = works.filter((work) => work.status === "펀딩 중");
+export const homeFeaturedWorks = works.filter((work) => ["slime-soda", "professor-rest", "snake-carnival"].includes(work.slug));
 
 export function getWork(slug: string) {
   return works.find((work) => work.slug === slug);

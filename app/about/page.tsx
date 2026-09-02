@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
@@ -63,7 +64,7 @@ export default function AboutPage() {
 
       <section className="about-brand shell" aria-labelledby="about-brand-title">
         <figure>
-          <img src="/assets/brand/project-dullg-banner.png" width="1701" height="5103" alt="단서공방의 이전 프로젝트 덜지 소개 배너 상단" />
+          <Image src="/assets/brand/project-dullg-banner.png" width={1701} height={5103} alt="단서공방의 이전 프로젝트 덜지 소개 배너 상단" sizes="(max-width: 760px) 82vw, 32vw" priority />
           <figcaption>단서공방 소개 배너 · 제공 자료</figcaption>
         </figure>
         <div>

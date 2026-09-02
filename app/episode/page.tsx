@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
@@ -44,9 +45,13 @@ export default function EpisodePage() {
           </div>
         </div>
         <div className="ep-hero-visual">
-          <img
+          <Image
             src="/assets/dullg/rulebook-cover.png"
             alt="보충반의 사라진 열쇠 케이스 파일"
+            width={944}
+            height={1330}
+            sizes="(max-width: 760px) 82vw, 38vw"
+            priority
           />
           <span className="ep-case-stamp">OPEN CASE</span>
         </div>
@@ -74,10 +79,12 @@ export default function EpisodePage() {
             </p>
           </div>
           <div className="ep-setting-map">
-            <img
+            <Image
               src="/assets/dullg/floor-map-3f.png"
               alt="3층 원장실과 자습실 평면도"
-              loading="lazy"
+              width={850}
+              height={746}
+              sizes="(max-width: 760px) 100vw, 50vw"
             />
             <div className="ep-map-label">
               <span>3F / FLOOR MAP</span>
@@ -101,7 +108,7 @@ export default function EpisodePage() {
           {cast.map((c) => (
             <div className="ep-cast-card" key={c.name}>
               <div className="ep-cast-img">
-                <img src={c.image} alt={`${c.name} 캐릭터`} loading="lazy" />
+                <Image src={c.image} width={500} height={500} alt={`${c.name} 캐릭터`} sizes="(max-width: 760px) 50vw, 25vw" />
               </div>
               <div className="ep-cast-info">
                 <span className="ep-cast-index">{c.num} / 04</span>

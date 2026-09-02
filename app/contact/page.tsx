@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Kicker, PageFrame } from "@/components/site";
+import { BRAND, emailHref } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "문의 · 단서공방",
@@ -27,8 +28,8 @@ export default function ContactPage() {
       <section className="contact-main shell">
         <div className="contact-email-block">
           <Kicker>공식 이메일</Kicker>
-          <a className="contact-email-link" href="mailto:cluedullg@gmail.com">
-            cluedullg@gmail.com
+          <a className="contact-email-link" href={emailHref}>
+            {BRAND.email}
           </a>
           <p>
             이메일 제목에 문의 유형과 이름을 간단히 적어주시면 더 빠르게

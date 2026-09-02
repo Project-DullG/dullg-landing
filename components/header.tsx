@@ -4,14 +4,8 @@ import { ArrowUpRight, List, X } from "@phosphor-icons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-
-const navLinks = [
-  { href: "/", label: "홈" },
-  { href: "/works", label: "작품" },
-  { href: "/academy", label: "교육" },
-  { href: "/materials", label: "수강생 자료실" },
-  { href: "/about", label: "단서공방" },
-];
+import { primaryNavigation } from "@/lib/navigation";
+import { BRAND } from "@/lib/site-config";
 
 export function Header() {
   const pathname = usePathname();
@@ -26,11 +20,11 @@ export function Header() {
             <i />
             <i />
           </span>
-          <span className="brand-name">단서공방<small>ProjectDullG</small></span>
+          <span className="brand-name">{BRAND.name}<small>{BRAND.englishName}</small></span>
         </Link>
 
         <div className="nav-links">
-          {navLinks.map((link) => {
+          {primaryNavigation.map((link) => {
             const isActive = link.href === "/"
               ? pathname === "/"
               : pathname === link.href || pathname.startsWith(`${link.href}/`);
@@ -69,7 +63,7 @@ export function Header() {
         id="mobile-navigation"
       >
         <div className="shell">
-          {navLinks.map((link) => (
+          {primaryNavigation.map((link) => (
             <Link
               key={link.label}
               href={link.href}

@@ -1,18 +1,12 @@
 import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
+import Image from "next/image";
 import { ClueProcess } from "@/components/clue-process";
 import { Footer, Header, Kicker } from "@/components/site";
-import { works } from "@/lib/works";
-
-const educationFacts = [
-  ["4차시", "읽기부터 사건보고서까지"],
-  ["초6~중1", "첫 파일럿 검토 기준"],
-  ["4~16명", "권장 수업 인원"],
-  ["30분 이내", "첫 수업 준비 목표"],
-];
+import { educationFacts } from "@/lib/education";
+import { homeFeaturedWorks } from "@/lib/works";
 
 export default function Home() {
-  const featuredWorks = ["slime-soda", "professor-rest", "snake-carnival"].map((slug) => works.find((work) => work.slug === slug)!);
   return (
     <main className="brand-home" id="main-content">
       <Header />
@@ -32,8 +26,8 @@ export default function Home() {
           <div><Kicker>작품</Kicker><h2 id="brand-works-title">공개한 머더미스터리</h2></div>
           <Link href="/works">모든 작품과 펀딩 기록 <ArrowUpRight size={16} aria-hidden="true" /></Link>
         </div>
-        <div className="brand-work-grid">{featuredWorks.map(work => <Link href={`/works/${work.slug}`} key={work.slug}>
-          <img src={work.image} width="1000" height="1000" alt={work.alt} />
+        <div className="brand-work-grid">{homeFeaturedWorks.map(work => <Link href={`/works/${work.slug}`} key={work.slug}>
+          <Image src={work.image} width={1000} height={1000} alt={work.alt} sizes="(max-width: 760px) 100vw, 33vw" />
           <span>{work.status} · {work.players} · {work.duration}</span><h3>{work.title}</h3>
         </Link>)}</div>
       </section>
@@ -49,7 +43,7 @@ export default function Home() {
 
       <section className="brand-education" aria-labelledby="brand-education-title">
         <div className="shell brand-education-grid">
-          <figure><img src="/assets/dullg/mat-game-cards.webp" width="1536" height="1024" alt="책상 위에 펼쳐진 학생용 영어 단서 카드" /></figure>
+          <figure><Image src="/assets/dullg/mat-game-cards.webp" width={1536} height={1024} alt="책상 위에 펼쳐진 학생용 영어 단서 카드" sizes="(max-width: 760px) 100vw, 50vw" /></figure>
           <div>
             <Kicker>교육 · 영어 미스터리 수업팩</Kicker>
             <h2 id="brand-education-title">영어 단서를 읽고<br />함께 사건을 해결합니다.</h2>

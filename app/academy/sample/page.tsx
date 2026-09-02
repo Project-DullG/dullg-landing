@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
@@ -25,10 +26,12 @@ export default function SamplePage() {
 
       <section className="sample-grid shell">
         <article className="sample-card sample-clue">
-          <img
+          <Image
             src="/assets/dullg/card-cover-1.png"
             alt="윤지원 단서 카드 표지"
-            loading="lazy"
+            width={408}
+            height={650}
+            sizes="(max-width: 760px) 100vw, 33vw"
           />
           <div>
             <span className="sample-label">ITEM CARD / 01</span>
@@ -40,10 +43,12 @@ export default function SamplePage() {
           </div>
         </article>
         <article className="sample-card sample-workbook">
-          <img
+          <Image
             src="/assets/dullg/card-body-1.png"
             alt="실제 단서 카드 내용"
-            loading="lazy"
+            width={408}
+            height={650}
+            sizes="(max-width: 760px) 100vw, 33vw"
           />
           <div>
             <span className="sample-label">EVIDENCE / READ</span>
@@ -55,10 +60,12 @@ export default function SamplePage() {
           </div>
         </article>
         <article className="sample-card sample-report">
-          <img
+          <Image
             src="/assets/dullg/rulebook-flow.png"
             alt="룰북의 게임 흐름 안내 페이지"
-            loading="lazy"
+            width={944}
+            height={1330}
+            sizes="(max-width: 760px) 100vw, 33vw"
           />
           <div>
             <span className="sample-label">GUIDE / PLAY FLOW</span>
@@ -83,22 +90,22 @@ export default function SamplePage() {
         </div>
         <div className="gallery-images">
           <figure>
-            <img
+            <Image
               src="/assets/dullg/mat-story-book.webp"
               alt="보충반의 사라진 열쇠 사건 자료 시제품"
-              width="1448"
-              height="1086"
-              loading="lazy"
+              width={1448}
+              height={1086}
+              sizes="(max-width: 760px) 100vw, 50vw"
             />
             <figcaption>제작 완료 · 사건 자료 시제품</figcaption>
           </figure>
           <figure>
-            <img
+            <Image
               src="/assets/dullg/mat-rulebook.webp"
               alt="진행 순서와 규칙이 담긴 수업 규칙서 시제품"
-              width="1536"
-              height="1024"
-              loading="lazy"
+              width={1536}
+              height={1024}
+              sizes="(max-width: 760px) 100vw, 50vw"
             />
             <figcaption>제작 완료 · 수업 규칙서 시제품</figcaption>
           </figure>

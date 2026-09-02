@@ -10,6 +10,7 @@ import { SITE_URL } from "../lib/site";
 import "./globals.css";
 import "./activity.css";
 import "./work-detail.css";
+import "./responsive.css";
 
 const dmMono = DM_Mono({ weight: "400", subsets: ["latin"], variable: "--font-mono", display: "swap" });
 const dmSans = DM_Sans({ weight: ["400", "500", "600", "700"], subsets: ["latin"], variable: "--font-sans", display: "swap" });

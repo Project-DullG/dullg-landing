@@ -1,0 +1,18 @@
+@media (max-width: 760px) {
+  .site-header .brand,
+  .contact-email-link,
+  .site-footer .brand,
+  .site-footer-links a,
+  .site-footer-contact a,
+  .site-footer-bottom a,
+  .live-funding-head a,
+  .live-work-list article > div > a,
+  .academy-overview-actions > a,
+  .materials-help a,
+  .text-link,
+  .text-link-light {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}

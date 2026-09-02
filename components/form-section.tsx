@@ -2,17 +2,18 @@
 
 import { ArrowUpRight, CheckCircle } from "@phosphor-icons/react";
 import { useState, useRef } from "react";
+import { BRAND, emailHref } from "@/lib/site-config";
 
 type State = "idle" | "submitting" | "success" | "error";
 type ErrorField = "academy" | "contact" | "interest" | "consent" | null;
 
 // TODO: 실제 폼 백엔드 연결 방법 (아래 중 하나 선택)
 // Option 1: formsubmit.co (무료, 첫 제출 시 이메일 인증 필요)
-//   SUBMIT_URL = "https://formsubmit.co/ajax/cluedullg@gmail.com"
+//   SUBMIT_URL = `https://formsubmit.co/ajax/${BRAND.email}`
 // Option 2: Next.js API 라우트
 //   app/api/apply/route.ts 생성 후 → SUBMIT_URL = "/api/apply"
 // Option 3: Formspree, EmailJS 등 SaaS 폼 서비스
-const SUBMIT_URL = "https://formsubmit.co/ajax/cluedullg@gmail.com";
+const SUBMIT_URL = `https://formsubmit.co/ajax/${BRAND.email}`;
 
 export function FormSection() {
   const [state, setState] = useState<State>("idle");
@@ -94,7 +95,7 @@ export function FormSection() {
       setState("error");
       setErrorField(null);
       setErrorMsg(
-        "일시적인 오류가 발생했습니다. cluedullg@gmail.com으로 직접 문의해주세요."
+        `일시적인 오류가 발생했습니다. ${BRAND.email}으로 직접 문의해주세요.`
       );
     }
   }
@@ -109,7 +110,7 @@ export function FormSection() {
         <p>영업일 1~2일 내 입력하신 연락처로 샘플 자료를 보내드립니다.</p>
         <p className="form-success-contact">
           추가 문의:{" "}
-          <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>
+          <a href={emailHref}>{BRAND.email}</a>
         </p>
       </div>
     );
@@ -223,7 +224,7 @@ export function FormSection() {
 
       <small>
         영업일 1~2일 내 답변 · 직접 문의:{" "}
-        <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>
+        <a href={emailHref}>{BRAND.email}</a>
       </small>
     </form>
   );

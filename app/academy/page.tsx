@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowUpRight, BookOpenText, FileText, FolderOpen, Printer } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
@@ -34,7 +35,7 @@ export default function AcademyPage() {
         </div>
       </div>
       <figure className="academy-overview-cover">
-        <img src="/assets/dullg/rulebook-cover.png" alt="영어 미스터리 수업팩 첫 번째 에피소드 표지" />
+        <Image src="/assets/dullg/rulebook-cover.png" width={877} height={1241} alt="영어 미스터리 수업팩 첫 번째 에피소드 표지" sizes="(max-width: 760px) 82vw, 38vw" priority />
         <figcaption>CASE FILE 01 · 수업용 시제품</figcaption>
       </figure>
     </section>

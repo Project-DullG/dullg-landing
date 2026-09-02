@@ -1,33 +1,12 @@
 import type { Metadata } from "next";
 import { Kicker, PageFrame } from "@/components/site";
+import { courseMaterials } from "@/lib/education";
+import { BRAND, emailHref } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "수강생 자료실 · 단서공방",
   description: "단서공방 수업 참여자를 위한 안내와 공개 자료를 확인하세요.",
 };
-
-const ulleungEcotourismLinks = [
-  { title: "교육 자료", body: "수업 일정, 실습 순서, 예시 프롬프트와 준비 사항", href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/" },
-  { title: "수업 진행 페이지", body: "수업 시간에 따라 실습 내용을 확인하는 진행용 화면", href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/class.html" },
-  { title: "프롬프트 가이드", body: "프롬프트 작성 원리와 단계별 실습 안내", href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/prompt-guide.html" },
-  { title: "웹페이지 예시", body: "교육 중 제작한 울릉도 관광 웹페이지 예시", href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/example.html" },
-  { title: "보드게임 기획 도구", body: "울릉군 생태관광 소재를 보드게임 기획안으로 정리하는 실습 도구", href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/boardgame.html" },
-];
-
-const courses = [
-  {
-    title: "울릉고 리빙랩 특강",
-    meta: "울릉고등학교 · 2026년 9월 5일",
-    files: [
-      { title: "특강 발표자료", body: "단서공방 소개부터 울릉도 소재 게임 기획 실습까지 담은 13쪽 PDF", href: "/assets/materials/ulleung-high-living-lab-2026.pdf", download: true },
-    ],
-  },
-  {
-    title: "울릉군 생태관광 AI 교육",
-    meta: "울릉군 · 2026년 4월 18일 · 울릉고등학교 전산실",
-    files: ulleungEcotourismLinks,
-  },
-];
 
 export default function MaterialsPage() {
   return (
@@ -40,7 +19,7 @@ export default function MaterialsPage() {
         </section>
 
         <section className="course-archive shell" aria-label="교육 과정별 자료">
-          {courses.map((course) => (
+          {courseMaterials.map((course) => (
             <details className="course-row course-row-expandable" key={course.title}>
               <summary>
                 <span><strong>{course.title}</strong><small>{course.meta}</small></span>
@@ -48,7 +27,7 @@ export default function MaterialsPage() {
               </summary>
               <div className="course-files">
                 {course.files.map((item) => (
-                  <a key={item.title} href={item.href} target="_blank" rel="noreferrer" download={("download" in item && item.download) || undefined}><span><strong>{item.title}</strong><small>{item.body}</small></span><b aria-hidden="true">{"download" in item && item.download ? "↓" : "↗"}</b></a>
+                  <a key={item.title} href={item.href} target="_blank" rel="noreferrer" download={item.download || undefined}><span><strong>{item.title}</strong><small>{item.body}</small></span><b aria-hidden="true">{item.download ? "↓" : "↗"}</b></a>
                 ))}
               </div>
             </details>
@@ -58,7 +37,7 @@ export default function MaterialsPage() {
         <section className="materials-help shell">
           <h2>찾는 자료가 없다면</h2>
           <p>수업명과 필요한 자료를 이메일에 적어 보내주세요. 공개할 수 있는 자료인지 확인한 뒤 답변드리겠습니다.</p>
-          <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>
+          <a href={emailHref}>{BRAND.email}</a>
         </section>
       </div>
     </PageFrame>

@@ -5,17 +5,18 @@ import test from "node:test";
 const routeHtml = (route) =>
   new URL(`../.next/server/app/${route}`, import.meta.url);
 
-test("renders the home conversion path with real product evidence", async () => {
+test("renders the brand portfolio path with real work and education evidence", async () => {
   const html = await readFile(routeHtml("index.html"), "utf8");
 
+  assert.match(html, /이야기를 만들고/);
+  assert.match(html, /단서를 엮습니다/);
+  assert.match(html, /공개한 머더미스터리/);
   assert.match(html, /영어 단서를 읽고/);
   assert.match(html, /함께 사건을 해결합니다/);
-  assert.match(html, /무료 검토팩 요청/);
-  assert.match(html, /4차시 수업 흐름/);
-  assert.match(html, /제작한 시제품을 보여드립니다/);
-  assert.match(html, /파일럿보다 먼저/);
+  assert.match(html, /href="\/works"/);
+  assert.match(html, /href="\/academy"/);
+  assert.match(html, /\/assets\/works\/slime-soda-cover\.webp/);
   assert.match(html, /\/assets\/dullg\/mat-game-cards\.webp/);
-  assert.match(html, /\/assets\/dullg\/mat-teacher-guide\.webp/);
   assert.match(html, /id="apply"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });

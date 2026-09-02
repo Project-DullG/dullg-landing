@@ -24,13 +24,13 @@ export function Footer() {
             <span className="brand-name">단서공방<small>ProjectDullG</small></span>
           </Link>
           <p>
-            영어 단서를 읽고, 함께 추리하고,
+            이야기를 만들고, 단서를 엮어
             <br />
-            근거를 글로 남기는 4차시 수업팩
+            머더미스터리와 교육 콘텐츠를 만듭니다.
           </p>
         </div>
 
-        <div className="site-footer-links"><strong>둘러보기</strong><Link href="/academy">수업팩</Link><Link href="/works">작품</Link><Link href="/materials">수강생 자료실</Link></div>
+        <div className="site-footer-links"><strong>둘러보기</strong><Link href="/works">작품</Link><Link href="/academy">교육</Link><Link href="/materials">수강생 자료실</Link></div>
 
         <div className="site-footer-links">
           <strong>단서공방</strong>
@@ -43,7 +43,7 @@ export function Footer() {
           <strong>문의</strong>
           <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>
           <p>영업일 기준 1~2일 내 답변</p>
-          <Link className="site-footer-sample" href="/#apply">무료 검토팩 요청 →</Link>
+          <Link className="site-footer-sample" href="/contact">프로젝트 문의 →</Link>
         </div>
       </div>
 

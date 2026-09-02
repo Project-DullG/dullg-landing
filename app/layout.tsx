@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "단서공방 | 영어 미스터리 수업과 추리 콘텐츠",
   description:
-    "초6 수준에서 첫 검증을 준비하는 영어학원용 4차시 미스터리 수업팩 시제품. 학생이 영어 단서를 읽고 질문하며 근거가 담긴 보고서를 남기도록 설계했습니다.",
-  keywords: ["영어학원", "방학특강", "수업자료", "영어수업팩", "중등영어", "초등영어", "학원특강"],
+    "단서공방(ProjectDullG)이 만든 머더미스터리 작품과 제작 기록, 준비 중인 영어 미스터리 수업팩을 소개합니다.",
+  keywords: ["단서공방", "ProjectDullG", "머더미스터리", "추리 콘텐츠", "영어 미스터리 수업팩"],
   alternates: {
     canonical: "/",
   },
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     url: "/",
     title: "단서공방 | 영어 미스터리 수업과 추리 콘텐츠",
     description:
-      "첫 수업 준비 30분 이내를 목표로 설계한 영어학원용 미스터리 수업팩 시제품입니다.",
+      "단서공방의 머더미스터리 작품, 제작 기록과 영어 미스터리 수업팩을 소개합니다.",
     siteName: "단서공방 ProjectDullG",
     images: [
       {
         url: "/og.webp",
         width: 1731,
         height: 909,
-        alt: "DullG 영어 미스터리 수업팩과 단서 카드",
+        alt: "단서공방 머더미스터리 작품과 영어 수업 자료",
       },
     ],
   },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "단서공방 | 영어 미스터리 수업과 추리 콘텐츠",
     description:
-      "초6 수준에서 첫 검증을 준비하는 영어학원용 4차시 미스터리 수업팩 시제품.",
+      "단서공방의 머더미스터리 작품, 제작 기록과 영어 미스터리 수업팩.",
     images: ["/og.webp"],
   },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },

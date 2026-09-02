@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navLinks = [
-  { href: "/academy", label: "수업팩" },
   { href: "/works", label: "작품" },
+  { href: "/academy", label: "교육" },
   { href: "/materials", label: "수강생 자료실" },
   { href: "/about", label: "단서공방" },
 ];
@@ -44,8 +44,8 @@ export function Header() {
           })}
         </div>
 
-        <Link className="nav-cta" href="/#apply">
-          검토팩 요청
+        <Link className="nav-cta" href="/contact">
+          문의하기
           <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
         </Link>
 
@@ -77,10 +77,10 @@ export function Header() {
           ))}
           <Link
             className="mobile-navigation-cta"
-            href="/#apply"
+            href="/contact"
             onClick={() => setIsOpen(false)}
           >
-            무료 검토팩 요청
+            문의하기
             <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
           </Link>
         </div>

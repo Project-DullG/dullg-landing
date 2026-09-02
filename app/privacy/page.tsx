@@ -90,7 +90,7 @@ export default function PrivacyPage() {
           <strong>시행일</strong>
           <span>2026년 7월 26일</span>
           <strong>문의</strong>
-          <a href="mailto:hello@dullg.com">hello@dullg.com</a>
+          <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>
         </div>
 
         <div className="privacy-sections">
@@ -105,7 +105,7 @@ export default function PrivacyPage() {
             <h2>6. 문의 및 요청</h2>
             <p>
               개인정보 관련 요청은{" "}
-              <a href="mailto:hello@dullg.com">hello@dullg.com</a>으로 보내주세요.
+              <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>으로 보내주세요.
               확인 후 가능한 범위에서 신속하게 안내하겠습니다.
             </p>
           </article>

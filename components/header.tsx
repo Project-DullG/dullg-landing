@@ -7,9 +7,9 @@ import { useState } from "react";
 
 const navLinks = [
   { href: "/academy", label: "수업팩" },
-  { href: "/academy/curriculum", label: "커리큘럼" },
-  { href: "/academy/sample", label: "자료 미리보기" },
-  { href: "/about", label: "프로젝트 소개" },
+  { href: "/works", label: "작품" },
+  { href: "/materials", label: "수강생 자료실" },
+  { href: "/about", label: "단서공방" },
 ];
 
 export function Header() {
@@ -19,13 +19,13 @@ export function Header() {
   return (
     <header className="site-header">
       <nav className="nav shell" aria-label="주요 메뉴">
-        <Link className="brand" href="/" aria-label="DullG 홈">
+        <Link className="brand" href="/" aria-label="단서공방 홈">
           <span className="brand-mark" aria-hidden="true">
             <i />
             <i />
             <i />
           </span>
-          <span>DullG</span>
+          <span className="brand-name">단서공방<small>ProjectDullG</small></span>
         </Link>
 
         <div className="nav-links">

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
-  title: "About · DullG",
-  description: "스토리 기반 추론 경험을 교육과 콘텐츠로 만드는 Project DullG의 방향과 현재 단계.",
+  title: "단서공방 소개",
+  description: "스토리 기반 추론 경험을 교육과 콘텐츠로 만드는 단서공방(ProjectDullG)의 방향과 현재 단계.",
 };
 
 const beliefs = [
@@ -48,14 +48,14 @@ export default function AboutPage() {
       {/* ── HERO — split with decorative manifesto ── */}
       <section className="about-hero shell">
         <div className="about-hero-copy">
-          <Kicker>DullG 소개</Kicker>
+          <Kicker>단서공방 소개</Kicker>
           <h1>
             수업이 끝나고
             <br />
             <em>남는 것만 만듭니다.</em>
           </h1>
           <p>
-            DullG는 역할과 서로 다른 정보를 바탕으로 읽고, 질문하고,
+            단서공방(ProjectDullG)은 역할과 서로 다른 정보를 바탕으로 읽고, 질문하고,
             근거를 비교해 자신의 판단을 남기는 경험을 설계합니다.
           </p>
         </div>
@@ -82,7 +82,7 @@ export default function AboutPage() {
               학생이 실제로 영어를 사용하는 순간은, 재보면 생각보다 짧습니다.
             </p>
             <p>
-              DullG는 그 구조를 바꾸려고 만들었습니다. 단서를 설명하고,
+              단서공방은 그 구조를 바꾸려고 시작했습니다. 단서를 설명하고,
               팀원에게 반박하고, 판단을 영어로 써야 수업이 진행됩니다.
               교사가 분위기를 만드는 게 아니라, 사건 자체가 학생을 움직이게
               합니다.
@@ -90,7 +90,7 @@ export default function AboutPage() {
             <p>
               동시에 원장님의 현실도 알고 있습니다. 수업 준비 시간이 줄어야
               하고, 학부모에게 보여줄 결과물이 있어야 합니다.
-              DullG는 이 두 가지를 같이 해결하려고 설계됐습니다.
+              첫 작품 DullG는 이 두 가지를 같이 해결하려고 설계됐습니다.
             </p>
           </div>
         </div>

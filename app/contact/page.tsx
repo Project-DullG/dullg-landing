@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
-  title: "Contact · DullG",
-  description: "DullG에 궁금한 것이 있으면 편하게 연락주세요. 영업일 1~2일 내 답변합니다.",
+  title: "문의 · 단서공방",
+  description: "단서공방에 궁금한 것이 있으면 편하게 연락주세요. 영업일 1~2일 내 답변합니다.",
 };
 
 const faqs = [
@@ -30,7 +30,7 @@ export default function ContactPage() {
     <PageFrame>
       {/* ── HERO ── */}
       <section className="inner-hero shell">
-        <Kicker>CONTACT</Kicker>
+        <Kicker>문의</Kicker>
         <h1>
           궁금한 건
           <br />
@@ -45,9 +45,9 @@ export default function ContactPage() {
       {/* ── MAIN CONTACT ── */}
       <section className="contact-main shell">
         <div className="contact-email-block">
-          <Kicker>DIRECT EMAIL</Kicker>
-          <a className="contact-email-link" href="mailto:hello@dullg.com">
-            hello@dullg.com
+          <Kicker>공식 이메일</Kicker>
+          <a className="contact-email-link" href="mailto:cluedullg@gmail.com">
+            cluedullg@gmail.com
           </a>
           <p>
             이메일 제목에 학원명과 문의 내용을 간단히 적어주시면 더 빠르게
@@ -56,7 +56,7 @@ export default function ContactPage() {
         </div>
 
         <div className="contact-what-to-include">
-          <Kicker>WHAT TO INCLUDE</Kicker>
+          <Kicker>문의할 때 알려주세요</Kicker>
           <h2>
             이런 내용을
             <br />
@@ -85,7 +85,7 @@ export default function ContactPage() {
 
       {/* ── FAQ ── */}
       <section className="contact-faq shell">
-        <Kicker>QUICK ANSWERS</Kicker>
+        <Kicker>먼저 확인해 보세요</Kicker>
         <h2>
           자주 묻는 것들
         </h2>

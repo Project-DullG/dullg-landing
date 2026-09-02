@@ -17,7 +17,7 @@ const playfair = Playfair_Display({ weight: ["500", "600"], style: ["normal", "i
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "DullG | 영어학원용 4차시 미스터리 수업팩 시제품",
+  title: "단서공방 | 영어 미스터리 수업과 추리 콘텐츠",
   description:
     "초6 수준에서 첫 검증을 준비하는 영어학원용 4차시 미스터리 수업팩 시제품. 학생이 영어 단서를 읽고 질문하며 근거가 담긴 보고서를 남기도록 설계했습니다.",
   keywords: ["영어학원", "방학특강", "수업자료", "영어수업팩", "중등영어", "초등영어", "학원특강"],
@@ -28,10 +28,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     url: "/",
-    title: "DullG | 영어학원용 4차시 미스터리 수업팩 시제품",
+    title: "단서공방 | 영어 미스터리 수업과 추리 콘텐츠",
     description:
       "첫 수업 준비 30분 이내를 목표로 설계한 영어학원용 미스터리 수업팩 시제품입니다.",
-    siteName: "DullG",
+    siteName: "단서공방 ProjectDullG",
     images: [
       {
         url: "/og.webp",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DullG | 영어학원용 4차시 미스터리 수업팩 시제품",
+    title: "단서공방 | 영어 미스터리 수업과 추리 콘텐츠",
     description:
       "초6 수준에서 첫 검증을 준비하는 영어학원용 4차시 미스터리 수업팩 시제품.",
     images: ["/og.webp"],

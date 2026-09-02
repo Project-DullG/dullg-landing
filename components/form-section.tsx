@@ -8,11 +8,11 @@ type ErrorField = "academy" | "contact" | "interest" | "consent" | null;
 
 // TODO: 실제 폼 백엔드 연결 방법 (아래 중 하나 선택)
 // Option 1: formsubmit.co (무료, 첫 제출 시 이메일 인증 필요)
-//   SUBMIT_URL = "https://formsubmit.co/ajax/hello@dullg.com"
+//   SUBMIT_URL = "https://formsubmit.co/ajax/cluedullg@gmail.com"
 // Option 2: Next.js API 라우트
 //   app/api/apply/route.ts 생성 후 → SUBMIT_URL = "/api/apply"
 // Option 3: Formspree, EmailJS 등 SaaS 폼 서비스
-const SUBMIT_URL = "https://formsubmit.co/ajax/hello@dullg.com";
+const SUBMIT_URL = "https://formsubmit.co/ajax/cluedullg@gmail.com";
 
 export function FormSection() {
   const [state, setState] = useState<State>("idle");
@@ -82,7 +82,7 @@ export function FormSection() {
           기관명: data.get("academy"),
           연락처: data.get("contact"),
           관심유형: data.get("interest"),
-          _subject: `[DullG] 검토팩 요청 - ${data.get("academy")}`,
+          _subject: `[단서공방] 검토팩 요청 - ${data.get("academy")}`,
           _template: "box",
           _captcha: "false",
         }),
@@ -94,7 +94,7 @@ export function FormSection() {
       setState("error");
       setErrorField(null);
       setErrorMsg(
-        "일시적인 오류가 발생했습니다. hello@dullg.com으로 직접 문의해주세요."
+        "일시적인 오류가 발생했습니다. cluedullg@gmail.com으로 직접 문의해주세요."
       );
     }
   }
@@ -109,7 +109,7 @@ export function FormSection() {
         <p>영업일 1~2일 내 입력하신 연락처로 샘플 자료를 보내드립니다.</p>
         <p className="form-success-contact">
           추가 문의:{" "}
-          <a href="mailto:hello@dullg.com">hello@dullg.com</a>
+          <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>
         </p>
       </div>
     );
@@ -223,7 +223,7 @@ export function FormSection() {
 
       <small>
         영업일 1~2일 내 답변 · 직접 문의:{" "}
-        <a href="mailto:hello@dullg.com">hello@dullg.com</a>
+        <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>
       </small>
     </form>
   );

@@ -77,7 +77,7 @@ const faqs = [
   },
   {
     q: "요청한 자료는 언제 받을 수 있나요?",
-    a: "영업일 1~2일 내 입력하신 연락처로 안내드립니다. 추가 질문은 hello@dullg.com으로 보내주셔도 됩니다.",
+    a: "영업일 1~2일 내 입력하신 연락처로 안내드립니다. 추가 질문은 cluedullg@gmail.com으로 보내주셔도 됩니다.",
   },
 ];
 
@@ -428,7 +428,7 @@ export default function Home() {
               <li>교사용 진행안 샘플</li>
               <li>영업일 1~2일 내 안내</li>
             </ul>
-            <a href="mailto:hello@dullg.com">hello@dullg.com</a>
+            <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>
           </div>
           <FormSection />
         </div>

@@ -13,7 +13,7 @@ import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
-  title: "전체 페이지 · DullG",
+  title: "전체 페이지 · 단서공방",
   description:
     "DullG의 제품, 수업 자료, 파일럿 운영, 프로젝트 정보를 한곳에서 살펴보세요.",
   alternates: { canonical: "/sitemap" },
@@ -40,6 +40,7 @@ const pageGroups = [
     icon: FolderOpen,
     links: [
       { href: "/academy/sample", title: "수업 자료 미리보기", body: "학생용 카드, 워크북과 교사용 진행안의 구성을 확인합니다." },
+      { href: "/materials", title: "수강생 자료실", body: "수업 뒤 다시 확인할 안내와 공개 자료를 한곳에 모읍니다." },
       { href: "/academy/pilot", title: "파일럿 운영 안내", body: "진행 절차, 확인 기준과 현재 준비 단계를 안내합니다." },
       { href: "/contact", title: "문의하기", body: "기관 상황이나 운영 조건에 관한 질문을 남길 수 있습니다." },
     ],
@@ -51,7 +52,8 @@ const pageGroups = [
       "DullG가 왜 이 제품을 만들고 있으며, 현재 어디까지 왔는지 투명하게 공개합니다.",
     icon: Buildings,
     links: [
-      { href: "/about", title: "DullG 소개", body: "프로젝트의 출발점, 원칙과 앞으로의 방향을 소개합니다." },
+      { href: "/about", title: "단서공방 소개", body: "공방의 출발점, 원칙과 앞으로의 방향을 소개합니다." },
+      { href: "/works", title: "작품과 펀딩", body: "단서공방이 만든 작품과 공개 가능한 펀딩 기록을 모읍니다." },
       { href: "/activity", title: "활동 기록", body: "확인된 시제품과 준비 중인 현장 기록을 구분해 보여드립니다." },
       { href: "/privacy", title: "개인정보 처리 안내", body: "샘플 요청 과정에서 수집하는 정보와 처리 방식을 확인합니다." },
     ],

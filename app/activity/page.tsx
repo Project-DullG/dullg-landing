@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 import { Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
-  title: "활동 기록 · DullG",
+  title: "활동 기록 · 단서공방",
   description:
     "DullG 수업팩의 제작 과정, 현재 진행 상황과 앞으로 공개할 실제 수업 현장 및 팀 소개를 확인하세요.",
 };
@@ -54,7 +54,7 @@ export default function ActivityPage() {
     <PageFrame>
       <section className="activity-hero shell">
         <div>
-          <Kicker>DullG 활동 기록</Kicker>
+          <Kicker>단서공방 활동 기록</Kicker>
           <h1>
             만드는 과정과
             <br />
@@ -155,12 +155,12 @@ export default function ActivityPage() {
       <section className="activity-contact shell">
         <div>
           <Kicker>확인 가능한 연락처</Kicker>
-          <h2>DullG에 직접 물어보세요.</h2>
+          <h2>단서공방에 직접 물어보세요.</h2>
           <p>
             제품, 파일럿과 공개된 기록에 관한 문의는 이메일로 받고 있습니다.
           </p>
         </div>
-        <a href="mailto:hello@dullg.com">hello@dullg.com</a>
+        <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>
       </section>
     </PageFrame>
   );

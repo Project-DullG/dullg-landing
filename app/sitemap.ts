@@ -10,6 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/academy/sample`, priority: 0.8, changeFrequency: "monthly" },
     { url: `${SITE_URL}/academy/pilot`, priority: 0.7, changeFrequency: "monthly" },
     { url: `${SITE_URL}/activity`, priority: 0.7, changeFrequency: "weekly" },
+    { url: `${SITE_URL}/works`, priority: 0.7, changeFrequency: "monthly" },
+    { url: `${SITE_URL}/materials`, priority: 0.7, changeFrequency: "monthly" },
     { url: `${SITE_URL}/about`, priority: 0.6, changeFrequency: "monthly" },
     { url: `${SITE_URL}/contact`, priority: 0.6, changeFrequency: "monthly" },
     { url: `${SITE_URL}/privacy`, priority: 0.3, changeFrequency: "yearly" },

@@ -21,7 +21,7 @@ export function Footer() {
               <i />
               <i />
             </span>
-            <span>DullG</span>
+            <span className="brand-name">단서공방<small>ProjectDullG</small></span>
           </Link>
           <p>
             영어 단서를 읽고, 함께 추리하고,
@@ -36,11 +36,13 @@ export function Footer() {
           <Link href="/academy/curriculum">4차시 수업 흐름</Link>
           <Link href="/academy/sample">자료 미리보기</Link>
           <Link href="/episode">첫 번째 사건</Link>
+          <Link href="/materials">수강생 자료실</Link>
         </div>
 
         <div className="site-footer-links">
-          <strong>프로젝트</strong>
-          <Link href="/about">DullG 소개</Link>
+          <strong>단서공방</strong>
+          <Link href="/about">공방 소개</Link>
+          <Link href="/works">작품과 펀딩</Link>
           <Link href="/activity">제작·활동 기록</Link>
           <Link href="/academy/pilot">파일럿 안내</Link>
           <Link href="/contact">문의하기</Link>
@@ -49,14 +51,14 @@ export function Footer() {
 
         <div className="site-footer-contact">
           <strong>문의</strong>
-          <a href="mailto:hello@dullg.com">hello@dullg.com</a>
+          <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>
           <p>영업일 기준 1~2일 내 답변</p>
           <Link className="site-footer-sample" href="/#apply">무료 검토팩 요청 →</Link>
         </div>
       </div>
 
       <div className="shell site-footer-bottom">
-        <p>© 2026 DullG. 영어를 읽고, 근거를 말하고, 판단을 씁니다.</p>
+        <p>© 2026 단서공방(ProjectDullG). 이야기와 단서로 생각하는 경험을 만듭니다.</p>
         <Link href="/privacy">개인정보 처리 안내</Link>
       </div>
     </footer>

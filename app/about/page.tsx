@@ -59,11 +59,6 @@ export default function AboutPage() {
             현재는 이 제작 방식을 활용한 영어 미스터리 수업팩도 준비하고 있습니다.
           </p>
         </div>
-        <div className="about-hero-manifesto" aria-hidden="true">
-          <span>READ</span>
-          <span>REASON</span>
-          <span>WRITE</span>
-        </div>
       </section>
 
       {/* ── ORIGIN — editorial pull quote ── */}

@@ -30,23 +30,13 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="site-footer-links">
-          <strong>수업팩 살펴보기</strong>
-          <Link href="/academy">한눈에 보기</Link>
-          <Link href="/academy/curriculum">4차시 수업 흐름</Link>
-          <Link href="/academy/sample">자료 미리보기</Link>
-          <Link href="/episode">첫 번째 사건</Link>
-          <Link href="/materials">수강생 자료실</Link>
-        </div>
+        <div className="site-footer-links"><strong>둘러보기</strong><Link href="/academy">수업팩</Link><Link href="/works">작품</Link><Link href="/materials">수강생 자료실</Link></div>
 
         <div className="site-footer-links">
           <strong>단서공방</strong>
           <Link href="/about">공방 소개</Link>
-          <Link href="/works">작품과 펀딩</Link>
           <Link href="/activity">제작·활동 기록</Link>
-          <Link href="/academy/pilot">파일럿 안내</Link>
           <Link href="/contact">문의하기</Link>
-          <Link href="/sitemap">전체 페이지</Link>
         </div>
 
         <div className="site-footer-contact">
@@ -59,7 +49,7 @@ export function Footer() {
 
       <div className="shell site-footer-bottom">
         <p>© 2026 단서공방(ProjectDullG). 머더미스터리 작품과 영어 수업 자료를 만듭니다.</p>
-        <Link href="/privacy">개인정보 처리 안내</Link>
+        <span><Link href="/sitemap">전체 페이지</Link><Link href="/privacy">개인정보 처리 안내</Link></span>
       </div>
     </footer>
   );

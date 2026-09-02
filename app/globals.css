@@ -7042,3 +7042,37 @@ html body .site-footer-bottom>span { display:flex; gap:20px; }
   .materials-help h2 { grid-row:auto; }
   html body .site-footer-grid { grid-template-columns:1fr 1fr; }
 }
+
+/* Final cross-page restraint */
+html body .inner-hero h1,
+html body .academy-overview-hero h1,
+html body .about-hero h1,
+html body .activity-hero h1,
+html body .works-hero h1,
+html body .ep-hero-copy h1,
+html body .privacy-hero h1,
+html body .sitemap-hero h1 { font-size:clamp(40px,4.6vw,56px); line-height:1.16; }
+html body h1 em,html body h2 em { color:#5f6b65; }
+html body .activity-hero h1 em,html body .about-hero h1 em { color:#435b50; }
+html body .academy-overview-cover { transform:none; box-shadow:none; }
+html body .academy-overview-cover:before { display:none; }
+html body .academy-overview-map,
+html body .academy-overview-pilot,
+html body .product-curriculum,
+html body .product-materials,
+html body .product-episode,
+html body .activity-making { background:#f6f7f5; }
+html body .sample-card { border-radius:0; box-shadow:none; }
+html body .sample-card>div:first-child { background:#f4f5f2; }
+html body .ep-case-stamp { background:#fff; color:#555b57; border:1px solid var(--line); }
+html body .ep-hero-chips span { background:#f4f5f2; border-radius:0; }
+html body .contact-main { border-top:1px solid #171917; }
+html body .contact-email-link { color:#344c41; }
+@media(max-width:760px){
+  html body .inner-hero h1,
+  html body .academy-overview-hero h1,
+  html body .about-hero h1,
+  html body .activity-hero h1,
+  html body .works-hero h1,
+  html body .ep-hero-copy h1 { font-size:38px; }
+}

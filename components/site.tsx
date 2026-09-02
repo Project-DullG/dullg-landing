@@ -30,7 +30,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="site-footer-links"><strong>둘러보기</strong><Link href="/works">작품</Link><Link href="/academy">교육</Link><Link href="/materials">수강생 자료실</Link></div>
+        <div className="site-footer-links"><strong>둘러보기</strong><Link href="/">홈</Link><Link href="/works">작품</Link><Link href="/academy">교육</Link><Link href="/materials">수강생 자료실</Link></div>
 
         <div className="site-footer-links">
           <strong>단서공방</strong>

@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navLinks = [
+  { href: "/", label: "홈" },
   { href: "/works", label: "작품" },
   { href: "/academy", label: "교육" },
   { href: "/materials", label: "수강생 자료실" },
@@ -30,7 +31,9 @@ export function Header() {
 
         <div className="nav-links">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
+            const isActive = link.href === "/"
+              ? pathname === "/"
+              : pathname === link.href || pathname.startsWith(`${link.href}/`);
 
             return (
               <Link

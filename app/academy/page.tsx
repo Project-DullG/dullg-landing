@@ -1,6 +1,7 @@
 import { ArrowRight, ArrowUpRight, BookOpenText, FileText, FolderOpen, Printer } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
@@ -30,8 +31,8 @@ export default function AcademyPage() {
         <h1>영어 단서를 읽고,<br /><em>근거를 말하고 씁니다.</em></h1>
         <p>학생마다 다른 단서를 읽고 서로 질문합니다. 마지막에는 선택한 근거와 판단을 영어 사건보고서로 정리합니다.</p>
         <div className="academy-overview-actions">
-          <a className="button button-dark" href="/academy/sample">자료 미리보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
-          <a href="/contact">교육 문의 <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
+          <Link className="button button-dark" href="/academy/sample">자료 미리보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
+          <Link href="/contact">교육 문의 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
         </div>
       </div>
       <figure className="academy-overview-cover">
@@ -52,12 +53,12 @@ export default function AcademyPage() {
           <p>각 페이지는 수업 흐름, 자료, 에피소드와 운영 절차 중 한 가지 내용만 설명합니다.</p>
         </div>
         <div className="academy-overview-pathways">
-          {pathways.map(({ icon: Icon, ...item }) => <a href={item.href} key={item.number}>
+          {pathways.map(({ icon: Icon, ...item }) => <Link href={item.href} key={item.number}>
             <span className="academy-overview-path-number">{item.number}</span>
             <span className="academy-overview-path-icon" aria-hidden="true"><Icon size={28} weight="duotone" /></span>
             <span><h3>{item.title}</h3><p>{item.body}</p></span>
             <strong>{item.cta}<ArrowUpRight size={17} weight="bold" aria-hidden="true" /></strong>
-          </a>)}
+          </Link>)}
         </div>
       </div>
     </section>
@@ -65,7 +66,7 @@ export default function AcademyPage() {
     <section className="academy-overview-pilot">
       <div className="shell academy-overview-pilot-grid">
         <div><Kicker>현재 상태</Kicker><h2>정식 출시 전<br /><em>파일럿 준비 단계입니다.</em></h2></div>
-        <div><p>현재 공개한 자료는 수업용 시제품입니다. 실제 운영 가능성과 학생 결과물은 파일럿에서 확인한 뒤 안내하겠습니다.</p><a className="button button-light" href="/academy/pilot">파일럿 안내 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></div>
+        <div><p>현재 공개한 자료는 수업용 시제품입니다. 실제 운영 가능성과 학생 결과물은 파일럿에서 확인한 뒤 안내하겠습니다.</p><Link className="button button-light" href="/academy/pilot">파일럿 안내 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link></div>
       </div>
     </section>
   </PageFrame>;

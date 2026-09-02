@@ -1,18 +1,13 @@
 "use client";
 
 import { ArrowUpRight, CheckCircle } from "@phosphor-icons/react";
+import Link from "next/link";
 import { useState, useRef } from "react";
 import { BRAND, emailHref } from "@/lib/site-config";
 
 type State = "idle" | "submitting" | "success" | "error";
 type ErrorField = "academy" | "contact" | "interest" | "consent" | null;
 
-// TODO: 실제 폼 백엔드 연결 방법 (아래 중 하나 선택)
-// Option 1: formsubmit.co (무료, 첫 제출 시 이메일 인증 필요)
-//   SUBMIT_URL = `https://formsubmit.co/ajax/${BRAND.email}`
-// Option 2: Next.js API 라우트
-//   app/api/apply/route.ts 생성 후 → SUBMIT_URL = "/api/apply"
-// Option 3: Formspree, EmailJS 등 SaaS 폼 서비스
 const SUBMIT_URL = `https://formsubmit.co/ajax/${BRAND.email}`;
 
 export function FormSection() {
@@ -197,9 +192,9 @@ export function FormSection() {
         <span>
           검토팩 발송 및 파일럿 준비 안내를 위한 개인정보(기관명·연락처) 수집·이용에
           동의합니다.{" "}
-          <a href="/privacy">
+          <Link href="/privacy">
             개인정보 처리 안내
-          </a>
+          </Link>
         </span>
       </label>
 

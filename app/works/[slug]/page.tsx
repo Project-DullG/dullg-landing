@@ -58,7 +58,7 @@ export default async function WorkDetailPage({ params }: Props) {
 
       <section className="work-detail-record shell" aria-labelledby="work-record-title">
         <div><Kicker>{work.record.label}</Kicker><h2 id="work-record-title">{work.record.title}</h2></div>
-        <div><p>{work.record.detail}</p><a href={work.externalUrl} target="_blank" rel="noreferrer">{work.externalLabel} 보기 <ArrowUpRight size={18} weight="bold" aria-hidden="true" /></a></div>
+        <div><p>{work.record.detail}</p><a href={work.externalUrl} target="_blank" rel="noopener noreferrer">{work.externalLabel} 보기 <ArrowUpRight size={18} weight="bold" aria-hidden="true" /></a></div>
       </section>
 
       <nav className="work-detail-nav shell" aria-label="작품 이동">

@@ -7,6 +7,7 @@ import {
   FolderOpen,
   Scales,
 } from "@phosphor-icons/react";
+import Link from "next/link";
 import { type KeyboardEvent, useRef, useState } from "react";
 
 const sessions = [
@@ -161,9 +162,9 @@ export function CurriculumExplorer() {
           </div>
         </dl>
 
-        <a href="/academy/curriculum" className="curriculum-panel-link">
+        <Link href="/academy/curriculum" className="curriculum-panel-link">
           4차시 전체 구성 확인하기
-        </a>
+        </Link>
       </section>
     </div>
   );

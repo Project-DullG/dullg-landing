@@ -58,10 +58,10 @@ export function PageFrame({ children }: { children: ReactNode }) {
 export function Kicker({ children }: { children: ReactNode }) { return <p className="section-kicker">{children}</p>; }
 export function ArrowButton({ children, light = false, href = "/academy/pilot" }: { children: ReactNode; light?: boolean; href?: string }) {
   return (
-    <a className={`button ${light ? "button-light" : "button-dark"}`} href={href}>
+    <Link className={`button ${light ? "button-light" : "button-dark"}`} href={href}>
       {children}
       <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
-    </a>
+    </Link>
   );
 }
 

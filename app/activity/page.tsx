@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
 import { activityRecords } from "@/lib/activities";
 
@@ -18,9 +19,12 @@ export default function ActivityPage() {
     <section className="activity-ledger shell" aria-labelledby="activity-ledger-title">
       <div><Kicker>기록</Kicker><h2 id="activity-ledger-title">단서공방의 작업</h2></div>
       <div className="activity-ledger-list">
-        {activityRecords.map(record => <a href={record.href} key={`${record.date}-${record.title}`} target={record.href.startsWith("http") ? "_blank" : undefined} rel={record.href.startsWith("http") ? "noreferrer" : undefined}>
-          <time>{record.date}</time><span>{record.type}</span><strong>{record.title}</strong><p>{record.body}</p><ArrowUpRight size={17} weight="bold" aria-hidden="true" />
-        </a>)}
+        {activityRecords.map(record => {
+          const content = <><time>{record.date}</time><span>{record.type}</span><strong>{record.title}</strong><p>{record.body}</p><ArrowUpRight size={17} weight="bold" aria-hidden="true" /></>;
+          return record.href.startsWith("http")
+            ? <a href={record.href} key={`${record.date}-${record.title}`} target="_blank" rel="noopener noreferrer">{content}</a>
+            : <Link href={record.href} key={`${record.date}-${record.title}`}>{content}</Link>;
+        })}
       </div>
     </section>
 

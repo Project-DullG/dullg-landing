@@ -27,7 +27,7 @@ export default function MaterialsPage() {
               </summary>
               <div className="course-files">
                 {course.files.map((item) => (
-                  <a key={item.title} href={item.href} target="_blank" rel="noreferrer" download={item.download || undefined}><span><strong>{item.title}</strong><small>{item.body}</small></span><b aria-hidden="true">{item.download ? "↓" : "↗"}</b></a>
+                  <a key={item.title} href={item.href} target="_blank" rel="noopener noreferrer" download={item.download || undefined}><span><strong>{item.title}</strong><small>{item.body}</small></span><b aria-hidden="true">{item.download ? "↓" : "↗"}</b></a>
                 ))}
               </div>
             </details>

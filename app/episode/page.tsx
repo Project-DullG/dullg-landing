@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
@@ -161,7 +162,7 @@ export default function EpisodePage() {
         </div>
         <div className="ep-cta-actions">
           <ArrowButton href="/#apply">무료 검토팩 요청</ArrowButton>
-          <a className="text-link" href="/academy/sample">자료 미리 보기 →</a>
+          <Link className="text-link" href="/academy/sample">자료 미리 보기 →</Link>
         </div>
       </section>
     </PageFrame>

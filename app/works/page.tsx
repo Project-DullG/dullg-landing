@@ -23,7 +23,7 @@ export default function WorksPage() {
     <section className="live-funding" aria-labelledby="live-funding-title"><div className="shell">
       <div className="live-funding-head">
         <div><Kicker>현재 펀딩 중</Kicker><h2 id="live-funding-title">새로 공개한<br />두 편의 이야기</h2></div>
-        <div><b>{currentFunding.period}</b><p>{currentFunding.checkedAt} 확인 · 펀딩 중 수치는 변동될 수 있습니다.</p><a href={currentFunding.url} target="_blank" rel="noreferrer">텀블벅 프로젝트 보기 <ArrowUpRight size={16} weight="bold" aria-hidden="true" /></a></div>
+        <div><b>{currentFunding.period}</b><p>{currentFunding.checkedAt} 확인 · 펀딩 중 수치는 변동될 수 있습니다.</p><a href={currentFunding.url} target="_blank" rel="noopener noreferrer">텀블벅 프로젝트 보기 <ArrowUpRight size={16} weight="bold" aria-hidden="true" /></a></div>
       </div>
       <div className="live-work-list">
         {currentWorks.map(work => <article key={work.slug}>
@@ -45,7 +45,7 @@ export default function WorksPage() {
     <section className="funding-archive shell" aria-labelledby="funding-archive-title">
       <div><Kicker>지난 펀딩</Kicker><h2 id="funding-archive-title">프로젝트 기록</h2></div>
       <div className="funding-archive-list">
-        {fundingArchive.map(project => <a href={project.url} target="_blank" rel="noreferrer" key={project.id}><span>{project.period}</span><strong>{project.title}</strong><b>{project.amount} · {project.backers} · {project.achievement}</b><i>보기 ↗</i></a>)}
+        {fundingArchive.map(project => <a href={project.url} target="_blank" rel="noopener noreferrer" key={project.id}><span>{project.period}</span><strong>{project.title}</strong><b>{project.amount} · {project.backers} · {project.achievement}</b><i>보기 ↗</i></a>)}
         <p>금액과 후원자 수는 각 텀블벅 프로젝트의 종료 시점 기준입니다.</p>
       </div>
     </section>

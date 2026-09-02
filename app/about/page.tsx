@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
@@ -145,9 +146,9 @@ export default function AboutPage() {
             </p>
             <div className="about-now-actions">
               <ArrowButton light href="/#apply">무료 검토팩 요청</ArrowButton>
-              <a className="text-link-light" href="/activity">
+              <Link className="text-link-light" href="/activity">
                 활동 기록 보기 →
-              </a>
+              </Link>
             </div>
           </div>
           <div className="about-now-badge" aria-hidden="true">

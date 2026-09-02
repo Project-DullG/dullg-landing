@@ -22,13 +22,15 @@ test("renders the brand portfolio path with real work and education evidence", a
 });
 
 test("renders detailed product routes with working navigation targets", async () => {
-  const [academy, curriculum, sample, pilot, activity, materials] = await Promise.all([
+  const [academy, curriculum, sample, pilot, activity, activityCase, materials, workDetail] = await Promise.all([
     readFile(routeHtml("academy.html"), "utf8"),
     readFile(routeHtml("academy/curriculum.html"), "utf8"),
     readFile(routeHtml("academy/sample.html"), "utf8"),
     readFile(routeHtml("academy/pilot.html"), "utf8"),
     readFile(routeHtml("activity.html"), "utf8"),
+    readFile(routeHtml("activity/ulleung-high-living-lab.html"), "utf8"),
     readFile(routeHtml("materials.html"), "utf8"),
+    readFile(routeHtml("works/snake-carnival.html"), "utf8"),
   ]);
 
   assert.match(academy, /영어 미스터리 수업팩/);
@@ -40,13 +42,21 @@ test("renders detailed product routes with working navigation targets", async ()
   assert.match(sample, /수업용 시제품/);
   assert.match(pilot, /파일럿/);
   assert.match(activity, /제작·활동 기록/);
-  assert.match(activity, /울릉고 리빙랩 특강 자료/);
+  assert.match(activity, /울릉고 리빙랩 특강/);
+  assert.match(activity, /href="\/activity\/ulleung-high-living-lab"/);
   assert.match(activity, /확인된 내용만 공개합니다/);
+  assert.match(activityCase, /2026년 9월 5일/);
+  assert.match(activityCase, /울릉군 생태관광 AI 교육과 별개의 수업 자료/);
+  assert.match(activityCase, /ulleung-high-living-lab-2026\.pdf/);
   assert.match(materials, /울릉고 리빙랩 특강/);
   assert.match(materials, /2026년 9월 5일/);
   assert.match(materials, /울릉군 생태관광 AI 교육/);
   assert.match(materials, /2026년 4월 18일/);
   assert.match(materials, /ulleung-high-living-lab-2026\.pdf/);
+  assert.match(workDetail, /뱀이 죽은 축제/);
+  assert.match(workDetail, /4인/);
+  assert.match(workDetail, /120분/);
+  assert.match(workDetail, /텀블벅 프로젝트.*보기/);
 });
 
 test("keeps core navigation and interactions accessible", async () => {
@@ -90,6 +100,8 @@ test("publishes privacy guidance and deployment-aware discovery metadata", async
   assert.match(sitemapPage, /처음 방문하셨다면/);
   assert.match(sitemap, /\/privacy/);
   assert.match(sitemap, /\/sitemap/);
+  assert.match(sitemap, /\/works\/snake-carnival/);
+  assert.match(sitemap, /\/activity\/ulleung-high-living-lab/);
   assert.match(robots, /sitemap\.xml/);
   assert.match(layout, /metadataBase/);
   assert.match(form, /href="\/privacy"/);

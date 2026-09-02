@@ -6953,6 +6953,7 @@ body {
 .live-funding-head a,.live-work-list a { font-size:12px; font-weight:700; }
 .live-work-list { display:grid; grid-template-columns:1fr 1fr; gap:44px; }
 .live-work-list article { display:grid; grid-template-columns:minmax(180px,.8fr) 1.2fr; gap:26px; align-items:center; padding-top:22px; border-top:1px solid var(--ink); }
+.live-work-list article>a,.portfolio-list figure>a { display:block; color:inherit; }
 .live-work-list img { display:block; width:100%; aspect-ratio:1/1; object-fit:cover; background:#050505; }
 .live-work-list small { color:#1e6662; font-size:10px; font-weight:700; }
 .live-work-list h3 { margin:8px 0 13px; font-size:25px; letter-spacing:-.04em; }

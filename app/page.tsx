@@ -1,6 +1,8 @@
 import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 import { ClueProcess } from "@/components/clue-process";
 import { Footer, Header, Kicker } from "@/components/site";
+import { works } from "@/lib/works";
 
 const educationFacts = [
   ["4차시", "읽기부터 사건보고서까지"],
@@ -10,6 +12,7 @@ const educationFacts = [
 ];
 
 export default function Home() {
+  const featuredWorks = ["slime-soda", "professor-rest", "snake-carnival"].map((slug) => works.find((work) => work.slug === slug)!);
   return (
     <main className="brand-home" id="main-content">
       <Header />
@@ -19,30 +22,20 @@ export default function Home() {
         <h1 id="home-title">이야기를 만들고,<br /><em>단서를 엮습니다.</em></h1>
         <p>단서공방은 머더미스터리 작품을 만들고, 영어로 읽고 토론하는 미스터리 수업팩을 준비합니다.</p>
         <div className="brand-hero-actions">
-          <a className="button button-dark" href="/works">작품 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
-          <a href="/academy">교육 수업팩 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
+          <Link className="button button-dark" href="/works">작품 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
+          <Link href="/academy">교육 수업팩 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
         </div>
       </section>
 
       <section className="brand-works shell" aria-labelledby="brand-works-title">
         <div className="brand-section-head">
           <div><Kicker>작품</Kicker><h2 id="brand-works-title">공개한 머더미스터리</h2></div>
-          <a href="/works">모든 작품과 펀딩 기록 <ArrowUpRight size={16} aria-hidden="true" /></a>
+          <Link href="/works">모든 작품과 펀딩 기록 <ArrowUpRight size={16} aria-hidden="true" /></Link>
         </div>
-        <div className="brand-work-grid">
-          <a href="https://tumblbug.com/projectdg2" target="_blank" rel="noreferrer">
-            <img src="/assets/works/slime-soda-cover.webp" width="1000" height="1000" alt="슬라임은 소다맛이 난다 작품 이미지" />
-            <span>현재 펀딩 중 · 4–5인 · 60분</span><h3>슬라임은 소다맛이 난다</h3>
-          </a>
-          <a href="https://tumblbug.com/projectdg2" target="_blank" rel="noreferrer">
-            <img src="/assets/works/professor-rest-cover.webp" width="1000" height="1000" alt="교수님 편히 쉬세요 작품 이미지" />
-            <span>현재 펀딩 중 · 6인 · 90분</span><h3>교수님, 편히 쉬세요</h3>
-          </a>
-          <a href="/works">
-            <img src="/assets/works/snake-carnival-cover.webp" width="1000" height="1000" alt="뱀이 죽은 축제 작품 이미지" />
-            <span>출시 · 4인 · 120분</span><h3>뱀이 죽은 축제</h3>
-          </a>
-        </div>
+        <div className="brand-work-grid">{featuredWorks.map(work => <Link href={`/works/${work.slug}`} key={work.slug}>
+          <img src={work.image} width="1000" height="1000" alt={work.alt} />
+          <span>{work.status} · {work.players} · {work.duration}</span><h3>{work.title}</h3>
+        </Link>)}</div>
       </section>
 
       <section className="brand-method shell" aria-labelledby="brand-method-title">
@@ -62,7 +55,7 @@ export default function Home() {
             <h2 id="brand-education-title">영어 단서를 읽고<br />함께 사건을 해결합니다.</h2>
             <p>학생마다 다른 단서를 읽고 서로 질문합니다. 마지막에는 선택한 근거와 판단을 영어 사건보고서로 정리합니다.</p>
             <dl>{educationFacts.map(([value,label])=><div key={value}><dt>{value}</dt><dd>{label}</dd></div>)}</dl>
-            <a href="/academy">수업팩 자세히 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></a>
+            <Link href="/academy">수업팩 자세히 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
           </div>
         </div>
       </section>
@@ -70,7 +63,7 @@ export default function Home() {
       <section className="brand-contact" id="apply">
         <div className="shell brand-contact-inner">
           <div><Kicker>문의</Kicker><h2>작품과 교육에 관한<br />이야기를 기다립니다.</h2></div>
-          <div><p>협업, 작품과 수업 자료에 관한 문의를 공식 이메일로 보내주세요.</p><a className="button button-dark" href="/contact">문의하기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></div>
+          <div><p>협업, 작품과 수업 자료에 관한 문의를 공식 이메일로 보내주세요.</p><Link className="button button-dark" href="/contact">문의하기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link></div>
         </div>
       </section>
 

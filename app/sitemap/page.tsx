@@ -11,6 +11,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
+import { works } from "@/lib/works";
 
 export const metadata: Metadata = {
   title: "전체 페이지 · 단서공방",
@@ -28,7 +29,9 @@ const pageGroups = [
     icon: Buildings,
     links: [
       { href: "/works", title: "작품과 펀딩", body: "공개한 작품을 한 편씩 살펴보고 펀딩 기록을 확인합니다." },
+      ...works.map((work) => ({ href: `/works/${work.slug}`, title: work.title, body: `${work.status} · ${work.players} · ${work.duration} · ${work.platform}` })),
       { href: "/activity", title: "제작·활동 기록", body: "확인된 제작 결과와 준비 중인 활동을 구분해 기록합니다." },
+      { href: "/activity/ulleung-high-living-lab", title: "울릉고 리빙랩 특강", body: "2026년 9월 5일 교육 활동과 공개 자료를 확인합니다." },
       { href: "/about", title: "단서공방 소개", body: "어떤 콘텐츠를 만들고 있는지 소개합니다." },
     ],
   },

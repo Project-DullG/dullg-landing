@@ -59,6 +59,29 @@
 - 브라우저 콘솔 오류 없음
 - 프로덕션 빌드, 렌더링 테스트, 변경 파일 공백 검사 통과
 
+## 작품·활동 상세 페이지 보강
+
+- source visual truth: 사용자가 제공한 Ai.injae 편집형 화면과 기존 단서공방 페이지의 확정된 시각 체계
+- implementation screenshots: `/Users/kimkanghoon/web_page/.design-audit/detail-pages/`
+- viewports: 390 x 844, 1440 x 1000 CSS px
+
+### Iteration 5
+
+- [P1] 작품 목록이 모든 정보를 한 페이지에 담아 작품별 정보 구조와 공유 가능한 주소가 없었습니다.
+- Fix: 공개 작품 7편을 공용 데이터로 통합하고 `/works/[slug]` 상세 페이지를 만들었습니다. 목록과 홈은 같은 데이터를 사용합니다.
+- Post-fix evidence: `/Users/kimkanghoon/web_page/.design-audit/detail-pages/work-desktop.png`, `/Users/kimkanghoon/web_page/.design-audit/detail-pages/work-mobile.png`
+
+### Iteration 6
+
+- [P1] 울릉고 9월 5일 수업 자료가 자료실에만 있어 교육 활동의 맥락을 확인하기 어려웠습니다.
+- Fix: `/activity/ulleung-high-living-lab` 사례 페이지를 추가하고, 울릉군 생태관광 AI 교육과 별개의 수업임을 명시했습니다.
+- Post-fix evidence: `/Users/kimkanghoon/web_page/.design-audit/detail-pages/activity-desktop.png`, `/Users/kimkanghoon/web_page/.design-audit/detail-pages/activity-mobile.png`
+
+- 새 상세 페이지의 390px 가로 넘침 없음
+- 모바일에서 표시되는 모든 링크와 버튼의 터치 높이 44px 이상
+- 브라우저 콘솔 경고·오류 없음
+- 작품 이미지 비율과 한글 단어 단위 줄바꿈 확인
+
 현재 수정 범위에 남은 P0, P1, P2 문제는 없습니다.
 
 final result: passed

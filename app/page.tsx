@@ -157,8 +157,8 @@ export default function Home() {
       <section className="maker-proof shell" aria-labelledby="maker-proof-title">
         <div className="maker-proof-copy">
           <Kicker>만든 사람의 기록</Kicker>
-          <h2 id="maker-proof-title">이야기와 단서를<br />실물 작품으로 만들어 왔습니다.</h2>
-          <p>단서공방은 두 차례의 텀블벅 프로젝트를 통해 머더미스터리 작품을 선보였습니다. 그 창작 경험을 바탕으로, 지금은 교육 현장에서 사용할 영어 수업팩을 별도로 검증하고 있습니다.</p>
+          <h2 id="maker-proof-title">텀블벅에서 머더미스터리<br />작품을 공개했습니다.</h2>
+          <p>단서공방은 두 차례의 텀블벅 프로젝트를 진행했습니다. 현재는 작품 제작과 별도로, 영어학원에서 사용할 4차시 수업팩을 시험하고 있습니다.</p>
           <a href="/works">작품과 펀딩 기록 보기 <ArrowRight size={16} weight="bold" aria-hidden="true" /></a>
         </div>
         <div className="maker-proof-media">
@@ -169,7 +169,7 @@ export default function Home() {
 
       <section className="product-fit shell">
         <div className="product-section-heading">
-          <Kicker>학원 수업에 맞춘 설계</Kicker>
+          <Kicker>학원에서 쓰기 위한 구성</Kicker>
           <h2>
             학생은 참여하고,
             <br />
@@ -215,8 +215,8 @@ export default function Home() {
                 <em>직접 선택해 살펴보세요.</em>
               </h2>
               <p>
-                각 차시의 목표, 학생 활동, 교사 지원 자료와 결과물이 한
-                사건 안에서 이어집니다.
+                차시별 목표와 학생 활동, 교사용 자료, 수업 결과물을
+                순서대로 확인할 수 있습니다.
               </p>
             </div>
             <a href="/academy/curriculum">

@@ -19,7 +19,7 @@ const pathways = [
   {
     number: "01",
     title: "4차시 수업 방식",
-    body: "단서 읽기에서 팀 토론과 사건보고서까지 이어지는 수업 구조를 확인합니다.",
+    body: "단서를 읽는 첫 시간부터 팀 사건보고서를 쓰는 마지막 시간까지 확인합니다.",
     href: "/academy/curriculum",
     cta: "커리큘럼 보기",
     icon: BookOpenText,
@@ -35,7 +35,7 @@ const pathways = [
   {
     number: "03",
     title: "첫 번째 에피소드",
-    body: "보충반에서 열쇠가 사라진 사건과 네 명의 학생이 가진 단서를 미리 경험합니다.",
+    body: "보충반에서 열쇠가 사라진 사건과 네 명의 학생이 가진 단서를 미리 살펴봅니다.",
     href: "/episode",
     cta: "에피소드 01 보기",
     icon: FileText,
@@ -64,7 +64,7 @@ export default function AcademyPage() {
           <p>
             학생용 단서 카드와 워크북, 교사용 진행안, 결과물 예시를 한
             수업팩 시제품으로 구성했습니다. 수업 방식과 제작 자료, 운영 과정을
-            차례로 확인해보세요.
+            각 페이지에서 확인할 수 있습니다.
           </p>
           <div className="academy-overview-actions">
             <ArrowButton href="/#apply">무료 검토팩 요청</ArrowButton>
@@ -90,7 +90,7 @@ export default function AcademyPage() {
       >
         <div>
           <b>4차시</b>
-            <span>설계한 수업 구조</span>
+            <span>전체 수업 시간</span>
         </div>
         <div>
           <b>초6~중1</b>

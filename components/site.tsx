@@ -58,7 +58,7 @@ export function Footer() {
       </div>
 
       <div className="shell site-footer-bottom">
-        <p>© 2026 단서공방(ProjectDullG). 이야기와 단서로 생각하는 경험을 만듭니다.</p>
+        <p>© 2026 단서공방(ProjectDullG). 머더미스터리 작품과 영어 수업 자료를 만듭니다.</p>
         <Link href="/privacy">개인정보 처리 안내</Link>
       </div>
     </footer>

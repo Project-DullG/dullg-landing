@@ -14,7 +14,7 @@ const works = [
 
 export default function WorksPage() {
   return <PageFrame>
-    <section className="works-hero shell"><div><Kicker>작품과 기록</Kicker><h1>단서에서 시작해,<br />하나의 경험으로.</h1></div><p>단서공방은 머더미스터리와 서사 기반 콘텐츠를 만듭니다. 서로 다른 정보가 대화가 되고, 함께 맞춘 근거가 하나의 결론으로 이어지는 경험을 설계합니다.</p></section>
+    <section className="works-hero shell"><div><Kicker>작품과 기록</Kicker><h1>단서공방이 만든<br />머더미스터리</h1></div><p>공개된 작품의 줄거리와 플레이 정보를 한 편씩 소개합니다. 현재 진행 중인 펀딩과 지난 제작 기록도 함께 확인할 수 있습니다.</p></section>
 
     <section className="live-funding" aria-labelledby="live-funding-title"><div className="shell">
       <div className="live-funding-head"><div><Kicker>현재 펀딩 중</Kicker><h2 id="live-funding-title">판타지 그리고 일상.<br />머더미스터리 2종</h2></div><div><b>9월 11일까지</b><p>2026년 9월 2일 확인 · 목표 금액 달성</p><a href="https://tumblbug.com/projectdg2" target="_blank" rel="noreferrer">텀블벅에서 후원하기 ↗</a></div></div>
@@ -38,6 +38,6 @@ export default function WorksPage() {
       </div><p className="funding-source">금액·인원·기간은 각 텀블벅 프로젝트 공개 페이지 기준입니다.</p>
     </div></section>
 
-    <section className="education-bridge shell"><div><Kicker>교육 콘텐츠</Kicker><h2>창작 경험을 수업으로 확장합니다.</h2></div><p>현재는 이야기와 단서를 읽고 근거를 설명하는 영어 미스터리 수업팩을 시제품으로 다듬고 있습니다. 기존 작품과 달리 교육 현장에서의 운영 가능성은 파일럿을 통해 별도로 검증합니다.</p><Link href="/academy">수업팩 살펴보기 →</Link></section>
+    <section className="education-bridge shell"><div><Kicker>교육 콘텐츠</Kicker><h2>영어 미스터리 수업팩을 준비하고 있습니다.</h2></div><p>학생이 영어 단서를 읽고 근거를 설명하는 4차시 수업팩입니다. 머더미스터리 제작 이력과 별개로, 실제 수업에서 운영할 수 있는지는 파일럿을 통해 확인할 예정입니다.</p><Link href="/academy">수업팩 살펴보기 →</Link></section>
   </PageFrame>;
 }

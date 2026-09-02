@@ -3,7 +3,7 @@ import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
   title: "단서공방 소개",
-  description: "스토리 기반 추론 경험을 교육과 콘텐츠로 만드는 단서공방(ProjectDullG)의 방향과 현재 단계.",
+  description: "머더미스터리 작품과 영어 미스터리 수업팩을 만드는 단서공방(ProjectDullG)을 소개합니다.",
 };
 
 const beliefs = [
@@ -52,11 +52,11 @@ export default function AboutPage() {
           <h1>
             수업이 끝나고
             <br />
-            <em>남는 것만 만듭니다.</em>
+            <em>결과물이 남는 수업을 만듭니다.</em>
           </h1>
           <p>
-            단서공방(ProjectDullG)은 역할과 서로 다른 정보를 바탕으로 읽고, 질문하고,
-            근거를 비교해 자신의 판단을 남기는 경험을 설계합니다.
+            단서공방(ProjectDullG)은 머더미스터리 작품을 만들고 있습니다.
+            현재는 이 제작 방식을 활용한 영어 미스터리 수업팩도 준비하고 있습니다.
           </p>
         </div>
         <div className="about-hero-manifesto" aria-hidden="true">
@@ -78,11 +78,10 @@ export default function AboutPage() {
           <div className="about-origin-body">
             <Kicker>시작한 이유</Kicker>
             <p>
-              대부분의 시간은 교사의 설명을 듣고 정답을 기다리는 데 씁니다.
-              학생이 실제로 영어를 사용하는 순간은, 재보면 생각보다 짧습니다.
+              설명을 듣고 정답을 확인하는 수업에서는 학생이 영어로 말하고 쓰는 시간이 짧습니다.
             </p>
             <p>
-              단서공방은 그 구조를 바꾸려고 시작했습니다. 단서를 설명하고,
+              수업팩에서는 학생이 단서를 설명하고,
               팀원에게 반박하고, 판단을 영어로 써야 수업이 진행됩니다.
               교사가 분위기를 만드는 게 아니라, 사건 자체가 학생을 움직이게
               합니다.
@@ -90,7 +89,7 @@ export default function AboutPage() {
             <p>
               동시에 원장님의 현실도 알고 있습니다. 수업 준비 시간이 줄어야
               하고, 학부모에게 보여줄 결과물이 있어야 합니다.
-              첫 작품 DullG는 이 두 가지를 같이 해결하려고 설계됐습니다.
+              첫 수업팩은 준비 시간과 결과물이라는 두 조건을 모두 확인하며 만들고 있습니다.
             </p>
           </div>
         </div>
@@ -100,13 +99,13 @@ export default function AboutPage() {
         <div className="about-scope-head">
           <Kicker>프로젝트 범위</Kicker>
           <h2>
-            게임 하나가 아니라,
+            작품과 수업은 달라도,
             <br />
-            <em>판단하는 경험을 만듭니다.</em>
+            <em>단서를 읽고 근거를 말하게 합니다.</em>
           </h2>
           <p>
-            역할과 제한된 정보를 바탕으로 다른 사람과 상호작용하고, 자신의
-            결론과 근거를 말하거나 쓰게 하는 경험이 DullG의 공통 기반입니다.
+            참가자는 각자 다른 정보를 읽고 서로 질문합니다. 마지막에는 사건에 대한
+            결론과 근거를 말하거나 글로 정리합니다.
           </p>
         </div>
         <div className="about-scope-grid">

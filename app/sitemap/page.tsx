@@ -15,7 +15,7 @@ import { Kicker, PageFrame } from "@/components/site";
 export const metadata: Metadata = {
   title: "전체 페이지 · 단서공방",
   description:
-    "DullG의 제품, 수업 자료, 파일럿 운영, 프로젝트 정보를 한곳에서 살펴보세요.",
+    "단서공방의 작품, 영어 수업팩, 공개 자료와 문의 페이지를 안내합니다.",
   alternates: { canonical: "/sitemap" },
 };
 
@@ -40,7 +40,7 @@ const pageGroups = [
     icon: FolderOpen,
     links: [
       { href: "/academy/sample", title: "수업 자료 미리보기", body: "학생용 카드, 워크북과 교사용 진행안의 구성을 확인합니다." },
-      { href: "/materials", title: "수강생 자료실", body: "수업 뒤 다시 확인할 안내와 공개 자료를 한곳에 모읍니다." },
+      { href: "/materials", title: "수강생 자료실", body: "영어 수업팩 자료와 지난 교육에서 사용한 페이지를 모았습니다." },
       { href: "/academy/pilot", title: "파일럿 운영 안내", body: "진행 절차, 확인 기준과 현재 준비 단계를 안내합니다." },
       { href: "/contact", title: "문의하기", body: "기관 상황이나 운영 조건에 관한 질문을 남길 수 있습니다." },
     ],

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
 
 export const metadata: Metadata = {
@@ -22,18 +21,10 @@ export default function MaterialsPage() {
         <section className="library-hero shell">
           <Kicker>수강생 자료실</Kicker>
           <h1>참여한 수업의 자료를<br />확인하세요.</h1>
-          <p>과정별 안내와 공개 자료를 모았습니다. 과정 이름을 누르면 자료를 확인할 수 있습니다.</p>
+          <p>현재 공개된 지난 교육 자료를 모았습니다. 과정 이름을 누르면 세부 자료를 확인할 수 있습니다.</p>
         </section>
 
         <section className="course-archive shell" aria-label="교육 과정별 자료">
-          <Link className="course-row" href="/academy/sample">
-            <span><strong>영어 미스터리 수업 자료 미리보기</strong><small>단서공방 · 학생용 카드, 워크북, 교사용 진행안</small></span>
-            <b>공개 <i aria-hidden="true">→</i></b>
-          </Link>
-          <Link className="course-row" href="/academy/curriculum">
-            <span><strong>영어 미스터리 4차시 수업 흐름</strong><small>단서공방 · 읽기, 질문, 토론, 사건보고서</small></span>
-            <b>공개 <i aria-hidden="true">→</i></b>
-          </Link>
           <details className="course-row course-row-expandable">
             <summary>
               <span><strong>울릉군 생태관광 AI 교육</strong><small>울릉군 · 2026년 4월 18일 · 울릉고등학교 전산실</small></span>
@@ -45,10 +36,6 @@ export default function MaterialsPage() {
               ))}
             </div>
           </details>
-          <div className="course-row is-pending" aria-disabled="true">
-            <span><strong>영어 미스터리 수강생용 보충 자료</strong><small>파일럿 수업 이후 필요한 자료를 추가합니다.</small></span>
-            <b>준비 중</b>
-          </div>
         </section>
 
         <section className="materials-help shell">

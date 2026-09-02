@@ -61,6 +61,23 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="about-brand shell" aria-labelledby="about-brand-title">
+        <figure>
+          <img src="/assets/brand/project-dullg-banner.png" width="1701" height="5103" alt="단서공방의 이전 프로젝트 덜지 소개 배너 상단" />
+          <figcaption>단서공방 소개 배너 · 제공 자료</figcaption>
+        </figure>
+        <div>
+          <Kicker>ProjectDullG에서 단서공방으로</Kicker>
+          <h2 id="about-brand-title">플레이 뒤에도 기억에 남는<br />이야기를 만듭니다.</h2>
+          <p>ProjectDullG라는 이름으로 시작해 머더미스터리 콘텐츠를 기획하고 제작해 왔습니다. 지금은 한글 이름인 단서공방을 함께 사용하며 작품과 교육 콘텐츠를 소개합니다.</p>
+          <dl>
+            <div><dt>하는 일</dt><dd>머더미스터리 콘텐츠 기획·제작</dd></div>
+            <div><dt>교육</dt><dd>프로젝트 수업용 실물 교육 키트</dd></div>
+            <div><dt>공식 명칭</dt><dd>단서공방(ProjectDullG)</dd></div>
+          </dl>
+        </div>
+      </section>
+
       {/* ── ORIGIN — editorial pull quote ── */}
       <section className="about-origin">
         <div className="shell about-origin-inner">

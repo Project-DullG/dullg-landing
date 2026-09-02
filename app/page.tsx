@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { FormSection } from "@/components/form-section";
+import { ClueProcess } from "@/components/clue-process";
 import { Footer, Header, Kicker } from "@/components/site";
 
 const educationFacts = [
@@ -51,23 +52,7 @@ export default function Home() {
           <h2 id="brand-method-title">이야기와 단서가<br />함께 작동하게 만듭니다.</h2>
           <p>사건의 설정만 만드는 데서 멈추지 않습니다. 플레이어가 읽고, 의심하고, 판단하는 순서까지 설계합니다.</p>
         </div>
-        <div className="brand-method-list">
-          <article>
-            <div className="clue-grid clue-grid-one" aria-hidden="true" />
-            <span>01</span><h3>사건의 시작과 끝을 정합니다</h3>
-            <p>누가 무엇을 알고 있는지 먼저 정리하고, 이야기의 결말까지 한 흐름으로 구성합니다.</p>
-          </article>
-          <article>
-            <div className="clue-grid clue-grid-two" aria-hidden="true" />
-            <span>02</span><h3>정보를 인물마다 나눕니다</h3>
-            <p>혼자서는 풀 수 없도록 단서를 나눕니다. 질문과 대화가 자연스럽게 이어지는지 확인합니다.</p>
-          </article>
-          <article>
-            <div className="clue-grid clue-grid-three" aria-hidden="true" />
-            <span>03</span><h3>플레이하며 반복해서 고칩니다</h3>
-            <p>단서가 너무 빠르거나 늦게 드러나지 않는지 살피고, 판단에 필요한 정보만 남깁니다.</p>
-          </article>
-        </div>
+        <ClueProcess />
       </section>
 
       <section className="brand-education" aria-labelledby="brand-education-title">

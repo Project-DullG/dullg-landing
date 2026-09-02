@@ -48,7 +48,7 @@ export function Footer() {
       </div>
 
       <div className="shell site-footer-bottom">
-        <p>© 2026 단서공방(ProjectDullG). 머더미스터리 작품과 영어 수업 자료를 만듭니다.</p>
+        <p>© 2026 단서공방(ProjectDullG) · 사업자등록번호 689-12-03138</p>
         <span><Link href="/sitemap">전체 페이지</Link><Link href="/privacy">개인정보 처리 안내</Link></span>
       </div>
     </footer>

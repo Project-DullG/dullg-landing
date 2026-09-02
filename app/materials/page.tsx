@@ -7,6 +7,7 @@ export const metadata: Metadata = {
 };
 
 const pastClassLinks = [
+  { title: "울릉고 리빙랩 특강 발표자료", body: "단서공방 소개부터 울릉도 소재 게임 기획 실습까지 담은 13쪽 PDF", href: "/assets/materials/ulleung-high-living-lab-2026.pdf", download: true },
   { title: "교육 자료", body: "수업 일정, 실습 순서, 예시 프롬프트와 준비 사항", href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/" },
   { title: "수업 진행 페이지", body: "수업 시간에 따라 실습 내용을 확인하는 진행용 화면", href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/class.html" },
   { title: "프롬프트 가이드", body: "프롬프트 작성 원리와 단계별 실습 안내", href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/prompt-guide.html" },
@@ -28,11 +29,11 @@ export default function MaterialsPage() {
           <details className="course-row course-row-expandable">
             <summary>
               <span><strong>울릉군 생태관광 AI 교육</strong><small>울릉군 · 2026년 4월 18일 · 울릉고등학교 전산실</small></span>
-              <b>자료 5개 <i aria-hidden="true">＋</i></b>
+              <b>자료 6개 <i aria-hidden="true">＋</i></b>
             </summary>
             <div className="course-files">
               {pastClassLinks.map((item) => (
-                <a key={item.title} href={item.href} target="_blank" rel="noreferrer"><span><strong>{item.title}</strong><small>{item.body}</small></span><b aria-hidden="true">↗</b></a>
+                <a key={item.title} href={item.href} target="_blank" rel="noreferrer" download={item.download || undefined}><span><strong>{item.title}</strong><small>{item.body}</small></span><b aria-hidden="true">{item.download ? "↓" : "↗"}</b></a>
               ))}
             </div>
           </details>

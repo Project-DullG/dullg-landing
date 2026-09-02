@@ -22,12 +22,13 @@ test("renders the brand portfolio path with real work and education evidence", a
 });
 
 test("renders detailed product routes with working navigation targets", async () => {
-  const [academy, curriculum, sample, pilot, activity] = await Promise.all([
+  const [academy, curriculum, sample, pilot, activity, materials] = await Promise.all([
     readFile(routeHtml("academy.html"), "utf8"),
     readFile(routeHtml("academy/curriculum.html"), "utf8"),
     readFile(routeHtml("academy/sample.html"), "utf8"),
     readFile(routeHtml("academy/pilot.html"), "utf8"),
     readFile(routeHtml("activity.html"), "utf8"),
+    readFile(routeHtml("materials.html"), "utf8"),
   ]);
 
   assert.match(academy, /제품 한눈에 보기/);
@@ -41,6 +42,11 @@ test("renders detailed product routes with working navigation targets", async ()
   assert.match(activity, /현재 공개 가능한 자료/);
   assert.match(activity, /영어학원용 수업 제품으로 검토 중인 시제품/);
   assert.match(activity, /사실과 계획을 섞지 않습니다/);
+  assert.match(materials, /울릉고 리빙랩 특강/);
+  assert.match(materials, /2026년 9월 5일/);
+  assert.match(materials, /울릉군 생태관광 AI 교육/);
+  assert.match(materials, /2026년 4월 18일/);
+  assert.match(materials, /ulleung-high-living-lab-2026\.pdf/);
 });
 
 test("keeps core navigation and interactions accessible", async () => {

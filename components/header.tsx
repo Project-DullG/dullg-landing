@@ -30,7 +30,7 @@ export function Header() {
 
         <div className="nav-links">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
 
             return (
               <Link

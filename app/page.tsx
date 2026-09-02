@@ -1,5 +1,4 @@
 import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
-import { FormSection } from "@/components/form-section";
 import { ClueProcess } from "@/components/clue-process";
 import { Footer, Header, Kicker } from "@/components/site";
 
@@ -68,20 +67,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="brand-record shell">
-        <div><Kicker>단서공방</Kicker><h2>공개된 결과와<br />진행 중인 일을 구분합니다.</h2></div>
-        <div><p>완성한 작품, 종료된 펀딩과 제작 중인 교육 수업팩을 각각의 상태와 함께 기록합니다.</p><a href="/activity">제작·활동 기록 보기 →</a><a href="/about">단서공방 소개 보기 →</a></div>
-      </section>
-
-      <section className="product-apply" id="apply">
-        <div className="shell product-apply-grid">
-          <div className="product-apply-copy">
-            <Kicker>교육 문의</Kicker>
-            <h2>수업 자료를 먼저<br /><em>확인해보세요.</em></h2>
-            <p>영어 미스터리 수업팩은 정식 출시 전 시제품 단계입니다. 자료를 검토한 뒤 파일럿 참여 여부를 결정할 수 있습니다.</p>
-            <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>
-          </div>
-          <FormSection />
+      <section className="brand-contact" id="apply">
+        <div className="shell brand-contact-inner">
+          <div><Kicker>문의</Kicker><h2>작품과 교육에 관한<br />이야기를 기다립니다.</h2></div>
+          <div><p>협업, 작품과 수업 자료에 관한 문의를 공식 이메일로 보내주세요.</p><a className="button button-dark" href="/contact">문의하기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></a></div>
         </div>
       </section>
 

@@ -147,8 +147,8 @@ export default function SitemapPage() {
             <h2>자료를 먼저 보고 판단하세요.</h2>
             <p>검토용 샘플을 확인한 뒤, 기관에 맞을 때만 파일럿을 논의하시면 됩니다.</p>
           </div>
-          <Link className="button button-light" href="/#apply">
-            무료 검토팩 요청
+          <Link className="button button-light" href="/contact">
+            문의하기
             <ArrowRight size={18} weight="bold" aria-hidden="true" />
           </Link>
         </div>

@@ -9,36 +9,36 @@ export const metadata: Metadata = {
 const beliefs = [
   {
     num: "01",
-    title: "학생이 먼저\n움직여야 합니다",
-    body: "교사가 에너지를 쏟아야 분위기가 만들어지는 구조는 지속되기 어렵습니다. 좋은 수업 자료는 학생을 먼저 움직이게 합니다.",
+    title: "설정보다 행동이\n먼저 보여야 합니다",
+    body: "인물의 설명을 길게 늘어놓지 않습니다. 플레이어가 선택하고 질문하는 과정에서 성격과 관계를 알 수 있게 만듭니다.",
   },
   {
     num: "02",
-    title: "기록이 있어야\n가치가 보입니다",
-    body: "\"재미있었어요\"로 끝나는 수업은 다음 학기를 보장하지 못합니다. 학부모와 학생 모두가 볼 수 있는 결과물이 있어야 합니다.",
+    title: "단서에는 쓰임이\n있어야 합니다",
+    body: "분위기만 만드는 정보는 줄입니다. 각 단서가 질문, 추론 또는 최종 판단으로 이어지는지 확인합니다.",
   },
   {
     num: "03",
-    title: "교사의 시간은\n수업에 있어야 합니다",
-    body: "콘텐츠 제작에 드는 시간이 줄어야 교사가 학생에게 집중할 수 있습니다. 자료는 완성된 채로 와야 합니다.",
+    title: "완성 상태를\n분명하게 밝힙니다",
+    body: "출시한 작품, 진행 중인 펀딩과 검토 중인 수업팩을 구분합니다. 계획을 이미 완성한 결과처럼 소개하지 않습니다.",
   },
 ];
 
 const projectTracks = [
   {
-    status: "현재 중심",
-    title: "영어학원용 수업 키트",
-    body: "초6 수준에서 첫 검증을 준비하는 4차시 실물 미스터리 수업 시제품입니다.",
+    status: "01",
+    title: "머더미스터리 작품",
+    body: "인물마다 다른 정보와 목적을 가진 이야기를 실물 게임과 디지털 작품으로 만듭니다.",
   },
   {
-    status: "축적 자산",
-    title: "스토리·추리 콘텐츠",
-    body: "역할, 비대칭 정보, 단서 공개와 최종 판단을 연결하는 콘텐츠 설계 경험입니다.",
+    status: "02",
+    title: "영어 미스터리 수업팩",
+    body: "영어 단서를 읽고 질문한 뒤 근거를 글로 정리하는 4차시 수업 자료를 준비하고 있습니다.",
   },
   {
-    status: "후속 가설",
+    status: "03",
     title: "교육·지역 콘텐츠 확장",
-    body: "문해력, 역사·사회, 지역 창작과 관광 적용은 첫 제품 검증 이후 별도로 검토합니다.",
+    body: "지역의 이야기와 교육 주제를 게임 기획 활동으로 연결하는 수업을 진행합니다.",
   },
 ];
 
@@ -50,9 +50,9 @@ export default function AboutPage() {
         <div className="about-hero-copy">
           <Kicker>단서공방 소개</Kicker>
           <h1>
-            수업이 끝나고
+            플레이 뒤에도
             <br />
-            <em>결과물이 남는 수업을 만듭니다.</em>
+            <em>기억에 남는 이야기를 만듭니다.</em>
           </h1>
           <p>
             단서공방(ProjectDullG)은 머더미스터리 작품을 만들고 있습니다.
@@ -78,46 +78,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── ORIGIN — editorial pull quote ── */}
-      <section className="about-origin">
-        <div className="shell about-origin-inner">
-          <blockquote className="about-pullquote">
-            영어 수업 한 시간,<br />
-            학생이 영어를 직접<br />
-            쓰거나 말하는 시간은<br />
-            얼마나 될까요?
-          </blockquote>
-          <div className="about-origin-body">
-            <Kicker>시작한 이유</Kicker>
-            <p>
-              설명을 듣고 정답을 확인하는 수업에서는 학생이 영어로 말하고 쓰는 시간이 짧습니다.
-            </p>
-            <p>
-              수업팩에서는 학생이 단서를 설명하고,
-              팀원에게 반박하고, 판단을 영어로 써야 수업이 진행됩니다.
-              교사가 분위기를 만드는 게 아니라, 사건 자체가 학생을 움직이게
-              합니다.
-            </p>
-            <p>
-              동시에 원장님의 현실도 알고 있습니다. 수업 준비 시간이 줄어야
-              하고, 학부모에게 보여줄 결과물이 있어야 합니다.
-              첫 수업팩은 준비 시간과 결과물이라는 두 조건을 모두 확인하며 만들고 있습니다.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="about-scope shell">
         <div className="about-scope-head">
-          <Kicker>프로젝트 범위</Kicker>
+          <Kicker>하는 일</Kicker>
           <h2>
-            작품과 수업은 달라도,
+            이야기의 쓰임에 따라
             <br />
-            <em>단서를 읽고 근거를 말하게 합니다.</em>
+            <em>형태를 다르게 만듭니다.</em>
           </h2>
           <p>
-            참가자는 각자 다른 정보를 읽고 서로 질문합니다. 마지막에는 사건에 대한
-            결론과 근거를 말하거나 글로 정리합니다.
+            직접 플레이하는 작품, 교실에서 사용하는 수업팩과 지역 소재를 활용한
+            교육 프로그램을 각각의 목적에 맞춰 제작합니다.
           </p>
         </div>
         <div className="about-scope-grid">
@@ -134,11 +105,11 @@ export default function AboutPage() {
       {/* ── BELIEFS — ghost number cards ── */}
       <section className="about-beliefs shell">
         <div className="about-beliefs-head">
-          <Kicker>만드는 원칙</Kicker>
+          <Kicker>제작 원칙</Kicker>
           <h2>
-            좋은 수업의
+            공개하는 모든 작업의
             <br />
-            <em>세 가지 조건</em>
+            <em>세 가지 기준</em>
           </h2>
         </div>
         <div className="belief-list">

@@ -16,6 +16,15 @@ export default function WorksPage() {
   return <PageFrame>
     <section className="works-hero shell"><div><Kicker>작품과 기록</Kicker><h1>단서에서 시작해,<br />하나의 경험으로.</h1></div><p>단서공방은 머더미스터리와 서사 기반 콘텐츠를 만듭니다. 서로 다른 정보가 대화가 되고, 함께 맞춘 근거가 하나의 결론으로 이어지는 경험을 설계합니다.</p></section>
 
+    <section className="live-funding" aria-labelledby="live-funding-title"><div className="shell">
+      <div className="live-funding-head"><div><Kicker>현재 펀딩 중</Kicker><h2 id="live-funding-title">판타지 그리고 일상.<br />머더미스터리 2종</h2></div><div><b>9월 11일까지</b><p>2026년 9월 2일 확인 · 목표 금액 달성</p><a href="https://tumblbug.com/projectdg2" target="_blank" rel="noreferrer">텀블벅에서 후원하기 ↗</a></div></div>
+      <div className="live-work-list">
+        <article><img src="/assets/works/slime-soda-cover.webp" width="1000" height="1000" alt="냉동고 안의 슬라임이 그려진 슬라임은 소다맛이 난다 패키지" /><div><small>4–5인 · 60분</small><h3>슬라임은 소다맛이 난다</h3><p>몬스터들이 모여 사는 포포롱 마을. 작은 구조대의 아침을 준비하던 슬라임이 냉동고 안에서 얼어붙은 채 발견됩니다. 한동안 슬라임만 바라보던 다섯 대원은 서로의 얼굴을 살피기 시작합니다.</p><a href="https://murdermysterylog.com/detail/589" target="_blank" rel="noreferrer">머미로그에서 상세 보기 ↗</a></div></article>
+        <article><img src="/assets/works/professor-rest-cover.webp" width="1000" height="1000" alt="비어 있는 교수실 의자가 그려진 교수님 편히 쉬세요 패키지" /><div><small>6인 · 90분</small><h3>교수님, 편히 쉬세요</h3><p>청람대학교 연구실 구성원들은 프로젝트가 끝난 뒤 호숫가 연수원으로 향합니다. 모두가 함께 쉬기로 한 다음 날 아침, 박정호 교수는 호숫가 계단 아래에서 죽은 채 발견됩니다.</p><a href="https://murdermysterylog.com/detail/590" target="_blank" rel="noreferrer">머미로그에서 상세 보기 ↗</a></div></article>
+      </div>
+      <div className="live-funding-stats"><span><small>현재 모인 금액</small><strong>10,940,000원</strong></span><span><small>후원자</small><strong>169명</strong></span><span><small>달성률</small><strong>1,094%</strong></span><p>2026년 9월 2일 텀블벅 공개 페이지 확인 기준. 펀딩 중 수치는 변동될 수 있습니다.</p></div>
+    </div></section>
+
     <section className="work-showcase shell" aria-label="대표 작품">
       <a href="https://tumblbug.com/projectdg0" target="_blank" rel="noreferrer"><img src="/assets/works/snake-carnival-cover.webp" width="1000" height="1000" alt="검은색 실물 패키지로 제작된 뱀이 죽은 축제" /><span>첫 번째 텀블벅 프로젝트</span><strong>뱀이 죽은 축제</strong><small>작품과 펀딩 기록 보기 ↗</small></a>
       <a href="https://tumblbug.com/projectdg1" target="_blank" rel="noreferrer"><img src="/assets/works/murder-mystery-three-cover.webp" width="1000" height="1000" alt="레드가 죽은 연구소, 미식의 대가, 의사가 너무 많아 실물 패키지 3종" /><span>두 번째 텀블벅 프로젝트</span><strong>머더미스터리 3종</strong><small>작품과 펀딩 기록 보기 ↗</small></a>

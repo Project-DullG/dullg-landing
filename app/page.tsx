@@ -1,12 +1,7 @@
 import {
   ArrowRight,
   ArrowUpRight,
-  BookOpenText,
-  Clock,
   FileText,
-  GraduationCap,
-  Printer,
-  UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
 import { CurriculumExplorer } from "@/components/curriculum-explorer";
 import { FormSection } from "@/components/form-section";
@@ -17,25 +12,21 @@ const facts = [
     value: "4차시",
     label: "수업팩 시제품",
     note: "읽기부터 보고서까지",
-    icon: BookOpenText,
   },
   {
     value: "초6 기준",
     label: "첫 검증 수준",
     note: "초등 고학년~중등 확장",
-    icon: GraduationCap,
   },
   {
     value: "4~16명",
     label: "권장 인원",
     note: "팀당 4명 구성",
-    icon: UsersThree,
   },
   {
     value: "30분 이내",
     label: "교사 준비 목표",
     note: "출력·배정 후 시작",
-    icon: Clock,
   },
 ];
 
@@ -89,11 +80,7 @@ export default function Home() {
       <section className="product-hero shell" aria-labelledby="home-title">
         <div className="product-hero-copy">
           <Kicker>영어학원용 4차시 미스터리 수업팩</Kicker>
-          <h1 id="home-title">
-            영어로 단서를 읽고,
-            <br />
-            <em>함께 푸는 미스터리 수업</em>
-          </h1>
+          <h1 id="home-title">영어 단서를 읽고,<br /><em>함께 사건을 해결합니다.</em></h1>
           <p>
             서로 다른 영어 단서를 가진 학생들이 정보를 나누고 사건을
             해결합니다. 교사는 준비 부담을 줄이고, 수업 뒤에는 학생의
@@ -113,37 +100,15 @@ export default function Home() {
         </div>
 
         <figure className="product-hero-visual">
-          <div className="product-hero-sheet product-hero-sheet-back">
-            <img
-              src="/assets/dullg/rulebook-flow.png"
-              alt="교사용 수업 진행안"
-            />
-          </div>
-          <div className="product-hero-sheet product-hero-sheet-card">
-            <img
-              src="/assets/dullg/card-body-1.png"
-              alt="학생용 영어 단서 카드"
-            />
-          </div>
-          <div className="product-hero-sheet product-hero-sheet-report">
-            <img
-              src="/assets/dullg/pre-survey.png"
-              alt="학생용 추론 기록지"
-            />
-          </div>
-          <figcaption>
-            <Printer size={18} aria-hidden="true" />
-            수업 운영 검토를 위해 제작한 시제품 자료
-          </figcaption>
+          <img src="/assets/dullg/mat-game-cards.webp" width="1536" height="1024" alt="책상 위에 펼쳐진 학생용 영어 단서 카드와 수업 자료" />
+          <figcaption>실제 수업 운영을 검토하기 위해 만든 학생용 자료</figcaption>
         </figure>
       </section>
 
       <section className="product-facts shell" aria-label="수업팩 주요 조건">
         {facts.map((fact) => {
-          const Icon = fact.icon;
           return (
             <div key={fact.value}>
-              <Icon size={25} weight="duotone" aria-hidden="true" />
               <span>
                 <b>{fact.value}</b>
                 <strong>{fact.label}</strong>

@@ -8,8 +8,8 @@ const routeHtml = (route) =>
 test("renders the home conversion path with real product evidence", async () => {
   const html = await readFile(routeHtml("index.html"), "utf8");
 
-  assert.match(html, /영어로 단서를 읽고/);
-  assert.match(html, /함께 푸는 미스터리 수업/);
+  assert.match(html, /영어 단서를 읽고/);
+  assert.match(html, /함께 사건을 해결합니다/);
   assert.match(html, /무료 검토팩 요청/);
   assert.match(html, /4차시 수업 흐름/);
   assert.match(html, /제작한 시제품을 보여드립니다/);

@@ -154,6 +154,19 @@ export default function Home() {
         })}
       </section>
 
+      <section className="maker-proof shell" aria-labelledby="maker-proof-title">
+        <div className="maker-proof-copy">
+          <Kicker>만든 사람의 기록</Kicker>
+          <h2 id="maker-proof-title">이야기와 단서를<br />실물 작품으로 만들어 왔습니다.</h2>
+          <p>단서공방은 두 차례의 텀블벅 프로젝트를 통해 머더미스터리 작품을 선보였습니다. 그 창작 경험을 바탕으로, 지금은 교육 현장에서 사용할 영어 수업팩을 별도로 검증하고 있습니다.</p>
+          <a href="/works">작품과 펀딩 기록 보기 <ArrowRight size={16} weight="bold" aria-hidden="true" /></a>
+        </div>
+        <div className="maker-proof-media">
+          <img src="/assets/works/snake-carnival-cover.webp" width="1000" height="1000" alt="검은색 실물 패키지로 제작된 뱀이 죽은 축제" loading="lazy" />
+          <img src="/assets/works/murder-mystery-three-cover.webp" width="1000" height="1000" alt="레드가 죽은 연구소, 미식의 대가, 의사가 너무 많아 실물 패키지 3종" loading="lazy" />
+        </div>
+      </section>
+
       <section className="product-fit shell">
         <div className="product-section-heading">
           <Kicker>학원 수업에 맞춘 설계</Kicker>

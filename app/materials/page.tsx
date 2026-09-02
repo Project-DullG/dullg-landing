@@ -24,52 +24,62 @@ const pastClassLinks = [
 export default function MaterialsPage() {
   return (
     <PageFrame>
-      <section className="library-hero shell">
-        <Kicker>수강생 자료실</Kicker>
-        <h1>수업 자료와 지난 교육 기록을<br />한곳에 모았습니다.</h1>
-        <p>영어 미스터리 수업팩 자료와 실제 교육에서 사용한 페이지를 확인할 수 있습니다. 별도 로그인이 필요한 자료실은 아직 운영하지 않습니다.</p>
-      </section>
+      <div className="materials-page">
+        <section className="library-hero shell">
+          <Kicker>수강생 자료실</Kicker>
+          <h1>필요한 수업 자료를<br />바로 찾아보세요.</h1>
+          <p>영어 미스터리 수업팩과 지난 교육에서 사용한 자료를 공개합니다. 별도의 로그인은 필요하지 않습니다.</p>
+          <nav className="materials-jump" aria-label="자료실 바로가기">
+            <a href="#mystery-pack">미스터리 수업팩</a>
+            <a href="#ulleung-class">지난 교육 자료</a>
+          </nav>
+        </section>
 
-      <section className="past-class shell" aria-labelledby="past-class-title">
-        <div className="past-class-head">
+        <section className="materials-current shell" id="mystery-pack" aria-labelledby="current-material-title">
           <div>
-            <Kicker>지난 교육 자료 · 2026</Kicker>
-            <h2 id="past-class-title">울릉군 생태관광 AI 교육</h2>
+            <Kicker>영어 미스터리 수업팩</Kicker>
+            <h2 id="current-material-title">수업을 검토할 때<br />먼저 볼 자료</h2>
           </div>
-          <p>지역의 관광 자원을 글과 이미지로 정리하고, 웹페이지와 보드게임 기획안으로 만드는 실습에 사용한 자료입니다. 당시 수업용 페이지를 원래 형태로 공개합니다.</p>
-        </div>
-        <div className="past-class-meta" aria-label="교육 정보">
-          <span><b>대상</b> 울릉군민</span>
-          <span><b>장소</b> 울릉고등학교 전산실</span>
-          <span><b>일자</b> 2026년 4월 18일</span>
-        </div>
-        <div className="past-class-links">
-          {pastClassLinks.map((item, index) => (
-            <a key={item.title} href={item.href} target="_blank" rel="noreferrer">
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div><h3>{item.title}</h3><p>{item.body}</p></div>
-              <b aria-hidden="true">↗</b>
-            </a>
-          ))}
-        </div>
-        <p className="past-class-note">외부 페이지가 새 창에서 열립니다. 교육계획서와 내부 운영 문서는 공개 목록에서 제외했습니다.</p>
-      </section>
+          <div className="materials-current-list">
+            {resources.map((item) => (
+              <article key={item.title} className={!item.href ? "is-pending" : undefined}>
+                <small>{item.state}</small>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+                {item.href ? <Link href={item.href}>자료 보기 <span aria-hidden="true">→</span></Link> : <span className="directory-note">공개 준비 중</span>}
+              </article>
+            ))}
+          </div>
+        </section>
 
-      <section className="editorial-directory shell" aria-label="자료 목록">
-        {resources.map((item, index) => (
-          <article key={item.title}>
-            <span className="directory-index">{String(index + 1).padStart(2, "0")}</span>
-            <div><small>{item.state}</small><h2>{item.title}</h2><p>{item.body}</p></div>
-            {item.href ? <Link href={item.href}>자료 보기 →</Link> : <span className="directory-note">공개 준비 중</span>}
-          </article>
-        ))}
-      </section>
+        <section className="past-class" id="ulleung-class" aria-labelledby="past-class-title">
+          <div className="shell">
+            <div className="past-class-head">
+              <div><Kicker>지난 교육 자료 · 2026</Kicker><h2 id="past-class-title">울릉군 생태관광<br />AI 교육</h2></div>
+              <div className="past-class-intro">
+                <p>울릉군의 관광 자원을 글과 이미지로 정리하고 웹페이지와 보드게임 기획안으로 만드는 실습 자료입니다.</p>
+                <dl><div><dt>대상</dt><dd>울릉군민</dd></div><div><dt>장소</dt><dd>울릉고등학교 전산실</dd></div><div><dt>일자</dt><dd>2026년 4월 18일</dd></div></dl>
+              </div>
+            </div>
+            <div className="past-class-links">
+              {pastClassLinks.map((item, index) => (
+                <a key={item.title} href={item.href} target="_blank" rel="noreferrer">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <div><h3>{item.title}</h3><p>{item.body}</p></div>
+                  <b aria-hidden="true">↗</b>
+                </a>
+              ))}
+            </div>
+            <p className="past-class-note">각 자료는 새 창에서 열립니다. 수강생에게 필요한 공개 자료만 연결했습니다.</p>
+          </div>
+        </section>
 
-      <section className="plain-note shell">
-        <h2>찾는 자료가 없다면</h2>
-        <p>수업명과 필요한 자료를 이메일에 적어 보내주세요. 공개할 수 있는 자료인지 확인한 뒤 답변드리겠습니다.</p>
-        <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>
-      </section>
+        <section className="plain-note shell">
+          <h2>찾는 자료가 없다면</h2>
+          <p>수업명과 필요한 자료를 이메일에 적어 보내주세요. 공개할 수 있는 자료인지 확인한 뒤 답변드리겠습니다.</p>
+          <a href="mailto:cluedullg@gmail.com">cluedullg@gmail.com</a>
+        </section>
+      </div>
     </PageFrame>
   );
 }

@@ -17,7 +17,7 @@ export default function WorksPage() {
     <section className="works-hero shell"><div><Kicker>작품과 기록</Kicker><h1>단서공방이 만든<br />머더미스터리</h1></div><p>공개된 작품의 줄거리와 플레이 정보를 한 편씩 소개합니다. 현재 진행 중인 펀딩과 지난 제작 기록도 함께 확인할 수 있습니다.</p></section>
 
     <section className="live-funding" aria-labelledby="live-funding-title"><div className="shell">
-      <div className="live-funding-head"><div><Kicker>현재 펀딩 중</Kicker><h2 id="live-funding-title">판타지 그리고 일상.<br />머더미스터리 2종</h2></div><div><b>9월 11일까지</b><p>2026년 9월 2일 확인 · 목표 금액 달성</p><a href="https://tumblbug.com/projectdg2" target="_blank" rel="noreferrer">텀블벅에서 후원하기 ↗</a></div></div>
+      <div className="live-funding-head"><div><Kicker>현재 펀딩 중</Kicker><h2 id="live-funding-title">새로 공개한<br />두 편의 이야기</h2></div><div><b>9월 11일까지</b><p>2026년 9월 2일 확인 · 목표 금액 달성</p><a href="https://tumblbug.com/projectdg2" target="_blank" rel="noreferrer">텀블벅에서 후원하기 ↗</a></div></div>
       <div className="live-work-list">
         <article><img src="/assets/works/slime-soda-cover.webp" width="1000" height="1000" alt="냉동고 안의 슬라임이 그려진 슬라임은 소다맛이 난다 패키지" /><div><small>4–5인 · 60분</small><h3>슬라임은 소다맛이 난다</h3><p>몬스터들이 모여 사는 포포롱 마을. 작은 구조대의 아침을 준비하던 슬라임이 냉동고 안에서 얼어붙은 채 발견됩니다. 한동안 슬라임만 바라보던 다섯 대원은 서로의 얼굴을 살피기 시작합니다.</p></div></article>
         <article><img src="/assets/works/professor-rest-cover.webp" width="1000" height="1000" alt="비어 있는 교수실 의자가 그려진 교수님 편히 쉬세요 패키지" /><div><small>6인 · 90분</small><h3>교수님, 편히 쉬세요</h3><p>청람대학교 연구실 구성원들은 프로젝트가 끝난 뒤 호숫가 연수원으로 향합니다. 모두가 함께 쉬기로 한 다음 날 아침, 박정호 교수는 호숫가 계단 아래에서 죽은 채 발견됩니다.</p></div></article>
@@ -30,13 +30,14 @@ export default function WorksPage() {
       <div className="portfolio-list">{works.map((work,index)=><article key={work.title}><figure><img src={work.image} width="1000" height="1000" alt={work.alt} loading="lazy" /></figure><div><span>{String(index+1).padStart(2,"0")} · {work.status}</span><h3>{work.title}</h3><b>{work.meta}</b><p>{work.body}</p><a href={work.href} target="_blank" rel="noreferrer">공식 페이지에서 보기 ↗</a></div></article>)}</div>
     </section>
 
-    <section className="funding-proof"><div className="shell">
-      <div className="funding-proof-head"><Kicker>텀블벅 펀딩</Kicker><h2>두 번의 펀딩으로<br />작품을 실물화했습니다.</h2></div>
-      <div className="funding-projects">
-        <a href="https://tumblbug.com/projectdg0" target="_blank" rel="noreferrer"><small>2025.09.09—10.11 · 프로젝트 성공</small><h3>4인용 머더미스터리<br />〈뱀이 죽은 축제〉</h3><dl><div><dt>모인 금액</dt><dd>9,001,000원</dd></div><div><dt>후원자</dt><dd>250명</dd></div><div><dt>달성률</dt><dd>180%</dd></div></dl><span>텀블벅에서 보기 ↗</span></a>
-        <a href="https://tumblbug.com/projectdg1" target="_blank" rel="noreferrer"><small>2026.03.16—04.20 · 프로젝트 성공</small><h3>깊은 서사와 맑은 추리.<br />머더미스터리 3종</h3><dl><div><dt>모인 금액</dt><dd>19,296,000원</dd></div><div><dt>후원자</dt><dd>193명</dd></div><div><dt>달성률</dt><dd>1,929%</dd></div></dl><span>텀블벅에서 보기 ↗</span></a>
-      </div><p className="funding-source">금액·인원·기간은 각 텀블벅 프로젝트 공개 페이지 기준입니다.</p>
-    </div></section>
+    <section className="funding-archive shell" aria-labelledby="funding-archive-title">
+      <div><Kicker>지난 펀딩</Kicker><h2 id="funding-archive-title">프로젝트 기록</h2></div>
+      <div className="funding-archive-list">
+        <a href="https://tumblbug.com/projectdg0" target="_blank" rel="noreferrer"><span>2025.09.09—10.11</span><strong>첫 번째 프로젝트</strong><b>9,001,000원 · 250명 · 180%</b><i>보기 ↗</i></a>
+        <a href="https://tumblbug.com/projectdg1" target="_blank" rel="noreferrer"><span>2026.03.16—04.20</span><strong>두 번째 프로젝트</strong><b>19,296,000원 · 193명 · 1,929%</b><i>보기 ↗</i></a>
+        <p>금액과 후원자 수는 각 텀블벅 프로젝트의 종료 시점 기준입니다.</p>
+      </div>
+    </section>
 
     <section className="education-bridge shell"><div><Kicker>교육 콘텐츠</Kicker><h2>영어 미스터리 수업팩을 준비하고 있습니다.</h2></div><p>학생이 영어 단서를 읽고 근거를 설명하는 4차시 수업팩입니다. 머더미스터리 제작 이력과 별개로, 실제 수업에서 운영할 수 있는지는 파일럿을 통해 확인할 예정입니다.</p><Link href="/academy">수업팩 살펴보기 →</Link></section>
   </PageFrame>;

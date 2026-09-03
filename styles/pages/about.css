@@ -1,7 +1,7 @@
 /*  ABOUT PAGE  */
 .about-hero h1 {
   font-family: var(--font-noto-serif), serif;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.055em;
 }
 .about-scope h2,

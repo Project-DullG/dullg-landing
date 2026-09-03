@@ -49,7 +49,10 @@ const MANUAL = {
 function classify(sel) {
   const s = sel.trim();
   if (!s.includes(".")) return "base"; // html, body, *, a, h1-h6, p, :focus-visible, etc.
-  const tok = (name) => new RegExp(`\\.${name}\\b`).test(s);
+  // Exact class match only: `\b` treats "-" as a boundary too, so `.brand\b`
+  // would wrongly match `.brand-hero`. Require the next char (if any) to not
+  // continue a kebab-case identifier.
+  const tok = (name) => new RegExp(`\\.${name}(?![a-zA-Z0-9_-])`).test(s);
   const pre = (prefix) => new RegExp(`\\.${prefix}[a-zA-Z0-9_-]*\\b`).test(s);
 
   if (tok("skip-link")) return "base";

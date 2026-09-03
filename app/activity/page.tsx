@@ -2,7 +2,7 @@ import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
-import { activityRecords } from "@/lib/activities";
+import { activityRecords, formatActivityDate, isUpcoming } from "@/lib/activities";
 
 export const metadata: Metadata = {
   title: "제작·활동 기록 · 단서공방",
@@ -20,10 +20,20 @@ export default function ActivityPage() {
       <div><Kicker>기록</Kicker><h2 id="activity-ledger-title">단서공방의 작업</h2></div>
       <div className="activity-ledger-list">
         {activityRecords.map(record => {
-          const content = <><time>{record.date}</time><span>{record.type}</span><strong>{record.title}</strong><p>{record.body}</p><ArrowUpRight size={17} weight="bold" aria-hidden="true" /></>;
+          const upcoming = isUpcoming(record);
+          const content = (
+            <>
+              <time dateTime={record.date.split("/")[0]}>{formatActivityDate(record)}</time>
+              <span>{upcoming ? `${record.type} · 예정` : record.type}</span>
+              <strong>{record.title}</strong>
+              <p>{record.body}</p>
+              <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
+            </>
+          );
+          const className = upcoming ? "is-upcoming" : undefined;
           return record.href.startsWith("http")
-            ? <a href={record.href} key={`${record.date}-${record.title}`} target="_blank" rel="noopener noreferrer">{content}</a>
-            : <Link href={record.href} key={`${record.date}-${record.title}`}>{content}</Link>;
+            ? <a href={record.href} key={`${record.date}-${record.title}`} target="_blank" rel="noopener noreferrer" className={className}>{content}</a>
+            : <Link href={record.href} key={`${record.date}-${record.title}`} className={className}>{content}</Link>;
         })}
       </div>
     </section>

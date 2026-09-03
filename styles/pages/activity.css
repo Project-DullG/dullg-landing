@@ -126,6 +126,9 @@ html body .activity-hero h1 em {
 .activity-ledger-list svg {
   justify-self: end;
 }
+.activity-ledger-list .is-upcoming span {
+  color: var(--orange);
+}
 .activity-disclosure {
   padding: 82px 0;
   background: #f4f5f2;

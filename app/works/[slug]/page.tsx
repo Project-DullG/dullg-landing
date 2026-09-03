@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Kicker, PageFrame } from "@/components/site";
-import { getWork, works } from "@/lib/works";
+import { getWork, getWorkStatus, works } from "@/lib/works";
 import { WorkLanding } from "@/components/work-landing";
 import landings from "@/lib/work-landings.json";
 import { OfficialWorkIntroduction } from "@/components/official-work-introduction";
@@ -36,7 +36,7 @@ export default async function WorkDetailPage({ params }: Props) {
     <article className="work-detail">
       <header className="work-detail-hero shell">
         <div className="work-detail-copy">
-          <Kicker>{work.status} · 머더미스터리</Kicker>
+          <Kicker>{getWorkStatus(work)} · 머더미스터리</Kicker>
           <h1>{work.title}</h1>
           <dl>
             <div><dt>인원</dt><dd>{work.players}</dd></div>

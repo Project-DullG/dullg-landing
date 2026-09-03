@@ -1,4 +1,8 @@
-import { ulleungPresentation } from "./presentations";
+import { ulleungPresentation } from "./presentations.ts";
+
+export const episodeTitle = "8시까지 두 열쇠";
+export const episodeSubtitle = "보충반의 사라진 열쇠";
+export const episodeFullTitle = `${episodeTitle} — ${episodeSubtitle}`;
 
 export const educationFacts = [
   ["4차시", "읽기부터 사건보고서까지"],

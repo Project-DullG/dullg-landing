@@ -1,8 +1,11 @@
+import { getFundingProject, getFundingStatus, formatFundingSummary, fundingSummaryPeriod, type FundingProject } from "./funding.ts";
+
 export type WorkStatus = "펀딩 중" | "출시" | "앱 공개";
 
 export type Work = {
   slug: string;
   status: WorkStatus;
+  fundingId?: FundingProject["id"];
   title: string;
   players: string;
   duration: string;
@@ -26,10 +29,15 @@ export type Work = {
   };
 };
 
+const dg0 = getFundingProject("projectdg0");
+const dg1 = getFundingProject("projectdg1");
+const dg2 = getFundingProject("projectdg2");
+
 export const works: Work[] = [
   {
     slug: "slime-soda",
     status: "펀딩 중",
+    fundingId: "projectdg2",
     title: "슬라임은 소다맛이 난다",
     players: "4–5인",
     duration: "60분",
@@ -40,11 +48,12 @@ export const works: Work[] = [
     externalUrl: "https://tumblbug.com/projectdg2",
     externalLabel: "텀블벅 프로젝트",
     characteristics: ["몬스터 구조대를 배경으로 한 사건", "4명 또는 5명이 함께 진행", "한 시간 안에 진행하는 구성"],
-    record: { label: "진행 중인 펀딩", title: "머더미스터리 2종", detail: "2026년 9월 11일까지 · 텀블벅" },
+    record: { label: "진행 중인 펀딩", title: "머더미스터리 2종", detail: `${fundingSummaryPeriod(dg2)} · 텀블벅` },
   },
   {
     slug: "professor-rest",
     status: "펀딩 중",
+    fundingId: "projectdg2",
     title: "교수님, 편히 쉬세요",
     players: "5인",
     duration: "90분",
@@ -55,7 +64,7 @@ export const works: Work[] = [
     externalUrl: "https://tumblbug.com/projectdg2",
     externalLabel: "텀블벅 프로젝트",
     characteristics: ["대학 연구실과 연수원을 오가는 사건", "다섯 인물의 관계를 중심으로 진행", "90분 분량의 실물 머더미스터리"],
-    record: { label: "진행 중인 펀딩", title: "머더미스터리 2종", detail: "2026년 9월 11일까지 · 텀블벅" },
+    record: { label: "진행 중인 펀딩", title: "머더미스터리 2종", detail: `${fundingSummaryPeriod(dg2)} · 텀블벅` },
   },
   {
     slug: "snake-carnival",
@@ -70,7 +79,7 @@ export const works: Work[] = [
     externalUrl: "https://tumblbug.com/projectdg0",
     externalLabel: "텀블벅 프로젝트",
     characteristics: ["폐쇄된 지하 예배실에서 시작되는 사건", "카드 소지와 조사 과정을 활용하는 진행", "네 명이 각자의 비밀을 가진 구성"],
-    record: { label: "펀딩 성공", title: "4인용 머더 미스터리 뱀이 죽은 축제", detail: "2025.09.09–10.11 · 9,001,000원 · 250명 · 180%" },
+    record: { label: "펀딩 성공", title: "4인용 머더 미스터리 뱀이 죽은 축제", detail: formatFundingSummary(dg0) },
   },
   {
     slug: "gray-girl-memory",
@@ -118,7 +127,7 @@ export const works: Work[] = [
     externalUrl: "https://tumblbug.com/projectdg1",
     externalLabel: "텀블벅 프로젝트",
     characteristics: ["전대물과 비밀 연구소를 결합한 배경", "네 명의 레인저가 사건을 재구성", "90분 분량의 실물 머더미스터리"],
-    record: { label: "펀딩 성공", title: "깊은 서사와 맑은 추리, 머더미스터리 3종", detail: "2026.03.16–04.20 · 19,296,000원 · 193명 · 1,929%" },
+    record: { label: "펀딩 성공", title: "깊은 서사와 맑은 추리, 머더미스터리 3종", detail: formatFundingSummary(dg1) },
   },
   {
     slug: "gourmet-master",
@@ -133,7 +142,7 @@ export const works: Work[] = [
     externalUrl: "https://tumblbug.com/projectdg1",
     externalLabel: "텀블벅 프로젝트",
     characteristics: ["왕실 요리 대회를 배경으로 한 사건", "요리와 접시에 남은 정보를 활용", "네 명이 함께 진행하는 90분 구성"],
-    record: { label: "펀딩 성공", title: "깊은 서사와 맑은 추리, 머더미스터리 3종", detail: "2026.03.16–04.20 · 19,296,000원 · 193명 · 1,929%" },
+    record: { label: "펀딩 성공", title: "깊은 서사와 맑은 추리, 머더미스터리 3종", detail: formatFundingSummary(dg1) },
   },
   {
     slug: "too-many-doctors",
@@ -148,12 +157,19 @@ export const works: Work[] = [
     externalUrl: "https://tumblbug.com/projectdg1",
     externalLabel: "텀블벅 프로젝트",
     characteristics: ["국왕의 치료 직후 벌어진 사건", "여섯 의사의 관계와 진술을 중심으로 진행", "150분 분량의 실물 머더미스터리"],
-    record: { label: "펀딩 성공", title: "깊은 서사와 맑은 추리, 머더미스터리 3종", detail: "2026.03.16–04.20 · 19,296,000원 · 193명 · 1,929%" },
+    record: { label: "펀딩 성공", title: "깊은 서사와 맑은 추리, 머더미스터리 3종", detail: formatFundingSummary(dg1) },
   },
 ];
 
-export const publishedWorks = works.filter((work) => work.status !== "펀딩 중");
-export const currentWorks = works.filter((work) => work.status === "펀딩 중");
+export function getWorkStatus(work: Work, today: Date = new Date()): WorkStatus {
+  if (work.status === "펀딩 중" && work.fundingId) {
+    return getFundingStatus(getFundingProject(work.fundingId), today) === "진행 중" ? "펀딩 중" : "출시";
+  }
+  return work.status;
+}
+
+export const publishedWorks = (today: Date = new Date()) => works.filter((work) => getWorkStatus(work, today) !== "펀딩 중");
+export const currentWorks = (today: Date = new Date()) => works.filter((work) => getWorkStatus(work, today) === "펀딩 중");
 export const homeFeaturedWorks = works.filter((work) => ["slime-soda", "professor-rest", "snake-carnival"].includes(work.slug));
 
 export function getWork(slug: string) {

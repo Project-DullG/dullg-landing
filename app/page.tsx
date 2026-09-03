@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ClueProcess } from "@/components/clue-process";
 import { Footer, Header, Kicker } from "@/components/site";
 import { educationFacts } from "@/lib/education";
-import { homeFeaturedWorks } from "@/lib/works";
+import { getWorkStatus, homeFeaturedWorks } from "@/lib/works";
 
 export default function Home() {
   return (
@@ -28,7 +28,7 @@ export default function Home() {
         </div>
         <div className="brand-work-grid">{homeFeaturedWorks.map(work => <Link href={`/works/${work.slug}`} key={work.slug}>
           <Image src={work.image} width={1000} height={1000} alt={work.alt} sizes="(max-width: 760px) 100vw, 33vw" />
-          <span>{work.status} · {work.players} · {work.duration}</span><h3>{work.title}</h3>
+          <span>{getWorkStatus(work)} · {work.players} · {work.duration}</span><h3>{work.title}</h3>
         </Link>)}</div>
       </section>
 

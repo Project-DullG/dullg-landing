@@ -7228,6 +7228,46 @@ html body .portfolio-list p { word-break:keep-all; overflow-wrap:normal; }
   font-size: 13px;
   color: #c0392b;
 }
+.login-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.login-dialog {
+  background: #fff;
+  border-radius: 14px;
+  padding: 32px 28px 24px;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+}
+.login-dialog-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.login-dialog-desc {
+  font-size: 14px;
+  color: rgba(21,37,30,0.55);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.login-dialog-button {
+  padding: 10px 32px;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.login-dialog-button:hover { opacity: 0.88; }
 
 
 /* ============================================================

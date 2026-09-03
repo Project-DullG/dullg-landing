@@ -1,27 +1,9 @@
 "use client";
 
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
-import { getClientAuth } from "@/lib/firebase/config";
-import { loginAction } from "@/app/actions/auth";
 
 export default function LoginPage() {
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  async function handleGoogleLogin() {
-    setError(null);
-    setLoading(true);
-    try {
-      const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(getClientAuth(), provider);
-      const idToken = await result.user.getIdToken();
-      await loginAction(idToken);
-    } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : "로그인에 실패했습니다.");
-      setLoading(false);
-    }
-  }
+  const [showDialog, setShowDialog] = useState(false);
 
   return (
     <div className="login-page">
@@ -31,15 +13,31 @@ export default function LoginPage() {
 
         <button
           className="login-google-button"
-          onClick={handleGoogleLogin}
-          disabled={loading}
+          onClick={() => setShowDialog(true)}
           type="button"
         >
-          {loading ? "로그인 중..." : "Google로 로그인"}
+          Google로 로그인
         </button>
-
-        {error && <p className="login-error">{error}</p>}
       </div>
+
+      {showDialog && (
+        <div className="login-dialog-overlay" onClick={() => setShowDialog(false)}>
+          <div className="login-dialog" onClick={(e) => e.stopPropagation()}>
+            <p className="login-dialog-title">준비 중입니다</p>
+            <p className="login-dialog-desc">
+              학원 관리 기능은 현재 개발 중이며,<br />
+              곧 사용할 수 있습니다.
+            </p>
+            <button
+              className="login-dialog-button"
+              onClick={() => setShowDialog(false)}
+              type="button"
+            >
+              확인
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

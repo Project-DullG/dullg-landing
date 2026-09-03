@@ -22,6 +22,7 @@ export default function WorksPage() {
   return (
     <PageFrame>
       <section className="works-hero shell">
+        {/* keeps a grid-item box; see SectionHead */}
         <SectionHead
           as="h1"
           className="works-hero-head"
@@ -144,6 +145,7 @@ export default function WorksPage() {
       </section>
 
       <section className="funding-archive shell" aria-labelledby="funding-archive-title">
+        {/* keeps a grid-item box; see SectionHead */}
         <SectionHead
           className="funding-archive-head"
           id="funding-archive-title"

@@ -138,5 +138,6 @@ test("every public page has a unique templated title and its own canonical", asy
       `${r} canonical`,
     );
     assert.doesNotMatch(html, /(?<!Project)DullG/, `${r} uses DullG standalone`);
+    assert.match(html, /property="og:image"/, `${r} og:image`);
   }
 });

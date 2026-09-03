@@ -34,13 +34,13 @@ export const fundingProjects: FundingProject[] = [
   {
     id: "projectdg2",
     title: "머더미스터리 2종",
-    startsOn: "2026-08-14",
+    startsOn: "2026-08-28",
     endsOn: "2026-09-11",
     url: "https://tumblbug.com/projectdg2",
-    amount: "10,940,000원",
-    backers: "169명",
-    achievement: "1,094%",
-    checkedAt: "2026년 9월 2일",
+    amount: "11,080,000원",
+    backers: "171명",
+    achievement: "1,108%",
+    checkedAt: "2026년 9월 4일",
   },
 ];
 

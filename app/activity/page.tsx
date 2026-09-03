@@ -13,6 +13,7 @@ export default function ActivityPage() {
   return (
     <PageFrame>
       <section className="activity-hero shell">
+        {/* keeps a grid-item box; see SectionHead */}
         <SectionHead
           as="h1"
           className="activity-hero-head"

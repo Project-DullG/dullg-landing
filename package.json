@@ -15,6 +15,7 @@
     "shots": "node scripts/screenshot-public.mjs",
     "shots:diff": "node scripts/screenshot-diff.mjs",
     "css:dead": "node scripts/css-dead-classes.mjs",
+    "format": "prettier --write \"app/**/*.{ts,tsx}\" \"components/**/*.tsx\" \"lib/**/*.ts\" \"styles/**/*.css\"",
     "format:css": "prettier --write \"styles/**/*.css\" --print-width 100"
   },
   "dependencies": {

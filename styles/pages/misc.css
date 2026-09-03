@@ -508,3 +508,8 @@ html body .section-kicker {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+.not-found-digest {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+}

@@ -77,6 +77,8 @@ export function FormSection() {
           기관명: data.get("academy"),
           연락처: data.get("contact"),
           관심유형: data.get("interest"),
+          동의: "예",
+          제출시각: new Date().toISOString(),
           _subject: `[단서공방] 검토팩 요청 - ${data.get("academy")}`,
           _template: "box",
           _captcha: "false",

@@ -201,6 +201,7 @@
   color: var(--cream);
   font-weight: 700;
 }
+/* ≤760px: the .site-footer-contact a touch-target rule overrides display/min-height on purpose */
 .site-footer-login {
   display: block;
   margin-top: 10px;
@@ -392,7 +393,7 @@
   white-space: nowrap;
 }
 .brand-name small {
-  color: rgba(17, 20, 18, 0.52);
+  color: var(--text-muted);
   font-family: var(--font-noto-sans), sans-serif;
   font-size: 9px;
   font-weight: 700;

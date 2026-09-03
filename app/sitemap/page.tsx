@@ -67,6 +67,7 @@ export default function SitemapPage() {
   return (
     <PageFrame>
       <section className="sitemap-hero shell">
+        {/* keeps a grid-item box; see SectionHead */}
         <SectionHead
           as="h1"
           className="sitemap-hero-head"

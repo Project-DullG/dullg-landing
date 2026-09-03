@@ -109,3 +109,34 @@ test("publishes privacy guidance and deployment-aware discovery metadata", async
   assert.match(footer, /href="\/sitemap"/);
   assert.doesNotMatch(footer, /href="\/sitemap\.xml"/);
 });
+
+test("every public page has a unique templated title and its own canonical", async () => {
+  const routes = [
+    "academy",
+    "academy/curriculum",
+    "academy/sample",
+    "academy/pilot",
+    "episode",
+    "works",
+    "about",
+    "contact",
+    "activity",
+    "materials",
+    "privacy",
+    "sitemap",
+  ];
+  const titles = new Set();
+  for (const r of routes) {
+    const html = await readFile(routeHtml(`${r}.html`), "utf8");
+    const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+    assert.ok(title?.endsWith(" | 단서공방"), `${r}: ${title}`);
+    assert.ok(!titles.has(title), `duplicate title ${title}`);
+    titles.add(title);
+    assert.match(
+      html,
+      new RegExp(`rel="canonical" href="[^"]*/${r.replace("/", "\\/")}"`),
+      `${r} canonical`,
+    );
+    assert.doesNotMatch(html, /(?<!Project)DullG/, `${r} uses DullG standalone`);
+  }
+});

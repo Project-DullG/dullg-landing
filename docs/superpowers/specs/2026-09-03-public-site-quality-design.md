@@ -135,6 +135,12 @@ styles/dashboard.css     # 기존 DASHBOARD LAYOUT + PAGES 그대로 이동 (3�
 - 수동 확인: 834px 폭에서 햄버거 → 메뉴 열림. `/works/없는-slug` → 브랜드 404. 각 페이지 `<title>`이 "페이지명 | 단서공방". `/academy` OG가 홈과 다름.
 - CSS 총 줄수 ≤ 4,300 (현재 7,509). `!important` 0건(reduced-motion 제외). 죽은 클래스 0건(스크립트로 검증).
 
+### 측정값 (2026-09-04, Task 12 완료 시점)
+- **CSS 줄수**: `wc -l styles/**/*.css styles/*.css`(브리프 지정 명령, 최상위 `tokens.css`·`base.css`·`site.css`·`dashboard.css`가 두 글롭에 겹쳐 이중 계산됨) = **6,544줄**. 중복 없이 `find styles -name '*.css' | xargs wc -l`로 재확인한 실제 줄수는 **5,236줄**(11개 파일). Prettier의 속성당 한 줄 재포맷(Task 12 Step 4) 이후 수치이므로 §7의 "≤ 4,300" 기준은 더 이상 유효하지 않다 — 컨트롤러 판단: 이 기준을 맞추려 하지 말 것. 죽은 클래스 0건, `!important`는 reduced-motion 미디어 쿼리 내부 4건 외 0건, `:root` 선언 1회(모두 유지).
+- **`public/` 용량**: 7.9M (Task 9에서 21MB 미참조 자산 삭제 완료 상태 그대로 유지, Task 12에서 추가 변경 없음).
+- **테스트**: 8개 파일, `npm test`(빌드 + 전 스위트) 기준 23개 테스트 전부 통과(`tests/rendered-html.test.mjs`의 신규 "every public page has a unique templated title and its own canonical" 포함, 12개 공개 라우트의 제목 유일성·canonical·`DullG` 단독 노출 금지를 검사).
+- **미사용 export**: `lib/works.ts`의 `WorkStatus`, `lib/education.ts`의 `CourseMaterial`(§5·§7 원문의 `MaterialLink`는 코드베이스에 존재한 적이 없음 — 실제로 그 역할을 하는 타입은 `CourseMaterial`이며 이번에 `export` 제거) 모두 파일 내부 전용으로 전환, 외부 참조 없음을 grep으로 확인.
+
 ## 8. 감사 요약 (참조)
 - 내용: AI 이미지 4장이 실제 제작물과 불일치, CTA 5곳 중 4곳 폼 없음, 개인정보 고지와 폼 불일치, 펀딩 상태 하드코딩, 미래 활동을 완료로 표기.
 - 기술: 821–900px 내비 미표시, canonical/OG 홈으로 상속(10페이지), curriculum 메타 없음, 404/오류 페이지 없음, `--teal` 미정의, 대비 2.9–4.2:1, `!important` 1건.

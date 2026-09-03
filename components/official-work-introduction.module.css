@@ -1,0 +1,16 @@
+.section { padding: 16px 0 64px; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid #e3e6e3; padding-top: 28px; }
+.section h2 { margin: 0 0 16px; font-size: 24px; line-height: 1.5; word-break: keep-all; }
+.header a { min-height: 44px; display: inline-flex; align-items: center; font-size: 14px; white-space: nowrap; text-decoration: underline; }
+.source, .quote figcaption { color: #68716b; font-size: 14px; line-height: 1.7; }
+.story { max-width: 760px; }
+.story p, .notes p { font-size: 16px; line-height: 1.9; word-break: keep-all; overflow-wrap: anywhere; }
+.quote { margin: 32px 0 48px; padding: 20px 24px; border-left: 2px solid #536558; }
+.quote blockquote { margin: 0 0 12px; font-size: 21px; line-height: 1.8; word-break: keep-all; }
+.characters { margin: 0 0 40px; }
+.characters > div { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 16px; padding: 20px 0; border-bottom: 1px solid #e3e6e3; font-size: 16px; line-height: 1.8; word-break: keep-all; }
+.characters dt { font-weight: 600; }
+.characters dd { margin: 0; color: #59615b; }
+.notes { padding: 28px; background: #f4f5f3; }
+.notes p:last-child { margin-bottom: 0; }
+@media (max-width: 760px) { .characters > div { grid-template-columns: 1fr; gap: 6px; } .section h2 { font-size: 21px; } .notes { padding: 20px; } .header { align-items: start; flex-wrap: wrap; gap: 0; } }

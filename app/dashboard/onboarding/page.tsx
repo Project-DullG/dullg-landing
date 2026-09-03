@@ -10,7 +10,10 @@ export default function OnboardingPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!name.trim()) { setError("학원명을 입력해주세요."); return; }
+    if (!name.trim()) {
+      setError("학원명을 입력해주세요.");
+      return;
+    }
     setLoading(true);
     try {
       await createAcademy(name.trim());

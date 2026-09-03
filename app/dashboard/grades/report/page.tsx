@@ -9,17 +9,24 @@ export default async function GradeReportPage() {
   if (!academyId) redirect("/dashboard/onboarding");
 
   const [gradesSnap, studentsSnap, classesSnap] = await Promise.all([
-    getAdminDb().collection("academies").doc(academyId).collection("grades").orderBy("date", "desc").limit(200).get(),
+    getAdminDb()
+      .collection("academies")
+      .doc(academyId)
+      .collection("grades")
+      .orderBy("date", "desc")
+      .limit(200)
+      .get(),
     getAdminDb().collection("academies").doc(academyId).collection("students").get(),
     getAdminDb().collection("academies").doc(academyId).collection("classes").get(),
   ]);
 
   const studentMap = Object.fromEntries(
-    studentsSnap.docs.map((doc) => [doc.id, { name: doc.data().name, classId: doc.data().classId }])
+    studentsSnap.docs.map((doc) => [
+      doc.id,
+      { name: doc.data().name, classId: doc.data().classId },
+    ]),
   );
-  const classMap = Object.fromEntries(
-    classesSnap.docs.map((doc) => [doc.id, doc.data().name])
-  );
+  const classMap = Object.fromEntries(classesSnap.docs.map((doc) => [doc.id, doc.data().name]));
 
   const grades = gradesSnap.docs.map((doc) => ({
     id: doc.id,
@@ -46,7 +53,13 @@ export default async function GradeReportPage() {
         <div className="dash-card">
           <h2>DullG 반별 평균</h2>
           <table className="dash-table">
-            <thead><tr><th>반</th><th>평균 점수</th><th>기록 수</th></tr></thead>
+            <thead>
+              <tr>
+                <th>반</th>
+                <th>평균 점수</th>
+                <th>기록 수</th>
+              </tr>
+            </thead>
             <tbody>
               {Object.entries(classAverages).map(([cn, data]) => (
                 <tr key={cn}>
@@ -64,7 +77,13 @@ export default async function GradeReportPage() {
         <h2>최근 성적 기록</h2>
         <table className="dash-table">
           <thead>
-            <tr><th>학생</th><th>반</th><th>유형</th><th>내용</th><th>점수</th></tr>
+            <tr>
+              <th>학생</th>
+              <th>반</th>
+              <th>유형</th>
+              <th>내용</th>
+              <th>점수</th>
+            </tr>
           </thead>
           <tbody>
             {grades.map((g: Record<string, unknown>) => (
@@ -77,7 +96,11 @@ export default async function GradeReportPage() {
               </tr>
             ))}
             {grades.length === 0 && (
-              <tr><td colSpan={5} style={{ textAlign: "center", color: "rgba(21,37,30,0.4)" }}>성적 기록이 없습니다.</td></tr>
+              <tr>
+                <td colSpan={5} style={{ textAlign: "center", color: "rgba(21,37,30,0.4)" }}>
+                  성적 기록이 없습니다.
+                </td>
+              </tr>
             )}
           </tbody>
         </table>

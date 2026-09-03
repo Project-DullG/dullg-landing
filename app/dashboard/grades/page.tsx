@@ -10,8 +10,11 @@ export default async function GradesPage() {
   if (!academyId) redirect("/dashboard/onboarding");
 
   const studentsSnap = await getAdminDb()
-    .collection("academies").doc(academyId)
-    .collection("students").orderBy("name").get();
+    .collection("academies")
+    .doc(academyId)
+    .collection("students")
+    .orderBy("name")
+    .get();
 
   const students = studentsSnap.docs.map((doc) => ({
     id: doc.id,

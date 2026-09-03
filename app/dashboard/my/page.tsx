@@ -13,7 +13,10 @@ export default async function MyGradesPage() {
 
   const [studentDoc, gradesSnap] = await Promise.all([
     getAdminDb().collection("academies").doc(academyId).collection("students").doc(studentId).get(),
-    getAdminDb().collection("academies").doc(academyId).collection("grades")
+    getAdminDb()
+      .collection("academies")
+      .doc(academyId)
+      .collection("grades")
       .where("studentId", "==", studentId)
       .orderBy("date", "desc")
       .limit(50)
@@ -36,7 +39,14 @@ export default async function MyGradesPage() {
           <p style={{ color: "rgba(21,37,30,0.4)" }}>DullG 성적 기록이 없습니다.</p>
         ) : (
           <table className="dash-table">
-            <thead><tr><th>차시</th><th>점수</th><th>참여도</th><th>메모</th></tr></thead>
+            <thead>
+              <tr>
+                <th>차시</th>
+                <th>점수</th>
+                <th>참여도</th>
+                <th>메모</th>
+              </tr>
+            </thead>
             <tbody>
               {dullgGrades.map((g: Record<string, unknown>) => (
                 <tr key={g.id as string}>
@@ -57,13 +67,21 @@ export default async function MyGradesPage() {
           <p style={{ color: "rgba(21,37,30,0.4)" }}>시험 성적 기록이 없습니다.</p>
         ) : (
           <table className="dash-table">
-            <thead><tr><th>과목</th><th>시험</th><th>점수</th></tr></thead>
+            <thead>
+              <tr>
+                <th>과목</th>
+                <th>시험</th>
+                <th>점수</th>
+              </tr>
+            </thead>
             <tbody>
               {examGrades.map((g: Record<string, unknown>) => (
                 <tr key={g.id as string}>
                   <td>{g.subject as string}</td>
                   <td>{g.examName as string}</td>
-                  <td>{g.score as number}/{g.totalScore as number}</td>
+                  <td>
+                    {g.score as number}/{g.totalScore as number}
+                  </td>
                 </tr>
               ))}
             </tbody>

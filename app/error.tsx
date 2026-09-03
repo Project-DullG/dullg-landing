@@ -3,7 +3,12 @@
 import Link from "next/link";
 import { Footer, Header, Kicker } from "@/components/site";
 
-export default function ErrorPage({ reset }: { error: Error & { digest?: string }; reset: () => void }) {
+export default function ErrorPage({
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
   return (
     <>
       <Header />
@@ -17,7 +22,9 @@ export default function ErrorPage({ reset }: { error: Error & { digest?: string 
           </h1>
           <p>잠시 후 다시 시도해 주세요. 계속 반복되면 문의 페이지로 알려주시면 확인하겠습니다.</p>
           <div className="not-found-actions">
-            <button className="button button-dark" type="button" onClick={reset}>다시 시도</button>
+            <button className="button button-dark" type="button" onClick={reset}>
+              다시 시도
+            </button>
             <Link href="/">홈으로</Link>
             <Link href="/contact">문의하기</Link>
           </div>

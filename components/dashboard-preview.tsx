@@ -24,17 +24,32 @@ export function DashboardPreview() {
         <div className="dash-preview-main">
           <div className="dash-preview-stats">
             {stats.map(([label, value]) => (
-              <div key={label}><small>{label}</small><strong>{value}</strong></div>
+              <div key={label}>
+                <small>{label}</small>
+                <strong>{value}</strong>
+              </div>
             ))}
           </div>
           <div className="dash-preview-table">
-            <div className="dash-preview-row is-head"><span>학생</span><span>반</span><span>차시</span><span>점수</span><span>참여</span></div>
+            <div className="dash-preview-row is-head">
+              <span>학생</span>
+              <span>반</span>
+              <span>차시</span>
+              <span>점수</span>
+              <span>참여</span>
+            </div>
             {rows.map((r) => (
-              <div className="dash-preview-row" key={r[0]}>{r.map((c, i) => <span key={i}>{c}</span>)}</div>
+              <div className="dash-preview-row" key={r[0]}>
+                {r.map((c, i) => (
+                  <span key={i}>{c}</span>
+                ))}
+              </div>
             ))}
           </div>
           <div className="dash-preview-bars">
-            {[64, 82, 71, 90].map((h, i) => <i key={i} style={{ height: `${h}%` }} />)}
+            {[64, 82, 71, 90].map((h, i) => (
+              <i key={i} style={{ height: `${h}%` }} />
+            ))}
           </div>
         </div>
       </div>

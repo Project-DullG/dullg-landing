@@ -2,7 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { List, X, House, Users, Chalkboard, Exam, ChartBar, GearSix, SignOut } from "@phosphor-icons/react";
+import {
+  List,
+  X,
+  House,
+  Users,
+  Chalkboard,
+  Exam,
+  ChartBar,
+  GearSix,
+  SignOut,
+} from "@phosphor-icons/react";
 import { useState } from "react";
 import { logoutAction } from "@/app/actions/auth";
 
@@ -39,9 +49,10 @@ export function Sidebar({ role, academyName }: { role: string; academyName: stri
 
         <nav className="dash-sidebar-nav">
           {nav.map((item) => {
-            const isActive = item.href === "/dashboard"
-              ? pathname === "/dashboard"
-              : pathname.startsWith(item.href);
+            const isActive =
+              item.href === "/dashboard"
+                ? pathname === "/dashboard"
+                : pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}

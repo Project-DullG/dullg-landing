@@ -20,8 +20,7 @@ export default function ContactPage() {
           <em>편하게 물어보세요.</em>
         </h1>
         <p>
-          작품과 협업, 교육 운영과 자료에 관한 문의를 받고 있습니다.
-          영업일 1~2일 내 답변드립니다.
+          작품과 협업, 교육 운영과 자료에 관한 문의를 받고 있습니다. 영업일 1~2일 내 답변드립니다.
         </p>
       </section>
 
@@ -32,10 +31,7 @@ export default function ContactPage() {
           <a className="contact-email-link" href={emailHref}>
             {BRAND.email}
           </a>
-          <p>
-            이메일 제목에 문의 유형과 이름을 간단히 적어주시면 더 빠르게
-            확인할 수 있습니다.
-          </p>
+          <p>이메일 제목에 문의 유형과 이름을 간단히 적어주시면 더 빠르게 확인할 수 있습니다.</p>
           <p className="contact-response">{BRAND.responseTime}</p>
           <Link className="button button-dark" href="/academy/pilot">
             무료 검토팩 요청 <ArrowRight size={17} weight="bold" aria-hidden="true" />
@@ -69,7 +65,6 @@ export default function ContactPage() {
           </ul>
         </div>
       </section>
-
     </PageFrame>
   );
 }

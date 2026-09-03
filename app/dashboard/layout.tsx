@@ -42,7 +42,11 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
   // Student layout: no sidebar
   if (role === "student" || role === "none") {
-    return <main className="dash-main" style={{ padding: "32px 40px" }}>{children}</main>;
+    return (
+      <main className="dash-main" style={{ padding: "32px 40px" }}>
+        {children}
+      </main>
+    );
   }
 
   return (

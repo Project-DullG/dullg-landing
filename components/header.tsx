@@ -23,9 +23,14 @@ export function Header() {
     if (!isOpen) return;
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setIsOpen(false); };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
     window.addEventListener("keydown", onKey);
-    return () => { document.body.style.overflow = previous; window.removeEventListener("keydown", onKey); };
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", onKey);
+    };
   }, [isOpen]);
 
   const isActive = (href: string) =>
@@ -35,20 +40,33 @@ export function Header() {
     <header className="site-header">
       <nav className="nav shell" aria-label="주요 메뉴">
         <Link className="brand" href="/" aria-label="단서공방 홈">
-          <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
-          <span className="brand-name">{BRAND.name}<small>{BRAND.englishName}</small></span>
+          <span className="brand-mark" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+          </span>
+          <span className="brand-name">
+            {BRAND.name}
+            <small>{BRAND.englishName}</small>
+          </span>
         </Link>
 
         <div className="nav-links">
           {primaryNavigation.map((link) => (
-            <Link key={link.href} href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>
+            <Link
+              key={link.href}
+              href={link.href}
+              aria-current={isActive(link.href) ? "page" : undefined}
+            >
               {link.label}
             </Link>
           ))}
         </div>
 
         <div className="nav-actions">
-          <Link className="nav-login" href="/login">학원 관리</Link>
+          <Link className="nav-login" href="/login">
+            학원 관리
+          </Link>
           <Link className="nav-cta" href="/contact">
             문의하기
             <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
@@ -67,10 +85,16 @@ export function Header() {
         </button>
       </nav>
 
-      <div className={`mobile-navigation ${isOpen ? "is-open" : ""}`} id="mobile-navigation" aria-hidden={!isOpen}>
+      <div
+        className={`mobile-navigation ${isOpen ? "is-open" : ""}`}
+        id="mobile-navigation"
+        aria-hidden={!isOpen}
+      >
         <div className="shell">
           {primaryNavigation.map((link) => (
-            <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)}>{link.label}</Link>
+            <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)}>
+              {link.label}
+            </Link>
           ))}
           <Link className="mobile-navigation-cta" href="/contact" onClick={() => setIsOpen(false)}>
             문의하기

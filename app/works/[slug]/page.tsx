@@ -39,42 +39,99 @@ export default async function WorkDetailPage({ params }: Props) {
   const index = works.findIndex(({ slug }) => slug === work.slug);
   const next = works[(index + 1) % works.length];
 
-  return <PageFrame>
-    <article className="work-detail">
-      <header className="work-detail-hero shell">
-        <div className="work-detail-copy">
-          <Kicker>{getWorkStatus(work)} · 머더미스터리</Kicker>
-          <h1>{work.title}</h1>
-          <dl>
-            <div><dt>인원</dt><dd>{work.players}</dd></div>
-            <div><dt>시간</dt><dd>{work.duration}</dd></div>
-            <div><dt>형태</dt><dd>{work.platform}</dd></div>
-          </dl>
-        </div>
-        <figure><Image src={work.image} width={1000} height={1000} alt={work.alt} sizes="(max-width: 760px) 100vw, 40vw" priority /></figure>
-      </header>
+  return (
+    <PageFrame>
+      <article className="work-detail">
+        <header className="work-detail-hero shell">
+          <div className="work-detail-copy">
+            <Kicker>{getWorkStatus(work)} · 머더미스터리</Kicker>
+            <h1>{work.title}</h1>
+            <dl>
+              <div>
+                <dt>인원</dt>
+                <dd>{work.players}</dd>
+              </div>
+              <div>
+                <dt>시간</dt>
+                <dd>{work.duration}</dd>
+              </div>
+              <div>
+                <dt>형태</dt>
+                <dd>{work.platform}</dd>
+              </div>
+            </dl>
+          </div>
+          <figure>
+            <Image
+              src={work.image}
+              width={1000}
+              height={1000}
+              alt={work.alt}
+              sizes="(max-width: 760px) 100vw, 40vw"
+              priority
+            />
+          </figure>
+        </header>
 
-      {!work.officialIntroduction && <section className="work-detail-story shell" aria-labelledby="work-story-title">
-        <div><Kicker>줄거리</Kicker><h2 id="work-story-title">사건의 시작</h2></div>
-        <p>{work.synopsis}</p>
-      </section>}
+        {!work.officialIntroduction && (
+          <section className="work-detail-story shell" aria-labelledby="work-story-title">
+            <div>
+              <Kicker>줄거리</Kicker>
+              <h2 id="work-story-title">사건의 시작</h2>
+            </div>
+            <p>{work.synopsis}</p>
+          </section>
+        )}
 
-      {work.officialIntroduction ? <OfficialWorkIntroduction work={work} /> : work.slug in landings ? <WorkLanding slug={work.slug} title={work.title} /> : <section className="work-detail-points">
-        <div className="shell">
-          <div><Kicker>작품 정보</Kicker><h2>이 작품에서<br />확인할 수 있는 것</h2></div>
-          <ol>{work.characteristics.map((item, itemIndex) => <li key={item}><span>{String(itemIndex + 1).padStart(2, "0")}</span><p>{item}</p></li>)}</ol>
-        </div>
-      </section>}
+        {work.officialIntroduction ? (
+          <OfficialWorkIntroduction work={work} />
+        ) : work.slug in landings ? (
+          <WorkLanding slug={work.slug} title={work.title} />
+        ) : (
+          <section className="work-detail-points">
+            <div className="shell">
+              <div>
+                <Kicker>작품 정보</Kicker>
+                <h2>
+                  이 작품에서
+                  <br />
+                  확인할 수 있는 것
+                </h2>
+              </div>
+              <ol>
+                {work.characteristics.map((item, itemIndex) => (
+                  <li key={item}>
+                    <span>{String(itemIndex + 1).padStart(2, "0")}</span>
+                    <p>{item}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+        )}
 
-      <section className="work-detail-record shell" aria-labelledby="work-record-title">
-        <div><Kicker>{work.record.label}</Kicker><h2 id="work-record-title">{work.record.title}</h2></div>
-        <div><p>{work.record.detail}</p><a href={work.externalUrl} target="_blank" rel="noopener noreferrer">{work.externalLabel} 보기 <ArrowUpRight size={18} weight="bold" aria-hidden="true" /></a></div>
-      </section>
+        <section className="work-detail-record shell" aria-labelledby="work-record-title">
+          <div>
+            <Kicker>{work.record.label}</Kicker>
+            <h2 id="work-record-title">{work.record.title}</h2>
+          </div>
+          <div>
+            <p>{work.record.detail}</p>
+            <a href={work.externalUrl} target="_blank" rel="noopener noreferrer">
+              {work.externalLabel} 보기 <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
+            </a>
+          </div>
+        </section>
 
-      <nav className="work-detail-nav shell" aria-label="작품 이동">
-        <Link href="/works"><ArrowLeft size={18} weight="bold" aria-hidden="true" /> 전체 작품</Link>
-        <Link href={`/works/${next.slug}`}>다음 작품 · {next.title} <ArrowRight size={18} weight="bold" aria-hidden="true" /></Link>
-      </nav>
-    </article>
-  </PageFrame>;
+        <nav className="work-detail-nav shell" aria-label="작품 이동">
+          <Link href="/works">
+            <ArrowLeft size={18} weight="bold" aria-hidden="true" /> 전체 작품
+          </Link>
+          <Link href={`/works/${next.slug}`}>
+            다음 작품 · {next.title} <ArrowRight size={18} weight="bold" aria-hidden="true" />
+          </Link>
+        </nav>
+      </article>
+    </PageFrame>
+  );
 }

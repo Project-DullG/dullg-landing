@@ -47,10 +47,7 @@ export function FormSection() {
     ];
     for (const [field, message] of requiredFields) {
       if (!data.get(field)) {
-        showFieldError(
-          field as Exclude<ErrorField, "consent" | null>,
-          message,
-        );
+        showFieldError(field as Exclude<ErrorField, "consent" | null>, message);
         return;
       }
     }
@@ -59,10 +56,7 @@ export function FormSection() {
     const phoneDigits = contact.replace(/\D/g, "");
     const isPhone = phoneDigits.length >= 9 && phoneDigits.length <= 11;
     if (!isEmail && !isPhone) {
-      showFieldError(
-        "contact",
-        "연락 가능한 휴대전화 번호 또는 이메일 주소를 확인해주세요.",
-      );
+      showFieldError("contact", "연락 가능한 휴대전화 번호 또는 이메일 주소를 확인해주세요.");
       return;
     }
     if (!data.get("consent")) {
@@ -94,9 +88,7 @@ export function FormSection() {
     } catch {
       setState("error");
       setErrorField(null);
-      setErrorMsg(
-        `일시적인 오류가 발생했습니다. ${BRAND.email}으로 직접 문의해주세요.`
-      );
+      setErrorMsg(`일시적인 오류가 발생했습니다. ${BRAND.email}으로 직접 문의해주세요.`);
     }
   }
 
@@ -109,14 +101,9 @@ export function FormSection() {
         <h3>요청이 접수되었습니다</h3>
         <p>영업일 1~2일 내 입력하신 연락처로 샘플 자료를 보내드립니다.</p>
         <p className="form-success-contact">
-          추가 문의:{" "}
-          <a href={emailHref}>{BRAND.email}</a>
+          추가 문의: <a href={emailHref}>{BRAND.email}</a>
         </p>
-        <button
-          type="button"
-          className="button button-light"
-          onClick={() => setState("idle")}
-        >
+        <button type="button" className="button button-light" onClick={() => setState("idle")}>
           다른 요청 보내기
         </button>
       </div>
@@ -141,12 +128,14 @@ export function FormSection() {
       />
       <h3>무료 검토팩 요청</h3>
       <p className="apply-form-intro">
-        구매나 파일럿 참여 의무가 없습니다. 영업일 기준 1~2일 내
-        입력하신 연락처로 안내드립니다.
+        구매나 파일럿 참여 의무가 없습니다. 영업일 기준 1~2일 내 입력하신 연락처로 안내드립니다.
       </p>
 
       <label htmlFor="af-academy">
-        기관명 <span className="field-required" aria-label="필수">*</span>
+        기관명{" "}
+        <span className="field-required" aria-label="필수">
+          *
+        </span>
         <input
           id="af-academy"
           name="academy"
@@ -161,7 +150,10 @@ export function FormSection() {
       </label>
 
       <label htmlFor="af-contact">
-        연락처 또는 이메일 <span className="field-required" aria-label="필수">*</span>
+        연락처 또는 이메일{" "}
+        <span className="field-required" aria-label="필수">
+          *
+        </span>
         <input
           id="af-contact"
           name="contact"
@@ -176,7 +168,10 @@ export function FormSection() {
       </label>
 
       <label htmlFor="af-interest">
-        관심 유형 <span className="field-required" aria-label="필수">*</span>
+        관심 유형{" "}
+        <span className="field-required" aria-label="필수">
+          *
+        </span>
         <select
           id="af-interest"
           name="interest"
@@ -186,7 +181,9 @@ export function FormSection() {
           aria-describedby={errorField === "interest" ? "apply-form-error" : undefined}
           disabled={state === "submitting"}
         >
-          <option value="" disabled>선택해주세요</option>
+          <option value="" disabled>
+            선택해주세요
+          </option>
           <option value="무료 검토팩 요청">무료 검토팩 요청</option>
           <option value="파일럿 운영 문의">파일럿 운영 문의</option>
           <option value="일반 문의">일반 문의</option>
@@ -210,11 +207,8 @@ export function FormSection() {
           disabled={state === "submitting"}
         />
         <span>
-          검토팩 발송 및 파일럿 준비 안내를 위한 개인정보(기관명·연락처) 수집·이용에
-          동의합니다.{" "}
-          <Link href="/privacy">
-            개인정보 처리 안내
-          </Link>
+          검토팩 발송 및 파일럿 준비 안내를 위한 개인정보(기관명·연락처) 수집·이용에 동의합니다.{" "}
+          <Link href="/privacy">개인정보 처리 안내</Link>
         </span>
       </label>
 
@@ -238,8 +232,7 @@ export function FormSection() {
       </button>
 
       <small>
-        영업일 1~2일 내 답변 · 직접 문의:{" "}
-        <a href={emailHref}>{BRAND.email}</a>
+        영업일 1~2일 내 답변 · 직접 문의: <a href={emailHref}>{BRAND.email}</a>
       </small>
     </form>
   );

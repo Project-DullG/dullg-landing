@@ -11,9 +11,37 @@ export type FundingProject = {
 };
 
 export const fundingProjects: FundingProject[] = [
-  { id: "projectdg0", title: "뱀이 죽은 축제", startsOn: "2025-09-09", endsOn: "2025-10-11", url: "https://tumblbug.com/projectdg0", amount: "9,001,000원", backers: "250명", achievement: "180%" },
-  { id: "projectdg1", title: "머더미스터리 3종", startsOn: "2026-03-16", endsOn: "2026-04-20", url: "https://tumblbug.com/projectdg1", amount: "19,296,000원", backers: "193명", achievement: "1,929%" },
-  { id: "projectdg2", title: "머더미스터리 2종", startsOn: "2026-08-14", endsOn: "2026-09-11", url: "https://tumblbug.com/projectdg2", amount: "10,940,000원", backers: "169명", achievement: "1,094%", checkedAt: "2026년 9월 2일" },
+  {
+    id: "projectdg0",
+    title: "뱀이 죽은 축제",
+    startsOn: "2025-09-09",
+    endsOn: "2025-10-11",
+    url: "https://tumblbug.com/projectdg0",
+    amount: "9,001,000원",
+    backers: "250명",
+    achievement: "180%",
+  },
+  {
+    id: "projectdg1",
+    title: "머더미스터리 3종",
+    startsOn: "2026-03-16",
+    endsOn: "2026-04-20",
+    url: "https://tumblbug.com/projectdg1",
+    amount: "19,296,000원",
+    backers: "193명",
+    achievement: "1,929%",
+  },
+  {
+    id: "projectdg2",
+    title: "머더미스터리 2종",
+    startsOn: "2026-08-14",
+    endsOn: "2026-09-11",
+    url: "https://tumblbug.com/projectdg2",
+    amount: "10,940,000원",
+    backers: "169명",
+    achievement: "1,094%",
+    checkedAt: "2026년 9월 2일",
+  },
 ];
 
 export type FundingStatus = "진행 중" | "종료";
@@ -32,7 +60,9 @@ const dots = (iso: string) => iso.replaceAll("-", ".");
 /** "2026.03.16–04.20" (같은 해면 끝 날짜의 연도 생략) */
 export function fundingSummaryPeriod(project: FundingProject): string {
   const start = dots(project.startsOn);
-  const end = project.endsOn.startsWith(project.startsOn.slice(0, 4)) ? dots(project.endsOn.slice(5)) : dots(project.endsOn);
+  const end = project.endsOn.startsWith(project.startsOn.slice(0, 4))
+    ? dots(project.endsOn.slice(5))
+    : dots(project.endsOn);
   return `${start}–${end}`;
 }
 

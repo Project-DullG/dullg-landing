@@ -2,7 +2,11 @@ import { redirect } from "next/navigation";
 import { verifySession } from "@/lib/firebase/auth";
 import { getAdminDb } from "@/lib/firebase/admin";
 
-export default async function StudentDetailPage({ params }: { params: Promise<{ studentId: string }> }) {
+export default async function StudentDetailPage({
+  params,
+}: {
+  params: Promise<{ studentId: string }>;
+}) {
   const { studentId } = await params;
   const session = await verifySession();
   if (!session || session.role !== "owner") redirect("/login");
@@ -10,14 +14,18 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
   if (!academyId) redirect("/dashboard/onboarding");
 
   const studentDoc = await getAdminDb()
-    .collection("academies").doc(academyId)
-    .collection("students").doc(studentId).get();
+    .collection("academies")
+    .doc(academyId)
+    .collection("students")
+    .doc(studentId)
+    .get();
 
   if (!studentDoc.exists) redirect("/dashboard/students");
   const student = studentDoc.data()!;
 
   const gradesSnap = await getAdminDb()
-    .collection("academies").doc(academyId)
+    .collection("academies")
+    .doc(academyId)
     .collection("grades")
     .where("studentId", "==", studentId)
     .orderBy("date", "desc")
@@ -59,12 +67,12 @@ export default async function StudentDetailPage({ params }: { params: Promise<{ 
                       ? `${g.session}차시 (참여도: ${g.participation})`
                       : `${g.subject} - ${g.examName}`}
                   </td>
+                  <td>{g.type === "dullg" ? `${g.score}점` : `${g.score}/${g.totalScore}`}</td>
                   <td>
-                    {g.type === "dullg"
-                      ? `${g.score}점`
-                      : `${g.score}/${g.totalScore}`}
+                    {(g.date as { toDate?: () => Date })?.toDate
+                      ? (g.date as { toDate: () => Date }).toDate().toLocaleDateString("ko-KR")
+                      : "-"}
                   </td>
-                  <td>{(g.date as { toDate?: () => Date })?.toDate ? (g.date as { toDate: () => Date }).toDate().toLocaleDateString("ko-KR") : "-"}</td>
                 </tr>
               ))}
             </tbody>

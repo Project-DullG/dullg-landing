@@ -54,12 +54,37 @@ export function StudentForm({ classes, student, onDone }: Props) {
   return (
     <form onSubmit={handleSubmit} className="dash-card">
       <h2>{student ? "학원생 수정" : "학원생 등록"}</h2>
-      <input className="dash-input" placeholder="이름" value={name} onChange={(e) => setName(e.target.value)} required />
-      <input className="dash-input" placeholder="학년 (1~12)" type="number" min={1} max={12} value={grade} onChange={(e) => setGrade(e.target.value)} required />
-      <input className="dash-input" placeholder="학부모 연락처" value={parentContact} onChange={(e) => setParentContact(e.target.value)} required />
+      <input
+        className="dash-input"
+        placeholder="이름"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        required
+      />
+      <input
+        className="dash-input"
+        placeholder="학년 (1~12)"
+        type="number"
+        min={1}
+        max={12}
+        value={grade}
+        onChange={(e) => setGrade(e.target.value)}
+        required
+      />
+      <input
+        className="dash-input"
+        placeholder="학부모 연락처"
+        value={parentContact}
+        onChange={(e) => setParentContact(e.target.value)}
+        required
+      />
       <select className="dash-select" value={classId} onChange={(e) => setClassId(e.target.value)}>
         <option value="">반 선택 (선택사항)</option>
-        {classes.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
+        {classes.map((c) => (
+          <option key={c.id} value={c.id}>
+            {c.name}
+          </option>
+        ))}
       </select>
       <button type="submit" className="dash-button" disabled={loading}>
         {loading ? "저장 중..." : student ? "수정" : "등록"}

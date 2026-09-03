@@ -12,7 +12,13 @@ export default async function StudentsPage() {
   if (!academyId) redirect("/dashboard/onboarding");
 
   const [studentsSnap, classesSnap] = await Promise.all([
-    getAdminDb().collection("academies").doc(academyId).collection("students").orderBy("createdAt", "desc").limit(100).get(),
+    getAdminDb()
+      .collection("academies")
+      .doc(academyId)
+      .collection("students")
+      .orderBy("createdAt", "desc")
+      .limit(100)
+      .get(),
     getAdminDb().collection("academies").doc(academyId).collection("classes").get(),
   ]);
 
@@ -51,14 +57,29 @@ export default async function StudentsPage() {
               <td>{s.classId ? classMap[s.classId as string] || "-" : "-"}</td>
               <td>{s.parentContact as string}</td>
               <td>
-                <form action={async () => { "use server"; await deleteStudent(s.id as string); }}>
-                  <button type="submit" className="dash-button-danger" style={{ fontSize: 12, padding: "4px 10px" }}>삭제</button>
+                <form
+                  action={async () => {
+                    "use server";
+                    await deleteStudent(s.id as string);
+                  }}
+                >
+                  <button
+                    type="submit"
+                    className="dash-button-danger"
+                    style={{ fontSize: 12, padding: "4px 10px" }}
+                  >
+                    삭제
+                  </button>
                 </form>
               </td>
             </tr>
           ))}
           {students.length === 0 && (
-            <tr><td colSpan={5} style={{ textAlign: "center", color: "rgba(21,37,30,0.4)" }}>등록된 학원생이 없습니다.</td></tr>
+            <tr>
+              <td colSpan={5} style={{ textAlign: "center", color: "rgba(21,37,30,0.4)" }}>
+                등록된 학원생이 없습니다.
+              </td>
+            </tr>
           )}
         </tbody>
       </table>

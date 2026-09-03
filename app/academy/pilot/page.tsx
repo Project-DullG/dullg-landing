@@ -39,7 +39,13 @@ export default function PilotPage() {
         <SectionHead
           as="h1"
           kicker="파일럿 준비 · 2026"
-          title={<>우리 학원에 맞는지,<br /><em>자료부터 천천히 확인해보세요.</em></>}
+          title={
+            <>
+              우리 학원에 맞는지,
+              <br />
+              <em>자료부터 천천히 확인해보세요.</em>
+            </>
+          }
           lead="현재 영어학원용 수업 시제품의 파일럿을 준비하고 있습니다. 무료 검토팩을 먼저 살펴본 뒤 학년·인원·운영 시기와 조건을 확인합니다."
         />
       </section>
@@ -48,7 +54,13 @@ export default function PilotPage() {
         <div>
           <SectionHead
             kicker="파일럿에서 확인할 것"
-            title={<>효과를 단정하기보다,<br /><span>실제로 운영되는지 먼저 봅니다.</span></>}
+            title={
+              <>
+                효과를 단정하기보다,
+                <br />
+                <span>실제로 운영되는지 먼저 봅니다.</span>
+              </>
+            }
             lead="첫 파일럿은 영어 성적이나 문해력 향상을 증명하는 실험이 아닙니다. 수업 시제품이 교실에서 작동하는지 진단하는 과정입니다."
           />
         </div>

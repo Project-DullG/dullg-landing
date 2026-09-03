@@ -4,7 +4,13 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { updateAcademy } from "@/app/actions/academy";
 
-export function SettingsForm({ academyId, currentName }: { academyId: string; currentName: string }) {
+export function SettingsForm({
+  academyId,
+  currentName,
+}: {
+  academyId: string;
+  currentName: string;
+}) {
   const router = useRouter();
   const [name, setName] = useState(currentName);
   const [loading, setLoading] = useState(false);
@@ -30,8 +36,17 @@ export function SettingsForm({ academyId, currentName }: { academyId: string; cu
   return (
     <form onSubmit={handleSubmit} className="dash-card">
       <h2>학원 정보</h2>
-      <label style={{ fontSize: 13, color: "rgba(21,37,30,0.6)", marginBottom: 4, display: "block" }}>학원명</label>
-      <input className="dash-input" value={name} onChange={(e) => setName(e.target.value)} required />
+      <label
+        style={{ fontSize: 13, color: "rgba(21,37,30,0.6)", marginBottom: 4, display: "block" }}
+      >
+        학원명
+      </label>
+      <input
+        className="dash-input"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        required
+      />
       <button type="submit" className="dash-button" disabled={loading}>
         {loading ? "저장 중..." : "저장"}
       </button>

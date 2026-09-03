@@ -30,7 +30,9 @@ export default async function OpenGraphImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div style={{ fontSize: 72, fontWeight: 700, letterSpacing: -2 }}>단서공방</div>
-          <div style={{ fontSize: 34, color: "#cfd3cf" }}>머더미스터리 작품 · 영어 미스터리 수업팩 · 학원 운영 도구</div>
+          <div style={{ fontSize: 34, color: "#cfd3cf" }}>
+            머더미스터리 작품 · 영어 미스터리 수업팩 · 학원 운영 도구
+          </div>
         </div>
       </div>
     ),

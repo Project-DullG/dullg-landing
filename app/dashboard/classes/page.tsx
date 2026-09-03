@@ -10,7 +10,12 @@ export default async function ClassesPage() {
   if (!academyId) redirect("/dashboard/onboarding");
 
   const [classesSnap, studentsSnap] = await Promise.all([
-    getAdminDb().collection("academies").doc(academyId).collection("classes").orderBy("createdAt").get(),
+    getAdminDb()
+      .collection("academies")
+      .doc(academyId)
+      .collection("classes")
+      .orderBy("createdAt")
+      .get(),
     getAdminDb().collection("academies").doc(academyId).collection("students").get(),
   ]);
 

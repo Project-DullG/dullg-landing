@@ -35,12 +35,15 @@ export default function SitemapPage() {
     {
       number: "01",
       title: "작품과 단서공방",
-      description:
-        "공개한 작품과 펀딩 기록, 단서공방의 제작 활동을 확인할 수 있습니다.",
+      description: "공개한 작품과 펀딩 기록, 단서공방의 제작 활동을 확인할 수 있습니다.",
       icon: Buildings,
       links: [
         byGroup("studio")[0],
-        ...works.map((work) => ({ href: `/works/${work.slug}`, title: work.title, body: `${getWorkStatus(work)} · ${work.players} · ${work.duration} · ${work.platform}` })),
+        ...works.map((work) => ({
+          href: `/works/${work.slug}`,
+          title: work.title,
+          body: `${getWorkStatus(work)} · ${work.players} · ${work.duration} · ${work.platform}`,
+        })),
         ...byGroup("studio").slice(1),
       ],
     },
@@ -55,8 +58,7 @@ export default function SitemapPage() {
     {
       number: "03",
       title: "자료와 문의",
-      description:
-        "지난 교육의 공개 자료를 찾거나 단서공방에 문의할 수 있습니다.",
+      description: "지난 교육의 공개 자료를 찾거나 단서공방에 문의할 수 있습니다.",
       icon: FolderOpen,
       links: byGroup("resources"),
     },
@@ -69,13 +71,19 @@ export default function SitemapPage() {
           as="h1"
           className="sitemap-hero-head"
           kicker="전체 안내"
-          title={<>필요한 내용을<br /><em>한 번에 찾아보세요.</em></>}
+          title={
+            <>
+              필요한 내용을
+              <br />
+              <em>한 번에 찾아보세요.</em>
+            </>
+          }
         />
         <div className="sitemap-hero-copy">
           <MapTrifold size={34} weight="duotone" aria-hidden="true" />
           <p>
-            단서공방의 작품과 제작 기록, 영어 미스터리 수업팩과 지난 교육
-            자료를 목적에 따라 정리했습니다.
+            단서공방의 작품과 제작 기록, 영어 미스터리 수업팩과 지난 교육 자료를 목적에 따라
+            정리했습니다.
           </p>
         </div>
       </section>

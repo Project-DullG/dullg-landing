@@ -40,7 +40,7 @@ export const works: Work[] = [
     slug: "professor-rest",
     status: "펀딩 중",
     title: "교수님, 편히 쉬세요",
-    players: "6인",
+    players: "5인",
     duration: "90분",
     platform: "실물 보드게임",
     synopsis: "청람대학교 연구실 구성원들은 프로젝트가 끝난 뒤 호숫가 연수원으로 향합니다. 모두가 함께 쉬기로 한 다음 날 아침, 박정호 교수는 호숫가 계단 아래에서 죽은 채 발견됩니다.",
@@ -48,7 +48,7 @@ export const works: Work[] = [
     alt: "비어 있는 교수실 의자가 그려진 교수님 편히 쉬세요 패키지",
     externalUrl: "https://tumblbug.com/projectdg2",
     externalLabel: "텀블벅 프로젝트",
-    characteristics: ["대학 연구실과 연수원을 오가는 사건", "여섯 인물의 관계를 중심으로 진행", "90분 분량의 실물 머더미스터리"],
+    characteristics: ["대학 연구실과 연수원을 오가는 사건", "다섯 인물의 관계를 중심으로 진행", "90분 분량의 실물 머더미스터리"],
     record: { label: "진행 중인 펀딩", title: "머더미스터리 2종", detail: "2026년 9월 11일까지 · 텀블벅" },
   },
   {

@@ -1,0 +1,9 @@
+.section { width: min(100%, 860px); margin: 0 auto 64px; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 28px 20px; border-top: 1px solid #e4e6e3; }
+.header h2 { margin: 0; font-size: 24px; line-height: 1.4; word-break: keep-all; }
+.header a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; white-space: nowrap; text-decoration: underline; }
+.images { background: #fff; }
+.images img { display: block; width: 100%; height: auto; margin: 0; }
+.note { padding: 20px; color: #626b65; font-size: 14px; line-height: 1.75; word-break: keep-all; }
+.note p { margin: 0 0 8px; }
+@media (max-width: 760px) { .section { margin-bottom: 32px; } .header h2 { font-size: 20px; } }

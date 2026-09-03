@@ -1,0 +1,238 @@
+{
+  "snake-carnival": {
+    "source": "https://tumblbug.com/projectdg0",
+    "aiDisclosure": false,
+    "images": [
+      {
+        "src": "/assets/works/landing/snake-carnival/01.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/snake-carnival/02.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/snake-carnival/03.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/snake-carnival/04.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/snake-carnival/05.webp",
+        "width": 1240,
+        "height": 1628
+      },
+      {
+        "src": "/assets/works/landing/snake-carnival/06.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/snake-carnival/07.webp",
+        "width": 1240,
+        "height": 1757
+      }
+    ]
+  },
+  "gourmet-master": {
+    "source": "https://tumblbug.com/projectdg1",
+    "aiDisclosure": true,
+    "images": [
+      {
+        "src": "/assets/works/landing/gourmet-master/01.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/gourmet-master/02.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/gourmet-master/03.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/gourmet-master/04.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/gourmet-master/05.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/gourmet-master/06.webp",
+        "width": 1240,
+        "height": 1600
+      }
+    ]
+  },
+  "red-lab": {
+    "source": "https://tumblbug.com/projectdg1",
+    "aiDisclosure": true,
+    "images": [
+      {
+        "src": "/assets/works/landing/red-lab/01.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/red-lab/02.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/red-lab/03.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/red-lab/04.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/red-lab/05.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/red-lab/06.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/red-lab/07.webp",
+        "width": 1240,
+        "height": 200
+      }
+    ]
+  },
+  "too-many-doctors": {
+    "source": "https://tumblbug.com/projectdg1",
+    "aiDisclosure": true,
+    "images": [
+      {
+        "src": "/assets/works/landing/too-many-doctors/01.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/too-many-doctors/02.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/too-many-doctors/03.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/too-many-doctors/04.webp",
+        "width": 1240,
+        "height": 1400
+      }
+    ]
+  },
+  "professor-rest": {
+    "source": "https://tumblbug.com/projectdg2",
+    "aiDisclosure": true,
+    "images": [
+      {
+        "src": "/assets/works/landing/professor-rest/01.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/professor-rest/02.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/professor-rest/03.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/professor-rest/04.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/professor-rest/05.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/professor-rest/06.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/professor-rest/07.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/professor-rest/08.webp",
+        "width": 1240,
+        "height": 515
+      }
+    ]
+  },
+  "slime-soda": {
+    "source": "https://tumblbug.com/projectdg2",
+    "aiDisclosure": true,
+    "images": [
+      {
+        "src": "/assets/works/landing/slime-soda/01.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/slime-soda/02.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/slime-soda/03.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/slime-soda/04.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/slime-soda/05.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/slime-soda/06.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/slime-soda/07.webp",
+        "width": 1240,
+        "height": 2000
+      },
+      {
+        "src": "/assets/works/landing/slime-soda/08.webp",
+        "width": 1240,
+        "height": 1879
+      }
+    ]
+  }
+}

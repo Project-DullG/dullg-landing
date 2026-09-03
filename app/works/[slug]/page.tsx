@@ -5,6 +5,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Kicker, PageFrame } from "@/components/site";
 import { getWork, works } from "@/lib/works";
+import { WorkLanding } from "@/components/work-landing";
+import landings from "@/lib/work-landings.json";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -49,12 +51,12 @@ export default async function WorkDetailPage({ params }: Props) {
         <p>{work.synopsis}</p>
       </section>
 
-      <section className="work-detail-points">
+      {work.slug in landings ? <WorkLanding slug={work.slug} title={work.title} /> : <section className="work-detail-points">
         <div className="shell">
           <div><Kicker>작품 정보</Kicker><h2>이 작품에서<br />확인할 수 있는 것</h2></div>
           <ol>{work.characteristics.map((item, itemIndex) => <li key={item}><span>{String(itemIndex + 1).padStart(2, "0")}</span><p>{item}</p></li>)}</ol>
         </div>
-      </section>
+      </section>}
 
       <section className="work-detail-record shell" aria-labelledby="work-record-title">
         <div><Kicker>{work.record.label}</Kicker><h2 id="work-record-title">{work.record.title}</h2></div>

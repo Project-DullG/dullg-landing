@@ -1,12 +1,11 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "단서공방 소개",
+export const metadata = pageMetadata("/about", {
   description: "머더미스터리 작품과 영어 미스터리 수업팩을 만드는 단서공방(ProjectDullG)을 소개합니다.",
-};
+});
 
 const beliefs = [
   {

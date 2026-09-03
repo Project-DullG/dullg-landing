@@ -38,7 +38,7 @@ summary {
 }
 body {
   background: var(--page);
-  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
   font-size: 16px;
   line-height: 1.72;
   letter-spacing: -0.018em;
@@ -70,7 +70,7 @@ body {
   margin: 0;
   background: var(--cream);
   color: var(--ink);
-  font-family: var(--font-sans), sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
 }
 a {
   color: inherit;
@@ -88,10 +88,10 @@ blockquote em {
   color: var(--orange);
 }
 body {
-  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
 }
 body {
-  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
   text-rendering: optimizeLegibility;
 }
 body {

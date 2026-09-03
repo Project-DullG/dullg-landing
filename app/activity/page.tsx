@@ -1,13 +1,10 @@
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
 import { activityRecords, formatActivityDate, isUpcoming } from "@/lib/activities";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "제작·활동 기록 · 단서공방",
-  description: "단서공방이 공개한 작품, 펀딩과 교육 활동을 날짜순으로 기록합니다.",
-};
+export const metadata = pageMetadata("/activity");
 
 export const revalidate = 3600;
 

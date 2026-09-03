@@ -1,14 +1,12 @@
 import { ArrowLeft, DownloadSimple } from "@phosphor-icons/react/dist/ssr";
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
+import { pageMetadata } from "@/lib/metadata";
 import { ulleungPresentation } from "@/lib/presentations";
 
-export const metadata: Metadata = {
-  title: "울릉고 리빙랩 특강 · 단서공방",
+export const metadata = pageMetadata("/activity/ulleung-high-living-lab", {
   description: "2026년 9월 5일 울릉고 리빙랩 특강과 공개 수업 자료를 안내합니다.",
-  alternates: { canonical: "/activity/ulleung-high-living-lab" },
-};
+});
 
 export default function UlleungHighLivingLabPage() {
   return <PageFrame>

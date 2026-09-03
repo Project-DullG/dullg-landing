@@ -4,7 +4,10 @@ import Image from "next/image";
 import { ClueProcess } from "@/components/clue-process";
 import { Footer, Header, Kicker } from "@/components/site";
 import { educationFacts } from "@/lib/education";
+import { pageMetadata } from "@/lib/metadata";
 import { getWorkStatus, homeFeaturedWorks } from "@/lib/works";
+
+export const metadata = pageMetadata("/", { absoluteTitle: "단서공방 | 영어 미스터리 수업과 추리 콘텐츠" });
 
 export const revalidate = 3600;
 

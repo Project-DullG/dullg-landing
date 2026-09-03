@@ -1,15 +1,12 @@
 import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
-import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Kicker, PageFrame } from "@/components/site";
 import { fundingSummaryPeriod, getFundingProject, getFundingStatus } from "@/lib/funding";
+import { pageMetadata } from "@/lib/metadata";
 import { currentWorks, getWorkStatus, publishedWorks } from "@/lib/works";
 
-export const metadata: Metadata = {
-  title: "작품과 펀딩 · 단서공방",
-  description: "단서공방(ProjectDullG)이 공개한 머더미스터리 작품과 텀블벅 펀딩 기록을 소개합니다.",
-};
+export const metadata = pageMetadata("/works", { title: "작품과 펀딩" });
 
 export const revalidate = 3600;
 

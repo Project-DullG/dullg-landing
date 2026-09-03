@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
 import { Kicker, PageFrame } from "@/components/site";
+import { pageMetadata } from "@/lib/metadata";
 import { BRAND, emailHref } from "@/lib/site-config";
 
-export const metadata: Metadata = {
-  title: "문의 · 단서공방",
+export const metadata = pageMetadata("/contact", {
   description: "단서공방에 궁금한 것이 있으면 편하게 연락주세요. 영업일 1~2일 내 답변합니다.",
-};
+});
 
 export default function ContactPage() {
   return (

@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageFrame } from "@/components/site";
 import { PresentationViewer } from "@/components/presentation-viewer";
+import { pageMetadata } from "@/lib/metadata";
 import { ulleungPresentation as presentation } from "@/lib/presentations";
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
-  title: "울릉고 리빙랩 특강 발표자료 · 단서공방",
-  description: "2026년 9월 5일 울릉고 리빙랩 특강 발표자료 15쪽을 웹에서 바로 확인하세요.",
-  alternates: { canonical: "/materials/ulleung-high-living-lab" },
-};
+export const metadata = pageMetadata("/materials/ulleung-high-living-lab");
 
 export default function PresentationPage() {
   return <PageFrame><article className={`shell ${styles.page}`}>

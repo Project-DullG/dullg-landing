@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
 import { Kicker, PageFrame } from "@/components/site";
 import { FormSection } from "@/components/form-section";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Pilot · DullG",
-  description: "DullG 파일럿에서 확인할 항목과 준비 과정을 살펴보고 문의하세요.",
-};
+export const metadata = pageMetadata("/academy/pilot", { title: "파일럿 안내와 검토팩 요청" });
 
 const pilotChecks = [
   {

@@ -1,16 +1,11 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Kicker, PageFrame } from "../../components/site";
+import { pageMetadata } from "@/lib/metadata";
 import { BRAND, emailHref } from "@/lib/site-config";
 
-export const metadata: Metadata = {
-  title: "개인정보 처리 안내 · DullG",
-  description:
-    "DullG 샘플 자료 요청 및 파일럿 문의 과정에서 처리하는 개인정보 안내입니다.",
-  alternates: {
-    canonical: "/privacy",
-  },
-};
+export const metadata = pageMetadata("/privacy", {
+  description: "단서공방 검토팩 요청 및 파일럿 문의 과정에서 처리하는 개인정보 안내입니다.",
+});
 
 const sections = [
   {

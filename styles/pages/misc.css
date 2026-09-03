@@ -248,7 +248,7 @@
 }
 .privacy-hero h1,
 .sitemap-hero h1 {
-  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
 }
 .privacy-hero {
   padding: 92px 0 84px;
@@ -375,7 +375,7 @@
 .contact-email-link {
   display: block;
   font-size: clamp(22px, 3vw, 38px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.04em;
   color: #1e5c5c;
   margin: 16px 0 20px;
@@ -397,7 +397,7 @@
 }
 .contact-what-to-include h2 {
   font-size: clamp(22px, 2.5vw, 34px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.045em;
   line-height: 1.15;
   margin: 12px 0 28px;
@@ -485,7 +485,21 @@ html body .contact-email-link {
    legacy file). See task-5-report.md "Concerns". */
 html body .section-kicker {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--text-muted);
+}
+
+/*  404 / ERROR PAGES  */
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  align-items: center;
+  margin-top: 28px;
+}
+.not-found-actions a:not(.button) {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }

@@ -100,7 +100,7 @@
 }
 .portfolio-list b {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   color: rgba(17, 20, 18, 0.52);
 }
 .portfolio-list p {
@@ -325,7 +325,7 @@
   font-size: 15px;
 }
 .funding-archive-list a > b {
-  font-weight: 600;
+  font-weight: 700;
 }
 .funding-archive-list a > i {
   justify-self: end;
@@ -438,7 +438,7 @@ html body .portfolio-list p {
 }
 .work-detail-copy dd {
   margin: 0;
-  font-weight: 600;
+  font-weight: 700;
 }
 .work-detail-hero figure {
   margin: 0;

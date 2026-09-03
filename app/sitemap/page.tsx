@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   ArrowRight,
   BookOpenText,
@@ -11,15 +10,11 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
+import { pageMetadata } from "@/lib/metadata";
 import { getWorkStatus, works } from "@/lib/works";
 import { publicRoutes, type RouteGroup } from "@/lib/routes";
 
-export const metadata: Metadata = {
-  title: "전체 페이지 · 단서공방",
-  description:
-    "단서공방의 작품, 영어 수업팩, 공개 자료와 문의 페이지를 안내합니다.",
-  alternates: { canonical: "/sitemap" },
-};
+export const metadata = pageMetadata("/sitemap");
 
 export const revalidate = 3600;
 

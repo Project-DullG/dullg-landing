@@ -1,13 +1,10 @@
 import { ArrowRight, ArrowUpRight, BookOpenText, FileText, FolderOpen, Printer } from "@phosphor-icons/react/dist/ssr";
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "영어 미스터리 수업팩 · 단서공방",
-  description: "영어 단서를 읽고 질문하며 사건보고서를 완성하는 4차시 미스터리 수업팩의 구성과 현재 준비 상태를 확인하세요.",
-};
+export const metadata = pageMetadata("/academy", { title: "영어 미스터리 수업팩" });
 
 const facts = [
   ["4차시", "읽기부터 사건보고서까지"],

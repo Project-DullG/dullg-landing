@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
 import { courseMaterials } from "@/lib/education";
+import { pageMetadata } from "@/lib/metadata";
 import { BRAND, emailHref } from "@/lib/site-config";
 
-export const metadata: Metadata = {
-  title: "수강생 자료실 · 단서공방",
-  description: "단서공방 수업 참여자를 위한 안내와 공개 자료를 확인하세요.",
-};
+export const metadata = pageMetadata("/materials");
 
 export default function MaterialsPage() {
   return (

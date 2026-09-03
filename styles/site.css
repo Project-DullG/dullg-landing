@@ -127,7 +127,7 @@
 .site-header .nav-links {
   gap: 28px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
 }
 .site-header .nav-cta {
   min-height: 42px;
@@ -218,7 +218,7 @@
   }
 }
 .inner-hero h1 {
-  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
 }
 .button,
 .site-header .nav-cta {
@@ -245,7 +245,7 @@
 .academy-overview-map .section-kicker,
 .academy-overview-pilot .section-kicker {
   margin-bottom: 18px;
-  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -290,7 +290,7 @@
     justify-content: space-between;
     border-bottom: 1px solid var(--line);
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
   }
   .mobile-navigation .mobile-navigation-cta {
     min-height: 48px;
@@ -362,9 +362,9 @@
 }
 .brand-name small {
   color: rgba(17, 20, 18, 0.52);
-  font-family: var(--font-sans), sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
   font-size: 9px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
 }
 .site-footer .brand-name small {
@@ -409,7 +409,7 @@
 }
 .nav-cta {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
 }
 .nav-cta span,
 .button span {
@@ -424,7 +424,7 @@
   font-size: 13px;
   display: inline-flex;
   align-items: center;
-  font-weight: 600;
+  font-weight: 700;
   transition: transform 0.2s;
 }
 .button:hover {
@@ -540,7 +540,7 @@
 .nav-cta,
 .button,
 .text-link {
-  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
 }
 .section-kicker {
   letter-spacing: 0.08em;

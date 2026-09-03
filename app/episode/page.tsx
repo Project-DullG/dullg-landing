@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
+import { episodeFullTitle, episodeTitle } from "@/lib/education";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Episode 01 · 보충반의 사라진 열쇠 · DullG",
-  description: "첫 번째 DullG 에피소드. 학원 3층에서 두 개의 열쇠가 사라졌습니다. 4명의 학생이 단서를 모아 사건을 해결합니다.",
-};
+export const metadata = pageMetadata("/episode", {
+  title: `에피소드 01 · ${episodeTitle}`,
+  description: `${episodeFullTitle}. 학원 3층에서 두 개의 열쇠가 사라졌습니다. 네 학생이 단서를 모아 사건을 해결합니다.`,
+});
 
 const cast = [
   { num: "01", name: "윤지원", image: "/assets/dullg/yoonjiwon.png",  clue: "오후 4시 12분, 원장실 앞 복도에서 서두르는 발소리를 들었습니다." },

@@ -39,7 +39,7 @@
 }
 .academy-overview-hero h1,
 .ep-hero-copy h1 {
-  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
 }
 .academy-overview-hero em,
 .academy-overview-map em,
@@ -74,7 +74,7 @@
 .academy-overview-pilot em {
   color: #1e6662;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
 }
 .academy-overview-actions > a {
   display: inline-flex;
@@ -799,7 +799,7 @@
 .mini-label,
 .sample-label,
 .output-pill {
-  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
 }
 .detail-index,
 .mini-label,
@@ -883,7 +883,6 @@
   margin-top: 7px;
   font:
     14px/1.5 var(--font-noto-sans),
-    var(--font-sans),
     sans-serif;
   color: var(--ink);
   outline: none;
@@ -943,7 +942,6 @@
   margin-top: 7px;
   font:
     14px var(--font-noto-sans),
-    var(--font-sans),
     sans-serif;
   color: var(--ink);
   outline: none;
@@ -1046,7 +1044,7 @@
 }
 .ep-hero-copy h1 {
   font-size: clamp(48px, 6vw, 78px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.055em;
   line-height: 1.05;
   margin: 16px 0 20px;
@@ -1110,7 +1108,7 @@
 }
 .ep-setting-copy h2 {
   font-size: clamp(26px, 3vw, 40px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.045em;
   line-height: 1.1;
   margin: 12px 0 28px;
@@ -1151,7 +1149,7 @@
 }
 .ep-cast-head h2 {
   font-size: clamp(26px, 3vw, 40px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.045em;
   line-height: 1.1;
   margin: 12px 0 0;
@@ -1200,7 +1198,7 @@
 }
 .ep-cast-info strong {
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.04em;
   display: block;
   margin-bottom: 8px;
@@ -1221,7 +1219,7 @@
 }
 .ep-flow-head h2 {
   font-size: clamp(26px, 3vw, 40px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.045em;
   line-height: 1.1;
   margin: 12px 0 0;
@@ -1291,7 +1289,7 @@
 }
 .ep-cta-copy h2 {
   font-size: clamp(26px, 3vw, 40px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.045em;
   line-height: 1.1;
   margin: 12px 0 16px;

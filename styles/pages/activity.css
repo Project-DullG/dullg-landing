@@ -5,7 +5,7 @@
   letter-spacing: -0.055em;
 }
 .activity-hero h1 {
-  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
+  font-family: var(--font-noto-sans), sans-serif;
 }
 .activity-hero {
   width: min(1180px, calc(100% - 64px));
@@ -186,7 +186,7 @@ html body .activity-hero h1 em {
 }
 .activity-case-hero dd {
   margin: 0;
-  font-weight: 600;
+  font-weight: 700;
 }
 .activity-case-material {
   padding: 92px 0;

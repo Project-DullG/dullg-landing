@@ -21,10 +21,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const work = getWork((await params).slug);
   if (!work) return {};
   return {
-    title: `${work.title} · 단서공방`,
+    title: work.title,
     description: work.synopsis,
     alternates: { canonical: `/works/${work.slug}` },
-    openGraph: { title: `${work.title} · 단서공방`, description: work.synopsis, images: [{ url: work.image, alt: work.alt }] },
+    openGraph: {
+      title: work.title,
+      description: work.synopsis,
+      url: `/works/${work.slug}`,
+      images: [{ url: work.image, alt: work.alt }],
+    },
   };
 }
 

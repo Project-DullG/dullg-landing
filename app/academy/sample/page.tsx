@@ -1,12 +1,8 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "수업용 시제품 자료 · DullG",
-  description:
-    "DullG 학생용 단서 카드와 교사용 진행안 시제품, 무료 검토팩 구성을 확인하세요.",
-};
+export const metadata = pageMetadata("/academy/sample", { title: "수업 자료 미리보기" });
 
 export default function SamplePage() {
   return (

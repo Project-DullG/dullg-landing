@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
+import { episodeFullTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata("/about", {
@@ -64,7 +65,7 @@ export default function AboutPage() {
 
       <section className="about-brand shell" aria-labelledby="about-brand-title">
         <figure>
-          <Image src="/assets/brand/project-dullg-banner.png" width={1701} height={5103} alt="단서공방의 이전 프로젝트 덜지 소개 배너 상단" sizes="(max-width: 760px) 82vw, 32vw" priority />
+          <Image src="/assets/brand/project-dullg-banner-top.webp" width={1701} height={2835} alt="단서공방의 이전 프로젝트 덜지 소개 배너 상단" sizes="(max-width: 760px) 82vw, 32vw" priority />
           <figcaption>단서공방 소개 배너 · 제공 자료</figcaption>
         </figure>
         <div>
@@ -135,7 +136,7 @@ export default function AboutPage() {
             <Kicker>현재 단계</Kicker>
             <h2>첫 수업용 시제품과<br />파일럿을 준비하고 있습니다.</h2>
             <p>
-              현재 중심은 첫 번째 에피소드 <em>보충반의 사라진 열쇠</em>를
+              현재 중심은 첫 번째 에피소드 <em>{episodeFullTitle}</em>를
               초6 수준에서 검토할 수 있는 영어학원용 4차시 수업 시제품으로
               다듬는 일입니다.
             </p>

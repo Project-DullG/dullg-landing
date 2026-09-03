@@ -195,13 +195,21 @@
   gap: 80px;
   align-items: center;
 }
-.brand-education figure {
+.brand-education-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
   margin: 0;
 }
-.brand-education figure img {
+.brand-education-cards img {
   width: 100%;
-  aspect-ratio: 3/2;
-  object-fit: cover;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 30px rgba(17, 20, 18, 0.12);
+}
+.brand-education-cards img:last-child {
+  transform: translateY(24px);
 }
 .brand-education h2 {
   margin: 14px 0 22px;

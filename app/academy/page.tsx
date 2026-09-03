@@ -2,6 +2,7 @@ import { ArrowRight, ArrowUpRight, BookOpenText, FileText, FolderOpen, Printer }
 import Image from "next/image";
 import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
+import { episodeFullTitle, episodeTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata("/academy", { title: "영어 미스터리 수업팩" });
@@ -33,8 +34,8 @@ export default function AcademyPage() {
         </div>
       </div>
       <figure className="academy-overview-cover">
-        <Image src="/assets/dullg/rulebook-cover.png" width={877} height={1241} alt="영어 미스터리 수업팩 첫 번째 에피소드 표지" sizes="(max-width: 760px) 82vw, 38vw" priority />
-        <figcaption>CASE FILE 01 · 수업용 시제품</figcaption>
+        <Image src="/assets/dullg/rulebook-cover.png" width={944} height={1330} alt={`${episodeFullTitle} 규칙서 표지`} sizes="(max-width: 760px) 82vw, 38vw" priority />
+        <figcaption>CASE FILE 01 · {episodeTitle}</figcaption>
       </figure>
     </section>
 

@@ -49,7 +49,10 @@ export default function Home() {
 
         <section className="brand-education" aria-labelledby="brand-education-title">
           <div className="shell brand-education-grid">
-            <figure><Image src="/assets/dullg/mat-game-cards.webp" width={1536} height={1024} alt="책상 위에 펼쳐진 학생용 영어 단서 카드" sizes="(max-width: 760px) 100vw, 50vw" /></figure>
+            <figure className="brand-education-cards">
+              <Image src="/assets/dullg/card-cover-1.png" width={408} height={650} alt="윤지원 소지품 카드 앞면" sizes="(max-width: 760px) 45vw, 22vw" />
+              <Image src="/assets/dullg/card-body-1.png" width={408} height={650} alt="윤지원 소지품 카드 뒷면의 영어 단서" sizes="(max-width: 760px) 45vw, 22vw" />
+            </figure>
             <div>
               <Kicker>교육 · 영어 미스터리 수업팩</Kicker>
               <h2 id="brand-education-title">영어 단서를 읽고<br />함께 사건을 해결합니다.</h2>

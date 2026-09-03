@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
-import { episodeFullTitle, episodeTitle } from "@/lib/education";
+import { curriculum, educationFacts, episodeFullTitle, episodeSubtitle, episodeTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata("/episode", {
@@ -16,13 +16,6 @@ const cast = [
   { num: "04", name: "한도경", image: "/assets/dullg/handokyung.png", clue: "복도에서 쪽지 한 장을 발견했습니다. 그 위에 영어 문장이 쓰여 있었습니다." },
 ];
 
-const steps = [
-  { num: "01", label: "READ THE CLUES",    title: "단서를 읽습니다",       body: "각자의 카드에서 중요한 정보를 찾고 단서 기록지에 적습니다. 사실과 추측을 구분하는 것이 첫 과제입니다.",                                                                       output: "단서 기록지" },
-  { num: "02", label: "SHARE THE FACTS",   title: "정보를 나눕니다",       body: "자신의 단서를 팀원에게 설명하고, 서로의 시간대와 위치를 비교합니다. 영어로 설명하지 않으면 수업이 진행되지 않습니다.",                                                        output: "팀 추론 보드" },
-  { num: "03", label: "TEST THE THEORY",   title: "가설을 수정합니다",     body: "새로운 단서가 나올 때마다 처음의 판단을 다시 검토합니다. 반박하고 설득하며 가설을 다듬습니다.",                                                                             output: "주장·근거 정리지" },
-  { num: "04", label: "WRITE THE REPORT",  title: "보고서를 씁니다",       body: "최종 용의자와 두 가지 근거를 because와 however를 사용해 영어 문장으로 씁니다. 팀 보고서와 개인 작성지가 결과물로 남습니다.",                                                  output: "팀 보고서 · 개인 영작" },
-];
-
 export default function EpisodePage() {
   return (
     <PageFrame>
@@ -31,9 +24,9 @@ export default function EpisodePage() {
         <div className="ep-hero-copy">
           <Kicker>첫 번째 사건 · 에피소드 01</Kicker>
           <h1>
-            보충반의
+            {episodeTitle}
             <br />
-            <em>사라진 열쇠</em>
+            <em>{episodeSubtitle}</em>
           </h1>
           <p>
             재시험을 시작하려던 순간, 원장실 벽면에 있어야 할 두 개의
@@ -41,15 +34,15 @@ export default function EpisodePage() {
             단서를 발견합니다.
           </p>
           <div className="ep-hero-chips">
-            <span>4차시 수업</span>
-            <span>초6~중1</span>
-            <span>4~16명</span>
+            {educationFacts.slice(0, 3).map(([value]) => (
+              <span key={value}>{value}</span>
+            ))}
           </div>
         </div>
         <div className="ep-hero-visual">
           <Image
             src="/assets/dullg/rulebook-cover.png"
-            alt="보충반의 사라진 열쇠 케이스 파일"
+            alt={`${episodeTitle} 규칙서 표지`}
             width={944}
             height={1330}
             sizes="(max-width: 760px) 82vw, 38vw"
@@ -133,15 +126,15 @@ export default function EpisodePage() {
           </h2>
         </div>
         <div className="ep-steps">
-          {steps.map((s) => (
-            <div className="ep-step" key={s.num}>
+          {curriculum.map((item) => (
+            <div className="ep-step" key={item.session}>
               <div className="ep-step-head">
-                <b className="ep-step-num">{s.num}</b>
-                <span className="ep-step-label">{s.label}</span>
+                <b className="ep-step-num">{item.session}</b>
+                <span className="ep-step-label">{item.label}</span>
               </div>
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
-              <span className="ep-output">결과물 · {s.output}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+              <span className="ep-output">결과물 · {item.output}</span>
             </div>
           ))}
         </div>

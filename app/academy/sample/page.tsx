@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
+import { episodeTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata("/academy/sample", { title: "수업 자료 미리보기" });
@@ -8,7 +9,7 @@ export default function SamplePage() {
   return (
     <PageFrame>
       <section className="inner-hero shell">
-        <Kicker>수업용 시제품 · CASE FILE 01</Kicker>
+        <Kicker>수업용 시제품 · {episodeTitle}</Kicker>
         <h1>
           어떤 자료를 받고,
           <br />
@@ -57,18 +58,18 @@ export default function SamplePage() {
         </article>
         <article className="sample-card sample-report">
           <Image
-            src="/assets/dullg/rulebook-flow.png"
-            alt="룰북의 게임 흐름 안내 페이지"
-            width={944}
-            height={1330}
+            src="/assets/dullg/pre-survey.png"
+            alt="게임 전 설문지 — 학생 배포용 A4 한 장"
+            width={714}
+            height={1011}
             sizes="(max-width: 760px) 100vw, 33vw"
           />
           <div>
-            <span className="sample-label">GUIDE / PLAY FLOW</span>
+            <span className="sample-label">TEACHER / PRE-SURVEY</span>
             <h2>
-              교사가 따라가는
+              수업 전에 나눠 주는
               <br />
-              <em>수업 진행안</em>
+              <em>게임 전 설문지</em>
             </h2>
           </div>
         </article>
@@ -87,23 +88,43 @@ export default function SamplePage() {
         <div className="gallery-images">
           <figure>
             <Image
-              src="/assets/dullg/mat-story-book.webp"
-              alt="보충반의 사라진 열쇠 사건 자료 시제품"
-              width={1448}
-              height={1086}
-              sizes="(max-width: 760px) 100vw, 50vw"
+              src="/assets/dullg/case-intro.png"
+              alt={`${episodeTitle} 규칙서의 사건 도입 페이지`}
+              width={944}
+              height={1330}
+              sizes="(max-width: 760px) 100vw, 25vw"
             />
-            <figcaption>제작 완료 · 사건 자료 시제품</figcaption>
+            <figcaption>규칙서 · 사건 도입</figcaption>
           </figure>
           <figure>
             <Image
-              src="/assets/dullg/mat-rulebook.webp"
-              alt="진행 순서와 규칙이 담긴 수업 규칙서 시제품"
-              width={1536}
-              height={1024}
-              sizes="(max-width: 760px) 100vw, 50vw"
+              src="/assets/dullg/timeline-yoon.png"
+              alt="윤지원의 영어 타임라인과 공개 정보 페이지"
+              width={944}
+              height={1330}
+              sizes="(max-width: 760px) 100vw, 25vw"
             />
-            <figcaption>제작 완료 · 수업 규칙서 시제품</figcaption>
+            <figcaption>규칙서 · 인물 타임라인</figcaption>
+          </figure>
+          <figure>
+            <Image
+              src="/assets/dullg/rulebook-flow.png"
+              alt="한 라운드의 진행 흐름 다섯 단계"
+              width={944}
+              height={1330}
+              sizes="(max-width: 760px) 100vw, 25vw"
+            />
+            <figcaption>규칙서 · 진행 흐름</figcaption>
+          </figure>
+          <figure>
+            <Image
+              src="/assets/dullg/rulebook-map-detailed.png"
+              alt="학원 3층 평면도와 범례"
+              width={944}
+              height={1330}
+              sizes="(max-width: 760px) 100vw, 25vw"
+            />
+            <figcaption>규칙서 · 3층 평면도</figcaption>
           </figure>
         </div>
       </section>

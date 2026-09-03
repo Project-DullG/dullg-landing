@@ -7,6 +7,7 @@ import { Kicker, PageFrame } from "@/components/site";
 import { getWork, works } from "@/lib/works";
 import { WorkLanding } from "@/components/work-landing";
 import landings from "@/lib/work-landings.json";
+import { OfficialWorkIntroduction } from "@/components/official-work-introduction";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -46,12 +47,12 @@ export default async function WorkDetailPage({ params }: Props) {
         <figure><Image src={work.image} width={1000} height={1000} alt={work.alt} sizes="(max-width: 760px) 100vw, 40vw" priority /></figure>
       </header>
 
-      <section className="work-detail-story shell" aria-labelledby="work-story-title">
+      {!work.officialIntroduction && <section className="work-detail-story shell" aria-labelledby="work-story-title">
         <div><Kicker>줄거리</Kicker><h2 id="work-story-title">사건의 시작</h2></div>
         <p>{work.synopsis}</p>
-      </section>
+      </section>}
 
-      {work.slug in landings ? <WorkLanding slug={work.slug} title={work.title} /> : <section className="work-detail-points">
+      {work.officialIntroduction ? <OfficialWorkIntroduction work={work} /> : work.slug in landings ? <WorkLanding slug={work.slug} title={work.title} /> : <section className="work-detail-points">
         <div className="shell">
           <div><Kicker>작품 정보</Kicker><h2>이 작품에서<br />확인할 수 있는 것</h2></div>
           <ol>{work.characteristics.map((item, itemIndex) => <li key={item}><span>{String(itemIndex + 1).padStart(2, "0")}</span><p>{item}</p></li>)}</ol>

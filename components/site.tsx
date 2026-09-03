@@ -1,12 +1,11 @@
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { curriculum } from "@/lib/education";
 import { primaryNavigation, studioNavigation } from "@/lib/navigation";
 import { BRAND, emailHref } from "@/lib/site-config";
 import { Header } from "./header";
 
-export { curriculum };
+export { Header };
 
 export function Footer() {
   return (
@@ -28,7 +27,12 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="site-footer-links"><strong>둘러보기</strong>{primaryNavigation.filter((item) => item.href !== "/about").map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}</div>
+        <div className="site-footer-links">
+          <strong>둘러보기</strong>
+          {primaryNavigation
+            .filter((item) => item.href !== "/about")
+            .map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
+        </div>
 
         <div className="site-footer-links">
           <strong>단서공방</strong>
@@ -40,6 +44,7 @@ export function Footer() {
           <a href={emailHref}>{BRAND.email}</a>
           <p>{BRAND.responseTime}</p>
           <Link className="site-footer-sample" href="/contact">프로젝트 문의 →</Link>
+          <Link className="site-footer-login" href="/login">학원 관리 로그인</Link>
         </div>
       </div>
 
@@ -64,5 +69,3 @@ export function ArrowButton({ children, light = false, href = "/academy/pilot" }
     </Link>
   );
 }
-
-export { Header } from "./header";

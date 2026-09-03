@@ -50,6 +50,31 @@
 .site-header .nav-cta:hover {
   background: #234136;
 }
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.nav-login {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.nav-login:hover,
+.nav-login:focus-visible {
+  color: var(--ink);
+}
+.mobile-navigation-login {
+  display: block;
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+@media (max-width: 900px) {
+  .nav-actions .nav-login {
+    display: none;
+  }
+}
 .nav-menu-button {
   width: 44px;
   height: 44px;
@@ -176,6 +201,12 @@
   color: var(--cream);
   font-weight: 700;
 }
+.site-footer-login {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.72);
+}
 @media (max-width: 900px) {
   .site-header .nav-links {
     display: none;
@@ -276,7 +307,7 @@
   .mobile-navigation.is-open {
     display: block;
     border-top: 1px solid var(--line);
-    background: #f7f5ef;
+    background: var(--cream);
   }
   .mobile-navigation .shell {
     padding: 12px 0 22px;

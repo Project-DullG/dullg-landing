@@ -1,4 +1,5 @@
-import { ArrowButton, curriculum, Kicker, PageFrame } from "@/components/site";
+import { ArrowButton, Kicker, PageFrame } from "@/components/site";
+import { curriculum } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata("/academy/curriculum");

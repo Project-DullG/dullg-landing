@@ -7175,3 +7175,56 @@ html body .portfolio-list p { word-break:keep-all; overflow-wrap:normal; }
   html body .works-hero h1,
   html body .ep-hero-copy h1 { font-size:38px; }
 }
+
+
+/* ============================================================
+   LOGIN PAGE
+   ============================================================ */
+.login-page {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  padding: 24px;
+}
+.login-card {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  padding: 48px 32px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+.login-card h1 {
+  font-family: var(--font-noto-sans);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.login-card p {
+  font-size: 14px;
+  color: rgba(21, 37, 30, 0.6);
+  margin-bottom: 32px;
+}
+.login-google-button {
+  width: 100%;
+  padding: 14px 24px;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.login-google-button:hover { opacity: 0.88; }
+.login-google-button:disabled { opacity: 0.5; cursor: not-allowed; }
+.login-error {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #c0392b;
+}

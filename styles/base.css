@@ -2,7 +2,7 @@
 
 /*  RESET & BASE TYPOGRAPHY  */
 html {
-  scroll-padding-top: 88px;
+  scroll-padding-top: var(--header-h);
 }
 body {
   overflow-x: clip;

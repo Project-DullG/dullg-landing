@@ -13,7 +13,7 @@
 .library-hero > p {
   max-width: 610px;
   margin: 0;
-  color: rgba(21, 37, 30, 0.68);
+  color: rgba(17, 20, 18, 0.68);
   font-size: 16px;
   line-height: 1.82;
 }
@@ -110,7 +110,7 @@ html body .materials-page .library-hero > p {
   letter-spacing: -0.025em;
 }
 .course-row small {
-  color: #8a8f8b;
+  color: var(--text-muted);
   font-size: 13px;
   line-height: 1.55;
 }
@@ -120,7 +120,7 @@ html body .materials-page .library-hero > p {
   align-items: center;
   gap: 18px;
   flex: 0 0 auto;
-  color: #8a8f8b;
+  color: var(--text-muted);
   font-size: 12px;
   font-weight: 500;
 }

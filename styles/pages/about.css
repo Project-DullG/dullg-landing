@@ -41,7 +41,7 @@
   margin: 22px 0 0;
   font-size: 14px;
   line-height: 1.85;
-  color: rgba(21, 37, 30, 0.64);
+  color: rgba(17, 20, 18, 0.64);
   word-break: keep-all;
 }
 .about-scope-grid {
@@ -66,7 +66,7 @@
   margin: 0;
   font-size: 13px;
   line-height: 1.75;
-  color: rgba(21, 37, 30, 0.62);
+  color: rgba(17, 20, 18, 0.62);
   word-break: keep-all;
 }
 @media (max-width: 900px) {
@@ -103,7 +103,7 @@
 .about-hero-copy p {
   font-size: 16px;
   line-height: 1.8;
-  color: rgba(21, 37, 30, 0.65);
+  color: rgba(17, 20, 18, 0.65);
   max-width: 480px;
   margin: 0;
   word-break: keep-all;
@@ -135,11 +135,11 @@
   position: relative;
   overflow: hidden;
   padding: 36px 32px 40px;
-  background: rgba(21, 37, 30, 0.03);
+  background: rgba(17, 20, 18, 0.03);
   transition: background 0.2s;
 }
 .belief-item:hover {
-  background: rgba(21, 37, 30, 0.055);
+  background: rgba(17, 20, 18, 0.055);
 }
 .belief-ghost {
   position: absolute;
@@ -149,7 +149,7 @@
   font-size: 100px;
   font-weight: 400;
   line-height: 1;
-  color: rgba(21, 37, 30, 0.07);
+  color: rgba(17, 20, 18, 0.07);
   pointer-events: none;
   user-select: none;
 }
@@ -165,7 +165,7 @@
 .belief-item p {
   font-size: 14px;
   line-height: 1.85;
-  color: rgba(21, 37, 30, 0.62);
+  color: rgba(17, 20, 18, 0.62);
   margin: 0;
   word-break: keep-all;
   position: relative;
@@ -298,7 +298,7 @@
 }
 .about-brand figcaption {
   margin-top: 10px;
-  color: #8a8f8b;
+  color: var(--text-muted);
   font-size: 10px;
 }
 .about-brand h2 {
@@ -328,7 +328,7 @@
   font-size: 13px;
 }
 .about-brand dt {
-  color: #8a8f8b;
+  color: var(--text-muted);
 }
 .about-brand dd {
   margin: 0;

@@ -13,7 +13,7 @@
 .works-hero > p {
   max-width: 610px;
   margin: 0;
-  color: rgba(21, 37, 30, 0.68);
+  color: rgba(17, 20, 18, 0.68);
   font-size: 16px;
   line-height: 1.82;
 }
@@ -54,7 +54,7 @@
 .work-ledger-head > p {
   grid-column: 2;
   margin: 0;
-  color: rgba(21, 37, 30, 0.56);
+  color: rgba(17, 20, 18, 0.56);
   font-size: 13px;
 }
 .portfolio-list {
@@ -101,12 +101,12 @@
 .portfolio-list b {
   font-size: 11px;
   font-weight: 600;
-  color: rgba(21, 37, 30, 0.52);
+  color: rgba(17, 20, 18, 0.52);
 }
 .portfolio-list p {
   margin: 22px 0 25px;
   max-width: 580px;
-  color: rgba(21, 37, 30, 0.66);
+  color: rgba(17, 20, 18, 0.66);
   font-size: 14px;
   line-height: 1.78;
 }
@@ -160,7 +160,7 @@
 }
 .live-funding-head > div:last-child {
   padding-left: 26px;
-  border-left: 1px solid rgba(21, 37, 30, 0.28);
+  border-left: 1px solid rgba(17, 20, 18, 0.28);
 }
 .live-funding-head b {
   display: block;
@@ -170,7 +170,7 @@
 }
 .live-funding-head p {
   margin: 0 0 17px;
-  color: rgba(21, 37, 30, 0.56);
+  color: rgba(17, 20, 18, 0.56);
   font-size: 11px;
 }
 .live-funding-head a,
@@ -215,7 +215,7 @@
 }
 .live-work-list p {
   margin: 0 0 18px;
-  color: rgba(21, 37, 30, 0.67);
+  color: rgba(17, 20, 18, 0.67);
   font-size: 13px;
   line-height: 1.75;
 }
@@ -224,8 +224,8 @@
   grid-template-columns: repeat(3, 1fr) 1.5fr;
   gap: 0;
   margin-top: 44px;
-  border-top: 1px solid rgba(21, 37, 30, 0.25);
-  border-bottom: 1px solid rgba(21, 37, 30, 0.25);
+  border-top: 1px solid rgba(17, 20, 18, 0.25);
+  border-bottom: 1px solid rgba(17, 20, 18, 0.25);
 }
 .live-funding-stats > span {
   padding: 19px 20px 19px 0;
@@ -234,7 +234,7 @@
   gap: 5px;
 }
 .live-funding-stats small {
-  color: rgba(21, 37, 30, 0.52);
+  color: rgba(17, 20, 18, 0.52);
   font-size: 10px;
 }
 .live-funding-stats strong {
@@ -244,7 +244,8 @@
 .live-funding-stats p {
   align-self: center;
   margin: 0;
-  color: rgba(21, 37, 30, 0.48);
+  color: var(--ink);
+  opacity: 0.72;
   font-size: 10px;
   line-height: 1.6;
 }
@@ -263,7 +264,7 @@
   .live-funding-head > div:last-child {
     padding: 18px 0 0;
     border-left: 0;
-    border-top: 1px solid rgba(21, 37, 30, 0.25);
+    border-top: 1px solid rgba(17, 20, 18, 0.25);
   }
   .live-work-list article {
     grid-template-columns: minmax(116px, 0.72fr) 1.28fr;
@@ -289,7 +290,7 @@
   .live-funding-stats p {
     grid-column: 1/4;
     padding: 14px 0;
-    border-top: 1px solid rgba(21, 37, 30, 0.18);
+    border-top: 1px solid rgba(17, 20, 18, 0.18);
   }
 }
 .funding-archive {
@@ -318,7 +319,7 @@
   font-size: 12px;
 }
 .funding-archive-list a > span {
-  color: #858a86;
+  color: var(--text-muted);
 }
 .funding-archive-list a > strong {
   font-size: 15px;
@@ -333,7 +334,7 @@
 }
 .funding-archive-list > p {
   margin: 14px 0 0;
-  color: #8a8f8b;
+  color: var(--text-muted);
   font-size: 11px;
 }
 @media (max-width: 760px) {
@@ -382,7 +383,7 @@ html body .portfolio-list p {
   word-break: keep-all;
   overflow-wrap: normal;
 }
-@media (max-width: 1050px) and (min-width: 761px) {
+@media (max-width: 1080px) and (min-width: 761px) {
   html body .works-hero {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
@@ -433,7 +434,7 @@ html body .portfolio-list p {
   font-size: 13px;
 }
 .work-detail-copy dt {
-  color: #858a86;
+  color: var(--text-muted);
 }
 .work-detail-copy dd {
   margin: 0;

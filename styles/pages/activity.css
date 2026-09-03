@@ -36,7 +36,7 @@
   margin: 0 0 5px;
   font-size: 15px;
   line-height: 1.8;
-  color: rgba(21, 37, 30, 0.64);
+  color: rgba(17, 20, 18, 0.64);
   word-break: keep-all;
 }
 @media (max-width: 900px) {
@@ -109,7 +109,7 @@ html body .activity-hero h1 em {
 }
 .activity-ledger-list time,
 .activity-ledger-list > a > span {
-  color: #858a86;
+  color: var(--text-muted);
   font-size: 11px;
 }
 .activity-ledger-list strong {
@@ -179,7 +179,7 @@ html body .activity-hero h1 em {
   font-size: 13px;
 }
 .activity-case-hero dt {
-  color: #858a86;
+  color: var(--text-muted);
 }
 .activity-case-hero dd {
   margin: 0;

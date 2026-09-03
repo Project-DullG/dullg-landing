@@ -1,0 +1,14 @@
+/* ============================================================
+   TOKENS — single source of truth for design tokens
+   ============================================================ */
+:root {
+  --ink: #111412;
+  --cream: #fff;
+  --surface: #f6f7f5;
+  --text-muted: #626762;
+  --orange: #c96645;
+  --line: rgba(17, 20, 18, 0.14);
+  --page: #f8f6f0;
+  --mint: #b8dcc9;
+  --radius-sm: 10px;
+}

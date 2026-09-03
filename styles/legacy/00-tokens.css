@@ -1,13 +1,5 @@
 @import "tailwindcss";
 
 /* ============================================================
-   1. TOKENS & BASE
+   1. TOKENS & BASE — tokens moved to styles/tokens.css
    ============================================================ */
-:root {
-  --ink: #15251e;
-  --cream: #f2efe7;
-  --mint: #b8dcc9;
-  --orange: #e8784f;
-  --line: rgba(21, 37, 30, 0.18);
-}
-

@@ -1,3 +1,4 @@
+@import "../styles/tokens.css";
 @import "../styles/legacy/00-tokens.css";
 @import "../styles/legacy/01-12-product-site-system-2026-redesign.css";
 @import "../styles/legacy/02-18-ux-unification-calmer-type-rhythm-navigation.css";
@@ -12,9 +13,7 @@
 @import "../styles/legacy/11-8-sample-page.css";
 @import "../styles/legacy/12-9-curriculum-page.css";
 @import "../styles/legacy/13-7-landing-page.css";
-@import "../styles/legacy/14-landing-new-sections.css";
 @import "../styles/legacy/15-landing-additions-form-states-hero-note-apply-benefits.css";
-@import "../styles/legacy/16-anti-ai-authenticity-sections.css";
 @import "../styles/legacy/17-about-page-redesigned.css";
 @import "../styles/legacy/18-episode-page-redesigned.css";
 @import "../styles/legacy/19-contact-page.css";

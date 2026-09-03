@@ -1,5 +1,3 @@
-
-
 /* Hero — split with case file cover */
 .ep-hero-split {
   padding: 120px 0 100px;
@@ -83,7 +81,9 @@
   margin: 12px 0 28px;
   word-break: keep-all;
 }
-.ep-setting-copy h2 span { color: #1e5c5c; }
+.ep-setting-copy h2 span {
+  color: #1e5c5c;
+}
 .ep-setting-copy p {
   font-size: 15px;
   line-height: 1.85;
@@ -267,7 +267,9 @@
   line-height: 1.1;
   margin: 12px 0 16px;
 }
-.ep-cta-copy h2 span { color: #1e5c5c; }
+.ep-cta-copy h2 span {
+  color: #1e5c5c;
+}
 .ep-cta-copy p {
   font-size: 15px;
   line-height: 1.8;
@@ -283,4 +285,3 @@
   gap: 18px;
   flex-shrink: 0;
 }
-

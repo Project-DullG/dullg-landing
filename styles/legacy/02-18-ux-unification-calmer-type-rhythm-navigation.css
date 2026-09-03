@@ -1,14 +1,6 @@
 /* ============================================================
    18. UX UNIFICATION · CALMER TYPE, RHYTHM & NAVIGATION
    ============================================================ */
-:root {
-  --page: #f8f6f0;
-  --surface: #fffdf8;
-  --surface-soft: #f0eee6;
-  --text-muted: rgba(21, 37, 30, 0.68);
-  --radius-sm: 10px;
-  --radius-md: 18px;
-}
 body {
   background: var(--page);
   font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
@@ -16,9 +8,6 @@ body {
   line-height: 1.72;
   letter-spacing: -0.018em;
   text-rendering: optimizeLegibility;
-}
-.shell {
-  width: min(1120px, calc(100% - 64px));
 }
 .site-header .nav {
   height: 72px;
@@ -34,21 +23,8 @@ body {
   border-radius: 999px;
   font-size: 13px;
 }
-.button {
-  min-height: 50px;
-  padding: 14px 21px;
-  border-radius: 10px;
-  justify-content: center;
-  font-size: 14px;
-}
 .button:hover {
   transform: translateY(-1px);
-}
-.section-kicker {
-  margin-bottom: 16px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.11em;
 }
 
 .inner-hero h1,
@@ -99,11 +75,6 @@ body {
 .site-footer {
   padding-top: 68px;
 }
-.site-footer-grid {
-  grid-template-columns: 1.4fr 1fr 1fr 1.05fr;
-  gap: clamp(28px, 5vw, 64px);
-  padding-bottom: 54px;
-}
 .site-footer-brand > p,
 .site-footer-links,
 .site-footer-contact {
@@ -115,9 +86,9 @@ body {
   display: inline-flex;
   align-items: center;
 }
-.site-footer-sample {
+.site-footer-contact .site-footer-sample {
   margin-top: 8px;
-  color: #fff !important;
+  color: var(--cream);
   font-weight: 700;
 }
 .apply-form-intro {
@@ -140,13 +111,9 @@ body {
     margin-left: auto;
     margin-right: 10px;
   }
-
 }
 
 @media (max-width: 760px) {
-  .shell {
-    width: min(100% - 36px, 1120px);
-  }
   .site-header .nav {
     height: 64px;
   }
@@ -176,11 +143,6 @@ body {
   .site-footer {
     padding-top: 52px;
   }
-  .site-footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 42px 24px;
-    padding-bottom: 42px;
-  }
   .site-footer-brand {
     grid-column: 1 / -1;
   }
@@ -193,4 +155,3 @@ body {
     flex-direction: column;
   }
 }
-

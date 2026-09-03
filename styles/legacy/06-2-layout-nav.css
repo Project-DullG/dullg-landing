@@ -16,9 +16,22 @@
   letter-spacing: -0.04em;
   font-size: 20px;
 }
-.brand-name { display: flex; align-items: baseline; gap: 7px; white-space: nowrap; }
-.brand-name small { color: rgba(21,37,30,.52); font-family: var(--font-sans),sans-serif; font-size: 9px; font-weight: 600; letter-spacing: .02em; }
-.site-footer .brand-name small { color: rgba(255,255,255,.46); }
+.brand-name {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  white-space: nowrap;
+}
+.brand-name small {
+  color: rgba(21, 37, 30, 0.52);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.site-footer .brand-name small {
+  color: rgba(255, 255, 255, 0.46);
+}
 .brand-mark {
   width: 25px;
   height: 22px;
@@ -28,18 +41,55 @@
 }
 
 /* Editorial archive and works pages */
-.library-hero,.works-hero { padding-top: 108px; padding-bottom: 82px; border-bottom: 1px solid var(--line); }
-.library-hero h1,.works-hero h1 { margin: 14px 0 24px; font-size: clamp(42px,5.3vw,68px); line-height: 1.16; letter-spacing: -.055em; }
-.library-hero>p,.works-hero>p { max-width: 610px; margin: 0; color: rgba(21,37,30,.68); font-size: 16px; line-height: 1.82; }
-.works-hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 80px; align-items: end; }
+.library-hero,
+.works-hero {
+  padding-top: 108px;
+  padding-bottom: 82px;
+  border-bottom: 1px solid var(--line);
+}
+.library-hero h1,
+.works-hero h1 {
+  margin: 14px 0 24px;
+  font-size: clamp(42px, 5.3vw, 68px);
+  line-height: 1.16;
+  letter-spacing: -0.055em;
+}
+.library-hero > p,
+.works-hero > p {
+  max-width: 610px;
+  margin: 0;
+  color: rgba(21, 37, 30, 0.68);
+  font-size: 16px;
+  line-height: 1.82;
+}
+.works-hero {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 80px;
+  align-items: end;
+}
 
-@media (max-width:760px) {
-  .brand-name { gap: 5px; font-size: 17px; }
-  .brand-name small { display: none; }
-  .library-hero,.works-hero { padding-top: 66px; padding-bottom: 52px; }
-  .works-hero { grid-template-columns: 1fr; gap: 30px; }
-  .library-hero h1,.works-hero h1 { font-size: clamp(36px,10vw,44px); }
-
+@media (max-width: 760px) {
+  .brand-name {
+    gap: 5px;
+    font-size: 17px;
+  }
+  .brand-name small {
+    display: none;
+  }
+  .library-hero,
+  .works-hero {
+    padding-top: 66px;
+    padding-bottom: 52px;
+  }
+  .works-hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .library-hero h1,
+  .works-hero h1 {
+    font-size: clamp(36px, 10vw, 44px);
+  }
 }
 .brand-mark i {
   display: block;
@@ -71,4 +121,3 @@
   font-size: 18px;
   margin-left: 8px;
 }
-

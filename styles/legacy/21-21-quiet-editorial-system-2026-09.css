@@ -1,31 +1,88 @@
 /* ============================================================
    21. QUIET EDITORIAL SYSTEM · 2026-09
    ============================================================ */
-:root { --ink:#111412; --cream:#fff; --surface:#f6f7f5; --text-muted:#626762; --line:rgba(17,20,18,.14); --orange:#c96645; }
-body { background:#fff; color:var(--ink); }
-.shell { width:min(100% - 80px,1180px); }
-.site-header { background:rgba(255,255,255,.94); border-bottom:1px solid #eceeeb; }
-.site-header .nav { height:72px; }
-.site-header .nav-links { gap:28px; font-size:13px; }
-.site-header .nav-cta,.button { border-radius:999px; box-shadow:none; }
-.section-kicker { color:#60766b; font-size:12px; font-weight:650; }
-
-.ep-setting-map,.ep-cast-card { border-radius:0; }
-.funding-archive { padding:88px 0 100px; display:grid; grid-template-columns:.65fr 1.35fr; gap:80px; border-top:1px solid var(--ink); }
-.funding-archive h2 { margin:12px 0 0; font-size:clamp(32px,3.8vw,48px); letter-spacing:-.05em; }
-.funding-archive-list { border-top:1px solid var(--ink); }
-.funding-archive-list a { min-height:86px; display:grid; grid-template-columns:150px 1fr 1.2fr 48px; gap:20px; align-items:center; border-bottom:1px solid var(--line); color:var(--ink); font-size:12px; }
-.funding-archive-list a>span { color:#858a86; }
-.funding-archive-list a>strong { font-size:15px; }
-.funding-archive-list a>b { font-weight:600; }
-.funding-archive-list a>i { justify-self:end; font-style:normal; font-weight:700; }
-.funding-archive-list>p { margin:14px 0 0; color:#8a8f8b; font-size:11px; }
-@media(max-width:760px){
-  .shell { width:min(100% - 36px,1180px); }
-
-  .funding-archive { padding:64px 0 74px; grid-template-columns:1fr; gap:34px; }
-  .funding-archive-list a { grid-template-columns:1fr auto; gap:7px 14px; padding:20px 0; }
-  .funding-archive-list a>span,.funding-archive-list a>b { grid-column:1; }
-  .funding-archive-list a>i { grid-column:2; grid-row:1/4; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+}
+.site-header .nav {
+  height: 72px;
+}
+.site-header .nav-links {
+  gap: 28px;
+  font-size: 13px;
+}
+.site-header .nav-cta,
+.button {
+  border-radius: 999px;
+  box-shadow: none;
 }
 
+.ep-setting-map,
+.ep-cast-card {
+  border-radius: 0;
+}
+.funding-archive {
+  padding: 88px 0 100px;
+  display: grid;
+  grid-template-columns: 0.65fr 1.35fr;
+  gap: 80px;
+  border-top: 1px solid var(--ink);
+}
+.funding-archive h2 {
+  margin: 12px 0 0;
+  font-size: clamp(32px, 3.8vw, 48px);
+  letter-spacing: -0.05em;
+}
+.funding-archive-list {
+  border-top: 1px solid var(--ink);
+}
+.funding-archive-list a {
+  min-height: 86px;
+  display: grid;
+  grid-template-columns: 150px 1fr 1.2fr 48px;
+  gap: 20px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 12px;
+}
+.funding-archive-list a > span {
+  color: #858a86;
+}
+.funding-archive-list a > strong {
+  font-size: 15px;
+}
+.funding-archive-list a > b {
+  font-weight: 600;
+}
+.funding-archive-list a > i {
+  justify-self: end;
+  font-style: normal;
+  font-weight: 700;
+}
+.funding-archive-list > p {
+  margin: 14px 0 0;
+  color: #8a8f8b;
+  font-size: 11px;
+}
+@media (max-width: 760px) {
+  .funding-archive {
+    padding: 64px 0 74px;
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .funding-archive-list a {
+    grid-template-columns: 1fr auto;
+    gap: 7px 14px;
+    padding: 20px 0;
+  }
+  .funding-archive-list a > span,
+  .funding-archive-list a > b {
+    grid-column: 1;
+  }
+  .funding-archive-list a > i {
+    grid-column: 2;
+    grid-row: 1/4;
+  }
+}

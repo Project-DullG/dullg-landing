@@ -3,7 +3,7 @@
    ============================================================ */
 
 .button-light {
-  background: #fff;
+  background: var(--cream);
   color: var(--ink);
   margin-bottom: 3px;
 }
@@ -28,9 +28,6 @@
   font-weight: 500;
 }
 @media (max-width: 760px) {
-  .shell {
-    width: calc(100% - 36px);
-  }
   .nav {
     height: 76px;
   }
@@ -54,4 +51,3 @@
     justify-self: start;
   }
 }
-

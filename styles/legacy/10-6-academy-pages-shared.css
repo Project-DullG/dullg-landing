@@ -239,7 +239,7 @@
 }
 .gallery-images figure {
   margin: 0;
-  background: #fff;
+  background: var(--cream);
   padding: 10px;
   box-shadow: 10px 12px 0 rgba(21, 37, 30, 0.1);
 }
@@ -255,7 +255,7 @@
 }
 .gallery-images figure:nth-child(2) img {
   object-fit: contain;
-  background: #fff;
+  background: var(--cream);
 }
 .gallery-images figcaption {
   font: 9px var(--font-mono);
@@ -263,7 +263,6 @@
   color: rgba(21, 37, 30, 0.65);
 }
 @media (max-width: 760px) {
-
   .inner-hero h1 {
     font-size: 50px;
   }
@@ -318,7 +317,6 @@
   }
 }
 @media (max-width: 760px) {
-
   .sample-gallery {
     display: block;
     padding: 90px 0;
@@ -332,4 +330,3 @@
     height: 180px;
   }
 }
-

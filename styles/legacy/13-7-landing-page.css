@@ -25,7 +25,10 @@
   background: #f7f5ef;
   padding: 12px;
   margin-top: 7px;
-  font: 14px/1.5 var(--font-noto-sans), var(--font-sans), sans-serif;
+  font:
+    14px/1.5 var(--font-noto-sans),
+    var(--font-sans),
+    sans-serif;
   color: var(--ink);
   outline: none;
 }
@@ -69,11 +72,8 @@
 }
 
 @media (max-width: 760px) {
-
   .apply-form {
     margin-top: 55px;
     padding: 25px 20px;
   }
-
 }
-

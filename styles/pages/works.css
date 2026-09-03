@@ -274,10 +274,6 @@
     font-size: 20px;
   }
   .live-work-list p {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
     font-size: 12px;
   }
   .live-funding-stats {

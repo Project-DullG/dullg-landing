@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ClueProcess } from "@/components/clue-process";
 import { Footer, Header, Kicker } from "@/components/site";
+import { SectionHead } from "@/components/section-head";
 import { educationFacts } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 import { getWorkStatus, homeFeaturedWorks } from "@/lib/works";
@@ -18,9 +19,13 @@ export default function Home() {
 
       <main className="brand-home" id="main-content">
         <section className="brand-hero shell" aria-labelledby="home-title">
-          <Kicker>단서공방 · ProjectDullG</Kicker>
-          <h1 id="home-title">이야기를 만들고,<br /><em>단서를 엮습니다.</em></h1>
-          <p>단서공방은 머더미스터리 작품을 만들고, 영어로 읽고 토론하는 미스터리 수업팩을 준비합니다.</p>
+          <SectionHead
+            as="h1"
+            id="home-title"
+            kicker="단서공방 · ProjectDullG"
+            title={<>이야기를 만들고,<br /><em>단서를 엮습니다.</em></>}
+            lead="단서공방은 머더미스터리 작품을 만들고, 영어로 읽고 토론하는 미스터리 수업팩을 준비합니다."
+          />
           <div className="brand-hero-actions">
             <Link className="button button-dark" href="/works">작품 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
             <Link href="/academy">교육 수업팩 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
@@ -39,11 +44,13 @@ export default function Home() {
         </section>
 
         <section className="brand-method shell" aria-labelledby="brand-method-title">
-          <div className="brand-method-head">
-            <Kicker>만드는 방식</Kicker>
-            <h2 id="brand-method-title">이야기와 단서가<br />함께 작동하게 만듭니다.</h2>
-            <p>사건의 설정만 만드는 데서 멈추지 않습니다. 플레이어가 읽고, 의심하고, 판단하는 순서까지 설계합니다.</p>
-          </div>
+          <SectionHead
+            className="brand-method-head"
+            id="brand-method-title"
+            kicker="만드는 방식"
+            title={<>이야기와 단서가<br />함께 작동하게 만듭니다.</>}
+            lead="사건의 설정만 만드는 데서 멈추지 않습니다. 플레이어가 읽고, 의심하고, 판단하는 순서까지 설계합니다."
+          />
           <ClueProcess />
         </section>
 

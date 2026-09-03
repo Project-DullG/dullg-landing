@@ -40,7 +40,7 @@ export function PresentationViewer({ slides }: { slides: Slide[] }) {
         <a href={slide.image} target="_blank" rel="noopener noreferrer" aria-label={`${index + 1}쪽 크게 보기 (새 창)`}>크게 보기 ↗</a>
       </div>
       <div className={styles.canvas}>
-        <Image src={slide.image} alt={`${index + 1}쪽 · ${slide.title}`} width={1920} height={1080} sizes="(max-width: 760px) 100vw, 1120px" priority={index === 0} unoptimized onError={() => setFailedImages((current) => current.includes(slide.image) ? current : [...current, slide.image])} />
+        <Image src={slide.image} alt={`${index + 1}쪽 · ${slide.title}`} width={1920} height={1080} sizes="(max-width: 760px) 100vw, 1120px" priority={index === 0} loading={index === 0 ? undefined : "lazy"} onError={() => setFailedImages((current) => current.includes(slide.image) ? current : [...current, slide.image])} />
         {failedImages.includes(slide.image) && <p role="alert">이미지를 불러오지 못했습니다. 위의 ‘크게 보기’를 이용하거나 페이지를 새로고침해 주세요.</p>}
       </div>
       <p className={styles.summary}>{slide.summary}</p>

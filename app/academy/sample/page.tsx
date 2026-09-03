@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ArrowButton, Kicker, PageFrame } from "@/components/site";
+import { ArrowButton, PageFrame } from "@/components/site";
+import { SectionHead } from "@/components/section-head";
 import { episodeTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -9,16 +10,12 @@ export default function SamplePage() {
   return (
     <PageFrame>
       <section className="inner-hero shell">
-        <Kicker>수업용 시제품 · {episodeTitle}</Kicker>
-        <h1>
-          어떤 자료를 받고,
-          <br />
-          <em>어떻게 쓰는지 살펴보세요.</em>
-        </h1>
-        <p>
-          첫 영어 수업 제품의 골든 샘플로 검토 중인 단서 카드와 교사용
-          진행안입니다. 정식 제공본은 파일럿 결과에 따라 조정될 수 있습니다.
-        </p>
+        <SectionHead
+          as="h1"
+          kicker={<>수업용 시제품 · {episodeTitle}</>}
+          title={<>어떤 자료를 받고,<br /><em>어떻게 쓰는지 살펴보세요.</em></>}
+          lead="첫 영어 수업 제품의 골든 샘플로 검토 중인 단서 카드와 교사용 진행안입니다. 정식 제공본은 파일럿 결과에 따라 조정될 수 있습니다."
+        />
       </section>
 
       <section className="sample-grid shell">
@@ -77,13 +74,11 @@ export default function SamplePage() {
 
       <section className="sample-gallery shell">
         <div>
-          <Kicker>실제 제작 자료</Kicker>
-          <h2>
-            수업에서 사용하는
-            <br />
-            <span>사건 자료와 규칙서.</span>
-          </h2>
-          <p>연출 이미지 대신 현재 제작된 시제품을 그대로 보여드립니다.</p>
+          <SectionHead
+            kicker="실제 제작 자료"
+            title={<>수업에서 사용하는<br /><span>사건 자료와 규칙서.</span></>}
+            lead="연출 이미지 대신 현재 제작된 시제품을 그대로 보여드립니다."
+          />
         </div>
         <div className="gallery-images">
           <figure>
@@ -131,12 +126,7 @@ export default function SamplePage() {
 
       <section className="sample-bottom shell">
         <div>
-          <Kicker>무료 검토팩 구성</Kicker>
-          <h2>
-            도입 전에 확인할
-            <br />
-            <span>핵심 자료.</span>
-          </h2>
+          <SectionHead kicker="무료 검토팩 구성" title={<>도입 전에 확인할<br /><span>핵심 자료.</span></>} />
         </div>
         <ul>
           <li>원장 검토팩 1p</li>

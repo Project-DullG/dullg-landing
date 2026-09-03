@@ -36,6 +36,13 @@ summary {
 .skip-link:focus {
   transform: translateY(0);
 }
+/* Exact-match (not .section-head) so this only flattens the wrapper when
+   SectionHead has no reused class riding along — a reused wrapper class
+   (e.g. "section-head brand-method-head") keeps its own box (max-width,
+   grid, padding, ...) untouched. See task-12-report.md "CSS surgery". */
+[class="section-head"] {
+  display: contents;
+}
 body {
   background: var(--page);
   font-family: var(--font-noto-sans), sans-serif;

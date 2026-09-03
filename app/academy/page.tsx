@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { DashboardPreview } from "@/components/dashboard-preview";
 import { Kicker, PageFrame } from "@/components/site";
+import { SectionHead } from "@/components/section-head";
 import { educationFacts as facts, episodeFullTitle, episodeTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -27,9 +28,12 @@ export default function AcademyPage() {
   return <PageFrame>
     <section className="academy-overview-hero shell">
       <div>
-        <Kicker>영어 미스터리 수업팩</Kicker>
-        <h1>영어 단서를 읽고,<br /><em>근거를 말하고 씁니다.</em></h1>
-        <p>학생마다 다른 단서를 읽고 서로 질문합니다. 마지막에는 선택한 근거와 판단을 영어 사건보고서로 정리합니다.</p>
+        <SectionHead
+          as="h1"
+          kicker="영어 미스터리 수업팩"
+          title={<>영어 단서를 읽고,<br /><em>근거를 말하고 씁니다.</em></>}
+          lead="학생마다 다른 단서를 읽고 서로 질문합니다. 마지막에는 선택한 근거와 판단을 영어 사건보고서로 정리합니다."
+        />
         <div className="academy-overview-actions">
           <Link className="button button-dark" href="/academy/sample">자료 미리보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
           <Link href="/contact">교육 문의 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
@@ -47,11 +51,12 @@ export default function AcademyPage() {
 
     <section className="academy-overview-map">
       <div className="shell">
-        <div className="academy-overview-map-head">
-          <Kicker>구성 안내</Kicker>
-          <h2>필요한 내용을<br /><em>항목별로 확인하세요.</em></h2>
-          <p>각 페이지는 수업 흐름, 자료, 에피소드와 운영 절차 중 한 가지 내용만 설명합니다.</p>
-        </div>
+        <SectionHead
+          className="academy-overview-map-head"
+          kicker="구성 안내"
+          title={<>필요한 내용을<br /><em>항목별로 확인하세요.</em></>}
+          lead="각 페이지는 수업 흐름, 자료, 에피소드와 운영 절차 중 한 가지 내용만 설명합니다."
+        />
         <div className="academy-overview-pathways">
           {pathways.map(({ icon: Icon, ...item }) => <Link href={item.href} key={item.number}>
             <span className="academy-overview-path-number">{item.number}</span>

@@ -18,7 +18,7 @@ export const curriculum = [
   { session: "04", title: "사건을 보고하다", label: "TELL THE STORY", body: "최종 판단과 두 가지 근거를 영어 문장으로 정리해 팀 사건 보고서를 완성합니다.", output: "팀 보고서 · 개인 영작" },
 ] as const;
 
-export type CourseMaterial = {
+type CourseMaterial = {
   title: string;
   meta: string;
   description: string;

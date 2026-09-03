@@ -1,6 +1,6 @@
 import { getFundingProject, getFundingStatus, formatFundingSummary, fundingSummaryPeriod, type FundingProject } from "./funding.ts";
 
-export type WorkStatus = "펀딩 중" | "출시" | "앱 공개";
+type WorkStatus = "펀딩 중" | "출시" | "앱 공개";
 
 export type Work = {
   slug: string;

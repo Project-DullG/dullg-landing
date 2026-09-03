@@ -10,6 +10,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
+import { SectionHead } from "@/components/section-head";
 import { pageMetadata } from "@/lib/metadata";
 import { getWorkStatus, works } from "@/lib/works";
 import { publicRoutes, type RouteGroup } from "@/lib/routes";
@@ -64,14 +65,12 @@ export default function SitemapPage() {
   return (
     <PageFrame>
       <section className="sitemap-hero shell">
-        <div>
-          <Kicker>전체 안내</Kicker>
-          <h1>
-            필요한 내용을
-            <br />
-            <em>한 번에 찾아보세요.</em>
-          </h1>
-        </div>
+        <SectionHead
+          as="h1"
+          className="sitemap-hero-head"
+          kicker="전체 안내"
+          title={<>필요한 내용을<br /><em>한 번에 찾아보세요.</em></>}
+        />
         <div className="sitemap-hero-copy">
           <MapTrifold size={34} weight="duotone" aria-hidden="true" />
           <p>
@@ -98,11 +97,13 @@ export default function SitemapPage() {
       </section>
 
       <section className="sitemap-directory shell" aria-labelledby="directory-title">
-        <div className="sitemap-directory-head">
-          <Kicker>페이지 목록</Kicker>
-          <h2 id="directory-title">전체 페이지</h2>
-          <p>각 페이지에서 확인할 수 있는 내용을 함께 적었습니다.</p>
-        </div>
+        <SectionHead
+          className="sitemap-directory-head"
+          id="directory-title"
+          kicker="페이지 목록"
+          title="전체 페이지"
+          lead="각 페이지에서 확인할 수 있는 내용을 함께 적었습니다."
+        />
 
         <div className="sitemap-groups">
           {pageGroups.map((group) => {

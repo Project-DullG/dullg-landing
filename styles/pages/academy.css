@@ -99,7 +99,7 @@
   line-height: 1.08;
   letter-spacing: -0.07em;
 }
-.academy-overview-hero > div > p {
+.academy-overview-hero > div p {
   max-width: 610px;
   margin: 0;
   font-size: 16px;
@@ -460,7 +460,7 @@
 .pilot-checks h2 span {
   color: #1e5c5c;
 }
-.pilot-checks > div:first-child > p {
+.pilot-checks > div:first-child p {
   margin: 22px 0 0;
   max-width: 480px;
   font-size: 14px;
@@ -940,7 +940,7 @@
 .sample-gallery h2 {
   font-weight: 700;
 }
-.sample-gallery > div:first-child > p {
+.sample-gallery > div:first-child p {
   max-width: 290px;
   font-size: 14px;
   line-height: 1.8;
@@ -969,7 +969,7 @@
     top: 22px;
     right: 22px;
   }
-  .sample-gallery > div:first-child > p {
+  .sample-gallery > div:first-child p {
     margin-top: 24px;
   }
 }
@@ -1491,7 +1491,7 @@
   font-style: normal;
   font-weight: 700;
 }
-.academy-overview-hero > div > p,
+.academy-overview-hero > div p,
 .ep-hero-copy p {
   font-size: 16px;
   line-height: 1.78;
@@ -1509,7 +1509,7 @@
     font-size: clamp(30px, 8.5vw, 38px);
     line-height: 1.2;
   }
-  .academy-overview-hero > div > p,
+  .academy-overview-hero > div p,
   .ep-hero-copy p {
     font-size: 15px;
     line-height: 1.76;

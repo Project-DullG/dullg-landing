@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
+import { SectionHead } from "@/components/section-head";
 import { curriculum, educationFacts, episodeFullTitle, episodeSubtitle, episodeTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -22,17 +23,12 @@ export default function EpisodePage() {
       {/* ── HERO — split with case file cover ── */}
       <section className="ep-hero-split shell">
         <div className="ep-hero-copy">
-          <Kicker>첫 번째 사건 · 에피소드 01</Kicker>
-          <h1>
-            {episodeTitle}
-            <br />
-            <em>{episodeSubtitle}</em>
-          </h1>
-          <p>
-            재시험을 시작하려던 순간, 원장실 벽면에 있어야 할 두 개의
-            열쇠가 사라졌습니다. 네 명의 학생이 각자 다른 장소에서
-            단서를 발견합니다.
-          </p>
+          <SectionHead
+            as="h1"
+            kicker="첫 번째 사건 · 에피소드 01"
+            title={<>{episodeTitle}<br /><em>{episodeSubtitle}</em></>}
+            lead="재시험을 시작하려던 순간, 원장실 벽면에 있어야 할 두 개의 열쇠가 사라졌습니다. 네 명의 학생이 각자 다른 장소에서 단서를 발견합니다."
+          />
           <div className="ep-hero-chips">
             {educationFacts.slice(0, 3).map(([value]) => (
               <span key={value}>{value}</span>
@@ -91,14 +87,11 @@ export default function EpisodePage() {
 
       {/* ── CAST — profile cards ── */}
       <section className="ep-cast shell">
-        <div className="ep-cast-head">
-          <Kicker>서로 다른 단서를 가진 네 학생</Kicker>
-          <h2>
-            각자 다른 단서를
-            <br />
-            <em>가지고 있습니다.</em>
-          </h2>
-        </div>
+        <SectionHead
+          className="ep-cast-head"
+          kicker="서로 다른 단서를 가진 네 학생"
+          title={<>각자 다른 단서를<br /><em>가지고 있습니다.</em></>}
+        />
         <div className="ep-cast-grid">
           {cast.map((c) => (
             <div className="ep-cast-card" key={c.name}>
@@ -117,14 +110,11 @@ export default function EpisodePage() {
 
       {/* ── LESSON FLOW ── */}
       <section className="ep-flow shell">
-        <div className="ep-flow-head">
-          <Kicker>네 번의 수업으로 푸는 사건</Kicker>
-          <h2>
-            4차시 동안
-            <br />
-            <em>사건이 풀립니다.</em>
-          </h2>
-        </div>
+        <SectionHead
+          className="ep-flow-head"
+          kicker="네 번의 수업으로 푸는 사건"
+          title={<>4차시 동안<br /><em>사건이 풀립니다.</em></>}
+        />
         <div className="ep-steps">
           {curriculum.map((item) => (
             <div className="ep-step" key={item.session}>
@@ -143,16 +133,11 @@ export default function EpisodePage() {
       {/* ── CTA ── */}
       <section className="ep-cta shell">
         <div className="ep-cta-copy">
-          <Kicker>실제 제작 자료 확인</Kicker>
-          <h2>
-            자료를 먼저
-            <br />
-            <span>직접 확인하세요.</span>
-          </h2>
-          <p>
-            단서 카드, 교사용 진행안과 결과물 예시 시제품을 묶어
-            보내드립니다. 현재 검토용 샘플은 무료입니다.
-          </p>
+          <SectionHead
+            kicker="실제 제작 자료 확인"
+            title={<>자료를 먼저<br /><span>직접 확인하세요.</span></>}
+            lead="단서 카드, 교사용 진행안과 결과물 예시 시제품을 묶어 보내드립니다. 현재 검토용 샘플은 무료입니다."
+          />
         </div>
         <div className="ep-cta-actions">
           <ArrowButton>무료 검토팩 요청</ArrowButton>

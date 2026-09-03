@@ -548,7 +548,7 @@
   color: rgba(17, 20, 18, 0.64);
   margin: 0;
 }
-.note-section > p:not(.section-kicker) {
+.note-section p:not(.section-kicker) {
   max-width: 470px;
   margin: 0 auto 35px;
   font-size: 14px;

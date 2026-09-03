@@ -153,13 +153,13 @@
   pointer-events: none;
   user-select: none;
 }
-.belief-item strong {
+.belief-item h3 {
   display: block;
   font-size: 17px;
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.35;
-  margin-bottom: 16px;
+  margin: 0 0 16px;
   word-break: keep-all;
 }
 .belief-item p {

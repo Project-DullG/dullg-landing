@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
+import { SectionHead } from "@/components/section-head";
 import { activityRecords, formatActivityDate, isUpcoming } from "@/lib/activities";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -11,7 +12,7 @@ export const revalidate = 3600;
 export default function ActivityPage() {
   return <PageFrame>
     <section className="activity-hero shell">
-      <div><Kicker>제작·활동 기록</Kicker><h1>완성한 일과<br /><em>진행 중인 일을 기록합니다.</em></h1></div>
+      <SectionHead as="h1" className="activity-hero-head" kicker="제작·활동 기록" title={<>완성한 일과<br /><em>진행 중인 일을 기록합니다.</em></>} />
       <p>작품 공개, 펀딩과 교육 활동을 날짜순으로 정리합니다. 예정된 일은 완료된 결과와 구분해 표시합니다.</p>
     </section>
 
@@ -39,8 +40,7 @@ export default function ActivityPage() {
 
     <section className="activity-disclosure">
       <div className="shell">
-        <Kicker>기록 기준</Kicker><h2>확인된 내용만 공개합니다.</h2>
-        <p>출시한 작품과 종료된 펀딩은 공식 기록을 기준으로 작성합니다. 교육 수업팩과 예정된 활동은 현재 상태를 함께 표시합니다.</p>
+        <SectionHead kicker="기록 기준" title="확인된 내용만 공개합니다." lead="출시한 작품과 종료된 펀딩은 공식 기록을 기준으로 작성합니다. 교육 수업팩과 예정된 활동은 현재 상태를 함께 표시합니다." />
       </div>
     </section>
   </PageFrame>;

@@ -16,11 +16,16 @@ export default function MaterialsPage() {
         <section className="library-hero shell">
           <Kicker>수강생 자료실</Kicker>
           <h1>참여한 수업의 자료를<br />확인하세요.</h1>
-          <p>현재 공개된 지난 교육 자료를 모았습니다. 과정 이름을 누르면 세부 자료를 확인할 수 있습니다.</p>
+          <p>수업 이름을 눌러 발표자료와 실습 자료를 확인하세요.</p>
         </section>
 
         <section className="course-archive shell" aria-label="교육 과정별 자료">
           {courseMaterials.map((course) => (
+            course.files.length === 1 && !course.files[0].download && course.files[0].href.startsWith("/") ?
+            <Link className="course-row" href={course.files[0].href} key={course.title}>
+              <span><strong>{course.title}</strong><small>{course.meta} · 발표자료</small></span>
+              <b>바로 읽기 <i aria-hidden="true">→</i></b>
+            </Link> :
             <details className="course-row course-row-expandable" key={course.title}>
               <summary>
                 <span><strong>{course.title}</strong><small>{course.meta}</small></span>

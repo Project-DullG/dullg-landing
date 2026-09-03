@@ -1,0 +1,93 @@
+/* ============================================================
+   3. HOME HERO
+   ============================================================ */
+.eyebrow,
+.section-kicker,
+.art-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 24px;
+}
+.eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+}
+.final-cta em {
+  font-family: var(--font-playfair), serif;
+  font-weight: 500;
+  color: var(--orange);
+}
+.hero-description {
+  max-width: 390px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(21, 37, 30, 0.66);
+  margin: 0 0 34px;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 21px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+.button:hover {
+  transform: translateY(-2px);
+}
+.button-dark {
+  background: var(--ink);
+  color: var(--cream);
+}
+.text-link {
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.text-link span {
+  margin-left: 8px;
+}
+.section-deep-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 32px;
+  padding: 9px 16px;
+  border: 1px solid var(--line);
+  font-size: 13px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  transition: border-color 0.2s, background 0.2s;
+}
+.section-deep-link:hover {
+  border-color: var(--ink);
+  background: rgba(21, 37, 30, 0.04);
+}
+.art-label {
+  position: absolute;
+  color: rgba(21, 37, 30, 0.62);
+  line-height: 1.5;
+}
+.label-top {
+  top: 25px;
+  left: 27px;
+}
+.label-bottom {
+  bottom: 25px;
+  left: 28px;
+}
+

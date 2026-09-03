@@ -1,0 +1,326 @@
+/* ============================================================
+   EPISODE PAGE  (redesigned)
+   ============================================================ */
+
+/* Hero — split with case file cover */
+.ep-hero-split {
+  padding: 120px 0 100px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 80px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+.ep-hero-copy h1 {
+  font-size: clamp(48px, 6vw, 78px);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+  margin: 16px 0 20px;
+  word-break: keep-all;
+}
+.ep-hero-copy h1 em {
+  font-style: normal;
+  color: #1e5c5c;
+}
+.ep-hero-copy p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(21, 37, 30, 0.65);
+  max-width: 460px;
+  margin: 0 0 24px;
+  word-break: keep-all;
+}
+.ep-hero-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.ep-hero-chips span {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  padding: 7px 14px;
+  background: rgba(21, 37, 30, 0.06);
+  color: rgba(21, 37, 30, 0.7);
+}
+.ep-hero-visual {
+  position: relative;
+  align-self: flex-end;
+}
+.ep-hero-visual img {
+  width: 100%;
+  display: block;
+}
+.ep-case-stamp {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--orange);
+  color: #fff;
+  padding: 5px 9px;
+}
+
+/* Setting — large map */
+.ep-setting {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.ep-setting-inner {
+  padding: 100px 0;
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 80px;
+  align-items: center;
+}
+.ep-setting-copy h2 {
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  margin: 12px 0 28px;
+  word-break: keep-all;
+}
+.ep-setting-copy h2 span { color: #1e5c5c; }
+.ep-setting-copy p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: rgba(21, 37, 30, 0.68);
+  margin: 0 0 14px;
+  word-break: keep-all;
+}
+.ep-setting-map img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--line);
+}
+.ep-map-label {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.ep-map-label span {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(21, 37, 30, 0.38);
+}
+
+/* Cast — profile cards */
+.ep-cast {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--line);
+}
+.ep-cast-head {
+  margin-bottom: 56px;
+}
+.ep-cast-head h2 {
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  margin: 12px 0 0;
+}
+.ep-cast-head h2 em {
+  font-style: normal;
+  color: #1e5c5c;
+}
+.ep-cast-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.ep-cast-card {
+  transition: transform 0.2s;
+}
+.ep-cast-card:hover {
+  transform: translateY(-4px);
+}
+.ep-cast-img {
+  position: relative;
+  overflow: hidden;
+  background: rgba(21, 37, 30, 0.04);
+  margin-bottom: 16px;
+}
+.ep-cast-img img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+.ep-cast-card:hover .ep-cast-img img {
+  transform: scale(1.03);
+}
+.ep-cast-info {
+  padding: 0 2px;
+}
+.ep-cast-index {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(21, 37, 30, 0.35);
+  display: block;
+  margin-bottom: 6px;
+}
+.ep-cast-info strong {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  display: block;
+  margin-bottom: 8px;
+}
+.ep-cast-info p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(21, 37, 30, 0.58);
+  margin: 0;
+  word-break: keep-all;
+}
+
+/* Classroom — full-width image band */
+.ep-scene-band {
+  position: relative;
+  overflow: hidden;
+  max-height: 480px;
+}
+.ep-scene-band > img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+.ep-scene-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(21,37,30,0.72) 0%, rgba(21,37,30,0.1) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 48px min(80px, 5%);
+}
+.ep-scene-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(242, 239, 231, 0.55);
+  display: block;
+  margin-bottom: 12px;
+}
+.ep-scene-caption-text {
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(242, 239, 231, 0.85);
+  margin: 0;
+  max-width: 560px;
+  word-break: keep-all;
+}
+
+/* Lesson flow */
+.ep-flow {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--line);
+}
+.ep-flow-head {
+  margin-bottom: 56px;
+}
+.ep-flow-head h2 {
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  margin: 12px 0 0;
+}
+.ep-flow-head h2 em {
+  font-style: normal;
+  color: #1e5c5c;
+}
+.ep-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.ep-step {
+  padding: 32px 28px 36px;
+  background: rgba(21, 37, 30, 0.03);
+  transition: background 0.2s;
+}
+.ep-step:hover {
+  background: rgba(21, 37, 30, 0.055);
+}
+.ep-step-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.ep-step-num {
+  font-family: var(--font-mono), monospace;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: rgba(21, 37, 30, 0.12);
+  line-height: 1;
+}
+.ep-step-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--orange);
+}
+.ep-step h3 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  margin: 0 0 10px;
+}
+.ep-step p {
+  font-size: 13px;
+  line-height: 1.85;
+  color: rgba(21, 37, 30, 0.62);
+  margin: 0 0 16px;
+  word-break: keep-all;
+}
+.ep-output {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  color: rgba(21, 37, 30, 0.38);
+}
+
+/* CTA */
+.ep-cta {
+  padding: 100px 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+  align-items: center;
+}
+.ep-cta-copy h2 {
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  margin: 12px 0 16px;
+}
+.ep-cta-copy h2 span { color: #1e5c5c; }
+.ep-cta-copy p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(21, 37, 30, 0.65);
+  margin: 0;
+  word-break: keep-all;
+  max-width: 480px;
+}
+.ep-cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  flex-shrink: 0;
+}
+

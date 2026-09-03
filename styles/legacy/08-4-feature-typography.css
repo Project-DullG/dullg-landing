@@ -1,0 +1,35 @@
+/* ============================================================
+   4. FEATURE & TYPOGRAPHY
+   ============================================================ */
+.section-kicker {
+  color: var(--orange);
+  margin: 0 0 23px;
+}
+.feature-intro h2,
+.final-cta h2 {
+  font-size: clamp(38px, 4.8vw, 61px);
+  line-height: 1.08;
+  letter-spacing: -0.065em;
+  margin: 0;
+}
+.feature-intro h2 span {
+  font-family: var(--font-playfair);
+  font-style: italic;
+  font-weight: 500;
+}
+.feature-number {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--orange);
+}
+blockquote {
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.2;
+  letter-spacing: -0.06em;
+  margin: 35px auto 25px;
+}
+blockquote em {
+  font-family: var(--font-playfair);
+  font-weight: 500;
+  color: var(--orange);
+}

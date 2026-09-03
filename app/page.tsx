@@ -58,6 +58,7 @@ export default function Home() {
               <h2 id="brand-education-title">영어 단서를 읽고<br />함께 사건을 해결합니다.</h2>
               <p>학생마다 다른 단서를 읽고 서로 질문합니다. 마지막에는 선택한 근거와 판단을 영어 사건보고서로 정리합니다.</p>
               <dl>{educationFacts.map(([value,label])=><div key={value}><dt>{value}</dt><dd>{label}</dd></div>)}</dl>
+              <p className="brand-education-tools">학원생·반·성적을 정리하는 <Link href="/academy#tools">운영 도구</Link>가 함께 제공됩니다.</p>
               <Link href="/academy">수업팩 자세히 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
             </div>
           </div>

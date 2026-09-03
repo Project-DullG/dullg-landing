@@ -18,6 +18,7 @@ test("renders the brand portfolio path with real work and education evidence", a
   assert.match(html, /\/assets\/works\/slime-soda-cover\.webp/);
   assert.match(html, /\/assets\/dullg\/card-cover-1\.png/);
   assert.match(html, /id="apply"/);
+  assert.match(html, /href="\/academy#tools"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
@@ -38,6 +39,10 @@ test("renders detailed product routes with working navigation targets", async ()
   assert.match(academy, /href="\/academy\/curriculum"/);
   assert.match(academy, /href="\/academy\/sample"/);
   assert.match(academy, /href="\/academy\/pilot"/);
+  assert.match(academy, /id="tools"/);
+  assert.match(academy, /학원 운영까지 함께 정리합니다/);
+  assert.match(academy, /class="dash-preview"/);
+  assert.match(academy, /href="\/login"/);
   assert.match(curriculum, /판단을 남기는 네 장면/);
   assert.match(sample, /수업용 시제품/);
   assert.match(pilot, /파일럿/);

@@ -1,17 +1,18 @@
-import { ArrowRight, ArrowUpRight, BookOpenText, FileText, FolderOpen, Printer } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, ArrowUpRight, BookOpenText, ChartBar, FileText, FolderOpen, Printer } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
+import { DashboardPreview } from "@/components/dashboard-preview";
 import { Kicker, PageFrame } from "@/components/site";
-import { episodeFullTitle, episodeTitle } from "@/lib/education";
+import { educationFacts as facts, episodeFullTitle, episodeTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata("/academy", { title: "영어 미스터리 수업팩" });
 
-const facts = [
-  ["4차시", "읽기부터 사건보고서까지"],
-  ["초6~중1", "첫 파일럿 검토 기준"],
-  ["4~16명", "권장 수업 인원"],
-  ["30분 이내", "첫 수업 준비 목표"],
+const tools = [
+  { title: "학원생 등록과 반 편성", body: "이름·학년·연락처를 등록하고 반에 배정합니다." },
+  { title: "차시별 점수와 참여도", body: "4차시마다 점수와 참여도(상·중·하), 메모를 남깁니다." },
+  { title: "일반 시험 성적과 리포트", body: "과목별 시험 점수까지 한곳에서 보고 반별·기간별로 비교합니다." },
+  { title: "학생 본인 조회", body: "학생은 학원 코드로 계정을 연결해 자기 성적만 확인합니다." },
 ];
 
 const pathways = [
@@ -19,6 +20,7 @@ const pathways = [
   { number: "02", title: "수업 자료 구성", body: "학생용 카드, 워크북, 교사용 진행안과 결과물 예시를 살펴봅니다.", href: "/academy/sample", cta: "자료 미리보기", icon: FolderOpen },
   { number: "03", title: "수업용 에피소드", body: "첫 수업에 사용하는 사건의 배경과 등장인물을 스포일러 없이 소개합니다.", href: "/episode", cta: "에피소드", icon: FileText },
   { number: "04", title: "파일럿 운영", body: "문의부터 일정 조율, 수업 운영과 피드백까지의 절차를 안내합니다.", href: "/academy/pilot", cta: "운영 안내", icon: Printer },
+  { number: "05", title: "학원 운영 도구", body: "학원생·반·성적을 정리하는 대시보드를 소개합니다.", href: "#tools", cta: "운영 도구", icon: ChartBar },
 ];
 
 export default function AcademyPage() {
@@ -58,6 +60,26 @@ export default function AcademyPage() {
             <strong>{item.cta}<ArrowUpRight size={17} weight="bold" aria-hidden="true" /></strong>
           </Link>)}
         </div>
+      </div>
+    </section>
+
+    <section className="academy-tools" id="tools" aria-labelledby="academy-tools-title">
+      <div className="shell academy-tools-grid">
+        <div>
+          <Kicker>운영 도구</Kicker>
+          <h2 id="academy-tools-title">수업만 드리지 않습니다.<br /><em>학원 운영까지 함께 정리합니다.</em></h2>
+          <p>수업팩과 함께 웹 대시보드를 제공합니다. 학원생과 반을 등록하고 차시별 점수를 남기면, 리포트와 학생 본인 조회 화면이 자동으로 만들어집니다.</p>
+          <ul className="academy-tools-list">
+            {tools.map((t) => (
+              <li key={t.title}><b>{t.title}</b><span>{t.body}</span></li>
+            ))}
+          </ul>
+          <div className="academy-overview-actions">
+            <Link className="button button-dark" href="/academy/pilot">무료 검토팩 요청 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
+            <Link href="/login">학원 관리 로그인 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
+          </div>
+        </div>
+        <DashboardPreview />
       </div>
     </section>
 

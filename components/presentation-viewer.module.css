@@ -1,0 +1,20 @@
+.viewer { margin: 24px 0 56px; }
+.toolbar { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+.toolbar button, .jump select { min-height: 44px; border: 1px solid #d9ddda; border-radius: 6px; background: white; color: #171b18; font: inherit; font-size: 14px; }
+.toolbar button { padding: 0 16px; white-space: nowrap; cursor: pointer; }
+.toolbar button:disabled { opacity: .4; cursor: default; }
+.jump { min-width: 0; flex: 1; display: flex; align-items: center; gap: 12px; font-size: 14px; }
+.jump select { min-width: 0; width: 100%; padding: 0 12px; text-overflow: ellipsis; }
+.canvas { position: relative; background: #f1f2f1; border: 1px solid #e3e6e3; }
+.canvas img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.caption { display: flex; justify-content: space-between; align-items: start; gap: 24px; margin-top: 20px; }
+.caption h2 { font-size: 20px; line-height: 1.5; margin: 0 0 8px; }
+.caption p { max-width: 760px; margin: 0; font-size: 16px; line-height: 1.75; word-break: keep-all; color: #59615b; }
+.caption a { min-height: 44px; display: inline-flex; align-items: center; flex-shrink: 0; text-decoration: underline; font-size: 14px; }
+.viewer :focus-visible { outline: 3px solid #276b56; outline-offset: 3px; }
+@media (max-width: 760px) {
+  .toolbar { gap: 8px; flex-wrap: wrap; }
+  .jump { order: -1; flex-basis: 100%; }
+  .toolbar button { flex: 1; }
+  .caption { flex-direction: column; gap: 8px; }
+}

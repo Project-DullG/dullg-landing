@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/activity/ulleung-high-living-lab`, priority: 0.6, changeFrequency: "monthly" },
     { url: `${SITE_URL}/works`, priority: 0.7, changeFrequency: "monthly" },
     { url: `${SITE_URL}/materials`, priority: 0.7, changeFrequency: "monthly" },
+    { url: `${SITE_URL}/materials/ulleung-high-living-lab`, priority: 0.6, changeFrequency: "monthly" },
     { url: `${SITE_URL}/about`, priority: 0.6, changeFrequency: "monthly" },
     { url: `${SITE_URL}/contact`, priority: 0.6, changeFrequency: "monthly" },
     { url: `${SITE_URL}/privacy`, priority: 0.3, changeFrequency: "yearly" },

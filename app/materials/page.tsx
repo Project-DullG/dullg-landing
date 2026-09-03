@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
 import { courseMaterials } from "@/lib/education";
 import { BRAND, emailHref } from "@/lib/site-config";
@@ -26,9 +27,13 @@ export default function MaterialsPage() {
                 <b>자료 {course.files.length}개 <i aria-hidden="true">＋</i></b>
               </summary>
               <div className="course-files">
-                {course.files.map((item) => (
-                  <a key={item.title} href={item.href} target="_blank" rel="noopener noreferrer" download={item.download || undefined}><span><strong>{item.title}</strong><small>{item.body}</small></span><b aria-hidden="true">{item.download ? "↓" : "↗"}</b></a>
-                ))}
+                {course.files.map((item) => {
+                  const internal = item.href.startsWith("/") && !item.download;
+                  const content = <><span><strong>{item.title}</strong><small>{item.body}</small></span><b aria-hidden="true">{item.download ? "↓" : internal ? "→" : "↗"}</b></>;
+                  return internal
+                    ? <Link key={item.title} href={item.href}>{content}</Link>
+                    : <a key={item.title} href={item.href} target={item.download ? undefined : "_blank"} rel="noopener noreferrer" download={item.download || undefined}>{content}</a>;
+                })}
               </div>
             </details>
           ))}

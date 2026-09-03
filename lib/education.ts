@@ -1,3 +1,5 @@
+import { ulleungPresentation } from "./presentations";
+
 export const educationFacts = [
   ["4차시", "읽기부터 사건보고서까지"],
   ["초6~중1", "첫 파일럿 검토 기준"],
@@ -29,7 +31,10 @@ export const courseMaterials: CourseMaterial[] = [
   {
     title: "울릉고 리빙랩 특강",
     meta: "울릉고등학교 · 2026년 9월 5일",
-    files: [{ title: "특강 발표자료", body: "단서공방 소개부터 울릉도 소재 게임 기획 실습까지 담은 13쪽 PDF", href: "/assets/materials/ulleung-high-living-lab-2026.pdf", download: true }],
+    files: [
+      { title: "특강 발표자료 · 웹에서 보기", body: `팀 소개, 울릉도 이야기 나누기, 게임·AI 실습, 기획안과 신청 준비 · ${ulleungPresentation.slides.length}쪽`, href: ulleungPresentation.href },
+      { title: "발표자료 PDF 다운로드", body: `${ulleungPresentation.updatedAt} 보강 자료 · ${ulleungPresentation.slides.length}쪽`, href: ulleungPresentation.pdf, download: true },
+    ],
   },
   {
     title: "울릉군 생태관광 AI 교육",

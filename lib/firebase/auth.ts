@@ -1,11 +1,11 @@
 import { cookies } from "next/headers";
-import { adminAuth } from "./admin";
+import { getAdminAuth } from "./admin";
 
 const SESSION_COOKIE_NAME = "session";
 const SESSION_EXPIRY_MS = 60 * 60 * 24 * 5 * 1000; // 5 days
 
 export async function createSessionCookie(idToken: string) {
-  const sessionCookie = await adminAuth.createSessionCookie(idToken, {
+  const sessionCookie = await getAdminAuth().createSessionCookie(idToken, {
     expiresIn: SESSION_EXPIRY_MS,
   });
   const cookieStore = await cookies();
@@ -23,7 +23,7 @@ export async function verifySession() {
   const sessionCookie = cookieStore.get(SESSION_COOKIE_NAME)?.value;
   if (!sessionCookie) return null;
   try {
-    return await adminAuth.verifySessionCookie(sessionCookie, true);
+    return await getAdminAuth().verifySessionCookie(sessionCookie, true);
   } catch {
     return null;
   }

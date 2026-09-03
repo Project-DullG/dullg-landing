@@ -2,12 +2,12 @@
 
 import { redirect } from "next/navigation";
 import { createSessionCookie, clearSession, verifySession } from "@/lib/firebase/auth";
-import { adminAuth, adminDb } from "@/lib/firebase/admin";
+import { getAdminAuth, getAdminDb } from "@/lib/firebase/admin";
 
 export async function loginAction(idToken: string) {
   await createSessionCookie(idToken);
 
-  const decoded = await adminAuth.verifyIdToken(idToken);
+  const decoded = await getAdminAuth().verifyIdToken(idToken);
   const role = decoded.role as string | undefined;
 
   if (role === "student") {
@@ -23,7 +23,7 @@ export async function loginAction(idToken: string) {
 export async function logoutAction() {
   const session = await verifySession();
   if (session) {
-    await adminAuth.revokeRefreshTokens(session.uid);
+    await getAdminAuth().revokeRefreshTokens(session.uid);
   }
   await clearSession();
   redirect("/login");
@@ -34,7 +34,7 @@ export async function linkStudentAction(academyId: string, studentName: string) 
   if (!session) throw new Error("로그인이 필요합니다.");
 
   // Find matching student in the academy
-  const studentsSnap = await adminDb
+  const studentsSnap = await getAdminDb()
     .collection("academies")
     .doc(academyId)
     .collection("students")
@@ -53,7 +53,7 @@ export async function linkStudentAction(academyId: string, studentName: string) 
   await studentDoc.ref.update({ userId: session.uid });
 
   // Set custom claims
-  await adminAuth.setCustomUserClaims(session.uid, {
+  await getAdminAuth().setCustomUserClaims(session.uid, {
     role: "student",
     academyId,
     studentId: studentDoc.id,

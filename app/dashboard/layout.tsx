@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { verifySession } from "@/lib/firebase/auth";
-import { adminDb } from "@/lib/firebase/admin";
+import { getAdminDb } from "@/lib/firebase/admin";
 import { Sidebar } from "@/components/dashboard/sidebar";
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -31,7 +31,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
   // Owner: fetch academy name
   if (role === "owner" && session.academyId) {
-    const academyDoc = await adminDb
+    const academyDoc = await getAdminDb()
       .collection("academies")
       .doc(session.academyId as string)
       .get();

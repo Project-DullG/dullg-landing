@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { verifySession } from "@/lib/firebase/auth";
-import { adminDb } from "@/lib/firebase/admin";
+import { getAdminDb } from "@/lib/firebase/admin";
 import { FieldValue } from "firebase-admin/firestore";
 import { validateGrade, type GradeData } from "@/lib/validators";
 
@@ -21,7 +21,7 @@ export async function addGrade(data: GradeData) {
   const academyId = await getAcademyId();
 
   // Get student's userId for security rules
-  const studentDoc = await adminDb
+  const studentDoc = await getAdminDb()
     .collection("academies")
     .doc(academyId)
     .collection("students")
@@ -31,7 +31,7 @@ export async function addGrade(data: GradeData) {
   if (!studentDoc.exists) throw new Error("학생을 찾을 수 없습니다.");
   const userId = studentDoc.data()?.userId || null;
 
-  await adminDb
+  await getAdminDb()
     .collection("academies")
     .doc(academyId)
     .collection("grades")
@@ -49,7 +49,7 @@ export async function addGrade(data: GradeData) {
 export async function deleteGrade(gradeId: string) {
   const academyId = await getAcademyId();
 
-  await adminDb
+  await getAdminDb()
     .collection("academies")
     .doc(academyId)
     .collection("grades")

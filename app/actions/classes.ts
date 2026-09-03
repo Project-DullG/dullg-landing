@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { verifySession } from "@/lib/firebase/auth";
-import { adminDb } from "@/lib/firebase/admin";
+import { getAdminDb } from "@/lib/firebase/admin";
 import { FieldValue } from "firebase-admin/firestore";
 
 async function getAcademyId(): Promise<string> {
@@ -17,7 +17,7 @@ export async function addClass(name: string) {
   if (!name.trim()) throw new Error("반 이름을 입력해주세요.");
   const academyId = await getAcademyId();
 
-  await adminDb
+  await getAdminDb()
     .collection("academies")
     .doc(academyId)
     .collection("classes")
@@ -33,7 +33,7 @@ export async function updateClass(classId: string, name: string) {
   if (!name.trim()) throw new Error("반 이름을 입력해주세요.");
   const academyId = await getAcademyId();
 
-  await adminDb
+  await getAdminDb()
     .collection("academies")
     .doc(academyId)
     .collection("classes")
@@ -47,7 +47,7 @@ export async function deleteClass(classId: string) {
   const academyId = await getAcademyId();
 
   // Check no students assigned
-  const students = await adminDb
+  const students = await getAdminDb()
     .collection("academies")
     .doc(academyId)
     .collection("students")
@@ -57,7 +57,7 @@ export async function deleteClass(classId: string) {
 
   if (!students.empty) throw new Error("학생이 배정된 반은 삭제할 수 없습니다.");
 
-  await adminDb
+  await getAdminDb()
     .collection("academies")
     .doc(academyId)
     .collection("classes")

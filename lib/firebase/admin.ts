@@ -13,5 +13,15 @@ function getAdminApp(): App {
   });
 }
 
-export const adminAuth = getAuth(getAdminApp());
-export const adminDb = getFirestore(getAdminApp());
+let _adminAuth: ReturnType<typeof getAuth> | null = null;
+let _adminDb: ReturnType<typeof getFirestore> | null = null;
+
+export function getAdminAuth() {
+  if (!_adminAuth) _adminAuth = getAuth(getAdminApp());
+  return _adminAuth;
+}
+
+export function getAdminDb() {
+  if (!_adminDb) _adminDb = getFirestore(getAdminApp());
+  return _adminDb;
+}

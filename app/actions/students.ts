@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { verifySession } from "@/lib/firebase/auth";
-import { adminDb } from "@/lib/firebase/admin";
+import { getAdminDb } from "@/lib/firebase/admin";
 import { FieldValue } from "firebase-admin/firestore";
 import { validateStudent, type StudentData } from "@/lib/validators";
 
@@ -20,7 +20,7 @@ export async function addStudent(data: StudentData) {
 
   const academyId = await getAcademyId();
 
-  await adminDb
+  await getAdminDb()
     .collection("academies")
     .doc(academyId)
     .collection("students")
@@ -40,7 +40,7 @@ export async function updateStudent(studentId: string, data: StudentData) {
 
   const academyId = await getAcademyId();
 
-  await adminDb
+  await getAdminDb()
     .collection("academies")
     .doc(academyId)
     .collection("students")
@@ -56,21 +56,21 @@ export async function updateStudent(studentId: string, data: StudentData) {
 
 export async function deleteStudent(studentId: string) {
   const academyId = await getAcademyId();
-  const studentRef = adminDb
+  const studentRef = getAdminDb()
     .collection("academies")
     .doc(academyId)
     .collection("students")
     .doc(studentId);
 
   // Delete related grades
-  const grades = await adminDb
+  const grades = await getAdminDb()
     .collection("academies")
     .doc(academyId)
     .collection("grades")
     .where("studentId", "==", studentId)
     .get();
 
-  const batch = adminDb.batch();
+  const batch = getAdminDb().batch();
   grades.docs.forEach((doc) => batch.delete(doc.ref));
   batch.delete(studentRef);
   await batch.commit();

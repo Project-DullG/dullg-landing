@@ -63,23 +63,15 @@
   background: #f2efe7;
 }
 .inner-hero h1 em,
-.story-copy h2 em,
 .sample-card h2 em,
 .note-section h2 span,
-.problem-band h2 span,
-.flow-section h2 span,
-.deliverables h2 span,
-.proof-copy h2 span,
-.sample-bottom h2 span,
-.final-cta em {
+.sample-bottom h2 span {
   font-family: var(--font-noto-serif), var(--font-playfair), serif;
 }
 .detail-index,
 .mini-label,
 .sample-label,
 .section-kicker,
-.art-label,
-.eyebrow,
 .nav-links,
 .nav-cta,
 .button,
@@ -90,76 +82,20 @@
 .detail-index,
 .mini-label,
 .sample-label,
-.section-kicker,
-.art-label {
+.section-kicker {
   letter-spacing: 0.08em;
 }
 body {
   font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
 }
 .detail-row h2,
-.problem-band h2,
-.flow-section h2,
-.deliverables h2,
-.proof-copy h2,
 .inner-hero h1,
 .note-section h2,
 .sample-bottom h2,
-.sample-gallery h2,
-.story-copy h2 {
+.sample-gallery h2 {
   font-weight: 700;
 }
-.classroom-section {
-  padding: 135px 0;
-  display: grid;
-  grid-template-columns: 58% 42%;
-  gap: 8%;
-  align-items: center;
-  border-bottom: 1px solid var(--line);
-}
-.classroom-photo {
-  position: relative;
-  background: #fff;
-  padding: 12px;
-  box-shadow: 12px 14px 0 rgba(21, 37, 30, 0.1);
-  transform: rotate(-1.2deg);
-}
-.classroom-photo img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-}
-.classroom-photo span {
-  position: absolute;
-  left: 25px;
-  bottom: 24px;
-  background: rgba(242, 239, 231, 0.92);
-  padding: 8px 10px;
-  font: 9px var(--font-mono);
-  color: rgba(21, 37, 30, 0.7);
-}
-.classroom-copy {
-  padding-left: 8%;
-}
-.classroom-copy h2 {
-  font-size: clamp(40px, 5vw, 65px);
-  line-height: 1.02;
-  letter-spacing: -0.07em;
-  margin: 0 0 27px;
-}
-.classroom-copy h2 span {
-  font-family: var(--font-playfair);
-  font-style: italic;
-  font-weight: 500;
-}
-.classroom-copy p {
-  max-width: 320px;
-  font-size: 14px;
-  line-height: 1.8;
-  color: rgba(21, 37, 30, 0.64);
-  margin: 0 0 30px;
-}
+
 .sample-gallery > div:first-child > p {
   max-width: 290px;
   font-size: 14px;
@@ -199,20 +135,7 @@ body {
   }
 }
 @media (max-width: 760px) {
-  .classroom-section {
-    display: block;
-    padding: 90px 0;
-  }
-  .classroom-copy {
-    padding: 60px 0 0;
-  }
-  .classroom-photo img {
-    aspect-ratio: 1.2 / 1;
-  }
-  .classroom-photo span {
-    left: 18px;
-    bottom: 18px;
-  }
+
   .sample-gallery > div:first-child > p {
     margin-top: 24px;
   }
@@ -222,5 +145,4 @@ body {
     max-height: none;
   }
 }
-
 

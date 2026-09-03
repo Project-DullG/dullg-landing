@@ -1,54 +1,4 @@
-/* ============================================================
-   LANDING — ADDITIONS (form states, hero note, apply benefits)
-   ============================================================ */
 
-/* Hero CTA reassurance note */
-.landing-cta-note {
-  margin: 14px 0 0;
-  font-size: 11px;
-  color: rgba(21, 37, 30, 0.52);
-  letter-spacing: 0.01em;
-}
-
-/* Process step note */
-.step-note {
-  display: block;
-  margin-top: 8px;
-  font-size: 11px;
-  font-style: normal;
-  color: var(--orange);
-  font-family: var(--font-mono), monospace;
-  letter-spacing: 0.06em;
-}
-
-/* Apply section benefits list */
-.apply-intro {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.apply-benefits {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.apply-benefits li {
-  font-size: 13px;
-  color: rgba(21, 37, 30, 0.72);
-  padding-left: 20px;
-  position: relative;
-}
-.apply-benefits li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #1e5c5c;
-  font-weight: 700;
-  font-size: 11px;
-}
 
 /* Form field required marker */
 .field-required {
@@ -161,31 +111,5 @@
 .apply-form textarea:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-}
-
-/* Mobile responsive for new sections */
-@media (max-width: 760px) {
-  .for-whom-grid,
-  .process-steps,
-  .value-props-grid {
-    grid-template-columns: 1fr;
-  }
-  .for-whom-item,
-  .process-step {
-    padding: 28px 24px;
-  }
-  .landing-for-whom,
-  .landing-process,
-  .landing-faq {
-    padding: 80px 0;
-  }
-  .final-cta-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 36px;
-  }
-  .landing-final-cta {
-    padding: 90px 0;
-  }
 }
 

@@ -1,6 +1,4 @@
-/* ============================================================
-   EPISODE PAGE  (redesigned)
-   ============================================================ */
+
 
 /* Hero — split with case file cover */
 .ep-hero-split {
@@ -179,44 +177,6 @@
   line-height: 1.75;
   color: rgba(21, 37, 30, 0.58);
   margin: 0;
-  word-break: keep-all;
-}
-
-/* Classroom — full-width image band */
-.ep-scene-band {
-  position: relative;
-  overflow: hidden;
-  max-height: 480px;
-}
-.ep-scene-band > img {
-  width: 100%;
-  height: 480px;
-  object-fit: cover;
-  display: block;
-}
-.ep-scene-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(21,37,30,0.72) 0%, rgba(21,37,30,0.1) 60%, transparent 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 48px min(80px, 5%);
-}
-.ep-scene-label {
-  font-family: var(--font-mono), monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: rgba(242, 239, 231, 0.55);
-  display: block;
-  margin-bottom: 12px;
-}
-.ep-scene-caption-text {
-  font-size: 15px;
-  line-height: 1.75;
-  color: rgba(242, 239, 231, 0.85);
-  margin: 0;
-  max-width: 560px;
   word-break: keep-all;
 }
 

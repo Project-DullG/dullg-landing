@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 import test from "node:test";
 
 const routeHtml = (route) =>
@@ -60,24 +60,19 @@ test("renders detailed product routes with working navigation targets", async ()
 });
 
 test("keeps core navigation and interactions accessible", async () => {
-  const [header, explorer, layout, css] = await Promise.all([
+  const cssFiles = (await readdir(new URL("../styles/", import.meta.url), { recursive: true }))
+    .filter((f) => f.endsWith(".css"));
+  const [header, layout, css] = await Promise.all([
     readFile(new URL("../components/header.tsx", import.meta.url), "utf8"),
-    readFile(
-      new URL("../components/curriculum-explorer.tsx", import.meta.url),
-      "utf8",
-    ),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+    Promise.all(cssFiles.map((f) => readFile(new URL(`../styles/${f}`, import.meta.url), "utf8"))).then((parts) =>
+      parts.join("\n"),
+    ),
   ]);
 
   assert.match(layout, /본문으로 바로가기/);
   assert.match(header, /aria-expanded=\{isOpen\}/);
   assert.match(header, /aria-controls="mobile-navigation"/);
-  assert.match(explorer, /role="tablist"/);
-  assert.match(explorer, /aria-selected=\{isActive\}/);
-  assert.match(explorer, /tabIndex=\{isActive \? 0 : -1\}/);
-  assert.match(explorer, /ArrowRight/);
-  assert.match(explorer, /ArrowLeft/);
   assert.match(css, /:focus-visible/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
 });

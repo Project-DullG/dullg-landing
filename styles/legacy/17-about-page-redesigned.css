@@ -1,6 +1,4 @@
-/* ============================================================
-   ABOUT PAGE  (redesigned)
-   ============================================================ */
+
 
 /* Hero — split with decorative manifesto */
 .about-hero {
@@ -29,57 +27,6 @@
   color: rgba(21, 37, 30, 0.65);
   max-width: 480px;
   margin: 0;
-  word-break: keep-all;
-}
-.about-hero-manifesto {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  padding-bottom: 12px;
-  align-self: flex-end;
-}
-.about-hero-manifesto span {
-  font-family: var(--font-mono), monospace;
-  font-size: clamp(36px, 4vw, 56px);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  color: rgba(21, 37, 30, 0.07);
-  display: block;
-}
-
-/* Origin — editorial pull quote + body */
-.about-origin {
-  padding: 100px 0;
-  border-bottom: 1px solid var(--line);
-}
-.about-origin-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-.about-pullquote {
-  font-size: clamp(26px, 3vw, 40px);
-  font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 1.25;
-  color: var(--ink);
-  margin: 0;
-  padding: 0;
-  border: none;
-  word-break: keep-all;
-  position: sticky;
-  top: 120px;
-}
-.about-origin-body {
-  padding-top: 4px;
-}
-.about-origin-body p {
-  font-size: 15px;
-  line-height: 1.9;
-  color: rgba(21, 37, 30, 0.68);
-  margin: 0 0 18px;
   word-break: keep-all;
 }
 

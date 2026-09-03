@@ -50,8 +50,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.11em;
 }
-.product-home h1,
-.product-home h2,
+
 .inner-hero h1,
 .academy-overview-hero h1,
 .about-hero h1,
@@ -63,15 +62,12 @@ body {
   font-weight: 600;
   letter-spacing: -0.055em;
 }
-.product-home h2,
-.academy-overview-value h2,
+
 .academy-overview-map h2,
-.academy-overview-experience h2,
 .academy-overview-pilot h2,
 .about-scope h2,
 .about-beliefs h2,
 .about-now-dark h2,
-.activity-section-head h2,
 .ep-setting h2,
 .ep-cast h2,
 .ep-flow h2,
@@ -79,124 +75,13 @@ body {
   font-size: clamp(34px, 4vw, 52px);
   line-height: 1.2;
 }
-.product-hero {
-  min-height: auto;
-  padding-top: 92px;
-  padding-bottom: 88px;
-  gap: clamp(48px, 7vw, 96px);
-}
-.product-hero-copy h1 {
-  max-width: 720px;
-  font-size: clamp(48px, 5.6vw, 72px);
-  line-height: 1.14;
-}
-.product-hero-copy > p {
-  max-width: 600px;
-  font-size: 17px;
-  line-height: 1.8;
-  color: var(--text-muted);
-}
-.product-hero-copy > small {
-  font-size: 12px;
-}
-.product-secondary-link {
-  min-height: 48px;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 14px;
-  font-weight: 650;
-}
-.product-facts {
-  border-radius: var(--radius-md);
-  background: var(--surface);
-  box-shadow: 0 16px 50px rgba(21, 37, 30, 0.06);
-}
-.product-facts > div {
-  min-height: 112px;
-}
-.product-facts strong,
-.product-facts small {
-  font-size: 12px;
-}
-.product-fit,
-.product-routes,
-.product-outcome,
-.product-trust,
-.product-faq {
-  padding-top: 104px;
-  padding-bottom: 104px;
-}
-.product-curriculum,
-.product-materials,
-.product-episode,
-.product-activity-proof,
-.product-process,
-.product-apply {
-  padding-top: 104px;
-  padding-bottom: 104px;
-}
-.product-section-heading {
-  max-width: 660px;
-}
-.product-section-heading > p,
-.product-trust-intro > p,
-.product-activity-proof p,
-.product-outcome-copy > p {
-  max-width: 590px;
-  color: var(--text-muted);
-  font-size: 15px;
-  line-height: 1.8;
-}
-.product-fit-list article,
-.product-route,
-.product-trust-points article,
-.activity-status-grid article,
-.activity-evidence-grid article,
-.activity-team-grid article {
-  border-radius: var(--radius-sm);
-}
-.product-route {
-  min-height: 300px;
-  padding: 30px;
-  background: var(--surface);
-}
-.product-route p,
-.product-fit-list p,
-.product-trust-points p,
-.product-process-list p,
-.product-faq-list p {
-  font-size: 14px;
-  line-height: 1.75;
-}
-.product-material-grid figure,
-.product-episode-visual figure,
-.product-outcome-visual,
-.activity-making-media figure,
+
 .ep-setting-map,
 .ep-cast-card {
   border-radius: var(--radius-sm);
   overflow: hidden;
 }
-.product-material-grid figure {
-  background: var(--surface);
-}
-.product-material-grid figcaption {
-  min-height: 88px;
-  padding: 18px;
-}
-.product-faq-list details {
-  background: var(--surface);
-  border-radius: var(--radius-sm);
-  margin-bottom: 10px;
-  padding: 0 22px;
-}
-.product-faq-list summary {
-  min-height: 70px;
-  display: flex;
-  align-items: center;
-  font-size: 15px;
-}
+
 .inner-hero {
   padding-top: 96px;
   padding-bottom: 78px;
@@ -255,18 +140,7 @@ body {
     margin-left: auto;
     margin-right: 10px;
   }
-  .product-hero {
-    grid-template-columns: 1fr;
-    padding-top: 74px;
-  }
-  .product-hero-copy {
-    max-width: 760px;
-  }
-  .product-hero-visual {
-    max-width: 660px;
-    width: 100%;
-    margin: 12px auto 0;
-  }
+
 }
 
 @media (max-width: 760px) {
@@ -279,61 +153,19 @@ body {
   .site-header .nav-cta {
     display: none;
   }
-  .product-hero,
-  .product-fit,
-  .product-routes,
-  .product-outcome,
-  .product-trust,
-  .product-faq,
-  .product-curriculum,
-  .product-materials,
-  .product-episode,
-  .product-activity-proof,
-  .product-process,
-  .product-apply {
-    padding-top: 72px;
-    padding-bottom: 72px;
-  }
-  .product-hero-copy h1 {
-    font-size: clamp(39px, 11vw, 52px);
-    line-height: 1.18;
-  }
-  .product-hero-copy > p {
-    font-size: 16px;
-  }
-  .product-hero-actions {
-    display: grid;
-    align-items: stretch;
-    gap: 8px;
-  }
-  .product-secondary-link {
-    justify-content: center;
-  }
-  .product-facts {
-    border-radius: 12px;
-  }
-  .product-facts > div {
-    min-height: 96px;
-  }
-  .product-home h2,
-  .academy-overview-value h2,
+
   .academy-overview-map h2,
-  .academy-overview-experience h2,
   .academy-overview-pilot h2,
   .about-scope h2,
   .about-beliefs h2,
   .about-now-dark h2,
-  .activity-section-head h2,
   .ep-setting h2,
   .ep-cast h2,
   .ep-flow h2,
   .ep-cta h2 {
     font-size: 34px;
   }
-  .product-route {
-    min-height: 0;
-    padding: 24px;
-  }
+
   .inner-hero {
     padding-top: 72px;
     padding-bottom: 58px;

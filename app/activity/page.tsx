@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description: "단서공방이 공개한 작품, 펀딩과 교육 활동을 날짜순으로 기록합니다.",
 };
 
+export const revalidate = 3600;
+
 export default function ActivityPage() {
   return <PageFrame>
     <section className="activity-hero shell">

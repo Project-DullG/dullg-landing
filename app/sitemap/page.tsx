@@ -21,41 +21,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/sitemap" },
 };
 
+export const revalidate = 3600;
+
 const byGroup = (group: RouteGroup) =>
   publicRoutes
     .filter((r) => r.group === group && r.path !== "/" && r.path !== "/sitemap")
     .map((r) => ({ href: r.path, title: r.title, body: r.description }));
-
-const pageGroups = [
-  {
-    number: "01",
-    title: "작품과 단서공방",
-    description:
-      "공개한 작품과 펀딩 기록, 단서공방의 제작 활동을 확인할 수 있습니다.",
-    icon: Buildings,
-    links: [
-      byGroup("studio")[0],
-      ...works.map((work) => ({ href: `/works/${work.slug}`, title: work.title, body: `${getWorkStatus(work)} · ${work.players} · ${work.duration} · ${work.platform}` })),
-      ...byGroup("studio").slice(1),
-    ],
-  },
-  {
-    number: "02",
-    title: "교육 수업팩",
-    description:
-      "영어 미스터리 수업팩의 구성과 수업 흐름, 파일럿 준비 내용을 확인할 수 있습니다.",
-    icon: BookOpenText,
-    links: byGroup("education"),
-  },
-  {
-    number: "03",
-    title: "자료와 문의",
-    description:
-      "지난 교육의 공개 자료를 찾거나 단서공방에 문의할 수 있습니다.",
-    icon: FolderOpen,
-    links: byGroup("resources"),
-  },
-];
 
 const quickSteps = [
   { icon: Camera, text: "작품 살펴보기" },
@@ -64,6 +35,37 @@ const quickSteps = [
 ];
 
 export default function SitemapPage() {
+  const pageGroups = [
+    {
+      number: "01",
+      title: "작품과 단서공방",
+      description:
+        "공개한 작품과 펀딩 기록, 단서공방의 제작 활동을 확인할 수 있습니다.",
+      icon: Buildings,
+      links: [
+        byGroup("studio")[0],
+        ...works.map((work) => ({ href: `/works/${work.slug}`, title: work.title, body: `${getWorkStatus(work)} · ${work.players} · ${work.duration} · ${work.platform}` })),
+        ...byGroup("studio").slice(1),
+      ],
+    },
+    {
+      number: "02",
+      title: "교육 수업팩",
+      description:
+        "영어 미스터리 수업팩의 구성과 수업 흐름, 파일럿 준비 내용을 확인할 수 있습니다.",
+      icon: BookOpenText,
+      links: byGroup("education"),
+    },
+    {
+      number: "03",
+      title: "자료와 문의",
+      description:
+        "지난 교육의 공개 자료를 찾거나 단서공방에 문의할 수 있습니다.",
+      icon: FolderOpen,
+      links: byGroup("resources"),
+    },
+  ];
+
   return (
     <PageFrame>
       <section className="sitemap-hero shell">

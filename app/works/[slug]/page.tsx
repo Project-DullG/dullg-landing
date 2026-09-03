@@ -11,6 +11,8 @@ import { OfficialWorkIntroduction } from "@/components/official-work-introductio
 
 type Props = { params: Promise<{ slug: string }> };
 
+export const revalidate = 3600;
+
 export function generateStaticParams() {
   return works.map(({ slug }) => ({ slug }));
 }

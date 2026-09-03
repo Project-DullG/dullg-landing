@@ -6,6 +6,8 @@ import { Footer, Header, Kicker } from "@/components/site";
 import { educationFacts } from "@/lib/education";
 import { getWorkStatus, homeFeaturedWorks } from "@/lib/works";
 
+export const revalidate = 3600;
+
 export default function Home() {
   return (
     <main className="brand-home" id="main-content">

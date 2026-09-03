@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description: "단서공방(ProjectDullG)이 공개한 머더미스터리 작품과 텀블벅 펀딩 기록을 소개합니다.",
 };
 
+export const revalidate = 3600;
+
 export default function WorksPage() {
   const currentFunding = getFundingProject("projectdg2");
   const live = getFundingStatus(currentFunding) === "진행 중";

@@ -14,36 +14,24 @@ export const curriculum = [
   { session: "04", title: "사건을 보고하다", label: "TELL THE STORY", body: "최종 판단과 두 가지 근거를 영어 문장으로 정리해 팀 사건 보고서를 완성합니다.", output: "팀 보고서 · 개인 영작" },
 ] as const;
 
-export type MaterialLink = {
-  title: string;
-  body: string;
-  href: string;
-  download?: boolean;
-};
-
 export type CourseMaterial = {
   title: string;
   meta: string;
-  files: MaterialLink[];
+  description: string;
+  href: string;
 };
 
 export const courseMaterials: CourseMaterial[] = [
   {
     title: "울릉고 리빙랩 특강",
     meta: "울릉고등학교 · 2026년 9월 5일",
-    files: [
-      { title: "특강 발표자료", body: `${ulleungPresentation.slides.length}쪽 · ${ulleungPresentation.updatedAt} 보강 · 바로 읽기`, href: ulleungPresentation.href },
-    ],
+    description: `발표자료 ${ulleungPresentation.slides.length}쪽`,
+    href: ulleungPresentation.href,
   },
   {
     title: "울릉군 생태관광 AI 교육",
     meta: "울릉군 · 2026년 4월 18일 · 울릉고등학교 전산실",
-    files: [
-      { title: "교육 자료", body: "수업 일정, 실습 순서, 예시 프롬프트와 준비 사항", href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/" },
-      { title: "수업 진행 페이지", body: "수업 시간에 따라 실습 내용을 확인하는 진행용 화면", href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/class.html" },
-      { title: "프롬프트 가이드", body: "프롬프트 작성 원리와 단계별 실습 안내", href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/prompt-guide.html" },
-      { title: "웹페이지 예시", body: "교육 중 제작한 울릉도 관광 웹페이지 예시", href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/example.html" },
-      { title: "보드게임 기획 도구", body: "울릉군 생태관광 소재를 보드게임 기획안으로 정리하는 실습 도구", href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/boardgame.html" },
-    ],
+    description: "AI 기초부터 관광 홍보 웹페이지 제작까지 · 7단계 실습",
+    href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/",
   },
 ];

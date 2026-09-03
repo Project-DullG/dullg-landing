@@ -20,28 +20,12 @@ export default function MaterialsPage() {
         </section>
 
         <section className="course-archive shell" aria-label="교육 과정별 자료">
-          {courseMaterials.map((course) => (
-            course.files.length === 1 && !course.files[0].download && course.files[0].href.startsWith("/") ?
-            <Link className="course-row" href={course.files[0].href} key={course.title}>
-              <span><strong>{course.title}</strong><small>{course.meta} · 발표자료</small></span>
-              <b>바로 읽기 <i aria-hidden="true">→</i></b>
-            </Link> :
-            <details className="course-row course-row-expandable" key={course.title}>
-              <summary>
-                <span><strong>{course.title}</strong><small>{course.meta}</small></span>
-                <b>자료 {course.files.length}개 <i aria-hidden="true">＋</i></b>
-              </summary>
-              <div className="course-files">
-                {course.files.map((item) => {
-                  const internal = item.href.startsWith("/") && !item.download;
-                  const content = <><span><strong>{item.title}</strong><small>{item.body}</small></span><b aria-hidden="true">{item.download ? "↓" : internal ? "→" : "↗"}</b></>;
-                  return internal
-                    ? <Link key={item.title} href={item.href}>{content}</Link>
-                    : <a key={item.title} href={item.href} target={item.download ? undefined : "_blank"} rel="noopener noreferrer" download={item.download || undefined}>{content}</a>;
-                })}
-              </div>
-            </details>
-          ))}
+          {courseMaterials.map((course) => {
+            const content = <><span><strong>{course.title}</strong><small>{course.meta}</small><small>{course.description}</small></span><b>바로 읽기 <i aria-hidden="true">→</i></b></>;
+            return course.href.startsWith("/")
+              ? <Link className="course-row" href={course.href} key={course.title}>{content}</Link>
+              : <a className="course-row" href={course.href} key={course.title}>{content}</a>;
+          })}
         </section>
 
         <section className="materials-help shell">

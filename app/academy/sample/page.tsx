@@ -145,7 +145,7 @@ export default function SamplePage() {
           <li>교사용 진행안 샘플</li>
           <li>수업 운영 체크리스트</li>
         </ul>
-        <ArrowButton href="/#apply">무료 검토팩 요청</ArrowButton>
+        <ArrowButton>무료 검토팩 요청</ArrowButton>
       </section>
     </PageFrame>
   );

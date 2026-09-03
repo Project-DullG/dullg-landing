@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Kicker, PageFrame } from "../../components/site";
+import { Kicker, PageFrame } from "@/components/site";
 import { pageMetadata } from "@/lib/metadata";
 import { BRAND, emailHref } from "@/lib/site-config";
 
@@ -14,8 +14,7 @@ const sections = [
       <>
         <p>샘플 자료 요청과 파일럿 문의를 처리하기 위해 다음 정보를 받습니다.</p>
         <ul>
-          <li>필수: 기관명, 담당자 이름, 연락처 또는 이메일, 관심 유형</li>
-          <li>선택: 예상 학생 수, 전달하고 싶은 내용</li>
+          <li>필수: 기관명, 연락처(휴대전화 또는 이메일), 관심 유형, 개인정보 수집·이용 동의</li>
         </ul>
       </>
     ),
@@ -47,7 +46,7 @@ const sections = [
       <p>
         신청 내용은 이메일 전달을 위해 FormSubmit 서비스를 통해 전송되며,
         웹사이트는 Vercel을 통해 제공됩니다. 이 과정에서 서비스 운영을 위한
-        서버를 경유할 수 있습니다. DullG는 신청 정보를 판매하거나 광고
+        서버를 경유할 수 있습니다. 단서공방은 신청 정보를 판매하거나 광고
         목적으로 제3자에게 제공하지 않습니다.
       </p>
     ),
@@ -69,14 +68,14 @@ export default function PrivacyPage() {
   return (
     <PageFrame>
       <section className="privacy-hero shell">
-        <Kicker>PRIVACY · DULLG PILOT</Kicker>
+        <Kicker>개인정보 처리 안내</Kicker>
         <h1>
           개인정보를 필요한 만큼만 받고,
           <br />
           <em>요청한 목적에만 사용합니다.</em>
         </h1>
         <p>
-          이 안내는 DullG 샘플 자료 요청 및 파일럿 문의 과정에서 처리하는
+          이 안내는 단서공방 샘플 자료 요청 및 파일럿 문의 과정에서 처리하는
           개인정보에 적용됩니다.
         </p>
       </section>
@@ -85,6 +84,8 @@ export default function PrivacyPage() {
         <div className="privacy-summary">
           <strong>시행일</strong>
           <span>2026년 7월 26일</span>
+          <strong>최근 수정</strong>
+          <span>2026년 9월 3일</span>
           <strong>문의</strong>
           <a href={emailHref}>{BRAND.email}</a>
         </div>
@@ -108,8 +109,8 @@ export default function PrivacyPage() {
         </div>
 
         <div className="privacy-actions">
-          <Link className="button button-dark" href="/#apply">
-            샘플 요청으로 돌아가기
+          <Link className="button button-dark" href="/academy/pilot">
+            검토팩 요청으로 돌아가기
           </Link>
           <Link href="/contact">일반 문의 보기</Link>
         </div>

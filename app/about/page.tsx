@@ -145,7 +145,7 @@ export default function AboutPage() {
               파일럿에서는 운영 가능성과 학생 결과물을 확인할 예정입니다.
             </p>
             <div className="about-now-actions">
-              <ArrowButton light href="/#apply">무료 검토팩 요청</ArrowButton>
+              <ArrowButton light>무료 검토팩 요청</ArrowButton>
               <Link className="text-link-light" href="/activity">
                 활동 기록 보기 →
               </Link>

@@ -34,6 +34,11 @@ export function FormSection() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
+    if (data.get("_honey")) {
+      setState("success");
+      return;
+    }
+
     // 클라이언트 유효성 검사
     const requiredFields: [string, string][] = [
       ["academy", "기관명을 입력해주세요."],
@@ -107,6 +112,13 @@ export function FormSection() {
           추가 문의:{" "}
           <a href={emailHref}>{BRAND.email}</a>
         </p>
+        <button
+          type="button"
+          className="button button-light"
+          onClick={() => setState("idle")}
+        >
+          다른 요청 보내기
+        </button>
       </div>
     );
   }
@@ -119,6 +131,14 @@ export function FormSection() {
       noValidate
       aria-label="무료 검토팩 요청 양식"
     >
+      <input
+        type="text"
+        name="_honey"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: -9999, opacity: 0 }}
+      />
       <h3>무료 검토팩 요청</h3>
       <p className="apply-form-intro">
         구매나 파일럿 참여 의무가 없습니다. 영업일 기준 1~2일 내

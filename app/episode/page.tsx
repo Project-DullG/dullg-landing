@@ -155,7 +155,7 @@ export default function EpisodePage() {
           </p>
         </div>
         <div className="ep-cta-actions">
-          <ArrowButton href="/#apply">무료 검토팩 요청</ArrowButton>
+          <ArrowButton>무료 검토팩 요청</ArrowButton>
           <Link className="text-link" href="/academy/sample">자료 미리 보기 →</Link>
         </div>
       </section>

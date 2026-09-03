@@ -63,10 +63,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="brand-contact" id="apply">
+        <section className="brand-contact" id="apply" aria-labelledby="brand-contact-title">
           <div className="shell brand-contact-inner">
-            <div><Kicker>문의</Kicker><h2>작품과 교육에 관한<br />이야기를 기다립니다.</h2></div>
-            <div><p>협업, 작품과 수업 자료에 관한 문의를 공식 이메일로 보내주세요.</p><Link className="button button-dark" href="/contact">문의하기 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link></div>
+            <div>
+              <Kicker>검토팩 요청</Kicker>
+              <h2 id="brand-contact-title">자료를 먼저 보고<br />판단하세요.</h2>
+            </div>
+            <div>
+              <p>무료 검토팩을 보내드립니다. 구매나 파일럿 참여 의무는 없습니다. 작품과 협업 문의는 이메일로 받습니다.</p>
+              <div className="brand-hero-actions">
+                <Link className="button button-dark" href="/academy/pilot">무료 검토팩 요청 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
+                <Link href="/contact">일반 문의 <ArrowRight size={17} weight="bold" aria-hidden="true" /></Link>
+              </div>
+            </div>
           </div>
         </section>
       </main>

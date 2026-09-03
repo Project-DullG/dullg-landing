@@ -1,3 +1,5 @@
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
 import { pageMetadata } from "@/lib/metadata";
 import { BRAND, emailHref } from "@/lib/site-config";
@@ -34,6 +36,10 @@ export default function ContactPage() {
             이메일 제목에 문의 유형과 이름을 간단히 적어주시면 더 빠르게
             확인할 수 있습니다.
           </p>
+          <p className="contact-response">{BRAND.responseTime}</p>
+          <Link className="button button-dark" href="/academy/pilot">
+            무료 검토팩 요청 <ArrowRight size={17} weight="bold" aria-hidden="true" />
+          </Link>
         </div>
 
         <div className="contact-what-to-include">

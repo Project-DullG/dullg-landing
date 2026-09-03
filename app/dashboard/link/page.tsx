@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { linkStudentAction } from "@/app/actions/auth";
+import { linkStudentAction, logoutAction } from "@/app/actions/auth";
 
 export default function LinkStudentPage() {
   const [academyId, setAcademyId] = useState("");
@@ -32,6 +32,10 @@ export default function LinkStudentPage() {
           {loading ? "연결 중..." : "계정 연결"}
         </button>
         {error && <p className="dash-error">{error}</p>}
+      </form>
+      <form action={logoutAction} className="dash-onboarding-footer">
+        <span>원장님이신가요? 권한 부여 후 다시 로그인하세요.</span>
+        <button type="submit" className="dash-text-button">로그아웃</button>
       </form>
     </div>
   );

@@ -8,6 +8,8 @@ import { FieldValue } from "firebase-admin/firestore";
 export async function createAcademy(name: string) {
   const session = await verifySession();
   if (!session || session.role !== "owner") throw new Error("권한이 없습니다.");
+  // Already has an academy — never create a duplicate.
+  if (session.academyId) redirect("/dashboard");
 
   const ref = await getAdminDb().collection("academies").add({
     name,

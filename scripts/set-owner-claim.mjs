@@ -8,7 +8,20 @@ import { readFileSync } from "fs";
 // Parse .env.local
 const envFile = readFileSync(".env.local", "utf-8");
 const env = Object.fromEntries(
-  envFile.split("\n").filter((l) => l && !l.startsWith("#")).map((l) => l.split("=").map((s) => s.trim()))
+  envFile
+    .split("\n")
+    .filter((l) => l.trim() && !l.startsWith("#"))
+    .map((l) => {
+      // Split on the first "=" only — base64 keys contain "=" padding.
+      const i = l.indexOf("=");
+      const key = l.slice(0, i).trim();
+      let value = l.slice(i + 1).trim();
+      // Strip surrounding quotes as dotenv does.
+      if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+        value = value.slice(1, -1);
+      }
+      return [key, value];
+    })
 );
 
 const app = initializeApp({

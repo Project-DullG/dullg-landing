@@ -1,15 +1,16 @@
 # Firebase 대시보드 — 보완 작업 목록
 
-> 현재 상태: UI 완성, 실제 동작은 "준비 중" 다이얼로그로 차단됨
+> 현재 상태 (2026-09-03): 프로젝트 `cluedullg-web` 생성됨, 로그인 페이지는 실제 Google 로그인으로 교체됨.
+> 남은 것: `.env.local` 값 채우기, Google 로그인/Firestore 활성화, 규칙·인덱스 배포, 원장 권한 부여.
 
 ---
 
 ## 1. Firebase 프로젝트 설정
 
-- [ ] [Firebase Console](https://console.firebase.google.com)에서 프로젝트 생성
-- [ ] Authentication → Sign-in method → Google 활성화
-- [ ] Firestore Database 생성 (production mode)
-- [ ] 프로젝트 설정 → 일반 → 웹 앱 추가 → config 값 복사
+- [x] [Firebase Console](https://console.firebase.google.com/project/cluedullg-web/overview?hl=ko)에서 프로젝트 생성 → `cluedullg-web`
+- [ ] Authentication → 시작하기 → Sign-in method → Google 활성화 (콘솔에서만 가능)
+- [x] Firestore Database 생성 — `(default)`, asia-northeast3 (2026-09-03)
+- [x] 웹 앱 `DullG Web` 등록, `.env.local` 채움 (2026-09-03)
 
 ## 2. 환경 변수 설정
 
@@ -19,7 +20,16 @@
 cp .env.local.example .env.local
 ```
 
-필요한 값:
+빠르게 채우는 방법 (Firebase CLI 로그인 필요, `firebase login`):
+
+```bash
+# 웹 앱 config → NEXT_PUBLIC_FIREBASE_* (웹 앱이 없으면 firebase apps:create web dullg-web 먼저)
+firebase apps:sdkconfig web --json > /tmp/web.json
+# 서비스 계정 키: Console → 프로젝트 설정 → 서비스 계정 → 새 비공개 키 생성 → JSON 다운로드
+node scripts/setup-env.mjs ~/Downloads/cluedullg-web-firebase-adminsdk-*.json --web /tmp/web.json
+```
+
+수동으로 채울 때:
 - `NEXT_PUBLIC_FIREBASE_*` — Firebase Console → 프로젝트 설정 → 일반 → 웹 앱
 - `FIREBASE_ADMIN_*` — Firebase Console → 프로젝트 설정 → 서비스 계정 → 새 비공개 키 생성
 
@@ -32,24 +42,8 @@ vercel env add FIREBASE_ADMIN_PROJECT_ID
 
 ## 3. 로그인 페이지 활성화
 
-`app/login/page.tsx`에서 다이얼로그 코드를 실제 Firebase Auth 로직으로 교체:
-
-```tsx
-// 현재: 다이얼로그 표시
-onClick={() => setShowDialog(true)}
-
-// 변경: 실제 Google 로그인
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { getClientAuth } from "@/lib/firebase/config";
-import { loginAction } from "@/app/actions/auth";
-
-async function handleGoogleLogin() {
-  const provider = new GoogleAuthProvider();
-  const result = await signInWithPopup(getClientAuth(), provider);
-  const idToken = await result.user.getIdToken();
-  await loginAction(idToken);
-}
-```
+- [x] `app/login/page.tsx`가 `signInWithPopup` + `loginAction`으로 동작함 (2026-09-03)
+- [ ] 배포 도메인을 Authentication → Settings → 승인된 도메인에 추가 (localhost는 기본 포함)
 
 ## 4. 원장 권한 설정
 
@@ -63,20 +57,22 @@ UID 확인 방법: Firebase Console → Authentication → Users → UID 열
 
 ## 5. Firestore 보안 규칙 배포
 
-`firestore.rules` 파일을 Firebase Console에 적용:
-- 방법 A: Firebase Console → Firestore → Rules → 붙여넣기 → 게시
-- 방법 B:
-  ```bash
-  npm install -g firebase-tools
-  firebase login
-  firebase deploy --only firestore:rules
-  ```
+- [x] 규칙·인덱스 배포 완료 (2026-09-03)
+
+`firebase.json` / `.firebaserc`가 `cluedullg-web`을 가리키므로 한 번에 배포:
+
+```bash
+firebase deploy --only firestore:rules,firestore:indexes
+```
+
+(콘솔에서 직접 붙여넣어도 됨: Firestore → Rules → 게시)
 
 ## 6. Firestore 인덱스 생성
 
-다음 복합 인덱스가 필요할 수 있음 (쿼리 시 자동 에러 링크 제공):
-- `grades`: `studentId` (ASC) + `date` (DESC)
-- `students`: `classId` (ASC) + `createdAt` (DESC)
+`firestore.indexes.json`에 정의됨 — 위 명령으로 함께 배포:
+- `grades`: `studentId` (ASC) + `date` (DESC) — `where(studentId) + orderBy(date desc)` 쿼리용
+
+`students`의 `classId ==`, `name == && userId ==` 는 등호 전용이라 복합 인덱스 불필요.
 
 ## 7. 추가 보완 사항
 

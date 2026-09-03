@@ -1,0 +1,198 @@
+/*  MATERIALS PAGE  */
+.library-hero {
+  padding-top: 108px;
+  padding-bottom: 82px;
+  border-bottom: 1px solid var(--line);
+}
+.library-hero h1 {
+  margin: 14px 0 24px;
+  font-size: clamp(42px, 5.3vw, 68px);
+  line-height: 1.16;
+  letter-spacing: -0.055em;
+}
+.library-hero > p {
+  max-width: 610px;
+  margin: 0;
+  color: rgba(21, 37, 30, 0.68);
+  font-size: 16px;
+  line-height: 1.82;
+}
+@media (max-width: 760px) {
+  .library-hero {
+    padding-top: 66px;
+    padding-bottom: 52px;
+  }
+  .library-hero h1 {
+    font-size: clamp(36px, 10vw, 44px);
+  }
+}
+.materials-page .library-hero {
+  min-height: 560px;
+  padding: 116px 0 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 0;
+}
+.materials-page .library-hero h1 {
+  margin: 20px 0 26px;
+  font-size: clamp(52px, 6.5vw, 80px);
+  line-height: 1.1;
+  letter-spacing: -0.065em;
+}
+.materials-page .library-hero > p {
+  max-width: 650px;
+  color: #666b67;
+  font-size: 16px;
+  line-height: 1.8;
+}
+@media (max-width: 760px) {
+  .materials-page .library-hero {
+    min-height: auto;
+    padding: 76px 0 70px;
+  }
+  .materials-page .library-hero h1 {
+    font-size: clamp(40px, 11vw, 52px);
+  }
+  .materials-page .library-hero > p {
+    font-size: 15px;
+  }
+}
+html body .materials-page .library-hero {
+  min-height: auto;
+  padding: 82px 0 66px;
+  display: block;
+  text-align: left;
+  border: 0;
+}
+html body .materials-page .library-hero h1 {
+  max-width: 760px;
+  margin: 14px 0 18px;
+  font-size: clamp(42px, 5vw, 60px);
+  line-height: 1.15;
+  letter-spacing: -0.06em;
+}
+html body .materials-page .library-hero > p {
+  max-width: 630px;
+  margin: 0;
+  color: #666b67;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.course-archive {
+  margin-bottom: 110px;
+  border-top: 1px solid #171917;
+}
+.course-row {
+  width: 100%;
+  min-height: 104px;
+  padding: 25px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  border-bottom: 1px solid #e7e9e6;
+  color: var(--ink);
+  text-decoration: none;
+}
+.course-row > span,
+.course-row summary > span {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.course-row strong {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.course-row small {
+  color: #8a8f8b;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.course-row > b,
+.course-row summary > b {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 0 0 auto;
+  color: #8a8f8b;
+  font-size: 12px;
+  font-weight: 500;
+}
+.course-row b i {
+  color: #313531;
+  font-size: 16px;
+  font-style: normal;
+}
+.materials-help {
+  margin-bottom: 104px;
+  padding: 42px 0;
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 18px 72px;
+  border-top: 1px solid #171917;
+}
+.materials-help h2 {
+  grid-row: 1/3;
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: -0.04em;
+}
+.materials-help p {
+  margin: 0;
+  color: #6c716d;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.materials-help a {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (max-width: 760px) {
+  html body .materials-page .library-hero {
+    padding: 64px 0 52px;
+  }
+  html body .materials-page .library-hero h1 {
+    font-size: 40px;
+  }
+  .course-archive {
+    margin-bottom: 72px;
+  }
+  .course-row {
+    min-height: 94px;
+    padding: 22px 0;
+    gap: 16px;
+  }
+  .course-row strong {
+    font-size: 16px;
+  }
+  .course-row small {
+    font-size: 12px;
+  }
+  .course-row > b,
+  .course-row summary > b {
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .materials-help {
+    margin-bottom: 70px;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .materials-help h2 {
+    grid-row: auto;
+  }
+  .materials-help a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}

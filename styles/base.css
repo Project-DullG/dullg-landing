@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/*  RESET & BASE TYPOGRAPHY  */
+html {
+  scroll-padding-top: 88px;
+}
+body {
+  overflow-x: clip;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+a,
+button,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 16px;
+  z-index: 300;
+  padding: 11px 16px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13px;
+  transform: translateY(-160%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+body {
+  background: var(--page);
+  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
+  letter-spacing: -0.018em;
+  text-rendering: optimizeLegibility;
+}
+body {
+  background: #fbfaf6;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *:before,
+  *:after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans), sans-serif;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+blockquote {
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.2;
+  letter-spacing: -0.06em;
+  margin: 35px auto 25px;
+}
+blockquote em {
+  font-family: var(--font-playfair);
+  font-weight: 500;
+  color: var(--orange);
+}
+body {
+  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
+}
+body {
+  font-family: var(--font-noto-sans), var(--font-sans), sans-serif;
+  text-rendering: optimizeLegibility;
+}
+body {
+  background: var(--cream);
+  color: var(--ink);
+}
+html body {
+  background: var(--cream);
+  color: #151715;
+  font-family: var(--font-noto-sans), sans-serif;
+}
+html body h1 em,
+html body h2 em {
+  color: #5f6b65;
+}

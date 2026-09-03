@@ -43,3 +43,11 @@ next-env.d.ts
 
 # firebase cli
 firebase-debug.log
+
+# audits & build artifacts
+.design-audit/
+tsconfig.tsbuildinfo
+*-audit.png
+design-qa.md
+*-audit-*.md
+tmp/

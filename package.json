@@ -11,7 +11,10 @@
     "start": "next start",
     "test": "npm run build && node --test tests/*.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "shots": "node scripts/screenshot-public.mjs",
+    "shots:diff": "node scripts/screenshot-diff.mjs",
+    "css:dead": "node scripts/css-dead-classes.mjs"
   },
   "dependencies": {
     "@opentelemetry/api": "^1.9.1",
@@ -34,6 +37,9 @@
     "drizzle-kit": "0.31.10",
     "eslint": "9.39.4",
     "eslint-config-next": "^16.2.12",
+    "pixelmatch": "^6.0.0",
+    "playwright": "^1.49.1",
+    "pngjs": "^7.0.0",
     "react-server-dom-webpack": "19.2.6",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",

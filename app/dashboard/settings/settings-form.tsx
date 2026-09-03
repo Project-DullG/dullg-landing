@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { updateAcademy } from "@/app/actions/academy";
 
 export function SettingsForm({ academyId, currentName }: { academyId: string; currentName: string }) {
+  const router = useRouter();
   const [name, setName] = useState(currentName);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -17,6 +19,7 @@ export function SettingsForm({ academyId, currentName }: { academyId: string; cu
     try {
       await updateAcademy(academyId, name.trim());
       setSuccess(true);
+      router.refresh();
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "저장에 실패했습니다.");
     } finally {

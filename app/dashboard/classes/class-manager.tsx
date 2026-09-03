@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { addClass, updateClass, deleteClass } from "@/app/actions/classes";
 
 type ClassItem = { id: string; name: string };
@@ -12,6 +13,7 @@ export function ClassManager({
   classes: ClassItem[];
   classCounts: Record<string, number>;
 }) {
+  const router = useRouter();
   const [newName, setNewName] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editName, setEditName] = useState("");
@@ -23,6 +25,7 @@ export function ClassManager({
     try {
       await addClass(newName.trim());
       setNewName("");
+      router.refresh();
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "반 추가에 실패했습니다.");
     }
@@ -33,6 +36,7 @@ export function ClassManager({
     try {
       await updateClass(classId, editName.trim());
       setEditingId(null);
+      router.refresh();
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "수정에 실패했습니다.");
     }
@@ -42,6 +46,7 @@ export function ClassManager({
     setError(null);
     try {
       await deleteClass(classId);
+      router.refresh();
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "삭제에 실패했습니다.");
     }

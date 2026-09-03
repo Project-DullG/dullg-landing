@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { addStudent, updateStudent } from "@/app/actions/students";
 import type { StudentData } from "@/lib/validators";
 
@@ -11,6 +12,7 @@ type Props = {
 };
 
 export function StudentForm({ classes, student, onDone }: Props) {
+  const router = useRouter();
   const [name, setName] = useState(student?.name || "");
   const [grade, setGrade] = useState(student?.grade?.toString() || "");
   const [parentContact, setParentContact] = useState(student?.parentContact || "");
@@ -35,7 +37,12 @@ export function StudentForm({ classes, student, onDone }: Props) {
         await updateStudent(student.id, data);
       } else {
         await addStudent(data);
+        setName("");
+        setGrade("");
+        setParentContact("");
+        setClassId("");
       }
+      router.refresh();
       onDone?.();
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "저장에 실패했습니다.");

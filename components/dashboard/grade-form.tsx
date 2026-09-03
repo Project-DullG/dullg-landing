@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { addGrade } from "@/app/actions/grades";
 import type { GradeData } from "@/lib/validators";
 
@@ -9,6 +10,7 @@ type Props = {
 };
 
 export function GradeForm({ students }: Props) {
+  const router = useRouter();
   const [type, setType] = useState<"dullg" | "exam">("dullg");
   const [studentId, setStudentId] = useState("");
   const [session, setSession] = useState("1");
@@ -54,6 +56,9 @@ export function GradeForm({ students }: Props) {
       setSuccess(true);
       setScore("");
       setNote("");
+      setSubject("");
+      setExamName("");
+      router.refresh();
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "성적 입력에 실패했습니다.");
     } finally {

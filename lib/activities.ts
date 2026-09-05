@@ -8,6 +8,7 @@ export type ActivityRecord = {
   body: string;
   href: string;
   ongoing?: boolean;
+  image?: { src: string; alt: string };
 };
 
 const dg0 = getFundingProject("projectdg0");
@@ -20,6 +21,10 @@ export const activityRecords: ActivityRecord[] = [
     title: "울릉고 리빙랩 특강",
     body: "울릉도 소재를 게임 기획 활동으로 바꾸는 특강과 공개 자료를 기록했습니다.",
     href: "/activity/ulleung-high-living-lab",
+    image: {
+      src: "/assets/activities/ulleung-high-2026-09-05-workshop.jpg",
+      alt: "얼굴을 흐림 처리한 울릉고 특강 참여자들의 모둠 활동",
+    },
   },
   {
     date: "2026-07-04",
@@ -27,6 +32,10 @@ export const activityRecords: ActivityRecord[] = [
     title: "울릉군 생태관광 AI 교육",
     body: "관광 자원을 정리하고 AI를 활용해 홍보 문구와 웹페이지를 완성한 교육을 진행했습니다.",
     href: "/activity/ulleung-ecotourism-ai",
+    image: {
+      src: "/assets/activities/ulleung-ecotourism-ai-2026-07-04-class.jpg",
+      alt: "얼굴을 흐림 처리한 울릉군 생태관광 AI 교육 참여자들의 실습",
+    },
   },
   {
     date: "2026-07-01",

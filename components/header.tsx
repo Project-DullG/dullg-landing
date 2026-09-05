@@ -92,7 +92,12 @@ export function Header() {
       >
         <div className="shell">
           {primaryNavigation.map((link) => (
-            <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)}>
+            <Link
+              key={link.href}
+              href={link.href}
+              aria-current={isActive(link.href) ? "page" : undefined}
+              onClick={() => setIsOpen(false)}
+            >
               {link.label}
             </Link>
           ))}

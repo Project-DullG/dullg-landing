@@ -673,8 +673,13 @@ html body .brand-name small {
   font-weight: 500;
 }
 html body .site-header .nav-links {
-  gap: 26px;
+  gap: clamp(12px, 1.8vw, 26px);
   font-size: 14px;
+  white-space: nowrap;
+}
+@media (min-width: 901px) and (max-width: 1100px) {
+  .nav-actions .nav-login { display: none; }
+  .site-header .brand-name small { display: none; }
 }
 html body .site-header .nav-cta {
   min-height: 40px;

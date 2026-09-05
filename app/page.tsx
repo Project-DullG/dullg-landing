@@ -7,6 +7,8 @@ import { SectionHead } from "@/components/section-head";
 import { educationFacts } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 import { getWorkStatus, homeFeaturedWorks } from "@/lib/works";
+import { activityRecords, formatActivityDate } from "@/lib/activities";
+import activityStyles from "@/components/home-activities.module.css";
 
 export const metadata = pageMetadata("/", {
   absoluteTitle: "단서공방 | 영어 미스터리 수업과 추리 콘텐츠",
@@ -68,6 +70,34 @@ export default function Home() {
                   {getWorkStatus(work)} · {work.players} · {work.duration}
                 </span>
                 <h3>{work.title}</h3>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className={`shell ${activityStyles.section}`} aria-labelledby="home-activity-title">
+          <div className="brand-section-head">
+            <div>
+              <Kicker>활동 기록</Kicker>
+              <h2 id="home-activity-title">최근 교육 현장</h2>
+            </div>
+            <Link href="/activity">
+              제작·활동 기록 전체 보기 <ArrowRight size={17} aria-hidden="true" />
+            </Link>
+          </div>
+          <div className={activityStyles.grid}>
+            {activityRecords.filter((record) => record.image).slice(0, 2).map((record) => (
+              <Link className={activityStyles.item} href={record.href} key={record.href}>
+                <Image
+                  src={record.image!.src}
+                  alt={record.image!.alt}
+                  width={1448}
+                  height={1086}
+                  sizes="(max-width: 760px) 100vw, 50vw"
+                />
+                <time dateTime={record.date}>{formatActivityDate(record)} · {record.type}</time>
+                <h3>{record.title}</h3>
+                <span>수업 내용과 현장 사진 <ArrowRight size={17} aria-hidden="true" /></span>
               </Link>
             ))}
           </div>

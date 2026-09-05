@@ -56,7 +56,7 @@ test("renders detailed product routes with working navigation targets", async ()
   assert.match(materials, /울릉고 리빙랩 특강/);
   assert.match(materials, /2026년 9월 5일/);
   assert.match(materials, /울릉군 생태관광 AI 교육/);
-  assert.match(materials, /2026년 4월 18일/);
+  assert.match(materials, /2026년 7월 4일/);
   assert.match(materials, /href="\/materials\/ulleung-high-living-lab"/);
   assert.match(workDetail, /뱀이 죽은 축제/);
   assert.match(workDetail, /4인/);

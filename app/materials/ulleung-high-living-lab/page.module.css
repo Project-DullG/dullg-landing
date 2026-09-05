@@ -4,5 +4,10 @@
 .header p, .note { color: #626b65; font-size: 14px; line-height: 1.75; }
 .header h1 { margin: 8px 0; font-size: clamp(24px, 3vw, 36px); line-height: 1.45; word-break: keep-all; }
 .header a { display: inline-flex; align-items: center; min-height: 44px; flex-shrink: 0; font-size: 14px; text-decoration: underline; }
-.note { border-top: 1px solid #e3e6e3; padding-top: 24px; }
+.intro { max-width: 760px; margin-top: 56px; }
+.intro h2 { margin: 0 0 16px; font-size: clamp(22px, 2.5vw, 30px); line-height: 1.4; word-break: keep-all; }
+.intro p { margin: 0; color: #3f4742; font-size: 17px; line-height: 1.8; word-break: keep-all; }
+.intro a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 20px; font-weight: 650; }
+.activityLink { display: inline-flex; align-items: center; min-height: 44px; margin-top: 40px; font-size: 15px; font-weight: 650; }
+.note { margin-top: 48px; border-top: 1px solid #e3e6e3; padding-top: 24px; }
 @media (max-width: 760px) { .header { align-items: start; flex-direction: column; gap: 4px; } }

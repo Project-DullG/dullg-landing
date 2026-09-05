@@ -1,5 +1,6 @@
 import { ArrowLeft, DownloadSimple } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
+import { ActivityPhotoGallery } from "@/components/activity-photo-gallery";
 import { Kicker, PageFrame } from "@/components/site";
 import { pageMetadata } from "@/lib/metadata";
 import { ulleungPresentation } from "@/lib/presentations";
@@ -71,6 +72,23 @@ export default function UlleungHighLivingLabPage() {
             </div>
           </div>
         </section>
+
+        <div className="shell">
+          <ActivityPhotoGallery
+            photos={[
+              {
+                src: "/assets/activities/ulleung-high-2026-09-05-class.jpg",
+                alt: "울릉고 교실에서 AI 활용 지역 콘텐츠 제작 수업을 준비하는 모습",
+                caption: "AI 활용 지역 콘텐츠 제작 프로젝트 수업 현장",
+              },
+              {
+                src: "/assets/activities/ulleung-high-2026-09-05-workshop.jpg",
+                alt: "울릉고 학생들이 모둠별로 머더미스터리 활동을 진행하는 모습",
+                caption: "모둠별 게임 체험과 콘텐츠 기획 활동",
+              },
+            ]}
+          />
+        </div>
 
         <nav className="activity-case-nav shell" aria-label="활동 기록 이동">
           <Link href="/activity">

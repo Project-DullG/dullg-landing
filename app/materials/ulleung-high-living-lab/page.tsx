@@ -26,6 +26,9 @@ export default function PresentationPage() {
           </a>
         </header>
         <PresentationViewer slides={presentation.slides} />
+        <Link className={styles.activityLink} href="/activity/ulleung-high-living-lab">
+          수업 내용과 현장 사진 보기 →
+        </Link>
         <p className={styles.note}>
           {presentation.updatedAt} 보강 자료입니다. 울릉군 생태관광 AI 교육과 별개의 수업 자료이며,
           발표자료에 담긴 모집 일정과 조건은 공식 공고를 확인해 주세요.

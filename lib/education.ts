@@ -58,8 +58,8 @@ export const courseMaterials: CourseMaterial[] = [
   },
   {
     title: "울릉군 생태관광 AI 교육",
-    meta: "울릉군 · 2026년 4월 18일 · 울릉고등학교 전산실",
-    description: "AI 기초부터 관광 홍보 웹페이지 제작까지 · 7단계 실습",
-    href: "https://kanghoon1204.github.io/ulleung-ecotourism-edu/",
+    meta: "울릉군 · 2026년 7월 4일 · 울릉고등학교 전산실",
+    description: "AI 기초부터 관광 홍보 웹페이지 제작까지 · 수업 자료와 현장 기록",
+    href: "/materials/ulleung-ecotourism-ai",
   },
 ];

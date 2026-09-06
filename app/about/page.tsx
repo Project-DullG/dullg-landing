@@ -13,18 +13,24 @@ export const metadata = pageMetadata("/about", {
 const beliefs = [
   {
     num: "01",
-    title: "설정보다 행동이 먼저 보여야 합니다",
-    body: "인물의 설명을 길게 늘어놓지 않습니다. 플레이어가 선택하고 질문하는 과정에서 성격과 관계를 알 수 있게 만듭니다.",
+    title: "머더미스터리 제작과 펀딩",
+    body: "뱀이 죽은 축제를 시작으로 레드가 죽은 연구소, 미식의 대가, 의사가 너무 많아!를 텀블벅 프로젝트로 공개했습니다.",
+    href: "/works",
+    label: "작품과 펀딩 기록 보기",
   },
   {
     num: "02",
-    title: "단서에는 쓰임이 있어야 합니다",
-    body: "분위기만 만드는 정보는 줄입니다. 각 단서가 질문, 추론 또는 최종 판단으로 이어지는지 확인합니다.",
+    title: "울릉군 생태관광 AI 교육",
+    body: "2026년 7월 4일, 지역 관광 소재를 소개하는 문구와 웹페이지를 만드는 AI 실습 수업을 진행했습니다.",
+    href: "/activity/ulleung-ecotourism-ai",
+    label: "7월 수업 기록 보기",
   },
   {
     num: "03",
-    title: "완성 상태를 분명하게 밝힙니다",
-    body: "출시한 작품, 진행 중인 펀딩과 검토 중인 수업팩을 구분합니다. 계획을 이미 완성한 결과처럼 소개하지 않습니다.",
+    title: "울릉고 리빙랩 특강",
+    body: "2026년 9월 5일, 게임 체험과 AI 실습을 통해 울릉도 소재로 콘텐츠를 기획하는 수업을 진행했습니다.",
+    href: "/activity/ulleung-high-living-lab",
+    label: "9월 수업 기록 보기",
   },
 ];
 
@@ -57,12 +63,12 @@ export default function AboutPage() {
           kicker="단서공방 소개"
           title={
             <>
-              플레이 뒤에도
+              머더미스터리를 만들고,
               <br />
-              <em>기억에 남는 이야기를 만듭니다.</em>
+              <em>콘텐츠 제작 수업을 진행합니다.</em>
             </>
           }
-          lead="단서공방(ProjectDullG)은 머더미스터리 작품을 만들고 있습니다. 현재는 이 제작 방식을 활용한 영어 미스터리 수업팩도 준비하고 있습니다."
+          lead="단서공방(ProjectDullG)은 추리 게임을 기획·제작하고, 게임과 AI를 활용한 교육을 진행하는 콘텐츠 제작팀입니다."
         />
       </section>
 
@@ -76,15 +82,11 @@ export default function AboutPage() {
             sizes="(max-width: 760px) 82vw, 32vw"
             priority
           />
-          <figcaption>단서공방 소개 배너 · 제공 자료</figcaption>
+          <figcaption>ProjectDullG 소개 배너</figcaption>
         </figure>
         <div>
           <Kicker>ProjectDullG에서 단서공방으로</Kicker>
-          <h2 id="about-brand-title">
-            플레이 뒤에도 기억에 남는
-            <br />
-            이야기를 만듭니다.
-          </h2>
+          <h2 id="about-brand-title">단서공방을 소개합니다.</h2>
           <p>
             ProjectDullG라는 이름으로 시작해 머더미스터리 콘텐츠를 기획하고 제작해 왔습니다. 지금은
             한글 이름인 단서공방을 함께 사용하며 작품과 교육 콘텐츠를 소개합니다.
@@ -96,7 +98,7 @@ export default function AboutPage() {
             </div>
             <div>
               <dt>교육</dt>
-              <dd>프로젝트 수업용 실물 교육 키트</dd>
+              <dd>게임·AI 활용 수업 · 영어 미스터리 수업팩 준비</dd>
             </div>
             <div>
               <dt>공식 명칭</dt>
@@ -110,13 +112,7 @@ export default function AboutPage() {
         <SectionHead
           className="about-scope-head"
           kicker="하는 일"
-          title={
-            <>
-              이야기의 쓰임에 따라
-              <br />
-              <em>형태를 다르게 만듭니다.</em>
-            </>
-          }
+          title={<>작품 제작과 교육</>}
           lead="직접 플레이하는 작품, 교실에서 사용하는 수업팩과 지역 소재를 활용한 교육 프로그램을 각각의 목적에 맞춰 제작합니다."
         />
         <div className="about-scope-grid">
@@ -134,14 +130,8 @@ export default function AboutPage() {
       <section className="about-beliefs shell">
         <SectionHead
           className="about-beliefs-head"
-          kicker="제작 원칙"
-          title={
-            <>
-              공개하는 모든 작업의
-              <br />
-              <em>세 가지 기준</em>
-            </>
-          }
+          kicker="제작·교육 이력"
+          title={<>작품과 수업으로 소개합니다.</>}
         />
         <div className="belief-list">
           {beliefs.map((item) => (
@@ -151,6 +141,9 @@ export default function AboutPage() {
               </span>
               <h3>{item.title}</h3>
               <p>{item.body}</p>
+              <Link className="about-record-link" href={item.href}>
+                {item.label} →
+              </Link>
             </div>
           ))}
         </div>
@@ -182,9 +175,9 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="about-now-badge" aria-hidden="true">
-            <span>PILOT</span>
+            <span>수업팩</span>
             <b>2026</b>
-            <span>OPEN</span>
+            <span>준비 중</span>
           </div>
         </div>
       </section>

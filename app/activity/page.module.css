@@ -1,0 +1,60 @@
+.row.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  padding-block: 32px;
+}
+.row.withImage {
+  grid-template-columns: minmax(160px, 0.8fr) minmax(0, 1.2fr);
+}
+.row img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+}
+.copy {
+  min-width: 0;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: #626b65;
+  font-size: 14px;
+}
+.row .meta time {
+  font-size: 14px;
+}
+.copy strong {
+  display: block;
+  margin: 12px 0;
+  font-size: 22px;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.copy p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+.action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+.contact {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 16px;
+}
+@media (max-width: 760px) {
+  .row.withImage {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}

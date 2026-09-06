@@ -1,4 +1,12 @@
 /*  ABOUT PAGE  */
+.about-record-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
 .about-hero h1 {
   font-family: var(--font-noto-serif), serif;
   font-weight: 700;

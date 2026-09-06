@@ -49,7 +49,7 @@ test("renders detailed product routes with working navigation targets", async ()
   assert.match(activity, /제작·활동 기록/);
   assert.match(activity, /울릉고 리빙랩 특강/);
   assert.match(activity, /href="\/activity\/ulleung-high-living-lab"/);
-  assert.match(activity, /확인된 내용만 공개합니다/);
+  assert.match(activity, /href="\/activity\/ulleung-ecotourism-ai"/);
   assert.match(activityCase, /2026년 9월 5일/);
   assert.match(activityCase, /울릉군 생태관광 AI 교육과 별개의 수업 자료/);
   assert.match(activityCase, /ulleung-high-living-lab-2026\.pdf/);

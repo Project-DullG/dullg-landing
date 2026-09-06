@@ -19,7 +19,7 @@ export const activityRecords: ActivityRecord[] = [
     date: "2026-09-05",
     type: "교육",
     title: "울릉고 리빙랩 특강",
-    body: "울릉도 소재를 게임 기획 활동으로 바꾸는 특강과 공개 자료를 기록했습니다.",
+    body: "울릉고 학생들과 게임을 체험하고, AI를 활용해 지역 소재로 콘텐츠를 기획했습니다.",
     href: "/activity/ulleung-high-living-lab",
     image: {
       src: "/assets/activities/ulleung-high-2026-09-05-workshop.jpg",

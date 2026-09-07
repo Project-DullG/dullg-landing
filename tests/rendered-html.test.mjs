@@ -5,6 +5,18 @@ import test from "node:test";
 const routeHtml = (route) =>
   new URL(`../.next/server/app/${route}`, import.meta.url);
 
+test("separates studio history from the upcoming education product", async () => {
+  const about = await readFile(routeHtml("about.html"), "utf8");
+  const activity = await readFile(routeHtml("activity.html"), "utf8");
+  assert.match(about, /id="team-history"/);
+  assert.match(about, /울산 중구 청년디딤터 입주기업/);
+  assert.match(about, /https:\/\/www.didimter.or.kr\/bbs\/board.php\?bo_table=company/);
+  assert.match(about, /2025 RISE 창업경진대회 인기상/);
+  assert.match(about, /수업팩은 정식 출시 전입니다/);
+  assert.doesNotMatch(about, /현재 중심은 첫 번째/);
+  assert.match(activity, /href="\/about#team-history"/);
+});
+
 test("renders the brand portfolio path with real work and education evidence", async () => {
   const html = await readFile(routeHtml("index.html"), "utf8");
 

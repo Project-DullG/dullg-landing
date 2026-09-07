@@ -11,7 +11,7 @@ import { activityRecords, formatActivityDate } from "@/lib/activities";
 import activityStyles from "@/components/home-activities.module.css";
 
 export const metadata = pageMetadata("/", {
-  absoluteTitle: "단서공방 | 영어 미스터리 수업과 추리 콘텐츠",
+  absoluteTitle: "단서공방 | 머더미스터리 제작과 게임·AI 교육",
 });
 
 export const revalidate = 3600;
@@ -86,7 +86,7 @@ export default function Home() {
             </Link>
           </div>
           <div className={activityStyles.grid}>
-            {activityRecords.filter((record) => record.image).slice(0, 2).map((record) => (
+            {activityRecords.filter((record) => record.type === "교육" && record.image).slice(0, 2).map((record) => (
               <Link className={activityStyles.item} href={record.href} key={record.href}>
                 <Image
                   src={record.image!.src}

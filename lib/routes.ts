@@ -12,7 +12,7 @@ export const publicRoutes: PublicRoute[] = [
   {
     path: "/",
     title: "홈",
-    description: "단서공방의 작품과 영어 미스터리 수업팩을 소개합니다.",
+    description: "단서공방(ProjectDullG)의 머더미스터리 작품, 게임·AI 교육 현장과 제작 이력을 소개합니다.",
     group: "studio",
     priority: 1,
     changeFrequency: "weekly",
@@ -28,7 +28,7 @@ export const publicRoutes: PublicRoute[] = [
   {
     path: "/activity",
     title: "제작·활동 기록",
-    description: "확인된 제작 결과와 예정된 활동을 구분해 기록합니다.",
+    description: "단서공방의 교육 현장, 텀블벅 펀딩과 수상 기록을 확인합니다.",
     group: "studio",
     priority: 0.7,
     changeFrequency: "weekly",
@@ -52,7 +52,7 @@ export const publicRoutes: PublicRoute[] = [
   {
     path: "/about",
     title: "단서공방 소개",
-    description: "어떤 콘텐츠를 만들고 있는지 소개합니다.",
+    description: "덜지니어스에서 시작한 단서공방의 작품 제작·교육 활동, 청년디딤터 입주와 RISE 수상 이력을 소개합니다.",
     group: "studio",
     priority: 0.6,
     changeFrequency: "monthly",

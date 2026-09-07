@@ -7,10 +7,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { didimterResidency, riseAward } from "@/lib/recognition";
 import styles from "./recognition.module.css";
 
-export const metadata = pageMetadata("/about", {
-  description:
-    "머더미스터리 작품과 영어 미스터리 수업팩을 만드는 단서공방(ProjectDullG)을 소개합니다.",
-});
+export const metadata = pageMetadata("/about");
 
 const beliefs = [
   {
@@ -74,7 +71,7 @@ export default function AboutPage() {
         />
       </section>
 
-      <section className="about-brand shell" aria-labelledby="about-brand-title">
+      <section id="team-history" className="about-brand shell" aria-labelledby="about-brand-title">
         <figure>
           <Image
             src="/assets/brand/project-dullg-banner-top.webp"
@@ -206,19 +203,19 @@ export default function AboutPage() {
       <section className="about-now-dark">
         <div className="shell about-now-inner">
           <div className="about-now-copy">
-            <Kicker>현재 단계</Kicker>
+            <Kicker>준비 중 · 영어 미스터리 수업팩</Kicker>
             <h2>
-              첫 수업용 시제품과
+              영어 미스터리 수업팩의
               <br />
-              파일럿을 준비하고 있습니다.
+              파일럿을 준비합니다.
             </h2>
             <p>
-              현재 중심은 첫 번째 에피소드 <em>{episodeFullTitle}</em>를 초6 수준에서 검토할 수 있는
-              영어학원용 4차시 수업 시제품으로 다듬는 일입니다.
+              첫 번째 에피소드 <em>{episodeFullTitle}</em>를 초등학교 6학년 수준의
+              영어학원용 4차시 수업 자료로 개발하고 있습니다.
             </p>
             <p>
-              아직 정식 출시 전 단계입니다. 검토용 샘플을 먼저 공개하고, 파일럿에서는 운영 가능성과
-              학생 결과물을 확인할 예정입니다.
+              수업팩은 정식 출시 전입니다. 검토용 샘플을 공개하고 있으며, 파일럿 수업에서
+              진행 시간과 학생 결과물을 확인할 예정입니다.
             </p>
             <div className="about-now-actions">
               <ArrowButton light>무료 검토팩 요청</ArrowButton>

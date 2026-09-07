@@ -22,7 +22,12 @@ export default function ActivityPage() {
           kicker="제작·활동 기록"
           title={<>제작·활동 기록</>}
         />
-        <p>단서공방이 만든 작품과 진행한 수업을 소개합니다.</p>
+        <div>
+          <p>단서공방의 교육 현장, 펀딩과 수상 기록입니다.</p>
+          <Link className={styles.contact} href="/about#team-history">
+            팀 소개와 입주 이력 보기 →
+          </Link>
+        </div>
       </section>
 
       <section className="activity-ledger shell" aria-labelledby="activity-ledger-title">

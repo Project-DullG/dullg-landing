@@ -4,7 +4,7 @@ import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 import { SectionHead } from "@/components/section-head";
 import { episodeFullTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
-import { riseAward } from "@/lib/recognition";
+import { didimterResidency, riseAward } from "@/lib/recognition";
 import styles from "./recognition.module.css";
 
 export const metadata = pageMetadata("/about", {
@@ -114,6 +114,21 @@ export default function AboutPage() {
             <div>
               <dt>공식 명칭</dt>
               <dd>단서공방(ProjectDullG)</dd>
+            </div>
+            <div>
+              <dt>입주 이력</dt>
+              <dd>
+                {didimterResidency.title}
+                <br />
+                <a
+                  className="about-record-link"
+                  href={didimterResidency.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  공식 입주기업 소개 ↗
+                </a>
+              </dd>
             </div>
           </dl>
         </div>

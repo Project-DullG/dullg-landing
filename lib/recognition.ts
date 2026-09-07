@@ -1,3 +1,10 @@
+export const didimterResidency = {
+  title: "울산 중구 청년디딤터 입주기업",
+  registeredName: "Project DullG",
+  source: "https://www.didimter.or.kr/bbs/board.php?bo_table=company",
+  verifiedOn: "2026-09-07",
+};
+
 export const riseAward = {
   date: "2025-10-30",
   title: "2025 RISE 창업경진대회 인기상",

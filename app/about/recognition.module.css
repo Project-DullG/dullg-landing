@@ -1,0 +1,50 @@
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 64px;
+  padding-block: 48px;
+  border-block: 1px solid var(--line);
+}
+.section h2 {
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.4;
+  margin: 12px 0;
+}
+.section p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #626b65;
+}
+.section dl {
+  margin: 0;
+}
+.section dl div {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 16px;
+  padding: 12px 0;
+}
+.section dt {
+  color: #626b65;
+}
+.section dt,
+.section dd {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+  word-break: keep-all;
+}
+.section a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (max-width: 760px) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

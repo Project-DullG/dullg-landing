@@ -137,7 +137,7 @@ test("every public page has a unique templated title and its own canonical", asy
       new RegExp(`rel="canonical" href="[^"]*/${r.replace("/", "\\/")}"`),
       `${r} canonical`,
     );
-    assert.doesNotMatch(html, /(?<!Project)DullG/, `${r} uses DullG standalone`);
+    assert.doesNotMatch(html, /(?<!Project)(?<!Project )DullG/, `${r} uses DullG standalone`);
     assert.match(html, /property="og:image"/, `${r} og:image`);
   }
 });

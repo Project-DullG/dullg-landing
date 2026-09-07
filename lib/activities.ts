@@ -1,9 +1,10 @@
 import { getFundingProject, toKstDateString } from "./funding.ts";
+import { riseAward } from "./recognition.ts";
 
 export type ActivityRecord = {
   /** ISO date or ISO range "YYYY-MM-DD/YYYY-MM-DD" */
   date: string;
-  type: "펀딩" | "교육" | "제작";
+  type: "펀딩" | "교육" | "제작" | "수상";
   title: string;
   body: string;
   href: string;
@@ -51,6 +52,13 @@ export const activityRecords: ActivityRecord[] = [
     title: dg1.title,
     body: "레드가 죽은 연구소, 미식의 대가, 의사가 너무 많아!를 한 프로젝트로 공개했습니다.",
     href: dg1.url,
+  },
+  {
+    date: riseAward.date,
+    type: "수상",
+    title: riseAward.title,
+    body: `${riseAward.team}팀으로 참가해 ${riseAward.description}`,
+    href: riseAward.source,
   },
   {
     date: `${dg0.startsOn}/${dg0.endsOn}`,

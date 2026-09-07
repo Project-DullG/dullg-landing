@@ -4,6 +4,8 @@ import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 import { SectionHead } from "@/components/section-head";
 import { episodeFullTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
+import { riseAward } from "@/lib/recognition";
+import styles from "./recognition.module.css";
 
 export const metadata = pageMetadata("/about", {
   description:
@@ -88,9 +90,18 @@ export default function AboutPage() {
           <Kicker>ProjectDullG에서 단서공방으로</Kicker>
           <h2 id="about-brand-title">단서공방을 소개합니다.</h2>
           <p>
-            ProjectDullG라는 이름으로 시작해 머더미스터리 콘텐츠를 기획하고 제작해 왔습니다. 지금은
-            한글 이름인 단서공방을 함께 사용하며 작품과 교육 콘텐츠를 소개합니다.
+            한동대학교 보드게임 동아리 덜지니어스에서 시작한 팀입니다. ProjectDullG라는 이름으로
+            머더미스터리 콘텐츠를 기획하고 제작해 왔으며, 지금은 단서공방이라는 이름으로 작품과 교육
+            콘텐츠를 소개합니다.
           </p>
+          <a
+            className="about-record-link"
+            href="https://www.handong.edu/kor/camplife/stu-organ/club/physical/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            한동대학교 덜지니어스 소개 ↗
+          </a>
           <dl>
             <div>
               <dt>하는 일</dt>
@@ -105,6 +116,33 @@ export default function AboutPage() {
               <dd>단서공방(ProjectDullG)</dd>
             </div>
           </dl>
+        </div>
+      </section>
+
+      <section className={`shell ${styles.section}`} aria-labelledby="recognition-title">
+        <div>
+          <Kicker>수상 이력</Kicker>
+          <h2 id="recognition-title">{riseAward.title}</h2>
+          <p>{riseAward.description}</p>
+        </div>
+        <div>
+          <dl>
+            <div>
+              <dt>수상일</dt>
+              <dd>2025년 10월 30일</dd>
+            </div>
+            <div>
+              <dt>참가팀</dt>
+              <dd>{riseAward.team}</dd>
+            </div>
+            <div>
+              <dt>대회 주관</dt>
+              <dd>{riseAward.organizers}</dd>
+            </div>
+          </dl>
+          <a href={riseAward.source} target="_blank" rel="noopener noreferrer">
+            {riseAward.sourceLabel}에서 확인 ↗
+          </a>
         </div>
       </section>
 

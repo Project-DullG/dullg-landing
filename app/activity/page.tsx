@@ -56,7 +56,9 @@ export default function ActivityPage() {
                       ? "활동 내용과 사진 보기"
                       : record.type === "펀딩"
                         ? "텀블벅 기록 보기"
-                        : "수업팩 살펴보기"}
+                        : record.type === "수상"
+                          ? "대학 공식 수상 기록 보기"
+                          : "수업팩 살펴보기"}
                     <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
                   </span>
                 </div>

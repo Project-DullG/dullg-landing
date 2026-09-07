@@ -13,6 +13,15 @@ test("demo is reachable without login and clearly labels fictional records", asy
   assert.match(html, /noindex/);
 });
 
+test("home and academy lead directly to the demo", async () => {
+  for (const route of ["index", "academy"]) {
+    const html = await readFile(new URL(`../.next/server/app/${route}.html`, import.meta.url), "utf8");
+    assert.match(html, /href="\/demo"/);
+    assert.match(html, /로그인 없이 체험하기/);
+    assert.match(html, /class="dash-preview"/);
+  }
+});
+
 test("demo remains isolated from persistence and authenticated actions", async () => {
   const source = await readFile(new URL("../app/demo/academy-demo.tsx", import.meta.url), "utf8");
   assert.doesNotMatch(source, /firebase|fetch\(|localStorage|sessionStorage|app\/actions/);

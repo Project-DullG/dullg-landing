@@ -1,0 +1,21 @@
+.section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 48px;
+  align-items: center;
+  padding-block: 80px;
+}
+.copy { min-width: 0; }
+.copy h2 {
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.3;
+  margin: 14px 0 20px;
+  letter-spacing: -0.04em;
+}
+.copy p { font-size: 16px; line-height: 1.8; margin-bottom: 24px; color: #57605c; }
+.copy > span { display: block; font-size: 14px; line-height: 1.7; margin-top: 16px; color: #57605c; }
+.login { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
+.section > figure { min-width: 0; margin: 0; }
+@media (max-width: 900px) {
+  .section { grid-template-columns: 1fr; gap: 28px; padding-block: 48px; }
+}

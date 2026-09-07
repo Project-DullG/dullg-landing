@@ -9,6 +9,8 @@ import { pageMetadata } from "@/lib/metadata";
 import { getWorkStatus, homeFeaturedWorks } from "@/lib/works";
 import { activityRecords, formatActivityDate } from "@/lib/activities";
 import activityStyles from "@/components/home-activities.module.css";
+import { DashboardPreview } from "@/components/dashboard-preview";
+import toolsStyles from "./home-tools.module.css";
 
 export const metadata = pageMetadata("/", {
   absoluteTitle: "단서공방 | 머더미스터리 제작과 게임·AI 교육",
@@ -166,6 +168,20 @@ export default function Home() {
               </Link>
             </div>
           </div>
+        </section>
+
+        <section className={`shell ${toolsStyles.section}`} aria-labelledby="home-tools-title">
+          <div className={toolsStyles.copy}>
+            <Kicker>학원 관리 체험</Kicker>
+            <h2 id="home-tools-title">반별 조회부터<br />점수 입력까지</h2>
+            <p>가상 학생 데이터로 관리 화면을 살펴보세요. 반을 선택하고 점수를 바꾸면 평균에 바로 반영됩니다.</p>
+            <Link className="button button-dark" href="/demo">
+              로그인 없이 체험하기 <ArrowRight size={17} aria-hidden="true" />
+            </Link>
+            <span>예시 데이터만 사용하며 변경 내용은 저장되지 않습니다.</span>
+            <Link className={toolsStyles.login} href="/login">이미 계정이 있다면 로그인 →</Link>
+          </div>
+          <DashboardPreview />
         </section>
 
         <section className="brand-contact" id="apply" aria-labelledby="brand-contact-title">

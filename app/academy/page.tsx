@@ -175,8 +175,8 @@ export default function AcademyPage() {
               ))}
             </ul>
             <div className="academy-overview-actions">
-              <Link className="button button-dark" href="/academy/pilot">
-                무료 검토팩 요청 <ArrowRight size={17} weight="bold" aria-hidden="true" />
+              <Link className="button button-dark" href="/demo">
+                로그인 없이 체험하기 <ArrowRight size={17} weight="bold" aria-hidden="true" />
               </Link>
               <Link href="/login">
                 학원 관리 로그인 <ArrowRight size={17} weight="bold" aria-hidden="true" />

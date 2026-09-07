@@ -14,17 +14,24 @@ export function WorkLanding({ slug, title }: { slug: string; title: string }) {
           텀블벅 원문 ↗
         </a>
       </header>
+      <p className={styles.hint}>이미지를 누르면 새 탭에서 크게 볼 수 있습니다.</p>
       <div className={styles.images}>
         {landing.images.map((image, index) => (
-          <Image
+          <a
             key={image.src}
-            src={image.src}
-            width={image.width}
-            height={image.height}
-            sizes="(max-width: 900px) 100vw, 860px"
-            alt={`${title} 공식 소개 · 이야기와 등장인물, 게임 구성 (${index + 1}/${landing.images.length})`}
-            unoptimized
-          />
+            href={image.src}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${title} 소개 이미지 ${index + 1} 크게 보기 (새 탭)`}
+          >
+            <Image
+              src={image.src}
+              width={image.width}
+              height={image.height}
+              sizes="(max-width: 900px) 100vw, 860px"
+              alt={`${title} 공식 소개 · 이야기와 등장인물, 게임 구성 (${index + 1}/${landing.images.length})`}
+            />
+          </a>
         ))}
       </div>
       <footer className={styles.note}>

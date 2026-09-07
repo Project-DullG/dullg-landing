@@ -42,6 +42,13 @@ export default async function WorkDetailPage({ params }: Props) {
   return (
     <PageFrame>
       <article className="work-detail">
+        <nav className="work-breadcrumb shell" aria-label="현재 위치">
+          <Link href="/">홈</Link>
+          <span aria-hidden="true">/</span>
+          <Link href="/works">작품</Link>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{work.title}</span>
+        </nav>
         <header className="work-detail-hero shell">
           <div className="work-detail-copy">
             <Kicker>{getWorkStatus(work)} · 머더미스터리</Kicker>
@@ -60,6 +67,12 @@ export default async function WorkDetailPage({ params }: Props) {
                 <dd>{work.platform}</dd>
               </div>
             </dl>
+            <div className="work-detail-actions">
+              <a href={work.externalUrl} target="_blank" rel="noopener noreferrer">
+                {work.externalLabel} 보기 <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
+              <a href="#work-content">작품 소개 읽기 ↓</a>
+            </div>
           </div>
           <figure>
             <Image
@@ -73,42 +86,44 @@ export default async function WorkDetailPage({ params }: Props) {
           </figure>
         </header>
 
-        {!work.officialIntroduction && (
-          <section className="work-detail-story shell" aria-labelledby="work-story-title">
-            <div>
-              <Kicker>줄거리</Kicker>
-              <h2 id="work-story-title">사건의 시작</h2>
-            </div>
-            <p>{work.synopsis}</p>
-          </section>
-        )}
-
-        {work.officialIntroduction ? (
-          <OfficialWorkIntroduction work={work} />
-        ) : work.slug in landings ? (
-          <WorkLanding slug={work.slug} title={work.title} />
-        ) : (
-          <section className="work-detail-points">
-            <div className="shell">
+        <div id="work-content" className="work-content-anchor">
+          {!work.officialIntroduction && (
+            <section className="work-detail-story shell" aria-labelledby="work-story-title">
               <div>
-                <Kicker>작품 정보</Kicker>
-                <h2>
-                  이 작품에서
-                  <br />
-                  확인할 수 있는 것
-                </h2>
+                <Kicker>줄거리</Kicker>
+                <h2 id="work-story-title">사건의 시작</h2>
               </div>
-              <ol>
-                {work.characteristics.map((item, itemIndex) => (
-                  <li key={item}>
-                    <span>{String(itemIndex + 1).padStart(2, "0")}</span>
-                    <p>{item}</p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </section>
-        )}
+              <p>{work.synopsis}</p>
+            </section>
+          )}
+
+          {work.officialIntroduction ? (
+            <OfficialWorkIntroduction work={work} />
+          ) : work.slug in landings ? (
+            <WorkLanding slug={work.slug} title={work.title} />
+          ) : (
+            <section className="work-detail-points">
+              <div className="shell">
+                <div>
+                  <Kicker>작품 정보</Kicker>
+                  <h2>
+                    이 작품에서
+                    <br />
+                    확인할 수 있는 것
+                  </h2>
+                </div>
+                <ol>
+                  {work.characteristics.map((item, itemIndex) => (
+                    <li key={item}>
+                      <span>{String(itemIndex + 1).padStart(2, "0")}</span>
+                      <p>{item}</p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </section>
+          )}
+        </div>
 
         <section className="work-detail-record shell" aria-labelledby="work-record-title">
           <div>

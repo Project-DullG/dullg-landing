@@ -402,17 +402,17 @@ html body .portfolio-list p {
   }
 }
 .work-detail-hero {
-  padding: 88px 0 104px;
+  padding: 36px 0 72px;
   display: grid;
   grid-template-columns: 1fr minmax(380px, 0.72fr);
-  gap: clamp(64px, 9vw, 128px);
+  gap: clamp(32px, 5vw, 72px);
   align-items: center;
 }
 .work-detail-copy h1 {
   max-width: 700px;
   margin: 18px 0 46px;
-  font-size: clamp(48px, 6vw, 78px);
-  line-height: 1.08;
+  font-size: clamp(36px, 4.2vw, 58px);
+  line-height: 1.25;
   letter-spacing: -0.065em;
   word-break: keep-all;
 }
@@ -427,7 +427,7 @@ html body .portfolio-list p {
   grid-template-columns: 100px 1fr;
   align-items: center;
   border-bottom: 1px solid var(--line);
-  font-size: 13px;
+  font-size: 14px;
 }
 .work-detail-copy dt {
   color: var(--text-muted);
@@ -439,6 +439,46 @@ html body .portfolio-list p {
 .work-detail-hero figure {
   margin: 0;
   background: #080909;
+}
+.work-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  padding-top: 24px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.work-breadcrumb a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.work-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 24px;
+}
+.work-detail-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 14px;
+}
+.work-detail-actions a:first-child {
+  padding: 8px 16px;
+  background: var(--ink);
+  color: white;
+}
+.work-content-anchor { scroll-margin-top: 88px; }
+@media (min-width: 761px) and (max-width: 1000px) {
+  .work-detail-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 28px;
+  }
 }
 .work-detail-hero img {
   width: 100%;
@@ -546,13 +586,13 @@ html body .portfolio-list p {
 }
 @media (max-width: 760px) {
   .work-detail-hero {
-    padding: 62px 0 72px;
+    padding: 24px 0 48px;
     grid-template-columns: 1fr;
     gap: 38px;
   }
   .work-detail-copy h1 {
     margin: 14px 0 30px;
-    font-size: 42px;
+    font-size: clamp(30px, 8vw, 38px);
   }
   .work-detail-hero figure {
     order: -1;

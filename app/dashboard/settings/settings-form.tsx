@@ -37,11 +37,13 @@ export function SettingsForm({
     <form onSubmit={handleSubmit} className="dash-card">
       <h2>학원 정보</h2>
       <label
+        htmlFor="academy-name"
         style={{ fontSize: 13, color: "rgba(21,37,30,0.6)", marginBottom: 4, display: "block" }}
       >
         학원명
       </label>
       <input
+        id="academy-name"
         className="dash-input"
         value={name}
         onChange={(e) => setName(e.target.value)}
@@ -50,8 +52,8 @@ export function SettingsForm({
       <button type="submit" className="dash-button" disabled={loading}>
         {loading ? "저장 중..." : "저장"}
       </button>
-      {success && <p style={{ color: "green", fontSize: 13, marginTop: 8 }}>저장되었습니다.</p>}
-      {error && <p className="dash-error">{error}</p>}
+      {success && <p role="status" className="dash-success">학원 이름을 저장했습니다.</p>}
+      {error && <p role="alert" className="dash-error">{error}</p>}
     </form>
   );
 }

@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { verifySession } from "@/lib/firebase/auth";
 import { getAdminDb } from "@/lib/firebase/admin";
+import { ScoreChart } from "@/components/dashboard/score-chart";
 
 export default async function MyGradesPage() {
   const session = await verifySession();
@@ -32,11 +33,18 @@ export default async function MyGradesPage() {
   return (
     <div>
       <h1 className="dash-page-title">{student?.name}님의 성적</h1>
+      <div className="dash-card">
+        <ScoreChart scores={[1, 2, 3, 4].map((session) => {
+          const record = gradesSnap.docs.find((doc) => doc.data().type === "dullg" && doc.data().session === session)?.data();
+          return { label: `${session}차시`, score: record && Number.isFinite(record.score) ? Number(record.score) : null };
+        })} />
+        <p className="dash-description">최근 50건 중 차시별 최신 점수입니다.</p>
+      </div>
 
       <div className="dash-card">
-        <h2>DullG 수업 성적</h2>
+        <h2>미스터리 수업 성적</h2>
         {dullgGrades.length === 0 ? (
-          <p style={{ color: "rgba(21,37,30,0.4)" }}>DullG 성적 기록이 없습니다.</p>
+          <p>아직 미스터리 수업 성적이 없습니다.</p>
         ) : (
           <table className="dash-table">
             <thead>

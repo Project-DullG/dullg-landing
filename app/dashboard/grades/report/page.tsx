@@ -48,10 +48,11 @@ export default async function GradeReportPage() {
   return (
     <div>
       <h1 className="dash-page-title">성적 리포트</h1>
+      <p className="dash-description">최근 성적 최대 200건 기준입니다. 반별 평균은 현재 배정 반에 따라 미스터리 수업 기록만 집계하며, 동일 학생의 여러 기록이 포함됩니다.</p>
 
       {Object.keys(classAverages).length > 0 && (
         <div className="dash-card">
-          <h2>DullG 반별 평균</h2>
+          <h2>미스터리 수업 · 반별 평균</h2>
           <table className="dash-table">
             <thead>
               <tr>
@@ -64,7 +65,7 @@ export default async function GradeReportPage() {
               {Object.entries(classAverages).map(([cn, data]) => (
                 <tr key={cn}>
                   <td>{cn}</td>
-                  <td>{(data.total / data.count).toFixed(1)}점</td>
+                  <td><meter className="dash-meter" min={0} max={100} value={data.total / data.count} aria-label={`${cn} 평균 ${(data.total / data.count).toFixed(1)}점`} />{(data.total / data.count).toFixed(1)}점</td>
                   <td>{data.count}건</td>
                 </tr>
               ))}
@@ -90,7 +91,7 @@ export default async function GradeReportPage() {
               <tr key={g.id as string}>
                 <td>{g.studentName as string}</td>
                 <td>{g.className as string}</td>
-                <td>{g.type === "dullg" ? "DullG" : "시험"}</td>
+                <td>{g.type === "dullg" ? "미스터리 수업" : "시험"}</td>
                 <td>{g.type === "dullg" ? `${g.session}차시` : `${g.subject} - ${g.examName}`}</td>
                 <td>{g.type === "dullg" ? `${g.score}점` : `${g.score}/${g.totalScore}`}</td>
               </tr>

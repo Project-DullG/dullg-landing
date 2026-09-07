@@ -40,6 +40,10 @@ export function validateStudent(data: StudentData): string | null {
 }
 
 export function validateGrade(data: GradeData): string | null {
+  if (!data.studentId.trim()) return "학생을 선택해주세요.";
+  if (!(data.date instanceof Date) || !Number.isFinite(data.date.getTime()))
+    return "평가일을 확인해주세요.";
+  if (!Number.isFinite(data.score)) return "유효한 점수를 입력해주세요.";
   if (data.type === "dullg") {
     if (!Number.isInteger(data.session) || data.session < 1 || data.session > 4)
       return "차시는 1~4 사이 정수여야 합니다.";
@@ -50,7 +54,9 @@ export function validateGrade(data: GradeData): string | null {
     if (!data.subject.trim()) return "과목명을 입력해주세요.";
     if (!data.examName.trim()) return "시험명을 입력해주세요.";
     if (data.score < 0) return "점수는 0 이상이어야 합니다.";
-    if (data.totalScore <= 0) return "만점은 0보다 커야 합니다.";
+    if (!Number.isFinite(data.totalScore) || data.totalScore <= 0)
+      return "만점은 0보다 커야 합니다.";
+    if (data.score > data.totalScore) return "점수는 만점을 초과할 수 없습니다.";
   }
   return null;
 }

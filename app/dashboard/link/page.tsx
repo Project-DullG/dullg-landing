@@ -26,14 +26,18 @@ export default function LinkStudentPage() {
       <h1>학원생 계정 연결</h1>
       <p>원장님이 알려준 학원 코드와 등록된 본인 이름을 입력하세요.</p>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="link-academy">학원 코드</label>
         <input
+          id="link-academy"
           className="dash-input"
           placeholder="학원 코드"
           value={academyId}
           onChange={(e) => setAcademyId(e.target.value)}
           required
         />
+        <label htmlFor="link-name">등록된 학생 이름</label>
         <input
+          id="link-name"
           className="dash-input"
           placeholder="이름"
           value={name}
@@ -43,7 +47,7 @@ export default function LinkStudentPage() {
         <button type="submit" className="dash-button" disabled={loading}>
           {loading ? "연결 중..." : "계정 연결"}
         </button>
-        {error && <p className="dash-error">{error}</p>}
+        {error && <p role="alert" className="dash-error">{error}</p>}
       </form>
       <form action={logoutAction} className="dash-onboarding-footer">
         <span>원장님이신가요? 권한 부여 후 다시 로그인하세요.</span>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getClientAuth } from "@/lib/firebase/config";
 import { loginAction } from "@/app/actions/auth";
@@ -36,7 +37,7 @@ export default function LoginPage() {
     <div className="login-page">
       <div className="login-card">
         <h1>학원 관리 로그인</h1>
-        <p>Google 계정으로 로그인하세요.</p>
+        <p>학원생·반·성적을 관리합니다. 처음이라면 예시 화면부터 살펴보세요.</p>
 
         <button
           className="login-google-button"
@@ -47,7 +48,9 @@ export default function LoginPage() {
           {pending ? "로그인 중…" : "Google로 로그인"}
         </button>
 
-        {error && <p className="login-error">{error}</p>}
+        {error && <p className="login-error" role="alert">{error}</p>}
+        <p><Link href="/demo">로그인 없이 예시로 체험하기 →</Link></p>
+        <p><Link href="/">단서공방 홈으로</Link></p>
       </div>
     </div>
   );

@@ -1,0 +1,37 @@
+.page { max-width: 1040px; margin: auto; padding: 24px; color: #202523; }
+.nav, .heading, .score { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.nav { border-bottom: 1px solid #dce1df; padding-bottom: 16px; }
+.page a, .page button { min-height: 44px; display: inline-flex; align-items: center; }
+.page a { text-decoration: underline; text-underline-offset: 4px; }
+.header { padding: 40px 0 24px; }
+.badge { font-size: 14px; color: #286350; }
+.header h1 { font-size: clamp(28px, 5vw, 40px); margin: 12px 0; }
+.page p { font-size: 16px; line-height: 1.8; color: #57605c; }
+.heading h2 { font-size: 22px; }
+.page button { border: 1px solid #bbc5c0; background: white; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 14px; white-space: nowrap; }
+.page button:hover { background: #f0f4f2; }
+.page :is(button, input, select, a):focus-visible { outline: 3px solid #28735b; outline-offset: 3px; }
+.filters { display: flex; gap: 20px; padding: 16px 0; }
+.page label { display: grid; gap: 8px; font-size: 14px; }
+.page input, .page select { min-height: 44px; min-width: 0; border: 1px solid #bbc5c0; border-radius: 6px; padding: 8px 12px; font: inherit; font-size: 16px; background: white; color: #202523; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 24px 0; border-block: 1px solid #dce1df; }
+.stats dt { font-size: 14px; color: #57605c; }
+.stats dd { font-size: 24px; font-weight: 600; margin: 8px 0 0; }
+.notice { min-height: 29px; }
+.list { list-style: none; padding: 0; margin: 0; }
+.list li { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid #dce1df; }
+.list strong { display: block; font-size: 16px; }
+.list span { display: block; font-size: 14px; color: #57605c; margin-top: 6px; }
+.form { display: flex; align-items: end; flex-wrap: wrap; gap: 10px; }
+.form input { width: 100px; }
+.footer { margin-top: 40px; padding-bottom: 24px; }
+.footer a { margin-right: 24px; }
+@media (max-width: 600px) {
+  .page { padding: 20px 16px; }
+  .nav { font-size: 14px; }
+  .heading { align-items: start; flex-wrap: wrap; }
+  .filters { flex-direction: column; }
+  .stats dd { font-size: 20px; }
+  .list li { align-items: start; flex-wrap: wrap; }
+  .form { width: 100%; }
+}

@@ -1,0 +1,268 @@
+.workspace {
+  color: var(--ink);
+  max-width: 1240px;
+  margin: auto;
+}
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.heading h1 {
+  font-size: 32px;
+  margin: 4px 0;
+  letter-spacing: -0.04em;
+}
+.workspace p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.workspace button {
+  cursor: pointer;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  padding: 10px 16px;
+  background: white;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+}
+.workspace button:hover {
+  background: var(--surface);
+}
+.workspace button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+.workspace button.primary {
+  background: #245847;
+  border-color: #245847;
+  color: white;
+}
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+.summary > div {
+  background: white;
+  border: 1px solid var(--line);
+  padding: 20px 24px;
+  border-radius: 12px;
+}
+.summary dt {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.summary dd {
+  margin: 8px 0 0;
+  font-size: 28px;
+  font-weight: 650;
+}
+.summary small {
+  font-size: 14px;
+  margin-left: 6px;
+  font-weight: 400;
+}
+.feedback {
+  min-height: 26px;
+  margin: 20px 0;
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  gap: 24px;
+  align-items: start;
+}
+.directory,
+.detail {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  min-width: 0;
+}
+.detail {
+  padding: 24px;
+}
+.detail h2 {
+  font-size: 23px;
+  margin: 8px 0 20px;
+}
+.filters {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 12px;
+  padding: 20px;
+}
+.workspace label {
+  display: grid;
+  gap: 7px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.workspace input,
+.workspace select {
+  min-height: 44px;
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--control-border);
+  border-radius: 6px;
+  padding: 10px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: white;
+}
+.listHead {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--surface);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.list li + li {
+  border-top: 1px solid var(--line);
+}
+.list button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  text-align: left;
+  padding: 18px 20px;
+}
+.list button.selected {
+  background: #edf5f1;
+  box-shadow: inset 3px 0 #245847;
+}
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.identity strong {
+  display: block;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.identity small {
+  display: block;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+.avatar {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  background: var(--surface);
+  border-radius: 50%;
+  color: #63756c;
+  font-size: 12px;
+}
+.chip {
+  font-size: 13px;
+  background: var(--surface);
+  border-radius: 5px;
+  padding: 4px 8px;
+  flex-shrink: 0;
+}
+.count {
+  padding: 0 20px;
+}
+.facts {
+  margin: 0 0 24px;
+}
+.facts > div {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  padding: 10px 0;
+  gap: 12px;
+  font-size: 14px;
+}
+.facts dt {
+  color: var(--text-muted);
+}
+.facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+.fields {
+  display: grid;
+  gap: 16px;
+  padding: 0;
+  margin: 20px 0 0;
+  border: 0;
+}
+.empty {
+  padding: 30px 20px;
+}
+.empty h3 {
+  font-size: 18px;
+}
+.danger {
+  border-top: 1px solid var(--line);
+  margin-top: 32px;
+  padding-top: 16px;
+}
+.danger button {
+  color: #a03228;
+}
+.error {
+  color: #a03228;
+}
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .heading {
+    align-items: start;
+    flex-wrap: wrap;
+  }
+  .summary {
+    gap: 8px;
+  }
+  .summary > div {
+    padding: 14px 10px;
+  }
+  .summary dt {
+    font-size: 12px;
+  }
+  .summary dd {
+    font-size: 24px;
+  }
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  .detail {
+    padding: 20px;
+  }
+}

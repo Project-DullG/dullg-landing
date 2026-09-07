@@ -52,12 +52,15 @@ export function Sidebar({ role, academyName }: { role: string; academyName: stri
             const isActive =
               item.href === "/dashboard"
                 ? pathname === "/dashboard"
-                : pathname.startsWith(item.href);
+                : item.href === "/dashboard/grades"
+                  ? pathname === item.href
+                  : pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={isActive ? "active" : ""}
+                aria-current={isActive ? "page" : undefined}
                 onClick={() => setMobileOpen(false)}
               >
                 <item.icon size={20} />

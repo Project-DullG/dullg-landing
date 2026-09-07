@@ -1,168 +1,118 @@
-.page {
-  max-width: 1040px;
-  margin: auto;
-  padding: 24px;
-  color: var(--ink);
+.app {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  min-height: 100dvh;
+  background: #f5f7f6;
 }
-.nav,
-.heading,
-.score {
+.sidebar {
+  background: #173c30;
+  color: #fff;
+  padding: 32px 22px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-.nav {
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 16px;
-}
-.page a,
-.page button {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-}
-.page a {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-.header {
-  padding: 40px 0 24px;
-}
-.badge {
-  font-size: 14px;
-  color: var(--accent);
-}
-.header h1 {
-  font-size: var(--title-page);
-  margin: 12px 0;
-}
-.page p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--text-muted);
-}
-.heading h2 {
-  font-size: 22px;
-}
-.page button {
-  border: 1px solid var(--control-border);
-  background: white;
-  padding: 8px 14px;
-  border-radius: var(--control-radius);
-  cursor: pointer;
-  font-size: 14px;
-  white-space: nowrap;
-}
-.page button:hover {
-  background: var(--surface);
-}
-.page :is(button, input, select, a):focus-visible {
-  outline: 3px solid var(--orange);
-  outline-offset: 3px;
-}
-.filters {
-  display: flex;
+  flex-direction: column;
   gap: 20px;
-  padding: 16px 0;
 }
-.page label {
+.brand {
+  font-size: 22px;
+  font-weight: 700;
+}
+.sidebar > span {
+  font-size: 14px;
+  color: #c1d5cb;
+}
+.sidebar nav {
   display: grid;
   gap: 8px;
-  font-size: 14px;
+  padding-block: 20px;
 }
-.page input,
-.page select {
+.sidebar a {
   min-height: 44px;
-  min-width: 0;
-  border: 1px solid var(--control-border);
-  border-radius: var(--control-radius);
-  padding: 8px 12px;
-  font: inherit;
-  font-size: 16px;
-  background: white;
-  color: var(--ink);
-}
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  padding: 24px 0;
-  border-block: 1px solid var(--line);
-}
-.stats dt {
-  font-size: 14px;
-  color: var(--text-muted);
-}
-.stats dd {
-  font-size: 24px;
-  font-weight: 600;
-  margin: 8px 0 0;
-}
-.notice {
-  min-height: 29px;
-}
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.list li {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--line);
-}
-.list strong {
-  display: block;
-  font-size: 16px;
-}
-.list span {
-  display: block;
   font-size: 14px;
-  color: var(--text-muted);
-  margin-top: 6px;
 }
-.form {
+.sidebar nav a {
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+.sidebar a[aria-current] {
+  background: #315d4c;
+}
+.sidebar p {
+  font-size: 14px;
+  color: #c1d5cb;
+  line-height: 1.8;
+}
+.main {
+  padding: 32px;
+  min-width: 0;
+}
+.banner {
   display: flex;
-  align-items: end;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 20px;
+  background: #e8f0eb;
+  border: 1px solid #ccddd2;
+  border-radius: 10px;
+  margin-bottom: 28px;
+}
+.banner strong {
+  font-size: 14px;
+  color: #245847;
+}
+.banner p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #53685c;
+}
+.banner button,
+.grades button {
+  min-height: 44px;
+  background: white;
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.grades {
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+  margin-top: 24px;
+}
+.grades form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
-.form input {
-  width: 100px;
+.grades form button {
+  grid-column: 1 / -1;
 }
-.footer {
-  margin-top: 40px;
-  padding-bottom: 24px;
-}
-.footer a {
-  margin-right: 24px;
-}
-@media (max-width: 600px) {
-  .page {
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    padding: 16px 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .sidebar nav,
+  .sidebar p,
+  .sidebar > span {
+    display: none;
+  }
+  .main {
     padding: 20px 16px;
   }
-  .nav {
-    font-size: 14px;
-  }
-  .heading {
+  .banner {
     align-items: start;
     flex-wrap: wrap;
-  }
-  .filters {
-    flex-direction: column;
-  }
-  .stats dd {
-    font-size: 20px;
-  }
-  .list li {
-    align-items: start;
-    flex-wrap: wrap;
-  }
-  .form {
-    width: 100%;
+    gap: 12px;
   }
 }

@@ -25,7 +25,22 @@ test("home and academy lead directly to the demo", async () => {
 test("demo remains isolated from persistence and authenticated actions", async () => {
   const source = await readFile(new URL("../app/demo/academy-demo.tsx", import.meta.url), "utf8");
   assert.doesNotMatch(source, /firebase|fetch\(|localStorage|sessionStorage|app\/actions/);
-  assert.match(source, /min="0" max="100"/);
+  assert.match(source, /min="0"\s+max="100"/);
   assert.match(source, /Number.isInteger/);
   assert.match(source, /setStudents\(initialStudents\)/);
+});
+
+test("demo uses the same student workspace as the authenticated page", async () => {
+  const [demo, live, workspace, html] = await Promise.all([
+    readFile(new URL("../app/demo/academy-demo.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/dashboard/students/live-students.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../components/dashboard/student-workspace.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../.next/server/app/demo.html", import.meta.url), "utf8"),
+  ]);
+  for (const source of [demo, live]) assert.match(source, /StudentWorkspace/);
+  assert.doesNotMatch(workspace, /firebase|fetch\(|app\/actions/);
+  assert.match(workspace, /삭제 확인/);
+  assert.match(workspace, /validateStudent/);
+  assert.match(html, /차시별 성적/);
+  assert.match(html, /미입력/);
 });

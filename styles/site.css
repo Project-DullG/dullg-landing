@@ -307,6 +307,9 @@
   }
   .mobile-navigation.is-open {
     display: block;
+    max-height: calc(100dvh - 64px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     border-top: 1px solid var(--line);
     background: var(--cream);
   }

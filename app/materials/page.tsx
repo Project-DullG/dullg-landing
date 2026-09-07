@@ -12,12 +12,8 @@ export default function MaterialsPage() {
       <div className="materials-page">
         <section className="library-hero shell">
           <Kicker>수강생 자료실</Kicker>
-          <h1>
-            참여한 수업의 자료를
-            <br />
-            확인하세요.
-          </h1>
-          <p>수업 이름을 눌러 발표자료와 실습 자료를 확인하세요.</p>
+          <h1>수강생 자료실</h1>
+          <p>참여한 수업을 선택해 발표자료와 실습 자료를 확인하세요.</p>
         </section>
 
         <section className="course-archive shell" aria-label="교육 과정별 자료">
@@ -30,7 +26,7 @@ export default function MaterialsPage() {
                   <small>{course.description}</small>
                 </span>
                 <b>
-                  바로 읽기 <i aria-hidden="true">→</i>
+                  자료 보기 <i aria-hidden="true">→</i>
                 </b>
               </>
             );

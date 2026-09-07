@@ -18,6 +18,12 @@ button,
 summary {
   -webkit-tap-highlight-color: transparent;
 }
+main h1, main h2, main h3 {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
 :focus-visible {
   outline: 3px solid var(--orange);
   outline-offset: 4px;

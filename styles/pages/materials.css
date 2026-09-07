@@ -111,7 +111,7 @@ html body .materials-page .library-hero > p {
 }
 .course-row small {
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.55;
 }
 .course-row > b,
@@ -175,7 +175,17 @@ html body .materials-page .library-hero > p {
     font-size: 16px;
   }
   .course-row small {
-    font-size: 12px;
+    font-size: 14px;
+    word-break: keep-all;
+  }
+  .course-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .course-row > b {
+    min-height: 44px;
+    font-size: 14px;
   }
   .course-row > b,
   .course-row summary > b {

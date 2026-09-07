@@ -12,7 +12,7 @@ test("renders the brand portfolio path with real work and education evidence", a
   assert.match(html, /단서를 엮습니다/);
   assert.match(html, /공개한 머더미스터리/);
   assert.match(html, /영어 단서를 읽고/);
-  assert.match(html, /함께 사건을 해결합니다/);
+  assert.match(html, /준비 중 · 영어 미스터리 수업팩/);
   assert.match(html, /href="\/works"/);
   assert.match(html, /href="\/academy"/);
   assert.match(html, /\/assets\/works\/slime-soda-cover\.webp/);

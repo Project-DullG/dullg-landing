@@ -43,7 +43,7 @@ export function Footer() {
 
         <div className="site-footer-links">
           <strong>단서공방</strong>
-          {studioNavigation.map((item) => (
+          {studioNavigation.filter((item) => item.href !== "/activity").map((item) => (
             <Link href={item.href} key={item.href}>
               {item.label}
             </Link>

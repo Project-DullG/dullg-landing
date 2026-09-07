@@ -89,6 +89,7 @@ export function Header() {
         className={`mobile-navigation ${isOpen ? "is-open" : ""}`}
         id="mobile-navigation"
         aria-hidden={!isOpen}
+        inert={!isOpen}
       >
         <div className="shell">
           {primaryNavigation.map((link) => (

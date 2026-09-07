@@ -34,14 +34,14 @@ export default function Home() {
                 <em>단서를 엮습니다.</em>
               </>
             }
-            lead="단서공방은 머더미스터리 작품을 만들고, 영어로 읽고 토론하는 미스터리 수업팩을 준비합니다."
+            lead="단서공방은 머더미스터리 작품을 만들고, 게임과 AI를 활용한 콘텐츠 제작 수업을 진행합니다."
           />
           <div className="brand-hero-actions">
             <Link className="button button-dark" href="/works">
               작품 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" />
             </Link>
-            <Link href="/academy">
-              교육 수업팩 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" />
+            <Link href="/about">
+              단서공방 소개 <ArrowRight size={17} weight="bold" aria-hidden="true" />
             </Link>
           </div>
         </section>
@@ -139,11 +139,11 @@ export default function Home() {
               />
             </figure>
             <div>
-              <Kicker>교육 · 영어 미스터리 수업팩</Kicker>
+              <Kicker>준비 중 · 영어 미스터리 수업팩</Kicker>
               <h2 id="brand-education-title">
                 영어 단서를 읽고
                 <br />
-                함께 사건을 해결합니다.
+                사건을 해결하는 수업
               </h2>
               <p>
                 학생마다 다른 단서를 읽고 서로 질문합니다. 마지막에는 선택한 근거와 판단을 영어
@@ -171,24 +171,24 @@ export default function Home() {
         <section className="brand-contact" id="apply" aria-labelledby="brand-contact-title">
           <div className="shell brand-contact-inner">
             <div>
-              <Kicker>검토팩 요청</Kicker>
+              <Kicker>작품·교육·협업 문의</Kicker>
               <h2 id="brand-contact-title">
-                자료를 먼저 보고
+                함께 만들고 싶은
                 <br />
-                판단하세요.
+                프로젝트가 있나요?
               </h2>
             </div>
             <div>
               <p>
-                무료 검토팩을 보내드립니다. 구매나 파일럿 참여 의무는 없습니다. 작품과 협업 문의는
-                이메일로 받습니다.
+                작품 제작과 교육 협업에 관해 문의해 주세요. 영어 미스터리 수업팩이 궁금하다면
+                무료 검토팩을 먼저 확인할 수 있습니다.
               </p>
               <div className="brand-hero-actions">
-                <Link className="button button-dark" href="/academy/pilot">
-                  무료 검토팩 요청 <ArrowRight size={17} weight="bold" aria-hidden="true" />
+                <Link className="button button-dark" href="/contact">
+                  프로젝트 문의 <ArrowRight size={17} weight="bold" aria-hidden="true" />
                 </Link>
-                <Link href="/contact">
-                  일반 문의 <ArrowRight size={17} weight="bold" aria-hidden="true" />
+                <Link href="/academy/pilot">
+                  수업팩 검토 요청 <ArrowRight size={17} weight="bold" aria-hidden="true" />
                 </Link>
               </div>
             </div>

@@ -739,7 +739,7 @@ html body .site-footer-bottom > span {
   }
 }
 html body .inner-hero h1 {
-  font-size: clamp(40px, 4.6vw, 56px);
+  font-size: var(--title-page);
   line-height: 1.16;
 }
 @media (max-width: 760px) {

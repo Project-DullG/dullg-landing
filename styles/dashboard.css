@@ -10,25 +10,35 @@
   padding: 24px;
 }
 .login-card {
-  max-width: 400px;
+  max-width: 460px;
   width: 100%;
   text-align: center;
   padding: 48px 32px;
   background: #fff;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--line);
 }
 .login-card h1 {
   font-family: var(--font-noto-sans);
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 8px;
 }
 .login-card p {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+.login-card a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: underline;
+  text-underline-offset: 4px;
   font-size: 14px;
-  color: rgba(21, 37, 30, 0.6);
-  margin-bottom: 32px;
 }
 .login-google-button {
   width: 100%;
@@ -36,8 +46,9 @@
   background: var(--ink);
   color: #fff;
   border: none;
-  border-radius: 8px;
-  font-size: 15px;
+  border-radius: var(--button-radius);
+  min-height: 48px;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: opacity 0.15s;

@@ -386,7 +386,7 @@ html body .about-scope-grid article {
   }
 }
 html body .about-hero h1 {
-  font-size: clamp(40px, 4.6vw, 56px);
+  font-size: var(--title-page);
   line-height: 1.16;
 }
 html body .about-hero h1 em {

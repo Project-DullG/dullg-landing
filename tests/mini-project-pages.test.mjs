@@ -5,12 +5,17 @@ const html = (path) =>
   readFile(new URL(`../.next/server/app/${path}.html`, import.meta.url), "utf8");
 test("mini portfolio gives series context without invented release dates or repeated sales copy", async () => {
   const index = await html("mini-projects");
-  assert.match(index, /2026\.02 시작/);
+  assert.match(index, /2026년 2월 시작/);
   assert.match(index, /두 달에 한 편/);
+  assert.match(index, /퍼즐·카드·아케이드 게임을 직접 만들고 공개합니다/);
   assert.doesNotMatch(index, /2026년 9월 공개|설치·로그인 없이|계속 개발 중/);
   for (const slug of ["block-stack", "bumper-room", "lane-shift"])
     assert.match(index, new RegExp(`href="/mini-projects/${slug}"`));
-  assert.match(await html("index"), /href="\/mini-projects"/);
+  const home = await html("index");
+  assert.match(home, /href="\/mini-projects"/);
+  assert.match(home, /단서공방이 만든 웹게임/);
+  assert.match(home, /게임 전체 보기/);
+  assert.doesNotMatch(home, /2026\.02 시작|미니 게임 시리즈|두 달에 한 편/);
 });
 test("all game routes have one heading, controls, canvas, local record notice and credits", async () => {
   for (const slug of ["block-stack", "bumper-room", "lane-shift"]) {
@@ -22,6 +27,7 @@ test("all game routes have one heading, controls, canvas, local record notice an
     assert.match(page, /전체 화면/);
     assert.match(page, /Kenney/);
     assert.match(page, /CC0/);
+    assert.doesNotMatch(page, /두 달에 한 편|2026년 2월 시작/);
     assert.match(
       page,
       new RegExp(
@@ -81,6 +87,7 @@ test("six classic game routes are linked, playable and accurately described", as
     assert.match(page, /새 게임/);
     assert.match(page, /소리 끔/);
     assert.match(page, /게임판/);
+    assert.doesNotMatch(page, /두 달에 한 편|2026년 2월 시작/);
     assert.doesNotMatch(page, /최고 기록 저장, 전체 화면/);
     assert.match(
       page,

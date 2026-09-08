@@ -9,10 +9,10 @@ export function HomeMiniProjects() {
     <section className={`shell ${styles.home}`} aria-labelledby="home-mini-title">
       <div className="brand-section-head">
         <div>
-          <Kicker>2026.02 시작 · 미니 게임 시리즈</Kicker>
-          <h2 id="home-mini-title">미니 프로젝트</h2>
+          <Kicker>미니 프로젝트</Kicker>
+          <h2 id="home-mini-title">단서공방이 만든 웹게임</h2>
         </div>
-        <Link href="/mini-projects">미니 프로젝트 전체 보기 →</Link>
+        <Link href="/mini-projects">게임 전체 보기 →</Link>
       </div>
       <MiniProjectGrid
         projects={["minesweeper", "solitaire", "block-stack"].flatMap((slug) =>

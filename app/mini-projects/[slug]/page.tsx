@@ -65,10 +65,6 @@ export default async function MiniProjectPage({ params }: Props) {
                   <dd>단서공방(ProjectDullG)</dd>
                 </div>
                 <div>
-                  <dt>시리즈</dt>
-                  <dd>2026년 2월 시작 · 두 달에 한 편 제작 목표</dd>
-                </div>
-                <div>
                   <dt>구현</dt>
                   <dd>TypeScript · {isArcadeGame(project.slug) ? "Canvas" : "React"}</dd>
                 </div>
@@ -127,7 +123,7 @@ export default async function MiniProjectPage({ params }: Props) {
           )}
         </div>
         <nav className={styles.other} aria-label="다른 미니 프로젝트">
-          <span>다른 게임도 플레이해 보세요.</span>
+          <span>다른 게임</span>
           {miniProjects
             .filter((item) => item.slug !== project.slug)
             .slice(0, 3)

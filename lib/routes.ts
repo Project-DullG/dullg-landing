@@ -30,7 +30,7 @@ export const publicRoutes: PublicRoute[] = [
     path: "/mini-projects",
     title: "미니 프로젝트",
     description:
-      "2026년 2월부터 두 달에 한 편을 목표로 만드는 단서공방의 미니 게임 시리즈. 지뢰찾기와 솔리테어부터 블록 퍼즐까지 소개합니다.",
+      "단서공방이 제작한 퍼즐·카드·아케이드 게임. 지뢰찾기, 솔리테어, 스도쿠와 블록 퍼즐을 소개합니다.",
     group: "studio",
     priority: 0.7,
     changeFrequency: "monthly",

@@ -2,8 +2,7 @@ import assert from "node:assert/strict";
 import { readdir, readFile } from "node:fs/promises";
 import test from "node:test";
 
-const routeHtml = (route) =>
-  new URL(`../.next/server/app/${route}`, import.meta.url);
+const routeHtml = (route) => new URL(`../.next/server/app/${route}`, import.meta.url);
 
 test("separates studio history from the upcoming education product", async () => {
   const about = await readFile(routeHtml("about.html"), "utf8");
@@ -30,21 +29,22 @@ test("renders the brand portfolio path with real work and education evidence", a
   assert.match(html, /\/assets\/works\/slime-soda-cover\.webp/);
   assert.match(html, /\/assets\/dullg\/card-cover-1\.png/);
   assert.match(html, /id="apply"/);
-  assert.match(html, /href="\/academy#tools"/);
+  assert.match(html, /href="\/demo"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
 test("renders detailed product routes with working navigation targets", async () => {
-  const [academy, curriculum, sample, pilot, activity, activityCase, materials, workDetail] = await Promise.all([
-    readFile(routeHtml("academy.html"), "utf8"),
-    readFile(routeHtml("academy/curriculum.html"), "utf8"),
-    readFile(routeHtml("academy/sample.html"), "utf8"),
-    readFile(routeHtml("academy/pilot.html"), "utf8"),
-    readFile(routeHtml("activity.html"), "utf8"),
-    readFile(routeHtml("activity/ulleung-high-living-lab.html"), "utf8"),
-    readFile(routeHtml("materials.html"), "utf8"),
-    readFile(routeHtml("works/snake-carnival.html"), "utf8"),
-  ]);
+  const [academy, curriculum, sample, pilot, activity, activityCase, materials, workDetail] =
+    await Promise.all([
+      readFile(routeHtml("academy.html"), "utf8"),
+      readFile(routeHtml("academy/curriculum.html"), "utf8"),
+      readFile(routeHtml("academy/sample.html"), "utf8"),
+      readFile(routeHtml("academy/pilot.html"), "utf8"),
+      readFile(routeHtml("activity.html"), "utf8"),
+      readFile(routeHtml("activity/ulleung-high-living-lab.html"), "utf8"),
+      readFile(routeHtml("materials.html"), "utf8"),
+      readFile(routeHtml("works/snake-carnival.html"), "utf8"),
+    ]);
 
   assert.match(academy, /영어 미스터리 수업팩/);
   assert.match(academy, /영어 단서를 읽고/);
@@ -77,14 +77,15 @@ test("renders detailed product routes with working navigation targets", async ()
 });
 
 test("keeps core navigation and interactions accessible", async () => {
-  const cssFiles = (await readdir(new URL("../styles/", import.meta.url), { recursive: true }))
-    .filter((f) => f.endsWith(".css"));
+  const cssFiles = (
+    await readdir(new URL("../styles/", import.meta.url), { recursive: true })
+  ).filter((f) => f.endsWith(".css"));
   const [header, layout, css] = await Promise.all([
     readFile(new URL("../components/header.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    Promise.all(cssFiles.map((f) => readFile(new URL(`../styles/${f}`, import.meta.url), "utf8"))).then((parts) =>
-      parts.join("\n"),
-    ),
+    Promise.all(
+      cssFiles.map((f) => readFile(new URL(`../styles/${f}`, import.meta.url), "utf8")),
+    ).then((parts) => parts.join("\n")),
   ]);
 
   assert.match(layout, /본문으로 바로가기/);

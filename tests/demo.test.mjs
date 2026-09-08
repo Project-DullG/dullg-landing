@@ -15,10 +15,19 @@ test("demo is reachable without login and clearly labels fictional records", asy
 
 test("home and academy lead directly to the demo", async () => {
   for (const route of ["index", "academy"]) {
-    const html = await readFile(new URL(`../.next/server/app/${route}.html`, import.meta.url), "utf8");
+    const html = await readFile(
+      new URL(`../.next/server/app/${route}.html`, import.meta.url),
+      "utf8",
+    );
     assert.match(html, /href="\/demo"/);
-    assert.match(html, /로그인 없이 체험하기/);
-    assert.match(html, /class="dash-preview"/);
+    if (route === "index") {
+      assert.match(html, /학원 관리 체험/);
+      assert.match(html, /가상 학생 데이터로/);
+      assert.doesNotMatch(html, /class="dash-preview"/);
+    } else {
+      assert.match(html, /로그인 없이 체험하기/);
+      assert.match(html, /class="dash-preview"/);
+    }
   }
 });
 

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 import { SectionHead } from "@/components/section-head";
+import { ClueProcess } from "@/components/clue-process";
 import { episodeFullTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 import { didimterResidency, riseAward } from "@/lib/recognition";
@@ -176,6 +177,17 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section id="process" className="brand-method shell" aria-labelledby="brand-method-title">
+        <SectionHead
+          className="brand-method-head"
+          id="brand-method-title"
+          kicker="제작 과정"
+          title={<>사건 설계부터 플레이테스트까지</>}
+          lead="인물별 정보와 사건의 결말을 정하고, 플레이하면서 단서가 드러나는 순서를 확인합니다."
+        />
+        <ClueProcess />
+      </section>
+
       {/* ── BELIEFS — ghost number cards ── */}
       <section className="about-beliefs shell">
         <SectionHead
@@ -210,12 +222,12 @@ export default function AboutPage() {
               파일럿을 준비합니다.
             </h2>
             <p>
-              첫 번째 에피소드 <em>{episodeFullTitle}</em>를 초등학교 6학년 수준의
-              영어학원용 4차시 수업 자료로 개발하고 있습니다.
+              첫 번째 에피소드 <em>{episodeFullTitle}</em>를 초등학교 6학년 수준의 영어학원용 4차시
+              수업 자료로 개발하고 있습니다.
             </p>
             <p>
-              수업팩은 정식 출시 전입니다. 검토용 샘플을 공개하고 있으며, 파일럿 수업에서
-              진행 시간과 학생 결과물을 확인할 예정입니다.
+              수업팩은 정식 출시 전입니다. 검토용 샘플을 공개하고 있으며, 파일럿 수업에서 진행
+              시간과 학생 결과물을 확인할 예정입니다.
             </p>
             <div className="about-now-actions">
               <ArrowButton light>무료 검토팩 요청</ArrowButton>

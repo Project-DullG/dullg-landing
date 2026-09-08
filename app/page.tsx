@@ -1,17 +1,14 @@
-import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import Image from "next/image";
-import { ClueProcess } from "@/components/clue-process";
 import { Footer, Header, Kicker } from "@/components/site";
 import { SectionHead } from "@/components/section-head";
 import { educationFacts } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
-import { getWorkStatus, homeFeaturedWorks } from "@/lib/works";
 import { activityRecords, formatActivityDate } from "@/lib/activities";
 import activityStyles from "@/components/home-activities.module.css";
-import { DashboardPreview } from "@/components/dashboard-preview";
-import toolsStyles from "./home-tools.module.css";
 import { HomeMiniProjects } from "@/components/mini-games/home-projects";
+import { HomeWorks } from "@/components/home-works";
 
 export const metadata = pageMetadata("/", {
   absoluteTitle: "단서공방 | 머더미스터리 제작과 게임·AI 교육",
@@ -49,38 +46,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="brand-works shell" aria-labelledby="brand-works-title">
-          <div className="brand-section-head">
-            <div>
-              <Kicker>작품</Kicker>
-              <h2 id="brand-works-title">공개한 머더미스터리</h2>
-            </div>
-            <Link href="/works">
-              모든 작품과 펀딩 기록 <ArrowUpRight size={16} aria-hidden="true" />
-            </Link>
-          </div>
-          <div className="brand-work-grid">
-            {homeFeaturedWorks.map((work) => (
-              <Link href={`/works/${work.slug}`} key={work.slug}>
-                <Image
-                  src={work.image}
-                  width={1000}
-                  height={1000}
-                  alt={work.alt}
-                  sizes="(max-width: 760px) 100vw, 33vw"
-                />
-                <span>
-                  {getWorkStatus(work)} · {work.players} · {work.duration}
-                </span>
-                <h3>{work.title}</h3>
-              </Link>
-            ))}
-          </div>
-        </section>
+        <HomeWorks />
 
         <HomeMiniProjects />
 
-        <section className={`shell ${activityStyles.section}`} aria-labelledby="home-activity-title">
+        <section
+          className={`shell ${activityStyles.section}`}
+          aria-labelledby="home-activity-title"
+        >
           <div className="brand-section-head">
             <div>
               <Kicker>활동 기록</Kicker>
@@ -91,38 +64,29 @@ export default function Home() {
             </Link>
           </div>
           <div className={activityStyles.grid}>
-            {activityRecords.filter((record) => record.type === "교육" && record.image).slice(0, 2).map((record) => (
-              <Link className={activityStyles.item} href={record.href} key={record.href}>
-                <Image
-                  src={record.image!.src}
-                  alt={record.image!.alt}
-                  width={1448}
-                  height={1086}
-                  sizes="(max-width: 760px) 100vw, 50vw"
-                />
-                <time dateTime={record.date}>{formatActivityDate(record)} · {record.type}</time>
-                <h3>{record.title}</h3>
-                <span>수업 내용과 현장 사진 <ArrowRight size={17} aria-hidden="true" /></span>
-              </Link>
-            ))}
+            {activityRecords
+              .filter((record) => record.type === "교육" && record.image)
+              .slice(0, 2)
+              .map((record) => (
+                <Link className={activityStyles.item} href={record.href} key={record.href}>
+                  <Image
+                    src={record.image!.src}
+                    alt={record.image!.alt}
+                    width={1448}
+                    height={1086}
+                    sizes="(max-width: 760px) 100vw, 50vw"
+                  />
+                  <time dateTime={record.date}>
+                    {formatActivityDate(record)} · {record.type}
+                  </time>
+                  <h3>{record.title}</h3>
+                  <p>{record.body}</p>
+                  <span>
+                    수업 기록 보기 <ArrowRight size={17} aria-hidden="true" />
+                  </span>
+                </Link>
+              ))}
           </div>
-        </section>
-
-        <section className="brand-method shell" aria-labelledby="brand-method-title">
-          <SectionHead
-            className="brand-method-head"
-            id="brand-method-title"
-            kicker="만드는 방식"
-            title={
-              <>
-                이야기와 단서가
-                <br />
-                함께 작동하게 만듭니다.
-              </>
-            }
-            lead="사건의 설정만 만드는 데서 멈추지 않습니다. 플레이어가 읽고, 의심하고, 판단하는 순서까지 설계합니다."
-          />
-          <ClueProcess />
         </section>
 
         <section className="brand-education" aria-labelledby="brand-education-title">
@@ -163,28 +127,14 @@ export default function Home() {
                 ))}
               </dl>
               <p className="brand-education-tools">
-                학원생·반·성적을 정리하는 <Link href="/academy#tools">운영 도구</Link>가 함께
-                제공됩니다.
+                학원생·반·성적 관리 기능은 <Link href="/demo">학원 관리 체험</Link>에서 가상 학생
+                데이터로 살펴볼 수 있습니다.
               </p>
               <Link href="/academy">
                 수업팩 자세히 보기 <ArrowRight size={17} weight="bold" aria-hidden="true" />
               </Link>
             </div>
           </div>
-        </section>
-
-        <section className={`shell ${toolsStyles.section}`} aria-labelledby="home-tools-title">
-          <div className={toolsStyles.copy}>
-            <Kicker>학원 관리 체험</Kicker>
-            <h2 id="home-tools-title">반별 조회부터<br />점수 입력까지</h2>
-            <p>가상 학생 데이터로 관리 화면을 살펴보세요. 반을 선택하고 점수를 바꾸면 평균에 바로 반영됩니다.</p>
-            <Link className="button button-dark" href="/demo">
-              로그인 없이 체험하기 <ArrowRight size={17} aria-hidden="true" />
-            </Link>
-            <span>예시 데이터만 사용하며 변경 내용은 저장되지 않습니다.</span>
-            <Link className={toolsStyles.login} href="/login">이미 계정이 있다면 로그인 →</Link>
-          </div>
-          <DashboardPreview />
         </section>
 
         <section className="brand-contact" id="apply" aria-labelledby="brand-contact-title">
@@ -199,8 +149,8 @@ export default function Home() {
             </div>
             <div>
               <p>
-                작품 제작과 교육 협업에 관해 문의해 주세요. 영어 미스터리 수업팩이 궁금하다면
-                무료 검토팩을 먼저 확인할 수 있습니다.
+                작품 제작과 교육 협업에 관해 문의해 주세요. 영어 미스터리 수업팩이 궁금하다면 무료
+                검토팩을 먼저 확인할 수 있습니다.
               </p>
               <div className="brand-hero-actions">
                 <Link className="button button-dark" href="/contact">

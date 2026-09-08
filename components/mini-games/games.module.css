@@ -18,6 +18,27 @@
 .collection {
   padding-bottom: 80px;
 }
+.group + .group {
+  margin-top: 64px;
+}
+.groupHead {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding-block: 20px;
+  margin-bottom: 12px;
+  border-top: 1px solid var(--line);
+}
+.groupHead h2 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.035em;
+}
+.groupHead span {
+  color: var(--text-muted);
+  font-size: 14px;
+  white-space: nowrap;
+}
 .home {
   padding-block: 64px 80px;
   border-top: 1px solid var(--line);

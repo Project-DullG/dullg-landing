@@ -14,6 +14,7 @@ import { SectionHead } from "@/components/section-head";
 import { pageMetadata } from "@/lib/metadata";
 import { getWorkStatus, works } from "@/lib/works";
 import { publicRoutes, type RouteGroup } from "@/lib/routes";
+import { miniProjects } from "@/lib/mini-projects";
 
 export const metadata = pageMetadata("/sitemap");
 
@@ -38,13 +39,14 @@ export default function SitemapPage() {
       description: "공개한 작품과 펀딩 기록, 단서공방의 제작 활동을 확인할 수 있습니다.",
       icon: Buildings,
       links: [
-        byGroup("studio")[0],
+        ...byGroup("studio").filter((item) => item.href === "/works"),
         ...works.map((work) => ({
           href: `/works/${work.slug}`,
           title: work.title,
           body: `${getWorkStatus(work)} · ${work.players} · ${work.duration} · ${work.platform}`,
         })),
-        ...byGroup("studio").slice(1),
+        ...byGroup("studio").filter((item) => item.href !== "/works"),
+        ...miniProjects.map((project) => ({ href: `/mini-projects/${project.slug}`, title: project.title, body: project.description })),
       ],
     },
     {

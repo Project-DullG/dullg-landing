@@ -1,0 +1,36 @@
+.section {
+  padding-block: 40px 64px;
+  border-top: 1px solid var(--line);
+}
+.section h2 {
+  font-size: 26px;
+  margin: 0 0 8px;
+}
+.section p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0 0 24px;
+}
+.section figure {
+  margin: 0;
+}
+.section video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  background: #111;
+}
+.section figcaption {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+.section a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

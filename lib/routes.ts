@@ -12,7 +12,8 @@ export const publicRoutes: PublicRoute[] = [
   {
     path: "/",
     title: "홈",
-    description: "단서공방(ProjectDullG)의 머더미스터리 작품, 게임·AI 교육 현장과 제작 이력을 소개합니다.",
+    description:
+      "단서공방(ProjectDullG)의 머더미스터리 작품, 게임·AI 교육 현장과 제작 이력을 소개합니다.",
     group: "studio",
     priority: 1,
     changeFrequency: "weekly",
@@ -21,6 +22,15 @@ export const publicRoutes: PublicRoute[] = [
     path: "/works",
     title: "작품과 펀딩",
     description: "공개한 작품을 한 편씩 살펴보고 펀딩 기록을 확인합니다.",
+    group: "studio",
+    priority: 0.7,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/mini-projects",
+    title: "미니 프로젝트",
+    description:
+      "2026년 2월부터 두 달에 한 편을 목표로 만드는 단서공방의 미니 게임 시리즈. 블록 정리, 범퍼 룸, 세 칸 피하기를 소개합니다.",
     group: "studio",
     priority: 0.7,
     changeFrequency: "monthly",
@@ -52,7 +62,8 @@ export const publicRoutes: PublicRoute[] = [
   {
     path: "/about",
     title: "단서공방 소개",
-    description: "덜지니어스에서 시작한 단서공방의 작품 제작·교육 활동, 청년디딤터 입주와 RISE 수상 이력을 소개합니다.",
+    description:
+      "덜지니어스에서 시작한 단서공방의 작품 제작·교육 활동, 청년디딤터 입주와 RISE 수상 이력을 소개합니다.",
     group: "studio",
     priority: 0.6,
     changeFrequency: "monthly",

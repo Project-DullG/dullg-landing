@@ -8,6 +8,7 @@ import { getWork, getWorkStatus, works } from "@/lib/works";
 import { WorkLanding } from "@/components/work-landing";
 import landings from "@/lib/work-landings.json";
 import { OfficialWorkIntroduction } from "@/components/official-work-introduction";
+import { WorkTrailer } from "@/components/work-trailer";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -85,6 +86,8 @@ export default async function WorkDetailPage({ params }: Props) {
             />
           </figure>
         </header>
+
+        <WorkTrailer slug={work.slug} />
 
         <div id="work-content" className="work-content-anchor">
           {!work.officialIntroduction && (

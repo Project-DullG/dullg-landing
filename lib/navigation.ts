@@ -6,6 +6,7 @@ export type NavigationItem = {
 export const primaryNavigation: NavigationItem[] = [
   { href: "/", label: "홈" },
   { href: "/works", label: "작품" },
+  { href: "/mini-projects", label: "미니 프로젝트" },
   { href: "/activity", label: "활동 기록" },
   { href: "/academy", label: "교육" },
   { href: "/materials", label: "수강생 자료실" },

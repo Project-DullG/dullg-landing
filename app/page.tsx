@@ -11,6 +11,7 @@ import { activityRecords, formatActivityDate } from "@/lib/activities";
 import activityStyles from "@/components/home-activities.module.css";
 import { DashboardPreview } from "@/components/dashboard-preview";
 import toolsStyles from "./home-tools.module.css";
+import { HomeMiniProjects } from "@/components/mini-games/home-projects";
 
 export const metadata = pageMetadata("/", {
   absoluteTitle: "단서공방 | 머더미스터리 제작과 게임·AI 교육",
@@ -76,6 +77,8 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <HomeMiniProjects />
 
         <section className={`shell ${activityStyles.section}`} aria-labelledby="home-activity-title">
           <div className="brand-section-head">

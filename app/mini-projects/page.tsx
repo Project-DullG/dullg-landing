@@ -2,6 +2,7 @@ import { Kicker, PageFrame } from "@/components/site";
 import { MiniProjectGrid } from "@/components/mini-games/project-grid";
 import { pageMetadata } from "@/lib/metadata";
 import styles from "@/components/mini-games/games.module.css";
+import { miniProjects, isArcadeGame } from "@/lib/mini-projects";
 
 export const metadata = pageMetadata("/mini-projects");
 export default function MiniProjectsPage() {
@@ -16,7 +17,12 @@ export default function MiniProjectsPage() {
         </span>
       </section>
       <section className={`shell ${styles.collection}`} aria-label="미니 프로젝트 목록">
-        <MiniProjectGrid />
+        <MiniProjectGrid
+          projects={[
+            ...miniProjects.filter((p) => !isArcadeGame(p.slug)),
+            ...miniProjects.filter((p) => isArcadeGame(p.slug)),
+          ]}
+        />
       </section>
     </PageFrame>
   );

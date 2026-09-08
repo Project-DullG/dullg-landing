@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Kicker } from "@/components/site";
 import { MiniProjectGrid } from "./project-grid";
 import styles from "./games.module.css";
+import { miniProjects } from "@/lib/mini-projects";
 
 export function HomeMiniProjects() {
   return (
@@ -13,7 +14,11 @@ export function HomeMiniProjects() {
         </div>
         <Link href="/mini-projects">미니 프로젝트 전체 보기 →</Link>
       </div>
-      <MiniProjectGrid />
+      <MiniProjectGrid
+        projects={["minesweeper", "solitaire", "block-stack"].flatMap((slug) =>
+          miniProjects.filter((project) => project.slug === slug),
+        )}
+      />
     </section>
   );
 }

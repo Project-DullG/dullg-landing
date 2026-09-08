@@ -1,8 +1,11 @@
 import type { MiniGameId } from "@/lib/mini-projects";
+import { isArcadeGame } from "@/lib/mini-projects";
+import { TableGameCover } from "./table-game-cover";
 import { TILE_COLORS } from "./assets";
 import styles from "./games.module.css";
 
 export function GameCover({ kind, title }: { kind: MiniGameId; title: string }) {
+  if (!isArcadeGame(kind)) return <TableGameCover kind={kind} title={title} />;
   return (
     <div className={`${styles.cover} ${styles[kind]}`}>
       <svg viewBox="0 0 400 310" role="img" aria-label={`${title} 게임 화면 구성`}>

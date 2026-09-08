@@ -62,3 +62,35 @@ test("selected sprite and audio assets retain their original licenses", async ()
     assert.ok((await stat(new URL(`../public/assets/games/${file}`, import.meta.url))).size > 0);
   }
 });
+
+test("six classic game routes are linked, playable and accurately described", async () => {
+  const slugs = [
+    "minesweeper",
+    "solitaire",
+    "sudoku",
+    "number-merge",
+    "memory-pairs",
+    "sliding-puzzle",
+  ];
+  const index = await html("mini-projects"),
+    home = await html("index");
+  for (const slug of slugs) {
+    assert.match(index, new RegExp(`href="/mini-projects/${slug}"`));
+    const page = await html(`mini-projects/${slug}`);
+    assert.equal((page.match(/<h1[\s>]/g) || []).length, 1);
+    assert.match(page, /새 게임/);
+    assert.match(page, /소리 끔/);
+    assert.match(page, /게임판/);
+    assert.doesNotMatch(page, /최고 기록 저장, 전체 화면/);
+    assert.match(
+      page,
+      new RegExp(
+        `rel="canonical" href="https://dullg-landing-one.vercel.app/mini-projects/${slug}"`,
+      ),
+    );
+  }
+  assert.match(home, /href="\/mini-projects\/minesweeper"/);
+  assert.match(home, /href="\/mini-projects\/solitaire"/);
+  assert.doesNotMatch(home, /href="\/mini-projects\/sudoku"/);
+  assert.match(await html("mini-projects/solitaire"), /모두 풀리는 것은 아닙니다/);
+});

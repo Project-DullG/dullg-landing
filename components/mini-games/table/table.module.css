@@ -1,0 +1,564 @@
+.shell {
+  --table-accent: #2f6ba1;
+  min-width: 0;
+  border: 1px solid #d8e0e9;
+  border-radius: 14px;
+  background: #f3f6fa;
+  overflow: hidden;
+  color: #172b43;
+}
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid #d8e0e9;
+}
+.toolbar h2 {
+  font-size: 20px;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.shell button {
+  font: inherit;
+  font-size: 14px;
+  color: inherit;
+  cursor: pointer;
+  min-height: 44px;
+  border: 1px solid #c8d4e0;
+  background: #fff;
+  border-radius: 6px;
+  padding: 8px 12px;
+  touch-action: manipulation;
+}
+.shell button:disabled {
+  cursor: default;
+}
+.actions button:disabled {
+  opacity: 0.45;
+}
+.shell button:focus-visible,
+.shell [tabindex]:focus-visible {
+  outline: 3px solid #c18b22;
+  outline-offset: 2px;
+  z-index: 5;
+}
+.shell button[aria-pressed="true"] {
+  box-shadow: inset 0 0 0 2px var(--table-accent);
+}
+.toolbar button {
+  font-size: 12px;
+  background: transparent;
+  border-color: #c8d4e0;
+}
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 20px 16px;
+}
+.stats > div {
+  display: grid;
+  gap: 7px;
+  text-align: center;
+  flex: 1;
+  border-right: 1px solid #d5dfe9;
+}
+.stats > div:last-child {
+  border: 0;
+}
+.stats span {
+  font-size: 13px;
+  color: #52667b;
+}
+.stats strong {
+  font-size: 25px;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 0 16px 18px;
+}
+.actions button:hover:not(:disabled) {
+  background: #e2ebf6;
+}
+.body {
+  padding: 0 20px;
+}
+.message {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+  padding: 18px 20px;
+  color: #52667b;
+  min-height: 60px;
+  word-break: keep-all;
+}
+.success {
+  color: #215d43;
+  background: #e0f0e6;
+  font-weight: 600;
+  margin-top: 16px;
+}
+.mint {
+  background: #edf5f1;
+  --table-accent: #297459;
+}
+.mines {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 5px;
+  max-width: 440px;
+  margin: auto;
+  padding: 9px;
+  background: #ccdcd3;
+  border: 1px solid #becfc5;
+  border-radius: 9px;
+}
+.shell .mineCell {
+  aspect-ratio: 1;
+  padding: 0;
+  font-size: 25px;
+  font-weight: 700;
+  border: 1px solid #acc2b5;
+  border-bottom: 3px solid #a9bdb1;
+  background: #f8fcf9;
+  min-height: 44px;
+  border-radius: 4px;
+}
+.shell .mineCell.open {
+  border: 1px solid #becfc5;
+  background: #dce9e1;
+}
+.mineCell[data-count="1"] {
+  color: #2466a3;
+}
+.mineCell[data-count="2"] {
+  color: #2d7045;
+}
+.mineCell[data-count="3"] {
+  color: #ad3d36;
+}
+.mineCell[data-count="4"] {
+  color: #673d97;
+}
+.shell .mineCell.exploded {
+  background: #db725e;
+  color: #fff;
+}
+.felt {
+  background: #175143;
+  color: #fff;
+  --table-accent: #e6be74;
+  border-color: #275e4c;
+}
+.felt .toolbar {
+  border-color: #417565;
+}
+.felt .stats span,
+.felt .message {
+  color: #d6e6dc;
+}
+.felt .stats > div {
+  border-color: #417565;
+}
+.felt .actions button,
+.felt .toolbar button {
+  background: #286653;
+  color: #fff;
+  border-color: #568875;
+}
+.felt .actions button:hover:not(:disabled) {
+  background: #3a806a;
+}
+.felt .success {
+  background: #e5f4d9;
+  color: #174931;
+}
+.solitaire {
+  padding-bottom: 10px;
+}
+.cardRow,
+.columns {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+.columns {
+  margin-top: 22px;
+  align-items: start;
+}
+.column {
+  position: relative;
+  border-radius: 5px;
+}
+.shell .card {
+  width: 100%;
+  min-width: 0;
+  position: relative;
+  aspect-ratio: 2/3;
+  min-height: 0;
+  border: 1px solid #e0e5dc;
+  border-radius: 5px;
+  background: #fffdf6;
+  padding: 0;
+  color: #202e41;
+  box-shadow: 0 2px 2px #0b372533;
+}
+.cardCorner {
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  line-height: 1;
+}
+.cardCorner small {
+  font-size: 16px;
+}
+.cardSuit {
+  position: absolute;
+  inset: 33% 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+.shell .red {
+  color: #be4036;
+}
+.shell .cardBack {
+  background: repeating-linear-gradient(45deg, #376d94 0, #376d94 3px, #417ba3 3px, #417ba3 5px);
+  border: 3px solid #f4f0e6;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.cardBack > span {
+  font-size: 14px;
+}
+.cardBack small {
+  font-size: 12px;
+}
+.cardBack:disabled {
+  opacity: 1;
+}
+.backMark {
+  opacity: 0.5;
+}
+.shell .emptyCard,
+.emptyCard {
+  aspect-ratio: 2/3;
+  border: 1px dashed #81a492;
+  border-radius: 5px;
+  min-width: 0;
+  background: #124434;
+  color: #aac6b7;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.emptyCard span {
+  display: grid;
+  gap: 6px;
+  font-size: 24px;
+}
+.emptyCard small {
+  font-size: 14px;
+}
+.shell .stackedCard {
+  position: absolute;
+  left: 0;
+}
+.shell .selectedCard {
+  outline: 3px solid #f5cb6d;
+  outline-offset: -2px;
+  box-shadow: 0 0 0 2px #f5cb6d;
+}
+.targetColumn {
+  background: #ffffff25;
+  box-shadow: 0 0 0 3px #f5cb6d;
+}
+.sand {
+  background: #f4eee3;
+  --table-accent: #996326;
+}
+.numberBoard {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  max-width: 460px;
+  margin: auto;
+  padding: 10px;
+  background: #bba58a;
+  border-radius: 10px;
+}
+.merge {
+  touch-action: none;
+  user-select: none;
+}
+.numberTile {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: #d6c9b4;
+  color: #534639;
+  font-size: clamp(22px, 3vw, 37px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  transition: background 120ms;
+}
+.numberTile[data-value="2"] {
+  background: #f7eddb;
+}
+.numberTile[data-value="4"] {
+  background: #f3deaf;
+}
+.numberTile[data-value="8"] {
+  background: #eeaa65;
+  color: #39260d;
+}
+.numberTile[data-value="16"] {
+  background: #db8050;
+  color: #fff;
+}
+.numberTile[data-value="32"] {
+  background: #c25c43;
+  color: #fff;
+}
+.numberTile[data-value="64"] {
+  background: #b14639;
+  color: #fff;
+}
+.numberTile[data-value="128"],
+.numberTile[data-value="256"],
+.numberTile[data-value="512"] {
+  background: #aa7a25;
+  color: #fff;
+  font-size: 28px;
+}
+.numberTile[data-value="1024"],
+.numberTile[data-value="2048"] {
+  background: #775f1e;
+  color: #fff;
+  font-size: 24px;
+}
+.directionPad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-width: 360px;
+  margin: 16px auto 0;
+}
+.directionPad button {
+  font-size: 23px;
+  min-height: 48px;
+}
+.violet {
+  background: #f0edf9;
+  --table-accent: #665590;
+}
+.memory {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.shell .memoryCard {
+  aspect-ratio: 3/4;
+  background: repeating-linear-gradient(45deg, #605582 0, #605582 4px, #6c6090 4px, #6c6090 7px);
+  border: 3px solid #fff;
+  color: #d0c8e0;
+  font-size: 30px;
+  box-shadow: 0 2px 3px #33294a22;
+}
+.shell .memoryCard.faceUp {
+  background: #fff;
+  color: #5a4279;
+  font-size: 40px;
+}
+.shell .memoryCard.matched {
+  background: #e3dff0;
+  border-color: #b6a8d0;
+  color: #6f5a8f;
+}
+.sliding {
+  background: #163858;
+}
+.shell .sliding .numberTile {
+  background: #e2eef9;
+  color: #254764;
+  padding: 0;
+  font-size: 28px;
+  border: 1px solid #bad0e4;
+  min-height: 0;
+  box-shadow: 0 3px 0 #819db5;
+}
+.shell .sliding .numberTile[data-correct="true"] {
+  background: #8fc3e5;
+  color: #17314a;
+  border-color: #77acd2;
+}
+.emptyTile {
+  aspect-ratio: 1;
+  border: 1px dashed #52738e;
+  border-radius: 6px;
+}
+.paper {
+  background: #f5f7fa;
+}
+.sudoku {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  border: 2px solid #40566d;
+  max-width: 480px;
+  margin: auto;
+  background: #fff;
+}
+.shell .sudokuCell {
+  aspect-ratio: 1;
+  border: 0;
+  border-right: 1px solid #d5dee7;
+  border-bottom: 1px solid #d5dee7;
+  border-radius: 0;
+  min-height: 0;
+  padding: 0;
+  color: #2769a5;
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+}
+.shell .sudokuCell.given {
+  color: #263a4f;
+  font-weight: 650;
+  background: #eef2f7;
+}
+.shell .sudokuCell[data-right="true"] {
+  border-right: 2px solid #40566d;
+}
+.shell .sudokuCell[data-bottom="true"] {
+  border-bottom: 2px solid #40566d;
+}
+.shell .sudokuCell.activeCell {
+  background: #cde5fb;
+  box-shadow: inset 0 0 0 2px #3a7cb7;
+}
+.shell .sudokuCell.wrong {
+  background: #fce0db;
+  color: #a22e29;
+}
+.notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+  align-items: center;
+  padding: 2px;
+}
+.notes small {
+  font-size: 10px;
+  line-height: 1;
+  color: #57718b;
+}
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 5px;
+  margin: 16px auto;
+  max-width: 480px;
+}
+.keypad button {
+  padding: 0;
+  min-height: 44px;
+  font-size: 19px;
+}
+@media (max-width: 600px) {
+  .toolbar {
+    padding: 14px 12px;
+  }
+  .toolbar h2 {
+    font-size: 18px;
+  }
+  .body {
+    padding: 0 10px;
+  }
+  .actions {
+    padding-inline: 10px;
+    gap: 6px;
+  }
+  .message {
+    padding: 16px 12px;
+  }
+  .mines {
+    gap: 3px;
+    padding: 5px;
+  }
+  .shell .mineCell {
+    font-size: 22px;
+  }
+  .cardRow,
+  .columns {
+    gap: 3px;
+  }
+  .felt .body {
+    padding: 0 6px;
+  }
+  .cardCorner {
+    left: 3px;
+    top: 5px;
+    font-size: 14px;
+    gap: 1px;
+  }
+  .cardCorner small {
+    font-size: 12px;
+  }
+  .cardSuit {
+    font-size: 24px;
+  }
+  .shell .cardBack {
+    border-width: 2px;
+  }
+  .cardBack > span {
+    font-size: 12px;
+  }
+  .numberBoard {
+    gap: 7px;
+    padding: 8px;
+  }
+  .memory {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .shell .memoryCard {
+    aspect-ratio: 1.1;
+  }
+  .shell .sudokuCell {
+    font-size: 18px;
+  }
+  .notes small {
+    font-size: 9px;
+  }
+  .keypad {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 7px;
+  }
+  .keypad button {
+    min-height: 46px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .numberTile {
+    transition: none;
+  }
+}

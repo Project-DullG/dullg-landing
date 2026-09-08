@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Kicker, PageFrame } from "@/components/site";
 import { GamePlayer } from "@/components/mini-games/game-player";
-import { miniProjects, getMiniProject } from "@/lib/mini-projects";
+import { TableGamePlayer } from "@/components/mini-games/table-game-player";
+import { miniProjects, getMiniProject, isArcadeGame } from "@/lib/mini-projects";
 import styles from "@/components/mini-games/games.module.css";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -35,7 +36,9 @@ export default async function MiniProjectPage({ params }: Props) {
           <span>/</span>
           <span aria-current="page">{project.title}</span>
         </nav>
-        <div className={styles.detailLayout}>
+        <div
+          className={`${styles.detailLayout} ${!isArcadeGame(project.slug) ? styles.tableDetailLayout : ""}`}
+        >
           <div className={styles.info}>
             <Kicker>{project.genre} · 1인 플레이</Kicker>
             <h1>{project.title}</h1>
@@ -47,7 +50,7 @@ export default async function MiniProjectPage({ params }: Props) {
                   <li key={control}>{control}</li>
                 ))}
               </ul>
-              <p>모바일에서는 게임판 아래 버튼을 사용하세요.</p>
+              {isArcadeGame(project.slug) && <p>모바일에서는 게임판 아래 버튼을 사용하세요.</p>}
             </section>
             <section>
               <h2>게임 규칙</h2>
@@ -67,7 +70,7 @@ export default async function MiniProjectPage({ params }: Props) {
                 </div>
                 <div>
                   <dt>구현</dt>
-                  <dd>TypeScript · Canvas</dd>
+                  <dd>TypeScript · {isArcadeGame(project.slug) ? "Canvas" : "React"}</dd>
                 </div>
               </dl>
             </section>
@@ -80,24 +83,30 @@ export default async function MiniProjectPage({ params }: Props) {
                   <li key={update}>{update}</li>
                 ))}
               </ul>
-              <p>효과음 켜기·끄기, 이 브라우저의 최고 기록 저장, 전체 화면을 지원합니다.</p>
+              {isArcadeGame(project.slug) && (
+                <p>효과음 켜기·끄기, 이 브라우저의 최고 기록 저장, 전체 화면을 지원합니다.</p>
+              )}
             </section>
             <details className={styles.credits}>
               <summary>사용한 에셋과 라이선스</summary>
-              <p>
-                그래픽:{" "}
-                <a
-                  href={
-                    project.slug === "lane-shift"
-                      ? "https://kenney.nl/assets/racing-pack"
-                      : "https://kenney.nl/assets/puzzle-pack-2"
-                  }
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Kenney · {project.slug === "lane-shift" ? "Racing Pack" : "Puzzle Pack 2"} ↗
-                </a>
-              </p>
+              {isArcadeGame(project.slug) ? (
+                <p>
+                  그래픽:{" "}
+                  <a
+                    href={
+                      project.slug === "lane-shift"
+                        ? "https://kenney.nl/assets/racing-pack"
+                        : "https://kenney.nl/assets/puzzle-pack-2"
+                    }
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Kenney · {project.slug === "lane-shift" ? "Racing Pack" : "Puzzle Pack 2"} ↗
+                  </a>
+                </p>
+              ) : (
+                <p>고전 게임의 규칙을 바탕으로 게임판과 조작을 직접 구현했습니다.</p>
+              )}
               <p>
                 효과음:{" "}
                 <a
@@ -108,20 +117,26 @@ export default async function MiniProjectPage({ params }: Props) {
                   Kenney · Interface Sounds ↗
                 </a>
               </p>
-              <p>모두 CC0 에셋입니다. 게임 기획·프로그래밍과 에셋 제작자를 구분해 표기합니다.</p>
+              <p>외부 그래픽과 효과음은 CC0 라이선스입니다.</p>
             </details>
           </div>
-          <GamePlayer key={project.slug} kind={project.slug} title={project.title} />
+          {isArcadeGame(project.slug) ? (
+            <GamePlayer key={project.slug} kind={project.slug} title={project.title} />
+          ) : (
+            <TableGamePlayer key={project.slug} kind={project.slug} />
+          )}
         </div>
         <nav className={styles.other} aria-label="다른 미니 프로젝트">
           <span>다른 게임도 플레이해 보세요.</span>
           {miniProjects
             .filter((item) => item.slug !== project.slug)
+            .slice(0, 3)
             .map((item) => (
               <Link key={item.slug} href={`/mini-projects/${item.slug}`}>
                 {item.title} →
               </Link>
             ))}
+          <Link href="/mini-projects">전체 목록 →</Link>
         </nav>
       </div>
     </PageFrame>

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import type { MiniGameId } from "@/lib/mini-projects";
+import type { ArcadeGameId } from "@/lib/mini-projects";
 import {
   createBlocks,
   hardDrop,
@@ -31,7 +31,7 @@ function engines(seed = 42) {
 }
 function render(
   ctx: CanvasRenderingContext2D,
-  kind: MiniGameId,
+  kind: ArcadeGameId,
   s: ReturnType<typeof engines>,
   art: Sprites,
   v: Visuals,
@@ -43,7 +43,7 @@ function render(
 }
 function events(
   s: ReturnType<typeof engines>,
-  kind: MiniGameId,
+  kind: ArcadeGameId,
   v: Visuals,
   audio: GameAudio,
   previous: { score: number; lines: number; lives: number },
@@ -74,7 +74,7 @@ function events(
   previous.lives = s.pinball.lives;
 }
 
-export function GamePlayer({ kind, title }: { kind: MiniGameId; title: string }) {
+export function GamePlayer({ kind, title }: { kind: ArcadeGameId; title: string }) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const stage = useRef<HTMLDivElement>(null);
   const player = useRef<HTMLElement>(null);

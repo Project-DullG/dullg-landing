@@ -106,6 +106,13 @@
   gap: 56px;
   align-items: start;
 }
+.tableDetailLayout {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 640px);
+  gap: 40px;
+}
+.tablePlayer {
+  min-width: 0;
+}
 .info section {
   padding-top: 22px;
   margin-top: 24px;
@@ -439,6 +446,9 @@
   }
 }
 @media (max-width: 800px) {
+  .tablePlayer {
+    grid-row: 4;
+  }
   .player {
     padding: 12px;
     border-radius: 12px;

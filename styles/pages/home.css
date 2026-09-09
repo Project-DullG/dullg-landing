@@ -8,8 +8,8 @@
   background: var(--cream);
 }
 .brand-hero {
-  min-height: 480px;
-  padding: 88px 0 72px;
+  min-height: 380px;
+  padding: 64px 0 56px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +18,7 @@
 }
 .brand-hero h1 {
   margin: 18px 0 26px;
-  font-size: clamp(44px, 5.5vw, 68px);
+  font-size: clamp(38px, 4.8vw, 56px);
   line-height: 1.2;
   letter-spacing: -0.05em;
 }
@@ -60,7 +60,7 @@
 }
 .brand-section-head h2 {
   margin: 10px 0 0;
-  font-size: clamp(28px, 3.3vw, 40px);
+  font-size: var(--title-section);
   letter-spacing: -0.05em;
 }
 .brand-section-head > a {
@@ -80,7 +80,7 @@
 }
 .brand-method-head h2 {
   margin: 12px 0 22px;
-  font-size: clamp(38px, 4.3vw, 54px);
+  font-size: var(--title-section);
   line-height: 1.18;
   letter-spacing: -0.055em;
 }
@@ -186,7 +186,7 @@
 }
 .brand-education h2 {
   margin: 14px 0 22px;
-  font-size: clamp(38px, 4.2vw, 54px);
+  font-size: var(--title-section);
   line-height: 1.18;
   letter-spacing: -0.055em;
 }
@@ -244,7 +244,7 @@
 }
 .brand-contact h2 {
   margin: 12px 0 0;
-  font-size: clamp(34px, 3.8vw, 48px);
+  font-size: var(--title-section);
   line-height: 1.22;
   letter-spacing: -0.05em;
 }
@@ -258,10 +258,10 @@
 @media (max-width: 760px) {
   .brand-hero {
     min-height: auto;
-    padding: 78px 0 72px;
+    padding: 48px 0 44px;
   }
   .brand-hero h1 {
-    font-size: clamp(36px, 10vw, 48px);
+    font-size: clamp(32px, 8.5vw, 40px);
   }
   .brand-hero p {
     font-size: 16px;
@@ -303,7 +303,7 @@
     gap: 38px;
   }
   .brand-education h2 {
-    font-size: 38px;
+    font-size: var(--title-section);
   }
   .brand-contact {
     padding: 68px 0;

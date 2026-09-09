@@ -2,8 +2,8 @@ import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
-import { Kicker, PageFrame } from "@/components/site";
-import { SectionHead } from "@/components/section-head";
+import { PageFrame } from "@/components/site";
+import { PageIntro } from "@/components/page-intro";
 import { activityRecords, formatActivityDate, isUpcoming } from "@/lib/activities";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -14,27 +14,14 @@ export const revalidate = 3600;
 export default function ActivityPage() {
   return (
     <PageFrame>
-      <section className="activity-hero shell">
-        {/* keeps a grid-item box; see SectionHead */}
-        <SectionHead
-          as="h1"
-          className="activity-hero-head"
-          kicker="제작·활동 기록"
-          title={<>제작·활동 기록</>}
-        />
-        <div>
-          <p>단서공방의 교육 현장, 펀딩과 수상 기록입니다.</p>
-          <Link className={styles.contact} href="/about#team-history">
-            팀 소개와 입주 이력 보기 →
-          </Link>
-        </div>
-      </section>
+      <PageIntro
+        title="활동 기록"
+        description="교육 현장과 텀블벅 펀딩, 수상 기록을 날짜순으로 정리했습니다."
+      >
+        <Link href="/about#team-history">팀 소개와 입주 이력 →</Link>
+      </PageIntro>
 
-      <section className="activity-ledger shell" aria-labelledby="activity-ledger-title">
-        <div>
-          <Kicker>기록</Kicker>
-          <h2 id="activity-ledger-title">단서공방의 작업</h2>
-        </div>
+      <section className={`shell ${styles.ledger}`} aria-label="날짜별 활동 목록">
         <div className="activity-ledger-list">
           {activityRecords.map((record) => {
             const upcoming = isUpcoming(record);
@@ -89,17 +76,11 @@ export default function ActivityPage() {
         </div>
       </section>
 
-      <section className="activity-disclosure">
-        <div className="shell">
-          <SectionHead
-            kicker="교육·협업 문의"
-            title="함께 진행할 수업이 있나요?"
-            lead="수업 대상, 주제와 희망 일정을 알려주세요."
-          />
-          <Link className={styles.contact} href="/contact">
-            교육·협업 문의하기 →
-          </Link>
-        </div>
+      <section className={`shell ${styles.inquiry}`} aria-label="교육·협업 문의">
+        <p>교육을 의뢰하려면 수업 대상, 주제와 희망 일정을 알려주세요.</p>
+        <Link className={styles.contact} href="/contact">
+          교육·협업 문의하기 →
+        </Link>
       </section>
     </PageFrame>
   );

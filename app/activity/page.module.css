@@ -1,3 +1,20 @@
+.ledger {
+  padding-bottom: var(--space-section);
+}
+.inquiry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  border-top: 1px solid var(--line);
+  padding-block: 24px var(--space-section);
+}
+.inquiry p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-muted);
+}
 .row.row {
   display: grid;
   grid-template-columns: 1fr;
@@ -5,7 +22,7 @@
   padding-block: 32px;
 }
 .row.withImage {
-  grid-template-columns: minmax(160px, 0.8fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(160px, 240px) minmax(0, 1fr);
 }
 .row img {
   width: 100%;

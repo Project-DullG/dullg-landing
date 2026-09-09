@@ -3,7 +3,7 @@
 import { ArrowUpRight, List, X } from "@phosphor-icons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { primaryNavigation } from "@/lib/navigation";
 import { BRAND } from "@/lib/site-config";
 
@@ -11,6 +11,8 @@ export function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [lastPathname, setLastPathname] = useState(pathname);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const menuPanel = useRef<HTMLDivElement>(null);
 
   // 경로가 바뀌면 메뉴를 닫는다. (렌더 중 상태 보정 — effect 없이 처리)
   if (pathname !== lastPathname) {
@@ -24,17 +26,41 @@ export function Header() {
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsOpen(false);
+      if (e.key === "Escape") {
+        setIsOpen(false);
+        menuButton.current?.focus();
+      }
+      if (e.key === "Tab") {
+        const links = menuPanel.current?.querySelectorAll<HTMLAnchorElement>("a[href]");
+        const last = links?.[links.length - 1];
+        if (e.shiftKey && document.activeElement === menuButton.current) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          menuButton.current?.focus();
+        }
+      }
     };
+    const compact = window.matchMedia("(max-width: 1200px)");
+    const closeOnDesktop = () => {
+      if (!compact.matches) setIsOpen(false);
+    };
+    compact.addEventListener("change", closeOnDesktop);
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = previous;
       window.removeEventListener("keydown", onKey);
+      compact.removeEventListener("change", closeOnDesktop);
     };
   }, [isOpen]);
 
   const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+    href === "/"
+      ? pathname === "/"
+      : pathname === href ||
+        pathname.startsWith(`${href}/`) ||
+        (href === "/academy" && pathname === "/episode");
 
   return (
     <header className="site-header">
@@ -52,21 +78,20 @@ export function Header() {
         </Link>
 
         <div className="nav-links">
-          {primaryNavigation.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              aria-current={isActive(link.href) ? "page" : undefined}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {primaryNavigation
+            .filter((link) => link.href !== "/")
+            .map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive(link.href) ? "page" : undefined}
+              >
+                {link.href === "/about" ? "공방 소개" : link.label}
+              </Link>
+            ))}
         </div>
 
         <div className="nav-actions">
-          <Link className="nav-login" href="/login">
-            학원 관리
-          </Link>
           <Link className="nav-cta" href="/contact">
             문의하기
             <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
@@ -74,6 +99,7 @@ export function Header() {
         </div>
 
         <button
+          ref={menuButton}
           className="nav-menu-button"
           type="button"
           aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
@@ -86,6 +112,7 @@ export function Header() {
       </nav>
 
       <div
+        ref={menuPanel}
         className={`mobile-navigation ${isOpen ? "is-open" : ""}`}
         id="mobile-navigation"
         aria-hidden={!isOpen}
@@ -99,7 +126,7 @@ export function Header() {
               aria-current={isActive(link.href) ? "page" : undefined}
               onClick={() => setIsOpen(false)}
             >
-              {link.label}
+              {link.href === "/about" ? "공방 소개" : link.label}
             </Link>
           ))}
           <Link className="mobile-navigation-cta" href="/contact" onClick={() => setIsOpen(false)}>

@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Kicker } from "./site";
 
 type Props = {
-  kicker: ReactNode;
+  kicker?: ReactNode;
   title: ReactNode;
   lead?: ReactNode;
   id?: string;
@@ -15,14 +15,13 @@ type Props = {
  * `display: contents` on this wrapper, so it disappears from layout when it
  * has no other className. Passing ANY `className` here breaks that exact
  * match and keeps a real box in the grid/flow instead — that's why callers
- * like `works-hero-head`, `activity-hero-head`, `sitemap-hero-head`, and
- * `funding-archive-head` exist: they carry no CSS rules of their own, they
- * only exist to opt a given SectionHead out of `display: contents`.
+ * that participate in a parent grid keep their wrapper through className.
+ * Page introductions use PageIntro, which always keeps its own layout box.
  */
 export function SectionHead({ kicker, title, lead, id, className, as: Heading = "h2" }: Props) {
   return (
     <div className={className ? `section-head ${className}` : "section-head"}>
-      <Kicker>{kicker}</Kicker>
+      {kicker ? <Kicker>{kicker}</Kicker> : null}
       <Heading id={id}>{title}</Heading>
       {lead ? <p>{lead}</p> : null}
     </div>

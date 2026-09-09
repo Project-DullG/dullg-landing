@@ -25,7 +25,8 @@ test("home and academy lead directly to the demo", async () => {
       assert.match(html, /가상 학생 데이터로/);
       assert.doesNotMatch(html, /class="dash-preview"/);
     } else {
-      assert.match(html, /로그인 없이 체험하기/);
+      assert.match(html, /학원 관리 체험/);
+      assert.match(html, /가상 학생 데이터를 사용합니다/);
       assert.match(html, /class="dash-preview"/);
     }
   }

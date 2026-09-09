@@ -1,88 +1,6 @@
 /*  MATERIALS PAGE  */
-.library-hero {
-  padding-top: 108px;
-  padding-bottom: 82px;
-  border-bottom: 1px solid var(--line);
-}
-.library-hero h1 {
-  margin: 14px 0 24px;
-  font-size: var(--title-page);
-  line-height: 1.16;
-  letter-spacing: -0.055em;
-}
-.library-hero > p {
-  max-width: 610px;
-  margin: 0;
-  color: rgba(17, 20, 18, 0.68);
-  font-size: 16px;
-  line-height: 1.82;
-}
-@media (max-width: 760px) {
-  .library-hero {
-    padding-top: 66px;
-    padding-bottom: 52px;
-  }
-  .library-hero h1 {
-    font-size: var(--title-mobile);
-  }
-}
-.materials-page .library-hero {
-  min-height: 560px;
-  padding: 116px 0 96px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border: 0;
-}
-.materials-page .library-hero h1 {
-  margin: 20px 0 26px;
-  font-size: clamp(52px, 6.5vw, 80px);
-  line-height: 1.1;
-  letter-spacing: -0.065em;
-}
-.materials-page .library-hero > p {
-  max-width: 650px;
-  color: #666b67;
-  font-size: 16px;
-  line-height: 1.8;
-}
-@media (max-width: 760px) {
-  .materials-page .library-hero {
-    min-height: auto;
-    padding: 76px 0 70px;
-  }
-  .materials-page .library-hero h1 {
-    font-size: clamp(40px, 11vw, 52px);
-  }
-  .materials-page .library-hero > p {
-    font-size: 15px;
-  }
-}
-html body .materials-page .library-hero {
-  min-height: auto;
-  padding: 82px 0 66px;
-  display: block;
-  text-align: left;
-  border: 0;
-}
-html body .materials-page .library-hero h1 {
-  max-width: 760px;
-  margin: 14px 0 18px;
-  font-size: var(--title-page);
-  line-height: 1.15;
-  letter-spacing: -0.06em;
-}
-html body .materials-page .library-hero > p {
-  max-width: 630px;
-  margin: 0;
-  color: #666b67;
-  font-size: 16px;
-  line-height: 1.75;
-}
 .course-archive {
-  margin-bottom: 110px;
+  margin-bottom: var(--space-section);
   border-top: 1px solid #171917;
 }
 .course-row {
@@ -121,7 +39,7 @@ html body .materials-page .library-hero > p {
   gap: 18px;
   flex: 0 0 auto;
   color: var(--text-muted);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
 }
 .course-row b i {
@@ -130,7 +48,7 @@ html body .materials-page .library-hero > p {
   font-style: normal;
 }
 .materials-help {
-  margin-bottom: 104px;
+  margin-bottom: var(--space-section);
   padding: 42px 0;
   display: grid;
   grid-template-columns: 0.7fr 1.3fr;
@@ -146,7 +64,7 @@ html body .materials-page .library-hero > p {
 .materials-help p {
   margin: 0;
   color: #6c716d;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
 }
 .materials-help a {
@@ -157,12 +75,6 @@ html body .materials-page .library-hero > p {
   text-underline-offset: 4px;
 }
 @media (max-width: 760px) {
-  html body .materials-page .library-hero {
-    padding: 64px 0 52px;
-  }
-  html body .materials-page .library-hero h1 {
-    font-size: 40px;
-  }
   .course-archive {
     margin-bottom: 72px;
   }

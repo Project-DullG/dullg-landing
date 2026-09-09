@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Kicker, PageFrame } from "@/components/site";
 import { pageMetadata } from "@/lib/metadata";
 import { BRAND, emailHref } from "@/lib/site-config";
+import { PageIntro } from "@/components/page-intro";
 
 export const metadata = pageMetadata("/contact", {
   description: "단서공방에 궁금한 것이 있으면 편하게 연락주세요. 영업일 1~2일 내 답변합니다.",
@@ -11,18 +12,10 @@ export const metadata = pageMetadata("/contact", {
 export default function ContactPage() {
   return (
     <PageFrame>
-      {/* ── HERO ── */}
-      <section className="inner-hero shell">
-        <Kicker>문의</Kicker>
-        <h1>
-          궁금한 건
-          <br />
-          <em>편하게 물어보세요.</em>
-        </h1>
-        <p>
-          작품과 협업, 교육 운영과 자료에 관한 문의를 받고 있습니다. 영업일 1~2일 내 답변드립니다.
-        </p>
-      </section>
+      <PageIntro
+        title="작품·교육·협업 문의"
+        description="작품 제작, 교육 의뢰, 수업 자료에 관해 이메일로 문의해 주세요."
+      />
 
       {/* ── MAIN CONTACT ── */}
       <section className="contact-main shell">
@@ -33,18 +26,13 @@ export default function ContactPage() {
           </a>
           <p>이메일 제목에 문의 유형과 이름을 간단히 적어주시면 더 빠르게 확인할 수 있습니다.</p>
           <p className="contact-response">{BRAND.responseTime}</p>
-          <Link className="button button-dark" href="/academy/pilot">
-            무료 검토팩 요청 <ArrowRight size={17} weight="bold" aria-hidden="true" />
+          <Link className="text-link" href="/academy/pilot">
+            영어 수업팩 검토 요청 <ArrowRight size={17} weight="bold" aria-hidden="true" />
           </Link>
         </div>
 
         <div className="contact-what-to-include">
-          <Kicker>문의할 때 알려주세요</Kicker>
-          <h2>
-            이런 내용을
-            <br />
-            <span>적어주시면 됩니다.</span>
-          </h2>
+          <h2>이메일에 적어주세요</h2>
           <ul className="contact-items">
             <li>
               <b>문의 유형</b>

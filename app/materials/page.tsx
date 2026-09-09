@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Kicker, PageFrame } from "@/components/site";
+import { PageFrame } from "@/components/site";
+import { PageIntro } from "@/components/page-intro";
 import { courseMaterials } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 import { BRAND, emailHref } from "@/lib/site-config";
@@ -10,11 +11,10 @@ export default function MaterialsPage() {
   return (
     <PageFrame>
       <div className="materials-page">
-        <section className="library-hero shell">
-          <Kicker>수강생 자료실</Kicker>
-          <h1>수강생 자료실</h1>
-          <p>참여한 수업을 선택해 발표자료와 실습 자료를 확인하세요.</p>
-        </section>
+        <PageIntro
+          title="수강생 자료실"
+          description="참여한 수업의 발표자료와 실습 자료를 확인하세요."
+        />
 
         <section className="course-archive shell" aria-label="교육 과정별 자료">
           {courseMaterials.map((course) => {
@@ -44,10 +44,7 @@ export default function MaterialsPage() {
 
         <section className="materials-help shell">
           <h2>찾는 자료가 없다면</h2>
-          <p>
-            수업명과 필요한 자료를 이메일에 적어 보내주세요. 공개할 수 있는 자료인지 확인한 뒤
-            답변드리겠습니다.
-          </p>
+          <p>수업명과 필요한 자료를 이메일로 알려주세요.</p>
           <a href={emailHref}>{BRAND.email}</a>
         </section>
       </div>

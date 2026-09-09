@@ -12,8 +12,10 @@
   --mint: #b8dcc9;
   --radius-sm: 10px;
   --header-h: 64px;
-  --title-page: clamp(34px, 4.6vw, 56px);
-  --title-mobile: clamp(32px, 8.5vw, 38px);
+  --title-page: clamp(30px, 3.5vw, 44px);
+  --title-mobile: clamp(28px, 7.5vw, 34px);
+  --title-section: clamp(24px, 2.8vw, 32px);
+  --space-section: clamp(44px, 6vw, 72px);
   --control-radius: 6px;
   --button-radius: 999px;
   --control-border: #bbc5c0;

@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { primaryNavigation, studioNavigation } from "@/lib/navigation";
+import { primaryNavigation } from "@/lib/navigation";
 import { BRAND, emailHref } from "@/lib/site-config";
 import { Header } from "./header";
 
@@ -24,30 +24,35 @@ export function Footer() {
             </span>
           </Link>
           <p>
-            이야기를 만들고, 단서를 엮어
+            머더미스터리를 제작하고
             <br />
-            머더미스터리와 교육 콘텐츠를 만듭니다.
+            게임·AI 활용 수업을 진행합니다.
           </p>
         </div>
 
         <div className="site-footer-links">
-          <strong>둘러보기</strong>
+          <strong>작품·공방</strong>
           {primaryNavigation
-            .filter((item) => item.href !== "/about")
+            .filter((item) =>
+              ["/works", "/mini-projects", "/activity", "/about"].includes(item.href),
+            )
             .map((item) => (
               <Link href={item.href} key={item.href}>
-                {item.label}
+                {item.href === "/about" ? "공방 소개" : item.label}
               </Link>
             ))}
         </div>
 
         <div className="site-footer-links">
-          <strong>단서공방</strong>
-          {studioNavigation.filter((item) => item.href !== "/activity").map((item) => (
-            <Link href={item.href} key={item.href}>
-              {item.label}
-            </Link>
-          ))}
+          <strong>교육·자료</strong>
+          {primaryNavigation
+            .filter((item) => ["/academy", "/materials", "/speaking"].includes(item.href))
+            .map((item) => (
+              <Link href={item.href} key={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          <Link href="/login">학원 관리 로그인</Link>
         </div>
 
         <div className="site-footer-contact">
@@ -56,9 +61,6 @@ export function Footer() {
           <p>{BRAND.responseTime}</p>
           <Link className="site-footer-sample" href="/contact">
             프로젝트 문의 →
-          </Link>
-          <Link className="site-footer-login" href="/login">
-            학원 관리 로그인
           </Link>
         </div>
       </div>

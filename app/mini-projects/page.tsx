@@ -1,4 +1,5 @@
-import { Kicker, PageFrame } from "@/components/site";
+import { PageFrame } from "@/components/site";
+import { PageIntro } from "@/components/page-intro";
 import { MiniProjectGrid } from "@/components/mini-games/project-grid";
 import { pageMetadata } from "@/lib/metadata";
 import styles from "@/components/mini-games/games.module.css";
@@ -20,15 +21,12 @@ export default function MiniProjectsPage() {
   ];
   return (
     <PageFrame>
-      <section className={`shell ${styles.intro}`}>
-        <Kicker>웹게임 제작</Kicker>
-        <h1>미니 프로젝트</h1>
-        <p>퍼즐·카드·아케이드 게임을 직접 만들고 공개합니다.</p>
+      <PageIntro title="미니 프로젝트" description="단서공방이 만든 퍼즐·카드·아케이드 게임입니다.">
         <span className={styles.seriesMeta}>
           <span>2026년 2월 시작</span>
           <span>두 달에 한 편 제작 목표</span>
         </span>
-      </section>
+      </PageIntro>
       <div className={`shell ${styles.collection}`}>
         {groups.map((group) => (
           <section className={styles.group} aria-labelledby={group.id} key={group.id}>

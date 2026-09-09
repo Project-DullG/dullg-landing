@@ -52,7 +52,7 @@ test("renders detailed product routes with working navigation targets", async ()
   assert.match(academy, /href="\/academy\/sample"/);
   assert.match(academy, /href="\/academy\/pilot"/);
   assert.match(academy, /id="tools"/);
-  assert.match(academy, /학원 운영까지 함께 정리합니다/);
+  assert.match(academy, /학원생·반·성적 관리/);
   assert.match(academy, /class="dash-preview"/);
   assert.match(academy, /href="\/login"/);
   assert.match(curriculum, /판단을 남기는 네 장면/);

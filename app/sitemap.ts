@@ -3,6 +3,7 @@ import { SITE_URL } from "@/lib/site";
 import { publicRoutes } from "@/lib/routes";
 import { works } from "@/lib/works";
 import { miniProjects } from "@/lib/mini-projects";
+import { bilingualSitemap } from "@/lib/i18n/sitemap";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = publicRoutes.map((r) => ({
@@ -16,5 +17,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
   }));
   const miniPages = miniProjects.map((project) => ({ url: `${SITE_URL}/mini-projects/${project.slug}`, priority: 0.6, changeFrequency: "monthly" as const }));
-  return [...pages, ...workPages, ...miniPages];
+  return bilingualSitemap([...pages, ...workPages, ...miniPages]);
 }

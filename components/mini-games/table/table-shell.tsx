@@ -1,4 +1,5 @@
 "use client";
+import { useText } from "@/lib/i18n/use-text";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { GameAudio } from "../feedback";
 import styles from "./table.module.css";
@@ -15,7 +16,10 @@ export function TableShell({
   tone = "blue",
 }: {
   title: string;
-  stats: { label: string; value: string | number }[];
+  stats: {
+    label: string;
+    value: string | number;
+  }[];
   children: ReactNode;
   actions?: ReactNode;
   message: string;
@@ -25,6 +29,7 @@ export function TableShell({
   canUndo?: boolean;
   tone?: string;
 }) {
+  const t = useText();
   const sound = useRef(new GameAudio());
   const [muted, setMuted] = useState(true);
   useEffect(() => {
@@ -37,11 +42,11 @@ export function TableShell({
   return (
     <section
       className={`${styles.shell} ${styles[tone] ?? ""}`}
-      aria-label={`${title} 플레이`}
+      aria-label={t(`${title} 플레이`)}
       onClickCapture={() => sound.current.play("move")}
     >
       <div className={styles.toolbar}>
-        <h2>{title}</h2>
+        <h2>{t(title)}</h2>
         <button
           type="button"
           aria-pressed={!muted}
@@ -52,31 +57,35 @@ export function TableShell({
             if (!value) sound.current.unlock();
           }}
         >
-          {muted ? "소리 끔" : "소리 켬"}
+          {t(muted ? "소리 끔" : "소리 켬")}
         </button>
       </div>
       <div className={styles.stats}>
-        {stats.map((stat) => (
-          <div key={stat.label}>
-            <span>{stat.label}</span>
-            <strong>{stat.value}</strong>
-          </div>
-        ))}
+        {t(
+          stats.map((stat) => (
+            <div key={stat.label}>
+              <span>{t(stat.label)}</span>
+              <strong>{t(stat.value)}</strong>
+            </div>
+          )),
+        )}
       </div>
       <div className={styles.actions}>
         <button type="button" onClick={onReset}>
-          새 게임
+          {t("새 게임")}
         </button>
-        {onUndo && (
-          <button type="button" onClick={onUndo} disabled={!canUndo}>
-            ↶ 되돌리기
-          </button>
+        {t(
+          onUndo && (
+            <button type="button" onClick={onUndo} disabled={!canUndo}>
+              {t("↶ 되돌리기")}
+            </button>
+          ),
         )}
-        {actions}
+        {t(actions)}
       </div>
-      <div className={styles.body}>{children}</div>
+      <div className={styles.body}>{t(children)}</div>
       <p className={`${styles.message} ${won ? styles.success : ""}`} role="status">
-        {message}
+        {t(message)}
       </p>
     </section>
   );

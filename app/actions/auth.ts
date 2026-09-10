@@ -1,6 +1,6 @@
 "use server";
 
-import { redirect } from "next/navigation";
+import { localizedRedirect } from "@/lib/i18n/server";
 import { createSessionCookie, clearSession, verifySession } from "@/lib/firebase/auth";
 import { getAdminAuth, getAdminDb } from "@/lib/firebase/admin";
 
@@ -11,12 +11,12 @@ export async function loginAction(idToken: string) {
   const role = decoded.role as string | undefined;
 
   if (role === "student") {
-    redirect("/dashboard/my");
+    return localizedRedirect("/dashboard/my");
   } else if (role === "owner") {
-    redirect("/dashboard");
+    return localizedRedirect("/dashboard");
   } else {
     // No role: could be a student needing to link, or unknown user
-    redirect("/dashboard/link");
+    return localizedRedirect("/dashboard/link");
   }
 }
 
@@ -26,7 +26,7 @@ export async function logoutAction() {
     await getAdminAuth().revokeRefreshTokens(session.uid);
   }
   await clearSession();
-  redirect("/login");
+  return localizedRedirect("/login");
 }
 
 export async function linkStudentAction(academyId: string, studentName: string) {
@@ -59,5 +59,5 @@ export async function linkStudentAction(academyId: string, studentName: string) 
     studentId: studentDoc.id,
   });
 
-  redirect("/dashboard/my");
+  return localizedRedirect("/dashboard/my");
 }

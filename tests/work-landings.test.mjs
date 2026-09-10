@@ -17,7 +17,7 @@ test("publishes official landing sections for six individual funded works", asyn
       assert.ok(image.height > 0 && image.height <= 2000);
       await access(new URL(`../public${image.src}`, import.meta.url));
     }
-    const html = await readFile(new URL(`../.next/server/app/works/${slug}.html`, import.meta.url), "utf8");
+    const html = await readFile(new URL(`../.test-output/pages/works/${slug}.html`, import.meta.url), "utf8");
     assert.match(html, /텀블벅 원문/);
     assert.ok(html.includes(landing.images[0].src));
     assert.ok(html.includes(landing.images.at(-1).src));

@@ -1,10 +1,12 @@
 "use client";
+import { useText } from "@/lib/i18n/use-text";
 import { useRef, useState } from "react";
 import { createSudoku, fillSudoku, hintSudoku, sudokuConflicts } from "@/lib/games/sudoku";
 import { useTurnGame } from "./use-turn-game";
 import { TableShell } from "./table-shell";
 import styles from "./table.module.css";
 export function SudokuGame() {
+  const t = useText();
   const game = useTurnGame(createSudoku),
     s = game.state,
     [selected, setSelected] = useState(() => s.givens.findIndex((value) => !value)),
@@ -19,7 +21,7 @@ export function SudokuGame() {
   };
   return (
     <TableShell
-      title="스도쿠"
+      title={t("스도쿠")}
       tone="paper"
       stats={[
         { label: "채운 칸", value: `${s.cells.filter(Boolean).length} / 81` },
@@ -49,7 +51,7 @@ export function SudokuGame() {
       actions={
         <>
           <button type="button" onClick={() => setChecked(true)}>
-            검사
+            {t("검사")}
           </button>
           <button
             type="button"
@@ -59,7 +61,7 @@ export function SudokuGame() {
               setChecked(false);
             }}
           >
-            힌트
+            {t("힌트")}
           </button>
         </>
       }
@@ -67,7 +69,7 @@ export function SudokuGame() {
       <div
         className={styles.sudoku}
         role="group"
-        aria-label="9행 9열 스도쿠"
+        aria-label={t("9행 9열 스도쿠")}
         onKeyDown={(event) => {
           if (/^[1-9]$/.test(event.key)) {
             event.preventDefault();
@@ -88,50 +90,60 @@ export function SudokuGame() {
           }
         }}
       >
-        {s.cells.map((value, i) => (
-          <button
-            type="button"
-            key={i}
-            ref={(el) => {
-              cells.current[i] = el;
-            }}
-            tabIndex={i === selected ? 0 : -1}
-            onClick={() => setSelected(i)}
-            onFocus={() => setSelected(i)}
-            aria-pressed={i === selected}
-            aria-label={`${Math.floor(i / 9) + 1}행 ${(i % 9) + 1}열, ${value ? `${s.givens[i] ? "주어진 수" : "입력한 수"} ${value}` : "빈칸"}${conflicts.has(i) || wrong.includes(i) ? ", 확인 필요" : ""}`}
-            className={`${styles.sudokuCell} ${s.givens[i] ? styles.given : ""} ${i === selected ? styles.activeCell : ""} ${conflicts.has(i) || wrong.includes(i) ? styles.wrong : ""}`}
-            data-right={i % 9 === 2 || i % 9 === 5}
-            data-bottom={Math.floor(i / 9) === 2 || Math.floor(i / 9) === 5}
-          >
-            {value || (
-              <span className={styles.notes}>
-                {Array.from({ length: 9 }, (_, n) => (
-                  <small key={n}>{s.notes[i].includes(n + 1) ? n + 1 : ""}</small>
-                ))}
-              </span>
-            )}
-          </button>
-        ))}
+        {t(
+          s.cells.map((value, i) => (
+            <button
+              type="button"
+              key={i}
+              ref={(el) => {
+                cells.current[i] = el;
+              }}
+              tabIndex={i === selected ? 0 : -1}
+              onClick={() => setSelected(i)}
+              onFocus={() => setSelected(i)}
+              aria-pressed={i === selected}
+              aria-label={t(
+                `${Math.floor(i / 9) + 1}행 ${(i % 9) + 1}열, ${value ? `${s.givens[i] ? "주어진 수" : "입력한 수"} ${value}` : "빈칸"}${conflicts.has(i) || wrong.includes(i) ? ", 확인 필요" : ""}`,
+              )}
+              className={`${styles.sudokuCell} ${s.givens[i] ? styles.given : ""} ${i === selected ? styles.activeCell : ""} ${conflicts.has(i) || wrong.includes(i) ? styles.wrong : ""}`}
+              data-right={i % 9 === 2 || i % 9 === 5}
+              data-bottom={Math.floor(i / 9) === 2 || Math.floor(i / 9) === 5}
+            >
+              {t(
+                value || (
+                  <span className={styles.notes}>
+                    {t(
+                      Array.from({ length: 9 }, (_, n) => (
+                        <small key={n}>{t(s.notes[i].includes(n + 1) ? n + 1 : "")}</small>
+                      )),
+                    )}
+                  </span>
+                ),
+              )}
+            </button>
+          )),
+        )}
       </div>
       <div className={styles.keypad}>
-        {Array.from({ length: 9 }, (_, i) => (
-          <button
-            type="button"
-            key={i}
-            disabled={s.won || !!s.givens[selected]}
-            onClick={() => input(i + 1)}
-          >
-            {i + 1}
-          </button>
-        ))}
+        {t(
+          Array.from({ length: 9 }, (_, i) => (
+            <button
+              type="button"
+              key={i}
+              disabled={s.won || !!s.givens[selected]}
+              onClick={() => input(i + 1)}
+            >
+              {t(i + 1)}
+            </button>
+          )),
+        )}
       </div>
       <div className={styles.actions}>
         <button type="button" aria-pressed={pencil} onClick={() => setPencil((v) => !v)}>
-          {pencil ? "메모 켜짐" : "메모"}
+          {t(pencil ? "메모 켜짐" : "메모")}
         </button>
         <button type="button" disabled={s.won || !!s.givens[selected]} onClick={() => input(0)}>
-          지우기
+          {t("지우기")}
         </button>
       </div>
     </TableShell>

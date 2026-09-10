@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { DM_Mono, Noto_Sans_KR, Noto_Serif_KR, Playfair_Display } from "next/font/google";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale } from "next-intl/server";
+import { localizeMetadata } from "@/lib/i18n/server";
 
 const dmMono = DM_Mono({
   weight: "400",
@@ -29,7 +32,7 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: "단서공방 | 영어 미스터리 수업과 추리 콘텐츠", template: "%s | 단서공방" },
   description:
@@ -42,19 +45,42 @@ export const metadata: Metadata = {
     "영어 미스터리 수업팩",
     "학원 관리",
   ],
-  openGraph: { type: "website", locale: "ko_KR", siteName: "단서공방" },
-  twitter: { card: "summary_large_image" },
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    siteName: "단서공방",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "단서공방 — 머더미스터리 작품과 영어 미스터리 수업팩",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      { url: "/opengraph-image", alt: "단서공방 — 머더미스터리 작품과 영어 미스터리 수업팩" },
+    ],
+  },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export async function generateMetadata() {
+  return localizeMetadata(baseMetadata);
+}
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const locale = await getLocale();
   const fontVars = `${dmMono.variable} ${notoSansKR.variable} ${notoSerifKR.variable} ${playfair.variable}`;
   return (
-    <html lang="ko" className={fontVars} data-scroll-behavior="smooth">
+    <html lang={locale} className={fontVars} data-scroll-behavior="smooth">
       <body>
         <a className="skip-link" href="#main-content">
-          본문으로 바로가기
+          {locale === "en" ? "Skip to content" : "본문으로 바로가기"}
         </a>
-        {children}
+        <NextIntlClientProvider locale={locale} messages={{}}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

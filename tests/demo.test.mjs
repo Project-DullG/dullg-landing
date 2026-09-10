@@ -3,8 +3,8 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 test("demo is reachable without login and clearly labels fictional records", async () => {
-  const html = await readFile(new URL("../.next/server/app/demo.html", import.meta.url), "utf8");
-  const login = await readFile(new URL("../.next/server/app/login.html", import.meta.url), "utf8");
+  const html = await readFile(new URL("../.test-output/pages/demo.html", import.meta.url), "utf8");
+  const login = await readFile(new URL("../.test-output/pages/login.html", import.meta.url), "utf8");
   assert.match(login, /href="\/demo"/);
   assert.match(html, /가상 데이터 · 체험 모드/);
   assert.match(html, /서버에 저장되지 않으며/);
@@ -16,7 +16,7 @@ test("demo is reachable without login and clearly labels fictional records", asy
 test("home and academy lead directly to the demo", async () => {
   for (const route of ["index", "academy"]) {
     const html = await readFile(
-      new URL(`../.next/server/app/${route}.html`, import.meta.url),
+      new URL(`../.test-output/pages/${route}.html`, import.meta.url),
       "utf8",
     );
     assert.match(html, /href="\/demo"/);
@@ -45,7 +45,7 @@ test("demo uses the same student workspace as the authenticated page", async () 
     readFile(new URL("../app/demo/academy-demo.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/dashboard/students/live-students.tsx", import.meta.url), "utf8"),
     readFile(new URL("../components/dashboard/student-workspace.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../.next/server/app/demo.html", import.meta.url), "utf8"),
+    readFile(new URL("../.test-output/pages/demo.html", import.meta.url), "utf8"),
   ]);
   for (const source of [demo, live]) assert.match(source, /StudentWorkspace/);
   assert.doesNotMatch(workspace, /firebase|fetch\(|app\/actions/);

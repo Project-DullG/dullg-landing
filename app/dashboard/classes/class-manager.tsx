@@ -1,11 +1,12 @@
 "use client";
-
+import { useText } from "@/lib/i18n/use-text";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { addClass, updateClass, deleteClass } from "@/app/actions/classes";
-
-type ClassItem = { id: string; name: string };
-
+type ClassItem = {
+  id: string;
+  name: string;
+};
 export function ClassManager({
   classes,
   classCounts,
@@ -13,6 +14,7 @@ export function ClassManager({
   classes: ClassItem[];
   classCounts: Record<string, number>;
 }) {
+  const t = useText();
   const router = useRouter();
   const [newName, setNewName] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -21,7 +23,6 @@ export function ClassManager({
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
   const [deleteId, setDeleteId] = useState<string | null>(null);
-
   async function handleAdd(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
@@ -37,7 +38,6 @@ export function ClassManager({
       setBusy(false);
     }
   }
-
   async function handleUpdate(classId: string) {
     setError(null);
     setBusy(true);
@@ -52,7 +52,6 @@ export function ClassManager({
       setBusy(false);
     }
   }
-
   async function handleDelete(classId: string) {
     setError(null);
     setBusy(true);
@@ -67,91 +66,130 @@ export function ClassManager({
       setBusy(false);
     }
   }
-
   return (
     <fieldset className="dash-fieldset" disabled={busy}>
       <form onSubmit={handleAdd} className="dash-card">
-        <h2>새 반 추가</h2>
+        <h2>{t("새 반 추가")}</h2>
         <div className="dash-row">
           <input
-            aria-label="새 반 이름"
+            aria-label={t("새 반 이름")}
             className="dash-input"
-            placeholder="반 이름"
+            placeholder={t("반 이름")}
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
             required
           />
           <button type="submit" className="dash-button">
-            추가
+            {t("추가")}
           </button>
         </div>
       </form>
 
-      <p role="status" className="dash-success">{busy ? "처리 중입니다…" : message}</p>
-      {error && <p role="alert" className="dash-error">{error}</p>}
-      <p className="dash-description">학생이 배정된 반은 삭제할 수 없습니다. 학생 관리에서 반을 먼저 변경해 주세요.</p>
+      <p role="status" className="dash-success">
+        {t(busy ? "처리 중입니다…" : message)}
+      </p>
+      {t(
+        error && (
+          <p role="alert" className="dash-error">
+            {t(error)}
+          </p>
+        ),
+      )}
+      <p className="dash-description">
+        {t("학생이 배정된 반은 삭제할 수 없습니다. 학생 관리에서 반을 먼저 변경해 주세요.")}
+      </p>
 
       <table className="dash-table" style={{ marginTop: 16 }}>
         <thead>
           <tr>
-            <th>반 이름</th>
-            <th>학생 수</th>
+            <th>{t("반 이름")}</th>
+            <th>{t("학생 수")}</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {classes.map((c) => (
-            <tr key={c.id}>
-              <td>
-                {editingId === c.id ? (
-                  <input
-                    aria-label={`${c.name} 새 이름`}
-                    className="dash-input"
-                    value={editName}
-                    onChange={(e) => setEditName(e.target.value)}
-                    style={{ marginBottom: 0 }}
-                  />
-                ) : (
-                  c.name
-                )}
-              </td>
-              <td>{classCounts[c.id] || 0}명</td>
-              <td className="dash-table-actions">
-                {editingId === c.id ? (
-                  <>
-                    <button type="button" onClick={() => handleUpdate(c.id)}>
-                      저장
-                    </button>
-                    <button type="button" onClick={() => setEditingId(null)}>
-                      취소
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setEditingId(c.id);
-                        setEditName(c.name);
-                      }}
-                    >
-                      수정
-                    </button>
-                    <button type="button" disabled={(classCounts[c.id] || 0) > 0} onClick={() => setDeleteId(c.id)}>
-                      삭제
-                    </button>
-                  </>
-                )}
-                {deleteId === c.id && <div role="group" aria-label="반 삭제 확인"><p>{c.name} 반을 삭제할까요?</p><button type="button" onClick={() => handleDelete(c.id)}>삭제 확인</button><button type="button" onClick={() => setDeleteId(null)}>취소</button></div>}
-              </td>
-            </tr>
-          ))}
-          {classes.length === 0 && (
-            <tr>
-              <td colSpan={3} style={{ textAlign: "center", color: "rgba(21,37,30,0.4)" }}>
-                등록된 반이 없습니다.
-              </td>
-            </tr>
+          {t(
+            classes.map((c) => (
+              <tr key={c.id}>
+                <td>
+                  {t(
+                    editingId === c.id ? (
+                      <input
+                        aria-label={t(`${c.name} 새 이름`)}
+                        className="dash-input"
+                        value={editName}
+                        onChange={(e) => setEditName(e.target.value)}
+                        style={{ marginBottom: 0 }}
+                      />
+                    ) : (
+                      c.name
+                    ),
+                  )}
+                </td>
+                <td>
+                  {t(classCounts[c.id] || 0)}
+                  {t("명")}
+                </td>
+                <td className="dash-table-actions">
+                  {t(
+                    editingId === c.id ? (
+                      <>
+                        <button type="button" onClick={() => handleUpdate(c.id)}>
+                          {t("저장")}
+                        </button>
+                        <button type="button" onClick={() => setEditingId(null)}>
+                          {t("취소")}
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setEditingId(c.id);
+                            setEditName(c.name);
+                          }}
+                        >
+                          {t("수정")}
+                        </button>
+                        <button
+                          type="button"
+                          disabled={(classCounts[c.id] || 0) > 0}
+                          onClick={() => setDeleteId(c.id)}
+                        >
+                          {t("삭제")}
+                        </button>
+                      </>
+                    ),
+                  )}
+                  {t(
+                    deleteId === c.id && (
+                      <div role="group" aria-label={t("반 삭제 확인")}>
+                        <p>
+                          {t(c.name)}
+                          {t("반을 삭제할까요?")}
+                        </p>
+                        <button type="button" onClick={() => handleDelete(c.id)}>
+                          {t("삭제 확인")}
+                        </button>
+                        <button type="button" onClick={() => setDeleteId(null)}>
+                          {t("취소")}
+                        </button>
+                      </div>
+                    ),
+                  )}
+                </td>
+              </tr>
+            )),
+          )}
+          {t(
+            classes.length === 0 && (
+              <tr>
+                <td colSpan={3} style={{ textAlign: "center", color: "rgba(21,37,30,0.4)" }}>
+                  {t("등록된 반이 없습니다.")}
+                </td>
+              </tr>
+            ),
           )}
         </tbody>
       </table>

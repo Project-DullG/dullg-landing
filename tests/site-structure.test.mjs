@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const html = (route) =>
-  readFile(new URL(`../.next/server/app/${route}.html`, import.meta.url), "utf8");
+  readFile(new URL(`../.test-output/pages/${route}.html`, import.meta.url), "utf8");
 
 test("directory pages use one compact heading before their content", async () => {
   for (const route of ["works", "mini-projects", "activity", "materials", "about", "contact"]) {

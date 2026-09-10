@@ -1,10 +1,11 @@
 "use client";
+import { useText } from "@/lib/i18n/use-text";
 import { useState } from "react";
-import Link from "next/link";
+import Link from "@/components/i18n/link";
 import { StudentWorkspace, type StudentItem } from "@/components/dashboard/student-workspace";
 import { ScoreChart } from "@/components/dashboard/score-chart";
 import styles from "./page.module.css";
-
+import { LanguageSwitch } from "@/components/i18n/language-switch";
 const classes = [
   { id: "a", name: "초6 A반" },
   { id: "b", name: "중1 B반" },
@@ -16,7 +17,11 @@ const initialStudents: StudentItem[] = Array.from({ length: 8 }, (_, i) => ({
   classId: i === 7 ? "" : i < 4 ? "a" : "b",
   parentContact: "010-****-0000",
 }));
-type RecordItem = { studentId: string; session: number; score: number };
+type RecordItem = {
+  studentId: string;
+  session: number;
+  score: number;
+};
 const initialRecords: RecordItem[] = initialStudents.flatMap((student, i) =>
   [1, 2, 3].map((session) => ({
     studentId: student.id,
@@ -24,8 +29,8 @@ const initialRecords: RecordItem[] = initialStudents.flatMap((student, i) =>
     score: 65 + ((i * 7 + session * 5) % 31),
   })),
 );
-
 export function AcademyDemo() {
+  const t = useText();
   const [students, setStudents] = useState(initialStudents);
   const [records, setRecords] = useState(initialRecords);
   const [version, setVersion] = useState(0);
@@ -33,44 +38,49 @@ export function AcademyDemo() {
   return (
     <div className={styles.app}>
       <aside className={styles.sidebar}>
+        <LanguageSwitch />
         <Link href="/" className={styles.brand}>
-          단서공방
+          {t("단서공방")}
         </Link>
-        <span>예시 학원</span>
-        <nav aria-label="체험 메뉴">
+        <span>{t("예시 학원")}</span>
+        <nav aria-label={t("체험 메뉴")}>
           <a href="#main-content" aria-current="page">
-            학생 관리
+            {t("학생 관리")}
           </a>
-          <Link href="/academy#tools">기능 소개 ↗</Link>
+          <Link href="/academy#tools">{t("기능 소개 ↗")}</Link>
         </nav>
-        <p>실제 계정에서는 반 관리와 성적 리포트도 이용할 수 있습니다.</p>
-        <Link href="/login">실제 계정으로 로그인 →</Link>
+        <p>{t("실제 계정에서는 반 관리와 성적 리포트도 이용할 수 있습니다.")}</p>
+        <Link href="/login">{t("실제 계정으로 로그인 →")}</Link>
       </aside>
       <main id="main-content" className={styles.main}>
         <div className={styles.banner}>
           <div>
-            <strong>가상 데이터 · 체험 모드</strong>
+            <strong>{t("가상 데이터 \u00B7 체험 모드")}</strong>
             <p>
-              서버에 저장되지 않으며 새로고침하면 초기화됩니다. 실제 개인정보는 입력하지 마세요.
+              {t(
+                "서버에 저장되지 않으며 새로고침하면 초기화됩니다. 실제 개인정보는 입력하지 마세요.",
+              )}
             </p>
           </div>
-          <button onClick={() => setResetting(true)}>체험 초기화</button>
+          <button onClick={() => setResetting(true)}>{t("체험 초기화")}</button>
         </div>
-        {resetting && (
-          <div className={styles.banner} role="group" aria-label="체험 초기화 확인">
-            <p>추가·수정한 예시 학생과 점수를 모두 초기화할까요?</p>
-            <button
-              onClick={() => {
-                setStudents(initialStudents);
-                setRecords(initialRecords);
-                setVersion((value) => value + 1);
-                setResetting(false);
-              }}
-            >
-              초기화 확인
-            </button>
-            <button onClick={() => setResetting(false)}>취소</button>
-          </div>
+        {t(
+          resetting && (
+            <div className={styles.banner} role="group" aria-label={t("체험 초기화 확인")}>
+              <p>{t("추가\u00B7수정한 예시 학생과 점수를 모두 초기화할까요?")}</p>
+              <button
+                onClick={() => {
+                  setStudents(initialStudents);
+                  setRecords(initialRecords);
+                  setVersion((value) => value + 1);
+                  setResetting(false);
+                }}
+              >
+                {t("초기화 확인")}
+              </button>
+              <button onClick={() => setResetting(false)}>{t("취소")}</button>
+            </div>
+          ),
         )}
         <StudentWorkspace
           key={version}
@@ -107,7 +117,6 @@ export function AcademyDemo() {
     </div>
   );
 }
-
 function DemoGrades({
   records,
   onSave,
@@ -115,9 +124,10 @@ function DemoGrades({
   records: RecordItem[];
   onSave: (session: number, score: number) => void;
 }) {
+  const t = useText();
   const [message, setMessage] = useState("");
   return (
-    <section className={styles.grades} aria-label="학생별 예시 성적">
+    <section className={styles.grades} aria-label={t("학생별 예시 성적")}>
       <ScoreChart
         scores={[1, 2, 3, 4].map((session) => ({
           label: `${session}차시`,
@@ -136,23 +146,26 @@ function DemoGrades({
         }}
       >
         <label>
-          차시
+          {t("차시")}
           <select name="session">
-            {[1, 2, 3, 4].map((session) => (
-              <option key={session} value={session}>
-                {session}차시
-              </option>
-            ))}
+            {t(
+              [1, 2, 3, 4].map((session) => (
+                <option key={session} value={session}>
+                  {t(session)}
+                  {t("차시")}
+                </option>
+              )),
+            )}
           </select>
         </label>
         <label>
-          점수 (0~100)
+          {t("점수 (0~100)")}
           <input name="score" type="number" min="0" max="100" step="1" required />
         </label>
-        <button type="submit">점수 반영</button>
+        <button type="submit">{t("점수 반영")}</button>
       </form>
-      <p>같은 차시를 입력하면 기존 예시 점수가 변경됩니다.</p>
-      <p role="status">{message}</p>
+      <p>{t("같은 차시를 입력하면 기존 예시 점수가 변경됩니다.")}</p>
+      <p role="status">{t(message)}</p>
     </section>
   );
 }

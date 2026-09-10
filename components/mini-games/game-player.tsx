@@ -1,4 +1,6 @@
 "use client";
+import { useText } from "@/lib/i18n/use-text";
+import { useLocale } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import type { ArcadeGameId } from "@/lib/mini-projects";
 import {
@@ -17,7 +19,6 @@ import { loadSprites, type Sprites } from "./assets";
 import { GameAudio, createVisuals, burst, stepVisuals, type Visuals } from "./feedback";
 import { readBest, saveBest } from "@/lib/games/records";
 import styles from "./games.module.css";
-
 type Status = "ready" | "running" | "paused" | "over";
 type Action = "left" | "right" | "rotate" | "down" | "drop" | "launch" | "hold";
 const labels: Record<Status, string> = {
@@ -46,7 +47,11 @@ function events(
   kind: ArcadeGameId,
   v: Visuals,
   audio: GameAudio,
-  previous: { score: number; lines: number; lives: number },
+  previous: {
+    score: number;
+    lines: number;
+    lives: number;
+  },
 ) {
   const game = kind === "block-stack" ? s.blocks : kind === "bumper-room" ? s.pinball : s.dodge;
   if (kind === "block-stack" && s.blocks.lines > previous.lines) {
@@ -73,8 +78,9 @@ function events(
   previous.lines = s.blocks.lines;
   previous.lives = s.pinball.lives;
 }
-
 export function GamePlayer({ kind, title }: { kind: ArcadeGameId; title: string }) {
+  const locale = useLocale();
+  const t = useText();
   const canvas = useRef<HTMLCanvasElement>(null);
   const stage = useRef<HTMLDivElement>(null);
   const player = useRef<HTMLElement>(null);
@@ -95,7 +101,6 @@ export function GamePlayer({ kind, title }: { kind: ArcadeGameId; title: string 
   const [screenMessage, setScreenMessage] = useState("");
   const [status, setStatus] = useState<Status>("ready");
   const [hud, setHud] = useState({ score: 0, lives: 3, lines: 0, ready: true });
-
   function paint() {
     const ctx = canvas.current?.getContext("2d");
     if (!ctx) return;
@@ -189,7 +194,6 @@ export function GamePlayer({ kind, title }: { kind: ArcadeGameId; title: string 
     sync();
     paint();
   }
-
   useEffect(() => {
     let cancelled = false;
     const sound = audio.current;
@@ -228,13 +232,11 @@ export function GamePlayer({ kind, title }: { kind: ArcadeGameId; title: string 
       window.removeEventListener("blur", hide);
     };
   }, [kind]);
-
   useEffect(() => {
     const change = () => setExpanded(document.fullscreenElement === player.current);
     document.addEventListener("fullscreenchange", change);
     return () => document.removeEventListener("fullscreenchange", change);
   }, []);
-
   useEffect(() => {
     if (status !== "running") return;
     let frame = 0,
@@ -293,7 +295,6 @@ export function GamePlayer({ kind, title }: { kind: ArcadeGameId; title: string 
     frame = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(frame);
   }, [status, kind]);
-
   const keyAction = (key: string): Action | undefined => {
     if (key === "ArrowLeft" || key.toLowerCase() === "a") return "left";
     if (key === "ArrowRight" || key.toLowerCase() === "d") return "right";
@@ -356,7 +357,7 @@ export function GamePlayer({ kind, title }: { kind: ArcadeGameId; title: string 
             : undefined
         }
       >
-        {label}
+        {t(label)}
       </button>
     );
   }
@@ -364,12 +365,12 @@ export function GamePlayer({ kind, title }: { kind: ArcadeGameId; title: string 
     <section
       ref={player}
       className={`${styles.player} ${styles[kind]}`}
-      aria-label={`${title} 플레이`}
+      aria-label={t(`${title} 플레이`)}
     >
       <div className={styles.playerToolbar}>
         <span>
           <i />
-          {labels[status]}
+          {t(labels[status])}
         </span>
         <div>
           <button
@@ -385,7 +386,7 @@ export function GamePlayer({ kind, title }: { kind: ArcadeGameId; title: string 
               }
             }}
           >
-            {muted ? "소리 끔" : "소리 켬"}
+            {t(muted ? "소리 끔" : "소리 켬")}
           </button>
           <button
             type="button"
@@ -400,33 +401,37 @@ export function GamePlayer({ kind, title }: { kind: ArcadeGameId; title: string 
               }
             }}
           >
-            {expanded ? "전체 화면 닫기" : "전체 화면"}
+            {t(expanded ? "전체 화면 닫기" : "전체 화면")}
           </button>
         </div>
       </div>
       <div className={styles.hud}>
         <div>
-          <span>점수</span>
-          <strong>{hud.score.toLocaleString()}</strong>
+          <span>{t("점수")}</span>
+          <strong>{t(hud.score.toLocaleString())}</strong>
         </div>
         <div>
-          <span>이 브라우저 최고</span>
-          <strong>{Math.max(best, hud.score).toLocaleString()}</strong>
+          <span>{t("이 브라우저 최고")}</span>
+          <strong>{t(Math.max(best, hud.score).toLocaleString())}</strong>
         </div>
         <div>
           <span>
-            {kind === "bumper-room"
-              ? "남은 공"
-              : kind === "block-stack"
-                ? "지운 줄"
-                : "통과한 차량"}
+            {t(
+              kind === "bumper-room"
+                ? "남은 공"
+                : kind === "block-stack"
+                  ? "지운 줄"
+                  : "통과한 차량",
+            )}
           </span>
           <strong>
-            {kind === "bumper-room"
-              ? `${hud.lives}`
-              : kind === "block-stack"
-                ? `${hud.lines}`
-                : `${Math.floor(hud.score / 10)}`}
+            {t(
+              kind === "bumper-room"
+                ? `${hud.lives}`
+                : kind === "block-stack"
+                  ? `${hud.lines}`
+                  : `${Math.floor(hud.score / 10)}`,
+            )}
           </strong>
         </div>
       </div>
@@ -434,7 +439,9 @@ export function GamePlayer({ kind, title }: { kind: ArcadeGameId; title: string 
         ref={stage}
         tabIndex={0}
         className={styles.stage}
-        aria-label={`${title} 게임판. 시작 후 방향키로 조작합니다. P 또는 Escape로 일시정지합니다.`}
+        aria-label={t(
+          `${title} 게임판. 시작 후 방향키로 조작합니다. P 또는 Escape로 일시정지합니다.`,
+        )}
         onKeyDown={(event) => {
           if (event.target !== event.currentTarget) return;
           if (running.current && (event.key === "Escape" || event.key.toLowerCase() === "p")) {
@@ -464,94 +471,116 @@ export function GamePlayer({ kind, title }: { kind: ArcadeGameId; title: string 
           }
         }}
       >
-        <canvas ref={canvas} width={720} height={1040} aria-label={`${title} 게임 화면`}>
-          이 게임은 Canvas를 지원하는 브라우저에서 실행됩니다.
+        <canvas lang={locale} ref={canvas} width={720} height={1040} aria-label={t(`${title} 게임 화면`)}>
+          {t("이 게임은 Canvas를 지원하는 브라우저에서 실행됩니다.")}
         </canvas>
-        {status === "running" && countdown > 0 && (
-          <div className={styles.countdown} aria-live="polite">
-            <strong>{countdown}</strong>
-            <span>잠시 후 시작합니다</span>
-          </div>
+        {t(
+          status === "running" && countdown > 0 && (
+            <div className={styles.countdown} aria-live="polite">
+              <strong>{t(countdown)}</strong>
+              <span>{t("잠시 후 시작합니다")}</span>
+            </div>
+          ),
         )}
-        {status !== "running" && (
-          <div className={styles.overlay}>
-            <small>단서공방 · 미니 게임</small>
-            <span>{status === "ready" ? title : labels[status]}</span>
-            <p>
-              {status === "over"
-                ? `${hud.score.toLocaleString()}점${hud.score > 0 && hud.score >= best ? " · 최고 기록!" : ""}`
-                : status === "paused"
-                  ? "이어서 플레이할 수 있습니다."
-                  : kind === "block-stack"
-                    ? "블록을 돌리고 가로줄을 채우세요."
-                    : kind === "bumper-room"
-                      ? "세 범퍼를 모두 맞혀 보너스에 도전하세요."
-                      : "차선을 바꿔 앞에서 오는 차를 피하세요."}
-            </p>
-            {status === "ready" && (
-              <div className={styles.keyGuide}>
-                <kbd>←</kbd>
-                <kbd>→</kbd>
-                {kind === "block-stack" && <kbd>↑</kbd>}
-                <span>방향키 또는 화면 버튼</span>
-              </div>
-            )}
-            <button
-              type="button"
-              disabled={!loaded}
-              onClick={
-                status === "paused"
-                  ? () => {
-                      running.current = true;
-                      setStatus("running");
-                      stage.current?.focus();
-                    }
-                  : start
-              }
-            >
-              {!loaded
-                ? "게임 준비 중…"
-                : status === "paused"
-                  ? "계속하기"
-                  : status === "over"
-                    ? "한 판 더 하기"
-                    : "플레이 시작"}
-            </button>
-          </div>
+        {t(
+          status !== "running" && (
+            <div className={styles.overlay}>
+              <small>{t("단서공방 \u00B7 미니 게임")}</small>
+              <span>{t(status === "ready" ? title : labels[status])}</span>
+              <p>
+                {t(
+                  status === "over"
+                    ? `${hud.score.toLocaleString()}점${hud.score > 0 && hud.score >= best ? " · 최고 기록!" : ""}`
+                    : status === "paused"
+                      ? "이어서 플레이할 수 있습니다."
+                      : kind === "block-stack"
+                        ? "블록을 돌리고 가로줄을 채우세요."
+                        : kind === "bumper-room"
+                          ? "세 범퍼를 모두 맞혀 보너스에 도전하세요."
+                          : "차선을 바꿔 앞에서 오는 차를 피하세요.",
+                )}
+              </p>
+              {t(
+                status === "ready" && (
+                  <div className={styles.keyGuide}>
+                    <kbd>←</kbd>
+                    <kbd>→</kbd>
+                    {t(kind === "block-stack" && <kbd>↑</kbd>)}
+                    <span>{t("방향키 또는 화면 버튼")}</span>
+                  </div>
+                ),
+              )}
+              <button
+                type="button"
+                disabled={!loaded}
+                onClick={
+                  status === "paused"
+                    ? () => {
+                        running.current = true;
+                        setStatus("running");
+                        stage.current?.focus();
+                      }
+                    : start
+                }
+              >
+                {t(
+                  !loaded
+                    ? "게임 준비 중…"
+                    : status === "paused"
+                      ? "계속하기"
+                      : status === "over"
+                        ? "한 판 더 하기"
+                        : "플레이 시작",
+                )}
+              </button>
+            </div>
+          ),
         )}
       </div>
-      <div className={styles.controls} aria-label="게임 조작 버튼">
-        {control("left", kind === "bumper-room" ? "왼쪽 플리퍼" : "← 이동", kind === "bumper-room")}
-        {kind === "block-stack" && control("rotate", "회전 ↻")}
-        {control(
-          "right",
-          kind === "bumper-room" ? "오른쪽 플리퍼" : "이동 →",
-          kind === "bumper-room",
+      <div className={styles.controls} aria-label={t("게임 조작 버튼")}>
+        {t(
+          control(
+            "left",
+            kind === "bumper-room" ? "왼쪽 플리퍼" : "← 이동",
+            kind === "bumper-room",
+          ),
         )}
-        {kind === "block-stack" && control("drop", "바닥으로 ↓")}
-        {kind === "block-stack" && control("hold", "블록 보관 · C")}
-        {kind === "bumper-room" && control("launch", "공 발사 ↑")}
+        {t(kind === "block-stack" && control("rotate", "회전 ↻"))}
+        {t(
+          control(
+            "right",
+            kind === "bumper-room" ? "오른쪽 플리퍼" : "이동 →",
+            kind === "bumper-room",
+          ),
+        )}
+        {t(kind === "block-stack" && control("drop", "바닥으로 ↓"))}
+        {t(kind === "block-stack" && control("hold", "블록 보관 · C"))}
+        {t(kind === "bumper-room" && control("launch", "공 발사 ↑"))}
       </div>
       <div className={styles.session}>
         <button type="button" disabled={status !== "running"} onClick={pause}>
-          일시정지
+          {t("일시정지")}
         </button>
         <button type="button" disabled={status === "ready" || status === "running"} onClick={start}>
-          처음부터
+          {t("처음부터")}
         </button>
         <span role="status">
-          {status === "running" && kind === "bumper-room" && hud.ready
-            ? "발사 버튼을 눌러 주세요."
-            : labels[status]}
+          {t(
+            status === "running" && kind === "bumper-room" && hud.ready
+              ? "발사 버튼을 눌러 주세요."
+              : labels[status],
+          )}
         </span>
       </div>
       <p className={styles.note}>
-        최고 기록은 이 브라우저에만 저장됩니다. P 키로 일시정지할 수 있습니다.
+        {t("최고 기록은 이 브라우저에만 저장됩니다. P 키로 일시정지할 수 있습니다.")}
       </p>
-      {screenMessage && (
-        <p role="status" className={styles.note}>
-          {screenMessage}
-        </p>
+      {t(
+        screenMessage && (
+          <p role="status" className={styles.note}>
+            {t(screenMessage)}
+          </p>
+        ),
       )}
     </section>
   );

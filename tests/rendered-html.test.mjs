@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readdir, readFile } from "node:fs/promises";
 import test from "node:test";
 
-const routeHtml = (route) => new URL(`../.next/server/app/${route}`, import.meta.url);
+const routeHtml = (route) => new URL(`../.test-output/pages/${route}`, import.meta.url);
 
 test("separates studio history from the upcoming education product", async () => {
   const about = await readFile(routeHtml("about.html"), "utf8");

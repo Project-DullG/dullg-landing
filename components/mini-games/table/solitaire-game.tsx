@@ -1,4 +1,5 @@
 "use client";
+import { useText } from "@/lib/i18n/use-text";
 import { useState } from "react";
 import {
   createSolitaire,
@@ -28,19 +29,21 @@ const rank = (card: Card) =>
           ? "K"
           : String(card.rank);
 function Face({ card }: { card: Card }) {
+  const t = useText();
   return (
     <>
       <span className={styles.cardCorner}>
-        {rank(card)}
-        <small>{SUITS[card.suit]}</small>
+        {t(rank(card))}
+        <small>{t(SUITS[card.suit])}</small>
       </span>
       <span className={styles.cardSuit} aria-hidden="true">
-        {SUITS[card.suit]}
+        {t(SUITS[card.suit])}
       </span>
     </>
   );
 }
 export function SolitaireGame() {
+  const t = useText();
   const game = useTurnGame(createSolitaire),
     s = game.state;
   const [selected, setSelected] = useState<CardSource | null>(null),
@@ -87,7 +90,7 @@ export function SolitaireGame() {
   const selectedName = selected ? selectedCards(s, selected)[0] : null;
   return (
     <TableShell
-      title="솔리테어"
+      title={t("솔리테어")}
       tone="felt"
       stats={[
         { label: "모은 카드", value: `${s.foundations.reduce((n, p) => n + p.length, 0)} / 52` },
@@ -131,7 +134,7 @@ export function SolitaireGame() {
               );
           }}
         >
-          힌트
+          {t("힌트")}
         </button>
       }
     >
@@ -145,97 +148,113 @@ export function SolitaireGame() {
               clear();
             }}
             disabled={s.won || (!s.stock.length && !s.waste.length)}
-            aria-label={
+            aria-label={t(
               s.stock.length
                 ? `카드 한 장 뽑기, ${s.stock.length}장 남음`
-                : "뽑은 카드 다시 섞지 않고 되돌리기"
-            }
+                : "뽑은 카드 다시 섞지 않고 되돌리기",
+            )}
           >
-            <span>{s.stock.length ? "뽑기" : "↻"}</span>
-            <small>{s.stock.length || "다시"}</small>
+            <span>{t(s.stock.length ? "뽑기" : "↻")}</span>
+            <small>{t(s.stock.length || "다시")}</small>
           </button>
-          {s.waste.length ? (
-            <button
-              type="button"
-              className={`${styles.card} ${isRed(s.waste.at(-1)!) ? styles.red : ""} ${same({ kind: "waste", pile: 0, index: 0 }) ? styles.selectedCard : ""}`}
-              onClick={() => choose({ kind: "waste", pile: 0, index: 0 })}
-              aria-pressed={same({ kind: "waste", pile: 0, index: 0 })}
-              aria-label={`뽑은 카드 ${cardName(s.waste.at(-1)!)}`}
-            >
-              <Face card={s.waste.at(-1)!} />
-            </button>
-          ) : (
-            <div className={styles.emptyCard} aria-label="뽑은 카드 없음" />
-          )}
-          <div aria-hidden="true" />
-          {s.foundations.map((pile, i) => {
-            const card = pile.at(-1);
-            return (
+          {t(
+            s.waste.length ? (
               <button
                 type="button"
-                key={i}
-                className={`${styles.card} ${card && isRed(card) ? styles.red : ""} ${!card ? styles.emptyCard : ""} ${(hint?.kind === "foundation" && hint.pile === i) || same({ kind: "foundation", pile: i, index: 0 }) ? styles.selectedCard : ""}`}
-                aria-pressed={same({ kind: "foundation", pile: i, index: 0 })}
-                aria-label={`${SUITS[i]} A 더미, ${card ? cardName(card) : "빈 더미"}`}
-                onClick={() =>
-                  same({ kind: "foundation", pile: i, index: 0 })
-                    ? clear()
-                    : selected
-                      ? target({ kind: "foundation", pile: i })
-                      : card && choose({ kind: "foundation", pile: i, index: 0 })
-                }
+                className={`${styles.card} ${isRed(s.waste.at(-1)!) ? styles.red : ""} ${same({ kind: "waste", pile: 0, index: 0 }) ? styles.selectedCard : ""}`}
+                onClick={() => choose({ kind: "waste", pile: 0, index: 0 })}
+                aria-pressed={same({ kind: "waste", pile: 0, index: 0 })}
+                aria-label={t(`뽑은 카드 ${cardName(s.waste.at(-1)!)}`)}
               >
-                {card ? (
-                  <Face card={card} />
-                ) : (
-                  <span>
-                    {SUITS[i]}
-                    <small>A</small>
-                  </span>
-                )}
+                <Face card={s.waste.at(-1)!} />
               </button>
-            );
-          })}
-        </div>
-        <div className={styles.columns}>
-          {s.columns.map((column, pile) => (
-            <div
-              key={pile}
-              className={`${styles.column} ${hint?.kind === "column" && hint.pile === pile ? styles.targetColumn : ""}`}
-              style={{ minHeight: `${Math.max(1, column.length - 1) * 28 + 100}px` }}
-            >
-              {!column.length && (
+            ) : (
+              <div className={styles.emptyCard} aria-label={t("뽑은 카드 없음")} />
+            ),
+          )}
+          <div aria-hidden="true" />
+          {t(
+            s.foundations.map((pile, i) => {
+              const card = pile.at(-1);
+              return (
                 <button
                   type="button"
-                  className={`${styles.card} ${styles.emptyCard}`}
-                  aria-label={`${pile + 1}번째 빈 열, K 놓기`}
-                  onClick={() => target({ kind: "column", pile })}
+                  key={i}
+                  className={`${styles.card} ${card && isRed(card) ? styles.red : ""} ${!card ? styles.emptyCard : ""} ${(hint?.kind === "foundation" && hint.pile === i) || same({ kind: "foundation", pile: i, index: 0 }) ? styles.selectedCard : ""}`}
+                  aria-pressed={same({ kind: "foundation", pile: i, index: 0 })}
+                  aria-label={t(`${SUITS[i]} A 더미, ${card ? cardName(card) : "빈 더미"}`)}
+                  onClick={() =>
+                    same({ kind: "foundation", pile: i, index: 0 })
+                      ? clear()
+                      : selected
+                        ? target({ kind: "foundation", pile: i })
+                        : card && choose({ kind: "foundation", pile: i, index: 0 })
+                  }
                 >
-                  K
-                </button>
-              )}
-              {column.map((card, index) => (
-                <button
-                  type="button"
-                  key={card.id}
-                  style={{ top: index * 28 }}
-                  className={`${styles.card} ${styles.stackedCard} ${!card.up ? styles.cardBack : isRed(card) ? styles.red : ""} ${selected?.kind === "column" && selected.pile === pile && index >= selected.index ? styles.selectedCard : ""}`}
-                  disabled={!card.up || s.won}
-                  aria-pressed={same({ kind: "column", pile, index })}
-                  aria-label={`${pile + 1}번째 열, ${card.up ? cardName(card) : "뒤집힌 카드"}`}
-                  onClick={() => choose({ kind: "column", pile, index })}
-                >
-                  {card.up ? (
-                    <Face card={card} />
-                  ) : (
-                    <span className={styles.backMark} aria-hidden="true">
-                      ◇
-                    </span>
+                  {t(
+                    card ? (
+                      <Face card={card} />
+                    ) : (
+                      <span>
+                        {t(SUITS[i])}
+                        <small>A</small>
+                      </span>
+                    ),
                   )}
                 </button>
-              ))}
-            </div>
-          ))}
+              );
+            }),
+          )}
+        </div>
+        <div className={styles.columns}>
+          {t(
+            s.columns.map((column, pile) => (
+              <div
+                key={pile}
+                className={`${styles.column} ${hint?.kind === "column" && hint.pile === pile ? styles.targetColumn : ""}`}
+                style={{ minHeight: `${Math.max(1, column.length - 1) * 28 + 100}px` }}
+              >
+                {t(
+                  !column.length && (
+                    <button
+                      type="button"
+                      className={`${styles.card} ${styles.emptyCard}`}
+                      aria-label={t(`${pile + 1}번째 빈 열, K 놓기`)}
+                      onClick={() => target({ kind: "column", pile })}
+                    >
+                      K
+                    </button>
+                  ),
+                )}
+                {t(
+                  column.map((card, index) => (
+                    <button
+                      type="button"
+                      key={card.id}
+                      style={{ top: index * 28 }}
+                      className={`${styles.card} ${styles.stackedCard} ${!card.up ? styles.cardBack : isRed(card) ? styles.red : ""} ${selected?.kind === "column" && selected.pile === pile && index >= selected.index ? styles.selectedCard : ""}`}
+                      disabled={!card.up || s.won}
+                      aria-pressed={same({ kind: "column", pile, index })}
+                      aria-label={t(
+                        `${pile + 1}번째 열, ${card.up ? cardName(card) : "뒤집힌 카드"}`,
+                      )}
+                      onClick={() => choose({ kind: "column", pile, index })}
+                    >
+                      {t(
+                        card.up ? (
+                          <Face card={card} />
+                        ) : (
+                          <span className={styles.backMark} aria-hidden="true">
+                            ◇
+                          </span>
+                        ),
+                      )}
+                    </button>
+                  )),
+                )}
+              </div>
+            )),
+          )}
         </div>
       </div>
     </TableShell>

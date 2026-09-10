@@ -125,6 +125,46 @@
 .mobile-navigation {
   display: none;
 }
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--control-radius);
+  white-space: nowrap;
+}
+.source-language-note {
+  margin: 20px 0;
+  padding: 14px 0;
+  border-block: 1px solid var(--line);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3 {
+  letter-spacing: -0.025em;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+html[lang="en"] .nav-links {
+  gap: 16px;
+}
+html[lang="en"] .brand-name small {
+  display: none;
+}
+html[lang="en"] .brand-name {
+  font-size: 18px;
+}
+@media (max-width: 1200px) {
+  .language-switch {
+    margin-left: auto;
+  }
+}
 .button {
   min-height: 48px;
   display: inline-flex;

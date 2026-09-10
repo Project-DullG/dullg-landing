@@ -10,11 +10,11 @@ test("publishes all 15 slide images and the updated PDF", async () => {
 });
 
 test("links the September class to a web viewer without forcing download", async () => {
-  const html = await readFile(new URL("../.next/server/app/materials.html", import.meta.url), "utf8");
+  const html = await readFile(new URL("../.test-output/pages/materials.html", import.meta.url), "utf8");
   assert.match(html, /href="\/materials\/ulleung-high-living-lab"/);
   assert.doesNotMatch(html, /13쪽/);
   assert.doesNotMatch(html, /발표자료 PDF 다운로드/);
-  const viewer = await readFile(new URL("../.next/server/app/materials/ulleung-high-living-lab.html", import.meta.url), "utf8");
+  const viewer = await readFile(new URL("../.test-output/pages/materials/ulleung-high-living-lab.html", import.meta.url), "utf8");
   assert.match(viewer, /원하는 쪽으로 이동/);
   assert.match(viewer, /크게 보기/);
   assert.match(viewer, /PDF 다운로드/);

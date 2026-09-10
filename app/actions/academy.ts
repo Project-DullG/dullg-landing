@@ -1,6 +1,6 @@
 "use server";
 
-import { redirect } from "next/navigation";
+import { localizedRedirect } from "@/lib/i18n/server";
 import { verifySession } from "@/lib/firebase/auth";
 import { getAdminAuth, getAdminDb } from "@/lib/firebase/admin";
 import { FieldValue } from "firebase-admin/firestore";
@@ -9,7 +9,7 @@ export async function createAcademy(name: string) {
   const session = await verifySession();
   if (!session || session.role !== "owner") throw new Error("권한이 없습니다.");
   // Already has an academy — never create a duplicate.
-  if (session.academyId) redirect("/dashboard");
+  if (session.academyId) return localizedRedirect("/dashboard");
 
   const ref = await getAdminDb().collection("academies").add({
     name,
@@ -24,7 +24,7 @@ export async function createAcademy(name: string) {
     academyId: ref.id,
   });
 
-  redirect("/dashboard");
+  return localizedRedirect("/dashboard");
 }
 
 export async function updateAcademy(academyId: string, name: string) {

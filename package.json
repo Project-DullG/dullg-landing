@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "npm run build && node --experimental-strip-types --test tests/*.test.mjs",
+    "test": "npm run build && node scripts/test-site.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",
     "shots": "node scripts/screenshot-public.mjs",
@@ -25,6 +25,7 @@
     "firebase": "^12.18.0",
     "firebase-admin": "^14.3.0",
     "next": "^16.2.12",
+    "next-intl": "^4.14.2",
     "react": "19.2.6",
     "react-dom": "19.2.6"
   },

@@ -5,7 +5,10 @@ export type TableGameId =
   | "sudoku"
   | "number-merge"
   | "memory-pairs"
-  | "sliding-puzzle";
+  | "sliding-puzzle"
+  | "match-three"
+  | "snake"
+  | "lights-out";
 export type MiniGameId = ArcadeGameId | TableGameId;
 export const isArcadeGame = (id: MiniGameId): id is ArcadeGameId =>
   ["block-stack", "bumper-room", "lane-shift"].includes(id);
@@ -19,7 +22,64 @@ export const miniProjects: {
   implementation: string;
   color: string;
   updates: string[];
+  category?: "puzzle" | "arcade";
+  updatedOn?: string;
 }[] = [
+  {
+    slug: "match-three",
+    updatedOn: "2026.09.10",
+    title: "세 개 한 줄",
+    genre: "매치3 퍼즐",
+    description: "옆 칸과 자리를 바꿔 같은 모양을 세 개 이상 이으세요.",
+    controls: [
+      "서로 붙은 두 칸을 차례로 선택",
+      "방향키로 칸 이동, Enter로 선택",
+      "힌트로 바꿀 수 있는 두 칸 확인",
+    ],
+    rules:
+      "가로나 세로로 같은 모양을 3개 이상 이으면 사라집니다. 빈칸에는 새 블록이 내려오고 연속으로 맞추면 추가 점수를 얻습니다. 성공한 이동 30번 동안 점수를 모으세요. 맞춰지지 않는 교환은 이동 횟수를 쓰지 않습니다.",
+    implementation:
+      "줄 맞추기, 블록 낙하, 연쇄 계산과 힌트를 구현했습니다. 바꿀 수 있는 칸이 없으면 횟수를 차감하지 않고 새로 섞습니다.",
+    color: "#7662b3",
+    updates: ["같은 모양 3개 맞추기와 연쇄 점수", "키보드 이동·힌트·막힌 판 자동 섞기"],
+  },
+  {
+    slug: "snake",
+    updatedOn: "2026.09.10",
+    title: "스네이크",
+    genre: "방향 조작 게임",
+    category: "arcade",
+    description: "먹이를 먹으며 길어지는 몸을 움직여 벽과 몸을 피하세요.",
+    controls: [
+      "방향키 또는 WASD로 방향 전환",
+      "모바일에서는 밀기 또는 화살표 버튼 사용",
+      "Space 또는 버튼으로 시작·일시정지",
+    ],
+    rules:
+      "먹이 하나에 10점을 얻고 몸이 한 칸 늘어납니다. 벽이나 자신의 몸에 닿으면 끝납니다. 반대 방향으로 바로 돌아설 수는 없습니다. 다른 탭으로 이동하면 자동으로 멈춥니다.",
+    implementation:
+      "일정한 간격으로 이동하며 입력을 순서대로 처리합니다. 먹이는 빈칸에만 생기며, 화면을 벗어나면 일시정지합니다.",
+    color: "#2f765b",
+    updates: ["방향 전환·먹이 생성·충돌 판정", "밀기 입력과 탭 전환 시 자동 일시정지"],
+  },
+  {
+    slug: "lights-out",
+    updatedOn: "2026.09.10",
+    title: "불 끄기",
+    genre: "논리 퍼즐",
+    description: "한 칸과 그 주변의 불을 바꿔 모든 불을 끄세요.",
+    controls: [
+      "칸을 눌러 그 칸과 상하좌우의 불 전환",
+      "힌트로 다음에 누를 칸 확인",
+      "되돌리기로 직전 이동 복구",
+    ],
+    rules:
+      "켜진 불은 꺼지고 꺼진 불은 켜집니다. 5×5 게임판의 불을 모두 끄면 성공입니다. 이동 횟수 제한은 없습니다. 힌트는 풀 수 있는 순서 중 한 칸을 보여주며, 최소 이동 해답은 아닙니다.",
+    implementation:
+      "불이 모두 꺼진 판에 가능한 입력을 적용해 문제를 만듭니다. 항상 풀 수 있는 배치로 시작하며, 힌트와 되돌리기를 제공합니다.",
+    color: "#be913c",
+    updates: ["풀 수 있는 문제 생성과 완료 판정", "현재 배치에 맞는 힌트와 되돌리기"],
+  },
   {
     slug: "block-stack",
     title: "블록 정리",
@@ -117,7 +177,7 @@ export const miniProjects: {
   },
   {
     slug: "number-merge",
-    title: "숫자 합치기",
+    title: "2048",
     genre: "2048 퍼즐",
     description: "같은 숫자를 합쳐 2048에 도전합니다.",
     controls: [

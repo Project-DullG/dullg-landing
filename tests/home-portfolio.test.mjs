@@ -5,7 +5,7 @@ import { homeFeaturedWorks } from "../lib/works.ts";
 import { activityRecords } from "../lib/activities.ts";
 
 const html = (route) =>
-  readFile(new URL(`../.next/server/app/${route}.html`, import.meta.url), "utf8");
+  readFile(new URL(`../.test-output/pages/${route}.html`, import.meta.url), "utf8");
 
 test("home distinguishes a featured work from two related works and keeps real work details", async () => {
   const page = await html("index");
@@ -71,11 +71,11 @@ test("production process lives on about, while home retains company and educatio
   assert.match(academy, /class="dash-preview"/);
 });
 
-test("mini portfolio groups six puzzle games and three arcade games without duplicate entries", async () => {
+test("mini portfolio groups eight puzzle games and four arcade games without duplicate entries", async () => {
   const page = await html("mini-projects");
   for (const [id, title, count] of [
-    ["puzzle-games", "퍼즐·카드 게임", 6],
-    ["arcade-games", "아케이드 게임", 3],
+    ["puzzle-games", "퍼즐·카드 게임", 8],
+    ["arcade-games", "아케이드 게임", 4],
   ]) {
     const section = page.match(
       new RegExp(`<section[^>]*aria-labelledby="${id}"[\\s\\S]*?</section>`),

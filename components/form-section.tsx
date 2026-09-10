@@ -1,21 +1,18 @@
 "use client";
-
+import { useText } from "@/lib/i18n/use-text";
 import { ArrowUpRight, CheckCircle } from "@phosphor-icons/react";
-import Link from "next/link";
+import Link from "@/components/i18n/link";
 import { useState, useRef } from "react";
 import { BRAND, emailHref } from "@/lib/site-config";
-
 type State = "idle" | "submitting" | "success" | "error";
 type ErrorField = "academy" | "contact" | "interest" | "consent" | null;
-
 const SUBMIT_URL = `https://formsubmit.co/ajax/${BRAND.email}`;
-
 export function FormSection() {
+  const t = useText();
   const [state, setState] = useState<State>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [errorField, setErrorField] = useState<ErrorField>(null);
   const formRef = useRef<HTMLFormElement>(null);
-
   function showFieldError(field: Exclude<ErrorField, null>, message: string) {
     setErrorMsg(message);
     setErrorField(field);
@@ -25,20 +22,16 @@ export function FormSection() {
       if (control instanceof HTMLElement) control.focus();
     });
   }
-
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setErrorMsg("");
     setErrorField(null);
-
     const form = e.currentTarget;
     const data = new FormData(form);
-
     if (data.get("_honey")) {
       setState("success");
       return;
     }
-
     // 클라이언트 유효성 검사
     const requiredFields: [string, string][] = [
       ["academy", "기관명을 입력해주세요."],
@@ -63,9 +56,7 @@ export function FormSection() {
       showFieldError("consent", "개인정보 수집·이용에 동의해주세요.");
       return;
     }
-
     setState("submitting");
-
     try {
       const res = await fetch(SUBMIT_URL, {
         method: "POST",
@@ -84,7 +75,6 @@ export function FormSection() {
           _captcha: "false",
         }),
       });
-
       if (!res.ok) throw new Error("서버 오류");
       setState("success");
     } catch {
@@ -93,32 +83,31 @@ export function FormSection() {
       setErrorMsg(`일시적인 오류가 발생했습니다. ${BRAND.email}으로 직접 문의해주세요.`);
     }
   }
-
   if (state === "success") {
     return (
       <div className="apply-form form-success" role="status" aria-live="polite">
         <div className="form-success-icon" aria-hidden="true">
           <CheckCircle size={42} weight="fill" />
         </div>
-        <h3>요청이 접수되었습니다</h3>
-        <p>영업일 1~2일 내 입력하신 연락처로 샘플 자료를 보내드립니다.</p>
+        <h3>{t("요청이 접수되었습니다")}</h3>
+        <p>{t("영업일 1~2일 내 입력하신 연락처로 샘플 자료를 보내드립니다.")}</p>
         <p className="form-success-contact">
-          추가 문의: <a href={emailHref}>{BRAND.email}</a>
+          {t("추가 문의:")}
+          <a href={emailHref}>{t(BRAND.email)}</a>
         </p>
         <button type="button" className="button button-light" onClick={() => setState("idle")}>
-          다른 요청 보내기
+          {t("다른 요청 보내기")}
         </button>
       </div>
     );
   }
-
   return (
     <form
       ref={formRef}
       className="apply-form"
       onSubmit={handleSubmit}
       noValidate
-      aria-label="무료 검토팩 요청 양식"
+      aria-label={t("무료 검토팩 요청 양식")}
     >
       <input
         type="text"
@@ -128,21 +117,24 @@ export function FormSection() {
         aria-hidden="true"
         style={{ position: "absolute", left: -9999, opacity: 0 }}
       />
-      <h3>무료 검토팩 요청</h3>
+      <h3>{t("무료 검토팩 요청")}</h3>
       <p className="apply-form-intro">
-        구매나 파일럿 참여 의무가 없습니다. 영업일 기준 1~2일 내 입력하신 연락처로 안내드립니다.
+        {t(
+          "구매나 파일럿 참여 의무가 없습니다. 영업일 기준 1~2일 내 입력하신 연락처로 안내드립니다.",
+        )}
       </p>
 
       <label htmlFor="af-academy">
-        기관명{" "}
-        <span className="field-required" aria-label="필수">
+        {t("기관명")}
+        {t(" ")}
+        <span className="field-required" aria-label={t("필수")}>
           *
         </span>
         <input
           id="af-academy"
           name="academy"
           type="text"
-          placeholder="학원 또는 공부방 이름"
+          placeholder={t("학원 또는 공부방 이름")}
           autoComplete="organization"
           required
           aria-invalid={errorField === "academy"}
@@ -152,15 +144,16 @@ export function FormSection() {
       </label>
 
       <label htmlFor="af-contact">
-        연락처 또는 이메일{" "}
-        <span className="field-required" aria-label="필수">
+        {t("연락처 또는 이메일")}
+        {t(" ")}
+        <span className="field-required" aria-label={t("필수")}>
           *
         </span>
         <input
           id="af-contact"
           name="contact"
           type="text"
-          placeholder="휴대전화 또는 이메일 주소"
+          placeholder={t("휴대전화 또는 이메일 주소")}
           autoComplete="on"
           required
           aria-invalid={errorField === "contact"}
@@ -170,8 +163,9 @@ export function FormSection() {
       </label>
 
       <label htmlFor="af-interest">
-        관심 유형{" "}
-        <span className="field-required" aria-label="필수">
+        {t("관심 유형")}
+        {t(" ")}
+        <span className="field-required" aria-label={t("필수")}>
           *
         </span>
         <select
@@ -184,18 +178,20 @@ export function FormSection() {
           disabled={state === "submitting"}
         >
           <option value="" disabled>
-            선택해주세요
+            {t("선택해주세요")}
           </option>
-          <option value="무료 검토팩 요청">무료 검토팩 요청</option>
-          <option value="파일럿 운영 문의">파일럿 운영 문의</option>
-          <option value="일반 문의">일반 문의</option>
+          <option value="무료 검토팩 요청">{t("무료 검토팩 요청")}</option>
+          <option value="파일럿 운영 문의">{t("파일럿 운영 문의")}</option>
+          <option value="일반 문의">{t("일반 문의")}</option>
         </select>
       </label>
 
-      {state === "error" && errorMsg && (
-        <p id="apply-form-error" className="form-error" role="alert">
-          {errorMsg}
-        </p>
+      {t(
+        state === "error" && errorMsg && (
+          <p id="apply-form-error" className="form-error" role="alert">
+            {t(errorMsg)}
+          </p>
+        ),
       )}
 
       <label className="consent" htmlFor="af-consent">
@@ -209,8 +205,11 @@ export function FormSection() {
           disabled={state === "submitting"}
         />
         <span>
-          검토팩 발송 및 파일럿 준비 안내를 위한 개인정보(기관명·연락처) 수집·이용에 동의합니다.{" "}
-          <Link href="/privacy">개인정보 처리 안내</Link>
+          {t(
+            "검토팩 발송 및 파일럿 준비 안내를 위한 개인정보(기관명\u00B7연락처) 수집\u00B7이용에 동의합니다.",
+          )}
+          {t(" ")}
+          <Link href="/privacy">{t("개인정보 처리 안내")}</Link>
         </span>
       </label>
 
@@ -220,21 +219,24 @@ export function FormSection() {
         disabled={state === "submitting"}
         aria-busy={state === "submitting"}
       >
-        {state === "submitting" ? (
-          <>
-            <span className="btn-spinner" aria-hidden="true" />
-            전송 중...
-          </>
-        ) : (
-          <>
-            무료 검토팩 요청
-            <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
-          </>
+        {t(
+          state === "submitting" ? (
+            <>
+              <span className="btn-spinner" aria-hidden="true" />
+              {t("전송 중...")}
+            </>
+          ) : (
+            <>
+              {t("무료 검토팩 요청")}
+              <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
+            </>
+          ),
         )}
       </button>
 
       <small>
-        영업일 1~2일 내 답변 · 직접 문의: <a href={emailHref}>{BRAND.email}</a>
+        {t("영업일 1~2일 내 답변 \u00B7 직접 문의:")}
+        <a href={emailHref}>{t(BRAND.email)}</a>
       </small>
     </form>
   );

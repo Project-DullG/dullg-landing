@@ -1,7 +1,6 @@
 "use client";
-
+import { useText } from "@/lib/i18n/use-text";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-
 const stages = [
   {
     number: "01",
@@ -29,7 +28,6 @@ const stages = [
     ],
   },
 ] as const;
-
 function ProcessGrid({
   layers,
   active,
@@ -37,35 +35,38 @@ function ProcessGrid({
   layers: (typeof stages)[number]["layers"];
   active: boolean;
 }) {
+  const t = useText();
   const columns = 18;
   const rows = 6;
   return (
     <div className={`process-grid${active ? " is-active" : ""}`} aria-hidden="true">
-      {Array.from({ length: columns * rows }, (_, index) => {
-        const rowFromBottom = rows - 1 - Math.floor(index / columns);
-        const column = index % columns;
-        let tone = "empty";
-        layers.forEach((layer, layerIndex) => {
-          if (
-            rowFromBottom >= layerIndex * 2 &&
-            rowFromBottom < layerIndex * 2 + 2 &&
-            column >= columns - Math.round(columns * layer.width)
-          )
-            tone = layer.tone;
-        });
-        return (
-          <i
-            key={index}
-            className={`process-cell is-${tone}`}
-            style={{ "--cell-index": index } as CSSProperties}
-          />
-        );
-      })}
+      {t(
+        Array.from({ length: columns * rows }, (_, index) => {
+          const rowFromBottom = rows - 1 - Math.floor(index / columns);
+          const column = index % columns;
+          let tone = "empty";
+          layers.forEach((layer, layerIndex) => {
+            if (
+              rowFromBottom >= layerIndex * 2 &&
+              rowFromBottom < layerIndex * 2 + 2 &&
+              column >= columns - Math.round(columns * layer.width)
+            )
+              tone = layer.tone;
+          });
+          return (
+            <i
+              key={index}
+              className={`process-cell is-${tone}`}
+              style={{ "--cell-index": index } as CSSProperties}
+            />
+          );
+        }),
+      )}
     </div>
   );
 }
-
 export function ClueProcess() {
+  const t = useText();
   const root = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
   useEffect(() => {
@@ -78,14 +79,16 @@ export function ClueProcess() {
   }, []);
   return (
     <div className="brand-method-list" ref={root}>
-      {stages.map((stage) => (
-        <article key={stage.number}>
-          <ProcessGrid layers={stage.layers} active={active} />
-          <span>{stage.number}</span>
-          <h3>{stage.title}</h3>
-          <p>{stage.body}</p>
-        </article>
-      ))}
+      {t(
+        stages.map((stage) => (
+          <article key={stage.number}>
+            <ProcessGrid layers={stage.layers} active={active} />
+            <span>{t(stage.number)}</span>
+            <h3>{t(stage.title)}</h3>
+            <p>{t(stage.body)}</p>
+          </article>
+        )),
+      )}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt = "단서공방 — 머더미스터리 작품과 영어 미스터리 수업팩";
+export const alt = "ProjectDullG — Murder mystery games and English mystery lesson packs";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

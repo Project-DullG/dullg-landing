@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 import test from "node:test";
 const html = (path) =>
-  readFile(new URL(`../.next/server/app/${path}.html`, import.meta.url), "utf8");
+  readFile(new URL(`../.test-output/pages/${path}.html`, import.meta.url), "utf8");
 test("mini portfolio gives series context without invented release dates or repeated sales copy", async () => {
   const index = await html("mini-projects");
   assert.match(index, /2026년 2월 시작/);

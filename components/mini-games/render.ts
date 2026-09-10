@@ -3,6 +3,7 @@ import { BUMPERS, flipper, type Pinball } from "@/lib/games/pinball";
 import type { Dodge } from "@/lib/games/dodge";
 import type { Sprites } from "./assets";
 import type { Visuals } from "./feedback";
+import { translateText } from "@/lib/i18n/translate";
 const PALETTE = ["", "#24b4df", "#ffd044", "#ed86bd", "#9cc932", "#ea5358", "#a3b3cd", "#ef952d"];
 function text(
   ctx: CanvasRenderingContext2D,
@@ -16,7 +17,7 @@ function text(
   ctx.fillStyle = color;
   ctx.font = `600 ${size}px system-ui, sans-serif`;
   ctx.textAlign = align;
-  ctx.fillText(label, x, y);
+  ctx.fillText(translateText(label, ctx.canvas.lang || "ko"), x, y);
   ctx.textAlign = "left";
 }
 function line(

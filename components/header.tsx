@@ -1,25 +1,24 @@
 "use client";
-
+import { useText } from "@/lib/i18n/use-text";
 import { ArrowUpRight, List, X } from "@phosphor-icons/react";
-import Link from "next/link";
+import Link from "@/components/i18n/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { primaryNavigation } from "@/lib/navigation";
 import { BRAND } from "@/lib/site-config";
-
+import { LanguageSwitch } from "./i18n/language-switch";
 export function Header() {
-  const pathname = usePathname();
+  const t = useText();
+  const pathname = usePathname().replace(/^\/en(?=\/|$)/, "") || "/";
   const [isOpen, setIsOpen] = useState(false);
   const [lastPathname, setLastPathname] = useState(pathname);
   const menuButton = useRef<HTMLButtonElement>(null);
   const menuPanel = useRef<HTMLDivElement>(null);
-
   // 경로가 바뀌면 메뉴를 닫는다. (렌더 중 상태 보정 — effect 없이 처리)
   if (pathname !== lastPathname) {
     setLastPathname(pathname);
     setIsOpen(false);
   }
-
   // 열려 있는 동안 배경 스크롤 잠금 + Esc로 닫기.
   useEffect(() => {
     if (!isOpen) return;
@@ -54,60 +53,61 @@ export function Header() {
       compact.removeEventListener("change", closeOnDesktop);
     };
   }, [isOpen]);
-
   const isActive = (href: string) =>
     href === "/"
       ? pathname === "/"
       : pathname === href ||
         pathname.startsWith(`${href}/`) ||
         (href === "/academy" && pathname === "/episode");
-
   return (
     <header className="site-header">
-      <nav className="nav shell" aria-label="주요 메뉴">
-        <Link className="brand" href="/" aria-label="단서공방 홈">
+      <nav className="nav shell" aria-label={t("주요 메뉴")}>
+        <Link className="brand" href="/" aria-label={t("단서공방 홈")}>
           <span className="brand-mark" aria-hidden="true">
             <i />
             <i />
             <i />
           </span>
           <span className="brand-name">
-            {BRAND.name}
-            <small>{BRAND.englishName}</small>
+            {t(BRAND.name)}
+            <small>{t(BRAND.englishName)}</small>
           </span>
         </Link>
 
         <div className="nav-links">
-          {primaryNavigation
-            .filter((link) => link.href !== "/")
-            .map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={isActive(link.href) ? "page" : undefined}
-              >
-                {link.href === "/about" ? "공방 소개" : link.label}
-              </Link>
-            ))}
+          {t(
+            primaryNavigation
+              .filter((link) => link.href !== "/")
+              .map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                >
+                  {t(link.href === "/about" ? "공방 소개" : link.label)}
+                </Link>
+              )),
+          )}
         </div>
 
         <div className="nav-actions">
           <Link className="nav-cta" href="/contact">
-            문의하기
+            {t("문의하기")}
             <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
           </Link>
         </div>
 
+        <LanguageSwitch />
         <button
           ref={menuButton}
           className="nav-menu-button"
           type="button"
-          aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"}
+          aria-label={t(isOpen ? "메뉴 닫기" : "메뉴 열기")}
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
           onClick={() => setIsOpen((value) => !value)}
         >
-          {isOpen ? <X size={24} /> : <List size={24} />}
+          {t(isOpen ? <X size={24} /> : <List size={24} />)}
         </button>
       </nav>
 
@@ -119,22 +119,24 @@ export function Header() {
         inert={!isOpen}
       >
         <div className="shell">
-          {primaryNavigation.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              aria-current={isActive(link.href) ? "page" : undefined}
-              onClick={() => setIsOpen(false)}
-            >
-              {link.href === "/about" ? "공방 소개" : link.label}
-            </Link>
-          ))}
+          {t(
+            primaryNavigation.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive(link.href) ? "page" : undefined}
+                onClick={() => setIsOpen(false)}
+              >
+                {t(link.href === "/about" ? "공방 소개" : link.label)}
+              </Link>
+            )),
+          )}
           <Link className="mobile-navigation-cta" href="/contact" onClick={() => setIsOpen(false)}>
-            문의하기
+            {t("문의하기")}
             <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
           </Link>
           <Link className="mobile-navigation-login" href="/login" onClick={() => setIsOpen(false)}>
-            학원 관리 로그인 →
+            {t("학원 관리 로그인 →")}
           </Link>
         </div>
       </div>

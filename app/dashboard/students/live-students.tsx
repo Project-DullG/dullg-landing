@@ -1,5 +1,6 @@
 "use client";
-import Link from "next/link";
+import { useText } from "@/lib/i18n/use-text";
+import Link from "@/components/i18n/link";
 import { useRouter } from "next/navigation";
 import {
   StudentWorkspace,
@@ -7,7 +8,6 @@ import {
   type ClassItem,
 } from "@/components/dashboard/student-workspace";
 import { addStudent, updateStudent, deleteStudent } from "@/app/actions/students";
-
 export function LiveStudents({
   students,
   classes,
@@ -17,6 +17,7 @@ export function LiveStudents({
   classes: ClassItem[];
   limited: boolean;
 }) {
+  const t = useText();
   const router = useRouter();
   return (
     <StudentWorkspace
@@ -34,7 +35,7 @@ export function LiveStudents({
       }}
       detail={(student) => (
         <Link className="dash-button" href={`/dashboard/students/${student.id}`}>
-          성적 이력 보기 →
+          {t("성적 이력 보기 →")}
         </Link>
       )}
     />

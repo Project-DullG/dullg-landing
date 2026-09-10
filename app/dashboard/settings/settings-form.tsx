@@ -1,9 +1,8 @@
 "use client";
-
+import { useText } from "@/lib/i18n/use-text";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { updateAcademy } from "@/app/actions/academy";
-
 export function SettingsForm({
   academyId,
   currentName,
@@ -11,12 +10,12 @@ export function SettingsForm({
   academyId: string;
   currentName: string;
 }) {
+  const t = useText();
   const router = useRouter();
   const [name, setName] = useState(currentName);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
@@ -32,15 +31,14 @@ export function SettingsForm({
       setLoading(false);
     }
   }
-
   return (
     <form onSubmit={handleSubmit} className="dash-card">
-      <h2>학원 정보</h2>
+      <h2>{t("학원 정보")}</h2>
       <label
         htmlFor="academy-name"
         style={{ fontSize: 13, color: "rgba(21,37,30,0.6)", marginBottom: 4, display: "block" }}
       >
-        학원명
+        {t("학원명")}
       </label>
       <input
         id="academy-name"
@@ -50,10 +48,22 @@ export function SettingsForm({
         required
       />
       <button type="submit" className="dash-button" disabled={loading}>
-        {loading ? "저장 중..." : "저장"}
+        {t(loading ? "저장 중..." : "저장")}
       </button>
-      {success && <p role="status" className="dash-success">학원 이름을 저장했습니다.</p>}
-      {error && <p role="alert" className="dash-error">{error}</p>}
+      {t(
+        success && (
+          <p role="status" className="dash-success">
+            {t("학원 이름을 저장했습니다.")}
+          </p>
+        ),
+      )}
+      {t(
+        error && (
+          <p role="alert" className="dash-error">
+            {t(error)}
+          </p>
+        ),
+      )}
     </form>
   );
 }

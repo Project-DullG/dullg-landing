@@ -3,9 +3,9 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 test("shows one direct reading entry per course instead of file menus", async () => {
-  const html = await readFile(new URL("../.next/server/app/materials.html", import.meta.url), "utf8");
+  const html = await readFile(new URL("../.test-output/pages/materials.html", import.meta.url), "utf8");
   const ecotourism = await readFile(
-    new URL("../.next/server/app/materials/ulleung-ecotourism-ai.html", import.meta.url),
+    new URL("../.test-output/pages/materials/ulleung-ecotourism-ai.html", import.meta.url),
     "utf8",
   );
   assert.equal((html.match(/class="course-row"/g) || []).length, 2);

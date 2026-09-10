@@ -1,6 +1,6 @@
 "use client";
-
-import Link from "next/link";
+import { useText } from "@/lib/i18n/use-text";
+import Link from "@/components/i18n/link";
 import { usePathname } from "next/navigation";
 import {
   List,
@@ -15,7 +15,7 @@ import {
 } from "@phosphor-icons/react";
 import { useState } from "react";
 import { logoutAction } from "@/app/actions/auth";
-
+import { LanguageSwitch } from "@/components/i18n/language-switch";
 const ownerNav = [
   { href: "/dashboard", label: "대시보드", icon: House },
   { href: "/dashboard/students", label: "학원생", icon: Users },
@@ -24,56 +24,57 @@ const ownerNav = [
   { href: "/dashboard/grades/report", label: "성적 리포트", icon: ChartBar },
   { href: "/dashboard/settings", label: "설정", icon: GearSix },
 ];
-
 export function Sidebar({ role, academyName }: { role: string; academyName: string }) {
-  const pathname = usePathname();
+  const t = useText();
+  const pathname = usePathname().replace(/^\/en(?=\/|$)/, "") || "/";
   const [mobileOpen, setMobileOpen] = useState(false);
-
   const nav = role === "owner" ? ownerNav : [];
-
   return (
     <>
       <button
         className="dash-menu-toggle"
         type="button"
-        aria-label={mobileOpen ? "메뉴 닫기" : "메뉴 열기"}
+        aria-label={t(mobileOpen ? "메뉴 닫기" : "메뉴 열기")}
         onClick={() => setMobileOpen(!mobileOpen)}
       >
-        {mobileOpen ? <X size={24} /> : <List size={24} />}
+        {t(mobileOpen ? <X size={24} /> : <List size={24} />)}
       </button>
 
       <aside className={`dash-sidebar ${mobileOpen ? "is-open" : ""}`}>
         <div className="dash-sidebar-header">
-          <span className="dash-academy-name">{academyName}</span>
+          <LanguageSwitch />
+          <span className="dash-academy-name">{t(academyName)}</span>
         </div>
 
         <nav className="dash-sidebar-nav">
-          {nav.map((item) => {
-            const isActive =
-              item.href === "/dashboard"
-                ? pathname === "/dashboard"
-                : item.href === "/dashboard/grades"
-                  ? pathname === item.href
-                  : pathname.startsWith(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={isActive ? "active" : ""}
-                aria-current={isActive ? "page" : undefined}
-                onClick={() => setMobileOpen(false)}
-              >
-                <item.icon size={20} />
-                {item.label}
-              </Link>
-            );
-          })}
+          {t(
+            nav.map((item) => {
+              const isActive =
+                item.href === "/dashboard"
+                  ? pathname === "/dashboard"
+                  : item.href === "/dashboard/grades"
+                    ? pathname === item.href
+                    : pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={isActive ? "active" : ""}
+                  aria-current={isActive ? "page" : undefined}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <item.icon size={20} />
+                  {t(item.label)}
+                </Link>
+              );
+            }),
+          )}
         </nav>
 
         <form action={logoutAction} className="dash-sidebar-footer">
           <button type="submit" className="dash-logout">
             <SignOut size={20} />
-            로그아웃
+            {t("로그아웃")}
           </button>
         </form>
       </aside>

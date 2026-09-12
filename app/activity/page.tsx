@@ -18,7 +18,7 @@ export default function ActivityPage() {
     <PageFrame>
       <PageIntro
         title={t("활동 기록")}
-        description="전시 참여와 교육 현장, 텀블벅 펀딩, 수상 기록을 날짜순으로 정리했습니다."
+        description="작품을 전시하고 수업을 진행한 현장을 사진과 글로 남깁니다. 펀딩과 수상 소식도 함께 전합니다."
       >
         <Link href="/about#team-history">{t("팀 소개와 입주 이력 →")}</Link>
       </PageIntro>
@@ -48,7 +48,7 @@ export default function ActivityPage() {
                       </time>
                       <span>{t(upcoming ? `${record.type} · 예정` : record.type)}</span>
                     </span>
-                    <strong>{t(record.title)}</strong>
+                    <h2>{t(record.title)}</h2>
                     <p>{t(record.body)}</p>
                     <span className={styles.action}>
                       {t(

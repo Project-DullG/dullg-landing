@@ -1,4 +1,5 @@
 .ledger {
+  max-width: 960px;
   padding-bottom: var(--space-section);
 }
 .inquiry {
@@ -42,10 +43,11 @@
 .row .meta time {
   font-size: 14px;
 }
-.copy strong {
+.copy h2 {
   display: block;
   margin: 12px 0;
   font-size: 22px;
+  letter-spacing: -0.025em;
   line-height: 1.5;
   word-break: keep-all;
 }

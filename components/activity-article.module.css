@@ -1,0 +1,110 @@
+.article {
+  width: min(760px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 40px 0 80px;
+  color: var(--ink);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.header {
+  margin-bottom: 48px;
+}
+.back,
+.footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 14px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 24px 0 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.header h1 {
+  font-size: clamp(28px, 4.5vw, 42px);
+  line-height: 1.4;
+  letter-spacing: -0.04em;
+  margin: 0 0 24px;
+}
+.intro,
+.section p {
+  font-size: 17px;
+  line-height: 1.95;
+  margin: 16px 0;
+}
+.intro {
+  color: var(--text-muted);
+}
+.section {
+  margin: 48px 0;
+}
+.section h2,
+.related h2 {
+  font-size: 23px;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+  margin: 0 0 16px;
+}
+.section figure {
+  margin: 28px 0 0;
+}
+.section img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.section figcaption,
+.note {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 12px 0 0;
+}
+.related {
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+  padding-top: 28px;
+}
+.related a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 52px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+}
+.related a span {
+  flex: none;
+}
+.article a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.footer {
+  margin-top: 32px;
+}
+@media (max-width: 600px) {
+  .article {
+    padding-top: 20px;
+  }
+  .intro,
+  .section p {
+    font-size: 16px;
+    line-height: 1.85;
+  }
+  .header {
+    margin-bottom: 36px;
+  }
+  .section {
+    margin: 36px 0;
+  }
+  .section h2 {
+    font-size: 21px;
+  }
+}

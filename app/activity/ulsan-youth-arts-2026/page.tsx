@@ -8,7 +8,7 @@ const article = activityArticles["ulsan-youth-arts-2026"];
 export async function generateMetadata() {
   return localizeMetadata(
     pageMetadata("/activity/ulsan-youth-arts-2026", {
-      ogImage: article.sections[0].photo?.src,
+      ogImage: article.sections.find((section) => section.photo)?.photo?.src,
     }),
   );
 }

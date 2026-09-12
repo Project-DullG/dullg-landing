@@ -36,7 +36,7 @@ export function ActivityArticle({ article }: { article: ActivityArticleData }) {
                   width={1600}
                   height={1200}
                   sizes="(max-width: 800px) 100vw, 760px"
-                  priority={index === 0}
+                  priority={index === article.sections.findIndex((item) => item.photo)}
                 />
                 <figcaption>{t(section.photo.caption)}</figcaption>
               </figure>

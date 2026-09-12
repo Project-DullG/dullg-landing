@@ -15,6 +15,8 @@ test("activity articles have one title, dated bylines, captioned photos and rela
       assert.equal((html.match(/<h1\b/g) || []).length, 1);
       assert.ok(html.includes(`<time dateTime="${date}">`));
       assert.ok(html.includes("<article"));
+      const article = html.match(/<article\b[\s\S]*?<\/article>/)?.[0] || "";
+      assert.ok((article.match(/<section\b/g) || []).length >= 4);
       assert.ok(html.includes("<figcaption>"));
       assert.ok(html.includes(`href="/${locale}${related.slice(1)}"`));
       assert.ok(html.indexOf("<figcaption>") < html.indexOf('id="related-title"'));

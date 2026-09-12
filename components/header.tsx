@@ -1,5 +1,6 @@
 "use client";
 import { useText } from "@/lib/i18n/use-text";
+import { BrandMark } from "@/components/brand-mark";
 import { ArrowUpRight, List, X } from "@phosphor-icons/react";
 import Link from "@/components/i18n/link";
 import { usePathname } from "next/navigation";
@@ -63,11 +64,7 @@ export function Header() {
     <header className="site-header">
       <nav className="nav shell" aria-label={t("주요 메뉴")}>
         <Link className="brand" href="/" aria-label={t("단서공방 홈")}>
-          <span className="brand-mark" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </span>
+          <BrandMark />
           <span className="brand-name">
             {t(BRAND.name)}
             <small>{t(BRAND.englishName)}</small>

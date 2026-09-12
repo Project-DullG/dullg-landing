@@ -1,10 +1,11 @@
 import { getFundingProject, toKstDateString } from "./funding.ts";
 import { riseAward } from "./recognition.ts";
+import { youthArtsFestival } from "./festival.ts";
 
 export type ActivityRecord = {
   /** ISO date or ISO range "YYYY-MM-DD/YYYY-MM-DD" */
   date: string;
-  type: "펀딩" | "교육" | "제작" | "수상";
+  type: "펀딩" | "교육" | "제작" | "수상" | "전시";
   title: string;
   body: string;
   href: string;
@@ -16,6 +17,7 @@ const dg0 = getFundingProject("projectdg0");
 const dg1 = getFundingProject("projectdg1");
 
 export const activityRecords: ActivityRecord[] = [
+  { ...youthArtsFestival, type: "전시" },
   {
     date: "2026-09-05",
     type: "교육",

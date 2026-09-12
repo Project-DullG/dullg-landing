@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { BrandMark } from "@/components/brand-mark";
 
 export const alt = "ProjectDullG — Murder mystery games and English mystery lesson packs";
 export const size = { width: 1200, height: 630 };
@@ -23,11 +24,7 @@ export default async function OpenGraphImage() {
           fontFamily: '"Noto Sans KR"',
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-          <div style={{ width: 88, height: 12, background: "#fff", borderRadius: 6 }} />
-          <div style={{ width: 66, height: 12, background: "#fff", borderRadius: 6 }} />
-          <div style={{ width: 88, height: 12, background: "#c96645", borderRadius: 6 }} />
-        </div>
+        <BrandMark size={88} color="#fff" />
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div style={{ fontSize: 72, fontWeight: 700, letterSpacing: -2 }}>단서공방</div>
           <div style={{ fontSize: 34, color: "#cfd3cf" }}>

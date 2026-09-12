@@ -18,7 +18,7 @@ export default function ActivityPage() {
     <PageFrame>
       <PageIntro
         title={t("활동 기록")}
-        description="교육 현장과 텀블벅 펀딩, 수상 기록을 날짜순으로 정리했습니다."
+        description="전시 참여와 교육 현장, 텀블벅 펀딩, 수상 기록을 날짜순으로 정리했습니다."
       >
         <Link href="/about#team-history">{t("팀 소개와 입주 이력 →")}</Link>
       </PageIntro>

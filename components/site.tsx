@@ -1,4 +1,5 @@
 import { useText } from "@/lib/i18n/use-text";
+import { BrandMark } from "@/components/brand-mark";
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "@/components/i18n/link";
 import type { ReactNode } from "react";
@@ -13,11 +14,7 @@ export function Footer() {
       <div className="shell site-footer-grid">
         <div className="site-footer-brand">
           <Link className="brand" href="/">
-            <span className="brand-mark" aria-hidden="true">
-              <i />
-              <i />
-              <i />
-            </span>
+            <BrandMark />
             <span className="brand-name">
               {t(BRAND.name)}
               <small>{t(BRAND.englishName)}</small>

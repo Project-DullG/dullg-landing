@@ -8,6 +8,7 @@ import { SectionHead } from "@/components/section-head";
 import { educationFacts } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 import { activityRecords, formatActivityDate } from "@/lib/activities";
+import { FestivalHighlight } from "@/components/festival-highlight";
 import activityStyles from "@/components/home-activities.module.css";
 import { HomeMiniProjects } from "@/components/mini-games/home-projects";
 import { HomeWorks } from "@/components/home-works";
@@ -63,13 +64,14 @@ export default function Home() {
           <div className="brand-section-head">
             <div>
               <Kicker>{t("활동 기록")}</Kicker>
-              <h2 id="home-activity-title">{t("최근 교육 현장")}</h2>
+              <h2 id="home-activity-title">{t("최근 활동")}</h2>
             </div>
             <Link href="/activity">
               {t("제작\u00B7활동 기록 전체 보기")}
               <ArrowRight size={17} aria-hidden="true" />
             </Link>
           </div>
+          <FestivalHighlight />
           <div className={activityStyles.grid}>
             {t(
               activityRecords

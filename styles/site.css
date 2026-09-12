@@ -46,6 +46,13 @@
   align-items: end;
   gap: 3px;
 }
+.brand-symbol {
+  width: 32px;
+  height: 32px;
+  display: block;
+  flex: 0 0 auto;
+  color: inherit;
+}
 .brand-mark i {
   display: block;
   width: 6px;

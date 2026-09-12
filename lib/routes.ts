@@ -10,6 +10,14 @@ export type PublicRoute = {
 
 export const publicRoutes: PublicRoute[] = [
   {
+    path: "/activity/ulsan-youth-arts-2026",
+    title: "2026 울산 중구 청년예술제",
+    description: "청년디딤터 부스에서 단서공방의 머더미스터리 실물 작품과 캐릭터 자료를 전시했습니다.",
+    group: "studio",
+    priority: 0.6,
+    changeFrequency: "yearly",
+  },
+  {
     path: "/",
     title: "홈",
     description:

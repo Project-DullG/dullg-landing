@@ -1,3 +1,4 @@
+import { TideFeature } from '@/components/tide-room/feature';
 import { useText } from "@/lib/i18n/use-text";
 import { localizeMetadata } from "@/lib/i18n/server";
 import { PageFrame } from "@/components/site";
@@ -35,6 +36,7 @@ export default function MiniProjectsPage() {
         </span>
       </PageIntro>
       <div className={`shell ${styles.collection}`}>
+        <TideFeature />
         {t(
           groups.map((group) => (
             <section className={styles.group} aria-labelledby={group.id} key={group.id}>

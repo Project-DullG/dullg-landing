@@ -3,8 +3,11 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(request: NextRequest) {
   const session = request.cookies.get("session")?.value;
   const originalPath = request.nextUrl.pathname;
-  const english = originalPath === "/en" || originalPath.startsWith("/en/");
-  const pathname = english ? originalPath.slice(3) || "/" : originalPath;
+  const prefixedEnglish = originalPath === "/en" || originalPath.startsWith("/en/");
+  // Preserve the locale if Next processes the internally rewritten path again.
+  // This header affects language only; authorization still uses the session cookie.
+  const english = prefixedEnglish || request.headers.get("x-dullg-locale") === "en";
+  const pathname = prefixedEnglish ? originalPath.slice(3) || "/" : originalPath;
   const destination = (path: string) => new URL(`${english ? "/en" : ""}${path}`, request.url);
 
   // Protect /dashboard routes
@@ -23,7 +26,7 @@ export function middleware(request: NextRequest) {
   requestHeaders.set("x-dullg-locale", english ? "en" : "ko");
   const url = request.nextUrl.clone();
   url.pathname = pathname;
-  const response = english
+  const response = prefixedEnglish
     ? NextResponse.rewrite(url, { request: { headers: requestHeaders } })
     : NextResponse.next({ request: { headers: requestHeaders } });
   response.headers.set("Content-Language", english ? "en" : "ko");

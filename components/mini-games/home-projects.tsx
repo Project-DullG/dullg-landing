@@ -1,3 +1,4 @@
+import { TideFeature } from '@/components/tide-room/feature';
 import { useText } from "@/lib/i18n/use-text";
 import Link from "@/components/i18n/link";
 import { Kicker } from "@/components/site";
@@ -15,6 +16,7 @@ export function HomeMiniProjects() {
         </div>
         <Link href="/mini-projects">{t("게임 전체 보기 →")}</Link>
       </div>
+      <TideFeature />
       <MiniProjectGrid
         projects={["minesweeper", "solitaire", "block-stack"].flatMap((slug) =>
           miniProjects.filter((project) => project.slug === slug),

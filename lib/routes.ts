@@ -9,6 +9,7 @@ export type PublicRoute = {
 };
 
 export const publicRoutes: PublicRoute[] = [
+  {path:"/games/tide-room",title:"유리 너머의 목소리",description:"실종된 관측소 책임자를 찾는 1인 추리 게임.",group:"studio",priority:0.7,changeFrequency:"monthly"},
   {
     path: "/materials/ulleung-high-lesson-2",
     title: "울릉고 리빙랩 2차시",

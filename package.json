@@ -16,15 +16,18 @@
     "shots:diff": "node scripts/screenshot-diff.mjs",
     "css:dead": "node scripts/css-dead-classes.mjs",
     "format": "prettier --write \"app/**/*.{ts,tsx}\" \"components/**/*.tsx\" \"lib/**/*.ts\" \"styles/**/*.css\"",
-    "format:css": "prettier --write \"styles/**/*.css\" --print-width 100"
+    "format:css": "prettier --write \"styles/**/*.css\" --print-width 100",
+    "test:tide": "node scripts/test-tide-room.mjs && node scripts/test-tide-progress.mjs && node scripts/test-tide-sound-effects.mjs"
   },
   "dependencies": {
+    "@base-ui/react": "1.7.0",
     "@opentelemetry/api": "^1.9.1",
     "@phosphor-icons/react": "^2.1.10",
     "drizzle-orm": "0.45.2",
     "firebase": "^12.18.0",
     "firebase-admin": "^14.3.0",
-    "next": "^16.2.12",
+    "lucide-react": "1.31.0",
+    "next": "^16.3.5",
     "next-intl": "^4.14.2",
     "react": "19.2.6",
     "react-dom": "19.2.6"
@@ -39,7 +42,7 @@
     "@vitejs/plugin-rsc": "0.5.26",
     "drizzle-kit": "0.31.10",
     "eslint": "9.39.4",
-    "eslint-config-next": "^16.2.12",
+    "eslint-config-next": "^16.3.5",
     "pixelmatch": "^6.0.0",
     "playwright": "^1.49.1",
     "pngjs": "^7.0.0",

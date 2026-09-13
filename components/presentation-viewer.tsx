@@ -103,7 +103,7 @@ export function PresentationViewer({ slides }: { slides: Slide[] }) {
                 ),
               )}
             </div>
-            <p className={styles.summary}>{t(slide.summary)}</p>
+            {slide.summary && <p className={styles.summary}>{t(slide.summary)}</p>}
           </section>
         )),
       )}

@@ -51,6 +51,12 @@ type CourseMaterial = {
 
 export const courseMaterials: CourseMaterial[] = [
   {
+    title: "울릉고 리빙랩 2차시",
+    meta: "울릉고등학교 · 2026년 9월 19일",
+    description: "사업 기획·조직·역할·다음 조사 · 발표자료 54쪽",
+    href: "/materials/ulleung-high-lesson-2",
+  },
+  {
     title: "울릉고 리빙랩 특강",
     meta: "울릉고등학교 · 2026년 9월 5일",
     description: `발표자료 ${ulleungPresentation.slides.length}쪽`,

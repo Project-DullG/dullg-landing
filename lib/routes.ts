@@ -10,6 +10,14 @@ export type PublicRoute = {
 
 export const publicRoutes: PublicRoute[] = [
   {
+    path: "/materials/ulleung-high-lesson-2",
+    title: "울릉고 리빙랩 2차시",
+    description: "9월 19일 수업자료: 고객 찾기, 사업 기획, 조직과 역할, 다음 조사 계획.",
+    group: "resources",
+    priority: 0.5,
+    changeFrequency: "monthly",
+  },
+  {
     path: "/activity/ulsan-youth-arts-2026",
     title: "2026 울산 중구 청년예술제",
     description: "청년디딤터 부스에서 단서공방의 머더미스터리 실물 작품과 캐릭터 자료를 전시했습니다.",

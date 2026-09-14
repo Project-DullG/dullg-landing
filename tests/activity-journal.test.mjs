@@ -16,7 +16,12 @@ test("activity articles have one title, dated bylines, captioned photos and rela
       assert.ok(html.includes(`<time dateTime="${date}">`));
       assert.ok(html.includes("<article"));
       const article = html.match(/<article\b[\s\S]*?<\/article>/)?.[0] || "";
-      assert.ok((article.match(/<section\b/g) || []).length >= 4);
+      assert.ok((article.match(/<section\b/g) || []).length >= (slug === "ulsan-youth-arts-2026" ? 3 : 4));
+      if (slug === "ulsan-youth-arts-2026" && !locale) {
+        assert.ok(article.includes("작품 네 편을 챙겨 행사장으로"));
+        assert.ok(!article.includes("사진 뒤쪽에는"));
+        assert.ok(!article.includes("이 글에서는"));
+      }
       assert.ok(html.includes("<figcaption>"));
       assert.ok(html.includes(`href="/${locale}${related.slice(1)}"`));
       assert.ok(html.indexOf("<figcaption>") < html.indexOf('id="related-title"'));

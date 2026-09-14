@@ -33,7 +33,7 @@ export const activityRecords: ActivityRecord[] = [
     date: "2026-07-04",
     type: "교육",
     title: "울릉군 생태관광 AI 교육",
-    body: "관광 자원을 정리하고 AI를 활용해 홍보 문구와 웹페이지를 완성한 교육을 진행했습니다.",
+    body: "관광 소재를 골라 AI로 홍보 문구를 작성하고 웹페이지를 만드는 실습을 진행했습니다.",
     href: "/activity/ulleung-ecotourism-ai",
     image: {
       src: "/assets/activities/ulleung-ecotourism-ai-2026-07-04-class.jpg",

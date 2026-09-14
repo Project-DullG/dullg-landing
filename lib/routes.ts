@@ -9,6 +9,14 @@ export type PublicRoute = {
 };
 
 export const publicRoutes: PublicRoute[] = [
+  {
+    path: "/games/discharge-day",
+    title: "퇴원일",
+    description: "의료시설을 조사하고 장치를 복구하며 떠날 방법을 선택하는 1인 SF 탈출 어드벤처.",
+    group: "studio",
+    priority: 0.7,
+    changeFrequency: "monthly",
+  },
   {path:"/games/tide-room",title:"유리 너머의 목소리",description:"실종된 관측소 책임자를 찾는 1인 추리 게임.",group:"studio",priority:0.7,changeFrequency:"monthly"},
   {
     path: "/materials/ulleung-high-lesson-2",

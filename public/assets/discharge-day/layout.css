@@ -1,0 +1,64 @@
+/* Website adaptation: scene, prose and controls occupy separate flow rows. */
+html, body { height: auto; min-height: 100%; overflow: auto; }
+body { overflow-x: hidden; }
+#app { height: auto; min-height: 100svh; display: flex; flex-direction: column; }
+#stage { position: relative; order: 3; width: 100%; height: min(56vw, 60vh); min-height: 230px; overflow: hidden; }
+#hud { position: relative; order: 0; height: auto; min-height: 76px; padding: 14px max(18px, env(safe-area-inset-left)); flex-wrap: wrap; gap: 14px; background: #071419; }
+#hud nav { gap: 4px; }
+#objective { position: relative; order: 1; top: auto; left: auto; max-width: 1120px; width: calc(100% - 36px); margin: 16px auto 8px; }
+#objective p { font-size: 14px; margin: 4px 0; }
+#mode-hint { position: relative; order: 2; top: auto; right: auto; width: calc(100% - 36px); max-width: 1120px; margin: 0 auto 8px; }
+#narrative, .exploring #narrative { position: relative; order: 4; bottom: auto; left: auto; transform: none; width: calc(100% - 36px); max-width: 1120px; margin: 16px auto; padding: 20px; }
+#prose, .exploring #prose { max-height: none; overflow: visible; }
+.narrative-head { flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+#conversation-choices, .exploring #conversation-choices { position: relative; order: 5; inset: auto; transform: none; width: calc(100% - 36px); max-width: 1120px; max-height: none; margin: 0 auto 20px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.action-choice { min-height: 52px; font-size: 15px; }
+.action-choice small { font-size: 13px; }
+#dock { position: relative; order: 6; height: auto; min-height: 66px; padding: 12px 18px max(12px, env(safe-area-inset-bottom)); flex-wrap: wrap; }
+#inventory { flex-wrap: wrap; gap: 8px; }
+.dock-right { flex-wrap: wrap; gap: 14px; }
+button, .icon-button, #fullscreen, #mode-hint button, #read-full, #skip-prose, .title-actions button, .title-bottom button { min-height: 44px; }
+.icon-button, #fullscreen, .inventory-slot { min-width: 44px; }
+#read-full, #skip-prose { font-size: 13px; }
+#title-screen { position: relative; min-height: 100svh; padding: max(36px, env(safe-area-inset-top)) 8vw 32px; }
+.title-main, .title-bottom, .title-note { position: relative; left: auto; right: auto; top: auto; bottom: auto; }
+.title-main { max-width: 600px; }
+.title-bottom { flex-wrap: wrap; margin-top: 24px; }
+.title-note { text-align: left; margin-top: 20px; }
+.title-actions { margin-top: 24px; }
+.title-main h1 { margin-top: 24px; }
+.title-meta { flex-wrap: wrap; font-size: 11px; }
+body:not(.game-active) #stage { position: absolute; inset: 0; height: 100%; }
+#ending-overlay { position: relative; order: 4; padding: 32px max(20px, 8vw); }
+#ending-overlay h2 { font-size: clamp(32px, 6vw, 64px); }
+#toast { position: fixed; top: 12px; z-index: 30; }
+#transition { position: fixed; }
+#modal, #confirm-modal { max-height: calc(100dvh - 24px); overflow-y: auto; overscroll-behavior: contain; }
+#modal > header { position: sticky; top: 0; z-index: 3; background: #10232a; }
+#modal-close { flex: 0 0 44px; }
+.targets-visible .hotspot .hs-label { opacity: 0; }
+.hotspot:hover .hs-label, .hotspot:focus-visible .hs-label { opacity: 1; }
+@media (max-width: 900px) {
+  #hit-plane { display: none; }
+  #mode-hint { display: none; }
+  #stage { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
+  #hud { gap: 8px; }
+  .brand { font-size: 20px; }
+  .chapter-readout { flex: 1; min-width: 100px; }
+  .chapter-readout strong { font-size: 12px; }
+  #hud nav { margin-left: 0; }
+  #conversation-choices, .exploring #conversation-choices { grid-template-columns: 1fr; }
+  #narrative, .exploring #narrative { padding: 16px; }
+  #prose { font-size: var(--textsize); line-height: 1.8; }
+  #dock { gap: 12px; }
+  .dock-right { margin-left: 0; width: 100%; justify-content: space-between; }
+  #save-indicator { font-size: 12px; }
+  .title-main h1 { font-size: 64px; }
+  .title-subtitle { font-size: 18px; }
+  .title-note { font-size: 13px; }
+  .option-button, .puzzle-actions button, .switch-module strong, .handle-unit strong { font-size: 13px; }
+  .sequence-slot, .kit span, .handle-unit small, .switch-module small { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0s; transition-duration: 0s; scroll-behavior: auto; }
+}

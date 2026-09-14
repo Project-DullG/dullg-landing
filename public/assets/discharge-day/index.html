@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko">
+  <head><meta name="robots" content="noindex,follow">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#071419" />
+    <meta
+      name="description"
+      content="닫힌 문 밖의 시간. 공간을 조사하고, 장치를 복구하고, 자신의 퇴원일을 결정하는 1인칭 SF 탈출 어드벤처."
+    />
+    <title>퇴원일 · 닫힌 문 밖의 시간</title>
+    <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./layout.css">
+  </head>
+  <body>
+    <a class="site-return" href="/games/discharge-day" style="position:relative;z-index:40;display:block;padding:12px 18px;color:#cbdacb;min-height:44px">← 게임 소개</a><div id="app">
+      <div id="world" aria-hidden="true">
+        <div id="world-wash"></div>
+        <div id="scene-plane">
+          <img id="backdrop" alt="" /><img id="backdrop-next" alt="" />
+          <div id="lightbeam"></div>
+          <div id="dust"></div>
+          <div id="character"></div>
+          <div id="scene-effects"></div>
+        </div>
+        <div class="world-shade"></div>
+      </div>
+      <div id="hit-plane" aria-label="장소 조사"></div>
+      <div id="lens" hidden></div>
+      <header id="hud" hidden>
+        <button id="home" class="brand" aria-label="메인 메뉴">
+          퇴원일<span>DISCHARGE DAY</span>
+        </button>
+        <div class="hud-divider"></div>
+        <div class="chapter-readout"><span id="chapter"></span><strong id="location"></strong></div>
+        <nav>
+          <button id="journal-open" class="icon-button" title="기록장 · J">
+            <span data-icon="book"></span><span class="tool-label">기록장</span
+            ><i id="clue-count">0</i></button
+          ><button id="map-open" class="icon-button" title="이동 지도 · M">
+            <span data-icon="map"></span><span class="tool-label">지도</span></button
+          ><button id="sound-toggle" class="icon-button" title="소리 켜기/끄기">
+            <span data-icon="sound"></span></button
+          ><button id="settings-open" class="icon-button" title="설정 · Esc">
+            <span data-icon="settings"></span>
+          </button>
+        </nav>
+      </header>
+      <aside id="objective" hidden>
+        <span class="tiny-line"></span>
+        <div>
+          <small>지금 할 일</small>
+          <p id="objective-text"></p>
+        </div>
+      </aside>
+      <div id="mode-hint" hidden>
+        <span class="mini-dot"></span><span>장면 속 표시를 눌러 조사</span
+        ><button id="show-targets" title="조사 대상 목록으로 이동">목록</button>
+      </div>
+      <section id="conversation-choices" hidden aria-label="다음 행동"></section>
+      <section id="narrative" hidden aria-label="1인칭 이야기">
+        <div class="narrative-head">
+          <span id="speaker">강서진</span><span id="scene-name"></span
+          ><button id="read-full" title="이 장면의 전체 글">전문</button
+          ><button id="skip-prose" title="이 장면의 글을 건너뛰고 조사">둘러보기</button>
+        </div>
+        <div id="prose" tabindex="0"></div>
+        <div class="narrative-foot">
+          <div id="page-dots"></div>
+          <small id="page-count"></small
+          ><button id="advance" class="advance">계속<span>↵</span></button>
+        </div>
+      </section>
+      <footer id="dock" hidden>
+        <div id="inventory"></div>
+        <div class="dock-right">
+          <span id="save-indicator"><i></i>진행 보관됨</span
+          ><button id="undo" title="직전 행동으로">↶<span>되돌리기</span></button
+          ><button id="fullscreen" title="전체 화면"><span data-icon="expand"></span></button>
+        </div>
+      </footer>
+      <div id="toast" role="status" aria-live="polite"></div>
+      <div id="transition" aria-hidden="true"></div>
+      <section id="title-screen">
+        <div class="title-shade"></div>
+        <div class="title-main">
+          <div class="title-eyebrow"><i></i>단서공방 · 1인칭 탈출 어드벤처</div>
+          <h1>퇴원일</h1>
+          <div class="title-english">DISCHARGE DAY</div>
+          <p class="title-subtitle">닫힌 문 밖의 시간</p>
+          <div class="title-rule"></div>
+          <p class="title-quote">수술이 끝나면, 집에 갈 생각이었다.</p>
+          <div class="title-actions">
+            <button id="new-game" class="main-play">
+              <span>새로 시작하기</span><span class="long-arrow">⟶</span></button
+            ><button id="continue-game" disabled>이어하기<span id="continue-label"></span></button
+            ><button id="load-title">저장 파일 불러오기</button>
+          </div>
+          <div class="title-meta">
+            <span>POINT &amp; CLICK</span><span>다섯 개의 결말</span><span>오프라인 플레이</span>
+          </div>
+        </div>
+        <div class="title-bottom">
+          <button id="title-settings">환경 설정</button><button id="credits">제작 정보</button
+          ><span>VISUAL EDITION · 2.0</span>
+        </div>
+        <div class="title-note">
+          느린 탐색과 읽기를 위한 게임입니다.<br />소리와 화면 움직임은 설정에서 조절할 수 있습니다.
+        </div>
+      </section>
+      <section id="ending-overlay" hidden>
+        <small id="end-number"></small>
+        <h2 id="end-name"></h2>
+        <p id="end-description"></p>
+        <div>
+          <button id="end-story">결말의 글 다시 보기</button
+          ><button id="end-back">마지막 선택으로</button><button id="end-menu">메인 메뉴</button>
+        </div>
+      </section>
+    </div>
+    <dialog id="modal">
+      <header>
+        <div>
+          <small id="modal-kicker">DISCHARGE DAY</small>
+          <h2 id="modal-title"></h2>
+        </div>
+        <button id="modal-close" aria-label="닫기">×</button>
+      </header>
+      <div id="modal-body"></div>
+    </dialog>
+    <dialog id="confirm-modal">
+      <small>선택 확인</small>
+      <p id="confirm-text"></p>
+      <div>
+        <button id="confirm-no">돌아가기</button
+        ><button id="confirm-yes" class="solid">진행한다</button>
+      </div>
+    </dialog>
+    <input type="file" id="load-file" accept=".json,application/json" hidden />
+    <noscript>이 게임은 JavaScript가 필요합니다. 브라우저의 JavaScript를 활성화해주세요.</noscript>
+
+
+
+  <script src="./data.js"></script><script src="./logic.js"></script><script src="./app.js"></script></body>
+</html>

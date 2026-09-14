@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { Kicker, PageFrame } from "@/components/site";
 import { getWork, getWorkStatus, works } from "@/lib/works";
 import { WorkLanding } from "@/components/work-landing";
+import { WorkPurchase } from "@/components/work-purchase";
 import landings from "@/lib/work-landings.json";
 import { OfficialWorkIntroduction } from "@/components/official-work-introduction";
 import { WorkTrailer } from "@/components/work-trailer";
@@ -72,10 +73,10 @@ export default async function WorkDetailPage({ params }: Props) {
                 <dd>{t(work.platform)}</dd>
               </div>
             </dl>
+            <WorkPurchase slug={work.slug} />
             <div className="work-detail-actions">
               <a href={work.externalUrl} target="_blank" rel="noopener noreferrer">
-                {t(work.externalLabel)}
-                {t("보기")}
+                {work.externalUrl.includes("tumblbug.com") ? t("텀블벅 펀딩 기록") : <>{t(work.externalLabel)}{t("보기")}</>}
                 <ArrowUpRight size={17} aria-hidden="true" />
               </a>
               <a href="#work-content">{t("작품 소개 읽기 ↓")}</a>

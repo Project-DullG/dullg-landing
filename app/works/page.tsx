@@ -1,4 +1,5 @@
 import { useText } from "@/lib/i18n/use-text";
+import { WorkPurchase } from "@/components/work-purchase";
 import { localizeMetadata } from "@/lib/i18n/server";
 import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "@/components/i18n/link";
@@ -128,6 +129,7 @@ export default function WorksPage() {
                     {t(work.players)} · {t(work.duration)} · {t(work.platform)}
                   </b>
                   <p>{t(work.synopsis)}</p>
+                  <WorkPurchase slug={work.slug} compact />
                   <Link href={`/works/${work.slug}`}>
                     {t("작품 자세히 보기")}
                     <ArrowRight size={16} weight="bold" aria-hidden="true" />

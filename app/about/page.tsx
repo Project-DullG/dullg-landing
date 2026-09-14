@@ -35,10 +35,10 @@ export default function AboutPage() {
         </figure>
         <div>
           <Kicker>{t("ProjectDullG에서 단서공방으로")}</Kicker>
-          <h2 id="about-brand-title">{t("덜지니어스에서 시작한 제작팀")}</h2>
+          <h2 id="about-brand-title">{t("단서공방의 시작")}</h2>
           <p>
             {t(
-              "한동대학교 보드게임 동아리 덜지니어스에서 시작한 팀입니다. ProjectDullG라는 이름으로 머더미스터리 콘텐츠를 기획하고 제작해 왔으며, 지금은 단서공방이라는 이름으로 작품과 교육 콘텐츠를 소개합니다.",
+              "보드게임 동아리 덜지니어스에서 시작해 ProjectDullG라는 이름으로 머더미스터리를 제작했습니다. 지금은 단서공방이라는 이름으로 작품을 선보이고 게임·AI 활용 수업을 진행합니다.",
             )}
           </p>
           <a
@@ -47,7 +47,7 @@ export default function AboutPage() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {t("한동대학교 덜지니어스 소개 ↗")}
+            {t("덜지니어스 동아리 소개 ↗")}
           </a>
           <dl>
             <div>

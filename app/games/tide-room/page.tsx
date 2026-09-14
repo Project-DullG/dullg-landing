@@ -3,7 +3,7 @@ import { localizeMetadata } from "@/lib/i18n/server";
 import { pageMetadata } from "@/lib/metadata";
 import { PageFrame } from "@/components/site";
 import { TideFeature } from "@/components/tide-room/feature";
-import styles from "@/components/tide-room/feature.module.css";
+import styles from "@/components/game-feature.module.css";
 export async function generateMetadata() {
   return localizeMetadata(pageMetadata("/games/tide-room"));
 }

@@ -20,7 +20,7 @@ test("Discharge Day is listed separately from Tide Room", () => {
   const page = readFileSync("app/mini-projects/page.tsx", "utf8");
   assert.match(page, /<DischargeFeature/);
   assert.match(page, /<TideFeature/);
-  const feature = readFileSync("components/discharge-feature.tsx", "utf8");
+  const feature = readFileSync("lib/featured-games.ts", "utf8");
   assert.match(feature, /\/games\/discharge-day/);
   assert.match(feature, /\/assets\/discharge-day\/index.html/);
 });

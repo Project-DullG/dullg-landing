@@ -1,7 +1,33 @@
-// Product titles and URLs checked in the seller's public catalog on 2026-09-14.
-export const workRetailers: Record<string, { url: string; seller: string }> = {
-  "snake-carnival": { url: "https://smartstore.naver.com/bottlingcp/products/13022099038", seller: "보틀링컴퍼니" },
-  "red-lab": { url: "https://smartstore.naver.com/bottlingcp/products/13760314372", seller: "보틀링컴퍼니" },
-  "gourmet-master": { url: "https://smartstore.naver.com/bottlingcp/products/13760317500", seller: "보틀링컴퍼니" },
-  "too-many-doctors": { url: "https://smartstore.naver.com/bottlingcp/products/13760322257", seller: "보틀링컴퍼니" },
-};
+// Verified public catalog entries. Update product IDs here, not in page components.
+export const retailers = {
+  bottling: {
+    name: "보틀링컴퍼니",
+    productBaseUrl: "https://smartstore.naver.com/bottlingcp/products/",
+    actionLabel: "네이버 스마트스토어에서 구매 ↗",
+  },
+} as const;
+type RetailerId = keyof typeof retailers;
+type Listing = { retailerId: RetailerId; productId: string };
+export const retailListings = {
+  "snake-carnival": { retailerId: "bottling", productId: "13022099038" },
+  "red-lab": { retailerId: "bottling", productId: "13760314372" },
+  "gourmet-master": { retailerId: "bottling", productId: "13760317500" },
+  "too-many-doctors": { retailerId: "bottling", productId: "13760322257" },
+} satisfies Record<string, Listing>;
+type WorkRetailer = { url: string; seller: string; actionLabel: string };
+export const workRetailers: Record<string, WorkRetailer> = Object.fromEntries(
+  Object.entries(retailListings).map(([slug, listing]) => {
+    const retailer = retailers[listing.retailerId];
+    return [
+      slug,
+      {
+        url: retailer.productBaseUrl + listing.productId,
+        seller: retailer.name,
+        actionLabel: retailer.actionLabel,
+      },
+    ];
+  }),
+);
+export function getWorkRetailer(slug: string): WorkRetailer | undefined {
+  return Object.hasOwn(workRetailers, slug) ? workRetailers[slug] : undefined;
+}

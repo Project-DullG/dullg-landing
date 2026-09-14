@@ -38,10 +38,53 @@ body:not(.game-active) #stage { position: absolute; inset: 0; height: 100%; }
 #modal-close { flex: 0 0 44px; }
 .targets-visible .hotspot .hs-label { opacity: 0; }
 .hotspot:hover .hs-label, .hotspot:focus-visible .hs-label { opacity: 1; }
+/* Reading and actions share a bounded panel alongside the scene on wide screens. */
+body { background: #081318; }
+.site-return { font-size: 12px; border-bottom: 1px solid #27373b; text-decoration: none; }
+#hud { border-bottom: 1px solid #314349; }
+#narrative, .exploring #narrative { background: #102127; border: 1px solid #34494e; border-radius: 12px; box-shadow: none; }
+#prose { line-height: 1.9; word-break: keep-all; overflow-wrap: anywhere; }
+.action-choice { background: #13272d; border: 1px solid #395359; border-radius: 8px; padding: 16px; text-align: left; line-height: 1.65; transition: background .15s, border-color .15s; }
+.action-choice:hover:not(:disabled) { background: #203c42; border-color: #9ab9ae; }
+.action-choice:focus-visible, button:focus-visible, .site-return:focus-visible { outline: 3px solid #d4c797; outline-offset: 3px; }
+.action-choice:disabled { opacity: .65; }
+.choice-status { color: #a8c4b2; font-size: 11px; font-weight: 400; }
+#dock { border-top: 1px solid #314349; background: #0c1b20; }
+#title-screen { background: linear-gradient(90deg, #081318e8, #08131840); }
+.title-english { letter-spacing: .2em; }
+.title-main h1 { font-size: clamp(64px, 9vw, 116px); letter-spacing: -.06em; }
+.title-quote { max-width: 28em; line-height: 1.8; }
+.title-actions { max-width: 360px; }
+.title-actions button { border-radius: 6px; }
+#modal h3 { font-size: 17px; margin: 24px 0 8px; }
+#modal p { line-height: 1.85; word-break: keep-all; }
+#modal-body { padding-bottom: 24px; }
+@media (min-width: 1100px) {
+  body.game-active #app { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(380px, 1fr); align-content: start; gap: 0 28px; padding: 0 32px; max-width: 1680px; margin: auto; min-height: calc(100svh - 44px); }
+  #hud { grid-column: 1 / -1; grid-row: 1; padding: 14px 0; }
+  #objective { grid-column: 1 / -1; grid-row: 2; width: 100%; max-width: none; margin: 20px 0; }
+  #stage { grid-column: 1; grid-row: 3 / 6; height: min(60vh, 560px); min-height: 340px; position: sticky; top: 20px; border: 1px solid #34494e; border-radius: 12px; background: #050d11; }
+  #mode-hint { grid-column: 2; grid-row: 3; width: 100%; margin: 0 0 12px; }
+  #narrative, .exploring #narrative { grid-column: 2; grid-row: 4; width: 100%; margin: 0 0 16px; align-self: start; }
+  #conversation-choices, .exploring #conversation-choices { grid-column: 2; grid-row: 5; width: 100%; grid-template-columns: 1fr; gap: 10px; align-self: start; }
+  #dock { grid-column: 1 / -1; grid-row: 6; margin-top: 24px; border-radius: 8px; }
+  #ending-overlay { grid-column: 2; grid-row: 4 / 6; padding: 24px; }
+}
 @media (max-width: 900px) {
   #hit-plane { display: none; }
   #mode-hint { display: none; }
   #stage { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
+  #hud { padding: 10px 16px; }
+  #hud nav { width: 100%; justify-content: space-between; }
+  #hud nav .icon-button { display: flex; flex-direction: column; justify-content: center; gap: 5px; min-width: 48px; min-height: 52px; padding: 5px; }
+  #hud nav .tool-label { display: block; font-size: 10px; white-space: nowrap; }
+  #clue-count { position: absolute; top: 0; right: 0; }
+  #hud .hud-divider { display: none; }
+  #objective { margin-top: 12px; }
+  #objective small { font-size: 11px; }
+  #narrative, .exploring #narrative { margin-top: 12px; margin-bottom: 12px; }
+  .action-choice { padding: 12px 14px; }
+  #title-screen { padding-left: 24px; padding-right: 24px; }
   #hud { gap: 8px; }
   .brand { font-size: 20px; }
   .chapter-readout { flex: 1; min-width: 100px; }

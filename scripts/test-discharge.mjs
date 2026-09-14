@@ -17,6 +17,7 @@ const routes = JSON.parse(
 ).routes;
 const browser = await chromium.launch();
 const report = [];
+const fixtures = JSON.parse(await readFile("games/discharge-day/tests/browser_states.json", "utf8"));
 await mkdir("/private/tmp/discharge-qa", { recursive: true });
 try {
   for (const [width, height] of [
@@ -39,9 +40,13 @@ try {
           .map((id) => document.getElementById(id))
           .filter((e) => !e.hidden)
           .map((e) => ({ id: e.id, r: e.getBoundingClientRect() }));
-        for (let i = 1; i < rects.length; i++)
-          if (rects[i].r.top < rects[i - 1].r.bottom - 1)
-            throw Error("Overlap " + node + ": " + rects[i - 1].id + " / " + rects[i].id);
+        for (let i = 0; i < rects.length; i++)
+          for (let j = i + 1; j < rects.length; j++) {
+            const a = rects[i].r, b = rects[j].r;
+            if (Math.min(a.right, b.right) - Math.max(a.left, b.left) > 1 &&
+                Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 1)
+              throw Error("Overlap " + node + ": " + rects[i].id + " / " + rects[j].id);
+          }
         for (const b of document.querySelectorAll("#conversation-choices button"))
           if (b.getBoundingClientRect().height < 44) throw Error("Small touch target");
       };
@@ -72,7 +77,21 @@ try {
     assert.equal(await page.locator("#modal").evaluate((e) => e.open), true);
     await page.keyboard.press("Escape");
     assert.equal(await page.locator("#modal").evaluate((e) => e.open), false);
+    await page.locator("#help-open").click();
+    assert.equal(await page.locator("#modal-title").textContent(), "조작 안내");
+    await page.locator("#modal-close").click();
     await page.screenshot({ path: `/private/tmp/discharge-qa/game-${width}.png`, fullPage: true });
+    await page.evaluate((save) => {
+      DischargeGame.restoreSave(save);
+      DischargeGame.finishReading();
+    }, fixtures.first_puzzle);
+    await page.locator("#open-device").click();
+    await page.locator("#puzzle-hint").click();
+    const hintText = await page.locator("#puzzle-hints").textContent();
+    await page.getByRole("button", { name: "관련 기록", exact: true }).click();
+    assert.equal(await page.locator("#puzzle-hints").textContent(), hintText);
+    assert.ok(hintText.length > 10);
+    await page.screenshot({ path: `/private/tmp/discharge-qa/puzzle-${width}.png`, fullPage: true });
     assert.deepEqual(errors, []);
     report.push({
       width,

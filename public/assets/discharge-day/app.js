@@ -423,7 +423,7 @@
     document.body.classList.toggle("motion-off", !prefs.motion);
     document.documentElement.style.setProperty("--textsize", prefs.size + "px");
     document.documentElement.style.setProperty("--bright", prefs.brightness);
-    $("sound-toggle").replaceChildren(icon(prefs.sound ? "sound" : "mute"));
+    $("sound-toggle").replaceChildren(icon(prefs.sound ? "sound" : "mute"), el("span", "tool-label", prefs.sound ? "소리 켜짐" : "음소거"));
     $("sound-toggle").setAttribute("aria-label", prefs.sound ? "소리 끄기" : "소리 켜기");
     Audio.sync();
     try {
@@ -728,7 +728,7 @@
     const ch = L.choices(D, state),
       p = L.puzzle(D, state),
       spots = SPOTS[state.node];
-    $("prose").textContent = SINGLE_NOTE[state.node] || "나는 다음에 무엇을 할지 생각했다.";
+    $("prose").textContent = SINGLE_NOTE[state.node] || (p ? "장치를 조작하거나 기록장에서 단서를 확인할 수 있습니다." : "아래에서 다음 행동을 선택하세요. 읽은 내용은 ‘전체 글’에서 다시 볼 수 있습니다.");
     if (spots) {
       for (const c of ch) {
         const pos = spots[c.id];
@@ -772,6 +772,10 @@
     b.disabled = !c.enabled;
     b.append(el("span", "choice-mark", "↳"));
     const t = el("span", "", c.label);
+    if (c.enabled && state.visited.includes(c.to)) {
+      b.classList.add("visited-choice");
+      t.append(el("small", "choice-status", "방문한 장소"));
+    }
     if (!c.enabled) t.append(el("small", "", c.disabled_reason || "아직 필요한 준비가 남아 있다."));
     b.append(t);
     b.onclick = () => doChoice(c.id);
@@ -931,6 +935,18 @@
     $("modal-body").scrollTop = 0;
     if (!d.open) d.showModal();
     return $("modal-body");
+  }
+  function openHelp() {
+    const body = setModal("조작 안내", "퇴원일");
+    for (const [title, text] of [
+      ["읽고 조사하기", "‘계속’을 눌러 글을 읽은 뒤 조사 대상을 고릅니다. ‘둘러보기’를 누르면 바로 행동 목록을 엽니다. ‘전체 글’에서 놓친 내용을 다시 읽을 수 있습니다."],
+      ["단서와 장치", "발견한 단서는 기록장에 보관됩니다. 장치가 풀리지 않으면 조작 창의 ‘관련 기록’과 단계별 힌트를 확인하세요."],
+      ["이동과 되돌리기", "지도에서 이동할 수 있는 장소를 확인합니다. ‘되돌리기’는 직전 행동으로 돌아갑니다. ‘방문한 장소’ 표시는 이미 들렀다는 뜻이며, 모든 조사가 끝났다는 뜻은 아닙니다."],
+      ["저장과 소리", "진행 상황은 현재 브라우저에 자동 저장됩니다. 다른 기기로 옮길 때는 설정에서 저장 파일을 내보내세요. 소리 버튼으로 음소거하고, 설정에서 글자 크기와 화면 움직임을 조절할 수 있습니다."],
+    ]) {
+      body.append(el("h3", "", title));
+      para(body, text);
+    }
   }
   function para(parent, text, cls = "") {
     const p = el("p", cls, text);
@@ -1314,6 +1330,9 @@
     feedback.id = "puzzle-feedback";
     feedback.setAttribute("role", "status");
     const hintBox = el("div");
+    hintBox.id = "puzzle-hints";
+    const recordBox = el("div");
+    recordBox.id = "puzzle-records";
     const chooseVal = (f, v) => {
       answers[f] = v;
       Audio.click();
@@ -1580,14 +1599,15 @@
     };
     records.onclick = () => {
       const ids = D.scenes[state.node].clues;
-      hintBox.replaceChildren();
+      recordBox.replaceChildren();
       for (const id of ids)
         if (state.clues.includes(id)) {
-          hintBox.append(el("h3", "", D.clues[id].title), el("p", "hint-text", D.clues[id].text));
+          recordBox.append(el("h3", "", D.clues[id].title), el("p", "hint-text", D.clues[id].text));
         }
       if (p.id === "P04" && state.clues.includes("K25")) {
-        hintBox.append(el("h3", "", D.clues.K25.title), el("p", "hint-text", D.clues.K25.text));
+        recordBox.append(el("h3", "", D.clues.K25.title), el("p", "hint-text", D.clues.K25.text));
       }
+      if (!recordBox.childElementCount) para(recordBox, "아직 이 장치와 관련된 기록을 찾지 못했습니다. 주변을 조사하거나 힌트를 확인하세요.");
     };
     submit.onclick = () => {
       const go = () => {
@@ -1610,9 +1630,10 @@
       else go();
     };
     actions.append(hint, records, submit);
-    b.append(actions, feedback, hintBox);
+    b.append(actions, feedback, hintBox, recordBox);
   }
   $("new-game").onclick = startNew;
+  $("help-open").onclick = openHelp;
   $("continue-game").onclick = () => {
     if (!saved) return;
     Audio.init();

@@ -17,7 +17,7 @@ html = html
   .replace(/<script>[\s\S]*?<\/script>/g, "")
   .replace(
     "</body>",
-    '<script src="./data.js"></script><script src="./logic.js"></script><script src="./app.js"></script></body>',
+    '<script src="./data.js"></script><script src="./logic.js"></script><script src="./presentation.js"></script><script src="./audio.js"></script><script src="./app.js"></script></body>',
   )
   .replace("<head>", '<head><meta name="robots" content="noindex,follow">')
   .replace(
@@ -25,7 +25,7 @@ html = html
     '<a class="site-return" href="/games/discharge-day" style="position:relative;z-index:40;display:block;padding:12px 18px;color:#cbdacb;min-height:44px">← 게임 소개</a><div id="app">',
   );
 await writeFile(new URL("index.html", output), html.replace(/[\t ]+$/gm, ""));
-for (const name of ["style.css", "layout.css", "app.js", "logic.js"])
+for (const name of ["style.css", "layout.css", "app.js", "logic.js", "audio.js", "presentation.js"])
   await writeFile(new URL(name, output), await read(name));
 await writeFile(
   new URL("data.js", output),

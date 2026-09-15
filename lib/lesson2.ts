@@ -1,69 +1,247 @@
 export const lesson2 = {
   href: "/materials/ulleung-high-lesson-2",
   date: "2026-09-19",
-  pdf: "/assets/materials/ulleung-high-2026-09-19.pdf",
+  pdf: "/assets/materials/ulleung-high-2026-09-19-revised.pdf",
   titles: [
-    ["울릉의 아이디어를, 우리의 사업으로", "From Ulleung ideas to our business"],
-    ["오늘의 결과 3가지", "Three outcomes for today"],
-    ["오늘은 계획, 제작은 조사 후", "Plan today; make after research"],
-    ["한 회사, 두 사업팀", "One company, two business teams"],
-    ["게임 완성, 사업도 완성?", "A finished game, a finished business?"],
-    ["아이디어 → 실행 → 개선", "Idea → action → improvement"],
-    ["사업을 보는 4가지 질문", "Four questions about a business"],
-    ["쓰는 사람, 사는 사람", "Users and buyers"],
-    ["이 순간, 무엇이 필요할까?", "What is needed in this moment?"],
-    ["게임이 남길 경험", "The experience a game offers"],
-    ["지금 쓰는 대안은?", "What alternatives are used now?"],
-    ["관심과 참여는 다른 근거", "Interest and participation are different evidence"],
-    ["홍보의 목표는 어떤 행동?", "What action should promotion lead to?"],
-    ["우리 힘으로 가능한가?", "Can we do it with our resources?"],
-    ["매출 ≠ 이익", "Revenue is not profit"],
-    ["인쇄비 밖의 비용", "Costs beyond printing"],
-    ["할 일도, 돈도 기록하기", "Record tasks and money"],
-    ["사진·인터뷰, 쓰기 전 3가지", "Three checks before using photos and interviews"],
-    ["모르는 것 → 확인할 질문", "Unknowns → questions to investigate"],
-    ["울릉에서 찾는 사업 소재", "Finding business topics on Ulleungdo"],
-    ["나의 자원과 관심 업무", "My resources and work interests"],
-    ["먼저 만날 고객 고르기", "Choosing customers to meet first"],
-    ["고객의 한 장면 적기", "Describing a customer situation"],
-    ["아이디어 2개 만들기", "Developing two ideas"],
-    ["아이디어마다 확인 질문 1개", "One research question per idea"],
-    ["아이디어 1분 소개", "A one-minute idea introduction"],
-    ["10분 쉬어가기 · 사업 메모 준비", "Ten-minute break · prepare business notes"],
-    ["사업 메모 ① 고객과 경험", "Business notes: customers and experience"],
-    ["사업 메모 ② 제작과 운영", "Business notes: production and operations"],
-    ["두 사업의 고객과 경험", "Customers and experiences for two businesses"],
-    ["두 사업의 제작과 운영", "Production and operations for two businesses"],
-    ["사업 메모, 한 칸에 한 줄", "One line per business-note field"],
-    ["견적 확인 → 다음 할 일", "From a quote to the next task"],
-    ["고칠 점 + 확인할 방법", "What to fix and how to check it"],
-    ["초안은 AI, 판단은 우리", "AI drafts; we decide"],
-    ["좋은 요청의 재료", "Ingredients of a good request"],
-    ["우리 팀의 AI 요청문 만들기", "Writing our team's AI prompt"],
-    ["그대로 써도 될까?", "Can we publish it unchanged?"],
-    ["공개 전, 최종 확인", "Final checks before publication"],
-    ["10분 쉬어가기 · 역할 정하기 준비", "Ten-minute break · prepare role selection"],
-    ["우리 회사의 역할 지도", "Our company's role map"],
-    ["보드게임팀의 할 일", "Board game team tasks"],
-    ["매거진팀의 할 일", "Magazine team tasks"],
-    ["본부의 할 일", "Coordination team tasks"],
-    ["두 사업을 돕는 공통 지원", "Shared support for both businesses"],
-    ["주 역할 1개 + 지원 역할 1개", "One lead role and one support role"],
-    ["보고할 내용 3가지", "Three things to report"],
-    ["맡고 싶은 일 적기", "Write down the work you want to do"],
-    ["희망 역할 모둠으로 이동", "Join your preferred role group"],
-    ["할 일마다 담당자 정하기", "Assign an owner to every task"],
-    ["빠진 일, 몰린 일 점검", "Check missing and overloaded tasks"],
-    ["우리 팀의 운영 약속 5가지", "Five working agreements"],
-    ["우리 팀 계획, 2분 소개", "Our team plan in two minutes"],
-    ["다음은 고객·지역 조사", "Next: customer and local research"],
+  [
+    "울릉에서, 함께 만드는 사업",
+    "Building a business together on Ulleungdo"
   ],
+  [
+    "단서공방의 게임들",
+    "Games by Project DullG"
+  ],
+  [
+    "오늘의 수업",
+    "Today's class"
+  ],
+  [
+    "이번 학기 프로젝트",
+    "This semester's project"
+  ],
+  [
+    "창업",
+    "Entrepreneurship"
+  ],
+  [
+    "창업의 주요 업무",
+    "Main tasks in starting a business"
+  ],
+  [
+    "제품 만들기와 사업 운영",
+    "Making a product and running a business"
+  ],
+  [
+    "창업 전 검토할 것",
+    "Checks before starting a business"
+  ],
+  [
+    "같은 울릉, 서로 다른 관심",
+    "Different interests on Ulleungdo"
+  ],
+  [
+    "사용자와 구매자",
+    "Users and buyers"
+  ],
+  [
+    "배를 기다리는 가족",
+    "A family waiting for the ferry"
+  ],
+  [
+    "가치 제안 예시",
+    "Value proposition example"
+  ],
+  [
+    "고객의 다른 선택",
+    "Customers' alternatives"
+  ],
+  [
+    "단서공방 크라우드펀딩 사례",
+    "Project DullG crowdfunding cases"
+  ],
+  [
+    "한 학기 동안 만들 결과물",
+    "This semester's deliverables"
+  ],
+  [
+    "홍보와 판매 채널",
+    "Promotion and sales channels"
+  ],
+  [
+    "제작 수량과 비용",
+    "Production quantity and costs"
+  ],
+  [
+    "보드게임 제작 견적서",
+    "Board game production quote"
+  ],
+  [
+    "제작 견적 확대: 카드와 매뉴얼",
+    "Quote details: cards and manuals"
+  ],
+  [
+    "제작 견적 확대: 보드판과 상자",
+    "Quote details: board and box"
+  ],
+  [
+    "만든 뒤, 포장과 배송",
+    "Packing and shipping"
+  ],
+  [
+    "한 개를 팔 때의 계산",
+    "Calculating a sale"
+  ],
+  [
+    "사업 운영과 세무 업무",
+    "Business operations and tax tasks"
+  ],
+  [
+    "사업자 정보 변경",
+    "Updating business registration details"
+  ],
+  [
+    "저작권, 개인정보, 거래 책임",
+    "Copyright, privacy and transaction responsibilities"
+  ],
+  [
+    "우리 팀이 창업 전에 검토한 질문",
+    "Questions we reviewed before starting"
+  ],
+  [
+    "일을 나눌 때 정할 것",
+    "Assigning work"
+  ],
+  [
+    "아이디어 검토 메모",
+    "Idea review notes"
+  ],
+  [
+    "우리가 아는 울릉",
+    "The Ulleungdo we know"
+  ],
+  [
+    "나의 자원과 관심",
+    "My resources and interests"
+  ],
+  [
+    "먼저 만나 볼 고객",
+    "Customers to meet first"
+  ],
+  [
+    "고객의 상황과 필요",
+    "Customer situations and needs"
+  ],
+  [
+    "울릉의 자원과 고객",
+    "Local resources and customers"
+  ],
+  [
+    "아이디어 공유",
+    "Sharing ideas"
+  ],
+  [
+    "잠시 쉬어 갑니다",
+    "Break"
+  ],
+  [
+    "비즈니스모델",
+    "Business models"
+  ],
+  [
+    "사업 메모의 여덟 항목",
+    "Eight fields in the business notes"
+  ],
+  [
+    "보드게임 사업모델 예시",
+    "Board game business model example"
+  ],
+  [
+    "매거진·울릉소식 사업모델 예시",
+    "Magazine business model example"
+  ],
+  [
+    "두 사업팀의 협업",
+    "Collaboration between the teams"
+  ],
+  [
+    "우리 팀의 사업 메모",
+    "Our team's business notes"
+  ],
+  [
+    "제작과 운영의 실제 업무",
+    "Production and operations tasks"
+  ],
+  [
+    "웹게임 테스트와 수정 요청",
+    "Web game testing and revision requests"
+  ],
+  [
+    "팀별 AI 활용",
+    "AI uses for each team"
+  ],
+  [
+    "AI 업무 요청 예시",
+    "An AI task request example"
+  ],
+  [
+    "AI 문장 검토",
+    "Reviewing AI writing"
+  ],
+  [
+    "잠시 쉬어 갑니다",
+    "Break"
+  ],
+  [
+    "학생창업회사 조직도",
+    "Student company organization"
+  ],
+  [
+    "전략기획운영본부",
+    "Strategy and operations team"
+  ],
+  [
+    "보드게임팀",
+    "Board game team"
+  ],
+  [
+    "매거진미디어팀",
+    "Magazine and media team"
+  ],
+  [
+    "홍보와 디지털 제작 지원",
+    "Marketing and digital production support"
+  ],
+  [
+    "주 역할과 지원 역할",
+    "Lead and support roles"
+  ],
+  [
+    "의사결정과 승인",
+    "Decisions and approvals"
+  ],
+  [
+    "희망 역할과 팀 구성",
+    "Preferred roles and team formation"
+  ],
+  [
+    "팀 운영 방식",
+    "Team working arrangements"
+  ],
+  [
+    "팀 소개",
+    "Team introductions"
+  ],
+  [
+    "다음 만남 전 확인할 것",
+    "Tasks before the next meeting"
+  ]
+],
 };
 
 export function lesson2Slides(english: boolean) {
   return lesson2.titles.map((titles, index) => ({
     title: titles[english ? 1 : 0],
     summary: "",
-    image: `/assets/materials/ulleung-high-2026-09-19/slide-${String(index + 1).padStart(2, "0")}.webp`,
+    image: `/assets/materials/ulleung-high-2026-09-19-revised/slide-${String(index + 1).padStart(2, "0")}.webp`,
   }));
 }

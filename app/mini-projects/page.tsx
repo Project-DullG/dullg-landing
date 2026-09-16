@@ -1,5 +1,6 @@
 import { TideFeature } from '@/components/tide-room/feature';
 import { DischargeFeature } from '@/components/discharge-feature';
+import { GameFeature } from '@/components/game-feature';
 import { useText } from "@/lib/i18n/use-text";
 import { localizeMetadata } from "@/lib/i18n/server";
 import { PageFrame } from "@/components/site";
@@ -37,6 +38,7 @@ export default function MiniProjectsPage() {
         </span>
       </PageIntro>
       <div className={`shell ${styles.collection}`}>
+        <GameFeature id="last-screening" />
         <DischargeFeature />
         <TideFeature />
         {t(

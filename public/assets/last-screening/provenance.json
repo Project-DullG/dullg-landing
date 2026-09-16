@@ -1,0 +1,27 @@
+{
+  "version": "0.10.0",
+  "sourceSha256": "530c0ea68c57a1054cf98bd2a80f94df4377f2e9fc53e2253735224d8d1e44c4",
+  "modules": [
+    "assets",
+    "story",
+    "story-expansion",
+    "case-rules",
+    "editorial",
+    "narrative-data",
+    "narrative-patch",
+    "observations",
+    "model",
+    "guide",
+    "deduction",
+    "comfort",
+    "storage",
+    "bgm-policy",
+    "music-mixer",
+    "sound",
+    "portrait-bounds",
+    "presentation-cues",
+    "presentation",
+    "app"
+  ],
+  "assetCount": 54
+}

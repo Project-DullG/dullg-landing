@@ -10,6 +10,14 @@ export type PublicRoute = {
 
 export const publicRoutes: PublicRoute[] = [
   {
+    path: "/games/last-screening",
+    title: "마지막 상영",
+    description: "극장의 사망 사건을 조사하고 진술과 증거를 대조하는 1인 수사·추리 게임.",
+    group: "studio",
+    priority: 0.7,
+    changeFrequency: "monthly",
+  },
+  {
     path: "/games/discharge-day",
     title: "퇴원일",
     description: "의료시설을 조사하고 장치를 복구하며 떠날 방법을 선택하는 1인 SF 탈출 어드벤처.",

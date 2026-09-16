@@ -1,5 +1,6 @@
 import { youthArtsFestival } from "./festival";
 import { ulleungPresentation } from "./presentations";
+import { ulleungOnlineLecture } from "./ulleung-online";
 
 export type ActivityArticleData = {
   title: string;
@@ -9,7 +10,7 @@ export type ActivityArticleData = {
   sections: {
     title: string;
     paragraphs: string[];
-    photo?: { src: string; alt: string; caption: string };
+    photo?: { src: string; alt: string; caption: string; width?: number; height?: number };
   }[];
   privacyNote?: boolean;
   relatedTitle: string;
@@ -17,6 +18,27 @@ export type ActivityArticleData = {
 };
 
 export const activityArticles: Record<string, ActivityArticleData> = {
+  "ulleung-online-startup-2026": {
+    title: ulleungOnlineLecture.title,
+    category: "교육",
+    date: ulleungOnlineLecture.date,
+    intro: "9월 16일, 울릉도 학생들을 대상으로 모두의 창업 관련 온라인 강의를 진행했습니다. 이번에는 화상회의로 만났습니다.",
+    sections: [{
+      title: "화면을 공유하며 진행한 강의",
+      paragraphs: ["강의에서는 모두의 창업 사이트를 함께 보았습니다. 화상회의의 화면 공유 기능으로 안내 페이지를 띄워 놓고 수업을 진행했습니다."],
+      photo: {
+        ...ulleungOnlineLecture.image,
+        width: 1600,
+        height: 559,
+        caption: "9월 16일 강의 공유 화면. 참가자 영역은 제외하고 화면 속 이름은 가렸습니다.",
+      },
+    }],
+    relatedTitle: "관련 수업과 문의",
+    links: [
+      { label: "9월 5일 울릉고 특강 기록", href: "/activity/ulleung-high-living-lab" },
+      { label: "교육 문의", href: "/contact" },
+    ],
+  },
   "ulsan-youth-arts-2026": {
     title: youthArtsFestival.title,
     category: "전시",

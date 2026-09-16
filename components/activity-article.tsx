@@ -33,8 +33,8 @@ export function ActivityArticle({ article }: { article: ActivityArticleData }) {
                 <Image
                   src={section.photo.src}
                   alt={t(section.photo.alt)}
-                  width={1600}
-                  height={1200}
+                  width={section.photo.width ?? 1600}
+                  height={section.photo.height ?? 1200}
                   sizes="(max-width: 800px) 100vw, 760px"
                   priority={index === article.sections.findIndex((item) => item.photo)}
                 />

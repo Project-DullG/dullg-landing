@@ -10,6 +10,14 @@ export type PublicRoute = {
 
 export const publicRoutes: PublicRoute[] = [
   {
+    path: "/activity/ulleung-online-startup-2026",
+    title: "울릉도 학생 대상 모두의 창업 온라인 강의",
+    description: "2026년 9월 16일 울릉도 학생들을 대상으로 진행한 모두의 창업 온라인 강의 기록.",
+    group: "studio",
+    priority: 0.6,
+    changeFrequency: "yearly",
+  },
+  {
     path: "/games/last-screening",
     title: "마지막 상영",
     description: "극장의 사망 사건을 조사하고 진술과 증거를 대조하는 1인 수사·추리 게임.",

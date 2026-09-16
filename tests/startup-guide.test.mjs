@@ -18,6 +18,10 @@ test("startup guide provides bilingual instructions, downloads and all manual pa
     assert.ok(!html.includes("<video"));
     assert.ok(!html.includes("00:00"));
     assert.ok(!html.includes("재생 위치로 이동하는 링크는 아닙니다"));
+    if (!locale) {
+      assert.ok(html.includes("울산광역시 → 이노빌드랩 선택"));
+      assert.ok(html.includes("로컬 분야: 경북창조경제혁신센터 선택"));
+    }
     for (const example of startupExamples) assert.ok(html.includes(`data-idea="${example.id}"`));
     assert.ok(html.includes("235011/artclView.do"));
     assert.ok(html.includes("366822/artclView.do"));

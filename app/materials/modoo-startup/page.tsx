@@ -54,7 +54,12 @@ export default function StartupGuide() {
     </section>
     <section id="manual"><h2>{en ? "Follow the application screens" : "신청 화면을 보며 따라 하세요"}</h2>
       <p>{en ? "Sign in → review consent → verify your identity → choose a track → enter your idea → select a mentoring institution → check and submit." : "로그인 → 동의 항목 확인 → 본인인증 → 분야 선택 → 아이디어 작성 → 멘토기관 선택 → 최종 확인·제출 순서입니다."}</p>
-      <p className={styles.note}>{en ? "The supplied manual shows the general/technology track and a mentoring institution in Ulsan as examples. Check the current notice and class instructions before choosing. Screens may differ from the current website." : "제공 매뉴얼에는 일반/기술 분야와 울산의 특정 멘토기관을 고르는 예시가 있습니다. 모든 신청자에게 같은 선택이 필수인 것은 아니므로 공식 공고와 수업 안내를 확인하세요. 현재 사이트 화면은 매뉴얼과 다를 수 있습니다."}</p>
+      <h3>{en ? "Institution selection for this class" : "이번 수업의 신청기관 안내"}</h3>
+      <ul>
+        <li>{en ? "General/technology track: select Ulsan Metropolitan City, then Innobuild Lab." : "일반·기술 분야: 울산광역시 → 이노빌드랩 선택"}</li>
+        <li>{en ? "Local track: select Gyeongbuk Center for Creative Economy & Innovation." : "로컬 분야: 경북창조경제혁신센터 선택"}</li>
+      </ul>
+      <p className={styles.note}>{en ? "These are the instructor’s institution choices for this class, not a requirement for every applicant. Select the track that fits your idea, then check the institution name on the current application screen before proceeding. If it is not listed, ask the instructor rather than choosing a different institution." : "위 기관은 이번 수업에서 안내하는 선택 기준입니다. 모든 신청자에게 필수인 것은 아닙니다. 아이디어에 맞는 분야를 정한 뒤 실제 신청 화면에서 기관명을 확인하고 다음 단계로 넘어가세요. 목록에 없다면 다른 기관을 임의로 고르지 말고 강사에게 문의하세요."}</p>
       <div className={styles.downloads}><a href="https://www.modoo.or.kr/" target="_blank" rel="noopener noreferrer">{en ? "Official Modoo Startup website ↗" : "모두의 창업 공식 홈페이지 ↗"}</a><a href={startupGuide.pdf} target="_blank" rel="noopener noreferrer">{en ? "Open PDF in a new tab ↗" : "PDF 새 창에서 보기 ↗"}</a></div>
       <details><summary>{en ? "View all 12 pages on this page" : "신청 매뉴얼 12쪽 펼쳐 보기"}</summary>
         {manualTitles.map((title, i) => <figure key={i}>

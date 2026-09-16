@@ -35,6 +35,7 @@ export const activityArticles: Record<string, ActivityArticleData> = {
     }],
     relatedTitle: "관련 수업과 문의",
     links: [
+      { label: "모두의 창업 실습 안내와 다운로드", href: "/materials/modoo-startup" },
       { label: "9월 5일 울릉고 특강 기록", href: "/activity/ulleung-high-living-lab" },
       { label: "교육 문의", href: "/contact" },
     ],

@@ -10,6 +10,14 @@ export type PublicRoute = {
 
 export const publicRoutes: PublicRoute[] = [
   {
+    path: "/materials/modoo-startup",
+    title: "모두의 창업 · 아이디어부터 신청서까지",
+    description: "9월 16일 온라인 강의자료: AI로 아이디어 정리하기, 신청서 작성, 프롬프트와 신청 매뉴얼 다운로드.",
+    group: "resources",
+    priority: 0.6,
+    changeFrequency: "monthly",
+  },
+  {
     path: "/activity/ulleung-online-startup-2026",
     title: "울릉도 학생 대상 모두의 창업 온라인 강의",
     description: "2026년 9월 16일 울릉도 학생들을 대상으로 진행한 모두의 창업 온라인 강의 기록.",

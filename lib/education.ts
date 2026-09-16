@@ -57,6 +57,12 @@ export const courseMaterials: CourseMaterial[] = [
     href: "/materials/ulleung-high-lesson-2",
   },
   {
+    title: "모두의 창업 · 아이디어부터 신청서까지",
+    meta: "울릉도 학생 대상 온라인 강의 · 2026년 9월 16일",
+    description: "AI 실습 안내 · 통합 프롬프트 · 신청접수 매뉴얼",
+    href: "/materials/modoo-startup",
+  },
+  {
     title: "울릉고 리빙랩 특강",
     meta: "울릉고등학교 · 2026년 9월 5일",
     description: `발표자료 ${ulleungPresentation.slides.length}쪽`,

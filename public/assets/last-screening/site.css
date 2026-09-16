@@ -1,0 +1,9 @@
+/* Site integration only. The imported game retains its own layout and controls. */
+.studio-return { position:fixed; right:12px; top:8px; z-index:1000; min-height:44px; display:flex; align-items:center; padding:8px 12px; color:#eee9e2; background:#0d0f18; border:1px solid #666074; border-radius:4px; text-decoration:none; font:14px sans-serif; }
+body:not(:has(.title-screen)) .studio-return { display:none; }
+button.small,.top-controls button { min-height:44px; }
+@media (max-width:800px) {
+  .case-intake { align-items:flex-start; }
+  .main-nav { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); overflow:visible; padding-bottom:max(5px,env(safe-area-inset-bottom)); }
+  .main-nav button { min-width:0; width:100%; font-size:13px; padding:8px 2px; min-height:44px; }
+}

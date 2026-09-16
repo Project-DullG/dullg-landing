@@ -33,6 +33,16 @@ export const startupExamples: Example[] = [
     check: ["무료 AI와 비교해 어떤 시간을 줄이는지 확인하고, 게시 전 운영자가 내용을 검토하게 합니다.", "Check what time it saves compared with free AI tools and require owner review before publishing."],
   },
   {
+    id: "ulleung-magazine", track: "local",
+    title: ["울릉매거진 · 학생들이 전하는 울릉도", "Ulleung Magazine · the island through students’ reporting"],
+    customer: ["독자는 울릉도 여행을 준비하는 사람입니다. 비용을 낼 고객으로는 가게·숙소·체험 운영자와 지역 홍보 콘텐츠가 필요한 기관을 검토합니다. 독자와 구매자를 구분해 기획합니다.", "Readers are people planning a trip to Ulleungdo. Potential paying customers include shops, accommodation and experience operators, and organizations needing local promotional content. Plan separately for readers and buyers."],
+    problem: ["방문객은 장소 정보뿐 아니라 실제 이동 방법과 지역 사람의 이야기를 알고 싶고, 작은 가게는 소개 글과 사진을 꾸준히 만들기 어렵다는 가정에서 시작합니다. 방문객과 운영자를 만나 이 불편이 실제로 있는지 확인합니다.", "Start with two assumptions: visitors want practical routes and local stories as well as listings, while small businesses struggle to produce regular articles and photos. Check both assumptions with visitors and operators."],
+    offer: ["학생들이 장소·가게·생활 이야기를 취재하고 글·사진·짧은 영상으로 소개하는 관광 플랫폼입니다. 기사마다 위치, 이동 방법, 확인 날짜를 적고 관련 장소를 지도와 코스로 묶습니다. 처음에는 웹 매거진으로 시작하고, 수요를 확인한 뒤 검색·지도·제휴 문의 기능을 늘립니다.", "A tourism platform where students report on places, businesses and everyday life through articles, photos and short videos. Include location, directions and verification dates, then group related places into maps and routes. Start with a web magazine and add search, mapping and partnership inquiries after testing demand."],
+    revenue: ["일반 기사는 무료로 읽게 하고, 가게·숙소의 소개 콘텐츠 제작비나 기관의 지역 홍보물 제작비를 받는 안입니다. 독자가 생긴 뒤 광고·제휴 수익을 검토합니다. 유료 소개는 광고·협찬임을 구분하고, 가격과 실제 구매 의사는 별도로 확인합니다.", "Keep editorial articles free and consider charging businesses or institutions for commissioned content. Explore advertising or partnerships after building readership. Clearly label paid coverage, and test pricing and willingness to pay separately."],
+    trial: ["학생 팀이 동의받은 가게 인터뷰 1편, 장소 소개 1편, 짧은 여행 코스 1편을 만들어 한 페이지에 모읍니다. 취재·촬영·편집·사실 확인 역할을 나누고, 여행객에게 빠진 정보를 묻습니다. 가게에는 유료 제작을 맡길 의향과 조건을 확인하고, 조회수와 실제 문의를 따로 기록합니다.", "Publish one consented shop interview, one place guide and one short itinerary on a single page. Assign reporting, photography, editing and fact-checking roles. Ask visitors what is missing and businesses whether they would commission content and on what terms. Track views separately from actual inquiries."],
+    check: ["울릉도의 장소와 주민 취재가 콘텐츠의 핵심이라는 점에서 로컬 분야를 검토할 수 있습니다. 지역에서 운영한다는 이유만으로 분류하지는 않습니다. 사진·인터뷰 공개 동의, 정보 갱신, 취재 안전, 학생의 연락처 보호를 확인하고 유료 계약과 대금 수령은 학교·보호자와 운영 방식을 먼저 정합니다. 아직 운영 중인 플랫폼이나 계약이 있는 사업으로 쓰지 않습니다.", "Local places and resident reporting are central to this proposal, which is why a local-track discussion is relevant—not simply its address. Check publication consent, updates, reporting safety and protection of student contact details. Agree with the school and guardians on contracts and payments before paid work. Do not describe this proposal as an operating platform or a contracted business."],
+  },
+  {
     id: "island-walk", track: "local",
     title: ["주민 이야기와 함께 걷는 울릉도 코스", "Ulleungdo walks with residents’ stories"],
     customer: ["지역의 생활 이야기를 듣고 싶은 여행객", "Visitors interested in stories about local life"],

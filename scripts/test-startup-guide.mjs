@@ -15,7 +15,7 @@ try {
     const copied = await page.evaluate(() => navigator.clipboard.readText());
     assert.equal(copied, await readFile("public/assets/materials/modoo-startup/master-prompt-v2.0.md", "utf8"));
     for (const example of await page.locator("details[data-idea]").all()) {
-      await example.locator("summary").click();
+      if (!(await example.evaluate(el => el.open))) await example.locator("summary").click();
       assert.equal(await example.locator("dt").count(), 6);
     }
     await page.locator("#manual summary").click();

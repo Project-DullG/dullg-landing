@@ -7,8 +7,9 @@ import { startupExamples } from "../lib/startup-examples.ts";
 test("startup guide provides bilingual instructions, downloads and all manual pages", async () => {
   assert.equal(guideSteps.length, 5);
   assert.equal(manualTitles.length, 12);
-  assert.equal(startupExamples.length, 6);
-  assert.equal(startupExamples.filter(item => item.track === "local").length, 3);
+  assert.equal(startupExamples.length, 7);
+  assert.equal(startupExamples.filter(item => item.track === "local").length, 4);
+  assert.ok(startupExamples.some(item => item.id === "ulleung-magazine"));
   for (const locale of ["", "en/"]) {
     const html = await readFile(`.test-output/pages/${locale}materials/modoo-startup.html`, "utf8");
     assert.equal((html.match(/<h1\b/g) || []).length, 1);

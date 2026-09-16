@@ -8,11 +8,11 @@ export function StartupExamples({ en }: { en: boolean }) {
     ["trial", "처음 시험할 방법", "First test"], ["check", "확인할 사항", "Checks"],
   ] as const;
   return <section id="examples">
-    <h2>{en ? "Six ideas to compare and adapt" : "비교하며 살펴보는 아이디어 예시 6가지"}</h2>
+    <h2>{en ? `${startupExamples.length} ideas to compare and adapt` : `비교하며 살펴보는 아이디어 예시 ${startupExamples.length}가지`}</h2>
     <p>{en ? "These are fictional classroom proposals, not existing businesses, verified demand or successful applications. The track labels are for comparison, not official classifications. Open an idea that interests you and change it to fit a problem you have actually observed." : "아래는 수업용으로 만든 제안입니다. 실제 운영 사업·검증된 수요·선정 사례가 아니며, 분야 구분도 이해를 돕기 위한 검토 방향입니다. 관심 있는 항목을 펼쳐보고 직접 관찰한 문제에 맞게 바꿔보세요."}</p>
     {(["general", "local"] as const).map(track => <div key={track}>
       <h3>{track === "general" ? (en ? "General/technology examples" : "일반·기술 분야를 검토할 예시") : (en ? "Local examples" : "로컬 분야를 검토할 예시")}</h3>
-      {startupExamples.filter(item => item.track === track).map(item => <details key={item.id} data-idea={item.id}>
+      {startupExamples.filter(item => item.track === track).map(item => <details key={item.id} id={item.id} data-idea={item.id} open={item.id === "ulleung-magazine"}>
         <summary>{item.title[lang]}</summary>
         <dl>{fields.map(([key, ko, english]) => <div key={key}><dt>{en ? english : ko}</dt><dd>{item[key][lang]}</dd></div>)}</dl>
       </details>)}

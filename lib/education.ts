@@ -1,13 +1,13 @@
 import { ulleungPresentation } from "./presentations.ts";
 
-export const episodeTitle = "8시까지 두 열쇠";
-export const episodeSubtitle = "보충반의 사라진 열쇠";
+export const episodeTitle = "집에가고 싶어!";
+export const episodeSubtitle = "학원 보충반 미스터리 추리 게임";
 export const episodeFullTitle = `${episodeTitle} — ${episodeSubtitle}`;
 
 export const educationFacts = [
   ["4차시", "읽기부터 사건보고서까지"],
   ["초6~중1", "첫 파일럿 검토 기준"],
-  ["4~16명", "권장 수업 인원"],
+  ["4~16명", "4명씩 1팀 · 1~4팀 운영안"],
   ["30분 이내", "첫 수업 준비 목표"],
 ] as const;
 

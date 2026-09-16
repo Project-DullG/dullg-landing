@@ -29,7 +29,7 @@ export default function SamplePage() {
               <em>{t("어떻게 쓰는지 살펴보세요.")}</em>
             </>,
           )}
-          lead="첫 영어 수업 제품의 골든 샘플로 검토 중인 단서 카드와 교사용 진행안입니다. 정식 제공본은 파일럿 결과에 따라 조정될 수 있습니다."
+          lead="리메이크한 인물 시트, 영어 단서 카드와 8쪽 룰북을 살펴보세요. 학생별 비밀과 사건의 정답은 이 페이지에 공개하지 않습니다."
         />
       </section>
 
@@ -39,8 +39,8 @@ export default function SamplePage() {
       <section className="sample-grid shell">
         <article className="sample-card sample-clue">
           <Image
-            src="/assets/dullg/card-cover-1.png"
-            alt={t("윤지원 단서 카드 표지")}
+            src="/assets/academy-remake/card-back.webp"
+            alt={t("윤지원 소지품 카드 뒷면")}
             width={408}
             height={650}
             sizes="(max-width: 760px) 100vw, 33vw"
@@ -56,8 +56,8 @@ export default function SamplePage() {
         </article>
         <article className="sample-card sample-workbook">
           <Image
-            src="/assets/dullg/card-body-1.png"
-            alt={t("실제 단서 카드 내용")}
+            src="/assets/academy-remake/card-front.webp"
+            alt={t("영어책 사이에서 발견된 쪽지 · 영어 단서")}
             width={408}
             height={650}
             sizes="(max-width: 760px) 100vw, 33vw"
@@ -73,18 +73,18 @@ export default function SamplePage() {
         </article>
         <article className="sample-card sample-report">
           <Image
-            src="/assets/dullg/pre-survey.png"
-            alt={t("게임 전 설문지 — 학생 배포용 A4 한 장")}
+            src="/assets/academy-remake/jiwon-cover.webp"
+            alt={t("윤지원 인물 시트 표지")}
             width={714}
             height={1011}
             sizes="(max-width: 760px) 100vw, 33vw"
           />
           <div>
-            <span className="sample-label">TEACHER / PRE-SURVEY</span>
+            <span className="sample-label">CHARACTER / BOOKLET</span>
             <h2>
-              {t("수업 전에 나눠 주는")}
+              {t("각자 맡아서 읽는")}
               <br />
-              <em>{t("게임 전 설문지")}</em>
+              <em>{t("인물 시트")}</em>
             </h2>
           </div>
         </article>
@@ -101,13 +101,13 @@ export default function SamplePage() {
                 <span>{t("사건 자료와 규칙서.")}</span>
               </>,
             )}
-            lead="연출 이미지 대신 현재 제작된 시제품을 그대로 보여드립니다."
+            lead="최신 인쇄 PDF에서 추출한 실제 페이지입니다. 인물 시트는 각 8쪽, 룰북은 표지 포함 8쪽입니다."
           />
         </div>
         <div className="gallery-images">
           <figure>
             <Image
-              src="/assets/dullg/case-intro.png"
+              src="/assets/academy-remake/intro.webp"
               alt={t(`${episodeTitle} 규칙서의 사건 도입 페이지`)}
               width={944}
               height={1330}
@@ -117,18 +117,18 @@ export default function SamplePage() {
           </figure>
           <figure>
             <Image
-              src="/assets/dullg/timeline-yoon.png"
-              alt={t("윤지원의 영어 타임라인과 공개 정보 페이지")}
+              src="/assets/academy-remake/jiwon-cover.webp"
+              alt={t("윤지원 인물 시트 표지")}
               width={944}
               height={1330}
               sizes="(max-width: 760px) 100vw, 25vw"
             />
-            <figcaption>{t("규칙서 \u00B7 인물 타임라인")}</figcaption>
+            <figcaption>{t("인물 시트 · 표지")}</figcaption>
           </figure>
           <figure>
             <Image
-              src="/assets/dullg/rulebook-flow.png"
-              alt={t("한 라운드의 진행 흐름 다섯 단계")}
+              src="/assets/academy-remake/rules.webp"
+              alt={t("첫 라운드와 다음 라운드의 지목 규칙")}
               width={944}
               height={1330}
               sizes="(max-width: 760px) 100vw, 25vw"
@@ -137,7 +137,7 @@ export default function SamplePage() {
           </figure>
           <figure>
             <Image
-              src="/assets/dullg/rulebook-map-detailed.png"
+              src="/assets/academy-remake/map-page.webp"
               alt={t("학원 3층 평면도와 범례")}
               width={944}
               height={1330}

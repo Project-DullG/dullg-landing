@@ -105,22 +105,22 @@ export default function Home() {
           <div className="shell brand-education-grid">
             <figure className="brand-education-cards">
               <Image
-                src="/assets/dullg/card-cover-1.png"
-                width={408}
-                height={650}
-                alt={t("윤지원 소지품 카드 앞면")}
+                src="/assets/academy-remake/cover.webp"
+                width={944}
+                height={1330}
+                alt={t("집에가고 싶어! 규칙서 표지")}
                 sizes="(max-width: 760px) 45vw, 22vw"
               />
               <Image
-                src="/assets/dullg/card-body-1.png"
+                src="/assets/academy-remake/card-front.webp"
                 width={408}
                 height={650}
-                alt={t("윤지원 소지품 카드 뒷면의 영어 단서")}
+                alt={t("리메이크한 영어 단서 카드 · 영어책과 쪽지")}
                 sizes="(max-width: 760px) 45vw, 22vw"
               />
             </figure>
             <div>
-              <Kicker>{t("준비 중 \u00B7 영어 미스터리 수업팩")}</Kicker>
+              <Kicker>{t("집에가고 싶어! · 영어 미스터리 수업팩")}</Kicker>
               <h2 id="brand-education-title">
                 {t("영어 단서를 읽고")}
                 <br />
@@ -128,7 +128,7 @@ export default function Home() {
               </h2>
               <p>
                 {t(
-                  "학생마다 다른 단서를 읽고 서로 질문합니다. 마지막에는 선택한 근거와 판단을 영어 사건보고서로 정리합니다.",
+                  "네 학생의 가방 속 단서를 영어로 읽고, 질문과 토론으로 사라진 열쇠를 찾습니다. 수업에서는 선택한 인물과 그 근거를 영어 사건보고서로 정리합니다.",
                 )}
               </p>
               <dl>

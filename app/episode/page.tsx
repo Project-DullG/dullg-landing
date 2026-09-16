@@ -4,13 +4,7 @@ import Image from "next/image";
 import Link from "@/components/i18n/link";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 import { SectionHead } from "@/components/section-head";
-import {
-  curriculum,
-  educationFacts,
-  episodeFullTitle,
-  episodeSubtitle,
-  episodeTitle,
-} from "@/lib/education";
+import { curriculum, episodeFullTitle, episodeSubtitle, episodeTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 export async function generateMetadata() {
   return localizeMetadata(
@@ -24,26 +18,22 @@ const cast = [
   {
     num: "01",
     name: "윤지원",
-    image: "/assets/dullg/yoonjiwon.png",
-    clue: "오후 4시 12분, 원장실 앞 복도에서 서두르는 발소리를 들었습니다.",
+    image: "/assets/academy-remake/yoonjiwon.webp",
   },
   {
     num: "02",
     name: "박세준",
-    image: "/assets/dullg/parksejun.png",
-    clue: "자습실 창가 자리에서 벽면 열쇠고리가 비어 있는 것을 보았습니다.",
+    image: "/assets/academy-remake/parksejun.webp",
   },
   {
     num: "03",
     name: "차하린",
-    image: "/assets/dullg/chaharin.png",
-    clue: "계단 아래에서 선생님과 낯선 가방이 함께 있는 것을 목격했습니다.",
+    image: "/assets/academy-remake/chaharin.webp",
   },
   {
     num: "04",
     name: "한도경",
-    image: "/assets/dullg/handokyung.png",
-    clue: "복도에서 쪽지 한 장을 발견했습니다. 그 위에 영어 문장이 쓰여 있었습니다.",
+    image: "/assets/academy-remake/handokyung.webp",
   },
 ];
 export default function EpisodePage() {
@@ -63,15 +53,19 @@ export default function EpisodePage() {
                 <em>{t(episodeSubtitle)}</em>
               </>,
             )}
-            lead="재시험을 시작하려던 순간, 원장실 벽면에 있어야 할 두 개의 열쇠가 사라졌습니다. 네 명의 학생이 각자 다른 장소에서 단서를 발견합니다."
+            lead="금요일 저녁, 재시험을 앞둔 학원에서 자료함 열쇠와 핸드폰함 열쇠가 사라졌습니다. 아직 확인하지 못한 곳은 네 학생의 가방입니다."
           />
           <div className="ep-hero-chips">
-            {t(educationFacts.slice(0, 3).map(([value]) => <span key={value}>{t(value)}</span>))}
+            {t(
+              [["4인"], ["40~50분+"], ["한국어·영어 단서"]].map(([value]) => (
+                <span key={value}>{t(value)}</span>
+              )),
+            )}
           </div>
         </div>
         <div className="ep-hero-visual">
           <Image
-            src="/assets/dullg/rulebook-cover.png"
+            src="/assets/academy-remake/cover.webp"
             alt={t(`${episodeTitle} 규칙서 표지`)}
             width={944}
             height={1330}
@@ -82,30 +76,35 @@ export default function EpisodePage() {
         </div>
       </section>
 
+      <div className="shell" style={{ marginBottom: 32 }}>
+        <Link className="button button-dark" href="/academy#remake-guide-title">
+          {t("시놉시스·룰 설명 영상 보기")}
+        </Link>
+      </div>
       {/* ── SETTING — large floor map ── */}
       <section className="ep-setting">
         <div className="shell ep-setting-inner">
           <div className="ep-setting-copy">
             <Kicker>{t("사건이 시작된 장소")}</Kicker>
             <h2>
-              {t("오후 4시 30분,")}
+              {t("금요일 저녁 7시 10분,")}
               <br />
               <span>{t("학원 3층에서 시작됩니다.")}</span>
             </h2>
             <p>
               {t(
-                "방과후 보충 수업 첫날. 재시험을 치르기 위해 학생들이 모였는데, 원장실 서랍 열쇠와 자습실 보관함 열쇠가 동시에 사라졌습니다.",
+                "열쇠가 없다는 사실을 확인했습니다. 자료함 열쇠와 핸드폰함 열쇠는 원래 원장실 입구 쪽 공용 볼펜 선반 안쪽에 함께 걸려 있었습니다.",
               )}
             </p>
             <p>
               {t(
-                "4명의 학생이 각자 목격한 것을 영어로 기록하고 정보를 모아 사건을 해결해야 합니다. 단서는 각자 다르고, 혼자로는 충분하지 않습니다.",
+                "오늘 재시험을 치르지 못하면 토요일 오후 보충반에 다시 나와야 합니다. 아직 확인하지 못한 곳은 네 학생의 가방입니다. 공개되는 소지품을 비교하며 열쇠의 행방을 추리합니다.",
               )}
             </p>
           </div>
           <div className="ep-setting-map">
             <Image
-              src="/assets/dullg/floor-map-3f.png"
+              src="/assets/academy-remake/floor-map.svg"
               alt={t("3층 원장실과 자습실 평면도")}
               width={850}
               height={746}
@@ -148,7 +147,6 @@ export default function EpisodePage() {
                 <div className="ep-cast-info">
                   <span className="ep-cast-index">{t(c.num)} / 04</span>
                   <strong>{t(c.name)}</strong>
-                  <p>{t(c.clue)}</p>
                 </div>
               </div>
             )),

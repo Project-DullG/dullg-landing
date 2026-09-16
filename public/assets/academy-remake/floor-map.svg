@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 746">
+<rect width="850" height="746" fill="white"/>
+<g stroke="#263749" stroke-width="4" stroke-linejoin="miter">
+  <rect x="17" y="43" width="815" height="550" fill="#e7eceb"/>
+  <rect x="17" y="43" width="117" height="142" fill="white"/>
+  <rect x="134" y="43" width="412" height="376" fill="white"/>
+  <rect x="647" y="43" width="185" height="164" fill="white"/>
+  <rect x="647" y="207" width="185" height="213" fill="white"/>
+  <rect x="647" y="420" width="185" height="173" fill="white"/>
+  <rect x="134" y="532" width="369" height="61" fill="white"/>
+</g>
+<!-- Same room boundaries, six doors and bookcase as the previous map. -->
+<g fill="#263749">
+  <rect x="49" y="145" width="43" height="40"/>
+  <rect x="224" y="375" width="42" height="44"/>
+  <rect x="403" y="375" width="43" height="44"/>
+  <rect x="647" y="72" width="42" height="43"/>
+  <rect x="647" y="244" width="45" height="43"/>
+  <rect x="647" y="440" width="45" height="43"/>
+</g>
+<g stroke="#263749" stroke-width="5">
+  <rect x="140" y="44" width="50" height="46" fill="#773a08"/>
+  <rect x="134" y="417" width="38" height="38" fill="#1764aa"/>
+  <!-- Shelf beside the director's lower-right door, accessible from the corridor. -->
+  <rect x="454" y="436" width="66" height="25" fill="#ef4545"/>
+  <!-- Phone locker beside the right end of the lower hallway bookcase. -->
+  <rect x="506" y="552" width="38" height="38" fill="#f1d12c"/>
+</g>
+<g font-family="Arial,Apple SD Gothic Neo,sans-serif" fill="#263749" font-weight="600" text-anchor="middle">
+  <text x="75" y="122" font-size="37">화장실</text>
+  <text x="341" y="247" font-size="39">3층 원장실</text>
+  <text x="742" y="150" font-size="37">자습실</text>
+  <text x="742" y="335" font-size="37">수업실 1</text>
+  <text x="741" y="523" font-size="37">수업실 2</text>
+  <text x="741" y="564" font-size="34">(수업중)</text>
+  <text x="72" y="563" font-size="37">입구</text>
+  <text x="318" y="577" font-size="36">책장</text>
+</g>
+<g stroke="#263749" stroke-width="5">
+  <rect x="39" y="630" width="37" height="37" fill="#1764aa"/>
+  <rect x="249" y="630" width="37" height="37" fill="#f1d12c"/>
+  <rect x="601" y="630" width="37" height="37" fill="#263749"/>
+  <rect x="39" y="693" width="37" height="37" fill="#773a08"/>
+  <rect x="321" y="693" width="37" height="37" fill="#ef4545"/>
+</g>
+<g font-family="Arial,Apple SD Gothic Neo,sans-serif" font-weight="600" fill="#263749">
+  <text x="99" y="660" font-size="32">정수기</text>
+  <text x="309" y="660" font-size="32">핸드폰함</text>
+  <text x="659" y="660" font-size="32">문</text>
+  <text x="99" y="723" font-size="32">자료함</text>
+  <text x="379" y="723" font-size="28">공용 볼펜 선반 / 열쇠고리</text>
+</g>
+</svg>

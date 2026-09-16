@@ -7,6 +7,7 @@ import { DashboardPreview } from "@/components/dashboard-preview";
 import { PageFrame } from "@/components/site";
 import { educationFacts, episodeFullTitle, episodeTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
+import { RemakeGuide } from "@/components/remake-guide";
 import styles from "./overview.module.css";
 export async function generateMetadata() {
   return localizeMetadata(pageMetadata("/academy", { title: "영어 미스터리 수업팩" }));
@@ -38,15 +39,20 @@ export default function AcademyPage() {
       <section className={`shell ${styles.hero}`} aria-labelledby="academy-title">
         <div>
           <p className={styles.status}>{t("파일럿 준비 중")}</p>
-          <h1 id="academy-title">{t("영어 미스터리 수업팩")}</h1>
+          <h1 id="academy-title">
+            {t("영어 단서를 읽고")}
+            <br />
+            {t("사건을 해결하는 수업")}
+          </h1>
+          <p className={styles.workTitle}>{t(episodeTitle)}</p>
           <p className={styles.lead}>
             {t(
-              "학생마다 다른 영어 단서를 읽고 서로 질문합니다. 마지막에는 선택한 근거와 판단을 사건보고서로 정리합니다.",
+              "네 학생 중 한 명을 맡아 영어 단서를 읽고 서로 질문합니다. 공개된 소지품과 증언을 비교하고, 마지막에는 자신의 판단과 근거를 영어로 정리합니다.",
             )}
           </p>
           <p className={styles.notice}>
             {t(
-              "현재 공개한 자료는 수업용 시제품입니다. 진행 시간과 학생 결과물은 파일럿 수업에서 확인할 예정입니다.",
+              "표지·인물 시트·한영 단서 카드와 안내 영상을 새로 정리했습니다. 게임은 4인 기준이며, 4차시 영어 수업 운영안은 파일럿에서 확인할 예정입니다.",
             )}
           </p>
           <div className={styles.actions}>
@@ -59,7 +65,7 @@ export default function AcademyPage() {
         </div>
         <figure className={styles.cover}>
           <Image
-            src="/assets/dullg/rulebook-cover.png"
+            src="/assets/academy-remake/cover.webp"
             width={944}
             height={1330}
             alt={t(`${episodeFullTitle} 규칙서 표지`)}
@@ -82,6 +88,7 @@ export default function AcademyPage() {
           )),
         )}
       </section>
+      <RemakeGuide />
       <section className={`shell ${styles.details}`} aria-labelledby="academy-details-title">
         <h2 id="academy-details-title">{t("수업팩 상세 안내")}</h2>
         <div className={styles.paths}>

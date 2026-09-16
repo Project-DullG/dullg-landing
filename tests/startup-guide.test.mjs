@@ -15,6 +15,8 @@ test("startup guide provides bilingual instructions, downloads and all manual pa
     for (const id of ["review", "tracks", "examples", "practice", "files", "manual", "check"]) assert.ok(html.includes(`id="${id}"`));
     assert.ok(html.includes(startupGuide.previousPrompt));
     assert.ok(!html.includes("<video"));
+    assert.ok(!html.includes("00:00"));
+    assert.ok(!html.includes("재생 위치로 이동하는 링크는 아닙니다"));
     for (const example of startupExamples) assert.ok(html.includes(`data-idea="${example.id}"`));
     assert.ok(html.includes("235011/artclView.do"));
     assert.ok(html.includes("366822/artclView.do"));

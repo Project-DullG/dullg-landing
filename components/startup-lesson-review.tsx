@@ -15,19 +15,8 @@ export function StartupLessonReview({ en }: { en: boolean }) {
   return <section id="review">
     <h2>{en ? "Class review · lecture notes" : "수업 다시보기 · 강의노트"}</h2>
     <p>{en ? "September 16 online class: applying to Modoo Startup and developing business ideas with AI." : "9월 16일 온라인 강의에서는 모두의 창업 신청 방법과 AI를 활용한 창업 아이디어 발굴·보완 과정을 다뤘습니다."}</p>
-    <p>{en ? "Based on the instructor-provided Zoom lecture summary, not a verbatim transcript. The video is not currently available on this page; use these notes to review the lesson." : "강사가 제공한 Zoom 강의 요약을 복습용으로 정리했습니다. 발언을 그대로 옮긴 기록은 아닙니다. 현재 이 페이지에는 영상이 등록되어 있지 않으며, 아래 강의노트로 내용을 복습할 수 있습니다."}</p>
     <p><strong>{en ? "You can develop an idea while preparing an application; you do not have to wait for it to be perfect." : "아이디어가 완벽해질 때까지 기다리기보다, 하나씩 구체화하면서 신청을 준비해보세요."}</strong></p>
     {sections.map(([title, body]) => <div key={title}><h3>{title}</h3><p>{body}</p></div>)}
-    <details>
-      <summary>{en ? "Lecture sequence from the supplied summary" : "제공된 요약으로 보는 강의 순서"}</summary>
-      <p>{en ? "Times are approximate and were supplied with the summary; they have not been checked against the video. They are not playback links." : "시간은 제공된 요약의 대략적인 구간이며, 영상과 직접 대조하지 않았습니다. 재생 위치로 이동하는 링크는 아닙니다."}</p>
-      <ol>
-        <li>{en ? "About 00:00–10:00: application screens, business model, market entry, team capabilities and social contribution." : "약 00:00~10:00: 신청 화면, 사업모델, 시장 진입, 팀 역량과 사회적 기여 설명"}</li>
-        <li>{en ? "About 10:00–11:00: discussion and the next steps." : "약 10:00~11:00: 강의 내용에 대한 대화와 다음 단계 안내"}</li>
-        <li>{en ? "About 11:00–12:00: an AI demonstration starting without an idea, generating three candidates and comparing them." : "약 11:00~12:00: 아이디어가 없는 상태에서 AI로 후보 3개를 만들고 비교하는 시연"}</li>
-        <li>{en ? "About 12:00 to the end: questions, answers and recap." : "약 12:00~종료: 질의응답과 내용 정리"}</li>
-      </ol>
-    </details>
     <h3>{en ? "After reviewing, write these three things" : "복습을 마쳤다면 세 가지를 적어보세요"}</h3>
     <ol>
       <li>{en ? "One problem you actually observed and the person who experiences it." : "직접 본 불편 한 가지와 그 불편을 겪는 사람"}</li>

@@ -4,6 +4,7 @@ import Link from "@/components/i18n/link";
 import { PageFrame } from "@/components/site";
 import { CopyResource } from "@/components/copy-resource";
 import { StartupTracks } from "@/components/startup-tracks";
+import { StartupExamples } from "@/components/startup-examples";
 import { localizeMetadata } from "@/lib/i18n/server";
 import { pageMetadata } from "@/lib/metadata";
 import { startupGuide, guideSteps, manualTitles } from "@/lib/startup-guide";
@@ -23,10 +24,12 @@ export default function StartupGuide() {
       <p className={styles.note}>{en ? "Check eligibility, application dates and requirements in the current official notice. This is a class guide, not a guarantee of eligibility or selection." : "신청 자격·모집 기간·필수 서류는 해당 회차의 공식 공고에서 확인하세요. 이 페이지는 수업용 안내이며, 누구나 신청하거나 선정될 수 있다는 뜻은 아닙니다."}</p>
       <nav aria-label={en ? "On this page" : "이 페이지 목차"}>
         <a href="#tracks">{en ? "Choose a track" : "분야 선택 안내"}</a>
+        <a href="#examples">{en ? "Idea examples" : "아이디어 예시"}</a>
         <a href="#practice">{en ? "Follow the steps" : "따라 하기"}</a><a href="#files">{en ? "Prompt and files" : "프롬프트·파일"}</a><a href="#manual">{en ? "Application screens" : "신청 화면 보기"}</a><a href="#check">{en ? "Before submitting" : "제출 전 점검"}</a>
       </nav>
     </header>
     <StartupTracks en={en} />
+    <StartupExamples en={en} />
     <section id="practice"><h2>{en ? "Use AI to develop your own thinking" : "AI와 대화하며 생각을 구체화하세요"}</h2>
       <p>{en ? "Start at the step that fits your situation. If you already have an idea, skip to the customer and alternatives. Replace the text in brackets with your own information." : "아이디어가 없다면 1단계부터, 이미 있다면 2단계부터 시작하세요. 아래 예시의 대괄호를 자신의 내용으로 바꿔 AI에게 질문하면 됩니다."}</p>
       {guideSteps.map((step, i) => <section className={styles.step} key={i}>

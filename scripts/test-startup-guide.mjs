@@ -14,7 +14,11 @@ try {
     await page.getByRole("status").filter({ hasText: "복사했습니다" }).waitFor();
     const copied = await page.evaluate(() => navigator.clipboard.readText());
     assert.equal(copied, await readFile("public/assets/materials/modoo-startup/idea-to-application-v1.2.md", "utf8"));
-    await page.locator("summary").click();
+    for (const example of await page.locator("details[data-idea]").all()) {
+      await example.locator("summary").click();
+      assert.equal(await example.locator("dt").count(), 6);
+    }
+    await page.locator("#manual summary").click();
     await page.locator("figure").last().scrollIntoViewIfNeeded();
     assert.equal(await page.locator("figure").count(), 12);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);

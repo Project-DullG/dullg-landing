@@ -51,7 +51,7 @@ test("home shows existing education descriptions without merging the two courses
     assert.match(page, new RegExp(`dateTime="${record.date}"`, "i"));
     assert.ok(page.includes(`href="${record.href}"`));
   }
-  assert.match(page, /준비 중 · 영어 미스터리 수업팩/);
+  assert.match(page, /집에가고 싶어! · 영어 미스터리 수업팩/);
 });
 
 test("production process lives on about, while home retains company and education paths", async () => {

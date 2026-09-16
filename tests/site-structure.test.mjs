@@ -31,7 +31,7 @@ test("about retains real team history and process without repeating full portfol
 test("academy explains pilot status before its materials and keeps working tools", async () => {
   const page = await html("academy");
   assert.ok(page.indexOf("파일럿 준비 중") < page.indexOf('id="academy-details-title"'));
-  assert.match(page, /현재 공개한 자료는 수업용 시제품/);
+  assert.match(page, /4차시 영어 수업 운영안은 파일럿에서 확인할 예정입니다/);
   assert.match(page, /id="tools"/);
   assert.match(page, /class="dash-preview"/);
   assert.match(page, /href="\/demo"/);

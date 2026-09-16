@@ -1,6 +1,6 @@
 import { readFile, readdir, writeFile, mkdir } from "node:fs/promises";
 const source = new URL("../games/discharge-day/src/", import.meta.url);
-const output = new URL("../public/assets/discharge-day/", import.meta.url);
+const output = new URL("../archive/retired-games/discharge-day/", import.meta.url);
 await mkdir(output, { recursive: true });
 const read = (name) => readFile(new URL(name, source), "utf8");
 const assets = Object.fromEntries(

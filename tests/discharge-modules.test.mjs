@@ -14,7 +14,7 @@ test("Discharge presentation refers to existing scenes, choices and local art", 
   const { DischargePresentation: p } = load("presentation.js");
   for (const [scene, [art]] of Object.entries(p.SCENE)) {
     assert.ok(data.scenes[scene], scene);
-    assert.ok(existsSync(`public/assets/discharge-day/art/${art}.webp`), art);
+    assert.ok(existsSync(`archive/retired-games/discharge-day/art/${art}.webp`), art);
   }
   for (const [scene, spots] of Object.entries(p.SPOTS)) {
     for (const [choice, [x, y, label]] of Object.entries(spots)) {
@@ -52,7 +52,7 @@ test("Discharge audio reads current preferences and respects page visibility", (
 });
 
 test("Discharge publishes the source modules before its entry point", () => {
-  const base = "public/assets/discharge-day/";
+  const base = "archive/retired-games/discharge-day/";
   const html = readFileSync(base + "index.html", "utf8");
   for (const file of ["audio.js", "presentation.js", "app.js", "logic.js"]) {
     assert.equal(readFileSync(base + file, "utf8"), readFileSync(source + file, "utf8"));

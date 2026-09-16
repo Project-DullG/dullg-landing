@@ -34,15 +34,6 @@ export const publicRoutes: PublicRoute[] = [
     changeFrequency: "monthly",
   },
   {
-    path: "/games/discharge-day",
-    title: "퇴원일",
-    description: "의료시설을 조사하고 장치를 복구하며 떠날 방법을 선택하는 1인 SF 탈출 어드벤처.",
-    group: "studio",
-    priority: 0.7,
-    changeFrequency: "monthly",
-  },
-  {path:"/games/tide-room",title:"유리 너머의 목소리",description:"실종된 관측소 책임자를 찾는 1인 추리 게임.",group:"studio",priority:0.7,changeFrequency:"monthly"},
-  {
     path: "/materials/ulleung-high-lesson-2",
     title: "울릉고 리빙랩 2차시",
     description: "9월 19일 수업자료: 고객 찾기, 사업 기획, 조직과 역할, 다음 조사 계획.",

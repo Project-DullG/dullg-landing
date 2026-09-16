@@ -1,5 +1,3 @@
-import { TideFeature } from '@/components/tide-room/feature';
-import { DischargeFeature } from '@/components/discharge-feature';
 import { GameFeature } from '@/components/game-feature';
 import { useText } from "@/lib/i18n/use-text";
 import { localizeMetadata } from "@/lib/i18n/server";
@@ -39,8 +37,6 @@ export default function MiniProjectsPage() {
       </PageIntro>
       <div className={`shell ${styles.collection}`}>
         <GameFeature id="last-screening" />
-        <DischargeFeature />
-        <TideFeature />
         {t(
           groups.map((group) => (
             <section className={styles.group} aria-labelledby={group.id} key={group.id}>

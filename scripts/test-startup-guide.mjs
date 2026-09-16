@@ -13,7 +13,7 @@ try {
     await page.getByRole("button", { name: "통합 프롬프트 전체 복사" }).click();
     await page.getByRole("status").filter({ hasText: "복사했습니다" }).waitFor();
     const copied = await page.evaluate(() => navigator.clipboard.readText());
-    assert.equal(copied, await readFile("public/assets/materials/modoo-startup/idea-to-application-v1.2.md", "utf8"));
+    assert.equal(copied, await readFile("public/assets/materials/modoo-startup/master-prompt-v2.0.md", "utf8"));
     for (const example of await page.locator("details[data-idea]").all()) {
       await example.locator("summary").click();
       assert.equal(await example.locator("dt").count(), 6);

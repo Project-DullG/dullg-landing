@@ -5,6 +5,7 @@ import { PageFrame } from "@/components/site";
 import { CopyResource } from "@/components/copy-resource";
 import { StartupTracks } from "@/components/startup-tracks";
 import { StartupExamples } from "@/components/startup-examples";
+import { StartupLessonReview } from "@/components/startup-lesson-review";
 import { localizeMetadata } from "@/lib/i18n/server";
 import { pageMetadata } from "@/lib/metadata";
 import { startupGuide, guideSteps, manualTitles } from "@/lib/startup-guide";
@@ -23,11 +24,13 @@ export default function StartupGuide() {
       <p>{en ? "Begin with a problem you have noticed. This guide helps you use AI to explore an idea, describe a customer and prepare an application draft. The Korean prompt and application manual are available below." : "모두의 창업, 아이디어 한 줄부터 시작해보세요. 창업을 어떻게 준비할지 막막하다면 평소 겪은 불편부터 적어도 됩니다. AI와 대화하며 고객과 해결 방법을 정리하고 신청서 초안까지 써보는 수업 안내입니다."}</p>
       <p className={styles.note}>{en ? "Check eligibility, application dates and requirements in the current official notice. This is a class guide, not a guarantee of eligibility or selection." : "신청 자격·모집 기간·필수 서류는 해당 회차의 공식 공고에서 확인하세요. 이 페이지는 수업용 안내이며, 누구나 신청하거나 선정될 수 있다는 뜻은 아닙니다."}</p>
       <nav aria-label={en ? "On this page" : "이 페이지 목차"}>
+        <a href="#review">{en ? "Class review" : "수업 다시보기"}</a>
         <a href="#tracks">{en ? "Choose a track" : "분야 선택 안내"}</a>
         <a href="#examples">{en ? "Idea examples" : "아이디어 예시"}</a>
         <a href="#practice">{en ? "Follow the steps" : "따라 하기"}</a><a href="#files">{en ? "Prompt and files" : "프롬프트·파일"}</a><a href="#manual">{en ? "Application screens" : "신청 화면 보기"}</a><a href="#check">{en ? "Before submitting" : "제출 전 점검"}</a>
       </nav>
     </header>
+    <StartupLessonReview en={en} />
     <StartupTracks en={en} />
     <StartupExamples en={en} />
     <section id="practice"><h2>{en ? "Use AI to develop your own thinking" : "AI와 대화하며 생각을 구체화하세요"}</h2>
@@ -38,12 +41,15 @@ export default function StartupGuide() {
       </section>)}
     </section>
     <section id="files"><h2>{en ? "Prompt and downloadable files" : "프롬프트와 다운로드 파일"}</h2>
+      <h3>{en ? "Master prompt v2.0 · current version" : "마스터 프롬프트 v2.0 · 현재 버전"}</h3>
+      <p>{en ? "The updated prompt covers idea comparison, customer and revenue planning, source research, application drafting and review. It asks AI to distinguish evidence from assumptions and check the current application format. Search and fact-checking still depend on the AI service you use." : "아이디어 비교부터 고객·수익 구조 정리, 근거 조사, 신청서 작성과 검토까지 다루는 새 버전입니다. 확인한 사실과 가정을 구분하고 실제 신청 양식을 대조하도록 구성했습니다. 검색과 사실 확인 가능 여부는 사용하는 AI 서비스에 따라 다릅니다."}</p>
       <p>{en ? "Copy the full Korean prompt into a new AI conversation. Then describe your idea in one or two sentences, or say that you do not have an idea yet. Share the actual application questions before asking for an application draft." : "통합 프롬프트를 복사해 AI의 새 대화창에 붙여넣으세요. 이어서 자신의 아이디어를 한두 줄로 적거나 ‘아이디어 없음’이라고 입력합니다. 신청서까지 작성하려면 실제 신청 문항도 함께 제공하세요."}</p>
       <CopyResource href={startupGuide.prompt} en={en} />
       <div className={styles.downloads}>
-        <a href={startupGuide.prompt} download>{en ? "Download prompt v1.2 (MD)" : "통합 프롬프트 v1.2 다운로드 (MD)"}</a>
+        <a href={startupGuide.prompt} download>{en ? "Download master prompt v2.0 (MD)" : "마스터 프롬프트 v2.0 다운로드 (MD)"}</a>
         <a href={startupGuide.pdf} download>{en ? "Download application manual (PDF, 12 pages)" : "2차 신청접수 매뉴얼 다운로드 (PDF·12쪽)"}</a>
       </div>
+      <details><summary>{en ? "Previous prompt version" : "이전 프롬프트 버전"}</summary><a href={startupGuide.previousPrompt} download>{en ? "Download prompt v1.2 (MD)" : "통합 프롬프트 v1.2 다운로드 (MD)"}</a></details>
       <p className={styles.note}>{en ? "Files are in Korean. Open the MD file in a text editor. The sample account email has been removed from the public PDF; instructions are otherwise unchanged. Do not paste passwords, ID numbers or contact details into AI chats." : "MD 파일은 메모장 등 텍스트 편집기로 열 수 있습니다. PDF 공개용 사본은 예시 계정의 이메일만 가렸으며 신청 안내 내용은 바꾸지 않았습니다. AI에는 비밀번호·주민등록번호·연락처를 입력하지 마세요."}</p>
     </section>
     <section id="manual"><h2>{en ? "Follow the application screens" : "신청 화면을 보며 따라 하세요"}</h2>

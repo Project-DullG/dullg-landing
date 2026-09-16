@@ -29,13 +29,13 @@ export const activityArticles: Record<string, ActivityArticleData> = {
       photo: {
         ...ulleungOnlineLecture.image,
         width: 1600,
-        height: 559,
-        caption: "9월 16일 강의 공유 화면. 참가자 영역은 제외하고 화면 속 이름은 가렸습니다.",
+        height: 684,
+        caption: "9월 16일 Zoom 온라인 강의. 참가자 얼굴은 모자이크하고 이름·학번은 가렸습니다. 브라우저 도구 모음은 제외했습니다.",
       },
     }],
     relatedTitle: "관련 수업과 문의",
     links: [
-      { label: "모두의 창업 실습 안내와 다운로드", href: "/materials/modoo-startup" },
+      { label: "수업 다시보기와 실습 자료", href: "/materials/modoo-startup#review" },
       { label: "9월 5일 울릉고 특강 기록", href: "/activity/ulleung-high-living-lab" },
       { label: "교육 문의", href: "/contact" },
     ],

@@ -1,7 +1,8 @@
 export const startupGuide = {
   href: "/materials/modoo-startup",
   title: "모두의 창업 · 아이디어부터 신청서까지",
-  prompt: "/assets/materials/modoo-startup/idea-to-application-v1.2.md",
+  prompt: "/assets/materials/modoo-startup/master-prompt-v2.0.md",
+  previousPrompt: "/assets/materials/modoo-startup/idea-to-application-v1.2.md",
   pdf: "/assets/materials/modoo-startup/application-manual-round2.pdf",
 };
 

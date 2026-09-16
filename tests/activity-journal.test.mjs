@@ -13,7 +13,7 @@ test("September 16 online class has a dated bilingual record and privacy-edited 
     const html = await readFile(`.test-output/pages/${locale}activity/ulleung-online-startup-2026.html`, "utf8");
     assert.equal((html.match(/<h1\b/g) || []).length, 1);
     assert.ok(html.includes('<time dateTime="2026-09-16">'));
-    assert.ok(html.includes("ulleung-online-startup-2026-09-16.webp"));
+    assert.ok(html.includes("ulleung-online-startup-2026-09-16-meeting.webp"));
     assert.ok(html.includes("<figcaption>"));
     assert.ok(html.includes(`href="/${locale}activity/ulleung-high-living-lab"`));
   }

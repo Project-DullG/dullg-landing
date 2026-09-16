@@ -9,7 +9,9 @@ test("startup guide provides bilingual instructions, downloads and all manual pa
   for (const locale of ["", "en/"]) {
     const html = await readFile(`.test-output/pages/${locale}materials/modoo-startup.html`, "utf8");
     assert.equal((html.match(/<h1\b/g) || []).length, 1);
-    for (const id of ["practice", "files", "manual", "check"]) assert.ok(html.includes(`id="${id}"`));
+    for (const id of ["tracks", "practice", "files", "manual", "check"]) assert.ok(html.includes(`id="${id}"`));
+    assert.ok(html.includes("235011/artclView.do"));
+    assert.ok(html.includes("366822/artclView.do"));
     assert.ok(html.includes(startupGuide.pdf));
     assert.ok(html.includes(startupGuide.prompt));
     assert.equal((html.match(/<figure>/g) || []).length, 12);

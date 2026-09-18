@@ -3,7 +3,7 @@
  */
 (function(root){'use strict';
  const tracks={
-  title:'bgm_01_title',investigation:'bgm_02_investigation',crime:'bgm_03_crime_scene',
+  title:'bgm_07_echo_title',investigation:'bgm_02_investigation',crime:'bgm_03_crime_scene',
   interview:'bgm_04_interview',documents:'bgm_05_documents',contradiction:'bgm_06_contradiction',ending:'music_return'
  };
  const cues=[
@@ -14,11 +14,12 @@
   {kind:'scene',ref:'conclusion',from:2,to:4,evidence:['lab','ledger','message','original','first_response','prior_photo'],viewed:['lab','ledger','message','original','first_response','prior_photo'],solved:['visit'],reason:'구판 호환 경로의 방문 부인 재질문 구간'}
  ];
  cues.push({kind:'scene',ref:'conclusion_v7_visit',from:2,to:7,evidence:['ledger','lab','original','first_response'],viewed:['ledger','lab','original','first_response'],solved:['visit'],reason:'최종 면담에서 이미 입증한 장부·현장·동선의 충돌을 직접 제시하는 구간'});
- const documents=new Set(['evidence','compare','proof','activity','log','topic-log','statements','preview','recap','recent','receipt','run-library','judgment-record']);
+ const documents=new Set(['evidence','compare','proof','activity','log','topic-log','statements','preview','recap','recent','receipt','run-library','judgment-record','reaction-evidence','reaction-records','reaction-notes']);
  const neutral=new Set(['settings','saves','confirm','help','about','message','pause','context-help']);
  const all=(have,need)=>(need||[]).every(id=>(have||[]).includes(id));
  function activeCue(g){
   const d=g?.dialogue;if(!d||!Number.isInteger(d.index))return null;
+  if(d.reaction)return root.REACTIONS?.cue(g)||null;
   return cues.find(c=>c.kind===d.kind&&c.ref===d.ref&&d.index>=c.from&&d.index<=c.to&&all(g.evidence,c.evidence)&&all(g.viewed,c.viewed)&&all(g.topicsRead,c.topics)&&all(g.solved,c.solved))||null;
  }
  function resolve(g,u={},aux=null,back=[],assets=null){
@@ -35,6 +36,8 @@
     return result(cue?tracks.contradiction:tracks.interview,cue?'explicit-cue':'foreground-interview');
    }
   }
+  const opening=root.OPENING?.audio(g);
+  if(opening)return {...result(opening.key,'cinematic-opening'),presentationGain:opening.gain};
   if(['evidence','case','reasoning'].includes(u.mode))return result(tracks.documents,'document-workspace');
   if(['map','people'].includes(u.mode))return result(tracks.investigation,'navigation');
   if(u.mode==='talk'){

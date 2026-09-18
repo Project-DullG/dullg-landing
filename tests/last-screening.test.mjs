@@ -7,7 +7,9 @@ test("Last Screening keeps its ordered modules and locally hosted media", () => 
   const base = "public/assets/last-screening/";
   const html = readFileSync(base + "index.html", "utf8");
   const manifest = JSON.parse(readFileSync(base + "provenance.json", "utf8"));
-  assert.equal(manifest.version, "0.10.0");
+  assert.equal(manifest.version, "0.79.0");
+  assert.equal(manifest.modules.length, 45);
+  assert.equal(manifest.assetCount, 104);
   assert.ok(statSync(base + "index.html").size < 20000);
   assert.match(html, /href="\/games\/last-screening"/);
   assert.doesNotMatch(html, /base64,/);
@@ -22,7 +24,7 @@ test("Last Screening keeps its ordered modules and locally hosted media", () => 
   runInNewContext(readFileSync(base + "assets.js", "utf8"), context);
   assert.equal(Object.keys(context.window.ASSETS).length, manifest.assetCount);
   for (const asset of Object.values(context.window.ASSETS)) {
-    assert.match(asset, /^\.\/media\/[a-z0-9_]+\.(webp|mp3|ogg)$/);
+    assert.match(asset, /^\.\/media\/[a-z0-9_]+\.(webp|mp3|ogg|wav)$/);
     assert.ok(existsSync(base + asset));
   }
 });

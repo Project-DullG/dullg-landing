@@ -27,8 +27,8 @@ export const publicRoutes: PublicRoute[] = [
   },
   {
     path: "/games/last-screening",
-    title: "마지막 상영",
-    description: "극장의 사망 사건을 조사하고 진술과 증거를 대조하는 1인 수사·추리 게임.",
+    title: "잔향 탐정",
+    description: "인물의 진술과 현장 기록을 조사하는 1인 추리 게임. 장편 사건 3편과 짧은 의뢰를 제공합니다.",
     group: "studio",
     priority: 0.7,
     changeFrequency: "monthly",

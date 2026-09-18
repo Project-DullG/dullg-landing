@@ -4,11 +4,14 @@
  const M=root.MODEL,D=M.D; const has=(s,id)=>s.evidence.includes(id),read=(s,id)=>s.topicsRead.includes(id),solved=(s,id)=>s.solved.includes(id);
  const steps=[];
  function topic(ch,id,why){const t=M.topic(id);steps.push({ch,kind:'topic',id,title:t.label,why,done:s=>read(s,id),available:s=>M.available(s,t)});}
- function inspect(ch,loc,id,why){const h=M.hotspot(id);steps.push({ch,kind:'inspect',id,loc,title:h.name,why,done:s=>s.observed.includes(id)||h.grant?.length&&h.grant.every(e=>has(s,e)),available:s=>M.available(s,h)});}
+ function inspect(ch,loc,id,why){const h=M.hotspot(id);steps.push({ch,kind:'inspect',id,loc,title:h.name,why,done:s=>s.observed.includes(id)||(!h.observe&&h.grant?.length&&h.grant.every(e=>has(s,e))),available:s=>M.available(s,h)});}
  function proof(ch,id,why){const d=D.deductions.find(x=>x.id===id);steps.push({ch,kind:'proof',id,title:d.name,why,done:s=>solved(s,id),available:s=>M.availableDeductions(s).some(x=>x.id===id)});}
  const chapters=['현장','영사실에서 있었던 일','마지막 통화와 렌즈','직원들에게 간 돈','다른 문서의 서명','장부가 옮겨진 곳','며칠 뒤, 다시 확인','영사실에서 내린 선택','남은 사람들'];
  topic(1,'t_discovery','대표를 처음 발견한 영사기사에게 당시 상황을 듣는다.');
- inspect(1,'projection','r_desk','서도윤이 쓰러져 있던 자리와 책상에 남은 것을 확인한다.');
+ inspect(1,'projection','r_body','먼저 피해자가 누구인지와 발견 시각을 현장 기록에서 확인한다.');
+ inspect(1,'projection','r_handle','피해자 가까이에 놓인 금속 손잡이를 확인한다.');
+ inspect(1,'projection','r_files','정산 파일에서 무엇이 빠졌는지 확인한다.');
+ inspect(1,'projection','r_cloth','바닥에서 따로 수거한 천 조각의 상태를 확인한다.');
  inspect(1,'projection','r_device','태오가 말한 녹음과 예약 기록을 확인한다.');
  proof(1,'broadcast','밤 9시의 목소리가 무엇을 알려 주는지 정리한다.');
  topic(2,'m_visit','통화를 확인하기 전에 인수할 물건과 방문 목적을 듣는다.');

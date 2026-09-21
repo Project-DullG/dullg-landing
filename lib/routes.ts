@@ -10,6 +10,14 @@ export type PublicRoute = {
 
 export const publicRoutes: PublicRoute[] = [
   {
+    path: "/activity/ulleung-high-session-3",
+    title: "울릉고 방문 특강 · 3차시",
+    description: "2026년 9월 19일 토요일 울릉고등학교에서 진행한 3차시 방문 특강 기록과 수업자료.",
+    group: "studio",
+    priority: 0.6,
+    changeFrequency: "yearly",
+  },
+  {
     path: "/materials/modoo-startup",
     title: "모두의 창업 · 아이디어부터 신청서까지",
     description: "9월 16일 온라인 강의자료: AI로 아이디어 정리하기, 신청서 작성, 프롬프트와 신청 매뉴얼 다운로드.",
@@ -35,7 +43,7 @@ export const publicRoutes: PublicRoute[] = [
   },
   {
     path: "/materials/ulleung-high-lesson-2",
-    title: "울릉고 리빙랩 2차시",
+    title: "울릉고 리빙랩 3차시",
     description: "9월 19일 수업자료: 고객 찾기, 사업 기획, 조직과 역할, 다음 조사 계획.",
     group: "resources",
     priority: 0.5,

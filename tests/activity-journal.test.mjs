@@ -8,6 +8,20 @@ const records = [
   ["ulleung-ecotourism-ai", "2026-07-04", "/materials/ulleung-ecotourism-ai"],
 ];
 
+test("September 19 third session has redacted photos and the corrected material label", async () => {
+  for (const locale of ["", "en/"]) {
+    const html = await readFile(`.test-output/pages/${locale}activity/ulleung-high-session-3.html`, "utf8");
+    assert.equal((html.match(/<h1\b/g) || []).length, 1);
+    assert.ok(html.includes('<time dateTime="2026-09-19">'));
+    for (const kind of ["class", "workshop"])
+      assert.ok(html.includes(`ulleung-high-2026-09-19-${kind}.webp`));
+    assert.ok(html.includes(`href="/${locale}materials/ulleung-high-lesson-2"`));
+    const materials = await readFile(`.test-output/pages/${locale}materials/ulleung-high-lesson-2.html`, "utf8");
+    assert.ok(materials.includes(locale ? "Session 3" : "3차시"));
+    assert.ok(!materials.includes(locale ? "Living Lab · Lesson 2" : "리빙랩 2차시"));
+  }
+});
+
 test("September 16 online class has a dated bilingual record and privacy-edited image", async () => {
   for (const locale of ["", "en/"]) {
     const html = await readFile(`.test-output/pages/${locale}activity/ulleung-online-startup-2026.html`, "utf8");

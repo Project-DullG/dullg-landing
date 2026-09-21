@@ -1,6 +1,7 @@
 import { youthArtsFestival } from "./festival";
 import { ulleungPresentation } from "./presentations";
 import { ulleungOnlineLecture } from "./ulleung-online";
+import { ulleungThirdLecture } from "./ulleung-third";
 
 export type ActivityArticleData = {
   title: string;
@@ -18,6 +19,30 @@ export type ActivityArticleData = {
 };
 
 export const activityArticles: Record<string, ActivityArticleData> = {
+  "ulleung-high-session-3": {
+    title: ulleungThirdLecture.title,
+    category: "교육",
+    date: ulleungThirdLecture.date,
+    intro: "9월 19일 토요일, 울릉고등학교를 다시 방문했습니다. 이번 특강은 3차시로, 학생들과 교실에서 만나 창업을 주제로 수업을 진행했습니다.",
+    sections: [
+      {
+        title: "아이디어를 사업으로 만들려면",
+        paragraphs: ["이번 수업에서는 창업에 필요한 업무를 살펴봤습니다. 기획과 고객, 사업모델, 팀과 자원뿐 아니라 제작과 운영, 홍보와 판매, 검증과 개선까지 함께 다뤘습니다. 제품을 만드는 일과 사업을 운영하는 일을 구분해 살펴보는 시간입니다."],
+        photo: { ...ulleungThirdLecture.image, width: 1600, height: 1200, caption: "9월 19일 울릉고 3차시 특강. 창업의 주요 업무를 설명하는 시간입니다." },
+      },
+      {
+        title: "자료를 함께 살펴보는 시간",
+        paragraphs: ["설명 시간 외에도 학생들이 테이블에 둘러앉아 카드와 인쇄 자료를 함께 살펴봤습니다. 이날 수업 사진과 발표자료를 함께 남깁니다. 수업에서 다룬 내용은 아래 자료실에서 다시 볼 수 있습니다."],
+        photo: { src: "/assets/activities/ulleung-high-2026-09-19-workshop.webp", alt: "얼굴을 모자이크한 울릉고 학생들이 카드와 인쇄 자료를 살펴보는 모습", width: 1600, height: 1200, caption: "교실에서 카드와 인쇄 자료를 함께 살펴보는 학생들. 사진 속 얼굴은 모자이크했습니다." },
+      },
+    ],
+    relatedTitle: "수업자료와 이전 기록",
+    links: [
+      { label: "9월 19일 3차시 수업자료", href: "/materials/ulleung-high-lesson-2" },
+      { label: "9월 16일 온라인 강의 기록", href: "/activity/ulleung-online-startup-2026" },
+      { label: "9월 5일 울릉고 특강 기록", href: "/activity/ulleung-high-living-lab" },
+    ],
+  },
   "ulleung-online-startup-2026": {
     title: ulleungOnlineLecture.title,
     category: "교육",

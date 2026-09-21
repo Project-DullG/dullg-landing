@@ -25,7 +25,7 @@ export default function LessonTwoPage() {
             <p>
               <time dateTime={lesson2.date}>2026.09.19</time> · {lesson2.titles.length}{en ? " pages" : "쪽"}
             </p>
-            <h1>{en ? "Ulleung High School Living Lab · Lesson 2" : "울릉고 리빙랩 2차시"}</h1>
+            <h1>{en ? "Ulleung High School Living Lab · Session 3" : "울릉고 리빙랩 3차시"}</h1>
           </div>
           <a href={lesson2.pdf} download>
             {en ? "Download PDF ↓" : "PDF 다운로드 ↓"}

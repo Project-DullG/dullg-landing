@@ -51,7 +51,7 @@ type CourseMaterial = {
 
 export const courseMaterials: CourseMaterial[] = [
   {
-    title: "울릉고 리빙랩 2차시",
+    title: "울릉고 리빙랩 3차시",
     meta: "울릉고등학교 · 2026년 9월 19일",
     description: "창업 사례·사업모델·AI 활용·팀 구성 · 발표자료 58쪽",
     href: "/materials/ulleung-high-lesson-2",

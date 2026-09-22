@@ -101,13 +101,13 @@
   },
   {
     "path": "assets/v07/board-map.svg",
-    "bytes": 1209467,
-    "sha256": "9010dcb3060ba2990a23d515f1f6e688ec3b8844b248f33b1da02ccff7316179"
+    "bytes": 1219650,
+    "sha256": "6d9066e8fd7bbe6899cac4071c0c42a4a5d63ce4757963b245d51855fc5085fc"
   },
   {
     "path": "assets/v07/board.svg",
-    "bytes": 1235177,
-    "sha256": "a6203dcf7845884d7455ff4d584c18d4a668f91ddccd8da7b2b7b90f566533be"
+    "bytes": 1245508,
+    "sha256": "c596c72311c7c51b6e301133213491a5f1b2122c9d424a1484db188cfda30238"
   },
   {
     "path": "assets/v07/book-cover-0.svg",
@@ -151,68 +151,83 @@
   },
   {
     "path": "assets/v07/box-0.glb",
-    "bytes": 1618936,
-    "sha256": "1abfd6b6e0db22ceb53480ae8df54cd45b0c34ed0ee3b71264dec52e0c98c32f"
+    "bytes": 2397064,
+    "sha256": "31aea5fae63f3d84cc4cbd8c7496f845f1adf2e4d8236bc4daa6eaa327672505"
   },
   {
     "path": "assets/v07/box-1.glb",
-    "bytes": 1618944,
-    "sha256": "8a6fcbbc194f357cca265816c86b527f8326960554630616989573f97d8fe6d2"
+    "bytes": 2397072,
+    "sha256": "e577e698a39bedd7840d1972d1f76408fcae770e117f5bc159a69c8eef096f33"
   },
   {
     "path": "assets/v07/box-2.glb",
-    "bytes": 1619000,
-    "sha256": "445c8b6b56dd9f9d5d66ad30ebbdadcdc18681a6c42a91b210b77781ef7da57d"
+    "bytes": 2397128,
+    "sha256": "1a409aa1c28bd28031b6fd0ee32ab4c4651ff2a7e21ed4c418b6b8c7bfbe1214"
+  },
+  {
+    "path": "assets/v07/box-back.svg",
+    "bytes": 119431,
+    "sha256": "798139d28221aceb1dd151d64a96e1c4ece884c7d9ea61190b90471f0f287c20"
   },
   {
     "path": "assets/v07/box-cover.svg",
-    "bytes": 206874,
-    "sha256": "2ffd598ba3badcf50b4d64bda07120209485d57d8d87672dc36c5392cb4a92d7"
+    "bytes": 788573,
+    "sha256": "85eb1a02e944a8cc86fa763021c251ca235dc3b4ea2bc6088c96db40e2cf53c9"
+  },
+  {
+    "path": "assets/v07/box-end.svg",
+    "bytes": 21420,
+    "sha256": "ccb8eb884bf2cc515d887a1fccc587e2c91432e07998a7a0db57ade3e332c1b5"
+  },
+  {
+    "path": "assets/v07/box-inside.svg",
+    "bytes": 41671,
+    "sha256": "bf3ba4f00f7caa12c249293878baa79fae54779781464f4e6c2f6e13b26a789a"
   },
   {
     "path": "assets/v07/box-spine.svg",
-    "bytes": 442,
-    "sha256": "195b6319e7bd39893666941d56c3724278db30dea02ca28650e2eb6dd560f8b9"
+    "bytes": 29940,
+    "sha256": "e894c316012c6b1b29bd85571dccc7d786760335109461f554102df1645273b8"
   },
   {
     "path": "assets/v07/budget-marker-0.glb",
-    "bytes": 45880,
-    "sha256": "21cabb2fbb12cb04ebc1e3e105dd1d46b06de1b4ba2d08687eeb5847e79d7c11"
+    "bytes": 52592,
+    "sha256": "ba7e5bd6eab86d07e16049f622f861506af40d409dca1f7e9778b9a9ba89beb9"
   },
   {
     "path": "assets/v07/budget-marker-1.glb",
-    "bytes": 45880,
-    "sha256": "816cd6a91792847ec7962034b09338a4cee1d6cf434eefea779e85337072f591"
+    "bytes": 49584,
+    "sha256": "1ad849127ceca8f44ab4a4f576a813e7686744ab8767e87cf2541346dd6a1373"
   },
   {
     "path": "assets/v07/budget-marker-2.glb",
-    "bytes": 45880,
-    "sha256": "2243b577b5a6d91d896cd770dc34b6a951eae7caf9c27a7ac1ab7e5950da0153"
+    "bytes": 47568,
+    "sha256": "4053e6dd9521d8fa390a3b36194a864384d7da59a75c8b5c98f2e9c671b85b15"
   },
   {
     "path": "assets/v07/budget-marker-3.glb",
-    "bytes": 45880,
-    "sha256": "b3dff7c6728ea091edbf44026c63c241eef35ce22810bb73b17de742278324b0"
+    "bytes": 49668,
+    "sha256": "baa76f66b7cbe92e0c3c4592e5329752f61e5b6d51dba2212c9551283634431a"
   },
   {
     "path": "assets/v07/budget-marker-4.glb",
-    "bytes": 45876,
-    "sha256": "0d1310e0bed7535538c809c191b7577df6e1ba91e4bb824c41f67e5d503e4156"
+    "bytes": 46192,
+    "sha256": "97f88dbf321f24f64e1aef1bbf0b16fdcfd657e514f076d27883126434216dbb"
   },
   {
     "path": "assets/v07/budget-marker-5.glb",
-    "bytes": 45880,
-    "sha256": "4b95d66c4e897957a0ad25aba2133434101d8633f33a6dc76ca549122d6b3789"
+    "bytes": 46236,
+    "sha256": "21e436853d7c18c5583e1c8605f8ae8befdfc6a67895367310a6128c789e204a"
   },
   {
     "path": "assets/v07/budget-marker-6.glb",
-    "bytes": 45880,
-    "sha256": "cb247a8971eadec8c23676acafe4b3da6804f44b0f17596d2b7ec19724996242"
+    "bytes": 48788,
+    "sha256": "fb9281df70f4e15c69336f74f2e101902aa3b38352bc4018589d669a8204295d"
   },
   {
     "path": "assets/v07/budget-marker-7.glb",
-    "bytes": 45880,
-    "sha256": "00913d37dd62d5a557aa40f2e0a708d4531f0769be3ad0b43f08e9b64a3f87cb"
+    "bytes": 48872,
+    "sha256": "58362ea0fe1a3c352955312aa7d4ff5d9a7e583e23ff00dd2067b990d56de00a"
   },
   {
     "path": "assets/v07/cards/C01-back.svg",
@@ -2551,8 +2566,8 @@
   },
   {
     "path": "assets/v07/die-1.glb",
-    "bytes": 116812,
-    "sha256": "59e53a9a3632f43d35c430a162ef54692e83d9bb427ea927a206ea3cdc0560a0"
+    "bytes": 83852,
+    "sha256": "8b3591128285c4bc809c7bc47ae6c20bdc5b0ed4bd48d856b9ae21f6eb6a2775"
   },
   {
     "path": "assets/v07/fonts/NanumGothic-Bold.ttf",
@@ -2580,6 +2595,16 @@
     "sha256": "a06fb4706bd70da776e78c0df4fc08e49f12e604668d1da26abd689661e2ba4d"
   },
   {
+    "path": "assets/v07/fonts/OFL-Pretendard.txt",
+    "bytes": 4816,
+    "sha256": "82e9c8a4b203261f10ddba1296422d64914ff3d4b7bd8a12896d03f0f088d70a"
+  },
+  {
+    "path": "assets/v07/fonts/PretendardVariable.woff2",
+    "bytes": 2057688,
+    "sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4"
+  },
+  {
     "path": "assets/v07/illustrations/arch.webp",
     "bytes": 171830,
     "sha256": "4a7adc0b4b298732e64861ace19574a4baaaaabcd754df6606d98588a9633e97"
@@ -2588,6 +2613,11 @@
     "path": "assets/v07/illustrations/bongrae.webp",
     "bytes": 254090,
     "sha256": "ef8e7257258116b0f042f794e38cc76bb1746c5bc8bbaee284af02fc4d013a4a"
+  },
+  {
+    "path": "assets/v07/illustrations/box-sea-20260923.webp",
+    "bytes": 556088,
+    "sha256": "ca3288833156267b9420924531fe479cdfc41135f44fb23567f45cb1f7cf69e8"
   },
   {
     "path": "assets/v07/illustrations/boxCover.webp",
@@ -2796,43 +2826,43 @@
   },
   {
     "path": "assets/v07/meeple-0.glb",
-    "bytes": 233972,
-    "sha256": "b7100390222e063bb573b4492515b2c25f0c89b1d3df35fe09b05ff527310587"
+    "bytes": 401044,
+    "sha256": "60b8b4d3a39e81bdb61e4fce114e98405f9335ca53fa0c7c3b316ec16e0ddc63"
   },
   {
     "path": "assets/v07/meeple-1.glb",
-    "bytes": 146976,
-    "sha256": "5e423a83f53421003935e08650c7bd7a2bbdf85f0e5f6a1f2e91dc24102ea2d6"
+    "bytes": 254872,
+    "sha256": "5a99b1c8dd0d433007ea92a393bce63382bbd71d9d400a90e7df2d10480e2ad6"
   },
   {
     "path": "assets/v07/meeple-2.glb",
-    "bytes": 70560,
-    "sha256": "7a8ada53e25ab9b8f250f0b93e2f6281bea24e8989d8b5bab9d1357a7bda967b"
+    "bytes": 156496,
+    "sha256": "ba4d56822ee47a0f914eb89ef20cb393f69c17e3052c0c98814b7f2b3d645766"
   },
   {
     "path": "assets/v07/meeple-3.glb",
-    "bytes": 143356,
-    "sha256": "9e9ee76c0673ff55a3b43cd519f8a067392caa1d6bae4a3ec0e6d7141d08a116"
+    "bytes": 249216,
+    "sha256": "84f062ba1b4fdec816ff2e43d0a3c7e163773572c77207b3a8999a19d9aef3fc"
   },
   {
     "path": "assets/v07/meeple-4.glb",
-    "bytes": 40864,
-    "sha256": "fa5b047a56a83c565a4435b98aa5a2ab0df5d3eab3190b678b71d131ba1f16c8"
+    "bytes": 89248,
+    "sha256": "13bdbccbcb748591cd471481c07963f6e28782e9c95f71e464774b8ac5d68919"
   },
   {
     "path": "assets/v07/meeple-5.glb",
-    "bytes": 50804,
-    "sha256": "6fb21fc029ba81c0161b3119b2a89e81f5d1d32bbb713d23fefd063ad07cb45c"
+    "bytes": 78300,
+    "sha256": "9dbca059694fbd8f3d2c640a83dde2083138a3e3182629d964bf9e432056bc70"
   },
   {
     "path": "assets/v07/meeple-6.glb",
-    "bytes": 120876,
-    "sha256": "106f6347db1cd0fe45a43d44fc83713b8f0ff4b83542d866689f0e7f421e357d"
+    "bytes": 226808,
+    "sha256": "b66f48c132b550c2ba299e15690cbe82530c82ebd020d8fc14c60a7510c723d6"
   },
   {
     "path": "assets/v07/meeple-7.glb",
-    "bytes": 115488,
-    "sha256": "7040592d0081d530d37cd0668d3af6f43912677aadce74826bfc1cf8e067dc23"
+    "bytes": 191916,
+    "sha256": "7c2de9fb1380897e597d7c5f4ba9e447d7621503caa8fd7c5c2239c71f276184"
   },
   {
     "path": "assets/v07/portraits/traveler-0.jpg",
@@ -2881,8 +2911,8 @@
   },
   {
     "path": "assets/v07/promo/film-poster.jpg",
-    "bytes": 449154,
-    "sha256": "99264d176f98ed21ebb8bba72145cb5d61d5347dcbb45c961bd3a1be4f8edb10"
+    "bytes": 456655,
+    "sha256": "972729ac367cf5ccee620eb9d1ab49b39f27ea6959fd52abeb47ea9d70bf98cf"
   },
   {
     "path": "assets/v07/promo/play-ko.vtt",
@@ -2891,13 +2921,13 @@
   },
   {
     "path": "assets/v07/promo/table-spread.webp",
-    "bytes": 249800,
-    "sha256": "1bbb035dba874777032bcb06dff98199eb8efd45b4ad514f91236e5b321f3d2e"
+    "bytes": 256916,
+    "sha256": "282f76df7788a70c1dda4957b1a6c112ee10be9bb18c32a4d058e9caa292c4db"
   },
   {
     "path": "assets/v07/promo/ulleung-marble-play.mp4",
-    "bytes": 9648251,
-    "sha256": "8e0f64dbfa0567246ed484676a5769e2c40d3ec5c54c162eedc5ad7868944c54"
+    "bytes": 10029515,
+    "sha256": "0fde6d107c973793b2c3b5fb384c8e9c4c0e7760237f45df9ec342ad952b4180"
   },
   {
     "path": "assets/v07/tourism-boxes.json",
@@ -2911,18 +2941,18 @@
   },
   {
     "path": "index.html",
-    "bytes": 21734,
-    "sha256": "0087a7563711cdd525c2efc02c0ac46f2e9be7ce2cf1e15868b2d2d65e7a44dd"
+    "bytes": 22129,
+    "sha256": "0bc092a1d16b99f984e8f6b196f344d376c3b58697a0cc64b682f945bf7c8c3f"
   },
   {
     "path": "tabletop/components.html",
-    "bytes": 1684,
-    "sha256": "23d155fd8fd47e2514fbfb19cbb0cf7fe903123a756173111c42d3e820233f07"
+    "bytes": 1789,
+    "sha256": "1f7efdd0ee627422b4f041eb436e3ab9511c3dd1e612e7f0e9cbc5c55c20257f"
   },
   {
     "path": "tabletop/master.html",
-    "bytes": 2383,
-    "sha256": "fb8387e7cf3f18b2769594f9686db06bebeb7c8b5eda49936f0b10d4da1998ec"
+    "bytes": 2475,
+    "sha256": "8ac1e6f3b77651af443e4e65471afd50957f861a21923be057a21d9c9978bf18"
   },
   {
     "path": "tabletop/models.mjs",
@@ -2931,8 +2961,8 @@
   },
   {
     "path": "tabletop/v07/app.mjs",
-    "bytes": 23520,
-    "sha256": "6f87a58f79df7fdd0654dfd31a13d3ea53433308ab1697dc89630cd2d30c87b8"
+    "bytes": 23568,
+    "sha256": "85ff49fd1c13b714b981b9e04322ad466d65296076791ad73066095407068959"
   },
   {
     "path": "tabletop/v07/art.mjs",
@@ -2946,13 +2976,13 @@
   },
   {
     "path": "tabletop/v07/box-model.mjs",
-    "bytes": 4176,
-    "sha256": "5dc41991c74c229a939c2a691fb1a483d9c44a6421e185eb88b02380947ef5aa"
+    "bytes": 5040,
+    "sha256": "41a7584f674022c8c32652296de2bd6cbacd3bc27be2ea9439ef1adeda2213fe"
   },
   {
     "path": "tabletop/v07/box-textures.mjs",
-    "bytes": 1397,
-    "sha256": "ca82950442046c8fd3d846b2e8f769721ef487da27fb65d813ba9fff4cf05272"
+    "bytes": 1474,
+    "sha256": "7d6e77cc823074428da449287f3e5e5ec0235fc0dbac1ed7deb5915bae1c275e"
   },
   {
     "path": "tabletop/v07/character-courses.mjs",
@@ -2971,8 +3001,8 @@
   },
   {
     "path": "tabletop/v07/dice.mjs",
-    "bytes": 2948,
-    "sha256": "6f98a8c9e0472549f09815a7a314d80ae78d48287dbacd8c2763dd1d2991211b"
+    "bytes": 2960,
+    "sha256": "d902f0faa88345b9119d2610a989d272cb4a769d0f6440a1acd2773db97c3d9b"
   },
   {
     "path": "tabletop/v07/engine.mjs",
@@ -2995,14 +3025,19 @@
     "sha256": "353eec15d7f1125e78015e8083a7fdf46b5fe305b478aafcbfb0acd0ae8b9f87"
   },
   {
+    "path": "tabletop/v07/library-shell.css",
+    "bytes": 18018,
+    "sha256": "dab103a371976545142821c67ac441b999a834812565454ad1732f6613c1c526"
+  },
+  {
     "path": "tabletop/v07/library.css",
     "bytes": 19555,
     "sha256": "f70df477215ae2525be2a4ff31b6b6c1d3bfee5314469f60e559f6ef22d2c61e"
   },
   {
     "path": "tabletop/v07/library.mjs",
-    "bytes": 26013,
-    "sha256": "924e7f9f66f19a7a6de294d63c8e2d46f452b772581464903155c29128ac7663"
+    "bytes": 27546,
+    "sha256": "5898b87bd34ae78b41bfb65058516938a3af6482c437156aec44065aedf9b743"
   },
   {
     "path": "tabletop/v07/manual.css",
@@ -3016,13 +3051,18 @@
   },
   {
     "path": "tabletop/v07/miniatures.mjs",
-    "bytes": 4894,
-    "sha256": "2738fa0ccd87f822b63853616f84180f18f3af20a9a0dfc1e0606eb571e9482d"
+    "bytes": 4918,
+    "sha256": "1e663f5965986279f471fe240cebacb734933b9ac857f7edc0a8c333b84cda2d"
   },
   {
     "path": "tabletop/v07/models.mjs",
-    "bytes": 6779,
-    "sha256": "c878eb458eba63f85c6644ac8845db7fcdf14ebdc07a83a55bd569be45ed551e"
+    "bytes": 8547,
+    "sha256": "f3cb10f85fd8f668c6611bd35e530527d3997dfe2cb5a89bec43e446822760e2"
+  },
+  {
+    "path": "tabletop/v07/packaging-art.mjs",
+    "bytes": 4640,
+    "sha256": "f786fd153f5cd8c3173fdc865275e266d1c77d6eaeb700deb27e0aa1937a6785"
   },
   {
     "path": "tabletop/v07/play.css",
@@ -3031,33 +3071,33 @@
   },
   {
     "path": "tabletop/v07/play.mjs",
-    "bytes": 21206,
-    "sha256": "9fbe7b18ff3d7af397d684c8f053fdb1c95fe781e0a99490c8c202fc2e33b799"
+    "bytes": 21242,
+    "sha256": "0d4d3e4425925753f60ba2b53316e9c4758d8842496e0e139b8ca1c888cd8468"
   },
   {
     "path": "tabletop/v07/print.html",
-    "bytes": 4837,
-    "sha256": "abe36624b530b5235e2ed17a5bd055f44829dff9c46b3e60ddce771976699367"
+    "bytes": 4845,
+    "sha256": "7dbe879e9c2426d26c149d3a4e2c26e8c649f178190498eb3416ea3b93f32650"
   },
   {
     "path": "tabletop/v07/print.mjs",
-    "bytes": 3582,
-    "sha256": "d55808f50849fe565db8abd016e91b8d9dd69a255d6de05d26ff0cf00abd0e4c"
+    "bytes": 3931,
+    "sha256": "673c942442ca2f661b46077bd76793853ca5e67fb255727eb8574aee426c78e7"
   },
   {
     "path": "tabletop/v07/product-components.mjs",
-    "bytes": 2965,
-    "sha256": "2c4dd1cc526dde7a7ad79b8e2d8931dc4e288acb85cd179e260555af4c169245"
+    "bytes": 3001,
+    "sha256": "39b76e4826e3e9a8186dee99709f82ed0261b3df0c81ce9f9a8629a95c28f923"
   },
   {
     "path": "tabletop/v07/product.css",
-    "bytes": 29098,
-    "sha256": "dad9513f434a29b9e09ffd45fa5ccb35c9bea70c0c3a679546ded157ebb322d4"
+    "bytes": 21979,
+    "sha256": "8fb36ed2d2cbdff35ed7199c3b1ef4088712931cd501656c45ba2a7e72eb44cf"
   },
   {
     "path": "tabletop/v07/product.mjs",
-    "bytes": 4653,
-    "sha256": "15f6cbd5922cab120b30a0a2fe038d8565445fce85c181218b34d597e6fee9ba"
+    "bytes": 6398,
+    "sha256": "a059febb7f87e6949857877ad9b837c4ae04b5e9e487539237a57b0f29467838"
   },
   {
     "path": "tabletop/v07/specs.mjs",
@@ -3066,8 +3106,8 @@
   },
   {
     "path": "tabletop/v07/table.css",
-    "bytes": 31661,
-    "sha256": "38a7b161ba1034da57e858906d5f61d8227960db327d612c345aa8c68bd73624"
+    "bytes": 32277,
+    "sha256": "25ef3f34f1aad3c0efdf5fa1399c8d3906f2f9b63307d978b944a4bfba35bafd"
   },
   {
     "path": "tabletop/v07/travel-prices.mjs",
@@ -3086,8 +3126,13 @@
   },
   {
     "path": "tabletop/v07/unboxing.mjs",
-    "bytes": 2583,
-    "sha256": "d9093c219f266672c20a6796669cf29b525cbe1720f323b3757e63475712ff74"
+    "bytes": 2619,
+    "sha256": "7370aff6d945916d32132b8fc8f603ec4b7a152df7612248427887213c6c7ce5"
+  },
+  {
+    "path": "tabletop/v07/web-type.css",
+    "bytes": 377,
+    "sha256": "bd66a30fef3299f540049a5306d0731c563a7ccb64b52c3492ef55183e292576"
   },
   {
     "path": "vendor/OrbitControls.js",

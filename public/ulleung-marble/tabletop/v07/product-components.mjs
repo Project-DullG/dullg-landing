@@ -1,7 +1,7 @@
 import * as THREE from 'three';
-import {createMeeple,createBudgetMarker,createThemedDie} from './models.mjs';
-import {createBox} from './box-model.mjs';
-import {prepareBoxTextures} from './box-textures.mjs';
+import {createMeeple,createBudgetMarker,createThemedDie} from './models.mjs?v=20260923j';
+import {createBox} from './box-model.mjs?v=20260923j';
+import {prepareBoxTextures} from './box-textures.mjs?v=20260923j';
 
 // Render the same physical models used at the game table, once per gallery image.
 export async function showComponents(){

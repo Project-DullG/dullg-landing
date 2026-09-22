@@ -19,7 +19,7 @@ async function init(){
   choices.forEach(button=>button.addEventListener('click',()=>{
     const game=makeChoiceExample(data),choice=Number(button.dataset.choice);game.choose(choice);renderStats(game.p);
     choices.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
-    const explanation=choice===0?'피로가 2장에서 1장으로 줄어, 현재 피로 기준 감점이 −3점에서 −1점으로 줄었습니다. 다음 이동에는 주사위 2개를 굴립니다.':'체험이 2장이 되어 여행기록 1점이 생겼습니다. 피로는 3장으로 늘어, 현재 피로 기준 감점도 −3점에서 −6점으로 커졌습니다.';
+    const explanation=choice===0?'피로 1장을 반납했습니다. 다음 이동에는 주사위 2개를 굴려, 더 먼 목적지를 노릴 수 있습니다.':'체험이 2장으로 늘어 1점을 얻었습니다. 대신 피로가 3장이 되어, 이 상태로 끝나면 피로로 6점이 깎입니다.';
     result.innerHTML=`<b>${choice===0?'A':'B'} · ${game.entry.options[choice].outcome}</b><p>${explanation}</p>`;
   }));document.querySelector('#reset-example').addEventListener('click',reset);reset();
   const tabs=document.querySelector('#traveler-tabs'),preview=document.querySelector('#traveler-preview');
@@ -45,8 +45,27 @@ if(typeof document!=='undefined'){
  const gallery=document.querySelector('#inside');
  const observer=new IntersectionObserver(entries=>{
   if(!entries.some(e=>e.isIntersecting))return;observer.disconnect();
-  import('./product-components.mjs?v=3').then(m=>m.showComponents()).catch(()=>{
+  import('./product-components.mjs?v=20260923j').then(m=>m.showComponents()).catch(()=>{
    document.querySelectorAll('[data-component-model]').forEach(host=>{host.textContent='눌러서 구성품 자세히 보기 ↗';});
   });
  },{rootMargin:'500px'});if(gallery)observer.observe(gallery);
+}
+
+// Inspect a component without losing the visitor's place in the product story.
+if(typeof document!=='undefined'){
+ const dialog=document.createElement('dialog');dialog.className='product-inspection';
+ dialog.setAttribute('aria-labelledby','inspection-title');
+ dialog.innerHTML='<header><h2 id="inspection-title">구성품 살펴보기</h2><button type="button" class="inspection-close" aria-label="구성품 닫기">닫기 ×</button></header><iframe title="구성품 자세히 보기"></iframe>';
+ document.body.append(dialog);
+ const frame=dialog.querySelector('iframe');let originLink=null;
+ const close=()=>{if(dialog.open)dialog.close();};
+ document.addEventListener('click',event=>{
+  const link=event.target.closest('a[href]');if(!link||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0)return;
+  const url=new URL(link.href,location.href);if(url.origin!==location.origin||!url.pathname.endsWith('/ulleung-marble/tabletop/components.html'))return;
+  event.preventDefault();originLink=link;url.searchParams.set('embedded','1');frame.src=url.href;dialog.showModal();document.body.classList.add('inspection-open');dialog.querySelector('button').focus();
+ });
+ dialog.querySelector('button').addEventListener('click',close);
+ dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)close();}});
+ dialog.addEventListener('close',()=>{document.body.classList.remove('inspection-open');frame.removeAttribute('src');originLink?.focus({preventScroll:true});});
+ window.addEventListener('message',event=>{if(event.origin===location.origin&&event.source===frame.contentWindow&&event.data?.type==='ulleung-close-inspection')close();});
 }

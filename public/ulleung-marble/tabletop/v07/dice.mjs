@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {createThemedDie,dieFaceRotation,COLORS,MOTIFS,motifSVG} from './models.mjs';
+import {createThemedDie,dieFaceRotation,COLORS,MOTIFS,motifSVG} from './models.mjs?v=20260923j';
 import {esc,dataURL,portraitStyle} from './components.mjs';
 import {LABELS} from './engine.mjs';
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;

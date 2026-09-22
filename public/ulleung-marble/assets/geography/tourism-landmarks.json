@@ -1,0 +1,202 @@
+{
+  "revision": "2026-09-23",
+  "source": "사용자가 제공한 울릉군 2026년 관광지도(260615_울릉+관광지도+KR1)",
+  "sourceUrl": "https://www.ulleung.go.kr/tour/page.do?cmd=258&bod_uid=47430&mnu_uid=1694",
+  "placementNote": "공식 관광지도의 상대 위치를 작은 관광지 아이콘으로 표시했습니다. 아이콘은 게임 칸이 아니며 측량 좌표를 뜻하지 않습니다. 번호가 있는 칸과 연결선으로 이동합니다.",
+  "landmarks": [
+    {
+      "id": "taeha-monorail",
+      "name": "태하향목관광모노레일",
+      "lines": [
+        "태하향목",
+        "모노레일"
+      ],
+      "anchor": [
+        158,
+        371
+      ],
+      "kind": "transport",
+      "icon": "monorail",
+      "position": [
+        43,
+        439
+      ]
+    },
+    {
+      "id": "namseo-monorail",
+      "name": "남서모노레일",
+      "lines": [
+        "남서모노레일"
+      ],
+      "anchor": [
+        402,
+        699
+      ],
+      "kind": "transport",
+      "icon": "monorail",
+      "position": [
+        362,
+        660
+      ]
+    },
+    {
+      "id": "dokdo-cablecar",
+      "name": "독도전망대케이블카",
+      "lines": [
+        "독도전망대",
+        "케이블카"
+      ],
+      "anchor": [
+        791,
+        667
+      ],
+      "kind": "transport",
+      "icon": "cablecar",
+      "position": [
+        656,
+        676
+      ]
+    },
+    {
+      "id": "taeha-forest",
+      "name": "솔송나무·섬잣나무·너도밤나무 군락",
+      "lines": [
+        "솔송나무·섬잣나무",
+        "너도밤나무 군락"
+      ],
+      "anchor": [
+        418,
+        525
+      ],
+      "kind": "nature",
+      "reference": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaAsno=0000500000000&ccbaCpno=1363700500000&ccbaCtcd=37&ccbaKdcd=16",
+      "icon": "trees",
+      "position": [
+        361,
+        518
+      ]
+    },
+    {
+      "id": "nari-flowers",
+      "name": "울릉국화·섬백리향 군락",
+      "lines": [
+        "울릉국화·섬백리향",
+        "군락지"
+      ],
+      "anchor": [
+        619,
+        411
+      ],
+      "kind": "nature",
+      "reference": "https://encykorea.aks.ac.kr/Article/E0011333",
+      "icon": "flower",
+      "position": [
+        665,
+        411
+      ]
+    },
+    {
+      "id": "nari-houses",
+      "name": "투막집·너와집",
+      "lines": [
+        "투막집·너와집"
+      ],
+      "anchor": [
+        678,
+        353
+      ],
+      "kind": "heritage",
+      "icon": "house",
+      "position": [
+        706,
+        282
+      ]
+    },
+    {
+      "id": "suto-history",
+      "name": "울릉수토역사전시관",
+      "lines": [
+        "울릉수토역사전시관"
+      ],
+      "anchor": [
+        253,
+        417
+      ],
+      "kind": "heritage",
+      "icon": "museum",
+      "position": [
+        337,
+        436
+      ]
+    },
+    {
+      "id": "usan-museum",
+      "name": "우산국박물관",
+      "lines": [
+        "우산국박물관"
+      ],
+      "anchor": [
+        487,
+        714
+      ],
+      "kind": "heritage",
+      "icon": "museum",
+      "position": [
+        473,
+        641
+      ]
+    },
+    {
+      "id": "botanical-garden",
+      "name": "울릉자생식물원",
+      "lines": [
+        "울릉자생식물원"
+      ],
+      "anchor": [
+        642,
+        756
+      ],
+      "kind": "nature",
+      "icon": "leaf",
+      "position": [
+        525,
+        685
+      ]
+    },
+    {
+      "id": "an-yong-bok",
+      "name": "안용복기념관",
+      "lines": [
+        "안용복기념관"
+      ],
+      "anchor": [
+        874,
+        273
+      ],
+      "kind": "heritage",
+      "icon": "museum",
+      "position": [
+        943,
+        304
+      ]
+    },
+    {
+      "id": "dokdo-volunteers",
+      "name": "독도의용수비대기념관",
+      "lines": [
+        "독도의용수비대",
+        "기념관"
+      ],
+      "anchor": [
+        877,
+        236
+      ],
+      "kind": "heritage",
+      "icon": "museum",
+      "position": [
+        948,
+        260
+      ]
+    }
+  ]
+}

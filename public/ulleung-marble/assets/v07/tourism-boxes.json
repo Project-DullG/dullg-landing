@@ -1,0 +1,222 @@
+[
+  {
+    "id": "taeha-monorail",
+    "type": "icon",
+    "box": [
+      32,
+      428,
+      54,
+      450
+    ]
+  },
+  {
+    "id": "taeha-monorail",
+    "type": "label",
+    "box": [
+      60,
+      423,
+      112.0,
+      455
+    ]
+  },
+  {
+    "id": "namseo-monorail",
+    "type": "icon",
+    "box": [
+      351,
+      649,
+      373,
+      671
+    ]
+  },
+  {
+    "id": "namseo-monorail",
+    "type": "label",
+    "box": [
+      379,
+      652,
+      456.0,
+      668
+    ]
+  },
+  {
+    "id": "dokdo-cablecar",
+    "type": "icon",
+    "box": [
+      645,
+      665,
+      667,
+      687
+    ]
+  },
+  {
+    "id": "dokdo-cablecar",
+    "type": "label",
+    "box": [
+      673,
+      660,
+      737.5,
+      692
+    ]
+  },
+  {
+    "id": "taeha-forest",
+    "type": "icon",
+    "box": [
+      350,
+      507,
+      372,
+      529
+    ]
+  },
+  {
+    "id": "taeha-forest",
+    "type": "label",
+    "box": [
+      378,
+      502,
+      492.5,
+      534
+    ]
+  },
+  {
+    "id": "nari-flowers",
+    "type": "icon",
+    "box": [
+      654,
+      400,
+      676,
+      422
+    ]
+  },
+  {
+    "id": "nari-flowers",
+    "type": "label",
+    "box": [
+      682,
+      395,
+      796.5,
+      427
+    ]
+  },
+  {
+    "id": "nari-houses",
+    "type": "icon",
+    "box": [
+      695,
+      271,
+      717,
+      293
+    ]
+  },
+  {
+    "id": "nari-houses",
+    "type": "label",
+    "box": [
+      723,
+      274,
+      812.5,
+      290
+    ]
+  },
+  {
+    "id": "suto-history",
+    "type": "icon",
+    "box": [
+      326,
+      425,
+      348,
+      447
+    ]
+  },
+  {
+    "id": "suto-history",
+    "type": "label",
+    "box": [
+      354,
+      428,
+      468.5,
+      444
+    ]
+  },
+  {
+    "id": "usan-museum",
+    "type": "icon",
+    "box": [
+      462,
+      630,
+      484,
+      652
+    ]
+  },
+  {
+    "id": "usan-museum",
+    "type": "label",
+    "box": [
+      490,
+      633,
+      567.0,
+      649
+    ]
+  },
+  {
+    "id": "botanical-garden",
+    "type": "icon",
+    "box": [
+      514,
+      674,
+      536,
+      696
+    ]
+  },
+  {
+    "id": "botanical-garden",
+    "type": "label",
+    "box": [
+      542,
+      677,
+      631.5,
+      693
+    ]
+  },
+  {
+    "id": "an-yong-bok",
+    "type": "icon",
+    "box": [
+      932,
+      293,
+      954,
+      315
+    ]
+  },
+  {
+    "id": "an-yong-bok",
+    "type": "label",
+    "box": [
+      960,
+      296,
+      1037.0,
+      312
+    ]
+  },
+  {
+    "id": "dokdo-volunteers",
+    "type": "icon",
+    "box": [
+      937,
+      249,
+      959,
+      271
+    ]
+  },
+  {
+    "id": "dokdo-volunteers",
+    "type": "label",
+    "box": [
+      965,
+      244,
+      1054.5,
+      276
+    ]
+  }
+]

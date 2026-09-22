@@ -10,6 +10,11 @@
     "sha256": "852e3a04765bb38c5c62401633c3bf288b7a3522a7a27b0ba0a4f928c1afd03b"
   },
   {
+    "path": "assets/geography/game-label-positions.json",
+    "bytes": 1483,
+    "sha256": "76be0622b337e632628fa8b6dfb65e46506fb0f2d58d081d19bf130ddb6671b9"
+  },
+  {
     "path": "assets/geography/game-map.json",
     "bytes": 21110,
     "sha256": "6d2b9b09081e21af74fbaad44be653c4ce671569e9b86d2a1d8d9ab7457e63ec"
@@ -18,6 +23,11 @@
     "path": "assets/geography/sources.json",
     "bytes": 1552,
     "sha256": "cc0d019c4940a5fef2bc43f1fa048d1a7c0ef04b9ee6e88127957738c6e40061"
+  },
+  {
+    "path": "assets/geography/tourism-landmarks.json",
+    "bytes": 4117,
+    "sha256": "cf242d7168b18d1041da4b35e488dd1c288582a1bc9bee23e23d6820590ecbb1"
   },
   {
     "path": "assets/geography/ulleung-relief.webp",
@@ -91,13 +101,13 @@
   },
   {
     "path": "assets/v07/board-map.svg",
-    "bytes": 1143223,
-    "sha256": "02456a974a13d4e5ea2b48f8858e7a0f93133b416481c98aabb204d896800a91"
+    "bytes": 1171940,
+    "sha256": "04c6202870eb0e390fced4845a41ccced712e4ff9d54602919ea256b3f4cfe05"
   },
   {
     "path": "assets/v07/board.svg",
-    "bytes": 1171037,
-    "sha256": "6f5cf81471338cca3be254784ca6a778f27d15cee8040b454f08584b1b03a526"
+    "bytes": 1197082,
+    "sha256": "79fc9cd790de0063dfff6affcc45481fcf19804f6a896ac2232826926be02ced"
   },
   {
     "path": "assets/v07/book-cover-0.svg",
@@ -2888,6 +2898,11 @@
     "path": "assets/v07/promo/ulleung-marble-play.mp4",
     "bytes": 9648251,
     "sha256": "8e0f64dbfa0567246ed484676a5769e2c40d3ec5c54c162eedc5ad7868944c54"
+  },
+  {
+    "path": "assets/v07/tourism-boxes.json",
+    "bytes": 2632,
+    "sha256": "37e5ae5dc6c0b65a7af8136c77a24e42facf828f512d2bf588cb76b4ff816f39"
   },
   {
     "path": "favicon.svg",

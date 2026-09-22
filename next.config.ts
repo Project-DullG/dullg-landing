@@ -6,6 +6,9 @@ import { fileURLToPath } from "node:url";
 const projectRoot = dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return [{ source: "/games/ulleung-marble", destination: "/ulleung-marble/index.html" }];
+  },
   turbopack: {
     root: projectRoot,
   },

@@ -1,0 +1,1954 @@
+{
+  "version": "0.7-prototype",
+  "cards": [
+    {
+      "id": "teal-01",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/teal-01-front.svg",
+      "back": "cards/teal-01-back.svg"
+    },
+    {
+      "id": "teal-02",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/teal-02-front.svg",
+      "back": "cards/teal-02-back.svg"
+    },
+    {
+      "id": "teal-03",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/teal-03-front.svg",
+      "back": "cards/teal-03-back.svg"
+    },
+    {
+      "id": "teal-04",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/teal-04-front.svg",
+      "back": "cards/teal-04-back.svg"
+    },
+    {
+      "id": "teal-05",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/teal-05-front.svg",
+      "back": "cards/teal-05-back.svg"
+    },
+    {
+      "id": "teal-06",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/teal-06-front.svg",
+      "back": "cards/teal-06-back.svg"
+    },
+    {
+      "id": "teal-07",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/teal-07-front.svg",
+      "back": "cards/teal-07-back.svg"
+    },
+    {
+      "id": "teal-08",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/teal-08-front.svg",
+      "back": "cards/teal-08-back.svg"
+    },
+    {
+      "id": "teal-09",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/teal-09-front.svg",
+      "back": "cards/teal-09-back.svg"
+    },
+    {
+      "id": "teal-10",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/teal-10-front.svg",
+      "back": "cards/teal-10-back.svg"
+    },
+    {
+      "id": "blue-01",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/blue-01-front.svg",
+      "back": "cards/blue-01-back.svg"
+    },
+    {
+      "id": "blue-02",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/blue-02-front.svg",
+      "back": "cards/blue-02-back.svg"
+    },
+    {
+      "id": "blue-03",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/blue-03-front.svg",
+      "back": "cards/blue-03-back.svg"
+    },
+    {
+      "id": "blue-04",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/blue-04-front.svg",
+      "back": "cards/blue-04-back.svg"
+    },
+    {
+      "id": "blue-05",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/blue-05-front.svg",
+      "back": "cards/blue-05-back.svg"
+    },
+    {
+      "id": "blue-06",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/blue-06-front.svg",
+      "back": "cards/blue-06-back.svg"
+    },
+    {
+      "id": "blue-07",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/blue-07-front.svg",
+      "back": "cards/blue-07-back.svg"
+    },
+    {
+      "id": "blue-08",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/blue-08-front.svg",
+      "back": "cards/blue-08-back.svg"
+    },
+    {
+      "id": "blue-09",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/blue-09-front.svg",
+      "back": "cards/blue-09-back.svg"
+    },
+    {
+      "id": "blue-10",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/blue-10-front.svg",
+      "back": "cards/blue-10-back.svg"
+    },
+    {
+      "id": "orange-01",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/orange-01-front.svg",
+      "back": "cards/orange-01-back.svg"
+    },
+    {
+      "id": "orange-02",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/orange-02-front.svg",
+      "back": "cards/orange-02-back.svg"
+    },
+    {
+      "id": "orange-03",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/orange-03-front.svg",
+      "back": "cards/orange-03-back.svg"
+    },
+    {
+      "id": "orange-04",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/orange-04-front.svg",
+      "back": "cards/orange-04-back.svg"
+    },
+    {
+      "id": "orange-05",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/orange-05-front.svg",
+      "back": "cards/orange-05-back.svg"
+    },
+    {
+      "id": "orange-06",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/orange-06-front.svg",
+      "back": "cards/orange-06-back.svg"
+    },
+    {
+      "id": "orange-07",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/orange-07-front.svg",
+      "back": "cards/orange-07-back.svg"
+    },
+    {
+      "id": "orange-08",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/orange-08-front.svg",
+      "back": "cards/orange-08-back.svg"
+    },
+    {
+      "id": "orange-09",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/orange-09-front.svg",
+      "back": "cards/orange-09-back.svg"
+    },
+    {
+      "id": "orange-10",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/orange-10-front.svg",
+      "back": "cards/orange-10-back.svg"
+    },
+    {
+      "id": "ochre-01",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/ochre-01-front.svg",
+      "back": "cards/ochre-01-back.svg"
+    },
+    {
+      "id": "ochre-02",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/ochre-02-front.svg",
+      "back": "cards/ochre-02-back.svg"
+    },
+    {
+      "id": "ochre-03",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/ochre-03-front.svg",
+      "back": "cards/ochre-03-back.svg"
+    },
+    {
+      "id": "ochre-04",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/ochre-04-front.svg",
+      "back": "cards/ochre-04-back.svg"
+    },
+    {
+      "id": "ochre-05",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/ochre-05-front.svg",
+      "back": "cards/ochre-05-back.svg"
+    },
+    {
+      "id": "ochre-06",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/ochre-06-front.svg",
+      "back": "cards/ochre-06-back.svg"
+    },
+    {
+      "id": "ochre-07",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/ochre-07-front.svg",
+      "back": "cards/ochre-07-back.svg"
+    },
+    {
+      "id": "ochre-08",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/ochre-08-front.svg",
+      "back": "cards/ochre-08-back.svg"
+    },
+    {
+      "id": "ochre-09",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/ochre-09-front.svg",
+      "back": "cards/ochre-09-back.svg"
+    },
+    {
+      "id": "ochre-10",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/ochre-10-front.svg",
+      "back": "cards/ochre-10-back.svg"
+    },
+    {
+      "id": "green-01",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/green-01-front.svg",
+      "back": "cards/green-01-back.svg"
+    },
+    {
+      "id": "green-02",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/green-02-front.svg",
+      "back": "cards/green-02-back.svg"
+    },
+    {
+      "id": "green-03",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/green-03-front.svg",
+      "back": "cards/green-03-back.svg"
+    },
+    {
+      "id": "green-04",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/green-04-front.svg",
+      "back": "cards/green-04-back.svg"
+    },
+    {
+      "id": "green-05",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/green-05-front.svg",
+      "back": "cards/green-05-back.svg"
+    },
+    {
+      "id": "green-06",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/green-06-front.svg",
+      "back": "cards/green-06-back.svg"
+    },
+    {
+      "id": "green-07",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/green-07-front.svg",
+      "back": "cards/green-07-back.svg"
+    },
+    {
+      "id": "green-08",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/green-08-front.svg",
+      "back": "cards/green-08-back.svg"
+    },
+    {
+      "id": "green-09",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/green-09-front.svg",
+      "back": "cards/green-09-back.svg"
+    },
+    {
+      "id": "green-10",
+      "type": "조우",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/green-10-front.svg",
+      "back": "cards/green-10-back.svg"
+    },
+    {
+      "id": "C01",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C01-front.svg",
+      "back": "cards/C01-back.svg"
+    },
+    {
+      "id": "C02",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C02-front.svg",
+      "back": "cards/C02-back.svg"
+    },
+    {
+      "id": "C03",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C03-front.svg",
+      "back": "cards/C03-back.svg"
+    },
+    {
+      "id": "C04",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C04-front.svg",
+      "back": "cards/C04-back.svg"
+    },
+    {
+      "id": "C05",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C05-front.svg",
+      "back": "cards/C05-back.svg"
+    },
+    {
+      "id": "C06",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C06-front.svg",
+      "back": "cards/C06-back.svg"
+    },
+    {
+      "id": "C07",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C07-front.svg",
+      "back": "cards/C07-back.svg"
+    },
+    {
+      "id": "C08",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C08-front.svg",
+      "back": "cards/C08-back.svg"
+    },
+    {
+      "id": "C09",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C09-front.svg",
+      "back": "cards/C09-back.svg"
+    },
+    {
+      "id": "C10",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C10-front.svg",
+      "back": "cards/C10-back.svg"
+    },
+    {
+      "id": "C11",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C11-front.svg",
+      "back": "cards/C11-back.svg"
+    },
+    {
+      "id": "C12",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C12-front.svg",
+      "back": "cards/C12-back.svg"
+    },
+    {
+      "id": "C13",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C13-front.svg",
+      "back": "cards/C13-back.svg"
+    },
+    {
+      "id": "C14",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C14-front.svg",
+      "back": "cards/C14-back.svg"
+    },
+    {
+      "id": "C15",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C15-front.svg",
+      "back": "cards/C15-back.svg"
+    },
+    {
+      "id": "C16",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C16-front.svg",
+      "back": "cards/C16-back.svg"
+    },
+    {
+      "id": "C17",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C17-front.svg",
+      "back": "cards/C17-back.svg"
+    },
+    {
+      "id": "C18",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C18-front.svg",
+      "back": "cards/C18-back.svg"
+    },
+    {
+      "id": "C19",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C19-front.svg",
+      "back": "cards/C19-back.svg"
+    },
+    {
+      "id": "C20",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C20-front.svg",
+      "back": "cards/C20-back.svg"
+    },
+    {
+      "id": "C21",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C21-front.svg",
+      "back": "cards/C21-back.svg"
+    },
+    {
+      "id": "C22",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C22-front.svg",
+      "back": "cards/C22-back.svg"
+    },
+    {
+      "id": "C23",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C23-front.svg",
+      "back": "cards/C23-back.svg"
+    },
+    {
+      "id": "C24",
+      "type": "코스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/C24-front.svg",
+      "back": "cards/C24-back.svg"
+    },
+    {
+      "id": "scenery-1",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-1-front.svg",
+      "back": "cards/scenery-1-back.svg"
+    },
+    {
+      "id": "scenery-2",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-2-front.svg",
+      "back": "cards/scenery-2-back.svg"
+    },
+    {
+      "id": "scenery-3",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-3-front.svg",
+      "back": "cards/scenery-3-back.svg"
+    },
+    {
+      "id": "scenery-4",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-4-front.svg",
+      "back": "cards/scenery-4-back.svg"
+    },
+    {
+      "id": "scenery-5",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-5-front.svg",
+      "back": "cards/scenery-5-back.svg"
+    },
+    {
+      "id": "scenery-6",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-6-front.svg",
+      "back": "cards/scenery-6-back.svg"
+    },
+    {
+      "id": "scenery-7",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-7-front.svg",
+      "back": "cards/scenery-7-back.svg"
+    },
+    {
+      "id": "scenery-8",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-8-front.svg",
+      "back": "cards/scenery-8-back.svg"
+    },
+    {
+      "id": "scenery-9",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-9-front.svg",
+      "back": "cards/scenery-9-back.svg"
+    },
+    {
+      "id": "scenery-10",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-10-front.svg",
+      "back": "cards/scenery-10-back.svg"
+    },
+    {
+      "id": "scenery-11",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-11-front.svg",
+      "back": "cards/scenery-11-back.svg"
+    },
+    {
+      "id": "scenery-12",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-12-front.svg",
+      "back": "cards/scenery-12-back.svg"
+    },
+    {
+      "id": "scenery-13",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-13-front.svg",
+      "back": "cards/scenery-13-back.svg"
+    },
+    {
+      "id": "scenery-14",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-14-front.svg",
+      "back": "cards/scenery-14-back.svg"
+    },
+    {
+      "id": "scenery-15",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-15-front.svg",
+      "back": "cards/scenery-15-back.svg"
+    },
+    {
+      "id": "scenery-16",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-16-front.svg",
+      "back": "cards/scenery-16-back.svg"
+    },
+    {
+      "id": "scenery-17",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-17-front.svg",
+      "back": "cards/scenery-17-back.svg"
+    },
+    {
+      "id": "scenery-18",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-18-front.svg",
+      "back": "cards/scenery-18-back.svg"
+    },
+    {
+      "id": "scenery-19",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-19-front.svg",
+      "back": "cards/scenery-19-back.svg"
+    },
+    {
+      "id": "scenery-20",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-20-front.svg",
+      "back": "cards/scenery-20-back.svg"
+    },
+    {
+      "id": "scenery-21",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-21-front.svg",
+      "back": "cards/scenery-21-back.svg"
+    },
+    {
+      "id": "scenery-22",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-22-front.svg",
+      "back": "cards/scenery-22-back.svg"
+    },
+    {
+      "id": "scenery-23",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-23-front.svg",
+      "back": "cards/scenery-23-back.svg"
+    },
+    {
+      "id": "scenery-24",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-24-front.svg",
+      "back": "cards/scenery-24-back.svg"
+    },
+    {
+      "id": "scenery-25",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-25-front.svg",
+      "back": "cards/scenery-25-back.svg"
+    },
+    {
+      "id": "scenery-26",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-26-front.svg",
+      "back": "cards/scenery-26-back.svg"
+    },
+    {
+      "id": "scenery-27",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-27-front.svg",
+      "back": "cards/scenery-27-back.svg"
+    },
+    {
+      "id": "scenery-28",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-28-front.svg",
+      "back": "cards/scenery-28-back.svg"
+    },
+    {
+      "id": "scenery-29",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-29-front.svg",
+      "back": "cards/scenery-29-back.svg"
+    },
+    {
+      "id": "scenery-30",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-30-front.svg",
+      "back": "cards/scenery-30-back.svg"
+    },
+    {
+      "id": "scenery-31",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-31-front.svg",
+      "back": "cards/scenery-31-back.svg"
+    },
+    {
+      "id": "scenery-32",
+      "type": "풍경",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/scenery-32-front.svg",
+      "back": "cards/scenery-32-back.svg"
+    },
+    {
+      "id": "activity-1",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-1-front.svg",
+      "back": "cards/activity-1-back.svg"
+    },
+    {
+      "id": "activity-2",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-2-front.svg",
+      "back": "cards/activity-2-back.svg"
+    },
+    {
+      "id": "activity-3",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-3-front.svg",
+      "back": "cards/activity-3-back.svg"
+    },
+    {
+      "id": "activity-4",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-4-front.svg",
+      "back": "cards/activity-4-back.svg"
+    },
+    {
+      "id": "activity-5",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-5-front.svg",
+      "back": "cards/activity-5-back.svg"
+    },
+    {
+      "id": "activity-6",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-6-front.svg",
+      "back": "cards/activity-6-back.svg"
+    },
+    {
+      "id": "activity-7",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-7-front.svg",
+      "back": "cards/activity-7-back.svg"
+    },
+    {
+      "id": "activity-8",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-8-front.svg",
+      "back": "cards/activity-8-back.svg"
+    },
+    {
+      "id": "activity-9",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-9-front.svg",
+      "back": "cards/activity-9-back.svg"
+    },
+    {
+      "id": "activity-10",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-10-front.svg",
+      "back": "cards/activity-10-back.svg"
+    },
+    {
+      "id": "activity-11",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-11-front.svg",
+      "back": "cards/activity-11-back.svg"
+    },
+    {
+      "id": "activity-12",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-12-front.svg",
+      "back": "cards/activity-12-back.svg"
+    },
+    {
+      "id": "activity-13",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-13-front.svg",
+      "back": "cards/activity-13-back.svg"
+    },
+    {
+      "id": "activity-14",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-14-front.svg",
+      "back": "cards/activity-14-back.svg"
+    },
+    {
+      "id": "activity-15",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-15-front.svg",
+      "back": "cards/activity-15-back.svg"
+    },
+    {
+      "id": "activity-16",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-16-front.svg",
+      "back": "cards/activity-16-back.svg"
+    },
+    {
+      "id": "activity-17",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-17-front.svg",
+      "back": "cards/activity-17-back.svg"
+    },
+    {
+      "id": "activity-18",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-18-front.svg",
+      "back": "cards/activity-18-back.svg"
+    },
+    {
+      "id": "activity-19",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-19-front.svg",
+      "back": "cards/activity-19-back.svg"
+    },
+    {
+      "id": "activity-20",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-20-front.svg",
+      "back": "cards/activity-20-back.svg"
+    },
+    {
+      "id": "activity-21",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-21-front.svg",
+      "back": "cards/activity-21-back.svg"
+    },
+    {
+      "id": "activity-22",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-22-front.svg",
+      "back": "cards/activity-22-back.svg"
+    },
+    {
+      "id": "activity-23",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-23-front.svg",
+      "back": "cards/activity-23-back.svg"
+    },
+    {
+      "id": "activity-24",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-24-front.svg",
+      "back": "cards/activity-24-back.svg"
+    },
+    {
+      "id": "activity-25",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-25-front.svg",
+      "back": "cards/activity-25-back.svg"
+    },
+    {
+      "id": "activity-26",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-26-front.svg",
+      "back": "cards/activity-26-back.svg"
+    },
+    {
+      "id": "activity-27",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-27-front.svg",
+      "back": "cards/activity-27-back.svg"
+    },
+    {
+      "id": "activity-28",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-28-front.svg",
+      "back": "cards/activity-28-back.svg"
+    },
+    {
+      "id": "activity-29",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-29-front.svg",
+      "back": "cards/activity-29-back.svg"
+    },
+    {
+      "id": "activity-30",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-30-front.svg",
+      "back": "cards/activity-30-back.svg"
+    },
+    {
+      "id": "activity-31",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-31-front.svg",
+      "back": "cards/activity-31-back.svg"
+    },
+    {
+      "id": "activity-32",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-32-front.svg",
+      "back": "cards/activity-32-back.svg"
+    },
+    {
+      "id": "activity-33",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-33-front.svg",
+      "back": "cards/activity-33-back.svg"
+    },
+    {
+      "id": "activity-34",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-34-front.svg",
+      "back": "cards/activity-34-back.svg"
+    },
+    {
+      "id": "activity-35",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-35-front.svg",
+      "back": "cards/activity-35-back.svg"
+    },
+    {
+      "id": "activity-36",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-36-front.svg",
+      "back": "cards/activity-36-back.svg"
+    },
+    {
+      "id": "activity-37",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-37-front.svg",
+      "back": "cards/activity-37-back.svg"
+    },
+    {
+      "id": "activity-38",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-38-front.svg",
+      "back": "cards/activity-38-back.svg"
+    },
+    {
+      "id": "activity-39",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-39-front.svg",
+      "back": "cards/activity-39-back.svg"
+    },
+    {
+      "id": "activity-40",
+      "type": "체험",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/activity-40-front.svg",
+      "back": "cards/activity-40-back.svg"
+    },
+    {
+      "id": "food-1",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-1-front.svg",
+      "back": "cards/food-1-back.svg"
+    },
+    {
+      "id": "food-2",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-2-front.svg",
+      "back": "cards/food-2-back.svg"
+    },
+    {
+      "id": "food-3",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-3-front.svg",
+      "back": "cards/food-3-back.svg"
+    },
+    {
+      "id": "food-4",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-4-front.svg",
+      "back": "cards/food-4-back.svg"
+    },
+    {
+      "id": "food-5",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-5-front.svg",
+      "back": "cards/food-5-back.svg"
+    },
+    {
+      "id": "food-6",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-6-front.svg",
+      "back": "cards/food-6-back.svg"
+    },
+    {
+      "id": "food-7",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-7-front.svg",
+      "back": "cards/food-7-back.svg"
+    },
+    {
+      "id": "food-8",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-8-front.svg",
+      "back": "cards/food-8-back.svg"
+    },
+    {
+      "id": "food-9",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-9-front.svg",
+      "back": "cards/food-9-back.svg"
+    },
+    {
+      "id": "food-10",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-10-front.svg",
+      "back": "cards/food-10-back.svg"
+    },
+    {
+      "id": "food-11",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-11-front.svg",
+      "back": "cards/food-11-back.svg"
+    },
+    {
+      "id": "food-12",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-12-front.svg",
+      "back": "cards/food-12-back.svg"
+    },
+    {
+      "id": "food-13",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-13-front.svg",
+      "back": "cards/food-13-back.svg"
+    },
+    {
+      "id": "food-14",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-14-front.svg",
+      "back": "cards/food-14-back.svg"
+    },
+    {
+      "id": "food-15",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-15-front.svg",
+      "back": "cards/food-15-back.svg"
+    },
+    {
+      "id": "food-16",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-16-front.svg",
+      "back": "cards/food-16-back.svg"
+    },
+    {
+      "id": "food-17",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-17-front.svg",
+      "back": "cards/food-17-back.svg"
+    },
+    {
+      "id": "food-18",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-18-front.svg",
+      "back": "cards/food-18-back.svg"
+    },
+    {
+      "id": "food-19",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-19-front.svg",
+      "back": "cards/food-19-back.svg"
+    },
+    {
+      "id": "food-20",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-20-front.svg",
+      "back": "cards/food-20-back.svg"
+    },
+    {
+      "id": "food-21",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-21-front.svg",
+      "back": "cards/food-21-back.svg"
+    },
+    {
+      "id": "food-22",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-22-front.svg",
+      "back": "cards/food-22-back.svg"
+    },
+    {
+      "id": "food-23",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-23-front.svg",
+      "back": "cards/food-23-back.svg"
+    },
+    {
+      "id": "food-24",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-24-front.svg",
+      "back": "cards/food-24-back.svg"
+    },
+    {
+      "id": "food-25",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-25-front.svg",
+      "back": "cards/food-25-back.svg"
+    },
+    {
+      "id": "food-26",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-26-front.svg",
+      "back": "cards/food-26-back.svg"
+    },
+    {
+      "id": "food-27",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-27-front.svg",
+      "back": "cards/food-27-back.svg"
+    },
+    {
+      "id": "food-28",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-28-front.svg",
+      "back": "cards/food-28-back.svg"
+    },
+    {
+      "id": "food-29",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-29-front.svg",
+      "back": "cards/food-29-back.svg"
+    },
+    {
+      "id": "food-30",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-30-front.svg",
+      "back": "cards/food-30-back.svg"
+    },
+    {
+      "id": "food-31",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-31-front.svg",
+      "back": "cards/food-31-back.svg"
+    },
+    {
+      "id": "food-32",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-32-front.svg",
+      "back": "cards/food-32-back.svg"
+    },
+    {
+      "id": "food-33",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-33-front.svg",
+      "back": "cards/food-33-back.svg"
+    },
+    {
+      "id": "food-34",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-34-front.svg",
+      "back": "cards/food-34-back.svg"
+    },
+    {
+      "id": "food-35",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-35-front.svg",
+      "back": "cards/food-35-back.svg"
+    },
+    {
+      "id": "food-36",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-36-front.svg",
+      "back": "cards/food-36-back.svg"
+    },
+    {
+      "id": "food-37",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-37-front.svg",
+      "back": "cards/food-37-back.svg"
+    },
+    {
+      "id": "food-38",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-38-front.svg",
+      "back": "cards/food-38-back.svg"
+    },
+    {
+      "id": "food-39",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-39-front.svg",
+      "back": "cards/food-39-back.svg"
+    },
+    {
+      "id": "food-40",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-40-front.svg",
+      "back": "cards/food-40-back.svg"
+    },
+    {
+      "id": "food-41",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-41-front.svg",
+      "back": "cards/food-41-back.svg"
+    },
+    {
+      "id": "food-42",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-42-front.svg",
+      "back": "cards/food-42-back.svg"
+    },
+    {
+      "id": "food-43",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-43-front.svg",
+      "back": "cards/food-43-back.svg"
+    },
+    {
+      "id": "food-44",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-44-front.svg",
+      "back": "cards/food-44-back.svg"
+    },
+    {
+      "id": "food-45",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-45-front.svg",
+      "back": "cards/food-45-back.svg"
+    },
+    {
+      "id": "food-46",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-46-front.svg",
+      "back": "cards/food-46-back.svg"
+    },
+    {
+      "id": "food-47",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-47-front.svg",
+      "back": "cards/food-47-back.svg"
+    },
+    {
+      "id": "food-48",
+      "type": "미식",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/food-48-front.svg",
+      "back": "cards/food-48-back.svg"
+    },
+    {
+      "id": "fatigue-1",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-1-front.svg",
+      "back": "cards/fatigue-1-back.svg"
+    },
+    {
+      "id": "fatigue-2",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-2-front.svg",
+      "back": "cards/fatigue-2-back.svg"
+    },
+    {
+      "id": "fatigue-3",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-3-front.svg",
+      "back": "cards/fatigue-3-back.svg"
+    },
+    {
+      "id": "fatigue-4",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-4-front.svg",
+      "back": "cards/fatigue-4-back.svg"
+    },
+    {
+      "id": "fatigue-5",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-5-front.svg",
+      "back": "cards/fatigue-5-back.svg"
+    },
+    {
+      "id": "fatigue-6",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-6-front.svg",
+      "back": "cards/fatigue-6-back.svg"
+    },
+    {
+      "id": "fatigue-7",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-7-front.svg",
+      "back": "cards/fatigue-7-back.svg"
+    },
+    {
+      "id": "fatigue-8",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-8-front.svg",
+      "back": "cards/fatigue-8-back.svg"
+    },
+    {
+      "id": "fatigue-9",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-9-front.svg",
+      "back": "cards/fatigue-9-back.svg"
+    },
+    {
+      "id": "fatigue-10",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-10-front.svg",
+      "back": "cards/fatigue-10-back.svg"
+    },
+    {
+      "id": "fatigue-11",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-11-front.svg",
+      "back": "cards/fatigue-11-back.svg"
+    },
+    {
+      "id": "fatigue-12",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-12-front.svg",
+      "back": "cards/fatigue-12-back.svg"
+    },
+    {
+      "id": "fatigue-13",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-13-front.svg",
+      "back": "cards/fatigue-13-back.svg"
+    },
+    {
+      "id": "fatigue-14",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-14-front.svg",
+      "back": "cards/fatigue-14-back.svg"
+    },
+    {
+      "id": "fatigue-15",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-15-front.svg",
+      "back": "cards/fatigue-15-back.svg"
+    },
+    {
+      "id": "fatigue-16",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-16-front.svg",
+      "back": "cards/fatigue-16-back.svg"
+    },
+    {
+      "id": "fatigue-17",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-17-front.svg",
+      "back": "cards/fatigue-17-back.svg"
+    },
+    {
+      "id": "fatigue-18",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-18-front.svg",
+      "back": "cards/fatigue-18-back.svg"
+    },
+    {
+      "id": "fatigue-19",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-19-front.svg",
+      "back": "cards/fatigue-19-back.svg"
+    },
+    {
+      "id": "fatigue-20",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-20-front.svg",
+      "back": "cards/fatigue-20-back.svg"
+    },
+    {
+      "id": "fatigue-21",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-21-front.svg",
+      "back": "cards/fatigue-21-back.svg"
+    },
+    {
+      "id": "fatigue-22",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-22-front.svg",
+      "back": "cards/fatigue-22-back.svg"
+    },
+    {
+      "id": "fatigue-23",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-23-front.svg",
+      "back": "cards/fatigue-23-back.svg"
+    },
+    {
+      "id": "fatigue-24",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-24-front.svg",
+      "back": "cards/fatigue-24-back.svg"
+    },
+    {
+      "id": "fatigue-25",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-25-front.svg",
+      "back": "cards/fatigue-25-back.svg"
+    },
+    {
+      "id": "fatigue-26",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-26-front.svg",
+      "back": "cards/fatigue-26-back.svg"
+    },
+    {
+      "id": "fatigue-27",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-27-front.svg",
+      "back": "cards/fatigue-27-back.svg"
+    },
+    {
+      "id": "fatigue-28",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-28-front.svg",
+      "back": "cards/fatigue-28-back.svg"
+    },
+    {
+      "id": "fatigue-29",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-29-front.svg",
+      "back": "cards/fatigue-29-back.svg"
+    },
+    {
+      "id": "fatigue-30",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-30-front.svg",
+      "back": "cards/fatigue-30-back.svg"
+    },
+    {
+      "id": "fatigue-31",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-31-front.svg",
+      "back": "cards/fatigue-31-back.svg"
+    },
+    {
+      "id": "fatigue-32",
+      "type": "피로",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/fatigue-32-front.svg",
+      "back": "cards/fatigue-32-back.svg"
+    },
+    {
+      "id": "lap-1",
+      "type": "일주",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/lap-1-front.svg",
+      "back": "cards/lap-1-back.svg"
+    },
+    {
+      "id": "lap-2",
+      "type": "일주",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/lap-2-front.svg",
+      "back": "cards/lap-2-back.svg"
+    },
+    {
+      "id": "lap-3",
+      "type": "일주",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/lap-3-front.svg",
+      "back": "cards/lap-3-back.svg"
+    },
+    {
+      "id": "lap-4",
+      "type": "일주",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/lap-4-front.svg",
+      "back": "cards/lap-4-back.svg"
+    },
+    {
+      "id": "award-0",
+      "type": "보너스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/award-0-front.svg",
+      "back": "cards/award-0-back.svg"
+    },
+    {
+      "id": "award-1",
+      "type": "보너스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/award-1-front.svg",
+      "back": "cards/award-1-back.svg"
+    },
+    {
+      "id": "award-2",
+      "type": "보너스",
+      "widthMm": 58,
+      "heightMm": 90,
+      "front": "cards/award-2-front.svg",
+      "back": "cards/award-2-back.svg"
+    }
+  ],
+  "books": [
+    {
+      "name": "정하린",
+      "widthMm": 128,
+      "heightMm": 182,
+      "pages": 8
+    },
+    {
+      "name": "이도윤",
+      "widthMm": 128,
+      "heightMm": 182,
+      "pages": 8
+    },
+    {
+      "name": "김수진",
+      "widthMm": 128,
+      "heightMm": 182,
+      "pages": 8
+    },
+    {
+      "name": "박영호",
+      "widthMm": 128,
+      "heightMm": 182,
+      "pages": 8
+    },
+    {
+      "name": "최미경",
+      "widthMm": 128,
+      "heightMm": 182,
+      "pages": 8
+    },
+    {
+      "name": "윤태성",
+      "widthMm": 128,
+      "heightMm": 182,
+      "pages": 8
+    },
+    {
+      "name": "한정애",
+      "widthMm": 128,
+      "heightMm": 182,
+      "pages": 8
+    },
+    {
+      "name": "서재문",
+      "widthMm": 128,
+      "heightMm": 182,
+      "pages": 8
+    }
+  ],
+  "manual": {
+    "pages": 8,
+    "widthMm": 128,
+    "heightMm": 182
+  },
+  "board": {
+    "widthMm": 720,
+    "heightMm": 420,
+    "file": "board.svg"
+  },
+  "models": [
+    "box-0.glb",
+    "box-1.glb",
+    "box-2.glb",
+    "meeple-0.glb",
+    "meeple-1.glb",
+    "meeple-2.glb",
+    "meeple-3.glb",
+    "meeple-4.glb",
+    "meeple-5.glb",
+    "meeple-6.glb",
+    "meeple-7.glb",
+    "die-0.glb",
+    "die-1.glb",
+    "budget-marker-0.glb",
+    "budget-marker-1.glb",
+    "budget-marker-2.glb",
+    "budget-marker-3.glb",
+    "budget-marker-4.glb",
+    "budget-marker-5.glb",
+    "budget-marker-6.glb",
+    "budget-marker-7.glb"
+  ],
+  "physicalSpecs": "../../ulleung-marble/tabletop/v07/specs.mjs",
+  "notes": "실물 테스트용. GLB는 형상 검토용이며 3D 프린터 가공성·공차 검증 전입니다. 인쇄 칼선·도련·CMYK 분판은 포함하지 않습니다."
+}

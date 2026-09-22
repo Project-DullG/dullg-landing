@@ -10,6 +10,14 @@ export type PublicRoute = {
 
 export const publicRoutes: PublicRoute[] = [
   {
+    path: "/games/ulleung-marble",
+    title: "울릉마블",
+    description: "4–8명이 일곱 라운드 동안 여행지와 카드를 고르는 울릉도·독도 여행 보드게임. 플레이 영상과 모든 구성품, 함께 쓰는 게임 테이블을 살펴보세요.",
+    group: "studio",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  {
     path: "/activity/ulleung-high-session-3",
     title: "울릉고 방문 특강 · 3차시",
     description: "2026년 9월 19일 토요일 울릉고등학교에서 진행한 3차시 방문 특강 기록과 수업자료.",

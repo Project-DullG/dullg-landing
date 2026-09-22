@@ -1,0 +1,37 @@
+{
+  "accessed": "2026-09-22",
+  "coastline": {
+    "data": "© OpenStreetMap contributors",
+    "license": "ODbL 1.0",
+    "url": "https://www.openstreetmap.org/copyright",
+    "api": [
+      "https://api.openstreetmap.org/api/0.6/map?bbox=130.78,37.435,130.965,37.555",
+      "https://api.openstreetmap.org/api/0.6/map?bbox=131.85,37.232,131.887,37.252"
+    ]
+  },
+  "elevation": {
+    "data": "Mapzen Terrain Tiles; global elevation data courtesy of USGS",
+    "url": "https://registry.opendata.aws/terrain-tiles/",
+    "attribution": "https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+    "zoom": 12,
+    "note": "고도 수치를 해독한 뒤 음영을 계산함. 지형 경사와 높이를 임의 생성하지 않음."
+  },
+  "crosschecks": [
+    "https://dokdo.mofa.go.kr/kor/introduce/location.jsp",
+    "https://www.ulcruise.co.kr/www/ulleungdo/ulleung_map",
+    "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=6b426b60-2971-482b-9702-0572ccd727ef"
+  ],
+  "status": "해안선·고도와 장소 대표 지점을 같은 좌표계로 배치했습니다. game-map.json은 게임 칸·이동선·장소별 출처를 담습니다.",
+  "gameMap": {
+    "file": "game-map.json",
+    "nodes": 15,
+    "edges": 15,
+    "note": "OSM 도로·산책로를 단순화한 게임 연결선. 실제 통행 안내용이 아닙니다."
+  },
+  "dokdoLocator": {
+    "sameScaleForBothIslands": true,
+    "detailUsesSeparateScale": true,
+    "distanceKm": 87.4,
+    "source": "https://dokdo.mofa.go.kr/kor/introduce/location.jsp"
+  }
+}

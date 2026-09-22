@@ -20,13 +20,15 @@
       "position": [
         43,
         439
-      ]
+      ],
+      "relatedGameSpace": "taeha"
     },
     {
       "id": "namseo-monorail",
       "name": "남서모노레일",
       "lines": [
-        "남서모노레일"
+        "남서모노레일",
+        "남서일몰전망대"
       ],
       "anchor": [
         402,
@@ -37,7 +39,8 @@
       "position": [
         362,
         660
-      ]
+      ],
+      "relatedGameSpace": "namyang"
     },
     {
       "id": "dokdo-cablecar",
@@ -55,7 +58,8 @@
       "position": [
         656,
         676
-      ]
+      ],
+      "relatedGameSpace": "dokdo-museum"
     },
     {
       "id": "taeha-forest",
@@ -74,7 +78,8 @@
       "position": [
         361,
         518
-      ]
+      ],
+      "relatedGameSpace": "taeha"
     },
     {
       "id": "nari-flowers",
@@ -93,7 +98,8 @@
       "position": [
         665,
         411
-      ]
+      ],
+      "relatedGameSpace": "nari"
     },
     {
       "id": "nari-houses",
@@ -110,7 +116,8 @@
       "position": [
         706,
         282
-      ]
+      ],
+      "relatedGameSpace": "nari"
     },
     {
       "id": "suto-history",
@@ -127,7 +134,8 @@
       "position": [
         337,
         436
-      ]
+      ],
+      "relatedGameSpace": "taeha"
     },
     {
       "id": "usan-museum",
@@ -144,7 +152,8 @@
       "position": [
         473,
         641
-      ]
+      ],
+      "relatedGameSpace": "namyang"
     },
     {
       "id": "botanical-garden",
@@ -161,7 +170,8 @@
       "position": [
         525,
         685
-      ]
+      ],
+      "relatedGameSpace": "sadong"
     },
     {
       "id": "an-yong-bok",
@@ -178,7 +188,8 @@
       "position": [
         943,
         304
-      ]
+      ],
+      "relatedGameSpace": "seokpo"
     },
     {
       "id": "dokdo-volunteers",
@@ -196,7 +207,508 @@
       "position": [
         948,
         260
-      ]
+      ],
+      "relatedGameSpace": "seokpo"
+    },
+    {
+      "id": "marine-research",
+      "name": "울릉도·독도해양연구기지",
+      "icon": "research",
+      "position": [
+        111,
+        228
+      ],
+      "lines": [
+        "울릉도·독도",
+        "해양연구기지"
+      ],
+      "anchor": [
+        274,
+        322
+      ],
+      "relatedGameSpace": "hyeonpo-view",
+      "kind": "heritage"
+    },
+    {
+      "id": "seongbulsa",
+      "name": "성불사",
+      "icon": "temple",
+      "position": [
+        561,
+        278
+      ],
+      "lines": [
+        "성불사"
+      ],
+      "anchor": [
+        601,
+        288
+      ],
+      "relatedGameSpace": "cheonbu",
+      "kind": "heritage"
+    },
+    {
+      "id": "sinryeongsu",
+      "name": "신령수",
+      "icon": "water",
+      "position": [
+        645,
+        452
+      ],
+      "lines": [
+        "신령수"
+      ],
+      "anchor": [
+        604,
+        451
+      ],
+      "relatedGameSpace": "nari",
+      "kind": "nature"
+    },
+    {
+      "id": "ttan-rock",
+      "name": "딴바위",
+      "icon": "rock",
+      "position": [
+        751,
+        96
+      ],
+      "lines": [
+        "딴바위"
+      ],
+      "anchor": [
+        832,
+        98
+      ],
+      "relatedGameSpace": "samseon",
+      "kind": "nature"
+    },
+    {
+      "id": "ulleong-bridge",
+      "name": "울릉울렁다리",
+      "icon": "bridge",
+      "position": [
+        961,
+        380
+      ],
+      "lines": [
+        "울릉울렁다리"
+      ],
+      "anchor": [
+        884,
+        357
+      ],
+      "relatedGameSpace": "naesujeon",
+      "kind": "transport"
+    },
+    {
+      "id": "wood-pigeon",
+      "name": "흑비둘기서식지",
+      "icon": "bird",
+      "position": [
+        586,
+        610
+      ],
+      "lines": [
+        "흑비둘기",
+        "서식지"
+      ],
+      "anchor": [
+        745,
+        715
+      ],
+      "relatedGameSpace": "sadong",
+      "kind": "nature"
+    },
+    {
+      "id": "guksu-rock",
+      "name": "국수바위",
+      "icon": "cliff",
+      "position": [
+        468,
+        598
+      ],
+      "lines": [
+        "국수바위"
+      ],
+      "anchor": [
+        513,
+        720
+      ],
+      "relatedGameSpace": "namyang",
+      "kind": "nature"
+    },
+    {
+      "id": "namgeun-rock",
+      "name": "남근바위",
+      "icon": "rock",
+      "position": [
+        302,
+        670
+      ],
+      "lines": [
+        "남근바위"
+      ],
+      "anchor": [
+        382,
+        733
+      ],
+      "relatedGameSpace": "namyang",
+      "kind": "nature"
+    },
+    {
+      "id": "gajaegul-rock",
+      "name": "가재굴바위",
+      "icon": "rock",
+      "position": [
+        468,
+        900
+      ],
+      "lines": [
+        "가재굴바위"
+      ],
+      "anchor": [
+        605,
+        855
+      ],
+      "relatedGameSpace": "tonggumi",
+      "kind": "nature"
+    },
+    {
+      "id": "turtle-rock",
+      "name": "거북바위",
+      "icon": "rock",
+      "position": [
+        490,
+        861
+      ],
+      "lines": [
+        "거북바위"
+      ],
+      "anchor": [
+        572,
+        852
+      ],
+      "relatedGameSpace": "tonggumi",
+      "kind": "nature"
+    },
+    {
+      "id": "bear-rock",
+      "name": "곰바위",
+      "icon": "rock",
+      "position": [
+        124,
+        578
+      ],
+      "lines": [
+        "곰바위"
+      ],
+      "anchor": [
+        276,
+        647
+      ],
+      "relatedGameSpace": "manmul",
+      "kind": "nature"
+    },
+    {
+      "id": "mushroom-rock",
+      "name": "버섯바위",
+      "icon": "rock",
+      "position": [
+        145,
+        623
+      ],
+      "lines": [
+        "버섯바위"
+      ],
+      "anchor": [
+        310,
+        671
+      ],
+      "relatedGameSpace": "manmul",
+      "kind": "nature"
+    },
+    {
+      "id": "taeha-walk",
+      "name": "태하해안산책로",
+      "icon": "walk",
+      "position": [
+        47,
+        502
+      ],
+      "lines": [
+        "태하해안",
+        "산책로"
+      ],
+      "anchor": [
+        163,
+        377
+      ],
+      "relatedGameSpace": "taeha",
+      "kind": "nature"
+    },
+    {
+      "id": "jeongpung-view",
+      "name": "정풍포전망대",
+      "icon": "view",
+      "position": [
+        960,
+        347
+      ],
+      "lines": [
+        "정풍포전망대"
+      ],
+      "anchor": [
+        892,
+        234
+      ],
+      "relatedGameSpace": "seokpo",
+      "kind": "nature"
+    },
+    {
+      "id": "songgot",
+      "name": "송곳봉",
+      "icon": "mountain",
+      "position": [
+        515,
+        227
+      ],
+      "lines": [
+        "송곳봉"
+      ],
+      "anchor": [
+        540,
+        269
+      ],
+      "relatedGameSpace": "cheonbu",
+      "kind": "nature"
+    },
+    {
+      "id": "gitdae",
+      "name": "깃대봉",
+      "icon": "mountain",
+      "position": [
+        427,
+        372
+      ],
+      "lines": [
+        "깃대봉"
+      ],
+      "anchor": [
+        491,
+        369
+      ],
+      "relatedGameSpace": "heaven",
+      "kind": "nature"
+    },
+    {
+      "id": "albong",
+      "name": "알봉",
+      "icon": "mountain",
+      "position": [
+        720,
+        373
+      ],
+      "lines": [
+        "알봉"
+      ],
+      "anchor": [
+        698,
+        395
+      ],
+      "relatedGameSpace": "nari",
+      "kind": "nature"
+    },
+    {
+      "id": "cheondusan",
+      "name": "천두산",
+      "icon": "mountain",
+      "position": [
+        754,
+        435
+      ],
+      "lines": [
+        "천두산"
+      ],
+      "anchor": [
+        755,
+        488
+      ],
+      "relatedGameSpace": "bongrae",
+      "kind": "nature"
+    },
+    {
+      "id": "bipasan",
+      "name": "비파산",
+      "icon": "mountain",
+      "position": [
+        478,
+        566
+      ],
+      "lines": [
+        "비파산"
+      ],
+      "anchor": [
+        494,
+        681
+      ],
+      "relatedGameSpace": "namyang",
+      "kind": "nature"
+    },
+    {
+      "id": "dokdo-three-brothers",
+      "name": "삼형제굴바위",
+      "icon": "rock",
+      "position": [
+        1056,
+        812
+      ],
+      "lines": [
+        "삼형제굴바위"
+      ],
+      "anchor": [
+        1198,
+        823
+      ],
+      "kind": "nature",
+      "scope": "dokdo",
+      "relatedGameSpace": "jeodong"
+    },
+    {
+      "id": "dokdo-candle",
+      "name": "독도 촛대바위",
+      "icon": "rock",
+      "position": [
+        1081,
+        862
+      ],
+      "lines": [
+        "촛대바위"
+      ],
+      "anchor": [
+        1217,
+        869
+      ],
+      "kind": "nature",
+      "scope": "dokdo",
+      "relatedGameSpace": "jeodong"
+    },
+    {
+      "id": "dokdo-gate",
+      "name": "독립문바위",
+      "icon": "rock",
+      "position": [
+        1319,
+        823
+      ],
+      "lines": [
+        "독립문",
+        "바위"
+      ],
+      "anchor": [
+        1290,
+        856
+      ],
+      "kind": "nature",
+      "scope": "dokdo",
+      "relatedGameSpace": "jeodong"
+    },
+    {
+      "id": "dokdo-face",
+      "name": "얼굴바위",
+      "icon": "rock",
+      "position": [
+        1319,
+        874
+      ],
+      "lines": [
+        "얼굴",
+        "바위"
+      ],
+      "anchor": [
+        1274,
+        877
+      ],
+      "kind": "nature",
+      "scope": "dokdo",
+      "relatedGameSpace": "jeodong"
     }
-  ]
+  ],
+  "existingLandmarks": [
+    {
+      "name": "대풍감",
+      "space": "daepung"
+    },
+    {
+      "name": "예림원",
+      "space": "yerim"
+    },
+    {
+      "name": "울릉천국아트센터",
+      "space": "heaven"
+    },
+    {
+      "name": "천부해중전망대",
+      "space": "undersea"
+    },
+    {
+      "name": "나리분지",
+      "space": "nari"
+    },
+    {
+      "name": "성인봉",
+      "space": "seongin"
+    },
+    {
+      "name": "삼선암",
+      "space": "samseon"
+    },
+    {
+      "name": "석포일출일몰전망대",
+      "space": "seokpo"
+    },
+    {
+      "name": "관음도",
+      "space": "gwanum"
+    },
+    {
+      "name": "봉래폭포",
+      "space": "bongrae"
+    },
+    {
+      "name": "저동항",
+      "space": "jeodong"
+    },
+    {
+      "name": "촛대바위",
+      "space": "candle"
+    },
+    {
+      "name": "독도박물관",
+      "space": "dokdo-museum"
+    },
+    {
+      "name": "도동항",
+      "space": "dodong"
+    },
+    {
+      "name": "사동항",
+      "space": "sadong"
+    },
+    {
+      "name": "사자바위",
+      "space": "lion"
+    },
+    {
+      "name": "행남해안산책로",
+      "space": "haengnam"
+    }
+  ],
+  "existingMapFeatures": [
+    "태하등대",
+    "코끼리바위",
+    "죽도",
+    "독도"
+  ],
+  "gameLinkNote": "relatedGameSpace는 관광지 주변의 기존 게임 칸입니다. 아이콘 안내선은 이동 경로가 아니며 별도 칸, 비용, 보상을 만들지 않습니다. 독도 삽화는 기존 독도 조우의 참고 정보입니다."
 }

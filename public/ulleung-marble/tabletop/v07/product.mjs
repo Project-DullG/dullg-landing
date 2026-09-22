@@ -4,7 +4,7 @@ import {TRAVELER_COVERS} from './traveler-cover.mjs';
 // The example runs the real rules in memory; it never accesses the saved game.
 export function makeChoiceExample(data){
   const game=new Game(data,null,()=>.5);
-  game.start(data.characters.slice(0,4).map((c,i)=>({character:c.id,meeple:i,course:data.routes[i].id,arrival:'cruise'})));
+  game.start(data.characters.slice(0,4).map((c,i)=>({character:c.id,meeple:i,arrival:'cruise'})));
   game.s.round=3;game.s.stage='choose';game.p.node='seongin';game.p.budget=12;
   game.take(game.p,'fatigue',2);game.take(game.p,'activity',1);
   game.s.encounter='blue-07';game.s.decks.blue=game.s.decks.blue.filter(id=>id!=='blue-07');

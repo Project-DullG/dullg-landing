@@ -26,8 +26,8 @@
   },
   {
     "path": "assets/geography/tourism-landmarks.json",
-    "bytes": 4117,
-    "sha256": "cf242d7168b18d1041da4b35e488dd1c288582a1bc9bee23e23d6820590ecbb1"
+    "bytes": 13439,
+    "sha256": "6de2d14a9503514237d7c7caec031bce47121bc18f0c99e35f60120d2063c753"
   },
   {
     "path": "assets/geography/ulleung-relief.webp",
@@ -101,13 +101,13 @@
   },
   {
     "path": "assets/v07/board-map.svg",
-    "bytes": 1171940,
-    "sha256": "04c6202870eb0e390fced4845a41ccced712e4ff9d54602919ea256b3f4cfe05"
+    "bytes": 1209467,
+    "sha256": "9010dcb3060ba2990a23d515f1f6e688ec3b8844b248f33b1da02ccff7316179"
   },
   {
     "path": "assets/v07/board.svg",
-    "bytes": 1197082,
-    "sha256": "79fc9cd790de0063dfff6affcc45481fcf19804f6a896ac2232826926be02ced"
+    "bytes": 1235177,
+    "sha256": "a6203dcf7845884d7455ff4d584c18d4a668f91ddccd8da7b2b7b90f566533be"
   },
   {
     "path": "assets/v07/book-cover-0.svg",
@@ -2901,8 +2901,8 @@
   },
   {
     "path": "assets/v07/tourism-boxes.json",
-    "bytes": 2632,
-    "sha256": "37e5ae5dc6c0b65a7af8136c77a24e42facf828f512d2bf588cb76b4ff816f39"
+    "bytes": 8712,
+    "sha256": "8ffeb4a913c2f2f41b1c7e602c2402dc89e20cfa38be8701ed79d3ea45f8b7c8"
   },
   {
     "path": "favicon.svg",
@@ -2911,18 +2911,18 @@
   },
   {
     "path": "index.html",
-    "bytes": 21334,
-    "sha256": "b6526bf6113c7f9961aad071db658e4d4a09e20d60a638c3850fd5569609914b"
+    "bytes": 21734,
+    "sha256": "0087a7563711cdd525c2efc02c0ac46f2e9be7ce2cf1e15868b2d2d65e7a44dd"
   },
   {
     "path": "tabletop/components.html",
-    "bytes": 1280,
-    "sha256": "547e74101f24b89713e6dffde46ac7e31ed81def325229496314cfdf94173b03"
+    "bytes": 1684,
+    "sha256": "23d155fd8fd47e2514fbfb19cbb0cf7fe903123a756173111c42d3e820233f07"
   },
   {
     "path": "tabletop/master.html",
-    "bytes": 1983,
-    "sha256": "81c4a2e3c077264b1421ae69d62cde8c0eef745043ad2ce582e3a63620bbd23d"
+    "bytes": 2383,
+    "sha256": "fb8387e7cf3f18b2769594f9686db06bebeb7c8b5eda49936f0b10d4da1998ec"
   },
   {
     "path": "tabletop/models.mjs",
@@ -2931,8 +2931,8 @@
   },
   {
     "path": "tabletop/v07/app.mjs",
-    "bytes": 23189,
-    "sha256": "7c859a6aed5728fc4b45c85238b716e01bd77b5a39d86b305ec588d60261ac66"
+    "bytes": 23520,
+    "sha256": "6f87a58f79df7fdd0654dfd31a13d3ea53433308ab1697dc89630cd2d30c87b8"
   },
   {
     "path": "tabletop/v07/art.mjs",
@@ -2941,8 +2941,8 @@
   },
   {
     "path": "tabletop/v07/books.mjs",
-    "bytes": 5034,
-    "sha256": "73b4fa5c6c12ca2f80efd47358e1a075cddc04321dd6b38ce3240d03c7d1491e"
+    "bytes": 5396,
+    "sha256": "b13b815cbeda7a5a5e1394eb64b1093400568fa62528c0298982695fa07da976"
   },
   {
     "path": "tabletop/v07/box-model.mjs",
@@ -2953,6 +2953,11 @@
     "path": "tabletop/v07/box-textures.mjs",
     "bytes": 1397,
     "sha256": "ca82950442046c8fd3d846b2e8f769721ef487da27fb65d813ba9fff4cf05272"
+  },
+  {
+    "path": "tabletop/v07/character-courses.mjs",
+    "bytes": 4680,
+    "sha256": "4c15faf29090f22adf128cb2c045b0680d847d7d3e1be554d26d51d7532c049d"
   },
   {
     "path": "tabletop/v07/components.mjs",
@@ -2971,8 +2976,8 @@
   },
   {
     "path": "tabletop/v07/engine.mjs",
-    "bytes": 15542,
-    "sha256": "e23c50441d485f89a3908af92de88c5fb4007093e69c37e7c774e97ac53ae546"
+    "bytes": 15698,
+    "sha256": "48570545df016b35a3504c9722d76778f9ae6fca04eaa02e9eecab3be2984796"
   },
   {
     "path": "tabletop/v07/illustration-map.mjs",
@@ -2996,8 +3001,8 @@
   },
   {
     "path": "tabletop/v07/library.mjs",
-    "bytes": 25866,
-    "sha256": "23a7ddf500bc98a1705bc7c931debeb69a5298c774c6dd954ee4948d36d327d8"
+    "bytes": 26013,
+    "sha256": "924e7f9f66f19a7a6de294d63c8e2d46f452b772581464903155c29128ac7663"
   },
   {
     "path": "tabletop/v07/manual.css",
@@ -3006,8 +3011,8 @@
   },
   {
     "path": "tabletop/v07/manual.mjs",
-    "bytes": 17815,
-    "sha256": "dd64e18542006776ec45d17e01e4e62eddafb8a76991018718fb3ea7409cdae5"
+    "bytes": 17907,
+    "sha256": "ab175e7b0a32fda34310f3d5b8737714637d61164aa641b44bfcb99059c5d19e"
   },
   {
     "path": "tabletop/v07/miniatures.mjs",
@@ -3031,8 +3036,8 @@
   },
   {
     "path": "tabletop/v07/print.html",
-    "bytes": 4433,
-    "sha256": "b40e03a7c17463d9764135fbfec3da0c783b5e6b09bc50f18d6c5558f82183ed"
+    "bytes": 4837,
+    "sha256": "abe36624b530b5235e2ed17a5bd055f44829dff9c46b3e60ddce771976699367"
   },
   {
     "path": "tabletop/v07/print.mjs",
@@ -3051,8 +3056,8 @@
   },
   {
     "path": "tabletop/v07/product.mjs",
-    "bytes": 4678,
-    "sha256": "5dd3f1da828db125079be0c8830fa96424ca9b04e406aff44cea65104170524c"
+    "bytes": 4653,
+    "sha256": "15f6cbd5922cab120b30a0a2fe038d8565445fce85c181218b34d597e6fee9ba"
   },
   {
     "path": "tabletop/v07/specs.mjs",
@@ -3061,8 +3066,8 @@
   },
   {
     "path": "tabletop/v07/table.css",
-    "bytes": 29869,
-    "sha256": "03b9e7fb1b6eae3c80a324d02c19b6eae00b0b99c24ac332f50b50492c48c3ff"
+    "bytes": 31661,
+    "sha256": "38a7b161ba1034da57e858906d5f61d8227960db327d612c345aa8c68bd73624"
   },
   {
     "path": "tabletop/v07/travel-prices.mjs",

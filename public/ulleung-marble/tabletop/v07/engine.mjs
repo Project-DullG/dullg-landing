@@ -1,3 +1,4 @@
+import {characterCourse} from './character-courses.mjs';
 export const TAXI_COST=1;
 export const TYPES=['scenery','activity','food','fatigue','lap'];
 export const LABELS={scenery:'풍경',activity:'체험',food:'미식',fatigue:'피로',lap:'일주'};
@@ -17,6 +18,7 @@ export class Game{
  get p(){return this.s.players[this.s.turn];}
  need(stage){if(![].concat(stage).includes(this.s.stage))throw Error('지금은 이 동작을 할 수 없습니다.');}
  start(config){
+  config=config.map(p=>({...p,course:p.course??characterCourse(this.data,p.character).route.id}));
   if(config.length<4||config.length>8)throw Error('4~8명을 선택하세요.');
  for(const key of ['character','meeple','course'])if(new Set(config.map(p=>p[key])).size!==config.length)throw Error('여행자와 미플, 코스는 서로 다르게 골라야 합니다.');
   for(const c of config)if(!this.data.characters[c.character]||c.meeple<0||c.meeple>7||!this.data.routes.some(r=>r.id===c.course)||!['cruise','fast'].includes(c.arrival))throw Error('여행 준비 정보를 확인하세요.');

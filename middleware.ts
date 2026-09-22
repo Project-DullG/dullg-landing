@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import sourceOnlyPaths from "./lib/i18n/source-only.json";
 
 export function middleware(request: NextRequest) {
   const session = request.cookies.get("session")?.value;
@@ -8,6 +9,11 @@ export function middleware(request: NextRequest) {
   // This header affects language only; authorization still uses the session cookie.
   const english = prefixedEnglish || request.headers.get("x-dullg-locale") === "en";
   const pathname = prefixedEnglish ? originalPath.slice(3) || "/" : originalPath;
+  if (prefixedEnglish && sourceOnlyPaths.includes(pathname)) {
+    const url = request.nextUrl.clone();
+    url.pathname = pathname;
+    return NextResponse.redirect(url);
+  }
   const destination = (path: string) => new URL(`${english ? "/en" : ""}${path}`, request.url);
 
   // Protect /dashboard routes

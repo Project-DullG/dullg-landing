@@ -1,5 +1,6 @@
 import dictionary from "./en.json" with { type: "json" };
 import interfaceDictionary from "./en-interface.json" with { type: "json" };
+import sourceOnlyPaths from "./source-only.json" with { type: "json" };
 export type Locale = "ko" | "en";
 const decodeText = (text: string) =>
   text
@@ -163,5 +164,6 @@ export function localizedPath(href: string, locale: string) {
   )
     return href;
   const path = href.replace(/^\/en(?=\/|[?#]|$)/, "") || "/";
+  if (sourceOnlyPaths.includes(path.split(/[?#]/)[0])) return path;
   return locale === "en" ? `/en${path === "/" ? "" : path}` : path;
 }

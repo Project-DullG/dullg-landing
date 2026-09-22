@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { publicRoutes } from "../lib/routes.ts";
 import { works } from "../lib/works.ts";
 import { miniProjects } from "../lib/mini-projects.ts";
+import sourceOnlyPaths from "../lib/i18n/source-only.json" with { type: "json" };
 const origin = process.argv[2] || "http://localhost:3100";
 const save = process.argv.includes("--save");
 const routes = [
@@ -16,7 +17,12 @@ const results = [];
 for (let i = 0; i < routes.length; i += 4) {
   await Promise.all(
     routes.slice(i, i + 4).map(async (path) => {
-      for (const locale of ["ko", "en"]) {
+      if (sourceOnlyPaths.includes(path)) {
+        const response = await fetch(`${origin}/en${path}`, { redirect: "manual" });
+        if (![307, 308].includes(response.status) || new URL(response.headers.get("location"), origin).pathname !== path)
+          throw new Error(`Source-language redirect failed: ${path}`);
+      }
+      for (const locale of sourceOnlyPaths.includes(path) ? ["ko"] : ["ko", "en"]) {
         const url = `${origin}${locale === "en" ? "/en" : ""}${path === "/" ? "" : path}`;
         const response = await fetch(url, { signal: AbortSignal.timeout(120000) });
         const html = await response.text();

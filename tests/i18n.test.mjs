@@ -10,6 +10,8 @@ test("locale links preserve route details and leave files and external services 
   }
   assert.equal(localizedPath("/", "en"), "/en");
   assert.equal(localizedPath("/en", "ko"), "/");
+  assert.equal(localizedPath("/games/ulleung-marble#play", "en"), "/games/ulleung-marble#play");
+  assert.equal(localizedPath("/en/games/ulleung-marble?mode=play", "en"), "/games/ulleung-marble?mode=play");
   for (const path of [
     "#game",
     "https://example.com/",

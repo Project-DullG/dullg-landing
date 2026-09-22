@@ -7,7 +7,7 @@ test("mini portfolio gives series context without invented release dates or repe
   const index = await html("mini-projects");
   assert.match(index, /2026년 2월 시작/);
   assert.match(index, /두 달에 한 편/);
-  assert.match(index, /단서공방이 만든 퍼즐·카드·아케이드 게임입니다/);
+  assert.match(index, /이야기 속 사건을 조사하거나 퍼즐·카드·아케이드 게임을 골라/);
   assert.doesNotMatch(index, /2026년 9월 공개|설치·로그인 없이|계속 개발 중/);
   for (const slug of ["block-stack", "bumper-room", "lane-shift"])
     assert.match(index, new RegExp(`href="/mini-projects/${slug}"`));

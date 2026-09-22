@@ -30,9 +30,9 @@ test("home distinguishes a featured work from two related works and keeps real w
   }
   const sectionIds = [
     "brand-works-title",
-    "home-mini-title",
     "home-activity-title",
     "brand-education-title",
+    "home-mini-title",
     "apply",
   ];
   const positions = sectionIds.map((id) => page.indexOf(`id="${id}"`));
@@ -59,7 +59,8 @@ test("production process lives on about, while home retains company and educatio
   assert.doesNotMatch(home, /id="brand-method-title"|id="home-tools-title"|class="dash-preview"/);
   assert.match(home, /href="\/about"/);
   assert.match(home, /href="\/academy"/);
-  assert.match(home, /href="\/demo"/);
+  assert.match(academy, /href="\/demo"/);
+  assert.doesNotMatch(home, /brand-education-tools/);
   assert.match(about, /id="process"/);
   for (const stage of [
     "사건의 시작과 끝을 정합니다",

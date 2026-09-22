@@ -52,7 +52,7 @@ export default function AcademyPage() {
           </p>
           <p className={styles.notice}>
             {t(
-              "표지·인물 시트·한영 단서 카드와 안내 영상을 새로 정리했습니다. 게임은 4인 기준이며, 4차시 영어 수업 운영안은 파일럿에서 확인할 예정입니다.",
+              "인물 시트·한영 단서 카드·안내 영상을 미리 볼 수 있습니다. 게임은 4인 기준이며, 4차시 수업 운영안은 파일럿에서 검토할 예정입니다.",
             )}
           </p>
           <div className={styles.actions}>

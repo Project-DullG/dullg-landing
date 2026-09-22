@@ -29,7 +29,7 @@ export default function MiniProjectsPage() {
     <PageFrame>
       <PageIntro
         title={t("미니 프로젝트")}
-        description="단서공방이 만든 퍼즐·카드·아케이드 게임입니다."
+        description="단서공방이 만든 웹게임입니다. 이야기 속 사건을 조사하거나 퍼즐·카드·아케이드 게임을 골라 플레이해 보세요."
       >
         <span className={styles.seriesMeta}>
           <span>{t("2026년 2월 시작")}</span>

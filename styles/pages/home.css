@@ -214,16 +214,6 @@
   margin: 0;
   color: #717672;
 }
-.brand-education .brand-education-tools {
-  margin-block: 18px 8px;
-  font-size: 16px;
-  color: var(--text-muted);
-}
-.brand-education-tools a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
 .brand-education > div > div > a {
   min-height: 44px;
   display: inline-flex;

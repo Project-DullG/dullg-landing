@@ -30,6 +30,10 @@ test("September 16 online class has a dated bilingual record and privacy-edited 
     assert.ok(html.includes("ulleung-online-startup-2026-09-16-meeting.webp"));
     assert.ok(html.includes("<figcaption>"));
     assert.ok(html.includes(`href="/${locale}activity/ulleung-high-living-lab"`));
+    const article = html.match(/<article\b[\s\S]*?<\/article>/)?.[0] || "";
+    assert.ok(article.includes(locale ? "Comparing three ideas suggested by AI" : "AI가 제안한 아이디어 세 가지를 비교했습니다"));
+    assert.ok(article.includes(locale ? "revenue model" : "수익 구조"));
+    assert.ok(article.includes(`href="/${locale}materials/modoo-startup#review"`));
   }
 });
 

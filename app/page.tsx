@@ -34,12 +34,12 @@ export default function Home() {
             kicker="단서공방 · ProjectDullG"
             title={t(
               <>
-                {t("이야기를 만들고,")}
+                {t("함께 푸는 추리 게임,")}
                 <br />
-                <em>{t("단서를 엮습니다.")}</em>
+                <em>{t("직접 만드는 콘텐츠 수업")}</em>
               </>,
             )}
-            lead="단서공방은 머더미스터리 작품을 만들고, 게임과 AI를 활용한 콘텐츠 제작 수업을 진행합니다."
+            lead="머더미스터리를 제작하고, 게임·AI를 활용한 콘텐츠 제작 수업을 진행합니다."
           />
           <div className="brand-hero-actions">
             <Link className="button button-dark" href="/works">
@@ -54,8 +54,6 @@ export default function Home() {
         </section>
 
         <HomeWorks />
-
-        <HomeMiniProjects />
 
         <section
           className={`shell ${activityStyles.section}`}
@@ -141,11 +139,6 @@ export default function Home() {
                   )),
                 )}
               </dl>
-              <p className="brand-education-tools">
-                {t("학원생\u00B7반\u00B7성적 관리 기능은")}
-                <Link href="/demo">{t("학원 관리 체험")}</Link>
-                {t("에서 가상 학생 데이터로 살펴볼 수 있습니다.")}
-              </p>
               <Link href="/academy">
                 {t("수업팩 자세히 보기")}
                 <ArrowRight size={17} weight="bold" aria-hidden="true" />
@@ -153,6 +146,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <HomeMiniProjects />
 
         <section className="brand-contact" id="apply" aria-labelledby="brand-contact-title">
           <div className="shell brand-contact-inner">

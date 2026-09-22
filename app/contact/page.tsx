@@ -30,7 +30,7 @@ export default function ContactPage() {
             {t(BRAND.email)}
           </a>
           <p>
-            {t("이메일 제목에 문의 유형과 이름을 간단히 적어주시면 더 빠르게 확인할 수 있습니다.")}
+            {t("제목에는 ‘교육 문의’ 또는 ‘작품 제작 문의’처럼 문의할 내용을 적어주세요.")}
           </p>
           <p className="contact-response">{t(BRAND.responseTime)}</p>
           <Link className="text-link" href="/academy/pilot">
@@ -56,7 +56,7 @@ export default function ContactPage() {
             </li>
             <li>
               <b>{t("문의 내용")}</b>
-              <span>{t("확인이 필요한 내용을 구체적으로 적어주세요")}</span>
+              <span>{t("교육은 대상·인원·주제를, 제작 의뢰는 필요한 결과물을 적어주세요. 아직 정하지 않은 항목은 생략해도 됩니다.")}</span>
             </li>
           </ul>
         </div>

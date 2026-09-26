@@ -28,6 +28,9 @@
 }
 .brand-hero p {
   max-width: 620px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
   margin: 0;
   color: #666b67;
   font-size: 17px;
@@ -168,6 +171,22 @@
   gap: clamp(28px, 4vw, 64px);
   align-items: center;
 }
+.brand-education-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+  margin: 0;
+  padding-bottom: 24px;
+}
+.brand-education-cards img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+.brand-education-cards img:last-child {
+  transform: translateY(24px);
+}
 .brand-education h2 {
   margin: 14px 0 22px;
   font-size: var(--title-section);
@@ -197,16 +216,6 @@
 .brand-education dd {
   margin: 0;
   color: #717672;
-}
-.brand-education .brand-education-tools {
-  margin-block: 18px 8px;
-  font-size: 16px;
-  color: var(--text-muted);
-}
-.brand-education-tools a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 4px;
 }
 .brand-education > div > div > a {
   min-height: 44px;

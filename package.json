@@ -9,6 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "deploy:check": "node scripts/check-deploy-ready.mjs",
+    "deploy:production": "npm run deploy:check && vercel --prod",
     "test": "npm run build && node scripts/test-site.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",
@@ -21,7 +23,6 @@
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
-    "@cloudflare/workerd-darwin-arm64": "^1.20260515.1",
     "@opentelemetry/api": "^1.9.1",
     "@phosphor-icons/react": "^2.1.10",
     "drizzle-orm": "0.45.2",

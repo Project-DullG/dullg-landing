@@ -1,13 +1,13 @@
 import { ulleungPresentation } from "./presentations.ts";
 
-export const episodeTitle = "8시까지 두 열쇠";
-export const episodeSubtitle = "보충반의 사라진 열쇠";
+export const episodeTitle = "집에가고 싶어!";
+export const episodeSubtitle = "학원 보충반 미스터리 추리 게임";
 export const episodeFullTitle = `${episodeTitle} — ${episodeSubtitle}`;
 
 export const educationFacts = [
   ["4차시", "읽기부터 사건보고서까지"],
   ["초6~중1", "첫 파일럿 검토 기준"],
-  ["4~16명", "권장 수업 인원"],
+  ["4~16명", "4명씩 1팀 · 1~4팀 운영안"],
   ["30분 이내", "첫 수업 준비 목표"],
 ] as const;
 
@@ -51,10 +51,16 @@ type CourseMaterial = {
 
 export const courseMaterials: CourseMaterial[] = [
   {
-    title: "울릉고 리빙랩 2차시",
+    title: "울릉고 리빙랩 3차시",
     meta: "울릉고등학교 · 2026년 9월 19일",
     description: "창업 사례·사업모델·AI 활용·팀 구성 · 발표자료 58쪽",
     href: "/materials/ulleung-high-lesson-2",
+  },
+  {
+    title: "모두의 창업 · 아이디어부터 신청서까지",
+    meta: "울릉도 학생 대상 온라인 강의 · 2026년 9월 16일",
+    description: "수업 다시보기 강의노트 · 마스터 프롬프트 v2.0 · 신청 매뉴얼",
+    href: "/materials/modoo-startup",
   },
   {
     title: "울릉고 리빙랩 특강",

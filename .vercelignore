@@ -1,0 +1,9 @@
+.git
+node_modules
+.next
+.env*
+docs
+tests
+tmp
+output
+.design-audit

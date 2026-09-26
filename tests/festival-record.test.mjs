@@ -5,8 +5,9 @@ import { activityRecords } from "../lib/activities.ts";
 import { youthArtsFestival as festival } from "../lib/festival.ts";
 
 test("festival record is linked from home, activity and both language sitemaps", async () => {
-  assert.equal(activityRecords[0].href, festival.href);
-  assert.equal(activityRecords[0].type, "전시");
+  const record = activityRecords.find((item) => item.href === festival.href);
+  assert.ok(record);
+  assert.equal(record.type, "전시");
   for (const locale of ["", "en/"]) {
     for (const page of ["index", "activity"]) {
       const html = await readFile(`.test-output/pages/${locale}${page}.html`, "utf8");

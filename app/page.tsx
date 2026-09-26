@@ -4,7 +4,6 @@ import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "@/components/i18n/link";
 import Image from "next/image";
 import { BrandFilm } from "@/components/brand-film";
-import { EpisodeTrailer } from "@/components/episode-trailer";
 import { Footer, Header, Kicker } from "@/components/site";
 import { SectionHead } from "@/components/section-head";
 import { educationFacts } from "@/lib/education";
@@ -36,12 +35,12 @@ export default function Home() {
             kicker="단서공방 · ProjectDullG"
             title={t(
               <>
-                {t("이야기를 만들고,")}
+                {t("함께 푸는 추리 게임,")}
                 <br />
-                <em>{t("단서를 엮습니다.")}</em>
+                <em>{t("직접 만드는 콘텐츠 수업")}</em>
               </>,
             )}
-            lead="단서공방은 머더미스터리 작품을 만들고, 게임과 AI를 활용한 콘텐츠 제작 수업을 진행합니다."
+            lead="머더미스터리를 제작하고, 게임·AI를 활용한 콘텐츠 제작 수업을 진행합니다."
           />
           <div className="brand-hero-actions">
             <Link className="button button-dark" href="/works">
@@ -55,11 +54,9 @@ export default function Home() {
           </div>
         </section>
 
-        <BrandFilm />
-
         <HomeWorks />
 
-        <HomeMiniProjects />
+        <BrandFilm />
 
         <section
           className={`shell ${activityStyles.section}`}
@@ -107,9 +104,24 @@ export default function Home() {
 
         <section className="brand-education" aria-labelledby="brand-education-title">
           <div className="shell brand-education-grid">
-            <EpisodeTrailer id="two-keys-trailer" showEpisodeLink />
+            <figure className="brand-education-cards">
+              <Image
+                src="/assets/academy-remake/cover.webp"
+                width={944}
+                height={1330}
+                alt={t("집에가고 싶어! 규칙서 표지")}
+                sizes="(max-width: 760px) 45vw, 22vw"
+              />
+              <Image
+                src="/assets/academy-remake/card-front.webp"
+                width={408}
+                height={650}
+                alt={t("리메이크한 영어 단서 카드 · 영어책과 쪽지")}
+                sizes="(max-width: 760px) 45vw, 22vw"
+              />
+            </figure>
             <div>
-              <Kicker>{t("준비 중 \u00B7 영어 미스터리 수업팩")}</Kicker>
+              <Kicker>{t("집에가고 싶어! · 영어 미스터리 수업팩")}</Kicker>
               <h2 id="brand-education-title">
                 {t("영어 단서를 읽고")}
                 <br />
@@ -117,7 +129,7 @@ export default function Home() {
               </h2>
               <p>
                 {t(
-                  "학생마다 다른 단서를 읽고 서로 질문합니다. 마지막에는 선택한 근거와 판단을 영어 사건보고서로 정리합니다.",
+                  "네 학생의 가방 속 단서를 영어로 읽고, 질문과 토론으로 사라진 열쇠를 찾습니다. 수업에서는 선택한 인물과 그 근거를 영어 사건보고서로 정리합니다.",
                 )}
               </p>
               <dl>
@@ -130,11 +142,6 @@ export default function Home() {
                   )),
                 )}
               </dl>
-              <p className="brand-education-tools">
-                {t("학원생\u00B7반\u00B7성적 관리 기능은")}
-                <Link href="/demo">{t("학원 관리 체험")}</Link>
-                {t("에서 가상 학생 데이터로 살펴볼 수 있습니다.")}
-              </p>
               <Link href="/academy">
                 {t("수업팩 자세히 보기")}
                 <ArrowRight size={17} weight="bold" aria-hidden="true" />
@@ -142,6 +149,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <HomeMiniProjects />
 
         <section className="brand-contact" id="apply" aria-labelledby="brand-contact-title">
           <div className="shell brand-contact-inner">

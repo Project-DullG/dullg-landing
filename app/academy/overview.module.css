@@ -197,3 +197,10 @@
     grid-template-columns: 92px minmax(0, 1fr);
   }
 }
+.workTitle {
+  font-size: 24px;
+  font-weight: 800;
+  color: #b5473e;
+  letter-spacing: -0.025em;
+  margin: 0 0 20px;
+}

@@ -1,6 +1,6 @@
 {
-  "version": "0.10.0",
-  "sourceSha256": "530c0ea68c57a1054cf98bd2a80f94df4377f2e9fc53e2253735224d8d1e44c4",
+  "version": "0.79.0",
+  "sourceSha256": "93831bb25b7212272013ed78ef88704212d0d593e4a9dfa21debe20d684b91ef",
   "modules": [
     "assets",
     "story",
@@ -13,7 +13,19 @@
     "model",
     "guide",
     "deduction",
+    "opening",
+    "clock",
+    "reactions-data",
+    "reactions",
     "comfort",
+    "echo-data",
+    "echo",
+    "abilities",
+    "content-data",
+    "content",
+    "progression",
+    "short-cases-data",
+    "short-cases",
     "storage",
     "bgm-policy",
     "music-mixer",
@@ -21,7 +33,20 @@
     "portrait-bounds",
     "presentation-cues",
     "presentation",
-    "app"
+    "cinematic",
+    "conversation-view",
+    "content-view",
+    "growth-view",
+    "short-cases-view",
+    "echo-view",
+    "series-patch",
+    "joseon",
+    "continuity",
+    "app",
+    "academy-intake",
+    "academy",
+    "meta",
+    "meta-view"
   ],
-  "assetCount": 54
+  "assetCount": 104
 }

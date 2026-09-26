@@ -1,7 +1,5 @@
-import { UlleungMarbleFeature } from "@/components/ulleung-marble-feature";
-import { TideFeature } from '@/components/tide-room/feature';
-import { DischargeFeature } from '@/components/discharge-feature';
 import { GameFeature } from '@/components/game-feature';
+import { UlleungMarbleFeature } from "@/components/ulleung-marble-feature";
 import { useText } from "@/lib/i18n/use-text";
 import { localizeMetadata } from "@/lib/i18n/server";
 import { PageFrame } from "@/components/site";
@@ -31,7 +29,7 @@ export default function MiniProjectsPage() {
     <PageFrame>
       <PageIntro
         title={t("미니 프로젝트")}
-        description="단서공방이 만든 퍼즐·카드·아케이드 게임입니다."
+        description="단서공방이 만든 웹게임입니다. 이야기 속 사건을 조사하거나 퍼즐·카드·아케이드 게임을 골라 플레이해 보세요."
       >
         <span className={styles.seriesMeta}>
           <span>{t("2026년 2월 시작")}</span>
@@ -41,8 +39,6 @@ export default function MiniProjectsPage() {
       <div className={`shell ${styles.collection}`}>
         <UlleungMarbleFeature />
         <GameFeature id="last-screening" />
-        <DischargeFeature />
-        <TideFeature />
         {t(
           groups.map((group) => (
             <section className={styles.group} aria-labelledby={group.id} key={group.id}>

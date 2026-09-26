@@ -1,6 +1,8 @@
 import { getFundingProject, toKstDateString } from "./funding.ts";
 import { riseAward } from "./recognition.ts";
 import { youthArtsFestival } from "./festival.ts";
+import { ulleungOnlineLecture } from "./ulleung-online.ts";
+import { ulleungThirdLecture } from "./ulleung-third.ts";
 
 export type ActivityRecord = {
   /** ISO date or ISO range "YYYY-MM-DD/YYYY-MM-DD" */
@@ -17,6 +19,8 @@ const dg0 = getFundingProject("projectdg0");
 const dg1 = getFundingProject("projectdg1");
 
 export const activityRecords: ActivityRecord[] = [
+  { ...ulleungThirdLecture, type: "교육" },
+  { ...ulleungOnlineLecture, type: "교육" },
   { ...youthArtsFestival, type: "전시" },
   {
     date: "2026-09-05",

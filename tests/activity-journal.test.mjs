@@ -8,6 +8,35 @@ const records = [
   ["ulleung-ecotourism-ai", "2026-07-04", "/materials/ulleung-ecotourism-ai"],
 ];
 
+test("September 19 third session has redacted photos and the corrected material label", async () => {
+  for (const locale of ["", "en/"]) {
+    const html = await readFile(`.test-output/pages/${locale}activity/ulleung-high-session-3.html`, "utf8");
+    assert.equal((html.match(/<h1\b/g) || []).length, 1);
+    assert.ok(html.includes('<time dateTime="2026-09-19">'));
+    for (const kind of ["class", "workshop"])
+      assert.ok(html.includes(`ulleung-high-2026-09-19-${kind}.webp`));
+    assert.ok(html.includes(`href="/${locale}materials/ulleung-high-lesson-2"`));
+    const materials = await readFile(`.test-output/pages/${locale}materials/ulleung-high-lesson-2.html`, "utf8");
+    assert.ok(materials.includes(locale ? "Session 3" : "3차시"));
+    assert.ok(!materials.includes(locale ? "Living Lab · Lesson 2" : "리빙랩 2차시"));
+  }
+});
+
+test("September 16 online class has a dated bilingual record and privacy-edited image", async () => {
+  for (const locale of ["", "en/"]) {
+    const html = await readFile(`.test-output/pages/${locale}activity/ulleung-online-startup-2026.html`, "utf8");
+    assert.equal((html.match(/<h1\b/g) || []).length, 1);
+    assert.ok(html.includes('<time dateTime="2026-09-16">'));
+    assert.ok(html.includes("ulleung-online-startup-2026-09-16-meeting.webp"));
+    assert.ok(html.includes("<figcaption>"));
+    assert.ok(html.includes(`href="/${locale}activity/ulleung-high-living-lab"`));
+    const article = html.match(/<article\b[\s\S]*?<\/article>/)?.[0] || "";
+    assert.ok(article.includes(locale ? "Comparing three ideas suggested by AI" : "AI가 제안한 아이디어 세 가지를 비교했습니다"));
+    assert.ok(article.includes(locale ? "revenue model" : "수익 구조"));
+    assert.ok(article.includes(`href="/${locale}materials/modoo-startup#review"`));
+  }
+});
+
 test("activity articles have one title, dated bylines, captioned photos and related links", async () => {
   for (const [slug, date, related] of records) {
     for (const locale of ["", "en/"]) {

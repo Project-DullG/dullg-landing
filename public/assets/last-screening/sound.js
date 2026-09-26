@@ -4,7 +4,7 @@
  */
 (function(root){'use strict';
  let ctx=null,unlocked=false,settings={...root.STORAGE.defaults},place='title',phase='night',decision={key:null,paused:false};
- let ambientNodes=[],ambientMaster=null,ambientKey='',lastError='',muted=false,paused=false;
+ let ambientNodes=[],ambientMaster=null,ambientKey='',ambientMedia=null,ambientFileKey='',lastError='',muted=false,paused=false;
  let speechToken=0,speechKey='',speechKind=null,speechPending=false,speechStarted=false,speechDeadline=0,duckUntil=0;
  const reported=new Set();
  const clamp=v=>Math.max(0,Math.min(1,Number(v)||0)),now=()=>performance.now();
@@ -18,27 +18,31 @@
   return ctx;
  }
  function resumeContext(){try{const c=context();if(c.state==='suspended')c.resume().catch(()=>warn('context','효과음·환경음을 활성화하지 못했습니다. 음악과 게임 진행은 별도로 유지됩니다.'));}catch(e){warn('context','이 기기에서는 효과음·환경음을 활성화할 수 없습니다.');}}
- function stopAmbient(){for(const n of ambientNodes){try{n.stop?.();}catch(e){}try{n.disconnect?.();}catch(e){}}ambientNodes=[];ambientMaster=null;ambientKey='';}
+ function stopAmbient(){for(const n of ambientNodes){try{n.stop?.();}catch(e){}try{n.disconnect?.();}catch(e){}}ambientNodes=[];ambientMaster=null;ambientKey='';if(ambientMedia){try{ambientMedia.pause();ambientMedia.removeAttribute('src');ambientMedia.load();}catch(e){}ambientMedia=null;}ambientFileKey='';}
  function ambient(){
   if(!unlocked||place==='title'){stopAmbient();return;}
+  const fileMap={office:'amb_01_office','echo-exterior':'amb_02_rain',lobby:'amb_03_lobby',auditorium:'amb_04_auditorium',projection:'amb_05_projection',archive:'amb_07_archive','echo-resonance':'amb_08_resonance'};
+  const fileKey=fileMap[place],src=fileKey&&root.ASSETS?.[fileKey];
+  if(src){
+   if(fileKey!==ambientFileKey||!ambientMedia){stopAmbient();ambientFileKey=fileKey;try{const a=new Audio(src);a.loop=true;a.preload='auto';a.volume=0;ambientMedia=a;}catch(e){ambientMedia=null;warn('ambient-file','환경음을 준비하지 못했습니다. 게임 진행에는 영향이 없습니다.');}}
+   if(ambientMedia){const target=paused||muted||speechKind==='evidence'?0:clamp(settings.ambientVolume)*.42;ambientMedia.volume=target;
+    if(target>0&&ambientMedia.paused)Promise.resolve(ambientMedia.play()).catch(()=>warn('ambient-file:'+fileKey,'환경음을 재생하지 못했습니다. 해당 공간은 무음으로 진행됩니다.'));
+    else if(target===0&&!ambientMedia.paused)ambientMedia.pause();
+   }
+   return;
+  }
+  // Fallback synthesized room tone for locations without a packaged ambience file.
   const key=place;
-  if(key!==ambientKey){stopAmbient();ambientKey=key;
+  if(key!==ambientKey){for(const n of ambientNodes){try{n.stop?.();}catch(e){}try{n.disconnect?.();}catch(e){}}ambientNodes=[];ambientMaster=null;ambientKey=key;
    if(!settings.ambientVolume||paused||muted)return;
    try{const c=context();ambientMaster=c.createGain();ambientMaster.gain.value=0;ambientMaster.connect(c.destination);ambientNodes.push(ambientMaster);
-    for(const [f,amp] of (place==='projection'?[[82,.8],[164,.14]]:[[98,.22],[196,.08]])){
-     const o=c.createOscillator(),g=c.createGain();o.frequency.value=f;g.gain.value=amp;o.connect(g).connect(ambientMaster);o.start();ambientNodes.push(o,g);
-    }
-   }catch(e){warn('ambient','환경음을 재생하지 못했습니다. 화면과 전사로 계속 진행할 수 있습니다.');stopAmbient();return;}
+    for(const [f,amp] of (place==='projection'?[[82,.8],[164,.14]]:[[98,.22],[196,.08]])){const o=c.createOscillator(),g=c.createGain();o.frequency.value=f;g.gain.value=amp;o.connect(g).connect(ambientMaster);o.start();ambientNodes.push(o,g);}
+   }catch(e){warn('ambient','환경음을 재생하지 못했습니다. 화면과 전사로 계속 진행할 수 있습니다.');for(const n of ambientNodes){try{n.stop?.();}catch(e){}try{n.disconnect?.();}catch(e){}}ambientNodes=[];ambientMaster=null;return;}
   }
-  // Recreate after a previously zero-volume/paused entry, not on every line.
   if(!ambientMaster&&!paused&&!muted&&settings.ambientVolume){ambientKey='';ambient();return;}
-  if(ambientMaster){const t=ctx.currentTime,target=paused||muted||speechKind==='evidence'?0:clamp(settings.ambientVolume)*.035;
-   ambientMaster.gain.cancelScheduledValues(t);
-   if(speechKind==='evidence'||muted)ambientMaster.gain.setValueAtTime(target,t);
-   else ambientMaster.gain.setTargetAtTime(target,t,.05);
-  }
+  if(ambientMaster){const t=ctx.currentTime,target=paused||muted||speechKind==='evidence'?0:clamp(settings.ambientVolume)*.035;ambientMaster.gain.cancelScheduledValues(t);if(speechKind==='evidence'||muted)ambientMaster.gain.setValueAtTime(target,t);else ambientMaster.gain.setTargetAtTime(target,t,.05);}
  }
- function factor(){return speechKind==='evidence'?0:((speechKind==='dialogue'||now()<duckUntil)?0.3:1);}
+ function factor(){return (speechKind==='evidence'?0:((speechKind==='dialogue'||now()<duckUntil)?0.3:1))*(Number.isFinite(decision.presentationGain)?clamp(decision.presentationGain):1);}
  function updateOutput(){
   const f=factor(),fullMute=!!settings.audioMuted;
   muted=fullMute||!!(settings.unfocusedMute&&document.hidden);paused=!!decision.paused||!!(settings.unfocusedMute&&document.hidden);
@@ -84,6 +88,9 @@
  let lastCue=null;
  function play(kind,volume){
   if(!unlocked||muted||paused||volume<=0)return;
+  const sampleMap={click:'fx_ui_select',confirm:'fx_ui_confirm',dialogue:'fx_dialogue_next',page:'fx_document_open',evidence:'fx_evidence_gain',contradiction:'fx_contradiction',solve:'fx_deduction_submit',resonance:'fx_resonance_begin',return:'fx_return_present',complete:'fx_case_complete',skill:'fx_skill_unlock'};
+  const sample=sampleMap[kind],src=sample&&root.ASSETS?.[sample];
+  if(src){try{const a=new Audio(src);a.preload='auto';a.volume=Math.max(0,Math.min(.75,clamp(volume)*.62));a.play().catch(()=>{});lastCue={kind,at:Math.round(now()),sample};return;}catch(e){/* synth fallback below */}}
   try{
    const c=context();if(c.state!=='running')return;const t=c.currentTime;
    const recipes={click:{notes:[490],wave:'triangle',gain:.018,length:.065,step:0},evidence:{notes:[392,588],wave:'sine',gain:.042,length:.27,step:.07},solve:{notes:[220,330,440],wave:'triangle',gain:.027,length:.48,step:.055},page:{notes:[],gain:0,length:.12,step:0}};
@@ -107,7 +114,7 @@
  },80);
  root.SOUND={unlock,sync,play,speak,stopSpeech,stopAmbient,hasKoreanVoice,
   speaking:()=>speechPending||speechStarted||!!root.speechSynthesis?.speaking,
-  status:()=>({...mixer.status(),ambientNodes:ambientNodes.length,ambientGain:ambientMaster?.gain.value||0,koreanVoice:hasKoreanVoice(),error:lastError,lastCue,muted,paused,speechKind,speechPending,duckFactor:factor(),contextState:ctx?.state||'locked'}),
+  status:()=>({...mixer.status(),ambientNodes:ambientNodes.length,ambientGain:ambientMaster?.gain.value||ambientMedia?.volume||0,ambientFile:ambientFileKey,koreanVoice:hasKoreanVoice(),error:lastError,lastCue,muted,paused,speechKind,speechPending,duckFactor:factor(),contextState:ctx?.state||'locked'}),
   dispose(){clearInterval(timer);stopSpeech();stopAmbient();mixer.dispose();ctx?.close?.();}
  };
  root.addEventListener('pagehide',()=>{decision={...decision,paused:true};stopSpeech();updateOutput();});

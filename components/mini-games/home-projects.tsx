@@ -1,6 +1,5 @@
-import { UlleungMarbleFeature } from "@/components/ulleung-marble-feature";
-import { TideFeature } from '@/components/tide-room/feature';
 import { useText } from "@/lib/i18n/use-text";
+import { UlleungMarbleFeature } from "@/components/ulleung-marble-feature";
 import Link from "@/components/i18n/link";
 import { Kicker } from "@/components/site";
 import { MiniProjectGrid } from "./project-grid";
@@ -17,7 +16,6 @@ export function HomeMiniProjects() {
         </div>
         <Link href="/mini-projects">{t("게임 전체 보기 →")}</Link>
       </div>
-      <TideFeature />
       <UlleungMarbleFeature />
       <MiniProjectGrid
         projects={["minesweeper", "solitaire", "block-stack"].flatMap((slug) =>

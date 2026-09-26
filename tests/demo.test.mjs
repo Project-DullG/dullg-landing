@@ -13,18 +13,17 @@ test("demo is reachable without login and clearly labels fictional records", asy
   assert.match(html, /noindex/);
 });
 
-test("home and academy lead directly to the demo", async () => {
+test("home leads to education and academy contains the labeled demo", async () => {
   for (const route of ["index", "academy"]) {
     const html = await readFile(
       new URL(`../.test-output/pages/${route}.html`, import.meta.url),
       "utf8",
     );
-    assert.match(html, /href="\/demo"/);
     if (route === "index") {
-      assert.match(html, /학원 관리 체험/);
-      assert.match(html, /가상 학생 데이터로/);
+      assert.match(html, /href="\/academy"/);
       assert.doesNotMatch(html, /class="dash-preview"/);
     } else {
+      assert.match(html, /href="\/demo"/);
       assert.match(html, /학원 관리 체험/);
       assert.match(html, /가상 학생 데이터를 사용합니다/);
       assert.match(html, /class="dash-preview"/);

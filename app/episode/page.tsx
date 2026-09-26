@@ -6,13 +6,7 @@ import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 import { SectionHead } from "@/components/section-head";
 import { EpisodeTrailer } from "@/components/episode-trailer";
 import trailerStyles from "@/components/episode-trailer.module.css";
-import {
-  curriculum,
-  educationFacts,
-  episodeFullTitle,
-  episodeSubtitle,
-  episodeTitle,
-} from "@/lib/education";
+import { curriculum, episodeFullTitle, episodeSubtitle, episodeTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 export async function generateMetadata() {
   return localizeMetadata(
@@ -26,22 +20,22 @@ const cast = [
   {
     num: "01",
     name: "윤지원",
-    image: "/assets/dullg/yoonjiwon.png",
+    image: "/assets/academy-remake/yoonjiwon.webp",
   },
   {
     num: "02",
     name: "박세준",
-    image: "/assets/dullg/parksejun.png",
+    image: "/assets/academy-remake/parksejun.webp",
   },
   {
     num: "03",
     name: "차하린",
-    image: "/assets/dullg/chaharin.png",
+    image: "/assets/academy-remake/chaharin.webp",
   },
   {
     num: "04",
     name: "한도경",
-    image: "/assets/dullg/handokyung.png",
+    image: "/assets/academy-remake/handokyung.webp",
   },
 ];
 export default function EpisodePage() {
@@ -61,18 +55,19 @@ export default function EpisodePage() {
                 <em>{t(episodeSubtitle)}</em>
               </>,
             )}
-            lead="시험 자료와 휴대폰을 꺼낼 두 열쇠가 사라졌습니다. 여덟 시까지 찾아야 하는데, 아직 확인하지 못한 곳은 네 학생의 가방입니다."
+            lead="금요일 저녁, 재시험을 앞둔 학원에서 자료함 열쇠와 핸드폰함 열쇠가 사라졌습니다. 아직 확인하지 못한 곳은 네 학생의 가방입니다."
           />
           <div className="ep-hero-chips">
-            {t(educationFacts.slice(0, 3).map(([value]) => <span key={value}>{t(value)}</span>))}
+            {t(
+              [["4인"], ["40~50분+"], ["한국어·영어 단서"]].map(([value]) => (
+                <span key={value}>{t(value)}</span>
+              )),
+            )}
           </div>
-          <Link className={`button button-dark ${trailerStyles.jumpLink}`} href="#episode-trailer">
-            {t("26초 예고편 보기")}
-          </Link>
         </div>
         <div className="ep-hero-visual">
           <Image
-            src="/assets/dullg/rulebook-cover.png"
+            src="/assets/academy-remake/cover.webp"
             alt={t(`${episodeTitle} 규칙서 표지`)}
             width={944}
             height={1330}
@@ -83,14 +78,11 @@ export default function EpisodePage() {
         </div>
       </section>
 
-      <section
-        className={`shell ${trailerStyles.section}`}
-        aria-labelledby="episode-trailer-heading"
-      >
-        <h2 id="episode-trailer-heading">{t("사건의 시작을 영상으로")}</h2>
-        <EpisodeTrailer id="episode-trailer" />
-      </section>
-
+      <div className="shell" style={{ marginBottom: 32 }}>
+        <Link className="button button-dark" href="/academy#remake-guide-title">
+          {t("시놉시스·룰 설명 영상 보기")}
+        </Link>
+      </div>
       {/* ── SETTING — large floor map ── */}
       <section className="ep-setting">
         <div className="shell ep-setting-inner">
@@ -103,18 +95,18 @@ export default function EpisodePage() {
             </h2>
             <p>
               {t(
-                "재시험을 치르러 온 네 학생. 시험 자료가 든 보관함과 휴대폰함을 열어야 하는데, 벽에 함께 걸려 있던 두 열쇠가 사라졌습니다.",
+                "열쇠가 없다는 사실을 확인했습니다. 자료함 열쇠와 핸드폰함 열쇠는 원래 원장실 입구 쪽 공용 볼펜 선반 안쪽에 함께 걸려 있었습니다.",
               )}
             </p>
             <p>
               {t(
-                "원장실 주변과 자습실, 복도를 찾아봤지만 열쇠는 나오지 않았습니다. 남은 곳은 네 사람의 가방. 여덟 시까지 찾지 못하면 재시험 미처리와 부모님 연락으로 이어집니다.",
+                "오늘 재시험을 치르지 못하면 토요일 오후 보충반에 다시 나와야 합니다. 아직 확인하지 못한 곳은 네 학생의 가방입니다. 공개되는 소지품을 비교하며 열쇠의 행방을 추리합니다.",
               )}
             </p>
           </div>
           <div className="ep-setting-map">
             <Image
-              src="/assets/dullg/floor-map-3f.png"
+              src="/assets/academy-remake/floor-map.svg"
               alt={t("3층 원장실과 자습실 평면도")}
               width={850}
               height={746}
@@ -195,6 +187,11 @@ export default function EpisodePage() {
             )),
           )}
         </div>
+      </section>
+
+      <section className={`shell ${trailerStyles.section}`} aria-labelledby="episode-trailer-heading">
+        <h2 id="episode-trailer-heading">{t("이전 버전 제작 영상")}</h2>
+        <EpisodeTrailer id="episode-trailer" />
       </section>
 
       {/* ── CTA ── */}

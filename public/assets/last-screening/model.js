@@ -12,6 +12,7 @@ function fresh(){return {schema:2,campaign:'expanded',guideVersion:1,phase:'nigh
 function migrate(s){
  if(!s||![1,2].includes(s.schema))throw Error('지원하지 않는 저장 형식입니다.');
  if(s.schema===1){s.schema=2;s.campaign='classic';s.scenesRead=[];s.delivery={plan:s.caseClosed?'private':null,previews:[]};s.activitiesDone=[];s.activityDrafts={};s.bookmarks=[];s.notes='';s.ending=s.completed?'B':null;}
+ if(Array.isArray(s.observed)&&s.observed.includes('r_desk'))s.observed=unique([...s.observed,'r_body','r_handle','r_files','r_cloth']);
  return s;
 }
 function locationOf(s,id){const p=D.people[id];if(!p)return null;if(s.caseClosed&&id==='jisu')return null;if(p.contact)return s.phase==='night'?null:p.laterLoc;return p.loc;}
@@ -19,13 +20,15 @@ function available(s,t){return !!t&&all(s.evidence,t.need)&&all(s.solved,t.solve
 function questions(s,id){return D.topics.filter(t=>t.npc===id&&available(s,t)&&(!s.caseClosed||t.phases?.includes('epilogue'))&&(!t.phone||s.phase==='night'));}
 function topic(id){return baseTopic(id);}
 function effectiveData(s,q=s.dialogue){if(!q)return null;const d=q.kind==='scene'?D.scenes[q.ref]:q.kind==='topic'?baseTopic(q.ref):hotspot(q.ref);if(!d)return null;if(q.variant>=0){const v=d.variants?.[q.variant];if(!v)return null;return {...d,lines:v.lines};}return d;}
-function lineId(s){const q=s.dialogue;return q?`${q.kind}/${q.ref}/${q.variant>=0?'v'+q.variant+'/':''}${q.index}`:null;}
-function currentLine(s){return effectiveData(s)?.lines[s.dialogue.index]||null;}
+function lineId(s){if(s.dialogue?.reaction&&root.REACTIONS.lineId(s))return root.REACTIONS.lineId(s);const q=s.dialogue;return q?`${q.kind}/${q.ref}/${q.variant>=0?'v'+q.variant+'/':''}${q.index}`:null;}
+function currentLine(s){if(s.dialogue?.reaction&&root.REACTIONS.currentLine(s))return root.REACTIONS.currentLine(s);return effectiveData(s)?.lines[s.dialogue.index]||null;}
 function seeLine(s){const l=currentLine(s),id=lineId(s);if(!l)return;s.readLines=unique([...s.readLines,id]);if(!s.log.length||s.log.at(-1).id!==id)s.log.push({id,who:l.who,text:l.text,location:s.location,phase:s.phase,via:s.dialogue.remote?'phone':'onsite'});}
 function grant(s,ids=[]){const got=[];for(const id of ids){if(!D.evidence[id])throw Error('알 수 없는 자료: '+id);if(id==='lab'&&s.phase==='night')throw Error('검사 결과는 후속 조사에서 확인합니다.');if(!s.evidence.includes(id)){s.evidence.push(id);got.push(id);}}return got;}
-function advance(s){
+function advance(s,skipBaseRecord=false){
+ if(s.dialogue?.reaction)return root.REACTIONS.advance(s,{seeLine,grant,resume:()=>advance(s,true)});
  if(s.dialogue?.awaitingChoice)return {done:false,got:[],choice:true};
- if(!s.dialogue)return {done:false,got:[]};seeLine(s);const d=effectiveData(s),q=s.dialogue;
+ if(!s.dialogue)return {done:false,got:[]};if(!skipBaseRecord)seeLine(s);const d=effectiveData(s),q=s.dialogue;
+ if(root.REACTIONS?.pauseAt(s))return {done:false,got:[],choice:true};
  if(q.index+1<d.lines.length){q.index++;return {done:false,got:[]};}
  if(d.choices?.length){q.awaitingChoice=true;return {done:false,got:[],choice:true};}
  const got=grant(s,d.grant),finished={...q};
@@ -45,8 +48,9 @@ function enterScene(s,ref){
  const variant=d.variants?.findIndex(v=>all(s.evidence,v.need)&&all(s.topicsRead,v.topicNeed));
  s.dialogue={kind:'scene',ref,index:0,variant:variant??-1};
 }
-function pendingChoices(s){const d=effectiveData(s);return s.dialogue?.awaitingChoice?(d?.choices||[]).filter(c=>available(s,c)):[];}
+function pendingChoices(s){if(s.dialogue?.reaction)return root.REACTIONS.options(s);const d=effectiveData(s);return s.dialogue?.awaitingChoice?(d?.choices||[]).filter(c=>available(s,c)):[];}
 function chooseDialogue(s,id){
+ if(s.dialogue?.reaction)return root.REACTIONS.choose(s,id);
  const q=s.dialogue,d=effectiveData(s),option=pendingChoices(s).find(c=>c.id===id);
  if(!q||q.kind!=='scene'||!d?.interview||!option||!s.interview)throw Error('지금 선택할 수 없는 질문입니다.');
  s.interview.sections=unique([...s.interview.sections,q.ref]);s.scenesRead=unique([...s.scenesRead,q.ref]);
@@ -73,7 +77,7 @@ function validateInterview(s){
 function suspendTopic(s){
  const q=s.dialogue;if(q?.kind!=='topic')return;
  s.conversationBookmarks=s.conversationBookmarks||{};
- s.conversationBookmarks[q.ref]={index:q.index,variant:q.variant??-1,remote:!!q.remote,phase:s.phase};
+ s.conversationBookmarks[q.ref]={index:q.index,variant:q.variant??-1,remote:!!q.remote,phase:s.phase,...(q.reaction?{reaction:JSON.parse(JSON.stringify(q.reaction)),awaitingChoice:!!q.awaitingChoice}:{}),...(q.reactionPassed?{reactionPassed:[...q.reactionPassed]}:{})};
 }
 function resumePosition(s,id){
  const t=baseTopic(id),b=s.conversationBookmarks?.[id];if(!t||!b||b.phase!==s.phase||!available(s,t))return null;
@@ -99,7 +103,7 @@ function startTopic(s,id){
  if(!remote&&locationOf(s,t.npc)!==s.location)throw Error('해당 인물이 있는 장소에서 대화할 수 있습니다.');
  const variant=t.variants?.findIndex(v=>all(s.evidence,v.need)&&all(s.topicsRead,v.topicNeed));
  suspendTopic(s);const resume=resumePosition(s,id);
- s.dialogue={kind:'topic',ref:id,index:resume?.index||0,remote,variant:variant??-1};
+ s.dialogue={kind:'topic',ref:id,index:resume?.index||0,remote,variant:variant??-1,...(resume?.reaction?{reaction:JSON.parse(JSON.stringify(resume.reaction)),awaitingChoice:!!resume.awaitingChoice}:{}),...(resume?.reactionPassed?{reactionPassed:[...resume.reactionPassed]}:{})};
 }
 function inspect(s,id){if(s.dialogue?.kind==='scene')throw Error('진행 중인 장면을 먼저 확인해 주세요.');const h=hotspot(id);if(!D.places[s.location].hotspots.some(x=>x.id===id)||!available(s,h))throw Error('이곳에서 조사할 수 없는 대상입니다.');suspendTopic(s);s.dialogue={kind:'hotspot',ref:id,index:0};}
 function move(s,id){if(s.dialogue?.kind==='scene')throw Error('진행 중인 장면을 먼저 확인해 주세요.');if(!D.places[id])throw Error('없는 장소입니다.');suspendTopic(s);s.location=id;s.visited=unique([...s.visited,id]);s.dialogue=null;}
@@ -167,18 +171,20 @@ function nextTasks(s){
  return tasks.slice(0,3);
 }
 function objective(s){return nextTasks(s)[0]?.text||'확보한 자료를 정리한다.';}
-function lineCatalog(){const map=new Map();for(const [ref,d] of Object.entries(D.scenes)){d.lines.forEach((l,i)=>map.set(`scene/${ref}/${i}`,l));(d.variants||[]).forEach((v,j)=>v.lines.forEach((l,i)=>map.set(`scene/${ref}/v${j}/${i}`,l)));}for(const t of D.topics){t.lines.forEach((l,i)=>map.set(`topic/${t.id}/${i}`,l));(t.variants||[]).forEach((v,j)=>v.lines.forEach((l,i)=>map.set(`topic/${t.id}/v${j}/${i}`,l)));}for(const p of Object.values(D.places))for(const h of p.hotspots)h.lines.forEach((l,i)=>map.set(`hotspot/${h.id}/${i}`,l));return map;}
+function lineCatalog(){const map=new Map(root.REACTIONS?.catalog()||[]);for(const [ref,d] of Object.entries(D.scenes)){d.lines.forEach((l,i)=>map.set(`scene/${ref}/${i}`,l));(d.variants||[]).forEach((v,j)=>v.lines.forEach((l,i)=>map.set(`scene/${ref}/v${j}/${i}`,l)));}for(const t of D.topics){t.lines.forEach((l,i)=>map.set(`topic/${t.id}/${i}`,l));(t.variants||[]).forEach((v,j)=>v.lines.forEach((l,i)=>map.set(`topic/${t.id}/v${j}/${i}`,l)));}for(const p of Object.values(D.places))for(const h of p.hotspots)h.lines.forEach((l,i)=>map.set(`hotspot/${h.id}/${i}`,l));return map;}
+function normalizeHistory(s){if(!s||!Array.isArray(s.log))return s;const catalog=lineCatalog();for(const l of s.log){const b=catalog.get(l?.id);if(b){l.who=b.who;l.text=b.text;}}return s;}
 function validate(raw){const s=migrate(raw);if(s.guideVersion!==undefined&&s.guideVersion!==1)throw Error('안내 진행 정보가 손상되었습니다.');if(!D.places[s.location]||!['night','followup','epilogue','finished'].includes(s.phase)||!['expanded','classic'].includes(s.campaign))throw Error('진행 단계가 손상되었습니다.');
  const refs={visited:Object.keys(D.places),evidence:Object.keys(D.evidence),viewed:Object.keys(D.evidence),topicsRead:D.topics.map(t=>t.id),observed:Object.values(D.places).flatMap(p=>p.hotspots.map(h=>h.id)),solved:D.deductions.map(d=>d.id),scenesRead:Object.keys(D.scenes),activitiesDone:Object.keys(D.activities),bookmarks:Object.keys(D.evidence)};
  for(const [k,ids] of Object.entries(refs))if(!Array.isArray(s[k])||s[k].some(x=>!ids.includes(x))||unique(s[k]).length!==s[k].length)throw Error('저장 목록이 손상되었습니다: '+k);
  if(!all(s.evidence,s.viewed)||!all(s.evidence,s.bookmarks)||!Array.isArray(s.statements)||!Array.isArray(s.readLines)||!Array.isArray(s.log)||s.log.length>18000||!Number.isFinite(s.elapsed)||s.elapsed<0||typeof s.notes!=='string'||s.notes.length>12000)throw Error('저장 정보가 손상되었습니다.');
+ root.TIME_STYLE?.migrateStatements(s.statements);
  if(s.statements.some(x=>!baseTopic(x.id)||x.text!==baseTopic(x.id).statement||x.npc!==baseTopic(x.id).npc))throw Error('진술 정보가 일치하지 않습니다.');
- root.EDITORIAL?.migrateLog(s.log);root.NARRATIVE?.migrateLog(s.log);
+ root.EDITORIAL?.migrateLog(s.log);root.NARRATIVE?.migrateLog(s.log);root.TIME_STYLE?.migrateLog(s.log);
  const catalog=lineCatalog();if(s.readLines.some(id=>!catalog.has(id))||s.log.some(l=>!catalog.has(l.id)||l.text!==catalog.get(l.id).text||l.who!==catalog.get(l.id).who))throw Error('대화 기록이 손상되었습니다.');
  if(s.dialogue){const d=effectiveData(s);if(!['scene','topic','hotspot'].includes(s.dialogue.kind)||!d||!Number.isInteger(s.dialogue.index)||s.dialogue.index<0||s.dialogue.index>=d.lines.length)throw Error('대화 위치가 잘못되었습니다.');}
- if(s.dialogue?.awaitingChoice&&(!effectiveData(s)?.choices?.length||s.dialogue.index!==effectiveData(s).lines.length-1))throw Error('질문 선택 위치가 잘못되었습니다.');
+ if(s.dialogue?.awaitingChoice&&!s.dialogue.reaction&&(!effectiveData(s)?.choices?.length||s.dialogue.index!==effectiveData(s).lines.length-1))throw Error('질문 선택 위치가 잘못되었습니다.');
  if(s.dialogue?.ref?.startsWith('conclusion_v7_')&&!s.interview)throw Error('면담 기록이 없습니다.');
- validateInterview(s);validateBookmarks(s);
+ validateInterview(s);validateBookmarks(s);root.REACTIONS?.validate(s);
  if(typeof s.caseClosed!=='boolean'||typeof s.completed!=='boolean'||(s.evidence.includes('lab')&&s.phase==='night'))throw Error('진행 플래그가 일치하지 않습니다.');
  if(s.caseClosed&&(!all(s.solved,CORE)||!s.viewed.includes('lab')))throw Error('사건 종료 근거가 부족합니다.');
  if(['epilogue','finished'].includes(s.phase)!==s.caseClosed)throw Error('후일담 단계가 일치하지 않습니다.');
@@ -203,5 +209,5 @@ function validate(raw){const s=migrate(raw);if(s.guideVersion!==undefined&&s.gui
 
  return s;
 }
-const M={D,suspendTopic,resumePosition,validateBookmarks,enterScene,pendingChoices,chooseDialogue,validateInterview,fresh,migrate,topic,hotspot,available,questions,grant,dialogueData:effectiveData,currentLine,lineId,seeLine,advance,startTopic,inspect,move,availableDeductions,prove,activities,checkActivity,labReady,beginFollowup,finalReady,beginFinal,consent,preview,setDelivery,endingReady,beginEnding,chapter,nextTasks,objective,validate,all,locationOf};root.MODEL=M;if(typeof module!=='undefined')module.exports=M;
+const M={D,suspendTopic,resumePosition,validateBookmarks,enterScene,pendingChoices,chooseDialogue,validateInterview,fresh,migrate,normalizeHistory,topic,hotspot,available,questions,grant,dialogueData:effectiveData,currentLine,lineId,seeLine,advance,startTopic,inspect,move,availableDeductions,prove,activities,checkActivity,labReady,beginFollowup,finalReady,beginFinal,consent,preview,setDelivery,endingReady,beginEnding,chapter,nextTasks,objective,validate,all,locationOf};root.MODEL=M;if(typeof module!=='undefined')module.exports=M;
 })(typeof window!=='undefined'?window:globalThis);

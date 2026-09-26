@@ -8,7 +8,8 @@ test("shows one direct reading entry per course instead of file menus", async ()
     new URL("../.test-output/pages/materials/ulleung-ecotourism-ai.html", import.meta.url),
     "utf8",
   );
-  assert.equal((html.match(/class="course-row"/g) || []).length, 3);
+  assert.equal((html.match(/class="course-row"/g) || []).length, 4);
+  assert.match(html, /href="\/materials\/modoo-startup"/);
   assert.match(html, /href="\/materials\/ulleung-high-lesson-2"/);
   assert.doesNotMatch(html, /<details|자료 5개|boardgame\.html|class\.html|prompt-guide\.html/);
   assert.match(html, /href="\/materials\/ulleung-ecotourism-ai"/);

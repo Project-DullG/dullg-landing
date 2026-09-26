@@ -1,5 +1,7 @@
 import { youthArtsFestival } from "./festival";
 import { ulleungPresentation } from "./presentations";
+import { ulleungOnlineLecture } from "./ulleung-online";
+import { ulleungThirdLecture } from "./ulleung-third";
 
 export type ActivityArticleData = {
   title: string;
@@ -9,7 +11,7 @@ export type ActivityArticleData = {
   sections: {
     title: string;
     paragraphs: string[];
-    photo?: { src: string; alt: string; caption: string };
+    photo?: { src: string; alt: string; caption: string; width?: number; height?: number };
   }[];
   privacyNote?: boolean;
   relatedTitle: string;
@@ -17,6 +19,55 @@ export type ActivityArticleData = {
 };
 
 export const activityArticles: Record<string, ActivityArticleData> = {
+  "ulleung-high-session-3": {
+    title: ulleungThirdLecture.title,
+    category: "교육",
+    date: ulleungThirdLecture.date,
+    intro: "9월 19일 토요일, 울릉고등학교를 다시 방문했습니다. 이번 특강은 3차시로, 학생들과 교실에서 만나 창업을 주제로 수업을 진행했습니다.",
+    sections: [
+      {
+        title: "아이디어를 사업으로 만들려면",
+        paragraphs: ["이번 수업에서는 제품을 만드는 일뿐 아니라 사업을 운영하는 데 필요한 업무를 살펴봤습니다. 기획과 고객, 사업모델, 팀과 자원, 제작과 운영, 홍보와 판매, 검증과 개선을 나눠 설명했습니다. 아이디어를 정한 다음에는 누구에게 판매할지, 누가 제작과 운영을 맡을지도 검토해야 하기 때문입니다."],
+        photo: { ...ulleungThirdLecture.image, width: 1600, height: 1200, caption: "9월 19일 울릉고 3차시 특강. 창업의 주요 업무를 설명하는 시간입니다." },
+      },
+      {
+        title: "자료를 함께 살펴보는 시간",
+        paragraphs: ["학생들은 테이블에 둘러앉아 카드와 인쇄 자료를 함께 살펴봤습니다. 창업 업무를 설명한 발표자료는 아래 ‘9월 19일 3차시 수업자료’에서 다시 읽을 수 있습니다."],
+        photo: { src: "/assets/activities/ulleung-high-2026-09-19-workshop.webp", alt: "얼굴을 모자이크한 울릉고 학생들이 카드와 인쇄 자료를 살펴보는 모습", width: 1600, height: 1200, caption: "교실에서 카드와 인쇄 자료를 함께 살펴보는 학생들. 사진 속 얼굴은 모자이크했습니다." },
+      },
+    ],
+    relatedTitle: "수업자료와 이전 기록",
+    links: [
+      { label: "9월 19일 3차시 수업자료", href: "/materials/ulleung-high-lesson-2" },
+      { label: "9월 16일 온라인 강의 기록", href: "/activity/ulleung-online-startup-2026" },
+      { label: "9월 5일 울릉고 특강 기록", href: "/activity/ulleung-high-living-lab" },
+    ],
+  },
+  "ulleung-online-startup-2026": {
+    title: ulleungOnlineLecture.title,
+    category: "교육",
+    date: ulleungOnlineLecture.date,
+    intro: "9월 16일에는 울릉도 학생들과 Zoom으로 만났습니다. 모두의 창업 신청 화면을 살펴보고, AI와 대화하며 창업 아이디어를 구체화하는 방법을 시연했습니다.",
+    sections: [{
+      title: "신청서에 적을 내용을 하나씩 살펴봤습니다",
+      paragraphs: ["모두의 창업 신청 화면을 공유하고 사업모델, 시장 진입, 팀 역량과 사회적 기여에 관한 항목을 살펴봤습니다. 아이디어를 소개할 때는 해결하려는 문제와 고객, 수익 구조를 함께 설명해야 한다는 점을 짚었습니다."],
+      photo: {
+        ...ulleungOnlineLecture.image,
+        width: 1600,
+        height: 684,
+        caption: "9월 16일 Zoom 강의. 참가자의 얼굴과 이름·학번을 가렸습니다.",
+      },
+    }, {
+      title: "AI가 제안한 아이디어 세 가지를 비교했습니다",
+      paragraphs: ["아직 아이디어가 없는 경우에는 관심 분야나 해본 일, 생활 속 불편에서 출발하는 방법을 보여드렸습니다. AI에 서로 다른 아이디어 세 가지를 요청하고, 고객과 수익 구조, 초기 비용, 실행 난이도를 비교하는 순서입니다.", "하나를 골랐다면 누가 비용을 지불할지, 기존 서비스와 무엇이 다른지, 작은 규모로 어떻게 시험할지 다시 질문합니다. 강의노트와 실습용 프롬프트는 아래 수업 자료에서 확인할 수 있습니다."],
+    }],
+    relatedTitle: "관련 수업과 문의",
+    links: [
+      { label: "수업 다시보기와 실습 자료", href: "/materials/modoo-startup#review" },
+      { label: "9월 5일 울릉고 특강 기록", href: "/activity/ulleung-high-living-lab" },
+      { label: "교육 문의", href: "/contact" },
+    ],
+  },
   "ulsan-youth-arts-2026": {
     title: youthArtsFestival.title,
     category: "전시",
@@ -34,8 +85,7 @@ export const activityArticles: Record<string, ActivityArticleData> = {
       {
         title: "상자를 열고 캐릭터 자료도 꺼냈습니다",
         paragraphs: [
-          "표지뿐 아니라 게임 안에 들어 있는 자료도 꺼내 놓았습니다. 뱀이 죽은 축제는 상자를 열어 캐릭터별 자료를 함께 전시했습니다. 자료마다 다른 색의 실루엣과 가면 이름이 붙어 있습니다.",
-          "레드가 죽은 연구소, 미식의 대가, 의사가 너무 많아!도 실물 상자를 준비했습니다. 온라인에서 소개하던 작품을 인쇄물과 패키지로 함께 보여드렸습니다.",
+          "작품 상자는 표지가 보이도록 세우고, 앞에는 캐릭터 자료를 펼쳤습니다. 뱀이 죽은 축제는 상자를 열어 구성품도 함께 전시했습니다. 온라인의 표지 이미지로만 보던 작품을 실물 크기와 인쇄 상태까지 확인할 수 있도록 준비했습니다.",
         ],
         photo: {
           ...youthArtsFestival.image,
@@ -133,13 +183,13 @@ export const activityArticles: Record<string, ActivityArticleData> = {
         title: "SNS와 포스터에 맞게 문구 바꾸기",
         paragraphs: [
           "같은 성인봉을 소개하더라도 SNS 게시물과 관광 포스터에 쓸 문구는 길이가 다릅니다. 수업에서는 누구에게 보여줄지, 어디에 쓸지, 몇 가지 문구를 받을지 요청문에 적도록 안내했습니다.",
-          "자료에는 한 줄 소개, SNS 게시물, 관광 포스터에 맞춘 요청문 예시와 번역 실습을 넣었습니다. 문구를 사용할 곳에 맞춰 AI에 요청하는 방법을 연습하도록 준비했습니다.",
+          "실습 자료에는 이 조건을 바꿔 쓸 수 있는 요청문 예시와 번역 과제를 넣었습니다. 같은 관광 소재라도 게시할 곳에 맞춰 길이와 표현을 바꿔 보는 연습입니다.",
         ],
       },
       {
         title: "문구와 이미지를 웹페이지에 담았습니다",
         paragraphs: [
-          "앞에서 만든 문구와 이미지를 모아 관광 정보를 소개하는 웹페이지를 만드는 과정도 다뤘습니다. 어떤 내용을 넣을지 정리하고, 페이지로 만드는 실습까지 진행했습니다.",
+          "문구를 다듬은 뒤에는 이미지와 함께 웹페이지로 만드는 실습을 진행했습니다. 앞에서 고른 관광 소재를 중심으로 페이지에 넣을 내용을 정리했습니다.",
         ],
         photo: {
           src: "/assets/activities/ulleung-ecotourism-ai-2026-07-04-group.jpg",

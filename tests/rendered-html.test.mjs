@@ -19,19 +19,17 @@ test("separates studio history from the upcoming education product", async () =>
 test("renders the brand portfolio path with real work and education evidence", async () => {
   const html = await readFile(routeHtml("index.html"), "utf8");
 
-  assert.match(html, /이야기를 만들고/);
-  assert.match(html, /단서를 엮습니다/);
+  assert.match(html, /함께 푸는 추리 게임/);
+  assert.match(html, /직접 만드는 콘텐츠 수업/);
   assert.match(html, /공개한 머더미스터리/);
   assert.match(html, /영어 단서를 읽고/);
-  assert.match(html, /준비 중 · 영어 미스터리 수업팩/);
+  assert.match(html, /집에가고 싶어! · 영어 미스터리 수업팩/);
   assert.match(html, /href="\/works"/);
   assert.match(html, /href="\/academy"/);
   assert.match(html, /\/assets\/works\/slime-soda-cover\.webp/);
-  assert.match(html, /\/assets\/videos\/two-keys-trailer-v8\.mp4/);
-  assert.match(html, /href="\/episode#episode-trailer"/);
-  assert.doesNotMatch(html, /\/assets\/dullg\/card-body-1\.png/);
+  assert.match(html, /\/assets\/academy-remake\/cover\.webp/);
   assert.match(html, /id="apply"/);
-  assert.match(html, /href="\/demo"/);
+  assert.match(html, /href="\/contact"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 

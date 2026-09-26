@@ -13,7 +13,7 @@ export const publicRoutes: PublicRoute[] = [
   {
     path: "/games/wallbreak",
     title: "벽꿍! 균열의 석공",
-    description: "망치와 활로 적을 공격하고, 벽을 세워 적을 밀어붙이며 숲과 동굴을 돌파하는 액션 로그라이트.",
+    description: "내 벽을 세워 적을 박고 부수는 액션 로그라이트. 벽 속에 잠든 마을 사람을 구하고, 숲 · 동굴 · 심연 · 성벽 균열을 돌파해 탑에 다가가세요.",
     group: "studio",
     priority: 0.8,
     changeFrequency: "monthly",

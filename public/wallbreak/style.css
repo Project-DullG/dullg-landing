@@ -983,6 +983,43 @@ img.spr { vertical-align: -3px; }
 .panel.mg-cast.rift { box-shadow: inset 0 0 0 1px #b27dff88, 0 14px 40px #000c, 0 0 30px #b27dff33; }
 .panel.mg-cast.rift h2 { color: #d9b8ff; }
 .mg-catch.junk > img { width: 200px; height: 110px; }
+.mg-fish .mg-tabs { flex-wrap: wrap; gap: 6px; }
+.mg-fish .mg-tabs .btn small { font-size: 11px; opacity: .75; margin-left: 2px; }
+.mg-fish .mg-tabs .btn.lock { opacity: .55; }
+.mg-fish .mg-tabs .btn.on { border-color: var(--gold); color: var(--gold); box-shadow: inset 0 -3px 0 #ffd45a55; }
+.mg-fish .mg-casts small { font-size: 12px; color: var(--dim); }
+.mg-season { font-family: 'Do Hyeon', sans-serif; font-size: 14px; color: var(--c); border: 1px solid color-mix(in srgb, var(--c) 55%, transparent); border-radius: 999px; padding: 2px 10px; white-space: nowrap; }
+.mg-odds { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 12.5px; color: var(--dim); margin: 0 0 4px; }
+.mg-rchip { display: inline-block; font-family: 'Do Hyeon', sans-serif; font-size: 13px; line-height: 1.3; color: var(--c); background: color-mix(in srgb, var(--c) 14%, #0008); border: 1px solid color-mix(in srgb, var(--c) 50%, transparent); border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
+.mg-rchip.new { --c: #8fe39a; }
+.mg-fish .mg-ftiles { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 5px; margin: 2px 0 4px; }
+.mg-fish .mg-ftile { padding: 4px 3px 3px; }
+.mg-fish .mg-ftiles.bag { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.mg-fish .mg-ftile img { width: 56px; height: 30px; }
+.mg-fish .mg-ftile b { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.mg-fish .mg-ftile small { font-size: 11px; white-space: nowrap; }
+.mg-howto { font-size: 13px; color: #d8cfc0; margin: 4px 0 2px; word-break: keep-all; }
+.mg-foot { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 4px 0 0; font-size: 12.5px; color: var(--dim); }
+.mg-pager { justify-content: center !important; margin: 0 !important; }
+.mg-meals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 6px 0 4px; }
+.mg-meal { display: flex; align-items: center; gap: 8px; min-width: 0; padding: 5px 10px; border-radius: 10px; background: #0006; border: 1px solid #ffffff14; color: var(--text); font: inherit; text-align: left; cursor: pointer; }
+.mg-meal img { width: 56px; height: 30px; flex: none; }
+.mg-meal-t { display: flex; flex-direction: column; min-width: 0; gap: 0; }
+.mg-meal-t b { font-family: 'Do Hyeon', sans-serif; font-weight: normal; font-size: 16px; color: var(--text); line-height: 1.2; }
+.mg-meal-t strong { font-size: 13px; color: var(--gold); line-height: 1.3; }
+.mg-meal-t small { font-size: 11.5px; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mg-meal-t em { font-style: normal; color: var(--good); }
+.mg-meal:hover:not(.off), .mg-meal.focus { border-color: var(--gold); }
+.mg-meal.on { border-color: #8fe39a88; box-shadow: inset 3px 0 0 var(--good); background: #8fe39a14; }
+.mg-meal.off { cursor: default; }
+.mg-meal.off img { opacity: .35; filter: grayscale(.8); }
+.mg-meal.off .mg-meal-t b, .mg-meal.off .mg-meal-t strong { opacity: .6; }
+.mg-bonus { font-size: 13px; color: #d9b8ff; margin-left: 6px; }
+.mg-cast canvas.mg-shake { animation: mgshake .28s ease-out; }
+@keyframes mgshake { 20% { transform: translate(-4px, 2px); } 40% { transform: translate(4px, -2px); } 60% { transform: translate(-3px, 1px); } 80% { transform: translate(2px, 0); } }
+.mg-result .mg-badges { gap: 6px; margin: 4px 0; }
+.mg-result .mg-reward { font-size: 15px; color: var(--gold); }
+@media (prefers-reduced-motion: reduce) { .mg-cast canvas.mg-shake { animation: none; } }
 /* 마을 정리: 건물 쓰임새 칩 · 강해지기 한눈에 · 성장 순서 · 등장 해금 요약 */
 .tp-pur { flex: none; font-family: 'Do Hyeon'; font-size: 12.5px; padding: 1px 8px; border-radius: 9px; white-space: nowrap; border: 1px solid; }
 .tp-pur.str { color: #ffb070; border-color: #ff8a3d66; background: #ff8a3d18; }
@@ -1139,7 +1176,7 @@ img.spr { vertical-align: -3px; }
 .panel, .wallpanel { animation: pop var(--dur) ease-out; }
 @keyframes pop { from { transform: translateY(4px) scale(.985); opacity: 0; } to { transform: none; opacity: 1; } }
 /* 같은 창을 곧바로 다시 그릴 때 (구매 뒤) — 번쩍임 없이 */
-.overlay.again, .overlay.again .panel, .overlay.again .card, .overlay.again .uc { animation: none; }
+.overlay.again, .overlay.again .panel, .overlay.again .wallpanel, .overlay.again .card, .overlay.again .uc, .overlay.again .dlg { animation: none; }
 
 .panel.pn { display: flex; flex-direction: column; overflow: hidden; max-height: 524px; padding-bottom: 10px; }
 .panel.pn > .pn-head { flex: none; }
@@ -1530,6 +1567,7 @@ img.spr { vertical-align: -3px; }
 .il-relic-detail b { color: #e0bdff; font: normal 15px/1.1 'Do Hyeon'; }
 .il-relic-detail small { color: #b6a9bd; font-size: 10px; }
 .il-relic-detail.empty { justify-content: center; color: var(--mute); text-align: center; border-style: dashed; }
+.il-relic-detail > span, .hub-research-card p { white-space: pre-line; } /* 양날 전설 유물: + 줄 · − 줄 */
 @media (max-width: 760px) {
   .wallpanel.inv2 { padding: 8px 10px 6px; }
   .iv-head { flex-wrap: wrap; gap: 6px; }
@@ -2591,7 +2629,7 @@ img.spr { vertical-align: -3px; }
 .hub-header > div:first-child { min-width:82px; flex:none; }
 .hub-header h2 { font-size:28px; margin:0; padding:0; border:0; }
 .hub-header small { color:#bcb1a0; font-size:12px; }
-.hub-wallet { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; flex:1; max-width:600px; }
+.hub-wallet { display:grid; grid-auto-flow:column; grid-auto-columns:minmax(0,1fr); gap:5px; flex:1; max-width:680px; } /* 지역 정수(2~4) + 핵 단추를 한 줄에 */
 .hub-wallet > .btn { margin:0; font-size:12px; padding:5px 9px; }
 .hub-currency { display:flex; align-items:center; justify-content:space-between; gap:7px; padding:5px 9px; border:1px solid #ffffff25; border-radius:5px; background:#17171ccc; font-size:11px; }
 .hub-currency b { color:var(--coin,#ffdf9a); font-size:20px; }
@@ -2883,3 +2921,306 @@ img.spr { vertical-align: -3px; }
 .town-wallet-grid .btn.small{flex-basis:100%;font-size:12px;padding:5px;margin:0}
 @media(max-height:500px){.town-wallet{gap:5px;padding:12px}.town-wallet-grid{gap:4px}.town-wallet-grid>div{padding:5px;font-size:12px}.town-wallet-grid b{font-size:15px}.town-wallet>small{font-size:11px}}
 .town-wallet{gap:8px;padding:16px}.town-wallet>small{line-height:1.35}.town-wallet-grid>div{padding:7px}.town-wallet-grid .btn.small{line-height:1.25}
+/* 출정 장비 교대기 한 줄 · 무기고 장부 (town_hub.js) */
+.hub-swap-line { margin: 4px 0 0; font-size: 11.5px; color: #c9c0b0; line-height: 1.4; text-align: center; }
+.hub-swap-line b { color: #ffd27a; }
+.hub-weapon-picker > small { display: block; color: var(--dim); margin: -4px 0 8px; }
+.hub-weapon-list .lg-detail .d + .d { margin-top: 6px; padding-top: 6px; border-top: 1px dashed #6a5a4488; }
+.hub-wbtns { display: flex; gap: 6px; margin-top: 8px; }
+.lg-detail .hub-role { display: none; }
+/* 마을 소식 · 탑의 기록 (town_story.js · town_hub.js) */
+.town-beat { width: min(620px, 100%); }
+.town-beat-lines { display: flex; flex-direction: column; gap: 10px; margin: 12px 0 16px; }
+.town-beat-lines .say { display: grid; grid-template-columns: 130px 1fr; gap: 10px; align-items: baseline; font-size: 15px; line-height: 1.5; }
+.town-beat-lines .say b { font-family: 'Do Hyeon', 'Jua', sans-serif; font-weight: normal; text-align: right; }
+.hub-lore-ico { display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center; font-size: 26px; color: #e8d7a8; }
+.hub-codex-detail p { white-space: pre-line; }
+/* 인벤토리 — 마인크래프트식 집기 (ui.js holdCursor): 커서에 든 아이콘 · 놓을 수 있는 칸 강조 */
+.wallpanel { position: relative; }
+.wallpanel .inv-cursor { position: absolute; z-index: 30; width: 44px; height: 44px; margin: -22px 0 0 -22px; pointer-events: none; filter: drop-shadow(0 4px 6px #000a); transform: rotate(-6deg); }
+.wallpanel .inv-cursor img { width: 44px; height: 44px; image-rendering: pixelated; }
+.wallpanel.holding { cursor: grabbing; }
+.wallpanel.holding [data-frame-kind] { outline: 2px dashed #ffd27a88; outline-offset: -3px; }
+.wallpanel.holding [data-frame-kind]:hover { outline: 2px solid #ffd27a; background: #ffd27a22; }
+.wallpanel.holding .picked img { opacity: .35; }
+/* ── 대화 창 (dialogue.js · 하데스/스컬식) ── */
+.dlg { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 5% 3.5%; box-sizing: border-box; background: linear-gradient(to bottom, #0000 30%, #0a0710cc 72%, #07050bee); cursor: pointer; user-select: none; animation: dlgFade .25s ease-out; }
+@keyframes dlgFade { from { opacity: 0; } to { opacity: 1; } }
+.dlg-title { position: absolute; top: 7%; left: 50%; transform: translateX(-50%); padding: 6px 26px; font-family: 'Do Hyeon', 'Jua', sans-serif; font-size: 18px; letter-spacing: 4px; color: #e8d7a8; border-top: 1px solid #e8d7a866; border-bottom: 1px solid #e8d7a866; background: linear-gradient(90deg, #0000, #0b0810cc 20%, #0b0810cc 80%, #0000); }
+.dlg-stage { position: relative; display: flex; align-items: flex-end; gap: 0; }
+.dlg-portrait { --c: #e8d7a8; position: relative; z-index: 2; flex: none; width: 150px; height: 150px; margin-right: -22px; margin-bottom: 10px; border-radius: 14px; background: radial-gradient(circle at 50% 65%, color-mix(in srgb, var(--c) 35%, #2a2030), #120d18 72%); border: 2px solid var(--c); box-shadow: 0 0 0 4px #0b0810, 0 0 0 5px color-mix(in srgb, var(--c) 45%, transparent), 0 12px 28px #000c; overflow: hidden; }
+.dlg-portrait img { width: 100%; height: 100%; object-fit: contain; image-rendering: auto; }
+.dlg-portrait.empty img { display: none; }
+.dlg-portrait.in { animation: dlgPort .28s cubic-bezier(.2,.9,.3,1.2); }
+@keyframes dlgPort { from { transform: translateY(14px) scale(.92); opacity: .2; } to { transform: none; opacity: 1; } }
+.dlg-box { position: relative; flex: 1; min-height: 118px; padding: 26px 30px 16px 44px; border-radius: 12px; background: linear-gradient(180deg, #1c1622f2, #110d16f7); border: 1px solid #6a5a44; box-shadow: inset 0 1px 0 #ffffff14, inset 0 0 0 1px #000, 0 14px 30px #000b; }
+.dlg-box::before { content: ''; position: absolute; inset: 5px; border: 1px solid #e8d7a81f; border-radius: 9px; pointer-events: none; }
+.dlg-name { --c: #e8d7a8; position: absolute; top: -17px; left: 34px; padding: 5px 22px 6px 16px; font-family: 'Do Hyeon', 'Jua', sans-serif; font-size: 18px; color: #16111b; background: var(--c); clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); box-shadow: 0 4px 10px #0008; letter-spacing: 1px; }
+.dlg-text { font-size: 18px; line-height: 1.65; color: #f4ecdf; min-height: 3.3em; white-space: pre-line; text-shadow: 0 1px 0 #000; }
+.dlg-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; font-size: 12px; color: #8f8494; }
+.dlg-next { color: #ffd27a; opacity: 0; font-size: 14px; }
+.dlg.ready .dlg-next { opacity: 1; animation: dlgBob .9s ease-in-out infinite; }
+@keyframes dlgBob { 50% { transform: translateY(3px); } }
+.dlg-hint { margin-top: 10px; text-align: right; font-size: 12px; color: #8f8494; }
+@media (max-width: 820px) { .dlg-portrait { width: 112px; height: 112px; } .dlg-text { font-size: 16px; } .dlg-box { padding: 22px 20px 12px 34px; min-height: 100px; } }
+/* 주민 명부 (town_hub.js openRoster) */
+.town-roster { width: min(820px, 100%); }
+.town-roster header { display: flex; justify-content: space-between; align-items: baseline; }
+.roster-count { font-size: 15px; color: #c9c0b0; } .roster-count b { color: #7dff9a; font-size: 20px; }
+.roster-sub { margin: 2px 0 12px; color: #b3a99a; font-size: 13px; }
+.roster-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; max-height: 340px; overflow-y: auto; padding-right: 4px; }
+.roster-card { --c: #e8d7a8; display: flex; gap: 12px; align-items: center; padding: 10px 12px; border-radius: 10px; background: linear-gradient(90deg, color-mix(in srgb, var(--c) 14%, #16111b), #120e17); border: 1px solid color-mix(in srgb, var(--c) 45%, #3a3040); }
+.roster-card.away { background: #120e17; border-style: dashed; border-color: #4a4050; }
+.roster-port { flex: none; width: 64px; height: 64px; border-radius: 10px; overflow: hidden; background: radial-gradient(circle at 50% 65%, color-mix(in srgb, var(--c) 30%, #2a2030), #100c15 75%); border: 2px solid var(--c); display: flex; align-items: center; justify-content: center; }
+.roster-card.away .roster-port { border-color: #4a4050; filter: grayscale(1) brightness(.5); }
+.roster-port img { width: 100%; height: 100%; object-fit: contain; }
+.roster-port span { font-size: 28px; color: #6a6070; font-family: 'Do Hyeon', sans-serif; }
+.roster-info h3 { margin: 0 0 2px; font-size: 16px; color: var(--c); font-family: 'Do Hyeon', 'Jua', sans-serif; font-weight: normal; }
+.roster-card.away .roster-info h3 { color: #8a8290; }
+.roster-info h3 em { margin-left: 6px; font-style: normal; font-size: 11px; color: #ffd27a; border: 1px solid #ffd27a66; border-radius: 4px; padding: 0 5px; }
+.roster-info p { margin: 0 0 5px; font-size: 12.5px; color: #c9c0b0; }
+.roster-opens { display: flex; flex-wrap: wrap; gap: 4px; }
+.roster-opens span { font-size: 11px; padding: 1px 7px; border-radius: 999px; background: #ffffff10; color: #e8dcc8; border: 1px solid #ffffff18; }
+@media (max-width: 620px) { .roster-grid { grid-template-columns: 1fr; } }
+/* ── 출정 지도 (world_map.js · town_hub.js depart) ── */
+.wm-depart { grid-template-columns: minmax(0, 1fr) 232px; }
+.wm-mapwrap { position: relative; min-height: 0; display: flex; flex-direction: column; gap: 8px; }
+.wm-mapwrap > .wm-svg { flex: 1; min-height: 0; border-radius: 12px; background: radial-gradient(ellipse at center, #3a2c1c, #1e1610); box-shadow: inset 0 0 0 1px #00000080, 0 8px 20px #0008; }
+.wm-svg { display: block; width: 100%; height: 100%; }
+.wm-region { font-family: 'Do Hyeon', 'Jua', sans-serif; font-size: 22px; letter-spacing: 6px; paint-order: stroke; stroke: #efe0bcd9; stroke-width: 6px; stroke-linejoin: round; }
+.wm-n { font-family: 'Do Hyeon', sans-serif; font-size: 13px; fill: #6a4e2e; }
+.wm-path { fill: none; stroke-width: 5; stroke-linecap: round; }
+.wm-path.on { stroke: #7a4a22; stroke-dasharray: 1 11; stroke-width: 6; }
+.wm-path.off { stroke: #7a6a55; stroke-dasharray: 2 12; opacity: .45; }
+.wm-node { cursor: pointer; outline: none; }
+.wm-node .wm-disc { fill: #f3e4bf; stroke: #4a2e1c; stroke-width: 3; }
+.wm-node .wm-inner { fill: #c9a06a; stroke: #7a4a22; stroke-width: 1.5; }
+.wm-node.open .wm-inner { fill: #ffcf70; }
+.wm-node.cleared .wm-inner { fill: #7fbf6a; }
+.wm-node.locked .wm-disc { fill: #bdb1a0; stroke: #6a5e50; } .wm-node.locked .wm-inner { fill: #8a7f72; }
+.wm-num { font-family: 'Do Hyeon', sans-serif; font-size: 17px; fill: #2a1a10; pointer-events: none; }
+.wm-label { font-family: 'Do Hyeon', 'Jua', sans-serif; font-size: 16px; fill: #2a1a10; paint-order: stroke; stroke: #f3e4bf; stroke-width: 4px; pointer-events: none; }
+.wm-node.locked .wm-label { fill: #6a5e50; }
+.wm-node:hover .wm-disc, .wm-node:focus .wm-disc { stroke: #b0581e; }
+.wm-node.sel .wm-disc { stroke: #d2541e; stroke-width: 4.5; }
+.wm-node.sel { filter: drop-shadow(0 0 6px #ff9a3dcc); }
+.wm-pulse { fill: none; stroke: #ff9a3d; stroke-width: 3; animation: wmPulse 1.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes wmPulse { from { transform: scale(.75); opacity: .9; } to { transform: scale(1.35); opacity: 0; } }
+.wm-folk circle { fill: #ff5a7a; stroke: #3a0e18; stroke-width: 2; }
+.wm-folk text { font-family: 'Do Hyeon', sans-serif; font-size: 13px; fill: #fff; }
+.wm-card { position: relative; flex: none; display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; background: linear-gradient(180deg, #1d1620f0, #130e17f5); border: 1px solid color-mix(in srgb, var(--region) 55%, #4a3a2a); box-shadow: 0 8px 22px #000c; }
+.wm-card figure { flex: none; width: 76px; height: 76px; margin: 0; border-radius: 10px; overflow: hidden; background: radial-gradient(circle at 50% 60%, color-mix(in srgb, var(--region) 35%, #2a2030), #100c15 75%); border: 2px solid color-mix(in srgb, var(--region) 70%, #000); }
+.wm-card.locked figure { filter: grayscale(1) brightness(.5); }
+.wm-card figure img { width: 100%; height: 100%; object-fit: cover; }
+.wm-card-body { flex: 1; min-width: 0; }
+.wm-card-head { display: flex; align-items: baseline; gap: 10px; }
+.wm-card-head h3 { margin: 0; font-family: 'Do Hyeon', 'Jua', sans-serif; font-weight: normal; font-size: 19px; color: #f3e1b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wm-card-head span { flex: none; font-size: 11.5px; color: #a8c895; }
+.wm-card.locked .wm-card-head span { color: #8a8290; }
+.wm-card p { margin: 1px 0 5px; font-size: 12px; color: #b9ae9c; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wm-rewards { display: flex; flex-wrap: wrap; gap: 4px; }
+.wm-rewards span { font-size: 11px; padding: 1px 7px; border-radius: 999px; border: 1px solid #ffffff22; background: #ffffff0d; color: #e8dcc8; }
+.wm-rewards .core { border-color: #ffcb7866; color: #ffcb78; } .wm-rewards .ess { border-color: #96d9a366; color: #b6e6be; }
+.wm-folk-line { display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 12px; color: #f0dcc0; }
+.wm-folk-line img { width: 30px; height: 30px; border-radius: 7px; border: 1px solid #ff7a9a; background: #2a1822; object-fit: contain; }
+.wm-folk-line small { color: #ffb0c0; }
+.wm-lock { display: block; margin-top: 5px; color: #a89c8c; font-size: 11.5px; }
+.wm-go { flex: none; min-width: 92px; font-size: 16px; padding: 12px 16px; }
+.wm-loadout { overflow-y: auto; }
+.lo-row { display: flex; flex-direction: column; gap: 4px; }
+.lo-row > small { color: #c9b890; font-size: 11.5px; } .lo-row > small em { font-style: normal; margin-left: 4px; padding: 0 5px; border: 1px solid #ffffff33; border-radius: 4px; font-size: 10px; color: #e8dcc8; }
+.lo-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.lo-chip { --c: #e5c580; font: inherit; font-size: 11.5px; padding: 3px 8px; border-radius: 999px; border: 1px solid #ffffff26; background: #ffffff0a; color: #d8ccb8; cursor: pointer; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lo-chip:hover { border-color: var(--c); }
+.lo-chip.on { background: color-mix(in srgb, var(--c) 28%, #1a141e); border-color: var(--c); color: #fff4dc; }
+.lo-hint { color: #8f8494; font-size: 10.5px; line-height: 1.35; }
+
+.wm-card { padding: 8px 10px; gap: 10px; }
+.wm-card figure { width: 58px; height: 58px; }
+.wm-card p { display: none; }
+.wm-card-head { margin-bottom: 4px; }
+.wm-go { min-width: 84px; padding: 10px 14px; }
+.wm-folk-chip { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; padding: 1px 8px 1px 2px; border-radius: 999px; border: 1px solid #ff7a9a88; background: #ff5a7a1a; color: #ffc0cc; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wm-folk-chip img { width: 18px; height: 18px; border-radius: 50%; background: #2a1822; object-fit: contain; }
+/* 출정 준비 칸: 세로로 넘치지 않게 (유저 스크린샷 2026-09-27) */
+.wm-loadout { gap: 6px; padding: 8px 10px; }
+.wm-loadout .hub-weapons img { width: 30px; height: 30px; }
+.wm-loadout .hub-weapons > div { gap: 1px; }
+.wm-loadout .hub-weapons small { font-size: 10.5px; }
+.wm-loadout .hub-weapons b { font-size: 12px; }
+.wm-loadout .hub-swap-line { margin: 0; }
+.wm-loadout .hub-note { padding: 6px 8px; }
+.wm-loadout .hub-note p { margin: 1px 0 0; font-size: 11px; }
+.wm-loadout .hub-loadout-head h3 { font-size: 16px; }
+.wm-card figure.mystery { display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 60%, #2a2030, #0c0910 75%); }
+.wm-card figure.mystery span { font-family: 'Do Hyeon', sans-serif; font-size: 34px; color: #6a6070; }
+.wm-folk-chip.unknown { padding: 1px 8px; border-color: #8a829066; background: #ffffff08; color: #b9b0c0; }
+.rank-chip { margin-left: auto; margin-right: 6px; padding: 2px 9px; border-radius: 999px; font-size: 11.5px; color: #1a1420; background: linear-gradient(180deg, #f2d494, #c9a25a); border: 1px solid #6a4e2e; white-space: nowrap; }
+.wm-rewards .wm-threat { border-color: #ff8a6a66; color: #ffb49a; background: #ff5a3a14; }
+
+/* 마을 재화: 2부 보스 핵까지 14칸 — 한 화면에 (800×400 에서도 스크롤 없이) · 돌아가기는 제목 줄 오른쪽 */
+.town-wallet { position: relative; width: min(900px, 96vw); gap: 8px; padding: 14px 16px; }
+.town-wallet > [data-back] { position: absolute; top: 12px; right: 16px; margin: 0; }
+.town-wallet h2 { padding-right: 150px; }
+.town-wallet-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.town-wallet-grid > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 4px 6px; padding: 6px 9px; font-size: 13.5px; }
+.town-wallet-grid > div > span { min-width: 0; white-space: nowrap; }
+.town-wallet-grid b { font-size: 18px; }
+.town-wallet-grid .btn.small { grid-column: 1 / -1; font-size: 11.5px; padding: 3px 4px; margin: 0; }
+@media (max-height: 500px) { .town-wallet { gap: 5px; padding: 10px 12px; } .town-wallet > [data-back] { top: 8px; right: 12px; } .town-wallet-grid > div { padding: 4px 7px; font-size: 12.5px; } .town-wallet-grid b { font-size: 15px; } }
+
+/* 모험가층 (세계관 v6 H4 · H6 · H7 · 2026-09-27): 누리의 지도 메모 · 서명 · 출장소 머리 · 게시판 */
+.wm-note { display: block; margin-top: 4px; font-size: 11px; color: #c9b48a; font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wm-region.wm-small { font-size: 19px; letter-spacing: 1px; stroke-width: 5px; }
+.wm-region.wm-sign { font-size: 20px; letter-spacing: 1px; stroke-width: 5px; }
+.town-guide .guide-head { display: flex; align-items: center; gap: 10px; }
+.town-guide .guide-head h2 small { font-size: 13px; color: #baa991; margin-left: 8px; font-weight: normal; }
+.town-guide .guide-head .rank-chip { font-size: 13px; }
+.guide-say { margin: 0; font-size: 14px; color: #e8d9ff; }
+.guide-say b { color: #c9a2ff; font-weight: normal; margin-right: 6px; }
+.guide-next { margin: 0; font-size: 12.5px; color: #baa991; }
+.board-pin { position: relative; padding: 10px 14px 10px 30px; background: #efe0bc; color: #2a2016; border-radius: 4px; transform: rotate(-.6deg); box-shadow: 0 4px 10px #0008; font-size: 15px; }
+.board-pin::before { content: ''; position: absolute; left: 11px; top: 13px; width: 10px; height: 10px; border-radius: 50%; background: #c0392b; box-shadow: 0 1px 2px #000a; }
+.board-pin small { display: block; font-size: 11.5px; color: #6a5238; }
+.board-say { margin: 0; font-size: 13.5px; color: #ffc6e0; }
+.board-list { display: flex; flex-direction: column; gap: 6px; overflow-y: auto; }
+.board-row { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: #211c25; border-radius: 8px; }
+.board-row .grow { flex: 1; min-width: 0; }
+.board-row b { font-weight: normal; color: #f3e1b8; }
+.board-row small { display: block; color: #baa991; font-size: 12px; }
+.board-row .st { flex: none; font-size: 12.5px; color: #a8c895; }
+.board-row .st.ready { color: #ffd27a; }
+.board-row .st.idle { color: #8f8494; }
+.ledger-line { color: #c9b48a; font-style: italic; }
+/* 벽 교본 (wall_guide.js) */
+.wg-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; max-height: 330px; overflow-y: auto; padding-right: 4px; }
+.wg-card { display: flex; gap: 10px; align-items: center; padding: 8px; border-radius: 10px; background: #16111b; border: 1px solid #3a3040; }
+.wg-card canvas { flex: none; width: 150px; height: 75px; border-radius: 7px; border: 1px solid #4a4050; image-rendering: auto; }
+.wg-card b { display: block; font-family: 'Do Hyeon', 'Jua', sans-serif; font-weight: normal; font-size: 15px; color: #ffd27a; margin-bottom: 2px; }
+.wg-card p { margin: 0; font-size: 12px; line-height: 1.45; color: #d8ccb8; }
+@media (max-width: 620px) { .wg-grid { grid-template-columns: 1fr; } }
+.help-terms { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 8px; margin: 0; font-size: 12.5px; }
+.help-terms > div { display: flex; gap: 8px; background: #0004; border-radius: 6px; border: 1px solid #ffffff0a; padding: 4px 10px; }
+.help-terms dt { flex: none; min-width: 72px; color: var(--ember-hi); }
+.help-terms dd { margin: 0; color: #d8cfc0; line-height: 1.45; }
+.merc-bio { display: block; margin-top: 2px; font-size: 11.5px; color: #baa991; font-style: italic; }
+/* 출정 지도: 카드 높이 고정 — 고른 던전에 따라 줄 수가 바뀌어도 지도 크기가 변하지 않게 (유저 스크린샷 2026-09-27) */
+.wm-card { height: 92px; box-sizing: border-box; }
+.wm-card-body { overflow: hidden; }
+.wm-card .wm-lock { margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wm-card .wm-rewards { flex-wrap: nowrap; overflow: hidden; }
+.wm-card .wm-rewards > span { flex: none; }
+.wm-card .wm-rewards > .wm-folk-chip { flex: 0 1 auto; min-width: 0; }
+/* 마을 지도 (town_hub.js openTownMap) */
+.town-map-panel { width: min(760px, 100%); }
+.town-map-panel header { display: flex; align-items: baseline; gap: 12px; } .town-map-panel header small { color: #a89c8c; }
+.tm-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 10px 0 12px; }
+.tm-cols h3 { margin: 0 0 6px; font-size: 13px; color: #c9b890; font-weight: normal; letter-spacing: 1px; }
+.tm-row { --c: #e5c580; display: flex; flex-direction: column; align-items: flex-start; width: 100%; margin-bottom: 6px; padding: 7px 10px 7px 26px; position: relative; font: inherit; text-align: left; border-radius: 8px; border: 1px solid #ffffff1c; background: #ffffff08; color: #f0e4cc; cursor: pointer; }
+.tm-row i { position: absolute; left: 10px; top: 13px; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+.tm-row b { font-family: 'Do Hyeon', 'Jua', sans-serif; font-weight: normal; font-size: 15px; }
+.tm-row small { font-size: 11px; color: #9a8f9e; }
+.tm-row:hover { border-color: var(--c); background: #ffffff12; }
+.tm-row.off { opacity: .6; } .tm-row.off i { background: #5a5260; }
+@media (max-width: 620px) { .tm-cols { grid-template-columns: 1fr; } }
+/* 목도리 (town_extras.js) · 초기화 단추 */
+.town-scarf { width: min(620px, 100%); }
+.town-scarf header { display: flex; align-items: baseline; gap: 12px; } .town-scarf header small { color: #a89c8c; }
+.scarf-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 10px 0 12px; }
+.scarf { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px 6px; border-radius: 10px; border: 1px solid #ffffff1c; background: #ffffff08; color: #f0e4cc; font: inherit; cursor: pointer; }
+.scarf i { width: 36px; height: 14px; border-radius: 7px; border: 2px solid #1b1622; box-shadow: 0 2px 0 #0006; }
+.scarf b { font-family: 'Do Hyeon', sans-serif; font-weight: normal; font-size: 14px; } .scarf small { font-size: 11px; color: #9a8f9e; text-align: center; }
+.scarf.on { border-color: #ffd27a; background: #ffd27a1a; } .scarf.off { opacity: .55; cursor: default; } .scarf.off i { filter: grayscale(1) brightness(.4); }
+.btn.danger { border-color: #ff6a5a88; color: #ffb0a0; }
+@media (max-width: 620px) { .scarf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* 800 폭에서도 마을 지도 · 명부가 한 화면에 (QA 2026-09-27) */
+@media (max-height: 470px) { .tm-row { padding: 5px 10px 5px 26px; margin-bottom: 4px; } .tm-row i { top: 10px; } .tm-cols { margin: 6px 0 8px; } .roster-card { padding: 6px 10px; } .roster-port { width: 52px; height: 52px; } }
+
+/* 균열 단계 (rift_steps.js · 기획서 v20 §5): 출정 카드 버튼 칸 위 「단계 ◀ 3 ▶」 · 지도 표지 ★ · 칭호 · 일시정지 규칙 */
+.wm-go-col { flex: none; display: flex; flex-direction: column; align-items: stretch; justify-content: center; gap: 4px; }
+.wm-go-col .wm-step + .wm-go { padding-top: 7px; padding-bottom: 7px; }
+.wm-step { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 2px; height: 24px; padding: 0 2px; border-radius: 999px; border: 1px solid #ffb07a66; background: #3a1a2455; color: #ffe2c8; font-size: 12px; white-space: nowrap; }
+.wm-step > span { display: inline-flex; align-items: baseline; gap: 4px; }
+.wm-step > span small { font-size: 10.5px; color: #d9b89a; }
+.wm-step > span b { font-family: 'Do Hyeon', sans-serif; font-weight: normal; font-size: 15px; color: #ffcf8a; min-width: 12px; text-align: center; }
+.wm-step-b { width: 20px; height: 20px; padding: 0; border: 0; border-radius: 50%; background: #ffffff14; color: #ffcf8a; font-size: 10px; line-height: 20px; cursor: pointer; }
+.wm-step-b:hover:not(:disabled) { background: #ffb07a44; }
+.wm-step-b:disabled { opacity: .3; cursor: default; }
+.wm-step.locked { justify-content: center; padding: 0 8px; color: #a89c8c; border-color: #ffffff22; background: #ffffff08; cursor: help; }
+.wm-step-pop { display: none; position: absolute; right: 0; bottom: calc(100% + 16px); z-index: 5; width: max-content; max-width: 260px; padding: 8px 10px; border-radius: 8px; background: #1a1220f5; border: 1px solid #ffb07a88; box-shadow: 0 6px 18px #000b; white-space: normal; text-align: left; font-size: 12px; color: #f0e2cc; }
+.wm-step:hover .wm-step-pop, .wm-step:focus-within .wm-step-pop { display: block; }
+.wm-step-pop b { display: block; margin-bottom: 3px; color: #ffcf8a; font-weight: normal; font-family: 'Do Hyeon', sans-serif; font-size: 14px; }
+.wm-step-pop ol { margin: 0; padding-left: 18px; } .wm-step-pop li { line-height: 1.45; }
+.wm-step-pop .wm-step-line { margin: 4px 0 0; font-size: 11px; color: #c9b48a; }
+.wm-stars rect { fill: #3a1a24; stroke: #ffcf8a; stroke-width: 1.5; }
+.wm-stars text { font-family: 'Do Hyeon', sans-serif; font-size: 12px; fill: #ffcf8a; pointer-events: none; }
+.rank-title { display: block; margin: -2px 0 2px; font-size: 11px; color: #ffcf8a; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pause-steps { margin: 6px 0 8px; padding: 6px 10px; border-radius: 8px; border: 1px solid #ffb07a55; background: #3a1a2433; font-size: 12.5px; text-align: left; }
+.pause-steps small { color: #c9b48a; margin-left: 6px; }
+.pause-steps ol { margin: 4px 0 0; padding-left: 20px; columns: 2; column-gap: 18px; } .pause-steps li { line-height: 1.5; }
+
+/* 무기 숙련 (mastery.js · 무기고 설명 칸) */
+.ms-star { color: var(--gold); margin-left: 4px; }
+.hub-weapon-picker .lg-detail { max-height: 336px; overflow-y: auto; }
+.ms-box { margin-top: 0; padding-top: 3px; border-top: 1px solid var(--brass-faint); }
+.ms-head { display: flex; align-items: baseline; gap: 8px; font-size: 13px; margin-bottom: 1px; }
+.ms-head b { color: var(--brass-hi); }
+.ms-head .ms-title { color: var(--gold); font-size: 12.5px; }
+.ms-head small { color: var(--dim); font-size: 11.5px; }
+.ms-bar { flex: 1 1 40px; align-self: center; height: 5px; border-radius: 3px; background: #00000066; overflow: hidden; }
+.ms-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--brass), var(--gold)); }
+.ms-steps { display: flex; flex-direction: column; gap: 0; }
+.ms-step { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 6px; font-size: 12px; line-height: 1.3; }
+.ms-step .ms-lv { width: 26px; flex: none; font-size: 10.5px; color: var(--dim); }
+.ms-step b { font-weight: 600; }
+.ms-step small { flex: 0 1 auto; color: var(--dim); font-size: 11px; line-height: 1.3; }
+.ms-step.on b { color: var(--good); }
+.ms-step.next b { color: var(--text); }
+.ms-step.off { opacity: .42; }
+.ms-recs { display: inline-flex; flex-wrap: wrap; gap: 0 8px; font-size: 11.5px; }
+.ms-rec i { font-style: normal; color: var(--dim); margin-right: 3px; font-size: 10.5px; }
+.ms-els { display: inline-flex; flex-wrap: wrap; gap: 3px; }
+.ms-chip { --mc: #c3cad6; font: inherit; font-size: 11px; line-height: 1.3; padding: 0 7px; border-radius: 10px; cursor: pointer; color: var(--mc); background: #00000055; border: 1px solid #ffffff22; }
+.ms-chip.on { border-color: var(--mc); box-shadow: 0 0 0 1px var(--mc) inset; color: #fff; background: color-mix(in srgb, var(--mc) 30%, #0008); }
+.ms-chip:focus-visible { outline: 2px solid var(--focus); }
+/* 벽틀 · 유물 툴팁 한 틀 (src/rule_tip.js): 언제 칩 · 태그 칩 · 효과 · 작은 예시 */
+.mt-chip.mt-when { font-weight: 700; padding: 0 7px; background: color-mix(in srgb, var(--c) 22%, #0009); }
+.mt-line.mt-example { font-size: 11px; color: #b8ab94; line-height: 1.35; }
+.rule-block { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.rule-block .mt-chips { display: flex; flex-wrap: wrap; gap: 3px; }
+.rule-block .rule-desc { font-size: 12.5px; line-height: 1.4; color: #efe4cf; overflow-wrap: anywhere;  white-space: pre-line; } /* 양날 전설 유물: + 줄 · − 줄 */
+.rule-block .mt-example { margin-top: 0; }
+
+/* ── 모루 카드: 갈래 · 공명 · 각성 잔향 (2026-09-27 무기 개편 · src/forge_ui.js) ── */
+.fpathrow { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px; margin: 4px 0 2px; }
+.fpathrow.small { justify-content: flex-start; margin: 2px 0 4px; }
+.fpath { font-size: 12px; line-height: 16px; padding: 1px 7px; border-radius: 9px; color: var(--pc); background: color-mix(in srgb, var(--pc) 16%, #0008); border: 1px solid color-mix(in srgb, var(--pc) 55%, transparent); white-space: nowrap; }
+.fcount { font-size: 12px; color: #fff3d6; margin: 0 6px 0 1px; }
+.fbadge { font-size: 11px; line-height: 15px; padding: 1px 6px; border-radius: 4px; background: #0009; border: 1px solid #ffffff2a; color: #e2d9ca; white-space: nowrap; }
+.fbadge.deep { color: #ffe14d; border-color: #ffe14d88; }
+.fbadge.new { color: #9fe8ff; border-color: #9fe8ff66; }
+.fbadge.side { color: #ffb8e0; border-color: #ffb8e066; }
+.fres { font-size: 11.5px; line-height: 1.35; margin-top: 5px; padding: 3px 6px; border-radius: 5px; color: #e9e1d2; background: color-mix(in srgb, var(--pc) 12%, #0006); border-left: 3px solid var(--pc); text-align: left; }
+.fres b { display: block; color: var(--pc); font-weight: normal; }
+.fnote { font-size: 11.5px; line-height: 1.35; color: #cbbfa9; margin-top: 3px; text-align: left; }
+.fnote.rel { color: #9fe8ff; }
+.fecho { font-size: 12px; line-height: 1.4; margin-top: 5px; color: #f4ead8; text-align: left; }
+.fecho b { color: #ffe14d; font-weight: normal; margin-right: 4px; }
+.card.perk .ds { font-size: 13px; line-height: 1.42; }
+.card.perk:has(.fpathrow) { min-height: 0; padding-top: 12px; }
+.card.perk:has(.fpathrow) img.cico { width: 58px; height: 58px; margin-bottom: 2px; }
+.card.perk:has(.fpathrow) .nm { font-size: 21px; margin: 0 0 3px; }
+@media (max-height: 460px) { .card.perk:has(.fpathrow) img.cico { width: 44px; height: 44px; } .card.perk:has(.fpathrow) .ds { font-size: 12px; line-height: 1.35; } .fres, .fnote, .fecho { font-size: 11px; } }
+/* 인벤토리: 끌거나 들고 있는 동안 떠 있는 툴팁은 숨기고, 툴팁은 마우스를 막지 않는다 (유저: 드래그 중 효과가 다른 칸 이동을 방해) */
+.mc-tip:not(.static) { pointer-events: none; }
+.wallpanel.holding .mc-tip:not(.static), .wallpanel.dragging .mc-tip:not(.static) { display: none !important; }
+.wallpanel.dragging [data-frame-kind]:hover { background: #ffd27a22; }
+.inv-wall-preview { min-height: 34px; max-height: 34px; overflow: hidden; }
+/* 석재 능력치 막대 (rule_tip.js mainWallStatsHtml · 2026-09-27) */
+.wall-stats { display: flex; flex-direction: column; gap: 2px; margin: 4px 0 2px; min-width: 0; }
+.wall-stats .ws-row { display: grid; grid-template-columns: 52px 1fr auto; align-items: center; gap: 6px; font-size: 11.5px; line-height: 1.3; }
+.wall-stats .ws-l { color: #cdbd9f; white-space: nowrap; }
+.wall-stats .ws-bar { height: 6px; background: #2b2420; border-radius: 3px; overflow: hidden; min-width: 40px; }
+.wall-stats .ws-bar i { display: block; height: 100%; background: linear-gradient(90deg, #b58a4a, #f0c76a); }
+.wall-stats .ws-v { color: #f3e6cc; font-weight: 600; white-space: nowrap; min-width: 64px; text-align: right; }

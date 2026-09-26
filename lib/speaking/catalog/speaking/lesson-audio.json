@@ -1,0 +1,1216 @@
+{
+  "version": 2,
+  "voice": "Annie - Lifelike",
+  "clips": [
+    {
+      "text": "Welcome to the Riverside Art Center. Our new exhibition is open from ten in the morning until six in the evening. Tickets are available at the front desk. Please leave large bags in the lockers before entering the exhibition hall.",
+      "src": "/audio/R01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": true,
+      "sha256": "a0ba560568370bbae1ab5a05d74bdee2f72b57b9241ad6df8f4335c27b9ea3ff",
+      "durationSeconds": 11.6245
+    },
+    {
+      "text": "Thank you for choosing Greenway Tours. The bus will leave from the main entrance at eight thirty. Please arrive ten minutes early and bring your ticket. If you need assistance, a staff member will be waiting beside the information board.",
+      "src": "/audio/R02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "8161cde898cff168c347705a28488332a891c0e6f7b8eda223821d92117bdea1",
+      "durationSeconds": 11.607
+    },
+    {
+      "text": "Welcome to the West Park Visitor Center. Guided tours begin at ten in the morning and two in the afternoon. Each tour lasts about forty minutes. Please meet your guide beside the ticket counter. Water is available near the main entrance.",
+      "src": "/audio/R04-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "836c21b902b6ae5e08b0b277f9afd65a74950ab56664342d2955d62641ec137f",
+      "durationSeconds": 13.05
+    },
+    {
+      "text": "Thank you for attending our office safety workshop. The first session will start in Room Three at nine thirty. Please bring the folder you received at registration. After a short break, we will practice using the new equipment. Staff members will be available to answer your questions.",
+      "src": "/audio/R05-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "616ce886e01c3d52b74d866c43797a3b86669f631cb47a4560f55aa8fa480cdb",
+      "durationSeconds": 15.1075
+    },
+    {
+      "text": "Two people are sitting at a table outside. A woman on the left is holding a tray. There are plants around the tables.",
+      "src": "/audio/PW01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "8814a5e11b33e2a21f0d9917234f4ab56b1aaa18777bf492a9c7111a88b4d89c",
+      "durationSeconds": 6.62
+    },
+    {
+      "text": "Describe the picture in as much detail as you can.",
+      "src": "/audio/PW01-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "5472184c958d550ce2777400f26493463e69b60ae58d4a21a63b6174335e3a3d",
+      "durationSeconds": 2.92
+    },
+    {
+      "text": "A woman is reading a book at a table. Behind her, a man is looking at books on a shelf. There are several bookshelves in the room.",
+      "src": "/audio/PW02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "b03af1b7b195c6112c1aa98aec601d8da00bcdc9e9b5ac3587d1217920f7c769",
+      "durationSeconds": 6.8
+    },
+    {
+      "text": "I usually have lunch at home with my family.",
+      "src": "/audio/Q01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "ea308d62650820c25603ed283c34d704b59a15ef68f9144e7b9a773bcd4eadb5",
+      "durationSeconds": 2.4575
+    },
+    {
+      "text": "Where do you usually have lunch, and who do you eat with?",
+      "src": "/audio/Q01-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "ecf1fc27053dbf15b1d9fd8236e67ede2df237c6ffe33e61d1691ed60674c24c",
+      "durationSeconds": 3.3675
+    },
+    {
+      "text": "I use public transportation three times a week. I usually go to the library.",
+      "src": "/audio/Q02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "1b89fea216d5faa6b275640081deaafe23d0dfaf76759bd4303c7f138374fa3a",
+      "durationSeconds": 4.7775
+    },
+    {
+      "text": "How often do you use public transportation, and where do you usually go?",
+      "src": "/audio/Q02-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "f6eaa9d6714b14f3516300524e5a54264d539db626960a6bd8d100834203c118",
+      "durationSeconds": 4.645
+    },
+    {
+      "text": "I usually take a short walk after dinner.",
+      "src": "/audio/Q03-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "6b42209e1de535631fee3b6182933ffd99a69649327e612f58cbdb51001c8b4a",
+      "durationSeconds": 2.6725
+    },
+    {
+      "text": "What do you usually do after dinner?",
+      "src": "/audio/Q03-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "2ad66ed3ad3e35866cdca315d546b3ba79c8ea14521e3982c9ea2b948462fd74",
+      "durationSeconds": 2.46
+    },
+    {
+      "text": "A quiet environment is most important to me. I can focus on my work without loud conversations around me.",
+      "src": "/audio/Q04-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "02a31eed514f84026c977649844991d167d57a132846bc9742f26268ac970a49",
+      "durationSeconds": 6.4575
+    },
+    {
+      "text": "What is the most important thing you consider when choosing a place to study? Explain why.",
+      "src": "/audio/Q04-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "e5c939843af95db15d0c6be913714bc985d2dc2cc2ed0c5c8d5ff82065f6826f",
+      "durationSeconds": 5.4175
+    },
+    {
+      "text": "I usually buy groceries at a supermarket near my home. I go there on Saturday mornings.",
+      "src": "/audio/Q06-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "23cfa41fa74fafeb3356355337f25eb863683d18968bb4f56d3f0651508c5ace",
+      "durationSeconds": 5.6475
+    },
+    {
+      "text": "Where do you usually buy groceries, and when do you go there?",
+      "src": "/audio/Q06-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "9472f0a566d6b3f04fcb6c9e1801c6e96d83bf66dd586baf2a34e9a4064cef6e",
+      "durationSeconds": 3.6975
+    },
+    {
+      "text": "I buy groceries once a week, and I usually walk to the store.",
+      "src": "/audio/Q07-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "97464cd114eb09d46e9552dbfc02f46d4ed82a10a870d7b1ee8ef32c07997973",
+      "durationSeconds": 3.98
+    },
+    {
+      "text": "How often do you buy groceries, and how do you usually get to the store?",
+      "src": "/audio/Q07-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "3e6a73ab7bfd127bcc999cb5b39fa77ddc9b51579ebb723a94cc95a20ab3e77f",
+      "durationSeconds": 4.105
+    },
+    {
+      "text": "The location is most important to me because I want to save travel time. A nearby store makes it easier to buy a few things after work.",
+      "src": "/audio/Q08-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "d3bdbde3cd52445cee19658769e2faf624f709d11bf3416744e50fcc874c3b4e",
+      "durationSeconds": 7.235
+    },
+    {
+      "text": "What is most important to you when choosing a grocery store: the prices, the location, or the selection of products? Explain why.",
+      "src": "/audio/Q08-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "62d168922da8062faa6292b518f1b1abbf36b04a58d564088af7bcd780c0d984",
+      "durationSeconds": 8.805
+    },
+    {
+      "text": "Registration begins at nine a.m. in the main lobby.",
+      "src": "/audio/I01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "c63fba523e6b1d4b0c22eb09ab9a36ba0248817bc2690f86b9a3acb067570084",
+      "durationSeconds": 3.64
+    },
+    {
+      "text": "What time does registration begin, and where will it take place?",
+      "src": "/audio/I01-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "c9f763c3b0695826ac091a84eb66af205ec03ee78053905be3add441e6261220",
+      "durationSeconds": 3.635
+    },
+    {
+      "text": "No, Lisa Park will lead the resume session.",
+      "src": "/audio/I02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "51f94098eece188abc269650a23c6c9ee9dc8abc60b5ec45d1104834eac14bbc",
+      "durationSeconds": 3.08
+    },
+    {
+      "text": "I heard that Daniel Lee will lead the resume session. Is that correct?",
+      "src": "/audio/I02-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "5d9faa7704b7f29bfa21803d22490fd326783eed918c0a27edf102ce6f7fbaa5",
+      "durationSeconds": 3.7575
+    },
+    {
+      "text": "Interview Practice is from ten thirty to eleven fifteen in Room two oh two. Finding Your First Job is from eleven fifteen to noon in Room two oh one.",
+      "src": "/audio/I03-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "0067ba7f4cb66cf97bb1b50013de88ba59a78c2135cd2f2dbcf8689303274cd4",
+      "durationSeconds": 8.8775
+    },
+    {
+      "text": "What sessions can I attend after the break? Please include the times and locations.",
+      "src": "/audio/I03-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "fd02502dab54a01521eb0d8a033b27a5406f5d7087309908a3409c3ff33dac82",
+      "durationSeconds": 5.145
+    },
+    {
+      "text": "Registration begins at one p.m. Please go to the main lobby.",
+      "src": "/audio/I04-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "05323342929949484ac77249c4435e76f0994adeb449e52196cb5f60c887471a",
+      "durationSeconds": 4.325
+    },
+    {
+      "text": "What time does registration begin, and where should I go?",
+      "src": "/audio/I04-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "9c1452afee11047c1e34037a307ae17d6727ad28c11dfe98911e70ea45e31f60",
+      "durationSeconds": 3.2175
+    },
+    {
+      "text": "No, Mina Choi will lead the session on using online services.",
+      "src": "/audio/I05-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "9b092af12f4f2a19c48d571c5ca3d47346004c8cef18fb9f6c1c26f7b64dbd53",
+      "durationSeconds": 4.84
+    },
+    {
+      "text": "I heard that David Kim will lead the session on using online services. Is that correct?",
+      "src": "/audio/I05-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "b311670dd03a386eed2351bf2ebaede6e03b347d370ad27693fb0490bff812db",
+      "durationSeconds": 5.435
+    },
+    {
+      "text": "Protecting Your Personal Information is from two fifteen to three in Room one oh two. Choosing a New Computer is from three to three forty in Room one oh one.",
+      "src": "/audio/I06-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "106af4c2305886d9632c2bfa7efc850bb78c20624fc0543f696e407cbb6a2eb8",
+      "durationSeconds": 8.815
+    },
+    {
+      "text": "What sessions are scheduled after the break? Please tell me their times and locations.",
+      "src": "/audio/I06-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "d822831288cc4355abe287be5ded573e29160df12d557242237b93deb7dff00b",
+      "durationSeconds": 5.1825
+    },
+    {
+      "text": "I prefer online classes because I can save travel time. For example, if a class starts at nine, I can study at home before it begins. I can also review my notes immediately after class.",
+      "src": "/audio/O01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "4c0b1dc9492ee86fbff3fc47098c5f59d1458c87a7e408d3a32f4c78565a277c",
+      "durationSeconds": 11.6
+    },
+    {
+      "text": "Some students prefer online classes, while others prefer classes in person. Which do you prefer, and why? Give reasons and examples.",
+      "src": "/audio/O01-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "9639f40b35e05de414ad1ab816e6dff6ed2d8ed55e15e8d597ee6934ef765f63",
+      "durationSeconds": 9.245
+    },
+    {
+      "text": "I agree that university students should have a part-time job if they have enough time. A job can help them practice working with other people. For example, working in a store requires clear communication with customers. However, they should choose hours that do not interfere with their classes.",
+      "src": "/audio/O02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "c964baf74bef89a950d369ed1f09a6a4fff79ffc66b83d5678456bc3e7277b1d",
+      "durationSeconds": 16.15
+    },
+    {
+      "text": "Do you agree or disagree that university students should have a part-time job? Give reasons and examples to support your opinion.",
+      "src": "/audio/O02-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "280b4d7b44ab6daef7de5f5eab43e74791d51c9fb67c18024b4ba09cf400f22a",
+      "durationSeconds": 6.715
+    },
+    {
+      "text": "I prefer to exercise with a group because other people help me keep a regular schedule. If we agree to meet on Saturday morning, I am more likely to go. We can also encourage each other during the exercise.",
+      "src": "/audio/O03-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "b0fd4354b824d4d42b0b239a6a55f8c67a5fc8cc97b2d80c3f37de3e046bab3f",
+      "durationSeconds": 11.555
+    },
+    {
+      "text": "Some people prefer to exercise alone, while others prefer to exercise with a group. Which do you prefer? Give reasons and examples to support your opinion.",
+      "src": "/audio/O03-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "3e57bec21d9e970084528838e19960fc5ca44c1fdaa1729dd1e8e61a60527d0c",
+      "durationSeconds": 9.8925
+    },
+    {
+      "text": "Welcome to the Oak Street Library. Our study room is open until eight this evening. Please keep conversations quiet and return books to the front desk. If you need more light, use the lamp beside your seat. Food should be eaten in the downstairs lounge.",
+      "src": "/audio/XR01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "d5e2d8682ed9e7806c11565a0cc471a3126757ace9289c5c79dfca81f5f21a8c",
+      "durationSeconds": 13.725
+    },
+    {
+      "text": "Join our beginner pottery class this Saturday at the community center. The class starts at ten and finishes at noon. The fee includes clay and the use of all tools. Please wear clothes that can get dirty. To reserve a place, call our office by Thursday.",
+      "src": "/audio/XR02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "a4209cba2728598ea4b4dee455b0ea4e31c741f156879bd62bb0f966f7e03199",
+      "durationSeconds": 14.4175
+    },
+    {
+      "text": "This is a reminder of your career advising appointment tomorrow afternoon. Please arrive five minutes early and bring a copy of your resume. Your advisor will meet you in Room Twelve on the second floor. If you need to change the time, contact the reception team today.",
+      "src": "/audio/XR03-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "28dc8acaed4ced717f58e145b6e6dbc2beda39e1bac28b6d4e905032fd3517af",
+      "durationSeconds": 14.43
+    },
+    {
+      "text": "Thank you for joining our river cleanup this morning. The volunteer bus will leave at nine from the main gate. It is parked on the right, beside the blue sign. Gloves and drinking water are provided. Please bring a hat and meet your group leader before boarding.",
+      "src": "/audio/XR04-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "e0e4c9542b5b81d3c60d161b71b1f0488057dd6f9d9dfa1583d568d989e4661b",
+      "durationSeconds": 14.3975
+    },
+    {
+      "text": "I usually spend Sunday afternoons at home with my parents. I enjoy this time with them.",
+      "src": "/audio/XQ01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "0630fc1e350dd99cfa87bdfe1535025e09fb1d7a6023a99b0f29477d38dbb4a7",
+      "durationSeconds": 5.005
+    },
+    {
+      "text": "Where do you usually spend Sunday afternoons, and who do you spend them with?",
+      "src": "/audio/XQ01-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "6047bfcec1ecf019690d58b7e484e8debb304162b000907ff2a505a35c4eaa27",
+      "durationSeconds": 4.4425
+    },
+    {
+      "text": "I go out almost every weekend. I usually leave home at ten in the morning.",
+      "src": "/audio/XQ02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "eebf15626adcda95a2e77e3560812accc8e95597cecf4828d0db17c3870e91c9",
+      "durationSeconds": 4.22
+    },
+    {
+      "text": "How often do you go out on weekends, and what time do you usually leave home?",
+      "src": "/audio/XQ02-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "4dd551936a419808af869afd0582aaa1bca4ced434ce5dc618f0b1340ccf522f",
+      "durationSeconds": 4.273
+    },
+    {
+      "text": "I prefer making plans in advance. I think it helps me use my time well. For example, I can finish my chores before meeting friends, so I do not have to change our plans at the last minute.",
+      "src": "/audio/XQ03-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "8abbbc47c5406e48a015920ac07589b4a20ac2ba4c198282af86b22e6662e01d",
+      "durationSeconds": 11.5825
+    },
+    {
+      "text": "Which do you prefer on weekends: making plans in advance or deciding what to do that day? Explain why.",
+      "src": "/audio/XQ03-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "e06217ebec9ddc23cd31567a4b828cdedba336467fc7be06e4a1467d9ec456d7",
+      "durationSeconds": 7.245
+    },
+    {
+      "text": "I enjoy walking in the park near my apartment. This park has a quiet walking path.",
+      "src": "/audio/XQ04-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "77cab8e0f6c6f32f16227f15b55877f7f0f3d6e666ddcc94609e6827199f9e43",
+      "durationSeconds": 5.6325
+    },
+    {
+      "text": "What kind of exercise do you enjoy, and where do you usually do it?",
+      "src": "/audio/XQ04-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "c6ea800b30daa9228125cb0bc1a1c9e22a4c1b95f0e408c80b6da9f202610ce0",
+      "durationSeconds": 3.88
+    },
+    {
+      "text": "I exercise three times a week, for about thirty minutes each time. I like this short routine.",
+      "src": "/audio/XQ05-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "473663a449c11052c1e7bc0d699c10c67ed209b545de7fa555676392748e2459",
+      "durationSeconds": 5.6275
+    },
+    {
+      "text": "How often do you exercise, and how long does each session usually last?",
+      "src": "/audio/XQ05-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "2b388dcabc27857baffb04b0850b122a8866ce17358653fb55a229dd8ca80e76",
+      "durationSeconds": 4.5375
+    },
+    {
+      "text": "I would prefer to exercise outdoors. There is no membership fee at the public park near my home, so I can save money. I can also walk there after work without making a reservation.",
+      "src": "/audio/XQ06-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "850f1380aae6c400ed23e1438a5fe5987c9590146b143769ed7007e569fd6bbe",
+      "durationSeconds": 10.3175
+    },
+    {
+      "text": "Where would you prefer to exercise: at home, at a gym, or outdoors? Explain your choice.",
+      "src": "/audio/XQ06-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "31a736f61dcdafbfaa6951a000c813906a1f461546d35dd9f9b7de0f5d73e960",
+      "durationSeconds": 6.48
+    },
+    {
+      "text": "I prefer attending a class in person. I think it is easier to ask questions when the teacher is in the same room. For example, if I cannot understand a cooking step, I can show the teacher what I am doing. The teacher can then explain that step again. This would help me correct a mistake before continuing.",
+      "src": "/audio/XO01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "cfdef3435673fd420c71d84a1beba12ad0e21719c110ce84c3c1ad83d61ff97d",
+      "durationSeconds": 17.045
+    },
+    {
+      "text": "When learning a practical skill, such as cooking or repairing things, do you prefer watching short videos or attending a class in person? Give reasons and examples to support your opinion.",
+      "src": "/audio/XO01-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "03e5bb27362e0a91a5ce28eeb4e1e3a2b0eb0b997f9af7f0bb097cde53655e3b",
+      "durationSeconds": 10.745
+    },
+    {
+      "text": "I think employees should be able to choose their starting time within a set range. Some people need to leave home early, while others have responsibilities in the morning. A choice of starting times could help both groups. The company could still set common hours for team meetings. This would give employees some choice while allowing them to work together.",
+      "src": "/audio/XO02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "f2675fec6c82a7939236561bc916cbe8ba876d0d2a96374519afb07cb13c1cf6",
+      "durationSeconds": 19.28
+    },
+    {
+      "text": "Some companies allow employees to choose their starting time within a set range. Other companies require everyone to start at the same time. Which approach do you think is better? Explain your opinion.",
+      "src": "/audio/XO02-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "b532be0d62060bbd70eae4b42a9263b8da42444874939447acf03f21d7fe923c",
+      "durationSeconds": 11.4575
+    },
+    {
+      "text": "I agree that public libraries should stay open later on weekends. People who work during the day would have more time to visit. For example, someone could finish work, have dinner, and then read at the library. I think even a small extension of the opening hours would give these people another chance to use the library.",
+      "src": "/audio/XO03-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "74d1c4d9f439be65574bb4ef46ebe628dd6342f9a72a348c1a1bca90c9f48e40",
+      "durationSeconds": 17.855
+    },
+    {
+      "text": "Do you agree or disagree that public libraries should stay open later on weekends? Give reasons and examples to support your answer.",
+      "src": "/audio/XO03-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "da67da4b7c20bdc7f35a2287d1c360f87706749285cbe39737dbc0e66e77f141",
+      "durationSeconds": 7.5425
+    },
+    {
+      "text": "I would choose learning to cook a few simple meals. I think this is useful because I could prepare dinner without going out again. For example, I could make a sandwich or a simple rice dish after work. I could also prepare some ingredients in advance. This would make it easier to have a meal when my schedule is busy.",
+      "src": "/audio/XO04-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "69140db12e0919a8f232f82ed6f449c0d025343deeb4a78c5954ba43e71c4a4d",
+      "durationSeconds": 17.505
+    },
+    {
+      "text": "Which is more useful for a busy adult: learning to cook a few simple meals or finding several affordable restaurants nearby? Explain your choice with reasons and examples.",
+      "src": "/audio/XO04-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "fa503906de06aa76941a73b226f8a96803764149549248617960561eece878fe",
+      "durationSeconds": 10.1875
+    },
+    {
+      "text": "Registration starts at nine a.m. Please go to the front desk to register.",
+      "src": "/audio/XI01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "456e3e66745ceeefb73794deb10e6b1e2eae98bb245448893f775b3db87dc787",
+      "durationSeconds": 4.37
+    },
+    {
+      "text": "What time does registration start, and where should I go to register?",
+      "src": "/audio/XI01-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "e70f2622f77591ff239bd4da98c17264455a9e262fc6d9570e15e78709dcd125",
+      "durationSeconds": 3.8575
+    },
+    {
+      "text": "No, that is not correct. Lina Park will lead the Growing Herbs workshop. Ethan Cole will teach Basic Home Repairs.",
+      "src": "/audio/XI02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "d776c4fdab19c9f10dc45c36f22df273721d24efeec2a3d06ecfe8e9ab24169f",
+      "durationSeconds": 6.98
+    },
+    {
+      "text": "I heard that Ethan Cole will lead the Growing Herbs workshop. Is that correct?",
+      "src": "/audio/XI02-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "1e9e6c550af6656fce4e3ccb154516d087a588cd6622dd4bccd195dce57fe707",
+      "durationSeconds": 4.5025
+    },
+    {
+      "text": "Basic Home Repairs runs from ten fifteen to eleven a.m. in Room 202. This is followed by Growing Herbs from eleven to eleven forty-five a.m. in Room 201.",
+      "src": "/audio/XI03-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "52b1aa5cbaf66ee09069c7d0d2bc67a1da317305754c21ca54b8df0140217852",
+      "durationSeconds": 10.82
+    },
+    {
+      "text": "What are the two workshops after the break? Please tell me their times and locations.",
+      "src": "/audio/XI03-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "5107373e16f54f15a388bad3e5fc38a53c0a29da163b93ef21c436760416b679",
+      "durationSeconds": 5.3075
+    },
+    {
+      "text": "This session begins at one twenty p.m., and Maya Chen will lead it.",
+      "src": "/audio/XI04-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "dada4b048bec479ac94545b7491f85ff24bf8552bd1afc842c5330e30770134d",
+      "durationSeconds": 4.5025
+    },
+    {
+      "text": "When does the Writing a Resume session begin, and who will lead it?",
+      "src": "/audio/XI04-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "64e73f51900f96d8e43162498f1976f55ef749fad0feea0b1921876de828c09e",
+      "durationSeconds": 3.685
+    },
+    {
+      "text": "No, the Interview Practice session is in Room B. This session starts at two fifteen p.m.",
+      "src": "/audio/XI05-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "c077fea6703781b9b794ee98f16379af2fc541a203dfefd47c0274c7025665f8",
+      "durationSeconds": 5.87
+    },
+    {
+      "text": "The Interview Practice session is in Room A, right?",
+      "src": "/audio/XI05-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "f1cb4f6bb88f5d2c381f5b64c9c70f589a5c5132a865801c1d91f69d8fba26ff",
+      "durationSeconds": 3.1275
+    },
+    {
+      "text": "Interview Practice runs from two fifteen to three p.m. with Owen Brooks. This is followed by Finding Your First Job from three ten to three fifty p.m. with Sofia Reed.",
+      "src": "/audio/XI06-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "0d1fea5fa472533ccab627990108845914e6facd082da7a02e1faf191abcaa86",
+      "durationSeconds": 11.6825
+    },
+    {
+      "text": "Please tell me about all the sessions that start after two p.m., including their times and speakers.",
+      "src": "/audio/XI06-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "3136e10d8e6239d396d85cec2b54c06e8dbeb5c5b6c8ae2d441aa7a73564803d",
+      "durationSeconds": 6.1025
+    },
+    {
+      "text": "Welcome to the Harbor Bicycle Center. All rentals include a helmet and a lock. Please return your bicycle before five this afternoon. The return area is behind the building, beside the green gate. If you have a problem, call the number printed on your receipt.",
+      "src": "/audio/YR01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "acdf2081f71d2a9a98fdfa7d986f87e208c71f2fbbac4544850b59b4f6dae4c0",
+      "durationSeconds": 14.385
+    },
+    {
+      "text": "Good morning, and thank you for staying with us. Breakfast will be served in the garden room today because the main dining room is closed for cleaning. Service begins at seven and ends at nine thirty. Please show your room key at the entrance.",
+      "src": "/audio/YR02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "cd058f95ce3bdd5b3eafe569871daa596b38449a4e71432c13aa98e7a63552ba",
+      "durationSeconds": 12.4575
+    },
+    {
+      "text": "Maple Books invites you to meet a local author this Friday evening. The talk begins at six, and a book signing will follow. Admission is free, but space is limited. Reserve a seat on our website by Thursday. Please enter through the side door when you arrive.",
+      "src": "/audio/YR03-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "1c38f62d9f0f1282a1e6b410416fc27c345e2d6925b06f48f0c8515c6fb64f09",
+      "durationSeconds": 13.8375
+    },
+    {
+      "text": "Your repair is complete and ready for pickup. Our service desk is open until six today. Please bring your order number and a photo ID. If someone else will collect the item, contact us in advance. We will keep it here for seven days at no extra charge.",
+      "src": "/audio/YR04-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "1344d84e8df50d9336ce181d70363acff6204cdce34a3a25d34d37c028c14c68",
+      "durationSeconds": 14.0075
+    },
+    {
+      "text": "I enjoy pop music, and I usually listen to it at home. I play a few songs while I cook dinner.",
+      "src": "/audio/YQ01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "faf32a30285518c2a2f4ebb762aa74eb794c0dab36be71deceba4ba3b7b6738f",
+      "durationSeconds": 5.22
+    },
+    {
+      "text": "What kind of music do you enjoy, and where do you usually listen to it?",
+      "src": "/audio/YQ01-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "ace33a5618d7bfb18ded705eb883c7ffead422a9323e00a1c4b7566d0fa35f73",
+      "durationSeconds": 3.7425
+    },
+    {
+      "text": "I listen to music almost every day. I usually spend about twenty minutes listening while I get ready in the morning.",
+      "src": "/audio/YQ02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "a8312f0befda2606256daeb15b642b7491dccfe5d8336e033d708497ddb52258",
+      "durationSeconds": 6.51
+    },
+    {
+      "text": "How often do you listen to music, and how much time do you usually spend listening each day?",
+      "src": "/audio/YQ02-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "36a32e50e9787f3474f63189ecf2dae9fc8f9c419a0b9853c767983d5b7ed4ec",
+      "durationSeconds": 5.4525
+    },
+    {
+      "text": "A wide choice of songs is more important to me. I like listening to different kinds of music depending on what I am doing. For example, I might choose quiet music when reading and faster songs when cleaning. One service could provide both.",
+      "src": "/audio/YQ03-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "ca74eeb9a4fa67d68098d2b83334cd0afe02a730aafd64ce21ff4f8485a8df5b",
+      "durationSeconds": 14.2075
+    },
+    {
+      "text": "When choosing a music service, which is more important to you: a low price or a wide choice of songs? Explain why.",
+      "src": "/audio/YQ03-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "04d1bf74934ac5231243942df165a47f1d509afde5f1b57a13c527da7c2aa918",
+      "durationSeconds": 6.9075
+    },
+    {
+      "text": "I usually buy household items at a nearby store. I walk there because it is only five minutes from my home.",
+      "src": "/audio/YQ04-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "679edad8254cec00638695012b59e61d3f1fc67c191a0d2aab7bf976850b0462",
+      "durationSeconds": 6.375
+    },
+    {
+      "text": "Where do you usually buy household items, and how do you get there?",
+      "src": "/audio/YQ04-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "df0ca2e214b5a36b80df50a613e23f0c5a1528f4f186e69099b3b1d9fdfa9232",
+      "durationSeconds": 3.5725
+    },
+    {
+      "text": "Packaging Orders begins at nine fifteen a.m. It lasts forty-five minutes and ends at ten.",
+      "src": "/audio/YI01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "d7161f4e41bf06588778255614964bf167cdb31b1149a16206478afc0e56b669",
+      "durationSeconds": 5.9875
+    },
+    {
+      "text": "What time does Packaging Orders begin, and how long does it last?",
+      "src": "/audio/YI01-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "db69afa78cce88777cf7934947b387be71d60d51189f085fbd014277093843c1",
+      "durationSeconds": 4.09
+    },
+    {
+      "text": "No, Delivery Options is in Room B, not Room A. It starts at ten fifteen a.m.",
+      "src": "/audio/YI02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "4b45fad289b191a6f33e79d09bd2658ee72abcea78bdc64602d91af9c21aef26",
+      "durationSeconds": 5.9575
+    },
+    {
+      "text": "I heard that Delivery Options is in Room A. Is that correct?",
+      "src": "/audio/YI02-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "497e59b5b056a1fc0f9bc365e02ae164684dce5450819894dd01a9cf1b2d7b8d",
+      "durationSeconds": 3.575
+    },
+    {
+      "text": "Maya Bell will lead Packaging Orders at nine fifteen a.m. in Room A. She will also lead Handling Returns at eleven a.m. in the same room.",
+      "src": "/audio/YI03-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "95505319894969fce809a2aeb91fa2e6e179b1149a1ee255cf373c2598b6212a",
+      "durationSeconds": 7.88
+    },
+    {
+      "text": "Which two sessions will Maya Bell lead? Please tell me their starting times and locations.",
+      "src": "/audio/YI03-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "19b932754fd0ff1d1179c6fd0d93573d95f5790e016accc6cd7cb8e97325e533",
+      "durationSeconds": 5.325
+    },
+    {
+      "text": "The break begins at two p.m. It lasts twenty minutes, so the next session starts at two twenty.",
+      "src": "/audio/YI04-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "4e27c0408b9ef0e3d1cc3edd97816b3598d5c36276b2b759ca832bd5070e2e69",
+      "durationSeconds": 5.6875
+    },
+    {
+      "text": "When does the break begin, and how long is it?",
+      "src": "/audio/YI04-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "b2c8cd5c29246de64b6316837731cbd6ca90dc453ff7662ff66e95b72b07312b",
+      "durationSeconds": 2.7825
+    },
+    {
+      "text": "Actually, Using Local Transport starts at two twenty p.m., not two ten. It takes place in Room D.",
+      "src": "/audio/YI05-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "7ac4bc83767a379665735415ff00b2527bcbf0608b7008efd63b512410e235ba",
+      "durationSeconds": 6.935
+    },
+    {
+      "text": "Using Local Transport starts at two ten, right?",
+      "src": "/audio/YI05-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "896f3f45bd99a8748f8c41ff63cf2c3e099efbeb46896160f0e4e65677d24353",
+      "durationSeconds": 2.9875
+    },
+    {
+      "text": "Using Local Transport runs from two twenty to three p.m. in Room D. Booking Local Activities runs from three ten to three fifty p.m. in Room C.",
+      "src": "/audio/YI06-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "a377750058b176eee06d291b0649632306f9e22b9f74d8238f146f5a65b578c4",
+      "durationSeconds": 8.72
+    },
+    {
+      "text": "What are the two sessions after the break? Please give me their times and locations.",
+      "src": "/audio/YI06-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "d4f93108f169b496ae979975e34bdd8b128536f936e462825fc96f792aef8dbd",
+      "durationSeconds": 4.5525
+    },
+    {
+      "text": "I think the town should improve street lighting before adding more outdoor seats. People use streets early in the morning and after dark, so better lighting could help people on different schedules. For example, a worker returning home could see the path and street signs more clearly. Seats are useful, but they do not solve that problem. Once the busiest streets are well lit, the town could consider adding seats where people wait for buses.",
+      "src": "/audio/YO01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "b1d65bd474bda66a9b4bdb12792320674d24b4fa210fad282c64608b61306cc5",
+      "durationSeconds": 22.765
+    },
+    {
+      "text": "A town can either improve its street lighting or add more outdoor seats this year. Which should it do first? Give reasons and examples to support your opinion.",
+      "src": "/audio/YO01-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "ece2356fd6358190c0b4a5f1e714b9d7998390e62f9119c9ea045226490b0810",
+      "durationSeconds": 9.0425
+    },
+    {
+      "text": "I would prefer a short meeting when a team needs to solve a problem quickly. In a meeting, people can ask questions and get answers without waiting for several emails. Suppose two workers understand a delivery date differently. They could check the order together and agree on the next step. The meeting should have a clear topic and a time limit. Afterward, one person could send a short written summary so everyone has the same information.",
+      "src": "/audio/YO02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "f799463d1af20e9b31cd902c05e79b95a14b61d60e69cae92ac4e0fa82eefa01",
+      "durationSeconds": 23.8675
+    },
+    {
+      "text": "When a team needs to solve a problem quickly, is it better to exchange emails or hold a short meeting? Explain your opinion with reasons and examples.",
+      "src": "/audio/YO02-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "72d4573d626ea2e3520a7010578c3745f9ff5f46a84cdfa477086c4bd95b2084",
+      "durationSeconds": 9.15
+    },
+    {
+      "text": "I prefer having one main place to study. It helps me spend less time getting ready and more time on the actual task. For example, I could keep my books, a lamp, and my notes at one desk. I would not need to look for a seat or carry everything to a different location. If that place became noisy, I could move for a day. However, I would keep it as my usual study place.",
+      "src": "/audio/YO03-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "6e073c7cba53daf990f7068a4f3af2a9ae7985e2190057726f0b7dc1ffc992ec",
+      "durationSeconds": 20.5775
+    },
+    {
+      "text": "Some students usually study in one place, while others often change where they study. Which approach do you prefer? Give reasons and examples.",
+      "src": "/audio/YO03-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "2b11e7cbc7545394fdce8233d3048565143617ac8a04c14a220573b9dff30e56",
+      "durationSeconds": 7.84
+    },
+    {
+      "text": "I disagree that small stores should stay open late every evening. They should choose their hours based on when customers actually visit. For example, a shop near offices might be busy at lunch but quiet after eight. Staying open for two customers could cost more than the extra sales. The owner could first try longer hours on one evening and compare the results. This would let the store test demand before changing its regular schedule.",
+      "src": "/audio/YO04-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "ce4b730e0c19b12e81771fe0c73d174d32237fa4db4f19955b76c7fec275a5cf",
+      "durationSeconds": 24.48
+    },
+    {
+      "text": "Do you agree or disagree with this statement? Small stores should stay open late every evening. Use reasons and examples to support your opinion.",
+      "src": "/audio/YO04-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "06b525109cbb6753a178c163a1a035e55e1f493a1df792469c645374a07278d3",
+      "durationSeconds": 8.1775
+    },
+    {
+      "text": "I prefer giving a friend something useful. A gift does not have to be expensive to make daily life a little easier. Suppose a friend takes the bus to work and often carries several things. A light bag with several pockets could help keep those things together. I would ask about the person's needs first instead of guessing what would be useful. That way, the gift would fit the friend, even if it were not a surprise.",
+      "src": "/audio/YO05-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "c62dfd0c0d58033e51d10a7840ad43326fff15d33c91336ee0ac9bd9f99f5d5c",
+      "durationSeconds": 22.085
+    },
+    {
+      "text": "When choosing a gift for a friend, do you prefer something useful or something unexpected? Explain your choice with reasons and examples.",
+      "src": "/audio/YO05-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "49207e8c66fc3d6c096575eaf06f70bbcfac2f216fce4122365cc315dfd6e76f",
+      "durationSeconds": 8.0275
+    },
+    {
+      "text": "I would prefer an online booking system because it would help people plan their visits. For example, a group preparing a presentation could reserve a room before everyone travels to the center. They would know when they could start instead of waiting without a clear time. The center should limit how long one group can book and release rooms when people do not arrive. These rules would help other visitors use empty rooms.",
+      "src": "/audio/YO06-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "927bc4b85e479828f600d76d3885da841f204035df598f86af50044582dba8ca",
+      "durationSeconds": 22.36
+    },
+    {
+      "text": "A public study center can let people book rooms online or give rooms to people in the order they arrive. Which system would you prefer? Support your opinion with reasons and examples.",
+      "src": "/audio/YO06-question-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "95623018bb47b0c76b44e6c855a5ff1b73fd5b77db49e16c0d52f5c05e96cd8f",
+      "durationSeconds": 11.415
+    },
+    {
+      "text": "This picture shows an outdoor market. A woman in a blue jacket is holding a red apple and a cloth bag. A man in an apron is standing behind the fruit stand. There are apples and oranges in wooden boxes. In the background, another man is walking past the stand.",
+      "src": "/audio/YP01-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "7e7d298c4efd9623fccbb4a08c171d1d82fe14185ee60069dff95e7b4f5a5f40",
+      "durationSeconds": 15.191
+    },
+    {
+      "text": "This picture shows three people in a workshop. Two people are standing at a table with a small wooden birdhouse. One person is holding it, and the other is using a screwdriver. They are wearing safety glasses. In the background, another person is reaching toward tools on a shelf.",
+      "src": "/audio/YP02-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "6ff7e00bf5a4b19c979778a57fa62771c2184aa7b4b984061f3917d0c86cb040",
+      "durationSeconds": 14.705
+    },
+    {
+      "text": "The fee is ten dollars.",
+      "src": "/audio/F1-phrase-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "59a79924b38cc046ba29b08dbaafa64cae3769502faed8824964e2c01aa80e88",
+      "durationSeconds": 2.025
+    },
+    {
+      "text": "The bus will leave at noon.",
+      "src": "/audio/V1-phrase-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "0d5432682bc4f0ce21d872c61343e881b4b7bee99064edffb49204231661f940",
+      "durationSeconds": 1.6675
+    },
+    {
+      "text": "I think the location is important.",
+      "src": "/audio/T1-phrase-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "17b9a91397218067644fd429e8ac48a5df003bce33ef9e7c403f93213291f197",
+      "durationSeconds": 2.22
+    },
+    {
+      "text": "This class starts at ten.",
+      "src": "/audio/T2-phrase-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "e94c18ae342dca4b120cb15068990d8e9df8bbf9b1e3bcc3d84be71f100607c0",
+      "durationSeconds": 1.993
+    },
+    {
+      "text": "The entrance is on the right.",
+      "src": "/audio/R1-phrase-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "f07a58c2cffc04fc45e42ef4cbfe393475b13c07cc1db41f5fe32d444f925041",
+      "durationSeconds": 1.7175
+    },
+    {
+      "text": "Please turn on the light.",
+      "src": "/audio/L1-phrase-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "2d1d986805776da15196193bf430448acfaf20ad62fbe0853194a56108991195",
+      "durationSeconds": 1.513
+    },
+    {
+      "text": "Please ask at the front desk.",
+      "src": "/audio/C1-phrase-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "16b8b099c864a234964e411b0b353e1eb6398d83fd531d74dc0da88a86a42a22",
+      "durationSeconds": 1.9725
+    },
+    {
+      "text": "I have an appointment at five.",
+      "src": "/audio/S1-phrase-annie.mp3",
+      "kind": "ai",
+      "ready": true,
+      "contentChecked": true,
+      "reviewed": false,
+      "sha256": "b28122c5cd16fc25da326238214d2d4144495062d5f66439b14a09ccb9d329bf",
+      "durationSeconds": 1.7275
+    }
+  ]
+}

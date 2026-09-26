@@ -27,7 +27,9 @@ test("renders the brand portfolio path with real work and education evidence", a
   assert.match(html, /href="\/works"/);
   assert.match(html, /href="\/academy"/);
   assert.match(html, /\/assets\/works\/slime-soda-cover\.webp/);
-  assert.match(html, /\/assets\/dullg\/card-cover-1\.png/);
+  assert.match(html, /\/assets\/videos\/two-keys-trailer-v8\.mp4/);
+  assert.match(html, /href="\/episode#episode-trailer"/);
+  assert.doesNotMatch(html, /\/assets\/dullg\/card-body-1\.png/);
   assert.match(html, /id="apply"/);
   assert.match(html, /href="\/demo"/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);

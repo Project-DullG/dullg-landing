@@ -47,6 +47,19 @@
 
 각각 `/works/professor-rest`, `/works/slime-soda`의 작품 소개 앞에 배치했다. 원본은 보존하며 웹용 파일은 `public/assets/work-trailers`에 둔다. 8초 지점의 960px 폭 JPEG를 재생 전 포스터로 사용한다. 자동 재생 없이 `controls`, `playsInline`, `preload="none"`을 적용한다.
 
+## 두 열쇠 예고편 — 2026-09-09
+
+사용자가 승인한 v8 수정본을 홈의 영어 미스터리 수업팩 영역과 `/episode#episode-trailer`에 배치했다. 홈의 카드 앞·뒷면 이미지 자리를 영상으로 바꾸고, 에피소드 페이지는 표지 소개 뒤에 넓게 배치했다. 기존 브랜드 영상과 작품 예고편은 그대로 둔다.
+
+- 원본: `/Users/kimkanghoon/heygen/projects/promo/two-keys/delivery/8시까지_두열쇠_장면재편집_v8.mp4`
+- 웹용 파일: `public/assets/videos/two-keys-trailer-v8.mp4`, 25.76초, 1920×1080. 재압축 없이 복사했다.
+- 포스터: 원본 v8 썸네일을 WebP로 변환했다.
+- `components/episode-trailer.tsx`에서 두 페이지가 같은 영상과 대본을 사용한다. 자동 재생 없이 `controls`, `playsInline`, `preload="none"`을 적용한다. 영상에 자막이 이미 있으므로 별도 한국어 VTT는 기본으로 켜지 않는다.
+- `/episode`의 옛 시각·열쇠 용도·확인되지 않은 인물별 단서를 원문 분석에 맞춰 정정했다. 기준은 금요일 19:10, 20:00 기한, 시험 자료함·휴대폰함, 아직 확인하지 못한 네 학생의 가방이다.
+- 사이트 빌드, 관련 페이지 검사, 영상 Range 요청, 자막 파일 응답을 확인했다. 브라우저 화면의 재생·모바일 실기기 검토는 별도로 수행하지 않았다.
+- 2026-09-09 사용자 배포 요청 후 기존 Vercel 프로젝트에 게시했다. 공개 주소는 `https://dullg-landing-one.vercel.app`이다. 홈·에피소드의 새 영상 참조, MP4의 206 구간 응답, 한국어 VTT 응답을 확인했다. Sites의 옛 연결은 `project_not_found` 상태여서 사용하지 않았다.
+- 이번 배포는 기존 공개본과 영상 관련 14개 파일로 구성했다. 별도로 작업 중인 스피킹 기능·비공개 학습 자료는 배포 묶음에 포함하지 않았다. 배포 기록은 HeyGen 프로젝트의 `work/site-release-v8-manifest.json`, 검사 결과는 `review/site-v8-deployment-qa.json`에 있다.
+
 ## 코드 구분
 
 - `lib/mini-projects.ts`: 작품 소개 데이터.

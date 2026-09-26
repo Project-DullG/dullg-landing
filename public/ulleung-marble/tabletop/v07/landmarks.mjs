@@ -1,0 +1,24 @@
+const shapes={
+ mountain:'<path d="M12 91 44 35 59 52 77 19 111 91Z" fill="#7e9169"/><path d="m44 35 15 17 18-33-6 48 23 24H44l14-20Z" fill="#a3ad7a"/><path d="m28 78 16-43 8 33M77 20l-6 47 23 24" fill="none" stroke="#516b58"/>',
+ falls:'<path d="M25 19 89 13 107 96H12Z" fill="#8c9476"/><path d="m60 18 16 0-6 29 8 10-10 34H48l15-33-8-13Z" fill="#e7f3ed"/><path d="m70 20-7 26 9 12-14 33" fill="none" stroke="#73a7b3" stroke-width="5"/><ellipse cx="60" cy="98" rx="39" ry="8" fill="#90b7b4"/><path d="M12 81 29 48 38 88M86 33l17 58" stroke="#5e755e" fill="none" stroke-width="9"/>',
+ basin:'<path d="M5 79 24 37 45 47 65 32 96 38 115 78Z" fill="#9fae83"/><ellipse cx="60" cy="80" rx="49" ry="20" fill="#c4c59a"/><path d="m23 74 24-10 28 2 21 12-15 17-41-1Z" fill="#839f73" stroke="#f4efd9" stroke-width="2"/><path d="m39 67 3 28m17-30 4 30m17-27 0 26M23 79l69 5" stroke="#e2dfb3" stroke-width="2"/><path d="M12 70 28 57 44 70v12H12Z" fill="#806553"/><path d="m10 70 18-15 19 15" fill="none" stroke="#4d5547" stroke-width="5"/>',
+ lighthouse:'<path d="m17 98 23-17 47 5 16 12Z" fill="#809273"/><path d="m48 83 5-50h17l5 50Z" fill="#f7f1dd" stroke="#78867a"/><path d="M50 33h23V20H50Z" fill="#e6dfc7" stroke="#536a67"/><path d="m45 20 16-11 17 11Z" fill="#677b70"/><path d="M47 36h29M52 26h19" stroke="#435e62" stroke-width="3"/><path d="M59 72h7v12h-7Z" fill="#385761"/>',
+ arch:'<path d="M10 94 19 64 31 48 49 40 61 51 89 53 108 70 101 94H74l-3-20-12-5-12 5-6 20Z" fill="#7e8e77" stroke="#586f67" stroke-width="2"/><path d="m20 64 12-15 17-9 12 11 27 2 13 11-32-3-20-8-20 15Z" fill="#a3ac7d"/><path d="m30 70-10 23m69-26 10 26" stroke="#586f67" stroke-width="3"/>',
+ stacks:'<path d="m12 94 9-38 11-12 10 50Zm34 0 9-68 12-13 8 81Zm35 0 9-45 8-8 11 53Z" fill="#807b67" stroke="#596a61" stroke-width="2"/><path d="m21 56 11-12 4 17-15 5m34-40 12-13 4 22-16 7m35 7 8-8 4 18-13 4" fill="#98a674"/><path d="m59 43-4 44m13-39 4 45m-42-25-5 23" stroke="#b9af8c" stroke-width="2"/>',
+ island:'<path d="m16 56 20-23 42-4 24 26-8 39-57 8Z" fill="#90836b"/><path d="m16 56 20-23 42-4 24 26-30 17-37 0Z" fill="#9ead7b"/><path d="m35 42 42-6 14 14-22 13-31-1Z" fill="#c0c08a"/><path d="m39 76 4 20m16-21 0 21m22-25-3 20" stroke="#b8a488" stroke-width="3"/><path d="M46 42v19m15-22v24m16-20v17" stroke="#e5dcac" stroke-width="2"/>',
+ port:'<path d="M14 80h93L91 99H31Z" fill="#427b85"/><path d="M32 76V52h17V33h40v43Z" fill="#f4ead7" stroke="#6b8985"/><path d="M47 53h47v23H27" fill="#d7ddc4"/><path d="M57 43h22M38 63h43" stroke="#557b82" stroke-width="5"/><path d="M57 32V16m0 0 19 7-19 6" stroke="#bd8b55" fill="#bd8b55"/>',
+ bridge:'<path d="m4 87 23-28 10 6 13 33M80 95l13-42 22 35" fill="#91a17c"/><path d="M26 73q29 30 72-1M26 52v43m71-47v43M26 52q31 40 71-4" fill="none" stroke="#817963" stroke-width="4"/><path d="M39 65v18m14-12v19m16-20v19m15-28v23" stroke="#b59e77" stroke-width="2"/>',
+ forest:'<path d="m12 82 16-36 16 36Zm27-10 21-46 21 46Zm37 15 18-39 19 39Z" fill="#769570"/><path d="m20 65 8-19 9 20m12-17 11-23 11 23m16 20 7-21 10 21" fill="#9daf7e"/><path d="M28 79v20m32-30v30m35-15v15" stroke="#84715b" stroke-width="5"/>'
+};
+export function landmarkArt(kind='mountain'){return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><ellipse cx="60" cy="103" rx="50" ry="7" fill="#476b68" opacity=".1"/>${shapes[kind]||shapes.mountain}<path d="M8 110q12-5 24 0t24 0t24 0t24 0" fill="none" stroke="#9bbcb7" stroke-width="2"/></svg>`;}
+export const landmarkFor=id=>({'seokpo':'forest','naesujeon-beach':'stacks','undersea':'port','samseon':'stacks','hyeonpo-view':'arch','heaven':'forest','yerim':'forest',seongin:'mountain',nari:'basin',bongrae:'falls',daepung:'lighthouse',taeha:'lighthouse',gwanum:'island',haengnam:'bridge',naesujeon:'forest',tonggumi:'stacks',namyang:'stacks',hyeonpo:'arch',cheonbu:'port',dodong:'port',jeodong:'port',sadong:'port'}[id]||'forest');
+const ROUTE_COPY={
+  "C01": "천부의 마을길과 나리분지의 들을 걷습니다. 관음도에서는 해안 절벽 너머 바다를 바라봅니다.",
+  "C04": "태하의 해안과 대풍감의 절벽, 현포의 바다를 찾습니다. 울릉도 서쪽 해안을 살펴보는 코스입니다.",
+  "C07": "관음도와 태하에서 바다를 보고, 나리분지에서는 들을 걷습니다. 해안과 분지를 함께 찾는 코스입니다.",
+  "C09": "도동항의 골목, 나리분지의 들, 태하의 해안을 찾습니다. 섬의 동쪽과 서쪽, 안쪽을 두루 걷습니다.",
+  "C14": "내수전에서 동쪽 바다를 바라봅니다. 태하의 해안과 도동항의 골목도 이번 여행에 담아봅니다.",
+  "C17": "천부의 마을길을 걷고 나리분지의 들을 찾습니다. 관음도에서는 절벽과 바다를 함께 바라봅니다."
+};
+export const routeStory=(d,c)=>c.story||ROUTE_COPY[c.id]||c.nodes.map(id=>({bongrae:'봉래폭포에서 물소리를 듣고',seongin:'성인봉의 산길을 걷고',nari:'나리분지의 들을 둘러보고',gwanum:'관음도에서 바다를 바라보고',haengnam:'행남 해안길을 걷고',daepung:'대풍감의 절벽을 보고',naesujeon:'내수전에서 동쪽 바다를 보고',taeha:'태하 해안을 둘러보고',hyeonpo:'현포에서 해안 풍경을 보고',cheonbu:'천부 마을을 둘러보고',tonggumi:'통구미의 바위를 살펴보고',namyang:'남양 해안을 걷고',sadong:'사동항에서 배를 구경하고',dodong:'도동항 주변을 둘러보고',jeodong:'저동항에서 어선을 살펴보고'}[id])).join(', ').replace(/고$/,'는 여행입니다.');
+export const LANDMARK_TYPES=Object.keys(shapes);

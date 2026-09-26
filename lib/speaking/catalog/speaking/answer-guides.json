@@ -1,0 +1,1054 @@
+{
+  "PW01": [
+    {
+      "english": "Two people are sitting at a table outside.",
+      "hangul": "투 피플 어 시팅 앳 어 테이블 아웃사이드."
+    },
+    {
+      "english": "A woman on the left",
+      "hangul": "어 우먼 온 더 레프트"
+    },
+    {
+      "english": "is holding a tray.",
+      "hangul": "이즈 홀딩 어 트레이."
+    },
+    {
+      "english": "There are plants around the tables.",
+      "hangul": "데어 어 플랜츠 어라운드 더 테이블즈."
+    }
+  ],
+  "PW02": [
+    {
+      "english": "A woman is reading a book at a table.",
+      "hangul": "어 우먼 이즈 리딩 어 북 앳 어 테이블."
+    },
+    {
+      "english": "Behind her, a man is looking",
+      "hangul": "비하인드 허, 어 맨 이즈 루킹"
+    },
+    {
+      "english": "at books on a shelf.",
+      "hangul": "앳 북스 온 어 셸프."
+    },
+    {
+      "english": "There are several bookshelves in the room.",
+      "hangul": "데어 어 세버럴 북셸브즈 인 더 룸."
+    }
+  ],
+  "Q01": [
+    {
+      "english": "I usually have lunch at home with my family.",
+      "hangul": "아이 유주얼리 해브 런치 앳 홈 위드 마이 패밀리."
+    }
+  ],
+  "Q02": [
+    {
+      "english": "I use public transportation three times a week.",
+      "hangul": "아이 유즈 퍼블릭 트랜스퍼테이션 쓰리 타임즈 어 윅."
+    },
+    {
+      "english": "I usually go to the library.",
+      "hangul": "아이 유주얼리 고 터 더 라이브레리."
+    }
+  ],
+  "Q03": [
+    {
+      "english": "I usually take a short walk after dinner.",
+      "hangul": "아이 유주얼리 테이크 어 쇼트 와크 애프터 디너."
+    }
+  ],
+  "Q04": [
+    {
+      "english": "A quiet environment is most important to me.",
+      "hangul": "어 콰이엇 인바이런먼트 이즈 모스트 임포턴트 터 미."
+    },
+    {
+      "english": "I can focus on my work",
+      "hangul": "아이 컨 포커스 온 마이 워크"
+    },
+    {
+      "english": "without loud conversations around me.",
+      "hangul": "위다웃 라우드 컨버세이션즈 어라운드 미."
+    }
+  ],
+  "Q06": [
+    {
+      "english": "I usually buy groceries at a supermarket near my home.",
+      "hangul": "아이 유주얼리 바이 그로서리즈 앳 어 수퍼마켓 니어 마이 홈."
+    },
+    {
+      "english": "I go there on Saturday mornings.",
+      "hangul": "아이 고 데어 온 새터데이 모닝즈."
+    }
+  ],
+  "Q07": [
+    {
+      "english": "I buy groceries once a week,",
+      "hangul": "아이 바이 그로서리즈 원스 어 윅,"
+    },
+    {
+      "english": "and I usually walk to the store.",
+      "hangul": "앤 아이 유주얼리 와크 터 더 스토어."
+    }
+  ],
+  "Q08": [
+    {
+      "english": "The location is most important to me",
+      "hangul": "더 로케이션 이즈 모스트 임포턴트 터 미"
+    },
+    {
+      "english": "because I want to save travel time.",
+      "hangul": "비커즈 아이 원트 터 세이브 트래블 타임."
+    },
+    {
+      "english": "A nearby store makes it easier",
+      "hangul": "어 니어바이 스토어 메익스 잇 이지어"
+    },
+    {
+      "english": "to buy a few things after work.",
+      "hangul": "터 바이 어 퓨 씽즈 애프터 워크."
+    }
+  ],
+  "I01": [
+    {
+      "english": "Registration begins at nine a.m. in the main lobby.",
+      "hangul": "레지스트레이션 비긴즈 앳 나인 에이엠 인 더 메인 라비."
+    }
+  ],
+  "I02": [
+    {
+      "english": "No, Lisa Park will lead the resume session.",
+      "hangul": "노, 리사 파크 윌 리드 더 레저메이 세션."
+    }
+  ],
+  "I03": [
+    {
+      "english": "Interview Practice is from ten thirty",
+      "hangul": "인터뷰 프랙티스 이즈 프럼 텐 써티"
+    },
+    {
+      "english": "to eleven fifteen in Room two oh two.",
+      "hangul": "터 일레븐 피프틴 인 룸 투 오 투."
+    },
+    {
+      "english": "Finding Your First Job is from eleven fifteen",
+      "hangul": "파인딩 유어 퍼스트 잡 이즈 프럼 일레븐 피프틴"
+    },
+    {
+      "english": "to noon in Room two oh one.",
+      "hangul": "터 눈 인 룸 투 오 원."
+    }
+  ],
+  "I04": [
+    {
+      "english": "Registration begins at one p.m.",
+      "hangul": "레지스트레이션 비긴즈 앳 원 피엠."
+    },
+    {
+      "english": "Please go to the main lobby.",
+      "hangul": "플리즈 고 터 더 메인 라비."
+    }
+  ],
+  "I05": [
+    {
+      "english": "No, Mina Choi will lead the session",
+      "hangul": "노, 미나 초이 윌 리드 더 세션"
+    },
+    {
+      "english": "on using online services.",
+      "hangul": "온 유징 온라인 서비스즈."
+    }
+  ],
+  "I06": [
+    {
+      "english": "Protecting Your Personal Information is from two fifteen",
+      "hangul": "프러텍팅 유어 퍼서널 인퍼메이션 이즈 프럼 투 피프틴"
+    },
+    {
+      "english": "to three in Room one oh two.",
+      "hangul": "터 쓰리 인 룸 원 오 투."
+    },
+    {
+      "english": "Choosing a New Computer is from three",
+      "hangul": "추징 어 뉴 컴퓨터 이즈 프럼 쓰리"
+    },
+    {
+      "english": "to three forty in Room one oh one.",
+      "hangul": "터 쓰리 포티 인 룸 원 오 원."
+    }
+  ],
+  "O01": [
+    {
+      "english": "I prefer online classes",
+      "hangul": "아이 프리퍼 온라인 클래스즈"
+    },
+    {
+      "english": "because I can save travel time.",
+      "hangul": "비커즈 아이 컨 세이브 트래블 타임."
+    },
+    {
+      "english": "For example, if a class starts at nine,",
+      "hangul": "퍼 이그잼플, 이프 어 클래스 스타츠 앳 나인,"
+    },
+    {
+      "english": "I can study at home before it begins.",
+      "hangul": "아이 컨 스터디 앳 홈 비포어 잇 비긴즈."
+    },
+    {
+      "english": "I can also review my notes immediately after class.",
+      "hangul": "아이 컨 올소 리뷰 마이 노츠 이미디엇리 애프터 클래스."
+    }
+  ],
+  "O02": [
+    {
+      "english": "I agree that university students",
+      "hangul": "아이 어그리 댓 유니버서티 스튜던츠"
+    },
+    {
+      "english": "should have a part-time job",
+      "hangul": "슈드 해브 어 파트타임 잡"
+    },
+    {
+      "english": "if they have enough time.",
+      "hangul": "이프 데이 해브 이너프 타임."
+    },
+    {
+      "english": "A job can help them practice",
+      "hangul": "어 잡 컨 헬프 뎀 프랙티스"
+    },
+    {
+      "english": "working with other people.",
+      "hangul": "워킹 위드 어더 피플."
+    },
+    {
+      "english": "For example, working in a store",
+      "hangul": "퍼 이그잼플, 워킹 인 어 스토어"
+    },
+    {
+      "english": "requires clear communication with customers.",
+      "hangul": "리콰이어즈 클리어 커뮤니케이션 위드 커스터머즈."
+    },
+    {
+      "english": "However, they should choose hours",
+      "hangul": "하우에버, 데이 슈드 추즈 아워즈"
+    },
+    {
+      "english": "that do not interfere with their classes.",
+      "hangul": "댓 두 낫 인터피어 위드 데어 클래스즈."
+    }
+  ],
+  "O03": [
+    {
+      "english": "I prefer to exercise with a group",
+      "hangul": "아이 프리퍼 터 엑서사이즈 위드 어 그룹"
+    },
+    {
+      "english": "because other people help me keep a regular schedule.",
+      "hangul": "비커즈 어더 피플 헬프 미 킵 어 레귤러 스케줄."
+    },
+    {
+      "english": "If we agree to meet on Saturday morning,",
+      "hangul": "이프 위 어그리 터 미트 온 새터데이 모닝,"
+    },
+    {
+      "english": "I am more likely to go.",
+      "hangul": "아이 앰 모어 라이클리 터 고."
+    },
+    {
+      "english": "We can also encourage each other during the exercise.",
+      "hangul": "위 컨 올소 인커리지 이치 어더 두어링 디 엑서사이즈."
+    }
+  ],
+  "XQ01": [
+    {
+      "english": "I usually spend Sunday afternoons",
+      "hangul": "아이 유주얼리 스펜드 선데이 애프터눈즈"
+    },
+    {
+      "english": "at home with my parents.",
+      "hangul": "앳 홈 위드 마이 페런츠."
+    },
+    {
+      "english": "I enjoy this time with them.",
+      "hangul": "아이 인조이 디스 타임 위드 뎀."
+    }
+  ],
+  "XQ02": [
+    {
+      "english": "I go out almost every weekend.",
+      "hangul": "아이 고 아웃 올모스트 에브리 위켄드."
+    },
+    {
+      "english": "I usually leave home at ten in the morning.",
+      "hangul": "아이 유주얼리 리브 홈 앳 텐 인 더 모닝."
+    }
+  ],
+  "XQ03": [
+    {
+      "english": "I prefer making plans in advance.",
+      "hangul": "아이 프리퍼 메이킹 플랜즈 인 어드밴스."
+    },
+    {
+      "english": "I think it helps me use my time well.",
+      "hangul": "아이 씽크 잇 헬프스 미 유즈 마이 타임 웰."
+    },
+    {
+      "english": "For example, I can finish my chores before meeting friends,",
+      "hangul": "퍼 이그잼플, 아이 컨 피니시 마이 초어즈 비포어 미팅 프렌즈,"
+    },
+    {
+      "english": "so I do not have to change our plans",
+      "hangul": "소 아이 두 낫 해프 터 체인지 아워 플랜즈"
+    },
+    {
+      "english": "at the last minute.",
+      "hangul": "앳 더 래스트 미닛."
+    }
+  ],
+  "XQ04": [
+    {
+      "english": "I enjoy walking in the park near my apartment.",
+      "hangul": "아이 인조이 와킹 인 더 파크 니어 마이 어파트먼트."
+    },
+    {
+      "english": "This park has a quiet walking path.",
+      "hangul": "디스 파크 해즈 어 콰이엇 와킹 패쓰."
+    }
+  ],
+  "XQ05": [
+    {
+      "english": "I exercise three times a week,",
+      "hangul": "아이 엑서사이즈 쓰리 타임즈 어 윅,"
+    },
+    {
+      "english": "for about thirty minutes each time.",
+      "hangul": "퍼 어바웃 써티 미니츠 이치 타임."
+    },
+    {
+      "english": "I like this short routine.",
+      "hangul": "아이 라이크 디스 쇼트 루틴."
+    }
+  ],
+  "XQ06": [
+    {
+      "english": "I would prefer to exercise outdoors.",
+      "hangul": "아이 우드 프리퍼 터 엑서사이즈 아웃도어즈."
+    },
+    {
+      "english": "There is no membership fee",
+      "hangul": "데어 이즈 노 멤버십 피"
+    },
+    {
+      "english": "at the public park near my home,",
+      "hangul": "앳 더 퍼블릭 파크 니어 마이 홈,"
+    },
+    {
+      "english": "so I can save money.",
+      "hangul": "소 아이 컨 세이브 머니."
+    },
+    {
+      "english": "I can also walk there after work",
+      "hangul": "아이 컨 올소 와크 데어 애프터 워크"
+    },
+    {
+      "english": "without making a reservation.",
+      "hangul": "위다웃 메이킹 어 레저베이션."
+    }
+  ],
+  "XO01": [
+    {
+      "english": "I prefer attending a class in person.",
+      "hangul": "아이 프리퍼 어텐딩 어 클래스 인 퍼슨."
+    },
+    {
+      "english": "I think it is easier to ask questions",
+      "hangul": "아이 씽크 잇 이즈 이지어 터 애스크 퀘스천즈"
+    },
+    {
+      "english": "when the teacher is in the same room.",
+      "hangul": "웬 더 티처 이즈 인 더 세임 룸."
+    },
+    {
+      "english": "For example, if I cannot understand a cooking step,",
+      "hangul": "퍼 이그잼플, 이프 아이 캐낫 언더스탠드 어 쿠킹 스텝,"
+    },
+    {
+      "english": "I can show the teacher what I am doing.",
+      "hangul": "아이 컨 쇼 더 티처 왓 아이 앰 두잉."
+    },
+    {
+      "english": "The teacher can then explain that step again.",
+      "hangul": "더 티처 컨 덴 익스플레인 댓 스텝 어겐."
+    },
+    {
+      "english": "This would help me correct a mistake before continuing.",
+      "hangul": "디스 우드 헬프 미 커렉트 어 미스테이크 비포어 컨티뉴잉."
+    }
+  ],
+  "XO02": [
+    {
+      "english": "I think employees should be able",
+      "hangul": "아이 씽크 임플로이즈 슈드 비 에이블"
+    },
+    {
+      "english": "to choose their starting time within a set range.",
+      "hangul": "터 추즈 데어 스타팅 타임 위딘 어 셋 레인지."
+    },
+    {
+      "english": "Some people need to leave home early,",
+      "hangul": "섬 피플 니드 터 리브 홈 얼리,"
+    },
+    {
+      "english": "while others have responsibilities in the morning.",
+      "hangul": "와일 어더즈 해브 리스판서빌러티즈 인 더 모닝."
+    },
+    {
+      "english": "A choice of starting times could help both groups.",
+      "hangul": "어 초이스 어브 스타팅 타임즈 쿠드 헬프 보쓰 그룹스."
+    },
+    {
+      "english": "The company could still set common hours for team meetings.",
+      "hangul": "더 컴퍼니 쿠드 스틸 셋 카먼 아워즈 퍼 팀 미팅즈."
+    },
+    {
+      "english": "This would give employees some choice",
+      "hangul": "디스 우드 기브 임플로이즈 섬 초이스"
+    },
+    {
+      "english": "while allowing them to work together.",
+      "hangul": "와일 얼라우잉 뎀 터 워크 터게더."
+    }
+  ],
+  "XO03": [
+    {
+      "english": "I agree that public libraries",
+      "hangul": "아이 어그리 댓 퍼블릭 라이브레리즈"
+    },
+    {
+      "english": "should stay open later on weekends.",
+      "hangul": "슈드 스테이 오픈 레이터 온 위켄즈."
+    },
+    {
+      "english": "People who work during the day",
+      "hangul": "피플 후 워크 두어링 더 데이"
+    },
+    {
+      "english": "would have more time to visit.",
+      "hangul": "우드 해브 모어 타임 터 비짓."
+    },
+    {
+      "english": "For example, someone could finish work,",
+      "hangul": "퍼 이그잼플, 섬원 쿠드 피니시 워크,"
+    },
+    {
+      "english": "have dinner, and then read at the library.",
+      "hangul": "해브 디너, 앤 덴 리드 앳 더 라이브레리."
+    },
+    {
+      "english": "I think even a small extension",
+      "hangul": "아이 씽크 이븐 어 스몰 익스텐션"
+    },
+    {
+      "english": "of the opening hours would give these people",
+      "hangul": "어브 디 오프닝 아워즈 우드 기브 디즈 피플"
+    },
+    {
+      "english": "another chance to use the library.",
+      "hangul": "어나더 챈스 터 유즈 더 라이브레리."
+    }
+  ],
+  "XO04": [
+    {
+      "english": "I would choose learning to cook a few simple meals.",
+      "hangul": "아이 우드 추즈 러닝 터 쿡 어 퓨 심플 밀즈."
+    },
+    {
+      "english": "I think this is useful",
+      "hangul": "아이 씽크 디스 이즈 유스펄"
+    },
+    {
+      "english": "because I could prepare dinner without going out again.",
+      "hangul": "비커즈 아이 쿠드 프리페어 디너 위다웃 고잉 아웃 어겐."
+    },
+    {
+      "english": "For example, I could make a sandwich",
+      "hangul": "퍼 이그잼플, 아이 쿠드 메이크 어 샌드위치"
+    },
+    {
+      "english": "or a simple rice dish after work.",
+      "hangul": "오어 어 심플 라이스 디시 애프터 워크."
+    },
+    {
+      "english": "I could also prepare some ingredients in advance.",
+      "hangul": "아이 쿠드 올소 프리페어 섬 인그리디언츠 인 어드밴스."
+    },
+    {
+      "english": "This would make it easier to have a meal",
+      "hangul": "디스 우드 메이크 잇 이지어 터 해브 어 밀"
+    },
+    {
+      "english": "when my schedule is busy.",
+      "hangul": "웬 마이 스케줄 이즈 비지."
+    }
+  ],
+  "XI01": [
+    {
+      "english": "Registration starts at nine a.m.",
+      "hangul": "레지스트레이션 스타츠 앳 나인 에이엠."
+    },
+    {
+      "english": "Please go to the front desk to register.",
+      "hangul": "플리즈 고 터 더 프런트 데스크 터 레지스터."
+    }
+  ],
+  "XI02": [
+    {
+      "english": "No, that is not correct.",
+      "hangul": "노, 댓 이즈 낫 커렉트."
+    },
+    {
+      "english": "Lina Park will lead the Growing Herbs workshop.",
+      "hangul": "리나 파크 윌 리드 더 그로잉 어브즈 워크숍."
+    },
+    {
+      "english": "Ethan Cole will teach Basic Home Repairs.",
+      "hangul": "이썬 콜 윌 티치 베이식 홈 리페어즈."
+    }
+  ],
+  "XI03": [
+    {
+      "english": "Basic Home Repairs runs from ten fifteen",
+      "hangul": "베이식 홈 리페어즈 런즈 프럼 텐 피프틴"
+    },
+    {
+      "english": "to eleven a.m. in Room 202.",
+      "hangul": "터 일레븐 에이엠 인 룸 투 오 투."
+    },
+    {
+      "english": "This is followed by Growing Herbs",
+      "hangul": "디스 이즈 팔로드 바이 그로잉 어브즈"
+    },
+    {
+      "english": "from eleven to eleven forty-five a.m. in Room 201.",
+      "hangul": "프럼 일레븐 터 일레븐 포티파이브 에이엠 인 룸 투 오 원."
+    }
+  ],
+  "XI04": [
+    {
+      "english": "This session begins at one twenty p.m.,",
+      "hangul": "디스 세션 비긴즈 앳 원 트웬티 피엠,"
+    },
+    {
+      "english": "and Maya Chen will lead it.",
+      "hangul": "앤 마이아 첸 윌 리드 잇."
+    }
+  ],
+  "XI05": [
+    {
+      "english": "No, the Interview Practice session is in Room B.",
+      "hangul": "노, 디 인터뷰 프랙티스 세션 이즈 인 룸 비."
+    },
+    {
+      "english": "This session starts at two fifteen p.m.",
+      "hangul": "디스 세션 스타츠 앳 투 피프틴 피엠."
+    }
+  ],
+  "XI06": [
+    {
+      "english": "Interview Practice runs from two fifteen",
+      "hangul": "인터뷰 프랙티스 런즈 프럼 투 피프틴"
+    },
+    {
+      "english": "to three p.m. with Owen Brooks.",
+      "hangul": "터 쓰리 피엠 위드 오언 브룩스."
+    },
+    {
+      "english": "This is followed by Finding Your First Job",
+      "hangul": "디스 이즈 팔로드 바이 파인딩 유어 퍼스트 잡"
+    },
+    {
+      "english": "from three ten to three fifty p.m. with Sofia Reed.",
+      "hangul": "프럼 쓰리 텐 터 쓰리 피프티 피엠 위드 소피아 리드."
+    }
+  ],
+  "YQ01": [
+    {
+      "english": "I enjoy pop music,",
+      "hangul": "아이 인조이 팝 뮤직,"
+    },
+    {
+      "english": "and I usually listen to it at home.",
+      "hangul": "앤 아이 유주얼리 리슨 터 잇 앳 홈."
+    },
+    {
+      "english": "I play a few songs while I cook dinner.",
+      "hangul": "아이 플레이 어 퓨 송즈 와일 아이 쿡 디너."
+    }
+  ],
+  "YQ02": [
+    {
+      "english": "I listen to music almost every day.",
+      "hangul": "아이 리슨 터 뮤직 올모스트 에브리 데이."
+    },
+    {
+      "english": "I usually spend about twenty minutes listening",
+      "hangul": "아이 유주얼리 스펜드 어바웃 트웬티 미닛츠 리스닝"
+    },
+    {
+      "english": "while I get ready in the morning.",
+      "hangul": "와일 아이 겟 레디 인 더 모닝."
+    }
+  ],
+  "YQ03": [
+    {
+      "english": "A wide choice of songs is more important to me.",
+      "hangul": "어 와이드 초이스 어브 송즈 이즈 모어 임포턴트 터 미."
+    },
+    {
+      "english": "I like listening to different kinds of music",
+      "hangul": "아이 라이크 리스닝 터 디퍼런트 카인즈 어브 뮤직"
+    },
+    {
+      "english": "depending on what I am doing.",
+      "hangul": "디펜딩 온 왓 아이 앰 두잉."
+    },
+    {
+      "english": "For example, I might choose quiet music when reading",
+      "hangul": "포어 이그잼플, 아이 마이트 추즈 콰이엇 뮤직 웬 리딩"
+    },
+    {
+      "english": "and faster songs when cleaning.",
+      "hangul": "앤 패스터 송즈 웬 클리닝."
+    },
+    {
+      "english": "One service could provide both.",
+      "hangul": "원 서비스 쿠드 프로바이드 보우쓰."
+    }
+  ],
+  "YQ04": [
+    {
+      "english": "I usually buy household items at a nearby store.",
+      "hangul": "아이 유주얼리 바이 하우스홀드 아이텀즈 앳 어 니어바이 스토어."
+    },
+    {
+      "english": "I walk there because it is only",
+      "hangul": "아이 와크 데어 비커즈 잇 이즈 온리"
+    },
+    {
+      "english": "five minutes from my home.",
+      "hangul": "파이브 미닛츠 프럼 마이 홈."
+    }
+  ],
+  "YI01": [
+    {
+      "english": "Packaging Orders begins at nine fifteen a.m.",
+      "hangul": "패키징 오더즈 비긴즈 앳 나인 피프틴 에이엠."
+    },
+    {
+      "english": "It lasts forty-five minutes and ends at ten.",
+      "hangul": "잇 래스츠 포티 파이브 미닛츠 앤 엔즈 앳 텐."
+    }
+  ],
+  "YI02": [
+    {
+      "english": "No, Delivery Options is in Room B, not Room A.",
+      "hangul": "노, 딜리버리 압션즈 이즈 인 룸 비, 낫 룸 에이."
+    },
+    {
+      "english": "It starts at ten fifteen a.m.",
+      "hangul": "잇 스타츠 앳 텐 피프틴 에이엠."
+    }
+  ],
+  "YI03": [
+    {
+      "english": "Maya Bell will lead Packaging Orders",
+      "hangul": "마야 벨 윌 리드 패키징 오더즈"
+    },
+    {
+      "english": "at nine fifteen a.m. in Room A.",
+      "hangul": "앳 나인 피프틴 에이엠 인 룸 에이."
+    },
+    {
+      "english": "She will also lead Handling Returns",
+      "hangul": "쉬 윌 올소 리드 핸들링 리턴즈"
+    },
+    {
+      "english": "at eleven a.m. in the same room.",
+      "hangul": "앳 일레븐 에이엠 인 더 세임 룸."
+    }
+  ],
+  "YI04": [
+    {
+      "english": "The break begins at two p.m.",
+      "hangul": "더 브레이크 비긴즈 앳 투 피엠."
+    },
+    {
+      "english": "It lasts twenty minutes,",
+      "hangul": "잇 래스츠 트웬티 미닛츠,"
+    },
+    {
+      "english": "so the next session starts at two twenty.",
+      "hangul": "소 더 넥스트 세션 스타츠 앳 투 트웬티."
+    }
+  ],
+  "YI05": [
+    {
+      "english": "Actually, Using Local Transport starts",
+      "hangul": "액추얼리, 유징 로컬 트랜스포트 스타츠"
+    },
+    {
+      "english": "at two twenty p.m., not two ten.",
+      "hangul": "앳 투 트웬티 피엠, 낫 투 텐."
+    },
+    {
+      "english": "It takes place in Room D.",
+      "hangul": "잇 테이크스 플레이스 인 룸 디."
+    }
+  ],
+  "YI06": [
+    {
+      "english": "Using Local Transport runs",
+      "hangul": "유징 로컬 트랜스포트 런즈"
+    },
+    {
+      "english": "from two twenty to three p.m. in Room D.",
+      "hangul": "프럼 투 트웬티 터 쓰리 피엠 인 룸 디."
+    },
+    {
+      "english": "Booking Local Activities runs from three ten",
+      "hangul": "부킹 로컬 액티비티즈 런즈 프럼 쓰리 텐"
+    },
+    {
+      "english": "to three fifty p.m. in Room C.",
+      "hangul": "터 쓰리 피프티 피엠 인 룸 씨."
+    }
+  ],
+  "YO01": [
+    {
+      "english": "I think the town should improve street lighting",
+      "hangul": "아이 씽크 더 타운 슈드 임프루브 스트리트 라이팅"
+    },
+    {
+      "english": "before adding more outdoor seats.",
+      "hangul": "비포어 애딩 모어 아웃도어 시츠."
+    },
+    {
+      "english": "People use streets early in the morning and after dark,",
+      "hangul": "피플 유즈 스트리츠 얼리 인 더 모닝 앤 애프터 다크,"
+    },
+    {
+      "english": "so better lighting could help people on different schedules.",
+      "hangul": "소 베터 라이팅 쿠드 헬프 피플 온 디퍼런트 스케줄즈."
+    },
+    {
+      "english": "For example, a worker returning home",
+      "hangul": "포어 이그잼플, 어 워커 리터닝 홈"
+    },
+    {
+      "english": "could see the path and street signs more clearly.",
+      "hangul": "쿠드 시 더 패쓰 앤 스트리트 사인즈 모어 클리얼리."
+    },
+    {
+      "english": "Seats are useful, but they do not solve that problem.",
+      "hangul": "시츠 아 유스풀, 벗 데이 두 낫 살브 댓 프라블럼."
+    },
+    {
+      "english": "Once the busiest streets are well lit,",
+      "hangul": "원스 더 비지이스트 스트리츠 아 웰 릿,"
+    },
+    {
+      "english": "the town could consider adding seats",
+      "hangul": "더 타운 쿠드 컨시더 애딩 시츠"
+    },
+    {
+      "english": "where people wait for buses.",
+      "hangul": "웨어 피플 웨이트 포어 버시즈."
+    }
+  ],
+  "YO02": [
+    {
+      "english": "I would prefer a short meeting",
+      "hangul": "아이 우드 프리퍼 어 쇼트 미팅"
+    },
+    {
+      "english": "when a team needs to solve a problem quickly.",
+      "hangul": "웬 어 팀 니즈 터 살브 어 프라블럼 퀵클리."
+    },
+    {
+      "english": "In a meeting, people can ask questions and get answers",
+      "hangul": "인 어 미팅, 피플 캔 애스크 퀘스천즈 앤 겟 앤서즈"
+    },
+    {
+      "english": "without waiting for several emails.",
+      "hangul": "위다웃 웨이팅 포어 세버럴 이메일즈."
+    },
+    {
+      "english": "Suppose two workers understand a delivery date differently.",
+      "hangul": "서포우즈 투 워커즈 언더스탠드 어 딜리버리 데이트 디퍼런틀리."
+    },
+    {
+      "english": "They could check the order together",
+      "hangul": "데이 쿠드 체크 디 오더 터게더"
+    },
+    {
+      "english": "and agree on the next step.",
+      "hangul": "앤 어그리 온 더 넥스트 스텝."
+    },
+    {
+      "english": "The meeting should have a clear topic",
+      "hangul": "더 미팅 슈드 해브 어 클리어 타픽"
+    },
+    {
+      "english": "and a time limit.",
+      "hangul": "앤 어 타임 리밋."
+    },
+    {
+      "english": "Afterward, one person could send a short written summary",
+      "hangul": "애프터워드, 원 퍼슨 쿠드 센드 어 쇼트 리튼 서머리"
+    },
+    {
+      "english": "so everyone has the same information.",
+      "hangul": "소 에브리원 해즈 더 세임 인퍼메이션."
+    }
+  ],
+  "YO03": [
+    {
+      "english": "I prefer having one main place to study.",
+      "hangul": "아이 프리퍼 해빙 원 메인 플레이스 터 스터디."
+    },
+    {
+      "english": "It helps me spend less time getting ready",
+      "hangul": "잇 헬프스 미 스펜드 레스 타임 게팅 레디"
+    },
+    {
+      "english": "and more time on the actual task.",
+      "hangul": "앤 모어 타임 온 디 액추얼 태스크."
+    },
+    {
+      "english": "For example, I could keep my books,",
+      "hangul": "포어 이그잼플, 아이 쿠드 킵 마이 북스,"
+    },
+    {
+      "english": "a lamp, and my notes at one desk.",
+      "hangul": "어 램프, 앤 마이 노츠 앳 원 데스크."
+    },
+    {
+      "english": "I would not need to look for a seat",
+      "hangul": "아이 우드 낫 니드 터 룩 포어 어 시트"
+    },
+    {
+      "english": "or carry everything to a different location.",
+      "hangul": "오어 캐리 에브리씽 터 어 디퍼런트 로케이션."
+    },
+    {
+      "english": "If that place became noisy,",
+      "hangul": "이프 댓 플레이스 비케임 노이지,"
+    },
+    {
+      "english": "I could move for a day.",
+      "hangul": "아이 쿠드 무브 포어 어 데이."
+    },
+    {
+      "english": "However, I would keep it as my usual study place.",
+      "hangul": "하우에버, 아이 우드 킵 잇 애즈 마이 유주얼 스터디 플레이스."
+    }
+  ],
+  "YO04": [
+    {
+      "english": "I disagree that small stores",
+      "hangul": "아이 디서그리 댓 스몰 스토어즈"
+    },
+    {
+      "english": "should stay open late every evening.",
+      "hangul": "슈드 스테이 오픈 레이트 에브리 이브닝."
+    },
+    {
+      "english": "They should choose their hours",
+      "hangul": "데이 슈드 추즈 데어 아워즈"
+    },
+    {
+      "english": "based on when customers actually visit.",
+      "hangul": "베이스트 온 웬 커스터머즈 액추얼리 비짓."
+    },
+    {
+      "english": "For example, a shop near offices might be busy",
+      "hangul": "포어 이그잼플, 어 샵 니어 아피시즈 마이트 비 비지"
+    },
+    {
+      "english": "at lunch but quiet after eight.",
+      "hangul": "앳 런치 벗 콰이엇 애프터 에이트."
+    },
+    {
+      "english": "Staying open for two customers could cost more",
+      "hangul": "스테잉 오픈 포어 투 커스터머즈 쿠드 코스트 모어"
+    },
+    {
+      "english": "than the extra sales.",
+      "hangul": "댄 디 엑스트러 세일즈."
+    },
+    {
+      "english": "The owner could first try longer hours",
+      "hangul": "디 오너 쿠드 퍼스트 트라이 롱거 아워즈"
+    },
+    {
+      "english": "on one evening and compare the results.",
+      "hangul": "온 원 이브닝 앤 컴페어 더 리절츠."
+    },
+    {
+      "english": "This would let the store test demand",
+      "hangul": "디스 우드 렛 더 스토어 테스트 디맨드"
+    },
+    {
+      "english": "before changing its regular schedule.",
+      "hangul": "비포어 체인징 잇츠 레귤러 스케줄."
+    }
+  ],
+  "YO05": [
+    {
+      "english": "I prefer giving a friend something useful.",
+      "hangul": "아이 프리퍼 기빙 어 프렌드 섬씽 유스풀."
+    },
+    {
+      "english": "A gift does not have to be expensive",
+      "hangul": "어 기프트 더즈 낫 해브 터 비 익스펜시브"
+    },
+    {
+      "english": "to make daily life a little easier.",
+      "hangul": "터 메이크 데일리 라이프 어 리틀 이지어."
+    },
+    {
+      "english": "Suppose a friend takes the bus to work",
+      "hangul": "서포우즈 어 프렌드 테이크스 더 버스 터 워크"
+    },
+    {
+      "english": "and often carries several things.",
+      "hangul": "앤 오펀 캐리즈 세버럴 씽즈."
+    },
+    {
+      "english": "A light bag with several pockets",
+      "hangul": "어 라이트 배그 위드 세버럴 파킷츠"
+    },
+    {
+      "english": "could help keep those things together.",
+      "hangul": "쿠드 헬프 킵 도우즈 씽즈 터게더."
+    },
+    {
+      "english": "I would ask about the person's needs first",
+      "hangul": "아이 우드 애스크 어바웃 더 퍼슨즈 니즈 퍼스트"
+    },
+    {
+      "english": "instead of guessing what would be useful.",
+      "hangul": "인스테드 어브 게싱 왓 우드 비 유스풀."
+    },
+    {
+      "english": "That way, the gift would fit the friend,",
+      "hangul": "댓 웨이, 더 기프트 우드 핏 더 프렌드,"
+    },
+    {
+      "english": "even if it were not a surprise.",
+      "hangul": "이븐 이프 잇 워 낫 어 서프라이즈."
+    }
+  ],
+  "YO06": [
+    {
+      "english": "I would prefer an online booking system",
+      "hangul": "아이 우드 프리퍼 언 온라인 부킹 시스템"
+    },
+    {
+      "english": "because it would help people plan their visits.",
+      "hangul": "비커즈 잇 우드 헬프 피플 플랜 데어 비짓츠."
+    },
+    {
+      "english": "For example, a group preparing a presentation",
+      "hangul": "포어 이그잼플, 어 그룹 프리페어링 어 프레젠테이션"
+    },
+    {
+      "english": "could reserve a room before everyone travels to the center.",
+      "hangul": "쿠드 리저브 어 룸 비포어 에브리원 트래벌즈 터 더 센터."
+    },
+    {
+      "english": "They would know when they could start",
+      "hangul": "데이 우드 노 웬 데이 쿠드 스타트"
+    },
+    {
+      "english": "instead of waiting without a clear time.",
+      "hangul": "인스테드 어브 웨이팅 위다웃 어 클리어 타임."
+    },
+    {
+      "english": "The center should limit how long one group can book",
+      "hangul": "더 센터 슈드 리밋 하우 롱 원 그룹 캔 북"
+    },
+    {
+      "english": "and release rooms when people do not arrive.",
+      "hangul": "앤 릴리스 룸즈 웬 피플 두 낫 어라이브."
+    },
+    {
+      "english": "These rules would help other visitors use empty rooms.",
+      "hangul": "디즈 룰즈 우드 헬프 아더 비지터즈 유즈 엠프티 룸즈."
+    }
+  ],
+  "YP01": [
+    {
+      "english": "This picture shows an outdoor market.",
+      "hangul": "디스 픽처 쇼우즈 언 아웃도어 마킷."
+    },
+    {
+      "english": "A woman in a blue jacket",
+      "hangul": "어 워먼 인 어 블루 재킷"
+    },
+    {
+      "english": "is holding a red apple and a cloth bag.",
+      "hangul": "이즈 홀딩 어 레드 애플 앤 어 클로쓰 배그."
+    },
+    {
+      "english": "A man in an apron",
+      "hangul": "어 맨 인 언 에이프런"
+    },
+    {
+      "english": "is standing behind the fruit stand.",
+      "hangul": "이즈 스탠딩 비하인드 더 프루트 스탠드."
+    },
+    {
+      "english": "There are apples and oranges in wooden boxes.",
+      "hangul": "데어 아 애플즈 앤 오린지즈 인 우든 박시즈."
+    },
+    {
+      "english": "In the background, another man is walking past the stand.",
+      "hangul": "인 더 백그라운드, 어너더 맨 이즈 워킹 패스트 더 스탠드."
+    }
+  ],
+  "YP02": [
+    {
+      "english": "This picture shows three people in a workshop.",
+      "hangul": "디스 픽처 쇼우즈 쓰리 피플 인 어 워크샵."
+    },
+    {
+      "english": "Two people are standing at a table",
+      "hangul": "투 피플 아 스탠딩 앳 어 테이블"
+    },
+    {
+      "english": "with a small wooden birdhouse.",
+      "hangul": "위드 어 스몰 우든 버드하우스."
+    },
+    {
+      "english": "One person is holding it,",
+      "hangul": "원 퍼슨 이즈 홀딩 잇,"
+    },
+    {
+      "english": "and the other is using a screwdriver.",
+      "hangul": "앤 디 어더 이즈 유징 어 스크루드라이버."
+    },
+    {
+      "english": "They are wearing safety glasses.",
+      "hangul": "데이 아 웨어링 세이프티 글래시즈."
+    },
+    {
+      "english": "In the background, another person",
+      "hangul": "인 더 백그라운드, 어너더 퍼슨"
+    },
+    {
+      "english": "is reaching toward tools on a shelf.",
+      "hangul": "이즈 리칭 터워드 툴즈 온 어 셸프."
+    }
+  ]
+}

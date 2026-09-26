@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-13",
+  "commit": "9569752ea1b76888b41a2f91ec4b9201fd943c0c",
+  "deployment": "dpl_ETfgoJYqYke2AsCFswHeDnJgRuke",
+  "production": "https://dullg-landing-one.vercel.app",
+  "game": "/play/tide-room",
+  "status": "READY",
+  "publicChecks": {
+    "pages": 5,
+    "media": 25,
+    "audioRange": 206,
+    "authRedirects": 2,
+    "lessonLocales": 2,
+    "slidesEach": 54
+  },
+  "localBuild": "webpack passed; Turbopack font download failed locally",
+  "cloudBuild": "passed",
+  "browserInteraction": false
+}

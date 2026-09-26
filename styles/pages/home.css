@@ -164,25 +164,9 @@
 }
 .brand-education-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 80px;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 64px);
   align-items: center;
-}
-.brand-education-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  align-items: start;
-  margin: 0;
-}
-.brand-education-cards img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-sm);
-  box-shadow: 0 10px 30px rgba(17, 20, 18, 0.12);
-}
-.brand-education-cards img:last-child {
-  transform: translateY(24px);
 }
 .brand-education h2 {
   margin: 14px 0 22px;

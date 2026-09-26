@@ -9,6 +9,7 @@ export const primaryNavigation: NavigationItem[] = [
   { href: "/mini-projects", label: "미니 프로젝트" },
   { href: "/activity", label: "활동 기록" },
   { href: "/academy", label: "교육" },
+  { href: "/speaking", label: "스피킹 공부" },
   { href: "/materials", label: "수강생 자료실" },
   { href: "/about", label: "단서공방" },
 ];

@@ -31,25 +31,13 @@ export function WorkLanding({ slug, title }: { slug: string; title: string }) {
                 height={image.height}
                 sizes="(max-width: 900px) 100vw, 860px"
                 alt={t(
-                  `${title} 공식 소개 · 이야기와 등장인물, 게임 구성 (${index + 1}/${landing.images.length})`,
+                  `${title} 상세 소개 · 이야기와 등장인물, 게임 구성 (${index + 1}/${landing.images.length})`,
                 )}
               />
             </a>
           )),
         )}
       </div>
-      <footer className={styles.note}>
-        <p>
-          {t(
-            "출처: 단서공방 텀블벅 프로젝트 \u00B7 2026년 9월 3일 확인. 구성과 제공 조건은 공식 프로젝트의 최신 안내를 확인해 주세요.",
-          )}
-        </p>
-        {t(
-          landing.aiDisclosure && (
-            <p>{t("공식 프로젝트에는 생성형 AI를 활용한 이미지가 포함되어 있습니다.")}</p>
-          ),
-        )}
-      </footer>
     </section>
   );
 }

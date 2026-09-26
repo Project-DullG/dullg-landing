@@ -6,9 +6,26 @@ export type PublicRoute = {
   group: RouteGroup;
   priority: number;
   changeFrequency: "weekly" | "monthly" | "yearly";
+  noIndex?: boolean;
 };
 
 export const publicRoutes: PublicRoute[] = [
+  {
+    path: "/games/ulleung-marble",
+    title: "울릉마블",
+    description: "4–8명이 일곱 라운드 동안 여행지와 카드를 고르는 울릉도·독도 여행 보드게임. 플레이 영상과 모든 구성품, 함께 쓰는 게임 테이블을 살펴보세요.",
+    group: "studio",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/games/wallbreak",
+    title: "벽꿍! 균열의 석공",
+    description: "망치와 활로 적을 공격하고, 벽을 세워 적을 밀어붙이며 숲과 동굴을 돌파하는 액션 로그라이트.",
+    group: "studio",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
   {
     path: "/games/last-screening",
     title: "마지막 상영",
@@ -25,7 +42,6 @@ export const publicRoutes: PublicRoute[] = [
     priority: 0.7,
     changeFrequency: "monthly",
   },
-  {path:"/games/tide-room",title:"유리 너머의 목소리",description:"실종된 관측소 책임자를 찾는 1인 추리 게임.",group:"studio",priority:0.7,changeFrequency:"monthly"},
   {
     path: "/materials/ulleung-high-lesson-2",
     title: "울릉고 리빙랩 2차시",
@@ -34,6 +50,7 @@ export const publicRoutes: PublicRoute[] = [
     priority: 0.5,
     changeFrequency: "monthly",
   },
+  {path:"/games/tide-room",title:"유리 너머의 목소리",description:"실종된 관측소 책임자를 찾는 1인 추리 게임.",group:"studio",priority:0.7,changeFrequency:"monthly"},
   {
     path: "/activity/ulsan-youth-arts-2026",
     title: "2026 울산 중구 청년예술제",
@@ -41,6 +58,15 @@ export const publicRoutes: PublicRoute[] = [
     group: "studio",
     priority: 0.6,
     changeFrequency: "yearly",
+  },
+  {
+    path: "/speaking",
+    title: "스피킹 공부",
+    description: "구글 로그인과 인증코드로 접속하는 토익스피킹 연습실입니다.",
+    group: "education",
+    priority: 0.3,
+    changeFrequency: "monthly",
+    noIndex: true,
   },
   {
     path: "/",

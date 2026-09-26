@@ -6,16 +6,22 @@ import { miniProjects } from "@/lib/mini-projects";
 import { bilingualSitemap } from "@/lib/i18n/sitemap";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = publicRoutes.map((r) => ({
-    url: `${SITE_URL}${r.path === "/" ? "" : r.path}`,
-    priority: r.priority,
-    changeFrequency: r.changeFrequency,
-  }));
+  const pages = publicRoutes
+    .filter((r) => !r.noIndex)
+    .map((r) => ({
+      url: `${SITE_URL}${r.path === "/" ? "" : r.path}`,
+      priority: r.priority,
+      changeFrequency: r.changeFrequency,
+    }));
   const workPages = works.map((work) => ({
     url: `${SITE_URL}/works/${work.slug}`,
     priority: 0.7,
     changeFrequency: "monthly" as const,
   }));
-  const miniPages = miniProjects.map((project) => ({ url: `${SITE_URL}/mini-projects/${project.slug}`, priority: 0.6, changeFrequency: "monthly" as const }));
+  const miniPages = miniProjects.map((project) => ({
+    url: `${SITE_URL}/mini-projects/${project.slug}`,
+    priority: 0.6,
+    changeFrequency: "monthly" as const,
+  }));
   return bilingualSitemap([...pages, ...workPages, ...miniPages]);
 }

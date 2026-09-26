@@ -1,0 +1,90 @@
+.root {
+  min-width: 0;
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+.figure {
+  margin: 0;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #060c13;
+  border-radius: var(--radius-sm);
+}
+
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  padding-block: 16px;
+}
+
+.caption strong {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.meta {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.transcript {
+  border-top: 1px solid var(--line);
+}
+.transcript summary {
+  min-height: 48px;
+  padding-block: 14px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.transcript > div > p {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+.video:focus-visible,
+.link:focus-visible,
+.transcript summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+}
+
+.section {
+  padding-block: 0 72px;
+}
+.jumpLink {
+  margin-top: 20px;
+}
+.section > h2 {
+  margin: 0 0 24px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding-bottom: 40px;
+  }
+  .caption {
+    gap: 4px 16px;
+  }
+}

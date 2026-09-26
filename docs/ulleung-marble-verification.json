@@ -1,0 +1,61 @@
+{
+  "deployment": "dpl_44ukiEQterRV4iR1Fasnu3oKfAS5",
+  "commit": "13898dd5ce685a3b572e38a099430d2fdf9250d8",
+  "publicUrl": "https://dullg-landing-one.vercel.app/games/ulleung-marble",
+  "checks": [
+    {
+      "path": "/games/ulleung-marble",
+      "status": 200,
+      "bytes": 21334,
+      "passed": true
+    },
+    {
+      "path": "/ulleung-marble/tabletop/master.html",
+      "status": 200,
+      "bytes": 1983,
+      "passed": true
+    },
+    {
+      "path": "/ulleung-marble/tabletop/components.html",
+      "status": 200,
+      "bytes": 1280,
+      "passed": true
+    },
+    {
+      "path": "/ulleung-marble/tabletop/v07/app.mjs",
+      "status": 200,
+      "bytes": 23189,
+      "passed": true
+    },
+    {
+      "path": "/ulleung-marble/tabletop/v07/play.mjs",
+      "status": 200,
+      "bytes": 21206,
+      "passed": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 107196,
+      "passed": true
+    },
+    {
+      "path": "/mini-projects",
+      "status": 200,
+      "bytes": 205341,
+      "passed": true
+    },
+    {
+      "path": "/games/last-screening",
+      "status": 200,
+      "bytes": 31831,
+      "passed": true
+    },
+    {
+      "path": "/ulleung-marble/assets/v07/promo/ulleung-marble-play.mp4",
+      "status": 206,
+      "bytes": 1024,
+      "passed": true
+    }
+  ]
+}

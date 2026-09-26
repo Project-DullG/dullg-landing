@@ -212,7 +212,7 @@ export const works: Work[] = [
     status: "출시",
     title: "의사가 너무 많아!",
     players: "6인",
-    duration: "150분",
+    duration: "120분",
     platform: "실물 보드게임",
     synopsis:
       "전국에서 모인 여섯 명의 의사가 국왕의 치료를 마치지만 왕은 한 시간 뒤 숨을 거둡니다. 명예와 생존을 위해 의사들은 왕의 사인과 진짜 범인을 밝혀야 합니다.",
@@ -223,7 +223,7 @@ export const works: Work[] = [
     characteristics: [
       "국왕의 치료 직후 벌어진 사건",
       "여섯 의사의 관계와 진술을 중심으로 진행",
-      "150분 분량의 실물 머더미스터리",
+      "120분 분량의 실물 머더미스터리",
     ],
     record: {
       label: "펀딩 성공",

@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "@/components/i18n/link";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 import { SectionHead } from "@/components/section-head";
+import { EpisodeTrailer } from "@/components/episode-trailer";
+import trailerStyles from "@/components/episode-trailer.module.css";
 import {
   curriculum,
   educationFacts,
@@ -25,25 +27,21 @@ const cast = [
     num: "01",
     name: "윤지원",
     image: "/assets/dullg/yoonjiwon.png",
-    clue: "오후 4시 12분, 원장실 앞 복도에서 서두르는 발소리를 들었습니다.",
   },
   {
     num: "02",
     name: "박세준",
     image: "/assets/dullg/parksejun.png",
-    clue: "자습실 창가 자리에서 벽면 열쇠고리가 비어 있는 것을 보았습니다.",
   },
   {
     num: "03",
     name: "차하린",
     image: "/assets/dullg/chaharin.png",
-    clue: "계단 아래에서 선생님과 낯선 가방이 함께 있는 것을 목격했습니다.",
   },
   {
     num: "04",
     name: "한도경",
     image: "/assets/dullg/handokyung.png",
-    clue: "복도에서 쪽지 한 장을 발견했습니다. 그 위에 영어 문장이 쓰여 있었습니다.",
   },
 ];
 export default function EpisodePage() {
@@ -63,11 +61,14 @@ export default function EpisodePage() {
                 <em>{t(episodeSubtitle)}</em>
               </>,
             )}
-            lead="재시험을 시작하려던 순간, 원장실 벽면에 있어야 할 두 개의 열쇠가 사라졌습니다. 네 명의 학생이 각자 다른 장소에서 단서를 발견합니다."
+            lead="시험 자료와 휴대폰을 꺼낼 두 열쇠가 사라졌습니다. 여덟 시까지 찾아야 하는데, 아직 확인하지 못한 곳은 네 학생의 가방입니다."
           />
           <div className="ep-hero-chips">
             {t(educationFacts.slice(0, 3).map(([value]) => <span key={value}>{t(value)}</span>))}
           </div>
+          <Link className={`button button-dark ${trailerStyles.jumpLink}`} href="#episode-trailer">
+            {t("26초 예고편 보기")}
+          </Link>
         </div>
         <div className="ep-hero-visual">
           <Image
@@ -82,24 +83,32 @@ export default function EpisodePage() {
         </div>
       </section>
 
+      <section
+        className={`shell ${trailerStyles.section}`}
+        aria-labelledby="episode-trailer-heading"
+      >
+        <h2 id="episode-trailer-heading">{t("사건의 시작을 영상으로")}</h2>
+        <EpisodeTrailer id="episode-trailer" />
+      </section>
+
       {/* ── SETTING — large floor map ── */}
       <section className="ep-setting">
         <div className="shell ep-setting-inner">
           <div className="ep-setting-copy">
             <Kicker>{t("사건이 시작된 장소")}</Kicker>
             <h2>
-              {t("오후 4시 30분,")}
+              {t("금요일 저녁 7시 10분,")}
               <br />
               <span>{t("학원 3층에서 시작됩니다.")}</span>
             </h2>
             <p>
               {t(
-                "방과후 보충 수업 첫날. 재시험을 치르기 위해 학생들이 모였는데, 원장실 서랍 열쇠와 자습실 보관함 열쇠가 동시에 사라졌습니다.",
+                "재시험을 치르러 온 네 학생. 시험 자료가 든 보관함과 휴대폰함을 열어야 하는데, 벽에 함께 걸려 있던 두 열쇠가 사라졌습니다.",
               )}
             </p>
             <p>
               {t(
-                "4명의 학생이 각자 목격한 것을 영어로 기록하고 정보를 모아 사건을 해결해야 합니다. 단서는 각자 다르고, 혼자로는 충분하지 않습니다.",
+                "원장실 주변과 자습실, 복도를 찾아봤지만 열쇠는 나오지 않았습니다. 남은 곳은 네 사람의 가방. 여덟 시까지 찾지 못하면 재시험 미처리와 부모님 연락으로 이어집니다.",
               )}
             </p>
           </div>
@@ -123,12 +132,12 @@ export default function EpisodePage() {
       <section className="ep-cast shell">
         <SectionHead
           className="ep-cast-head"
-          kicker="서로 다른 단서를 가진 네 학생"
+          kicker="재시험을 치르러 온 네 학생"
           title={t(
             <>
-              {t("각자 다른 단서를")}
+              {t("열쇠를 찾아야 하는")}
               <br />
-              <em>{t("가지고 있습니다.")}</em>
+              <em>{t("네 사람입니다.")}</em>
             </>,
           )}
         />
@@ -148,7 +157,6 @@ export default function EpisodePage() {
                 <div className="ep-cast-info">
                   <span className="ep-cast-index">{t(c.num)} / 04</span>
                   <strong>{t(c.name)}</strong>
-                  <p>{t(c.clue)}</p>
                 </div>
               </div>
             )),

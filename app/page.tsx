@@ -3,6 +3,8 @@ import { localizeMetadata } from "@/lib/i18n/server";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "@/components/i18n/link";
 import Image from "next/image";
+import { BrandFilm } from "@/components/brand-film";
+import { EpisodeTrailer } from "@/components/episode-trailer";
 import { Footer, Header, Kicker } from "@/components/site";
 import { SectionHead } from "@/components/section-head";
 import { educationFacts } from "@/lib/education";
@@ -52,6 +54,8 @@ export default function Home() {
             </Link>
           </div>
         </section>
+
+        <BrandFilm />
 
         <HomeWorks />
 
@@ -103,22 +107,7 @@ export default function Home() {
 
         <section className="brand-education" aria-labelledby="brand-education-title">
           <div className="shell brand-education-grid">
-            <figure className="brand-education-cards">
-              <Image
-                src="/assets/dullg/card-cover-1.png"
-                width={408}
-                height={650}
-                alt={t("윤지원 소지품 카드 앞면")}
-                sizes="(max-width: 760px) 45vw, 22vw"
-              />
-              <Image
-                src="/assets/dullg/card-body-1.png"
-                width={408}
-                height={650}
-                alt={t("윤지원 소지품 카드 뒷면의 영어 단서")}
-                sizes="(max-width: 760px) 45vw, 22vw"
-              />
-            </figure>
+            <EpisodeTrailer id="two-keys-trailer" showEpisodeLink />
             <div>
               <Kicker>{t("준비 중 \u00B7 영어 미스터리 수업팩")}</Kicker>
               <h2 id="brand-education-title">

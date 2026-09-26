@@ -1,0 +1,394 @@
+{
+  "R01": [
+    {
+      "english": "Welcome to the Riverside Art Center.",
+      "hangul": "웰컴 터 더 리버사이드 아트 센터."
+    },
+    {
+      "english": "Our new exhibition is open",
+      "hangul": "아워 누 엑서비션 이즈 오픈"
+    },
+    {
+      "english": "from ten in the morning",
+      "hangul": "프럼 텐 인 더 모닝"
+    },
+    {
+      "english": "until six in the evening.",
+      "hangul": "언틸 식스 인 디 이브닝."
+    },
+    {
+      "english": "Tickets are available at the front desk.",
+      "hangul": "티킷츠 아 어베일러블 앳 더 프런트 데스크."
+    },
+    {
+      "english": "Please leave large bags in the lockers",
+      "hangul": "플리즈 리브 라지 배그즈 인 더 라커즈"
+    },
+    {
+      "english": "before entering the exhibition hall.",
+      "hangul": "비포어 엔터링 디 엑서비션 홀."
+    }
+  ],
+  "R02": [
+    {
+      "english": "Thank you for choosing Greenway Tours.",
+      "hangul": "생큐 퍼 추징 그린웨이 투어즈."
+    },
+    {
+      "english": "The bus will leave",
+      "hangul": "더 버스 윌 리브"
+    },
+    {
+      "english": "from the main entrance at eight thirty.",
+      "hangul": "프럼 더 메인 엔트런스 앳 에잇 써티."
+    },
+    {
+      "english": "Please arrive ten minutes early",
+      "hangul": "플리즈 어라이브 텐 미닛츠 얼리"
+    },
+    {
+      "english": "and bring your ticket.",
+      "hangul": "앤 브링 여 티킷."
+    },
+    {
+      "english": "If you need assistance,",
+      "hangul": "이프 유 니드 어시스턴스,"
+    },
+    {
+      "english": "a staff member will be waiting",
+      "hangul": "어 스태프 멤버 윌 비 웨이팅"
+    },
+    {
+      "english": "beside the information board.",
+      "hangul": "비사이드 디 인퍼메이션 보드."
+    }
+  ],
+  "R04": [
+    {
+      "english": "Welcome to the West Park Visitor Center.",
+      "hangul": "웰컴 터 더 웨스트 파크 비지터 센터."
+    },
+    {
+      "english": "Guided tours begin at ten in the morning",
+      "hangul": "가이디드 투어즈 비긴 앳 텐 인 더 모닝"
+    },
+    {
+      "english": "and two in the afternoon.",
+      "hangul": "앤 투 인 디 애프터눈."
+    },
+    {
+      "english": "Each tour lasts about forty minutes.",
+      "hangul": "이치 투어 래스츠 어바웃 포티 미닛츠."
+    },
+    {
+      "english": "Please meet your guide",
+      "hangul": "플리즈 밋 여 가이드"
+    },
+    {
+      "english": "beside the ticket counter.",
+      "hangul": "비사이드 더 티킷 카운터."
+    },
+    {
+      "english": "Water is available near the main entrance.",
+      "hangul": "워러 이즈 어베일러블 니어 더 메인 엔트런스."
+    }
+  ],
+  "R05": [
+    {
+      "english": "Thank you for attending",
+      "hangul": "생큐 퍼 어텐딩"
+    },
+    {
+      "english": "our office safety workshop.",
+      "hangul": "아워 아피스 세이프티 워크샵."
+    },
+    {
+      "english": "The first session will start",
+      "hangul": "더 퍼스트 세션 윌 스타트"
+    },
+    {
+      "english": "in Room Three at nine thirty.",
+      "hangul": "인 룸 쓰리 앳 나인 써티."
+    },
+    {
+      "english": "Please bring the folder",
+      "hangul": "플리즈 브링 더 폴더"
+    },
+    {
+      "english": "you received at registration.",
+      "hangul": "유 리시브드 앳 레지스트레이션."
+    },
+    {
+      "english": "After a short break,",
+      "hangul": "애프터 어 쇼트 브레이크,"
+    },
+    {
+      "english": "we will practice using the new equipment.",
+      "hangul": "위 윌 프랙티스 유징 더 누 이큅먼트."
+    },
+    {
+      "english": "Staff members will be available",
+      "hangul": "스태프 멤버즈 윌 비 어베일러블"
+    },
+    {
+      "english": "to answer your questions.",
+      "hangul": "터 앤서 여 퀘스천즈."
+    }
+  ],
+  "XR01": [
+    {
+      "english": "Welcome to the Oak Street Library.",
+      "hangul": "웰컴 터 디 오크 스트리트 라이브레리."
+    },
+    {
+      "english": "Our study room is open",
+      "hangul": "아워 스터디 룸 이즈 오픈"
+    },
+    {
+      "english": "until eight this evening.",
+      "hangul": "언틸 에잇 디스 이브닝."
+    },
+    {
+      "english": "Please keep conversations quiet",
+      "hangul": "플리즈 킵 칸버세이션즈 콰이엇"
+    },
+    {
+      "english": "and return books to the front desk.",
+      "hangul": "앤 리턴 북스 터 더 프런트 데스크."
+    },
+    {
+      "english": "If you need more light,",
+      "hangul": "이프 유 니드 모어 라잇,"
+    },
+    {
+      "english": "use the lamp beside your seat.",
+      "hangul": "유즈 더 램프 비사이드 여 시트."
+    },
+    {
+      "english": "Food should be eaten",
+      "hangul": "푸드 슈드 비 이튼"
+    },
+    {
+      "english": "in the downstairs lounge.",
+      "hangul": "인 더 다운스테어즈 라운지."
+    }
+  ],
+  "XR02": [
+    {
+      "english": "Join our beginner pottery class",
+      "hangul": "조인 아워 비기너 파터리 클래스"
+    },
+    {
+      "english": "this Saturday at the community center.",
+      "hangul": "디스 새터데이 앳 더 커뮤니티 센터."
+    },
+    {
+      "english": "The class starts at ten",
+      "hangul": "더 클래스 스타츠 앳 텐"
+    },
+    {
+      "english": "and finishes at noon.",
+      "hangul": "앤 피니시즈 앳 눈."
+    },
+    {
+      "english": "The fee includes clay",
+      "hangul": "더 피 인클루즈 클레이"
+    },
+    {
+      "english": "and the use of all tools.",
+      "hangul": "앤 더 유스 어브 올 툴즈."
+    },
+    {
+      "english": "Please wear clothes that can get dirty.",
+      "hangul": "플리즈 웨어 클로즈 댓 컨 겟 더티."
+    },
+    {
+      "english": "To reserve a place,",
+      "hangul": "터 리저브 어 플레이스,"
+    },
+    {
+      "english": "call our office by Thursday.",
+      "hangul": "콜 아워 아피스 바이 써즈데이."
+    }
+  ],
+  "XR03": [
+    {
+      "english": "This is a reminder",
+      "hangul": "디스 이즈 어 리마인더"
+    },
+    {
+      "english": "of your career advising appointment tomorrow afternoon.",
+      "hangul": "어브 여 커리어 어드바이징 어포인트먼트 터마로 애프터눈."
+    },
+    {
+      "english": "Please arrive five minutes early",
+      "hangul": "플리즈 어라이브 파이브 미닛츠 얼리"
+    },
+    {
+      "english": "and bring a copy of your resume.",
+      "hangul": "앤 브링 어 카피 어브 여 레저메이."
+    },
+    {
+      "english": "Your advisor will meet you",
+      "hangul": "여 어드바이저 윌 밋 유"
+    },
+    {
+      "english": "in Room Twelve on the second floor.",
+      "hangul": "인 룸 트웰브 안 더 세컨드 플로어."
+    },
+    {
+      "english": "If you need to change the time,",
+      "hangul": "이프 유 니드 터 체인지 더 타임,"
+    },
+    {
+      "english": "contact the reception team today.",
+      "hangul": "칸택트 더 리셉션 팀 터데이."
+    }
+  ],
+  "XR04": [
+    {
+      "english": "Thank you for joining our river cleanup this morning.",
+      "hangul": "생큐 퍼 조이닝 아워 리버 클린업 디스 모닝."
+    },
+    {
+      "english": "The volunteer bus will leave",
+      "hangul": "더 발런티어 버스 윌 리브"
+    },
+    {
+      "english": "at nine from the main gate.",
+      "hangul": "앳 나인 프럼 더 메인 게잇."
+    },
+    {
+      "english": "It is parked on the right,",
+      "hangul": "잇 이즈 파크트 안 더 라잇,"
+    },
+    {
+      "english": "beside the blue sign.",
+      "hangul": "비사이드 더 블루 사인."
+    },
+    {
+      "english": "Gloves and drinking water are provided.",
+      "hangul": "글러브즈 앤 드링킹 워러 아 프러바이디드."
+    },
+    {
+      "english": "Please bring a hat",
+      "hangul": "플리즈 브링 어 햇"
+    },
+    {
+      "english": "and meet your group leader before boarding.",
+      "hangul": "앤 밋 여 그룹 리더 비포어 보딩."
+    }
+  ],
+  "YR01": [
+    {
+      "english": "Welcome to the Harbor Bicycle Center.",
+      "hangul": "웰컴 터 더 하버 바이시클 센터."
+    },
+    {
+      "english": "All rentals include a helmet and a lock.",
+      "hangul": "올 렌털즈 인클루드 어 헬밋 앤 어 락."
+    },
+    {
+      "english": "Please return your bicycle before five this afternoon.",
+      "hangul": "플리즈 리턴 유어 바이시클 비포어 파이브 디스 애프터눈."
+    },
+    {
+      "english": "The return area is behind the building,",
+      "hangul": "더 리턴 에어리어 이즈 비하인드 더 빌딩,"
+    },
+    {
+      "english": "beside the green gate.",
+      "hangul": "비사이드 더 그린 게이트."
+    },
+    {
+      "english": "If you have a problem,",
+      "hangul": "이프 유 해브 어 프라블럼,"
+    },
+    {
+      "english": "call the number printed on your receipt.",
+      "hangul": "콜 더 넘버 프린티드 온 유어 리시트."
+    }
+  ],
+  "YR02": [
+    {
+      "english": "Good morning, and thank you for staying with us.",
+      "hangul": "굿 모닝, 앤 쌩크 유 포어 스테잉 위드 어스."
+    },
+    {
+      "english": "Breakfast will be served in the garden room today",
+      "hangul": "브렉퍼스트 윌 비 서브드 인 더 가든 룸 터데이"
+    },
+    {
+      "english": "because the main dining room is closed for cleaning.",
+      "hangul": "비커즈 더 메인 다이닝 룸 이즈 클로즈드 포어 클리닝."
+    },
+    {
+      "english": "Service begins at seven and ends at nine thirty.",
+      "hangul": "서비스 비긴즈 앳 세븐 앤 엔즈 앳 나인 써티."
+    },
+    {
+      "english": "Please show your room key at the entrance.",
+      "hangul": "플리즈 쇼 유어 룸 키 앳 디 엔트런스."
+    }
+  ],
+  "YR03": [
+    {
+      "english": "Maple Books invites you",
+      "hangul": "메이플 북스 인바이츠 유"
+    },
+    {
+      "english": "to meet a local author this Friday evening.",
+      "hangul": "터 밋 어 로컬 오써 디스 프라이데이 이브닝."
+    },
+    {
+      "english": "The talk begins at six,",
+      "hangul": "더 톡 비긴즈 앳 식스,"
+    },
+    {
+      "english": "and a book signing will follow.",
+      "hangul": "앤 어 북 사이닝 윌 팔로우."
+    },
+    {
+      "english": "Admission is free, but space is limited.",
+      "hangul": "애드미션 이즈 프리, 벗 스페이스 이즈 리미티드."
+    },
+    {
+      "english": "Reserve a seat on our website by Thursday.",
+      "hangul": "리저브 어 시트 온 아워 웹사이트 바이 써즈데이."
+    },
+    {
+      "english": "Please enter through the side door when you arrive.",
+      "hangul": "플리즈 엔터 쓰루 더 사이드 도어 웬 유 어라이브."
+    }
+  ],
+  "YR04": [
+    {
+      "english": "Your repair is complete and ready for pickup.",
+      "hangul": "유어 리페어 이즈 컴플리트 앤 레디 포어 픽업."
+    },
+    {
+      "english": "Our service desk is open until six today.",
+      "hangul": "아워 서비스 데스크 이즈 오픈 언틸 식스 터데이."
+    },
+    {
+      "english": "Please bring your order number and a photo ID.",
+      "hangul": "플리즈 브링 유어 오더 넘버 앤 어 포토 아이디."
+    },
+    {
+      "english": "If someone else will collect the item,",
+      "hangul": "이프 섬원 엘스 윌 컬렉트 디 아이텀,"
+    },
+    {
+      "english": "contact us in advance.",
+      "hangul": "칸택트 어스 인 어드밴스."
+    },
+    {
+      "english": "We will keep it here",
+      "hangul": "위 윌 킵 잇 히어"
+    },
+    {
+      "english": "for seven days at no extra charge.",
+      "hangul": "포어 세븐 데이즈 앳 노 엑스트러 차지."
+    }
+  ]
+}

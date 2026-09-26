@@ -1,3 +1,4 @@
+import { UlleungMarbleFeature } from "@/components/ulleung-marble-feature";
 import { TideFeature } from '@/components/tide-room/feature';
 import { DischargeFeature } from '@/components/discharge-feature';
 import { GameFeature } from '@/components/game-feature';
@@ -38,6 +39,7 @@ export default function MiniProjectsPage() {
         </span>
       </PageIntro>
       <div className={`shell ${styles.collection}`}>
+        <UlleungMarbleFeature />
         <GameFeature id="last-screening" />
         <DischargeFeature />
         <TideFeature />

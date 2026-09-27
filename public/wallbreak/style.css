@@ -2054,6 +2054,7 @@ img.spr { vertical-align: -3px; }
 .mt-keys span { color: var(--dim); }
 .mt-keys span:last-child { margin-left: auto; color: var(--mute); font-size: 10.5px; }
 .mt-keys kbd { font-size: 10.5px; margin-right: 3px; }
+.mt-keys .near-salvage { margin-left: auto; padding: 2px 8px; font-size: 11px; color: #f1e3c4; border-color: #d8c8a888; background: #3a2d1ccc; cursor: pointer; } /* 받침대 분해 단추 (build_ui nearKeyHint) */
 .mc-tip.world .mt-eff { flex-wrap: wrap; }
 .mc-tip.world .mt-eff > span:last-child { flex: 1 1 150px; }
 /* 능력치 탭 v14: 주 4 · 부 12 · 모든 수치(접힘) — stats 담당 */
@@ -3256,3 +3257,39 @@ img.spr { vertical-align: -3px; }
 .ess-ex>b{color:#e5c580}.ess-ex>small{color:#a89f95;margin-right:auto}.ess-ex.off{opacity:.55}
 .ess-ex select{background:#1d1728;color:#eee;border:1px solid #514634;border-radius:5px;padding:4px 6px;font:inherit;max-width:44vw}
 @media(max-width:620px){.pot-slots{grid-template-columns:1fr}}
+.skill-card .sk-pips{display:flex;align-items:center;justify-content:center;gap:4px;margin:4px 0 6px}
+.skill-card .sk-pip{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--trait);opacity:.55}
+.skill-card .sk-pip.on{background:var(--trait);opacity:1}.skill-card .sk-pip.next{background:#fff;border-color:#fff;opacity:1;box-shadow:0 0 6px #fff}
+.skill-card .sk-pip.aw{border-radius:2px;transform:rotate(45deg)}.skill-card .sk-pips b{margin-left:6px;font-size:13px;color:var(--trait)}
+.skill-card .sk-awaken{margin-top:8px;padding-top:6px;border-top:1px dashed #ffffff30;font-size:12px;color:#c9c0b0;line-height:1.35}.skill-card .sk-awaken b{color:#ffcf5a;margin-right:4px}
+.skill-card .sk-new{color:#7dff9a}
+.mt-scope{margin-top:4px;padding-top:4px;border-top:1px dashed #ffffff26;color:#cfe3ff;font-size:12px;line-height:1.4}.mt-scope b{color:#8fd8ff;margin-right:4px}
+.wall-traits{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;padding:8px 10px;border:1px solid #514634;border-radius:8px;background:#131019}
+.wall-traits .wt-head b{color:#ffcf9a;margin-right:8px}.wall-traits .wt-head small{color:#a89f95;font-size:11px}
+.wt-row{display:flex;gap:8px;align-items:flex-start}.wt-no{flex:none;width:40px;color:#ffe0a0;font-size:13px;padding-top:2px}
+.wt-body{display:flex;flex-wrap:wrap;align-items:center;gap:3px 8px;min-width:0;font-size:12px}.wt-body small{color:#d9d0c4}
+.wt-chip{padding:1px 6px;border-radius:9px;border:1px solid var(--c);color:var(--c);font-size:11px;white-space:nowrap}
+.wt-relics{width:100%;color:#e8c9ff;font-size:11px}.wt-none{color:#8f86a0!important}.wt-body-relics{color:#cfe3ff;font-size:11px;border-top:1px dashed #ffffff22;padding-top:4px}
+/* 언덕 밭 · 벽꿍 수련 (town_hub.js openFarm · openDrill): 장부형 줄 · .row 발은 -24px 여백이라 좌우 24px */
+.town-farm{width:min(780px,96vw);max-height:94vh;padding:14px 24px 12px;overflow-x:hidden}
+.town-farm header h2 small{font-size:13px;color:#baa991;margin-left:8px}
+.farm-say{margin:0 0 4px;font-size:13.5px;color:#d8f0c0}.farm-say b{color:#9ad86a;margin-right:6px;font-weight:normal}
+.town-drill .farm-say{color:#ffe0c0}.town-drill .farm-say b{color:#ffb84d}
+.farm-list{display:flex;flex-direction:column;gap:5px}
+.farm-row{display:flex;align-items:center;gap:10px;padding:6px 10px;background:#211c25;border-radius:8px;min-width:0}
+.farm-row .grow{flex:1;min-width:0}.farm-row b{font-weight:normal;color:#f3e1b8;font-family:'Do Hyeon',sans-serif;font-size:15px}.farm-row b em{font-style:normal;font-size:12px;color:#a8c895;margin-left:4px}
+.farm-row small{display:block;color:#baa991;font-size:12px;line-height:1.35}
+.farm-row.off{opacity:.55}.farm-row.dim{opacity:.8}.farm-row.ripe{background:#2a2a1c;box-shadow:inset 0 0 0 1px #ffe27a55}
+.farm-row .st{flex:none;font-size:12.5px;color:#a8c895}
+.farm-ico{width:40px;height:40px;flex:none;object-fit:contain;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:#17131b;color:#8f8494;font-size:16px}
+.farm-ico.empty{background:linear-gradient(#17131b 60%,#4a2e22 60%)}
+.farm-btns{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end;max-width:52%}
+.farm-row [data-buy]{flex:none;min-width:176px}
+.farm-count{flex:none;display:flex;flex-direction:column;align-items:center;min-width:34px}.farm-count small{font-size:10.5px;color:#8f8494}.farm-count b{font-size:16px;color:#ffe9a0}
+.farm-pips{display:flex;gap:4px;flex:none}.farm-pips i{width:12px;height:12px;border-radius:50%;background:#3a3040;box-shadow:inset 0 0 0 1px #6a5a70}.farm-pips i.on{background:#9ad86a}
+.farm-foot{margin:8px 0 0;font-size:12.5px;color:#baa991}.farm-foot b{color:#ffe9a0;font-weight:normal}
+.drill-medal{--m:#ffd24a;flex:none;width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,#fff8,transparent 45%),var(--m);color:#2a1a10;font-family:'Do Hyeon',sans-serif;font-size:14px;box-shadow:inset 0 0 0 2px #0004}
+.drill-score{display:flex;align-items:baseline;gap:6px;justify-content:center;margin:6px 0}.drill-score b{font-family:'Do Hyeon',sans-serif;font-size:64px;color:#ffe27a;font-weight:normal;text-shadow:0 3px 0 #000}.drill-score span{font-size:20px;color:#ffe9a0}.drill-score em{font-style:normal;color:#7dff9a;font-size:15px;margin-left:8px}.drill-score small{color:#baa991;margin-left:8px}
+.town-guide .hub-guide-grid{grid-template-columns:repeat(4,1fr)}
+.town-guide{padding-left:24px;padding-right:24px} /* 발 줄(.panel .row:last-child)의 −24px 여백이 창 밖으로 4px 넘치던 것 */
+@media(max-width:620px){.farm-row{flex-wrap:wrap}.farm-btns{max-width:100%}.town-guide .hub-guide-grid{grid-template-columns:repeat(2,1fr)}}

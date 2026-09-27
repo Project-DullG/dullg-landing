@@ -2554,8 +2554,9 @@ img.spr { vertical-align: -3px; }
 .talent-tabs { display:flex; align-items:center; gap:7px; }
 .talent-tabs .btn { margin:0; min-width:78px; }
 .talent-tabs small { color:var(--dim); margin-left:auto; font-size:12px; }
-.talent-browser { display:grid; grid-template-columns:180px minmax(0,1fr); gap:12px; min-height:0; }
-.talent-choices { display:grid; align-content:start; gap:6px; }
+.talent-browser { display:grid; grid-template-columns:180px minmax(0,1fr); grid-template-rows:minmax(0,1fr); gap:12px; min-height:0; flex:1; }
+.talent-browser > .talent-selected { min-height:0; overflow-y:auto; }
+.talent-choices { display:grid; align-content:start; gap:6px; min-height:0; overflow-y:auto; } /* 낮은 화면(800×400)에서 분야 목록이 아래 줄을 덮지 않게 */
 .talent-choice { display:flex; align-items:center; justify-content:space-between; min-height:41px; padding:8px 11px; color:var(--dim); background:#18151b; border:1px solid #504752; border-radius:5px; font:15px 'Jua'; text-align:left; cursor:pointer; }
 .talent-choice.on { color:var(--branch); border-color:var(--branch); background:#332b36; }
 .talent-choice:hover { border-color:var(--branch); }
@@ -2574,6 +2575,8 @@ img.spr { vertical-align: -3px; }
 .talent-unlocks { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; }
 .talent-unlock { border:1px solid #ffffff22; border-radius:4px; padding:5px 7px; display:grid; grid-template-columns:1fr auto; gap:3px; align-items:center; font-size:11px; }
 .talent-unlock span { color:var(--dim); grid-row:2; }
+.talent-unlock.one { grid-column:1 / -1; display:flex; gap:8px; padding:3px 8px; }
+.talent-unlock.one span { grid-row:auto; }
 .talent-unlock .btn { grid-column:2; grid-row:1/3; font-size:11px; margin:0; padding:4px 7px; }
 .talent-panel .talent-footer { justify-content:space-between; }
 .talent-footer > .btn { margin:0; }
@@ -3293,3 +3296,71 @@ img.spr { vertical-align: -3px; }
 .town-guide .hub-guide-grid{grid-template-columns:repeat(4,1fr)}
 .town-guide{padding-left:24px;padding-right:24px} /* 발 줄(.panel .row:last-child)의 −24px 여백이 창 밖으로 4px 넘치던 것 */
 @media(max-width:620px){.farm-row{flex-wrap:wrap}.farm-btns{max-width:100%}.town-guide .hub-guide-grid{grid-template-columns:repeat(2,1fr)}}
+/* 창 크기 고정 (2026-09-28 · 유저: 무기고에서 고를 때마다 창 크기가 바뀌어 깜빡인다)
+   원인: 자세히 칸이 무기마다 길이가 달라 창이 max-height 에 닿으면 창 스크롤 막대가 생기고 안쪽 너비가 줄었다.
+   고침: 무기고 창 · 목록 · 자세히 칸 높이를 고정하고 자세히 칸만 스크롤 · 스크롤 막대 자리는 늘 비워 둔다 */
+.panel.hub-weapon-picker[data-flat]{height:min(600px,calc(100dvh - 24px));overflow:hidden}
+.hub-weapon-picker .hub-weapon-list{flex:1;min-height:0}
+.hub-weapon-picker .ledger{height:100%;align-items:stretch}
+.hub-weapon-picker .lg-list{max-height:none;height:min(430px,calc(100dvh - 190px))}
+.hub-weapon-picker .lg-detail{max-height:none;height:min(430px,calc(100dvh - 190px));overflow-y:auto}
+.panel[data-flat],.lg-list,.lg-detail{scrollbar-gutter:stable}
+
+/* 연구 장부 · 스테이지 세트 (stage_sets_ui.js · 2026-09-28) */
+.set-ledger { gap:7px; }
+.sl-head { margin:0; font-size:12px; color:#c9c3b7; }
+.sl-head small { color:#e5c580; margin-left:6px; }
+.sl-wrap { flex:1; min-height:0; display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr); gap:10px; }
+.sl-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:4px; overflow-y:auto; min-height:0; }
+.sl-row { width:100%; display:grid; grid-template-columns:22px minmax(0,1fr) auto; grid-template-rows:auto auto; column-gap:8px; align-items:center; text-align:left; padding:5px 8px; border:1px solid #ffffff22; border-left:3px solid var(--c); border-radius:5px; background:#17151bc9; color:#e8dfcf; font:inherit; cursor:pointer; }
+.sl-row .sl-n { grid-row:1 / 3; font-family:'Do Hyeon',sans-serif; font-size:17px; color:var(--c); text-align:center; }
+.sl-row .sl-name { display:flex; align-items:baseline; gap:6px; min-width:0; }
+.sl-row .sl-name b { font-size:14px; }
+.sl-row .sl-name small { font-size:10.5px; color:#b3aa9b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sl-row .sl-plus { grid-column:2; font-size:10.5px; color:#9fe39a; }
+.sl-row .sl-state { grid-column:3; grid-row:1 / 3; font-size:11px; color:#d8bb83; white-space:nowrap; }
+.sl-row.owned { opacity:.72; }
+.sl-row.owned .sl-state { color:#9fe39a; }
+.sl-row.locked { background:#121116c9; color:#8e877c; }
+.sl-row.locked .sl-plus { color:#7d8a78; }
+.sl-row.on { background:#2a2419; border-color:#dbb16d; border-left-color:var(--c); opacity:1; }
+.sl-card { min-height:0; overflow:hidden; display:flex; flex-direction:column; gap:6px; padding:10px 12px; border:1px solid #ffffff26; border-top:3px solid var(--c); border-radius:6px; background:#17151bd9; }
+.sl-card header { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.sl-card h3 { margin:0; font-size:19px; color:var(--c); }
+.sl-badge { font-size:11px; padding:2px 8px; border-radius:9px; background:#ffffff14; color:#e5c580; white-space:nowrap; }
+.sl-card.owned .sl-badge { color:#9fe39a; }
+.sl-card.locked .sl-badge { color:#9d968b; }
+.sl-power { list-style:none; margin:0; padding:6px 9px; border-radius:5px; background:#2f3a2440; border:1px solid #9fe39a44; display:flex; flex-direction:column; gap:2px; }
+.sl-power li { font-size:13px; color:#c8f2b8; }
+.sl-power li::before { content:'▲ '; color:#9fe39a; font-size:10px; }
+.sl-body { flex:1; min-height:0; overflow-y:auto; display:flex; flex-direction:column; gap:6px; }
+.sl-group small { font-size:11px; color:#bfb39c; }
+.sl-icons { display:flex; flex-wrap:wrap; gap:4px; margin-top:2px; }
+.sl-item { display:flex; align-items:center; gap:4px; padding:2px 7px 2px 3px; border-radius:4px; background:#ffffff0d; border:1px solid #ffffff14; font-size:11.5px; max-width:100%; }
+.sl-item em { font-style:normal; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sl-item.has { border-color:#9fe39a55; }
+.sl-item .sl-q { display:inline-grid; place-items:center; width:26px; height:26px; font-style:normal; color:#7f786d; }
+.sl-note { margin:0; font-size:11px; color:#b3aa9b; }
+.sl-card footer { margin-top:auto; display:flex; justify-content:space-between; align-items:center; gap:8px; padding-top:6px; border-top:1px solid #ffffff18; }
+.sl-costs { display:flex; flex-wrap:wrap; gap:4px; min-width:0; }
+.sl-cost { font-size:11.5px; padding:2px 7px; border-radius:4px; background:#0006; color:#d9cfbf; white-space:nowrap; }
+.sl-cost b { color:var(--coin,#ffdf9a); }
+.sl-cost.short b { color:#ff8a8a; }
+.sl-lock { font-size:11.5px; color:#b3aa9b; }
+.sl-card footer .btn { margin:0; flex:none; font-size:13px; padding:6px 14px; }
+.set-arrival { width:620px; max-width:calc(100vw - 32px); padding:14px 24px 16px; }
+.set-arrival h2 { color:#e5c580; }
+.set-arrival h2 small { font-size:15px; color:#c9c3b7; margin-left:6px; }
+.sa-lines { margin:0 0 8px; padding:0 0 0 18px; font-size:13px; color:#d9cfbf; line-height:1.5; }
+.sa-cards { display:flex; flex-direction:column; gap:8px; }
+.sa-cards .sl-card, .sa-cards .sl-body { overflow:visible; }
+@media (max-height:480px) {
+  .sl-wrap { grid-template-columns:minmax(0,240px) minmax(0,1fr); gap:6px; }
+  .sl-row { padding:3px 6px; }
+  .sl-card { padding:7px 9px; gap:4px; }
+  .sl-item { font-size:10.5px; }
+}
+.ally-info{width:min(560px,94vw);display:flex;flex-direction:column;gap:7px;padding-left:24px;padding-right:24px}
+.ally-info h2{margin:0;font-size:24px}.ally-info h2 small{font-size:14px;color:#c7bdaf;margin-left:8px}
+.ai-say{margin:4px 0 2px;color:#e8dcc4;font-size:14px}.ai-row{display:flex;gap:10px;font-size:13.5px;line-height:1.45}.ai-row b{flex:none;width:62px;color:#ffcf9a}
+.ai-row.off{opacity:.5}.ai-bio{margin:4px 0 0;color:#a89f95;font-size:12.5px}.ai-grow{margin:0;color:#9fca8c;font-size:12.5px}

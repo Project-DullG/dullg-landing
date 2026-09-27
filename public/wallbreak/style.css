@@ -3250,3 +3250,9 @@ img.spr { vertical-align: -3px; }
 @keyframes potIn{from{transform:scale(.97);opacity:0}to{transform:none;opacity:1}}
 @media(max-width:620px){.pot-esses,.pot-vs{grid-template-columns:1fr}}
 @media(max-height:450px){.town-pot{gap:7px;padding:12px}.pot-slot{padding:6px 9px}}
+.pot-slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.pot-slot{flex-wrap:wrap}.pot-slot small{margin-left:auto}
+.ess-ex{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:9px 11px;border:1px solid #514634;border-radius:8px;background:#131019;font-size:13px}
+.ess-ex>b{color:#e5c580}.ess-ex>small{color:#a89f95;margin-right:auto}.ess-ex.off{opacity:.55}
+.ess-ex select{background:#1d1728;color:#eee;border:1px solid #514634;border-radius:5px;padding:4px 6px;font:inherit;max-width:44vw}
+@media(max-width:620px){.pot-slots{grid-template-columns:1fr}}

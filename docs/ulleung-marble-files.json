@@ -3082,12 +3082,12 @@
   {
     "path": "tabletop/v07/online.html",
     "bytes": 1187,
-    "sha256": "701a1beb9dec8457f36cf2ca4eb7998d9ee2657da7877f12c807187281d929ed"
+    "sha256": "3b5720bb57c3f0424b5e24cc515a039e569c5f3254acd12fe762fae10279618f"
   },
   {
     "path": "tabletop/v07/online.mjs",
-    "bytes": 26653,
-    "sha256": "72f38dd0f1daa2ebab0d6af014515218a27aa8976e9e9020d228e6af08f29f38"
+    "bytes": 27124,
+    "sha256": "3f838f8d65ae10b66d69ee146b67be4a06c486716d4c6dadf4075a619e800b29"
   },
   {
     "path": "tabletop/v07/packaging-art.mjs",

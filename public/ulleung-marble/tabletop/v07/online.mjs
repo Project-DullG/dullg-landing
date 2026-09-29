@@ -9,7 +9,7 @@ const newCode=()=>Array.from(crypto.getRandomValues(new Uint8Array(6)),n=>alphab
 const newToken=()=>btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(32)))).replace(/=/g,'').replace(/\+/g,'-').replace(/\//g,'_');
 let data,room=null,credentials=null,pending=false,polling=false,timer,noticeTimer,connected=true,selectedDestination=null;
 const sessions=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'{}');}catch{return {};}};
-function saveSession(code,token,name){const all=sessions();all[code]={token,name,at:Date.now()};localStorage.setItem(KEY,JSON.stringify(Object.fromEntries(Object.entries(all).sort((a,b)=>b[1].at-a[1].at).slice(0,8))));credentials={code,token,name};}
+function saveSession(code,token,name){const all=sessions();all[code]={token,name,at:Date.now()};try{localStorage.setItem(KEY,JSON.stringify(Object.fromEntries(Object.entries(all).sort((a,b)=>b[1].at-a[1].at).slice(0,8))));}catch{throw Error('이 브라우저에 참가 정보를 저장할 수 없습니다. 사이트 저장 공간을 허용한 뒤 다시 시도해 주세요.');}credentials={code,token,name};}
 function notify(message){const el=document.querySelector('#online-notice');el.textContent=message;el.hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>el.hidden=true,6500);}
 function setConnection(ok){connected=ok;connection.textContent=room?(ok?'접속됨 · 자동 저장':'연결 확인 중'):'대기실';connection.classList.toggle('disconnected',!ok);}
 async function request(body=null){
@@ -31,8 +31,8 @@ async function command(type,value){
  catch(err){notify(err.message);if(err.status===409)try{accept(await request());}catch{} }
  finally{pending=false;unlock();if(room)animateTravel(previousGame,room.game);}
 }
-function lock(){app.setAttribute('aria-busy','true');app.querySelectorAll('[data-command],#ready,#start,#character-select,#arrival-select,.map-stop,.destination-list button').forEach(b=>b.disabled=true);}
-function unlock(){app.removeAttribute('aria-busy');if(room)render();}
+function lock(){connection.textContent='반영 중…';app.setAttribute('aria-busy','true');app.querySelectorAll('[data-command],#ready,#start,#character-select,#arrival-select,.map-stop,.destination-list button').forEach(b=>b.disabled=true);}
+function unlock(){app.removeAttribute('aria-busy');setConnection(connected);if(room)render();}
 function bindCommands(){app.querySelectorAll('[data-command]').forEach(button=>button.onclick=()=>command(button.dataset.command,button.dataset.value===undefined?undefined:JSON.parse(button.dataset.value)));bindInspect(app);}
 const action=(text,type,value,cls='primary full',disabled=false)=>`<button class="${cls}" data-command="${type}" ${value!==undefined?`data-value="${e(JSON.stringify(value))}"`:''} ${disabled?'disabled':''}>${text}</button>`;
 function renderJoin(){
@@ -42,7 +42,7 @@ function renderJoin(){
   if(pending)return;const name=app.querySelector('#nickname').value.trim(),code=type==='create'?newCode():app.querySelector('#room-code').value.trim().toUpperCase();
   if(!name||name.length>16){notify('닉네임을 1~16자로 입력해 주세요.');app.querySelector('#nickname').focus();return;}
   if(!/^[A-HJ-NP-Z2-9]{6}$/.test(code)){notify('초대 코드 6자리를 확인해 주세요.');app.querySelector('#room-code').focus();return;}
-  const existing=sessions()[code];saveSession(code,existing?.token||newToken(),name);pending=true;
+  const existing=sessions()[code];try{saveSession(code,existing?.token||newToken(),name);}catch(err){notify(err.message);return;}pending=true;
   app.querySelectorAll('button').forEach(b=>b.disabled=true);
   try{const next=await request({type,name});history.replaceState(null,'',location.pathname+'?room='+code);accept(next);startPolling();}catch(err){notify(err.message);renderJoin();}finally{pending=false;if(room)render();}
  }
@@ -50,7 +50,7 @@ function renderJoin(){
  app.querySelector('#room-code').onkeydown=evt=>{if(evt.key==='Enter')enter('join');};
  app.querySelectorAll('[data-resume]').forEach(b=>b.onclick=()=>resume(b.dataset.resume));
 }
-async function resume(code){const saved=sessions()[code];if(!saved)return;credentials={code,...saved};try{const next=await request();saveSession(code,saved.token,saved.name);history.replaceState(null,'',location.pathname+'?room='+code);accept(next);startPolling();}catch(err){renderJoin();notify(err.message);}}
+async function resume(code){const saved=sessions()[code];if(!saved||pending)return;pending=true;credentials={code,...saved};connection.textContent='여행 불러오는 중…';app.innerHTML='<p class="loading-copy" role="status">저장된 여행을 불러오고 있습니다.</p>';try{const next=await request();saveSession(code,saved.token,saved.name);history.replaceState(null,'',location.pathname+'?room='+code);accept(next);startPolling();}catch(err){renderJoin();notify(err.message);}finally{pending=false;unlock();}}
 function shareLink(){const url=new URL(location.href);url.search='?room='+room.code;return url.href;}
 async function copyInvite(){try{await navigator.clipboard.writeText(shareLink());notify('초대 링크를 복사했습니다. 친구에게 보내 주세요.');}catch{notify('주소창의 링크 또는 초대 코드 '+room.code+'를 친구에게 알려 주세요.');}}
 function renderLobby(){
@@ -112,7 +112,7 @@ function renderGame(){
  app.innerHTML=`<section class="game-shell"><header class="game-top"><div><p class="eyebrow">일곱 번의 차례, 나만의 여행</p><h1>${g.round} / 7 라운드 · ${g.turn===room.seat?'내 차례':e(active.name)+'의 차례'}</h1></div><div><p class="room-small">방 ${room.code} · 나: ${e(room.members[room.seat].name)}</p><button data-inspect="sheets&character=${c.id}">나의 여행자북</button></div></header><div class="travelers-bar">${g.players.map(p=>`<div class="traveler-chip ${g.turn===p.id?'active':''}"><img src="${asset('portraits/traveler-'+p.character+'.jpg')}" alt=""><div><b>${p.id+1}. ${e(room.members[p.id].name)}${p.id===room.seat?' · 나':''}</b><small>${e(data.nodes.find(n=>n.id===p.node).name)} · ${p.budget}만원</small><small>풍경 ${p.cards.scenery.length} · 체험 ${p.cards.activity.length} · 미식 ${p.cards.food.length}</small></div></div>`).join('')}</div><div class="online-board-grid"><section class="online-map-panel"><header class="online-map-toolbar"><b>같이 보는 여행 지도</b><button id="enlarge-map">지도 확대 ↗</button></header>${mapMarkup(g)}<p class="map-status">${e(g.notice)}</p></section><aside class="turn-panel">${turnMarkup(g)}</aside></div><section class="my-journey"><article class="journey-card"><h2>${e(c.name)}의 여행 코스</h2><div class="course-stops">${g.course.nodes.map(id=>`<span class="${my.visited.includes(id)?'visited':''}">${my.visited.includes(id)?'✓ ':''}${e(data.nodes.find(n=>n.id===id).name)}</span>`).join('')}</div><p class="small-copy">한 곳 2점 · 두 곳 4점 · 세 곳 모두 8점. 도착한 곳만 방문으로 셉니다.</p><ul class="goal-list">${g.goals.map(goal=>`<li><span>${goal.done?'✓':'○'} +3점</span>${e(goal.text)}</li>`).join('')}</ul><p class="small-copy">목표 표시는 현재 기록을 기준으로 합니다. 성공 여부는 게임 종료 때 확정해요.</p></article><article class="journey-card"><h2>내 앞에 모인 여행 기록</h2><div class="record-row">${TYPES.map(t=>`<button data-record="${t}"><small>${LABELS[t]}</small><strong>${my.cards[t].length}</strong></button>`).join('')}</div><p class="small-copy">일주 ${my.lapRegions.length} / 5권역${my.lapsCompleted?' · 일주 완료':' · 모든 권역 방문 후 아무 항구로 돌아오면 7점'}</p><p class="small-copy">남은 예산 <b>${my.budget}만원</b> · 피로 ${my.cards.fatigue.length}장</p><p class="small-copy">최종 점수는 모두 7라운드를 마친 뒤 계산합니다.</p></article></section><details class="activity-log"><summary>함께 남긴 여행 기록</summary><ol>${g.log.map(l=>`<li>${l.round}R · ${e(room.members[l.player]?.name)} · ${e(l.text)}</li>`).join('')}</ol></details></section>`;
  bindCommands();
  for(const b of app.querySelectorAll('[data-destination],[data-stop]')){const id=b.dataset.destination||b.dataset.stop,route=g.destinations.find(r=>r.node===id);b.onclick=()=>command('move',id);b.onmouseenter=b.onfocus=()=>highlight(route);}
- app.querySelector('#enlarge-map').onclick=()=>{openCustom('여행 지도 · 끌어서 둘러보기',`<div class="map-enlarged">${mapMarkup(g,false)}</div>`);};
+ app.querySelector('#enlarge-map').onclick=()=>{openCustom('여행 지도 · 확대 보기',`<div class="map-enlarged">${mapMarkup(g,false)}</div>`);};
  app.querySelectorAll('[data-record]').forEach(b=>b.onclick=()=>{const t=b.dataset.record,ids=my.cards[t];openCustom('내 '+LABELS[t]+' 카드',`<div class="online-record-images">${ids.length?ids.map(id=>`<img src="${asset('cards/'+t+'-'+Number(id.split('@')[0].split('-')[1])+'-front.svg')}" alt="${LABELS[t]} 카드">`).join(''):'<p>아직 모은 카드가 없습니다.</p>'}</div>`);});
 }
 function renderScores(){

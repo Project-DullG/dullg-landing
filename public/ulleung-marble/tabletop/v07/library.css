@@ -28,3 +28,10 @@
 .map-canvas{max-width:none;min-width:0}.map-canvas.large{min-width:0}
 .piece-use{padding:16px 24px;border-top:1px solid var(--library-line);background:#faf8f0;flex-shrink:0;font-size:13px;line-height:1.85}.piece-use b{font-size:12px;color:#57736b}.piece-use p{margin:5px 0 0;max-width:760px}
 .embedded-library .library-header{display:none}.embedded-library .library-nav{height:46px}.embedded-library .library-nav a{font-size:12px}
+
+/* Game inspections keep only the selected component and its reading controls. */
+.inspection-library .library-layout.mode-cards{display:flex;flex-direction:column}
+.inspection-library .mode-cards>.proof-pane{flex:1;min-height:0}
+.inspection-library .mode-cards .card-detail-body{flex:1;min-height:0}
+.inspection-library .proof-heading{padding-top:16px;padding-bottom:16px}
+@media(max-width:650px){.inspection-library .mode-cards>.proof-pane{min-height:530px}.inspection-library .mode-cards .card-detail-body{min-height:380px}}

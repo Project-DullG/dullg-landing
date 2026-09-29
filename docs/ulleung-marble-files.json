@@ -2922,7 +2922,7 @@
   {
     "path": "assets/v07/promo/play-ko.vtt",
     "bytes": 957,
-    "sha256": "fa8dec280d58023eb59579211c1b95f3b0ebf11dc5f0e8ade26e0139125ef9d2"
+    "sha256": "243a901c97780746ddc1fe07f35b17017e8d7c9ed295785e26191310adfc73d2"
   },
   {
     "path": "assets/v07/promo/table-spread.webp",
@@ -2931,8 +2931,8 @@
   },
   {
     "path": "assets/v07/promo/ulleung-marble-play.mp4",
-    "bytes": 4439526,
-    "sha256": "e511addaca7c119750b6f710b2843de97fefadd6bf9e56ab32cdfe0a82d648df"
+    "bytes": 4393229,
+    "sha256": "9e26ef155cbd20f9a104ac93efa0ebc502d5d7966cae52eca32e4795926eb3fb"
   },
   {
     "path": "assets/v07/tourism-boxes.json",
@@ -2946,18 +2946,18 @@
   },
   {
     "path": "index.html",
-    "bytes": 21959,
-    "sha256": "82602af9e9336191f71dac0293be1b6b7ce30b655b1bc3d959eb258967e92cf1"
+    "bytes": 21983,
+    "sha256": "c7b5c8f328d7854d2878c0d4cb865a08963116e4ed2279030370b1c2e3ab29af"
   },
   {
     "path": "tabletop/components.html",
-    "bytes": 1879,
-    "sha256": "807b64087976a36a51f956414e032cab6b9b9226a29edd553f205d0ba76da8cf"
+    "bytes": 1893,
+    "sha256": "2903e19a4eb9abcfca369cda9594b0a3a0559956e0d749276ebca6eead1230cf"
   },
   {
     "path": "tabletop/master.html",
-    "bytes": 2585,
-    "sha256": "ab30dd15b68831a3953a27ecbc4c4d15d6d8785f8a6e69c3f6f55eb350e15cc6"
+    "bytes": 2592,
+    "sha256": "861ea15e58dcf0b3dfaf045913b09cebb9b7457c1bf4abfdd6c36223553ee3e3"
   },
   {
     "path": "tabletop/models.mjs",
@@ -2966,8 +2966,8 @@
   },
   {
     "path": "tabletop/v07/app.mjs",
-    "bytes": 23688,
-    "sha256": "cfb1eb7ba598b5c7d9ebe19d4be5622e3f6da6f7bd46a24e9770f67a2f7ab26f"
+    "bytes": 24084,
+    "sha256": "f20f22ab23640cf4ed7e17f820e00244f226c3d4be4bb256b19ac3fe08efc918"
   },
   {
     "path": "tabletop/v07/art.mjs",
@@ -3021,8 +3021,8 @@
   },
   {
     "path": "tabletop/v07/free-table.mjs",
-    "bytes": 11833,
-    "sha256": "065d0d0bfd6c4a942ad45c24bcf9223a503406aa4ed69e4e41c14275a423c0fe"
+    "bytes": 12000,
+    "sha256": "005000b7e08c4d52fbe9f5e4881b5d8eb2dc6577cb07f78ecc33ba7b8d6fcb14"
   },
   {
     "path": "tabletop/v07/illustration-map.mjs",
@@ -3033,6 +3033,11 @@
     "path": "tabletop/v07/illustrations.mjs",
     "bytes": 3446765,
     "sha256": "03908bc6f30911f92be062c39f6647e753923a12b998c6d5eeba0b9e3dbef4ac"
+  },
+  {
+    "path": "tabletop/v07/inspection-scope.mjs",
+    "bytes": 952,
+    "sha256": "f545bb6b292c9245aa2fc68d5632ecb3dd727f01649f95ad6207a4767e5c8349"
   },
   {
     "path": "tabletop/v07/landmarks.mjs",
@@ -3046,13 +3051,13 @@
   },
   {
     "path": "tabletop/v07/library.css",
-    "bytes": 19555,
-    "sha256": "f70df477215ae2525be2a4ff31b6b6c1d3bfee5314469f60e559f6ef22d2c61e"
+    "bytes": 20084,
+    "sha256": "a0282eedbe27d43a9901199d46c3a5ec7736f9f4f33b5458e135ab7c69b520aa"
   },
   {
     "path": "tabletop/v07/library.mjs",
-    "bytes": 29145,
-    "sha256": "e08742011b48197bb663494da37ee789615c961f07d447dd1c1baeb60adf3459"
+    "bytes": 30297,
+    "sha256": "71401e97bb01ebc980ca75986e2226f3fd6be67a80407e89920a703c951092fa"
   },
   {
     "path": "tabletop/v07/manual.css",
@@ -3081,13 +3086,13 @@
   },
   {
     "path": "tabletop/v07/online.html",
-    "bytes": 1187,
-    "sha256": "3b5720bb57c3f0424b5e24cc515a039e569c5f3254acd12fe762fae10279618f"
+    "bytes": 1194,
+    "sha256": "0a049550ccc45820bab4f4607d3cb6462cb66d4176f385dba72cf6d389959631"
   },
   {
     "path": "tabletop/v07/online.mjs",
-    "bytes": 27124,
-    "sha256": "3f838f8d65ae10b66d69ee146b67be4a06c486716d4c6dadf4075a619e800b29"
+    "bytes": 27137,
+    "sha256": "871c2df8a8babc66ec19cb6c9bab6178acad373e9e11db06f51183d80a52d510"
   },
   {
     "path": "tabletop/v07/packaging-art.mjs",
@@ -3161,8 +3166,8 @@
   },
   {
     "path": "tabletop/v07/table.html",
-    "bytes": 1560,
-    "sha256": "24d8c8e0d3499588f05f733b7f377a5d0113e61ea2185621c7e7051ae5e413ca"
+    "bytes": 1567,
+    "sha256": "a1f18394231d641dfaa6bd63e0f9db2c872fb256c2a881d1981376323756caec"
   },
   {
     "path": "tabletop/v07/travel-prices.mjs",

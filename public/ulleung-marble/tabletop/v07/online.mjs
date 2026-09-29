@@ -122,7 +122,7 @@ function renderScores(){
 function render(){if(!room)return renderJoin();const focused=document.activeElement?.id;if(!room.game)renderLobby();else if(room.game.stage==='end')renderScores();else renderGame();if(pending)lock();if(focused)document.getElementById(focused)?.focus({preventScroll:true});}
 const dialog=document.querySelector('#inspection');
 function closeInspect(){dialog.close();const frame=dialog.querySelector('iframe');if(frame)frame.removeAttribute('src');}
-function inspect(section){dialog.innerHTML='<header><h2>구성품 살펴보기</h2><button aria-label="닫기">닫기 ×</button></header><iframe title="게임 구성품"></iframe>';dialog.querySelector('iframe').src='/ulleung-marble/tabletop/components.html?embedded=1#'+section;dialog.querySelector('button').onclick=closeInspect;if(!dialog.open)dialog.showModal();}
+function inspect(section){dialog.innerHTML='<header><h2>구성품 살펴보기</h2><button aria-label="닫기">닫기 ×</button></header><iframe title="게임 구성품"></iframe>';dialog.querySelector('iframe').src='/ulleung-marble/tabletop/components.html?embedded=1&inspection=1#'+section;dialog.querySelector('button').onclick=closeInspect;if(!dialog.open)dialog.showModal();}
 function openCustom(title,content){dialog.innerHTML=`<header><h2>${e(title)}</h2><button aria-label="닫기">닫기 ×</button></header>${content}`;dialog.querySelector('button').onclick=closeInspect;if(!dialog.open)dialog.showModal();}
 function bindInspect(root){root.querySelectorAll('[data-inspect]').forEach(b=>b.onclick=()=>inspect(b.dataset.inspect));}
 window.addEventListener('message',evt=>{if(evt.origin===location.origin&&evt.source===dialog.querySelector('iframe')?.contentWindow&&evt.data?.type==='ulleung-close-inspection')closeInspect();});

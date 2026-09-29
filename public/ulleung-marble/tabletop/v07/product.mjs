@@ -45,16 +45,6 @@ if(typeof document!=='undefined'){
   init().catch(()=>{document.querySelector('#journey-demo').innerHTML='<p class="demo-loading">체험을 불러오지 못했습니다. 새로고침하거나 <a href="/ulleung-marble/tabletop/components.html#cards">실제 카드를 살펴보세요.</a></p>';});
 }
 
-if(typeof document!=='undefined'){
- const gallery=document.querySelector('#inside');
- const observer=new IntersectionObserver(entries=>{
-  if(!entries.some(e=>e.isIntersecting))return;observer.disconnect();
-  import('./product-components.mjs?v=20260923j').then(m=>m.showComponents()).catch(()=>{
-   document.querySelectorAll('[data-component-model]').forEach(host=>{host.textContent='눌러서 구성품 자세히 보기 ↗';});
-  });
- },{rootMargin:'500px'});if(gallery)observer.observe(gallery);
-}
-
 // Inspect a component without losing the visitor's place in the product story.
 if(typeof document!=='undefined'){
  const dialog=document.createElement('dialog');dialog.className='product-inspection';

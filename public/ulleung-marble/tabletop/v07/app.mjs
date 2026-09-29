@@ -4,7 +4,7 @@ import {PlayView} from './play.mjs?v=20260929h';
 import {Game,shuffle,TYPES,LABELS,effectText,validState,restoreState,optionCondition} from './engine.mjs';
 import {esc,dataURL,backSVG,recordBackSVG,recordItems,encounterSVG,routeSVG,infoSVG,awardSVG,coverHTML,bookPages,manualPages,portraitStyle,colors,inventory,shipSVG} from './components.mjs';
 import {COLORS,MOTIFS} from './models.mjs?v=20260923j';
-import {modelImage,inspectModel} from './miniatures.mjs?v=20260929h';
+import {modelImage,inspectModel} from './miniatures.mjs?v=20260929-quality';
 const data=await fetch('/ulleung-marble/tabletop/v07/data.json?v=20260929h').then(r=>r.json());await document.fonts.ready;
 const $=s=>document.querySelector(s),modal=$('#modal'),body=$('#modal-body'),KEY='ulleung-marble-v07-print58',nodes=Object.fromEntries(data.nodes.map(n=>[n.id,n]));let stored=null,loadNotice='';try{const raw=JSON.parse(localStorage.getItem(KEY));stored=restoreState(data,raw);if(raw&&!validState(data,raw)){localStorage.setItem(KEY+'-before-rules-v11',JSON.stringify(raw));loadNotice=stored?'진행 기록을 유지하며 달인 점수와 예산 0원 행동 규칙을 적용했습니다.':'이전 진행 기록은 별도로 보관했습니다. 현재 규칙으로 여행을 준비해 주세요.';}}catch{}
 let game=new Game(data,stored),busy=false,view='play',category='whole',cardCategory='조우',inspectDispose=null,setup=null,bookIndex=0,bookContent=[],bookTitle='',frontVisible=false;

@@ -171,28 +171,28 @@
   },
   {
     "path": "assets/v07/box-back.svg",
-    "bytes": 119431,
-    "sha256": "798139d28221aceb1dd151d64a96e1c4ece884c7d9ea61190b90471f0f287c20"
+    "bytes": 119452,
+    "sha256": "9a868c2c295c935505e820b191840c63ff35015a9d580ef627090d5a3368f65a"
   },
   {
     "path": "assets/v07/box-cover.svg",
-    "bytes": 788573,
-    "sha256": "85eb1a02e944a8cc86fa763021c251ca235dc3b4ea2bc6088c96db40e2cf53c9"
+    "bytes": 788594,
+    "sha256": "688975cf6b9660bd6930b0a830ac90dd9e33e9d07c012ae78eacfeb8cf58bd0b"
   },
   {
     "path": "assets/v07/box-end.svg",
-    "bytes": 21420,
-    "sha256": "ccb8eb884bf2cc515d887a1fccc587e2c91432e07998a7a0db57ade3e332c1b5"
+    "bytes": 21441,
+    "sha256": "9678d23e6ca45def044e09297632ca436ed476ad9590d643f515cf56a66395d4"
   },
   {
     "path": "assets/v07/box-inside.svg",
-    "bytes": 41671,
-    "sha256": "bf3ba4f00f7caa12c249293878baa79fae54779781464f4e6c2f6e13b26a789a"
+    "bytes": 41692,
+    "sha256": "9d3206a5ad011a20b2e90b748e72edae39a15e0bd86df20eb00a1e47a074b408"
   },
   {
     "path": "assets/v07/box-spine.svg",
-    "bytes": 29940,
-    "sha256": "e894c316012c6b1b29bd85571dccc7d786760335109461f554102df1645273b8"
+    "bytes": 29961,
+    "sha256": "4200349f4b01219b95712e9dcad87e01af07172d59c13e57b75a93854196350f"
   },
   {
     "path": "assets/v07/budget-marker-0.glb",
@@ -881,8 +881,8 @@
   },
   {
     "path": "assets/v07/cards/award-0-front.svg",
-    "bytes": 129628,
-    "sha256": "bb48bd0fd2e3ba6432622bf27b3a22c37b1c28451366f768145822efbedd718b"
+    "bytes": 130183,
+    "sha256": "55052fa93bf0075397ab4f2ccff4973b1219a70cbe1f9536623c7676d467349e"
   },
   {
     "path": "assets/v07/cards/award-1-back.svg",
@@ -891,8 +891,8 @@
   },
   {
     "path": "assets/v07/cards/award-1-front.svg",
-    "bytes": 129628,
-    "sha256": "d4e29318e800b536101a8e87ffe90436c91ee4c40f64282dfe4880460ca63018"
+    "bytes": 130183,
+    "sha256": "ad5c0df5729b5d104498acdef225f40889a48bb6218722f7475423a14015a516"
   },
   {
     "path": "assets/v07/cards/award-2-back.svg",
@@ -901,8 +901,8 @@
   },
   {
     "path": "assets/v07/cards/award-2-front.svg",
-    "bytes": 141624,
-    "sha256": "a71dfa932afba3f5912dda4a8337e7ce98bcb6d905a09558a5a80b1ef0a04b89"
+    "bytes": 142179,
+    "sha256": "7d3b0da35a09e7a030cb697b5df2b7a91d2f06f10607d56be31e84458945ef21"
   },
   {
     "path": "assets/v07/cards/blue-01-back.svg",
@@ -911,8 +911,8 @@
   },
   {
     "path": "assets/v07/cards/blue-01-front.svg",
-    "bytes": 160180,
-    "sha256": "82da33f35cc37f583fe34b2bf7109093329ade331a43e952b81c2132dc50a3a0"
+    "bytes": 160594,
+    "sha256": "a01b5761b0d3b2584b540c2e62393d701620ab2a2545d9972203007b7feb08e6"
   },
   {
     "path": "assets/v07/cards/blue-02-back.svg",
@@ -921,8 +921,8 @@
   },
   {
     "path": "assets/v07/cards/blue-02-front.svg",
-    "bytes": 160149,
-    "sha256": "4f7cd23101b13229a86842459dde8251fd1d75e7c543c5ff9a1b8821f4393c7e"
+    "bytes": 160563,
+    "sha256": "157e19dfd9b1ce9ea762772423549e1c180f7121db58f165296d7fa9f0f18d80"
   },
   {
     "path": "assets/v07/cards/blue-03-back.svg",
@@ -931,8 +931,8 @@
   },
   {
     "path": "assets/v07/cards/blue-03-front.svg",
-    "bytes": 160172,
-    "sha256": "29f6a5ce9df7707939dcc740c7a6ab8ae18c7e23ce471dc656c6db111e99909d"
+    "bytes": 160586,
+    "sha256": "d8fd2d1e8e338806cc6d773a1740f215f0022366429588bb48dfd0434e3e2137"
   },
   {
     "path": "assets/v07/cards/blue-04-back.svg",
@@ -941,8 +941,8 @@
   },
   {
     "path": "assets/v07/cards/blue-04-front.svg",
-    "bytes": 160174,
-    "sha256": "0d2222efe51ae77eb91e854f79c2093b24a3239ca4f3025bd47c574f8b23bf13"
+    "bytes": 160588,
+    "sha256": "af881e2e7e2bdad7825416dfd52e7227f1f03a33459097aee88897fb39321b68"
   },
   {
     "path": "assets/v07/cards/blue-05-back.svg",
@@ -951,8 +951,8 @@
   },
   {
     "path": "assets/v07/cards/blue-05-front.svg",
-    "bytes": 129224,
-    "sha256": "4d09e6565b0216f0aa345c12bfd87478e59b9b5679c0b51c8115419d85f9dd30"
+    "bytes": 129638,
+    "sha256": "844835bddea221086f4775ff10d02d218130cbde260104eedca6e94f1e1cc33b"
   },
   {
     "path": "assets/v07/cards/blue-06-back.svg",
@@ -961,8 +961,8 @@
   },
   {
     "path": "assets/v07/cards/blue-06-front.svg",
-    "bytes": 160306,
-    "sha256": "aa5c249fb402a56835521e5d791cb61373bb986f0798a4cdd440be1e33d9fb31"
+    "bytes": 160720,
+    "sha256": "76f915a05f0fccc8409eb3247d3523658b42ae082e8bba21ea4b78b18032f6cc"
   },
   {
     "path": "assets/v07/cards/blue-07-back.svg",
@@ -971,8 +971,8 @@
   },
   {
     "path": "assets/v07/cards/blue-07-front.svg",
-    "bytes": 143090,
-    "sha256": "336edd0df56626c9ab9514b8d2673cdba92d34cde83ac6bbda638460795e105e"
+    "bytes": 143504,
+    "sha256": "5126d82d35d764cfa080da5781a6f2caae58448abf250f3af612fca180985c41"
   },
   {
     "path": "assets/v07/cards/blue-08-back.svg",
@@ -981,8 +981,8 @@
   },
   {
     "path": "assets/v07/cards/blue-08-front.svg",
-    "bytes": 160183,
-    "sha256": "fe1b4e46ad5143d6d928819fc6691e5a72028c72f82224ad89846a8e4169ec18"
+    "bytes": 160597,
+    "sha256": "8c6ab6323b1f05b6cc53953c4a8a88e9d653db43f982c902f4b3a824ab6c5a0e"
   },
   {
     "path": "assets/v07/cards/blue-09-back.svg",
@@ -991,8 +991,8 @@
   },
   {
     "path": "assets/v07/cards/blue-09-front.svg",
-    "bytes": 96816,
-    "sha256": "9619a45ab7bd7d2ed5bc393c7c87320d1ac660ef8c847a102058cba89f8b7bff"
+    "bytes": 97230,
+    "sha256": "96c1459372a6d2604ee957e1ea38b44e1d75b8d754b0fc58c524274e0a395d00"
   },
   {
     "path": "assets/v07/cards/blue-10-back.svg",
@@ -1001,8 +1001,8 @@
   },
   {
     "path": "assets/v07/cards/blue-10-front.svg",
-    "bytes": 160153,
-    "sha256": "c3b8e0dc848b45cdeb3c0e176f7a70824882f369e968695ff9122edeceb9a053"
+    "bytes": 160567,
+    "sha256": "27d1d333af362faa348bcb54e0af117b37939b053b9689765a53c26c2204e631"
   },
   {
     "path": "assets/v07/cards/fatigue-1-back.svg",
@@ -1811,8 +1811,8 @@
   },
   {
     "path": "assets/v07/cards/green-01-front.svg",
-    "bytes": 153127,
-    "sha256": "ae2a4e2d87cef525d4bd04dd2182a3e8ce7b53c6f07c57971c5cd58e18085146"
+    "bytes": 153541,
+    "sha256": "68da6b1b557cd2d7dfd63aded6c590aef41cb9dc27db0800a25ecd49dcfcd191"
   },
   {
     "path": "assets/v07/cards/green-02-back.svg",
@@ -1821,8 +1821,8 @@
   },
   {
     "path": "assets/v07/cards/green-02-front.svg",
-    "bytes": 153107,
-    "sha256": "9cbf3462233b7b561a94d420e71596841ac7b93abbcf42b651f7a72e91f986dd"
+    "bytes": 153521,
+    "sha256": "8bca8fd464ce9ed6abb9cdf4af7213a2f8ea7af36f8477fa529378aa3b8aed96"
   },
   {
     "path": "assets/v07/cards/green-03-back.svg",
@@ -1831,8 +1831,8 @@
   },
   {
     "path": "assets/v07/cards/green-03-front.svg",
-    "bytes": 153158,
-    "sha256": "06a0f4b4893edef6888feb9e9d09d47ecdb593c08a20c3d3a900f0949be20984"
+    "bytes": 153572,
+    "sha256": "7a15304d29f5935cdc58cd706db79a92e611ff20f5f5123783311e53e4175a00"
   },
   {
     "path": "assets/v07/cards/green-04-back.svg",
@@ -1841,8 +1841,8 @@
   },
   {
     "path": "assets/v07/cards/green-04-front.svg",
-    "bytes": 153160,
-    "sha256": "461221e880d7b4c29dabd1dc382696ec69ad95d4568008bc5901e4b943c7a54e"
+    "bytes": 153574,
+    "sha256": "0286ef3111aa8885036452eae1aef07dcf83a6cdbb14b209319b1219db092833"
   },
   {
     "path": "assets/v07/cards/green-05-back.svg",
@@ -1851,8 +1851,8 @@
   },
   {
     "path": "assets/v07/cards/green-05-front.svg",
-    "bytes": 106819,
-    "sha256": "c174c955d27083ef8d5d89a9edf065f28e142b8c7b03c33c41152ecf81995b25"
+    "bytes": 107233,
+    "sha256": "8deff088c45a5a34f514bb094eca8775710a4a26678b2753d7edfab5bf83d77e"
   },
   {
     "path": "assets/v07/cards/green-06-back.svg",
@@ -1861,8 +1861,8 @@
   },
   {
     "path": "assets/v07/cards/green-06-front.svg",
-    "bytes": 153253,
-    "sha256": "792fdeecdae64141ac6594071f9ff2dcfb597d1715574574a0eb8c0e41fb2098"
+    "bytes": 153667,
+    "sha256": "f068434699fadf945757e47870c8d79e6fae7a383c1668a424466db3249d84c8"
   },
   {
     "path": "assets/v07/cards/green-07-back.svg",
@@ -1871,8 +1871,8 @@
   },
   {
     "path": "assets/v07/cards/green-07-front.svg",
-    "bytes": 143093,
-    "sha256": "2a12074d0c61d7516a30de849d9eaa3f27091c516e580001320aaa67b0d12e99"
+    "bytes": 143507,
+    "sha256": "56a4a3dacb747631038b124b37a78308a4fc219e22d651ed749b457e331bada5"
   },
   {
     "path": "assets/v07/cards/green-08-back.svg",
@@ -1881,8 +1881,8 @@
   },
   {
     "path": "assets/v07/cards/green-08-front.svg",
-    "bytes": 153125,
-    "sha256": "ea254f222db86015af80f322d76fb5e2d5a2287d5f0d27dcad4a6d98c00527ea"
+    "bytes": 153539,
+    "sha256": "b3daaaf4ff492906dc5bc32627dc5c9fbfc7e241d79dfda74cac8f9d3b743700"
   },
   {
     "path": "assets/v07/cards/green-09-back.svg",
@@ -1891,8 +1891,8 @@
   },
   {
     "path": "assets/v07/cards/green-09-front.svg",
-    "bytes": 96819,
-    "sha256": "d7bdefc466452f6d1c9c5effaad82920c8470aa8a951c7bf340ad06aa963ff5e"
+    "bytes": 97233,
+    "sha256": "2a433db859d40c42c7f755cb2226d323239d14383811dc152df3e5713c901af1"
   },
   {
     "path": "assets/v07/cards/green-10-back.svg",
@@ -1901,8 +1901,8 @@
   },
   {
     "path": "assets/v07/cards/green-10-front.svg",
-    "bytes": 153092,
-    "sha256": "1fe7dc1b6f87b46401dfb6f8b7b9f2dc02b260e52fb0ad65fdacb97aef3ba0ee"
+    "bytes": 153506,
+    "sha256": "ec066e80dddac271f10735980aa4c2fa2c99ba3f22f91442b3213b3e41e26f79"
   },
   {
     "path": "assets/v07/cards/lap-1-back.svg",
@@ -1951,8 +1951,8 @@
   },
   {
     "path": "assets/v07/cards/ochre-01-front.svg",
-    "bytes": 138059,
-    "sha256": "df940ed32c4bde6431a6d6c97ee592e8990422da4d41f1f63b8e900d0a8ec486"
+    "bytes": 138473,
+    "sha256": "23a1acf5f4afe6fd8681e3aa960a67ec668e30ba9f11695902cadc6d2409d50a"
   },
   {
     "path": "assets/v07/cards/ochre-02-back.svg",
@@ -1961,8 +1961,8 @@
   },
   {
     "path": "assets/v07/cards/ochre-02-front.svg",
-    "bytes": 138024,
-    "sha256": "6f06fcffef35c4ea26325cc93173b8ff2d6395ad0f59c7cb39cc4c46b5951b5e"
+    "bytes": 138438,
+    "sha256": "a00ae551d14e6480ff903fa91db30f5e32a5a8e8ef3e3a1e0fb51b7dafba79c1"
   },
   {
     "path": "assets/v07/cards/ochre-03-back.svg",
@@ -1971,8 +1971,8 @@
   },
   {
     "path": "assets/v07/cards/ochre-03-front.svg",
-    "bytes": 138086,
-    "sha256": "311b6acfe5c4860a1d860c2bc2a686796b99d76d6fa50aac8a77fa063bb6de28"
+    "bytes": 138500,
+    "sha256": "65b93993dfefbdca0e381e08ed67f88f4e51883d67a08fb685264dd538ea15d3"
   },
   {
     "path": "assets/v07/cards/ochre-04-back.svg",
@@ -1981,8 +1981,8 @@
   },
   {
     "path": "assets/v07/cards/ochre-04-front.svg",
-    "bytes": 138088,
-    "sha256": "5b3c69f83963c380334b514aff4c67a699acc683ca164b2a7016aaaaf9ae3a67"
+    "bytes": 138502,
+    "sha256": "9bc4f32e3be513e5567f723739e0a4b11870d6cb74e8affa43837cd4603cdeab"
   },
   {
     "path": "assets/v07/cards/ochre-05-back.svg",
@@ -1991,8 +1991,8 @@
   },
   {
     "path": "assets/v07/cards/ochre-05-front.svg",
-    "bytes": 106821,
-    "sha256": "2f42ddcf9e2fb594a26a90a898f8215e76e2d2476ce0930367b6f554a83adbe7"
+    "bytes": 107235,
+    "sha256": "8dee1f3cacc000c47c08eb8f5a726e1fecbe951dab8bc4a0733213f6a58cf28c"
   },
   {
     "path": "assets/v07/cards/ochre-06-back.svg",
@@ -2001,8 +2001,8 @@
   },
   {
     "path": "assets/v07/cards/ochre-06-front.svg",
-    "bytes": 138213,
-    "sha256": "afb46a30abf03f2867f809fe8336a070eefea080ddf1893ee4107d70b209942c"
+    "bytes": 138627,
+    "sha256": "f0d518fb4267f39d4e96891c8234a4cdd736ee0ebfc7e38cb6c6844ed9b82fb8"
   },
   {
     "path": "assets/v07/cards/ochre-07-back.svg",
@@ -2011,8 +2011,8 @@
   },
   {
     "path": "assets/v07/cards/ochre-07-front.svg",
-    "bytes": 143090,
-    "sha256": "c4eca0aca7375c40fea7335d343199e7e85d48955a677459435803557eac2041"
+    "bytes": 143504,
+    "sha256": "80a52041db93323468e97eddd79ecc15ee9321454c3e5acb7e74cd893301a97e"
   },
   {
     "path": "assets/v07/cards/ochre-08-back.svg",
@@ -2021,8 +2021,8 @@
   },
   {
     "path": "assets/v07/cards/ochre-08-front.svg",
-    "bytes": 138051,
-    "sha256": "5fc24e389670025b242816c144605e08141ff33c45d809501632f5afe974a11b"
+    "bytes": 138465,
+    "sha256": "bfa8b1afc53c5377d736e6641f64f2b1c55e77a55ffc4a528a3ba662bf4defe0"
   },
   {
     "path": "assets/v07/cards/ochre-09-back.svg",
@@ -2031,8 +2031,8 @@
   },
   {
     "path": "assets/v07/cards/ochre-09-front.svg",
-    "bytes": 96816,
-    "sha256": "74e1f73859f7dd38d3b324e78e3d67dd5f2dc1ca14551eb012299ca63de5179b"
+    "bytes": 97230,
+    "sha256": "ac79ecec79a4bfc12ef25c33ed53cfe694182c9f47bf5348aca154df83671f9c"
   },
   {
     "path": "assets/v07/cards/ochre-10-back.svg",
@@ -2041,8 +2041,8 @@
   },
   {
     "path": "assets/v07/cards/ochre-10-front.svg",
-    "bytes": 138021,
-    "sha256": "71127ec826ebbcb6017dd3c413f1b5cd6c93fd6d86da69e89db1648446834b93"
+    "bytes": 138435,
+    "sha256": "6612ea23bac9d435e5ad677693f1ea6aaccbb77d36cdd137c827ec5e5afb5749"
   },
   {
     "path": "assets/v07/cards/orange-01-back.svg",
@@ -2051,8 +2051,8 @@
   },
   {
     "path": "assets/v07/cards/orange-01-front.svg",
-    "bytes": 119790,
-    "sha256": "d3d06fa8bd814e246d7ce8ca0367cef8725c4c2d0206a4f28e7493d4abdc01b0"
+    "bytes": 120204,
+    "sha256": "1e95c04b9f718c712da9607a47c07248d5d8ec536e73b3e27750312c72f677ff"
   },
   {
     "path": "assets/v07/cards/orange-02-back.svg",
@@ -2061,8 +2061,8 @@
   },
   {
     "path": "assets/v07/cards/orange-02-front.svg",
-    "bytes": 130598,
-    "sha256": "c24aa5bf5320972b2bff86e0dc88b10da3c6fe2c44b12c0bae9bcaff605c607f"
+    "bytes": 131012,
+    "sha256": "512ec51a34824f191c3d64753d641775492419ee28ce5ac1c2678e9ece93fdf7"
   },
   {
     "path": "assets/v07/cards/orange-03-back.svg",
@@ -2071,8 +2071,8 @@
   },
   {
     "path": "assets/v07/cards/orange-03-front.svg",
-    "bytes": 130666,
-    "sha256": "da732d49f5056fb1701c8c69d1fa577dee4265c3915e3c9ad256ebcc42db199a"
+    "bytes": 131080,
+    "sha256": "ca6f526650b7f6bb4db044829b8e4a89b8eb4a442bcc0c70c55f0bab104fc57e"
   },
   {
     "path": "assets/v07/cards/orange-04-back.svg",
@@ -2081,8 +2081,8 @@
   },
   {
     "path": "assets/v07/cards/orange-04-front.svg",
-    "bytes": 130668,
-    "sha256": "6485360c3bfbdbc67e9a7491b017c2f493c893cd0d7a33109483557ddf3f60eb"
+    "bytes": 131082,
+    "sha256": "eb3128e13b7c18ac9ac263fe7ea86b8e76cc91e8fa7c3cf21d01e84773621e8a"
   },
   {
     "path": "assets/v07/cards/orange-05-back.svg",
@@ -2091,8 +2091,8 @@
   },
   {
     "path": "assets/v07/cards/orange-05-front.svg",
-    "bytes": 120831,
-    "sha256": "2042c9f5ee4a8ba9bd12147a175c5e5cffb9c0242eedad13cb60a2c58c143869"
+    "bytes": 121245,
+    "sha256": "45b35fd031b3fe92a8b0dcf2833dc343bb3f665eec345bca786a22a283ae4268"
   },
   {
     "path": "assets/v07/cards/orange-06-back.svg",
@@ -2101,8 +2101,8 @@
   },
   {
     "path": "assets/v07/cards/orange-06-front.svg",
-    "bytes": 130761,
-    "sha256": "796a2cb0d02bed186569d359e418b9acb8a15173c49fa4841ecf264fb5bc5afa"
+    "bytes": 131175,
+    "sha256": "f6bd28836f53569a3059d4f49fd84bd61459f3d472aa53da53c34d9b54540065"
   },
   {
     "path": "assets/v07/cards/orange-07-back.svg",
@@ -2111,8 +2111,8 @@
   },
   {
     "path": "assets/v07/cards/orange-07-front.svg",
-    "bytes": 143090,
-    "sha256": "14773f9b4c1a29854b4e2820993cc1ac3270b3fe7c6b102d488fe675ebf73e93"
+    "bytes": 143504,
+    "sha256": "54622d95012fe9e187e11f037cebbe111c3a9767ec6b9a5b795ac90a523350fe"
   },
   {
     "path": "assets/v07/cards/orange-08-back.svg",
@@ -2121,8 +2121,8 @@
   },
   {
     "path": "assets/v07/cards/orange-08-front.svg",
-    "bytes": 130631,
-    "sha256": "fb542cd1ffda6f09625a7c3613da1daff96f7ea32f0f62abaab166235c50d3ff"
+    "bytes": 131045,
+    "sha256": "ead2b3dab5d0bf1b84196002a628c071ecc74a95694969df17cd9f8b24fb0df6"
   },
   {
     "path": "assets/v07/cards/orange-09-back.svg",
@@ -2131,8 +2131,8 @@
   },
   {
     "path": "assets/v07/cards/orange-09-front.svg",
-    "bytes": 96816,
-    "sha256": "8b6c35f3302b5c3daf3c86444481b8d8f1654568ca1bd76aec971e480cb45abf"
+    "bytes": 97230,
+    "sha256": "c18e6b819940994d0126cb6e159c445a5c96c91a2fbe0ea1d62aa387f1676452"
   },
   {
     "path": "assets/v07/cards/orange-10-back.svg",
@@ -2141,8 +2141,8 @@
   },
   {
     "path": "assets/v07/cards/orange-10-front.svg",
-    "bytes": 130601,
-    "sha256": "105e80ba17f534caaaa225e2bf69b99c9186ba74ffda49a764fd83e05aa8cb1f"
+    "bytes": 131015,
+    "sha256": "fc51a7850a4fcba43a7af32c7e1f6e8e02179a96583d71e282b987f56aea6db6"
   },
   {
     "path": "assets/v07/cards/scenery-1-back.svg",
@@ -2471,8 +2471,8 @@
   },
   {
     "path": "assets/v07/cards/teal-01-front.svg",
-    "bytes": 119793,
-    "sha256": "65634f08bef56c364417d96ef6916aef193ef228f8a04508f905f09fd17c0f91"
+    "bytes": 120207,
+    "sha256": "e9db3291e0b319ccdb4dd2caa31e370207c4d16deb2f1a311af6dbe3730c5695"
   },
   {
     "path": "assets/v07/cards/teal-02-back.svg",
@@ -2481,8 +2481,8 @@
   },
   {
     "path": "assets/v07/cards/teal-02-front.svg",
-    "bytes": 142754,
-    "sha256": "d6c35269b754193540b31950bc31e61955fbf63e592c59744542f76ff4a062f5"
+    "bytes": 143168,
+    "sha256": "2656baea502cc41cb9055377ca71719435a733a45ebb619ab285dc7c80f00386"
   },
   {
     "path": "assets/v07/cards/teal-03-back.svg",
@@ -2491,8 +2491,8 @@
   },
   {
     "path": "assets/v07/cards/teal-03-front.svg",
-    "bytes": 142774,
-    "sha256": "c16d00b0cfcfaab19f3c09a29b3dfa30e760671f03eee2607e02996ee24b76c2"
+    "bytes": 143188,
+    "sha256": "7448f46aa908c946c244fa6dd62c22307ac414a9b1df14a0d52ee75ed6ffca30"
   },
   {
     "path": "assets/v07/cards/teal-04-back.svg",
@@ -2501,8 +2501,8 @@
   },
   {
     "path": "assets/v07/cards/teal-04-front.svg",
-    "bytes": 142776,
-    "sha256": "a6faa7ec50efa22df3a52ba4726d30e07d17e2b285fa0a3bde0f5770e7a69e22"
+    "bytes": 143190,
+    "sha256": "45cb6fc2b3637b6848144e0def41a3e61d9ad1604902d2bd73a062271221763e"
   },
   {
     "path": "assets/v07/cards/teal-05-back.svg",
@@ -2511,8 +2511,8 @@
   },
   {
     "path": "assets/v07/cards/teal-05-front.svg",
-    "bytes": 140663,
-    "sha256": "61fc72ace109d415e44a803b338e4a3df20355f3df812ec6cc35fab4f5f52bb4"
+    "bytes": 141077,
+    "sha256": "1486131039b7e05a78517134dfa7da164e7078b0b804521b2f496ea9cf54b424"
   },
   {
     "path": "assets/v07/cards/teal-06-back.svg",
@@ -2521,8 +2521,8 @@
   },
   {
     "path": "assets/v07/cards/teal-06-front.svg",
-    "bytes": 142903,
-    "sha256": "3e3d8b467c7cc0a996dbdf1e33957855adcd02a1dfaf8a76289d94325362c83b"
+    "bytes": 143317,
+    "sha256": "23fbcdfc82ce60a93910a80a6206a09857b8e73cf76beeb6fa3785f95557fa54"
   },
   {
     "path": "assets/v07/cards/teal-07-back.svg",
@@ -2531,8 +2531,8 @@
   },
   {
     "path": "assets/v07/cards/teal-07-front.svg",
-    "bytes": 143093,
-    "sha256": "e73465dd8a262dd801b89a87e65ee6481f058f553184a128c65ab8d23ab8526d"
+    "bytes": 143507,
+    "sha256": "87c93b513538d1d141038f7fc219d50a7574b800b137d6f9a7fe3e91127074d8"
   },
   {
     "path": "assets/v07/cards/teal-08-back.svg",
@@ -2541,8 +2541,8 @@
   },
   {
     "path": "assets/v07/cards/teal-08-front.svg",
-    "bytes": 142788,
-    "sha256": "0b0cbdbb4bbfc1dc00d1606a403595fbb8ced32d7a4197b9e6a72ef7e3c172ad"
+    "bytes": 143202,
+    "sha256": "5386373f7a75f963ce4d617abda17abc3025dd9b3ae9aa31c1fad93bb353b876"
   },
   {
     "path": "assets/v07/cards/teal-09-back.svg",
@@ -2551,8 +2551,8 @@
   },
   {
     "path": "assets/v07/cards/teal-09-front.svg",
-    "bytes": 96819,
-    "sha256": "6a057a2d65972484cba863aeb58ee5d88649ae87409148572bb0d5a7f12a68a0"
+    "bytes": 97233,
+    "sha256": "0ef30badca60907e943cc583ba7c708a40a6166c0b95cfa138f6f72a84e6e97d"
   },
   {
     "path": "assets/v07/cards/teal-10-back.svg",
@@ -2561,8 +2561,8 @@
   },
   {
     "path": "assets/v07/cards/teal-10-front.svg",
-    "bytes": 142752,
-    "sha256": "7f5b162162a38ff5506bca3442f99739b21307183ba3bf755e066de38e6dac70"
+    "bytes": 143166,
+    "sha256": "a3af0421e668da709332103887274c4094852f4bee688fd6cb258a9385c3b17d"
   },
   {
     "path": "assets/v07/die-0.glb",
@@ -2980,6 +2980,26 @@
     "sha256": "99f8911360593a8e2a09046ae8e7e27899420112c11de456f5c622c3541882d4"
   },
   {
+    "path": "assets/v07/product-accessories.webp",
+    "bytes": 8680,
+    "sha256": "60a73ef3016735466c1d5ea1c724b80a17f7fbc64ec5394293dbad5d082ff1b8"
+  },
+  {
+    "path": "assets/v07/product-box.webp",
+    "bytes": 62578,
+    "sha256": "6d3aae811e75b84be0c3933dd287b1bc1159f82709fadad9c45515e317ebff22"
+  },
+  {
+    "path": "assets/v07/product-dice.webp",
+    "bytes": 22184,
+    "sha256": "26a6eaec211e4464a297eb6cdeab3f1cbe61293c83221ecc812e4a46332e2b54"
+  },
+  {
+    "path": "assets/v07/product-meeples.webp",
+    "bytes": 27756,
+    "sha256": "99dfce5e3e9b3de6dc86a02796214ee215afc9877b5e8ebf502e1521d6a49098"
+  },
+  {
     "path": "assets/v07/promo/coast-bright.webp",
     "bytes": 469482,
     "sha256": "a648f3a6923bbf137bb13e47187065c62ed62665707cc34cf99060f34072ed66"
@@ -3016,18 +3036,18 @@
   },
   {
     "path": "index.html",
-    "bytes": 25027,
-    "sha256": "a658e91785983faeb51f0515b787293a8b540e93842676709bb7881c4ffc8800"
+    "bytes": 26955,
+    "sha256": "58782cd1cd8dbf3de17a914cc09ca8618ee559e4415782ba6c7e9a4fc43d1fa1"
   },
   {
     "path": "tabletop/components.html",
-    "bytes": 1893,
-    "sha256": "2903e19a4eb9abcfca369cda9594b0a3a0559956e0d749276ebca6eead1230cf"
+    "bytes": 2092,
+    "sha256": "370c6a02885bbd7524e5d26e0b95a0a5cf876d54d45cd69301fc3a3cb8078249"
   },
   {
     "path": "tabletop/master.html",
-    "bytes": 2592,
-    "sha256": "861ea15e58dcf0b3dfaf045913b09cebb9b7457c1bf4abfdd6c36223553ee3e3"
+    "bytes": 2703,
+    "sha256": "dbd096f9ca8da50a9251f6e00da27ee7242a6b7d6a07dde53a18625ae3bf9d6b"
   },
   {
     "path": "tabletop/models.mjs",
@@ -3036,8 +3056,8 @@
   },
   {
     "path": "tabletop/v07/app.mjs",
-    "bytes": 24084,
-    "sha256": "f20f22ab23640cf4ed7e17f820e00244f226c3d4be4bb256b19ac3fe08efc918"
+    "bytes": 24091,
+    "sha256": "8a434382774e230c98345709431f2680d7b96bf9ed2f9a2243f54b5e706a6226"
   },
   {
     "path": "tabletop/v07/art.mjs",
@@ -3066,8 +3086,8 @@
   },
   {
     "path": "tabletop/v07/components.mjs",
-    "bytes": 11249,
-    "sha256": "19f7fd20959d2a829878440d81a6644a52f41e9830cf8f1a35d55d30404e9f8f"
+    "bytes": 11898,
+    "sha256": "def1bc15472b3d3ce9cdf39e4a4789d300cda1805dd52e25f0c5885b155dd545"
   },
   {
     "path": "tabletop/v07/data.json",
@@ -3115,6 +3135,11 @@
     "sha256": "353eec15d7f1125e78015e8083a7fdf46b5fe305b478aafcbfb0acd0ae8b9f87"
   },
   {
+    "path": "tabletop/v07/library-quality.css",
+    "bytes": 7949,
+    "sha256": "381653bed71c15a3a102ec0b48646942bbfeec476eb51beb415876a740ea5d6f"
+  },
+  {
     "path": "tabletop/v07/library-shell.css",
     "bytes": 18018,
     "sha256": "dab103a371976545142821c67ac441b999a834812565454ad1732f6613c1c526"
@@ -3126,8 +3151,8 @@
   },
   {
     "path": "tabletop/v07/library.mjs",
-    "bytes": 30297,
-    "sha256": "71401e97bb01ebc980ca75986e2226f3fd6be67a80407e89920a703c951092fa"
+    "bytes": 32022,
+    "sha256": "14c8dc3d198fed8d39ead8d726486ebd2c3531c16626a89fc74b8dced4a58b0b"
   },
   {
     "path": "tabletop/v07/manual.css",
@@ -3141,8 +3166,13 @@
   },
   {
     "path": "tabletop/v07/miniatures.mjs",
-    "bytes": 5090,
-    "sha256": "0fb48fb704b2c35ddaee872cd979c1adf1818c3cabccbd422abfb568164d5795"
+    "bytes": 7209,
+    "sha256": "12a86d59e06ea817d5eb3138fc1daf236ee591a8fc07fda9d38069e84b35bf6d"
+  },
+  {
+    "path": "tabletop/v07/model-viewer.css",
+    "bytes": 1632,
+    "sha256": "a4f8cba4b1cb84b25b9b35d646fcf67303c0d606c9e69bb61ae71d6f07102675"
   },
   {
     "path": "tabletop/v07/models.mjs",
@@ -3181,13 +3211,13 @@
   },
   {
     "path": "tabletop/v07/play.mjs",
-    "bytes": 21810,
-    "sha256": "736de89fd50b6efd7b460514e5a9657d6d084dc5f24b2767bd558ccfa49be621"
+    "bytes": 21817,
+    "sha256": "3508651d78af9a700fe25cb8d9888fc6ebdb251faabd1f17fbe78746f03fe27f"
   },
   {
     "path": "tabletop/v07/print.html",
-    "bytes": 4845,
-    "sha256": "ca47ed74b18eb6a0ee6a9fadd0891c20b432c5011413b7843a65d88959ab2846"
+    "bytes": 4956,
+    "sha256": "81b59768ffc8132fe5966faa5b4e512872cd4f1763a1cde30856af6382214872"
   },
   {
     "path": "tabletop/v07/print.mjs",
@@ -3225,14 +3255,19 @@
     "sha256": "01161a92952db271f9d2483b90f5c9dfd3f237cafba05bd6fa2f3a48de8834d7"
   },
   {
+    "path": "tabletop/v07/product-quality.css",
+    "bytes": 4217,
+    "sha256": "2e69cf0bf2f4ef8e2df714f92532d073343fc7cd07571cf5a8ec6927fd7aae7e"
+  },
+  {
     "path": "tabletop/v07/product.css",
     "bytes": 21979,
     "sha256": "8fb36ed2d2cbdff35ed7199c3b1ef4088712931cd501656c45ba2a7e72eb44cf"
   },
   {
     "path": "tabletop/v07/product.mjs",
-    "bytes": 6529,
-    "sha256": "ba03e8272418eed05d2438c2af5717c676490f7adea5d1f4b0fad4ac7e0da170"
+    "bytes": 6027,
+    "sha256": "ceacaf8ca09f9278c178bd76f66363fc7cf39312299cd2a95615eb4e62148af0"
   },
   {
     "path": "tabletop/v07/specs.mjs",
@@ -3241,8 +3276,8 @@
   },
   {
     "path": "tabletop/v07/start.html",
-    "bytes": 2557,
-    "sha256": "424f1de43f2d5877ab4e7b58724a85602cf259f2dbd0d5d2f8206fdcc760045a"
+    "bytes": 2870,
+    "sha256": "97b6e772a77400f16e7a7a2ea731cc8fa9bc3b3cbdbb082ca987e8b6bf378345"
   },
   {
     "path": "tabletop/v07/table.css",
@@ -3251,8 +3286,8 @@
   },
   {
     "path": "tabletop/v07/table.html",
-    "bytes": 1567,
-    "sha256": "a1f18394231d641dfaa6bd63e0f9db2c872fb256c2a881d1981376323756caec"
+    "bytes": 1678,
+    "sha256": "eff31ff52fb4dba271c2d60e63640cac198038b18c286f1c5ff8f823717e2943"
   },
   {
     "path": "tabletop/v07/travel-prices.mjs",

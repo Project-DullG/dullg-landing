@@ -1,7 +1,7 @@
 import {SPECS,mm} from './specs.mjs';
 import {DiceTray,travelPoints} from './dice.mjs';
 import {COLORS,MOTIFS,motifSVG} from './models.mjs?v=20260923j';
-import {modelImage} from './miniatures.mjs?v=20260929h';
+import {modelImage} from './miniatures.mjs?v=20260929-quality';
 import {esc,dataURL,backSVG,recordBackSVG,encounterSVG,routeSVG,infoSVG,awardSVG,coverHTML,colors,shipSVG} from './components.mjs';
 import {LABELS,TYPES} from './engine.mjs';
 export {travelPoints};

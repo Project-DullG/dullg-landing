@@ -1,7 +1,7 @@
 import {Game} from './engine.mjs';
 import {TRAVELER_COVERS} from './traveler-cover.mjs';
 import {characterCourse} from './character-courses.mjs';
-import {mountJourneyDemo,mountFoodCompetition} from './product-demo.mjs?v=20260929e';
+import {mountJourneyDemo,mountFoodCompetition} from './product-demo.mjs?v=20260929g';
 
 // The example runs the real rules in memory; it never accesses the saved game.
 export function makeChoiceExample(data){
@@ -14,7 +14,7 @@ export function makeChoiceExample(data){
 }
 const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function init(){
- const response=await fetch('/ulleung-marble/tabletop/v07/data.json');if(!response.ok)throw Error('Game content could not be loaded');
+ const response=await fetch('/ulleung-marble/tabletop/v07/data.json?v=20260929g');if(!response.ok)throw Error('Game content could not be loaded');
  const data=await response.json();mountJourneyDemo(data);mountFoodCompetition(data);
  const tabs=document.querySelector('#traveler-tabs'),preview=document.querySelector('#traveler-preview');
  const styles=['내 코스 완주','일주와 귀항','여유 있는 산행','맛집과 여행비','풍경 수집','산길과 체험','알뜰한 여행','해안 일주'];

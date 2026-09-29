@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import {createBox} from './box-model.mjs?v=20260929e';
-import {prepareBoxTextures} from './box-textures.mjs?v=20260929e';
+import {createBox} from './box-model.mjs?v=20260929g';
+import {prepareBoxTextures} from './box-textures.mjs?v=20260929g';
 const mounted=new WeakMap();
 
 // One view uses the same dimensioned models and print faces as the component catalog.

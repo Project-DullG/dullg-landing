@@ -101,13 +101,13 @@
   },
   {
     "path": "assets/v07/board-map.svg",
-    "bytes": 1208393,
-    "sha256": "5b06494f1f80292f8d2b23b4139205a1c92b0502e54a05e52b59ffe775eaa885"
+    "bytes": 1200442,
+    "sha256": "9bb0f1bf4fb04c5e081d1f2c1fcfc60713e0a9b1b42cec05c8ed6daab34e0d6f"
   },
   {
     "path": "assets/v07/board.svg",
-    "bytes": 1236651,
-    "sha256": "9c734d6a1f2bf098251fd84f5d13e19c1205ad3a4c928216742297f256688442"
+    "bytes": 1228652,
+    "sha256": "b2ed59f5ab1ccca1c3d0e8f26e9af13021719923b5843aeabeb90f69f76b710a"
   },
   {
     "path": "assets/v07/book-cover-0.svg",
@@ -2761,8 +2761,8 @@
   },
   {
     "path": "assets/v07/label-boxes.json",
-    "bytes": 1764,
-    "sha256": "ba1299f122dbc58468ecfa0f867beaafb0bf7039b2d4f053e087fa715a27da3c"
+    "bytes": 1738,
+    "sha256": "4a4b19449ff60c1463c0f96922e4bbe9a71211180c280906b8e31b97eda53126"
   },
   {
     "path": "assets/v07/landmarks/arch.svg",
@@ -2921,18 +2921,18 @@
   },
   {
     "path": "assets/v07/promo/table-spread.webp",
-    "bytes": 287758,
-    "sha256": "3a3c6f013ce37de04cc26b65f2b3a74919fd013c9e9ee0ef13db95fd0dc4ec3e"
+    "bytes": 271768,
+    "sha256": "68f7a11b32df34a98a676a64ca22d73efb62bef4bddf21034066969b2dafb0da"
   },
   {
     "path": "assets/v07/promo/ulleung-marble-play.mp4",
-    "bytes": 4583231,
-    "sha256": "703669819f955520160222320abeb7557c0e3151b9902fda3bded013fd986fca"
+    "bytes": 4431539,
+    "sha256": "450980c2933a5554528fa6e18040cc786d82f01cf4db3a399dd11312d5b1d8a0"
   },
   {
     "path": "assets/v07/tourism-boxes.json",
-    "bytes": 8815,
-    "sha256": "e2eb2db222abc052ce8c89a0e1e0a23622f56844a41df8efafdd2dc2dda313f0"
+    "bytes": 8912,
+    "sha256": "20cce747026ebc7a0eaae316f332f542346910feb71d3bffdcaaa5201bb989eb"
   },
   {
     "path": "favicon.svg",
@@ -2942,17 +2942,17 @@
   {
     "path": "index.html",
     "bytes": 21204,
-    "sha256": "ef2bf0c5ea0e85b71244a3dc7f17417a4fa92749ffbb69d173bd1edc8ef8bf71"
+    "sha256": "5616a26ac643574fcf9cb19a8c96b029aaaaf1cb9d2e0853561a74dc65b10b0c"
   },
   {
     "path": "tabletop/components.html",
     "bytes": 1789,
-    "sha256": "f1a0117e3e5a749157de63f2895fe7e0229d57e6097ad51bfe5561fe1686f098"
+    "sha256": "cdf99875be2e23ab9778901bca55d924c541c2a01243fa2b5a2630020577564b"
   },
   {
     "path": "tabletop/master.html",
     "bytes": 2495,
-    "sha256": "0bf6c9c54db77f2fb7e6c207738320dda461171d1b452b9fe74b2e71cf0c9301"
+    "sha256": "4b01c7dac418fdd51ab38897499a4d29cceb3018d5779039e2567e52527b782d"
   },
   {
     "path": "tabletop/models.mjs",
@@ -2961,8 +2961,8 @@
   },
   {
     "path": "tabletop/v07/app.mjs",
-    "bytes": 23676,
-    "sha256": "28e4c87e10d735010f07535f08fa8395db54e2a814c6cc282246533157206992"
+    "bytes": 23688,
+    "sha256": "9efb60a736468adca3c259f99e9437e315b21311d2baa24e5fbca2e91c4c0d22"
   },
   {
     "path": "tabletop/v07/art.mjs",
@@ -2977,12 +2977,12 @@
   {
     "path": "tabletop/v07/box-model.mjs",
     "bytes": 5040,
-    "sha256": "e5d79c7850c7efdc39d17bcb40dad2713af4151c587430b30b6420caf7bc5dac"
+    "sha256": "0adcd0c58c4c92f7876ea04c02c422c9faebb5a2b7181a7d0be7385fb9e654cc"
   },
   {
     "path": "tabletop/v07/box-textures.mjs",
     "bytes": 1474,
-    "sha256": "61e8ddc9d68b4becd4b50e22bf5886dd02a2a343f7cf5358b55b26ef49e59549"
+    "sha256": "4d6fac6f1733e6b3c17397878326a15281947c7c997606728a3896531b894258"
   },
   {
     "path": "tabletop/v07/character-courses.mjs",
@@ -2996,8 +2996,8 @@
   },
   {
     "path": "tabletop/v07/data.json",
-    "bytes": 286419,
-    "sha256": "6117f131001bf1b41b52105cfec9ce4ad0bd895e1e65d2a8959218b61b92eb30"
+    "bytes": 269179,
+    "sha256": "21dd3fc3fb92a9dfeadd87681958fec24e281cc66626c3d44e8ee981002a0a73"
   },
   {
     "path": "tabletop/v07/dice.mjs",
@@ -3036,8 +3036,8 @@
   },
   {
     "path": "tabletop/v07/library.mjs",
-    "bytes": 27861,
-    "sha256": "bed63a6af5e1f9d9d8778cb8ce6e59854922ad93ab1595849877acd656c19baa"
+    "bytes": 27873,
+    "sha256": "2666d831286439e5cdfd60a3d23ba905fbc82cf2b11f3fc4c2b5c179c71dd2cf"
   },
   {
     "path": "tabletop/v07/manual.css",
@@ -3052,7 +3052,7 @@
   {
     "path": "tabletop/v07/miniatures.mjs",
     "bytes": 4918,
-    "sha256": "8fa9ca9570b41a6d66710dcaabc2893e67f45327852848014aabf7f26e62f562"
+    "sha256": "d25e1d85319265dc5592887c07c595a60f197582c5f664bd6fa802ac6b5c8721"
   },
   {
     "path": "tabletop/v07/models.mjs",
@@ -3072,17 +3072,17 @@
   {
     "path": "tabletop/v07/play.mjs",
     "bytes": 21242,
-    "sha256": "0b3f1f0a3dd3c373329b86b3ddd20e0a854582406bc2050c0326078f4717a712"
+    "sha256": "094421b989bc02df6a03f804f1d674011100c1fa98a5b2c1d53d6f564306a0f2"
   },
   {
     "path": "tabletop/v07/print.html",
     "bytes": 4845,
-    "sha256": "6d21ecfa2f06b863c2cd65989d35d3aca189c569cf2b68c3db9ae11cb8056f9f"
+    "sha256": "096df7da50aa283ec03cbc7caa62933db69f632e351cb4ac34b2936f3e8c84b0"
   },
   {
     "path": "tabletop/v07/print.mjs",
     "bytes": 3931,
-    "sha256": "1f0d96a75784f8d6d5c416893e51c15e34b236f5bca85726089a62b59e5e0cb3"
+    "sha256": "dea65e93ef41723ddffc631b74350f1c5bbec34f297227b0501e95f54beeb74f"
   },
   {
     "path": "tabletop/v07/product-appeal.css",
@@ -3092,12 +3092,12 @@
   {
     "path": "tabletop/v07/product-components.mjs",
     "bytes": 3001,
-    "sha256": "eb6dbad3a3dbbf2b0fe64c41e039a01089754e12f0d24bb343ec78c5b7c01556"
+    "sha256": "8bd339172d3a16a605d966dbb393fbd957e8ede40518c27df96b2cf7d9c74772"
   },
   {
     "path": "tabletop/v07/product-demo.mjs",
     "bytes": 9844,
-    "sha256": "b00215e5f57c51e107f691ddd468335d7892a7ab1469c117f0a86efd690882eb"
+    "sha256": "1c28c5af9f8d47a6ad1b9b6dcc1cc91d1738b184ca0dc0bdfa3dee2cc4bc9338"
   },
   {
     "path": "tabletop/v07/product.css",
@@ -3106,8 +3106,8 @@
   },
   {
     "path": "tabletop/v07/product.mjs",
-    "bytes": 6517,
-    "sha256": "bb7706d80fddd562694d5cca4bb74fdf914695a2d891de59a58204a8280a76fc"
+    "bytes": 6529,
+    "sha256": "7a9c31bc9746ab458d5673b66401872987b12c696c97b919d7de449e0e5fad60"
   },
   {
     "path": "tabletop/v07/specs.mjs",
@@ -3137,7 +3137,7 @@
   {
     "path": "tabletop/v07/unboxing.mjs",
     "bytes": 6688,
-    "sha256": "10d42741c62f73cf26511644e05136b69620e922f68b36ca04c6590c0c7a3fef"
+    "sha256": "4bb485046644e4fd81d651e65716ef9e5f9aa366c19af16a4deaf3f052cfabef"
   },
   {
     "path": "tabletop/v07/web-type.css",

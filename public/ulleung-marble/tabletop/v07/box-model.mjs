@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import {createMeeple,createBudgetMarker,createThemedDie} from './models.mjs?v=20260923j';
-import {boxTextures} from './box-textures.mjs?v=20260929e';
+import {boxTextures} from './box-textures.mjs?v=20260929g';
 export const BOX={width:.380,depth:.240,height:.070,wall:.002,inside:[.372,.232,.062],board:[.360,.210,.008],book:[.128,.182,.0012],card:[.058,.090,.00032],cardPiles:[74,72,52,35]};
 export function createBox(state=0){
  const mode=state===true?2:Number(state),open=mode>0,root=new THREE.Group();

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {createBox} from './box-model.mjs?v=20260929g';
+import {createBox} from './box-model.mjs?v=20260929h';
 import {createMeeple,createThemedDie,createBudgetMarker,dieFaceRotation} from './models.mjs?v=20260923j';
 const cache=new Map();let renderer;
 export function modelFor(type,i){
@@ -13,14 +13,14 @@ export function modelFor(type,i){
  }
  return type==='box'?createBox(i):type==='marker'?createBudgetMarker(i):type==='die'?createThemedDie(i):createMeeple(i);}
 export function modelImage(type,i){const key=type+i;if(cache.has(key))return cache.get(key);try{
- renderer||=new THREE.WebGLRenderer({alpha:true,antialias:true,preserveDrawingBuffer:true});renderer.setSize(180,200);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;
- const scene=new THREE.Scene();scene.add(new THREE.HemisphereLight(0xfffae7,0x314450,3));const light=new THREE.DirectionalLight(0xffefd3,3.5);light.position.set(-3,5,6);scene.add(light);
+ renderer||=new THREE.WebGLRenderer({alpha:true,antialias:true,preserveDrawingBuffer:true});renderer.setSize(180,200);renderer.setPixelRatio(1);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;
+ const scene=new THREE.Scene();scene.add(new THREE.HemisphereLight(0xfffae7,0x314450,1.8));const light=new THREE.DirectionalLight(0xffefd3,2.5);light.position.set(-3,5,6);scene.add(light);
  const object=modelFor(type,i);object.rotation.set(type==='box'?.7:type==='marker'?.4:.1,-.4,-.04);scene.add(object);const box=new THREE.Box3().setFromObject(object),center=box.getCenter(new THREE.Vector3()),size=box.getSize(new THREE.Vector3()),extent=Math.max(size.x,size.y)*.7;
  const camera=new THREE.OrthographicCamera(-extent*.9,extent*.9,extent,-extent,.01,20);camera.position.set(center.x,center.y,5);camera.lookAt(center);renderer.render(scene,camera);const url=renderer.domElement.toDataURL('image/png');cache.set(key,url);object.traverse(o=>{o.geometry?.dispose();[].concat(o.material||[]).forEach(m=>m.dispose());});return url;
  }catch{return '/ulleung-marble/favicon.svg';}}
 export function inspectModel(host,type,i){
- const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});renderer.setPixelRatio(Math.min(2,devicePixelRatio));renderer.outputColorSpace=THREE.SRGBColorSpace;host.append(renderer.domElement);
- const scene=new THREE.Scene();scene.add(new THREE.HemisphereLight(0xfff5dd,0x36586a,3));const light=new THREE.DirectionalLight(0xfff6df,3);light.position.set(-3,4,5);scene.add(light);
+ const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});renderer.setPixelRatio(Math.min(2,devicePixelRatio));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;host.append(renderer.domElement);
+ const scene=new THREE.Scene();scene.add(new THREE.HemisphereLight(0xfff5dd,0x36586a,1.8));const light=new THREE.DirectionalLight(0xfff6df,2.5);light.position.set(-3,4,5);scene.add(light);
  const pivot=new THREE.Group(),object=modelFor(type,i);if(type==='box')object.rotation.x=i===2?1.42:i?1.1:.8;object.rotation.y=-.22;const bounds=new THREE.Box3().setFromObject(object),center=bounds.getCenter(new THREE.Vector3()),size=bounds.getSize(new THREE.Vector3());object.position.sub(center);pivot.add(object);scene.add(pivot);
  if(type==='box'&&i===2)object.children.slice(1).forEach(part=>part.visible=false);object.updateMatrixWorld(true);const focusBounds=new THREE.Box3().setFromObject(type==='box'&&i===2?object.children[0]:object),focusCenter=focusBounds.getCenter(new THREE.Vector3()),focusSize=focusBounds.getSize(new THREE.Vector3());const camera=new THREE.OrthographicCamera(-1,1,1,-1,.001,100);camera.position.set(focusCenter.x,focusCenter.y,10);camera.lookAt(focusCenter.x,focusCenter.y,0);let zoom=1;
  const render=()=>renderer.render(scene,camera);const fit=()=>{const w=Math.max(200,host.clientWidth-40),h=Math.max(240,Math.min(650,host.clientHeight-60)),ratio=w/h,extent=Math.max(focusSize.y*.57,focusSize.x*.57/ratio,focusSize.z*.12);renderer.setSize(w,h);camera.left=-extent*ratio/zoom;camera.right=extent*ratio/zoom;camera.top=extent/zoom;camera.bottom=-extent/zoom;camera.updateProjectionMatrix();render();};

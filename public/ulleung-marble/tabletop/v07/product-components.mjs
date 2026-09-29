@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {createMeeple,createBudgetMarker,createThemedDie} from './models.mjs?v=20260923j';
-import {createBox} from './box-model.mjs?v=20260929g';
-import {prepareBoxTextures} from './box-textures.mjs?v=20260929g';
+import {createBox} from './box-model.mjs?v=20260929h';
+import {prepareBoxTextures} from './box-textures.mjs?v=20260929h';
 
 // Render the same physical models used at the game table, once per gallery image.
 export async function showComponents(){
@@ -9,9 +9,9 @@ export async function showComponents(){
  if(!hosts.length)return;
  await prepareBoxTextures();
  const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,preserveDrawingBuffer:true});
- renderer.setSize(1000,620);renderer.outputColorSpace=THREE.SRGBColorSpace;
- const scene=new THREE.Scene();scene.add(new THREE.HemisphereLight(0xfffcf0,0x548899,2.7));
- const light=new THREE.DirectionalLight(0xfff6dc,3);light.position.set(-3,6,8);scene.add(light);
+ renderer.setSize(1000,620);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;
+ const scene=new THREE.Scene();scene.add(new THREE.HemisphereLight(0xfffcf0,0x548899,1.7));
+ const light=new THREE.DirectionalLight(0xfff6dc,2.4);light.position.set(-3,6,8);scene.add(light);
  const camera=new THREE.OrthographicCamera(-1,1,1,-1,.001,100);
  for(const host of hosts){
   const kind=host.dataset.componentModel,group=new THREE.Group();

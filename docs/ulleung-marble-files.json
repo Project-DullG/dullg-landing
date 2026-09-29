@@ -2911,13 +2911,13 @@
   },
   {
     "path": "assets/v07/promo/film-poster.jpg",
-    "bytes": 456655,
-    "sha256": "972729ac367cf5ccee620eb9d1ab49b39f27ea6959fd52abeb47ea9d70bf98cf"
+    "bytes": 455492,
+    "sha256": "2abb145fc15264c021960ccb317b75b05b3455e19ced8bfd48cb276b9dddf1eb"
   },
   {
     "path": "assets/v07/promo/play-ko.vtt",
-    "bytes": 803,
-    "sha256": "9cc83c9ebf109817c96396de2495a209e7df7e53737b75313af4267e24e503b4"
+    "bytes": 530,
+    "sha256": "a5284e1b185a2cf07cbbcf6f58e2a9c25453a9dfe138a5db4afdae3d5f985b7f"
   },
   {
     "path": "assets/v07/promo/table-spread.webp",
@@ -2926,8 +2926,8 @@
   },
   {
     "path": "assets/v07/promo/ulleung-marble-play.mp4",
-    "bytes": 10029515,
-    "sha256": "0fde6d107c973793b2c3b5fb384c8e9c4c0e7760237f45df9ec342ad952b4180"
+    "bytes": 9255451,
+    "sha256": "34e3bf77e528fbf2ca286e45317dfc4b0dd9b2c827f1911e8e65da9bbd36c2ee"
   },
   {
     "path": "assets/v07/tourism-boxes.json",
@@ -2941,13 +2941,13 @@
   },
   {
     "path": "index.html",
-    "bytes": 22129,
-    "sha256": "0bc092a1d16b99f984e8f6b196f344d376c3b58697a0cc64b682f945bf7c8c3f"
+    "bytes": 21003,
+    "sha256": "8ba73a35bf46986b602998ab36379f63f496226e54c5750e18c7a4227b0dd31c"
   },
   {
     "path": "tabletop/components.html",
     "bytes": 1789,
-    "sha256": "1f7efdd0ee627422b4f041eb436e3ab9511c3dd1e612e7f0e9cbc5c55c20257f"
+    "sha256": "a6e11ba9e1219a701cde5b7b8252e2773df7a7f066ed55bbc762a79a69168a2c"
   },
   {
     "path": "tabletop/master.html",
@@ -3036,8 +3036,8 @@
   },
   {
     "path": "tabletop/v07/library.mjs",
-    "bytes": 27546,
-    "sha256": "5898b87bd34ae78b41bfb65058516938a3af6482c437156aec44065aedf9b743"
+    "bytes": 27734,
+    "sha256": "6ecb119ac020cb40b97efda6f3adb0d4421b43d8b973b535680352ebe2b62d7e"
   },
   {
     "path": "tabletop/v07/manual.css",
@@ -3085,9 +3085,19 @@
     "sha256": "673c942442ca2f661b46077bd76793853ca5e67fb255727eb8574aee426c78e7"
   },
   {
+    "path": "tabletop/v07/product-appeal.css",
+    "bytes": 13382,
+    "sha256": "9e6f67214062c5c615d98c7f26e9fa29d52ce7dc90fdcf980dcf5ce4bd9fc5c9"
+  },
+  {
     "path": "tabletop/v07/product-components.mjs",
     "bytes": 3001,
     "sha256": "39b76e4826e3e9a8186dee99709f82ed0261b3df0c81ce9f9a8629a95c28f923"
+  },
+  {
+    "path": "tabletop/v07/product-demo.mjs",
+    "bytes": 9844,
+    "sha256": "bdc0c5de042cd0205d735b88005f5fdb1ccd8f4e02bb9d979ed391215cb7038c"
   },
   {
     "path": "tabletop/v07/product.css",
@@ -3096,8 +3106,8 @@
   },
   {
     "path": "tabletop/v07/product.mjs",
-    "bytes": 6398,
-    "sha256": "a059febb7f87e6949857877ad9b837c4ae04b5e9e487539237a57b0f29467838"
+    "bytes": 6517,
+    "sha256": "499e4e20a0fcdd7abc992df20187e0a5bce89df97b90042f757500caf4213a79"
   },
   {
     "path": "tabletop/v07/specs.mjs",

@@ -1,5 +1,7 @@
 import {Game} from './engine.mjs';
 import {TRAVELER_COVERS} from './traveler-cover.mjs';
+import {characterCourse} from './character-courses.mjs';
+import {mountJourneyDemo,mountFoodCompetition} from './product-demo.mjs?v=20260929a';
 
 // The example runs the real rules in memory; it never accesses the saved game.
 export function makeChoiceExample(data){
@@ -10,20 +12,22 @@ export function makeChoiceExample(data){
   game.s.encounter='blue-07';game.s.decks.blue=game.s.decks.blue.filter(id=>id!=='blue-07');
   return game;
 }
+const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function init(){
-  const response=await fetch('/ulleung-marble/tabletop/v07/data.json');if(!response.ok)throw Error('Game content could not be loaded');
-  const data=await response.json(),stats=document.querySelector('#example-stats'),result=document.querySelector('#example-result');
-  const choices=[...document.querySelectorAll('[data-choice]')];
-  function renderStats(p){stats.innerHTML=[['남은 예산',p.budget,'만원'],['피로',p.cards.fatigue.length,'장'],['체험',p.cards.activity.length,'장']].map(([label,value,unit])=>`<span>${label}<strong>${value}<small>${unit}</small></strong></span>`).join('');}
-  function reset(){renderStats(makeChoiceExample(data).p);choices.forEach(b=>b.setAttribute('aria-pressed','false'));result.innerHTML='<b>어느 쪽을 고르시겠어요?</b><p>쉬면 다음 이동을 준비하고, 걸으면 체험 한 장을 더 모읍니다.</p>';}
-  choices.forEach(button=>button.addEventListener('click',()=>{
-    const game=makeChoiceExample(data),choice=Number(button.dataset.choice);game.choose(choice);renderStats(game.p);
-    choices.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
-    const explanation=choice===0?'피로 1장을 반납했습니다. 다음 이동에는 주사위 2개를 굴려, 더 먼 목적지를 노릴 수 있습니다.':'체험이 2장으로 늘어 1점을 얻었습니다. 대신 피로가 3장이 되어, 이 상태로 끝나면 피로로 6점이 깎입니다.';
-    result.innerHTML=`<b>${choice===0?'A':'B'} · ${game.entry.options[choice].outcome}</b><p>${explanation}</p>`;
-  }));document.querySelector('#reset-example').addEventListener('click',reset);reset();
-  const tabs=document.querySelector('#traveler-tabs'),preview=document.querySelector('#traveler-preview');
-  data.characters.forEach(c=>{const button=document.createElement('button');button.textContent=c.name;button.setAttribute('aria-pressed',String(c.id===0));button.addEventListener('click',()=>{for(const item of tabs.children)item.setAttribute('aria-pressed',String(item===button));preview.querySelector('img').src=`/ulleung-marble/assets/v07/book-cover-${c.id}.svg`;preview.querySelector('img').alt=`${c.name} 여행자북 표지`;preview.querySelector('.traveler-caption').innerHTML=`<span>여행자 ${String(c.id+1).padStart(2,'0')}</span><h3>${c.name}</h3><p>${TRAVELER_COVERS[c.id].heading}</p>`;});tabs.append(button);});
+ const response=await fetch('/ulleung-marble/tabletop/v07/data.json');if(!response.ok)throw Error('Game content could not be loaded');
+ const data=await response.json();mountJourneyDemo(data);mountFoodCompetition(data);
+ const tabs=document.querySelector('#traveler-tabs'),preview=document.querySelector('#traveler-preview');
+ const styles=['내 코스 완주','일주와 귀항','여유 있는 산행','맛집과 여행비','풍경 수집','산길과 체험','알뜰한 여행','해안 일주'];
+ function showTraveler(c){
+  const cover=TRAVELER_COVERS[c.id],course=characterCourse(data,c),e=escapeHTML;
+  for(const button of tabs.children)button.setAttribute('aria-pressed',String(Number(button.dataset.traveler)===c.id));
+  preview.innerHTML=`<div class="traveler-book"><img src="/ulleung-marble/assets/v07/book-cover-${c.id}.svg" alt="${e(c.name)} 여행자북 표지" loading="lazy"><span>여행자북 · B6 8쪽</span></div><div class="traveler-story"><p class="eyebrow">${e(c.name)} · ${e(c.age)}세 · ${e(c.job)}</p><h3>${e(cover.heading)}</h3><blockquote>${e(cover.intro)}</blockquote><div class="traveler-goals"><h4>이번 여행에서 이루고 싶은 것</h4>${c.goals.map(g=>`<p><span>+3점</span>${e(g.text)}</p>`).join('')}</div><div class="traveler-course"><h4>나의 여행 코스 <small>세 곳 모두 도착하면 8점</small></h4><div>${course.stops.map(s=>`<a href="/ulleung-marble/tabletop/components.html#board&course=${course.route.id}">${e(s.node.name)} ↗</a>`).join('')}</div><p>방문 순서는 자유입니다. 목표를 보고 길을 골라보세요.</p></div><a class="text-link" href="/ulleung-marble/tabletop/components.html#sheets&character=${c.id}">${e(c.name)}의 여행자북 펼치기 →</a></div>`;
+ }
+ data.characters.forEach(c=>{
+  const button=document.createElement('button');button.dataset.traveler=c.id;
+  button.innerHTML=`<img src="/ulleung-marble/assets/v07/portraits/traveler-${c.id}.jpg" alt="" loading="lazy"><span><b>${escapeHTML(c.name)}</b><small>${styles[c.id]}</small></span>`;
+  button.setAttribute('aria-pressed',String(c.id===0));button.addEventListener('click',()=>showTraveler(c));tabs.append(button);
+ });showTraveler(data.characters[0]);
 }
 if(typeof document!=='undefined'){
   const video=document.querySelector('#intro-film');
@@ -35,10 +39,10 @@ if(typeof document!=='undefined'){
         video.addEventListener('loadedmetadata',loaded);video.addEventListener('error',failed);video.load();
       });
       // Some native players reset an unloaded video's time when playback starts.
-      await video.play();video.currentTime=Number(button.dataset.seek);video.scrollIntoView({block:'start',behavior:'smooth'});
+      await video.play();video.currentTime=Number(button.dataset.seek);video.scrollIntoView({block:'start',behavior:'auto'});
     }catch{video.focus();}
   }));
-  init().catch(()=>{document.querySelector('#example-result').textContent='카드 내용을 불러오지 못했습니다. 페이지를 새로고침해주세요.';document.querySelectorAll('[data-choice]').forEach(b=>b.disabled=true);});
+  init().catch(()=>{document.querySelector('#journey-demo').innerHTML='<p class="demo-loading">체험을 불러오지 못했습니다. 새로고침하거나 <a href="/ulleung-marble/tabletop/components.html#cards">실제 카드를 살펴보세요.</a></p>';});
 }
 
 if(typeof document!=='undefined'){

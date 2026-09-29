@@ -171,28 +171,28 @@
   },
   {
     "path": "assets/v07/box-back.svg",
-    "bytes": 119452,
-    "sha256": "9a868c2c295c935505e820b191840c63ff35015a9d580ef627090d5a3368f65a"
+    "bytes": 119459,
+    "sha256": "111ded0e0bb3643202cc7e80b60a0c1fc2b0418792d5d0bc55249378da3b7b8c"
   },
   {
     "path": "assets/v07/box-cover.svg",
-    "bytes": 788594,
-    "sha256": "688975cf6b9660bd6930b0a830ac90dd9e33e9d07c012ae78eacfeb8cf58bd0b"
+    "bytes": 788601,
+    "sha256": "109537d1bc52e024d61ee4311abe0fcba839f6a8fdadef7502e482a8ff13339c"
   },
   {
     "path": "assets/v07/box-end.svg",
-    "bytes": 21441,
-    "sha256": "9678d23e6ca45def044e09297632ca436ed476ad9590d643f515cf56a66395d4"
+    "bytes": 21448,
+    "sha256": "d67a3542732e0b09383c52879efdefc83d6e71a80b4a79bcf4074856483dec51"
   },
   {
     "path": "assets/v07/box-inside.svg",
-    "bytes": 41692,
-    "sha256": "9d3206a5ad011a20b2e90b748e72edae39a15e0bd86df20eb00a1e47a074b408"
+    "bytes": 41699,
+    "sha256": "d7836d568e7f7bc8c4d332e05e97ab3377a0e0d519abefd88b5df4e3bf6afbfb"
   },
   {
     "path": "assets/v07/box-spine.svg",
-    "bytes": 29961,
-    "sha256": "4200349f4b01219b95712e9dcad87e01af07172d59c13e57b75a93854196350f"
+    "bytes": 29968,
+    "sha256": "93dbed750bbcb9db0f52e07d99b8031ba7fd4b1271e246fa135414d5cb2d3085"
   },
   {
     "path": "assets/v07/budget-marker-0.glb",

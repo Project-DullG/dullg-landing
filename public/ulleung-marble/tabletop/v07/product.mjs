@@ -1,7 +1,7 @@
 import {Game} from './engine.mjs';
 import {TRAVELER_COVERS} from './traveler-cover.mjs';
 import {characterCourse} from './character-courses.mjs';
-import {mountJourneyDemo,mountFoodCompetition} from './product-demo.mjs?v=20260929a';
+import {mountJourneyDemo,mountFoodCompetition} from './product-demo.mjs?v=20260929e';
 
 // The example runs the real rules in memory; it never accesses the saved game.
 export function makeChoiceExample(data){

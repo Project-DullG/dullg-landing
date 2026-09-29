@@ -101,13 +101,13 @@
   },
   {
     "path": "assets/v07/board-map.svg",
-    "bytes": 1219650,
-    "sha256": "6d9066e8fd7bbe6899cac4071c0c42a4a5d63ce4757963b245d51855fc5085fc"
+    "bytes": 1208393,
+    "sha256": "5b06494f1f80292f8d2b23b4139205a1c92b0502e54a05e52b59ffe775eaa885"
   },
   {
     "path": "assets/v07/board.svg",
-    "bytes": 1245508,
-    "sha256": "c596c72311c7c51b6e301133213491a5f1b2122c9d424a1484db188cfda30238"
+    "bytes": 1236651,
+    "sha256": "9c734d6a1f2bf098251fd84f5d13e19c1205ad3a4c928216742297f256688442"
   },
   {
     "path": "assets/v07/book-cover-0.svg",
@@ -2761,8 +2761,8 @@
   },
   {
     "path": "assets/v07/label-boxes.json",
-    "bytes": 1408,
-    "sha256": "e8389a07315f9b562fb7e50da8c0d7194a1f6db95331abf197a79b383bded4be"
+    "bytes": 1764,
+    "sha256": "ba1299f122dbc58468ecfa0f867beaafb0bf7039b2d4f053e087fa715a27da3c"
   },
   {
     "path": "assets/v07/landmarks/arch.svg",
@@ -2911,28 +2911,28 @@
   },
   {
     "path": "assets/v07/promo/film-poster.jpg",
-    "bytes": 455460,
-    "sha256": "781db92542dd6163396f008929119a07ceea38983ca5ee8b414a5ab89f3cdb86"
+    "bytes": 399057,
+    "sha256": "371356324bd2d295492e404b9495a0622e5b1b9b51395347dd12d0fed17529af"
   },
   {
     "path": "assets/v07/promo/play-ko.vtt",
-    "bytes": 905,
-    "sha256": "53c7d3641667628b3b465e5e8fc34004f4d10836a683c27d91b3b885de5d5efc"
+    "bytes": 957,
+    "sha256": "fa8dec280d58023eb59579211c1b95f3b0ebf11dc5f0e8ade26e0139125ef9d2"
   },
   {
     "path": "assets/v07/promo/table-spread.webp",
-    "bytes": 256916,
-    "sha256": "282f76df7788a70c1dda4957b1a6c112ee10be9bb18c32a4d058e9caa292c4db"
+    "bytes": 287758,
+    "sha256": "3a3c6f013ce37de04cc26b65f2b3a74919fd013c9e9ee0ef13db95fd0dc4ec3e"
   },
   {
     "path": "assets/v07/promo/ulleung-marble-play.mp4",
-    "bytes": 8968223,
-    "sha256": "35a702aa7e0aaa05bed6e101c9c2d5dba69be12fea23a9f4a65ee772ae7b5fb2"
+    "bytes": 4583231,
+    "sha256": "703669819f955520160222320abeb7557c0e3151b9902fda3bded013fd986fca"
   },
   {
     "path": "assets/v07/tourism-boxes.json",
-    "bytes": 8712,
-    "sha256": "8ffeb4a913c2f2f41b1c7e602c2402dc89e20cfa38be8701ed79d3ea45f8b7c8"
+    "bytes": 8815,
+    "sha256": "e2eb2db222abc052ce8c89a0e1e0a23622f56844a41df8efafdd2dc2dda313f0"
   },
   {
     "path": "favicon.svg",
@@ -2941,18 +2941,18 @@
   },
   {
     "path": "index.html",
-    "bytes": 21014,
-    "sha256": "5a8eb23454bee655ecd7559d0095971ddfc9e1f52af64c447ab2b4fdecd46d90"
+    "bytes": 21204,
+    "sha256": "ef2bf0c5ea0e85b71244a3dc7f17417a4fa92749ffbb69d173bd1edc8ef8bf71"
   },
   {
     "path": "tabletop/components.html",
     "bytes": 1789,
-    "sha256": "a6e11ba9e1219a701cde5b7b8252e2773df7a7f066ed55bbc762a79a69168a2c"
+    "sha256": "f1a0117e3e5a749157de63f2895fe7e0229d57e6097ad51bfe5561fe1686f098"
   },
   {
     "path": "tabletop/master.html",
-    "bytes": 2475,
-    "sha256": "8ac1e6f3b77651af443e4e65471afd50957f861a21923be057a21d9c9978bf18"
+    "bytes": 2495,
+    "sha256": "0bf6c9c54db77f2fb7e6c207738320dda461171d1b452b9fe74b2e71cf0c9301"
   },
   {
     "path": "tabletop/models.mjs",
@@ -2961,8 +2961,8 @@
   },
   {
     "path": "tabletop/v07/app.mjs",
-    "bytes": 23568,
-    "sha256": "85ff49fd1c13b714b981b9e04322ad466d65296076791ad73066095407068959"
+    "bytes": 23676,
+    "sha256": "28e4c87e10d735010f07535f08fa8395db54e2a814c6cc282246533157206992"
   },
   {
     "path": "tabletop/v07/art.mjs",
@@ -2977,12 +2977,12 @@
   {
     "path": "tabletop/v07/box-model.mjs",
     "bytes": 5040,
-    "sha256": "41a7584f674022c8c32652296de2bd6cbacd3bc27be2ea9439ef1adeda2213fe"
+    "sha256": "e5d79c7850c7efdc39d17bcb40dad2713af4151c587430b30b6420caf7bc5dac"
   },
   {
     "path": "tabletop/v07/box-textures.mjs",
     "bytes": 1474,
-    "sha256": "7d6e77cc823074428da449287f3e5e5ec0235fc0dbac1ed7deb5915bae1c275e"
+    "sha256": "61e8ddc9d68b4becd4b50e22bf5886dd02a2a343f7cf5358b55b26ef49e59549"
   },
   {
     "path": "tabletop/v07/character-courses.mjs",
@@ -3036,8 +3036,8 @@
   },
   {
     "path": "tabletop/v07/library.mjs",
-    "bytes": 27734,
-    "sha256": "6ecb119ac020cb40b97efda6f3adb0d4421b43d8b973b535680352ebe2b62d7e"
+    "bytes": 27861,
+    "sha256": "bed63a6af5e1f9d9d8778cb8ce6e59854922ad93ab1595849877acd656c19baa"
   },
   {
     "path": "tabletop/v07/manual.css",
@@ -3052,7 +3052,7 @@
   {
     "path": "tabletop/v07/miniatures.mjs",
     "bytes": 4918,
-    "sha256": "1e663f5965986279f471fe240cebacb734933b9ac857f7edc0a8c333b84cda2d"
+    "sha256": "8fa9ca9570b41a6d66710dcaabc2893e67f45327852848014aabf7f26e62f562"
   },
   {
     "path": "tabletop/v07/models.mjs",
@@ -3072,17 +3072,17 @@
   {
     "path": "tabletop/v07/play.mjs",
     "bytes": 21242,
-    "sha256": "0d4d3e4425925753f60ba2b53316e9c4758d8842496e0e139b8ca1c888cd8468"
+    "sha256": "0b3f1f0a3dd3c373329b86b3ddd20e0a854582406bc2050c0326078f4717a712"
   },
   {
     "path": "tabletop/v07/print.html",
     "bytes": 4845,
-    "sha256": "7dbe879e9c2426d26c149d3a4e2c26e8c649f178190498eb3416ea3b93f32650"
+    "sha256": "6d21ecfa2f06b863c2cd65989d35d3aca189c569cf2b68c3db9ae11cb8056f9f"
   },
   {
     "path": "tabletop/v07/print.mjs",
     "bytes": 3931,
-    "sha256": "673c942442ca2f661b46077bd76793853ca5e67fb255727eb8574aee426c78e7"
+    "sha256": "1f0d96a75784f8d6d5c416893e51c15e34b236f5bca85726089a62b59e5e0cb3"
   },
   {
     "path": "tabletop/v07/product-appeal.css",
@@ -3092,12 +3092,12 @@
   {
     "path": "tabletop/v07/product-components.mjs",
     "bytes": 3001,
-    "sha256": "39b76e4826e3e9a8186dee99709f82ed0261b3df0c81ce9f9a8629a95c28f923"
+    "sha256": "eb6dbad3a3dbbf2b0fe64c41e039a01089754e12f0d24bb343ec78c5b7c01556"
   },
   {
     "path": "tabletop/v07/product-demo.mjs",
     "bytes": 9844,
-    "sha256": "bdc0c5de042cd0205d735b88005f5fdb1ccd8f4e02bb9d979ed391215cb7038c"
+    "sha256": "b00215e5f57c51e107f691ddd468335d7892a7ab1469c117f0a86efd690882eb"
   },
   {
     "path": "tabletop/v07/product.css",
@@ -3107,7 +3107,7 @@
   {
     "path": "tabletop/v07/product.mjs",
     "bytes": 6517,
-    "sha256": "499e4e20a0fcdd7abc992df20187e0a5bce89df97b90042f757500caf4213a79"
+    "sha256": "bb7706d80fddd562694d5cca4bb74fdf914695a2d891de59a58204a8280a76fc"
   },
   {
     "path": "tabletop/v07/specs.mjs",
@@ -3131,13 +3131,13 @@
   },
   {
     "path": "tabletop/v07/unboxing.css",
-    "bytes": 1692,
-    "sha256": "dfac21ffc23334f8d425de4aac42960f625d565e9d42e2080a02be373bbb81ae"
+    "bytes": 4679,
+    "sha256": "7e9261b5fc613344cbb8462fdebdad6dfa2db1398dcb2793f9b76aaf98e4300e"
   },
   {
     "path": "tabletop/v07/unboxing.mjs",
-    "bytes": 2619,
-    "sha256": "7370aff6d945916d32132b8fc8f603ec4b7a152df7612248427887213c6c7ce5"
+    "bytes": 6688,
+    "sha256": "10d42741c62f73cf26511644e05136b69620e922f68b36ca04c6590c0c7a3fef"
   },
   {
     "path": "tabletop/v07/web-type.css",

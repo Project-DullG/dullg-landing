@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {createBox} from './box-model.mjs?v=20260923j';
+import {createBox} from './box-model.mjs?v=20260929e';
 import {createMeeple,createThemedDie,createBudgetMarker,dieFaceRotation} from './models.mjs?v=20260923j';
 const cache=new Map();let renderer;
 export function modelFor(type,i){

@@ -3041,13 +3041,13 @@
   },
   {
     "path": "tabletop/components.html",
-    "bytes": 2092,
-    "sha256": "370c6a02885bbd7524e5d26e0b95a0a5cf876d54d45cd69301fc3a3cb8078249"
+    "bytes": 2109,
+    "sha256": "86615cb0c7909910ef7b1435c4b12d0259695614d9255cb5cfb5cde2608a7b54"
   },
   {
     "path": "tabletop/master.html",
-    "bytes": 2703,
-    "sha256": "dbd096f9ca8da50a9251f6e00da27ee7242a6b7d6a07dde53a18625ae3bf9d6b"
+    "bytes": 2711,
+    "sha256": "5c993e6130bfd555c16e073e567ba898fe6d9849ef485d993aec43f2754c5330"
   },
   {
     "path": "tabletop/models.mjs",
@@ -3146,8 +3146,8 @@
   },
   {
     "path": "tabletop/v07/library.css",
-    "bytes": 20084,
-    "sha256": "a0282eedbe27d43a9901199d46c3a5ec7736f9f4f33b5458e135ab7c69b520aa"
+    "bytes": 20102,
+    "sha256": "86040d84e09a0e5968cd2e5f6e3c40ab4c3bf6c9fa295fe4488b0f0bc26d20bd"
   },
   {
     "path": "tabletop/v07/library.mjs",
@@ -3216,8 +3216,8 @@
   },
   {
     "path": "tabletop/v07/print.html",
-    "bytes": 4956,
-    "sha256": "81b59768ffc8132fe5966faa5b4e512872cd4f1763a1cde30856af6382214872"
+    "bytes": 4972,
+    "sha256": "0ac70567e45e7d2899729858bbd89b0e51669d108b212cc6324077219c719751"
   },
   {
     "path": "tabletop/v07/print.mjs",
@@ -3281,13 +3281,13 @@
   },
   {
     "path": "tabletop/v07/table.css",
-    "bytes": 32277,
-    "sha256": "25ef3f34f1aad3c0efdf5fa1399c8d3906f2f9b63307d978b944a4bfba35bafd"
+    "bytes": 32331,
+    "sha256": "dd6c303387be2a617e984672c32cd2a020223a02e133244ebdacb399495dbac9"
   },
   {
     "path": "tabletop/v07/table.html",
-    "bytes": 1678,
-    "sha256": "eff31ff52fb4dba271c2d60e63640cac198038b18c286f1c5ff8f823717e2943"
+    "bytes": 1698,
+    "sha256": "a4e022f597f9b55f228376fa5eab53466c6d4d06db2e79af903b2b2512be48bb"
   },
   {
     "path": "tabletop/v07/travel-prices.mjs",

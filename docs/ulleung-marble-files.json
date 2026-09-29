@@ -2916,8 +2916,8 @@
   },
   {
     "path": "assets/v07/promo/play-ko.vtt",
-    "bytes": 597,
-    "sha256": "f30b12a3fbc1f3f905d144c641fe02b672e46f5febf4bcce36bc203f9f842743"
+    "bytes": 905,
+    "sha256": "53c7d3641667628b3b465e5e8fc34004f4d10836a683c27d91b3b885de5d5efc"
   },
   {
     "path": "assets/v07/promo/table-spread.webp",
@@ -2942,7 +2942,7 @@
   {
     "path": "index.html",
     "bytes": 21014,
-    "sha256": "f900e0f19b6b69f9c471a43465d324d55d5d95ab54c6182c2e24299fc5ecc2f4"
+    "sha256": "5a8eb23454bee655ecd7559d0095971ddfc9e1f52af64c447ab2b4fdecd46d90"
   },
   {
     "path": "tabletop/components.html",

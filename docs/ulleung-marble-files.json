@@ -3021,8 +3021,8 @@
   },
   {
     "path": "tabletop/v07/free-table.mjs",
-    "bytes": 11671,
-    "sha256": "deb6c60e720848560bf936d7d7dae1101b8f4fbe6c9b695d0b68bfdfc343076d"
+    "bytes": 11833,
+    "sha256": "065d0d0bfd6c4a942ad45c24bcf9223a503406aa4ed69e4e41c14275a423c0fe"
   },
   {
     "path": "tabletop/v07/illustration-map.mjs",
@@ -3076,8 +3076,8 @@
   },
   {
     "path": "tabletop/v07/modes.css",
-    "bytes": 14994,
-    "sha256": "1c4f05249565094f00371e4428093d5c3cd5ff798e94b0454b1aa8a4b10cafbd"
+    "bytes": 15415,
+    "sha256": "567f24c575910c995d1a37b60a30197701bb3b6bcbcea6d0168e3344187f71a6"
   },
   {
     "path": "tabletop/v07/online.html",
@@ -3086,8 +3086,8 @@
   },
   {
     "path": "tabletop/v07/online.mjs",
-    "bytes": 24636,
-    "sha256": "1be5725ff956b0a44fbb4a802544b574610d4f65c9f2e37abdfc54e049363da2"
+    "bytes": 26653,
+    "sha256": "72f38dd0f1daa2ebab0d6af014515218a27aa8976e9e9020d228e6af08f29f38"
   },
   {
     "path": "tabletop/v07/packaging-art.mjs",

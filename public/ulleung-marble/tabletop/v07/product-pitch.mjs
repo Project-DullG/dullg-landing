@@ -10,7 +10,7 @@ if (viewer) {
   const previous = viewer.querySelector('[data-pitch-prev]');
   const next = viewer.querySelector('[data-pitch-next]');
   const full = viewer.querySelector('[data-pitch-fullscreen]');
-  const base = new URL('../../ulleung-marble/assets/v07/pitch/20260929/', import.meta.url);
+  const base = new URL('.', image.src);
   let current = 0;
   const buttons = slides.map((slide, index) => {
     const button = document.createElement('button');

@@ -3017,7 +3017,7 @@
   {
     "path": "index.html",
     "bytes": 25027,
-    "sha256": "e88a816e98e388ddd1f4111c7bb4849ecc8b628f74d4a44fe46569d746daa860"
+    "sha256": "a658e91785983faeb51f0515b787293a8b540e93842676709bb7881c4ffc8800"
   },
   {
     "path": "tabletop/components.html",
@@ -3221,8 +3221,8 @@
   },
   {
     "path": "tabletop/v07/product-pitch.mjs",
-    "bytes": 3327,
-    "sha256": "12d3c4d30daa6c594a4fce6a5388091416aaf0401793e3401c31705c1325ad33"
+    "bytes": 3275,
+    "sha256": "01161a92952db271f9d2483b90f5c9dfd3f237cafba05bd6fa2f3a48de8834d7"
   },
   {
     "path": "tabletop/v07/product.css",

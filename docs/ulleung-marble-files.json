@@ -2946,8 +2946,8 @@
   },
   {
     "path": "index.html",
-    "bytes": 21294,
-    "sha256": "037ead05c1298c52c7ab22eae3ea1538298a9c3cf005ae495caff4917fbe2627"
+    "bytes": 21959,
+    "sha256": "82602af9e9336191f71dac0293be1b6b7ce30b655b1bc3d959eb258967e92cf1"
   },
   {
     "path": "tabletop/components.html",
@@ -2956,8 +2956,8 @@
   },
   {
     "path": "tabletop/master.html",
-    "bytes": 2495,
-    "sha256": "b83e9d762c93c77300ade880855385db69c227b5c906791fb80674eec9a5a018"
+    "bytes": 2585,
+    "sha256": "ab30dd15b68831a3953a27ecbc4c4d15d6d8785f8a6e69c3f6f55eb350e15cc6"
   },
   {
     "path": "tabletop/models.mjs",
@@ -3015,6 +3015,16 @@
     "sha256": "48570545df016b35a3504c9722d76778f9ae6fca04eaa02e9eecab3be2984796"
   },
   {
+    "path": "tabletop/v07/free-table.css",
+    "bytes": 3844,
+    "sha256": "dbabd3795c03e5c525422feb2862a84d9125eef3f8ad451626961e15080e8bad"
+  },
+  {
+    "path": "tabletop/v07/free-table.mjs",
+    "bytes": 11671,
+    "sha256": "deb6c60e720848560bf936d7d7dae1101b8f4fbe6c9b695d0b68bfdfc343076d"
+  },
+  {
     "path": "tabletop/v07/illustration-map.mjs",
     "bytes": 1891,
     "sha256": "0670c75c4e2c294e4137ef7367c03aa44e1e40ce02da2e5c1d42e3269de220a1"
@@ -3065,6 +3075,21 @@
     "sha256": "f3cb10f85fd8f668c6611bd35e530527d3997dfe2cb5a89bec43e446822760e2"
   },
   {
+    "path": "tabletop/v07/modes.css",
+    "bytes": 14994,
+    "sha256": "1c4f05249565094f00371e4428093d5c3cd5ff798e94b0454b1aa8a4b10cafbd"
+  },
+  {
+    "path": "tabletop/v07/online.html",
+    "bytes": 1187,
+    "sha256": "701a1beb9dec8457f36cf2ca4eb7998d9ee2657da7877f12c807187281d929ed"
+  },
+  {
+    "path": "tabletop/v07/online.mjs",
+    "bytes": 24636,
+    "sha256": "1be5725ff956b0a44fbb4a802544b574610d4f65c9f2e37abdfc54e049363da2"
+  },
+  {
     "path": "tabletop/v07/packaging-art.mjs",
     "bytes": 4640,
     "sha256": "f786fd153f5cd8c3173fdc865275e266d1c77d6eaeb700deb27e0aa1937a6785"
@@ -3076,8 +3101,8 @@
   },
   {
     "path": "tabletop/v07/play.mjs",
-    "bytes": 21242,
-    "sha256": "e291b4239b40a6ed2338b35de60f837c17a32c9f680d186299e454f9eb0e05c0"
+    "bytes": 21810,
+    "sha256": "736de89fd50b6efd7b460514e5a9657d6d084dc5f24b2767bd558ccfa49be621"
   },
   {
     "path": "tabletop/v07/print.html",
@@ -3125,9 +3150,19 @@
     "sha256": "d7ef9f54862a23fa71fadb54a3bf73dd61710cae6975972f7e45e51f2b762e81"
   },
   {
+    "path": "tabletop/v07/start.html",
+    "bytes": 2557,
+    "sha256": "424f1de43f2d5877ab4e7b58724a85602cf259f2dbd0d5d2f8206fdcc760045a"
+  },
+  {
     "path": "tabletop/v07/table.css",
     "bytes": 32277,
     "sha256": "25ef3f34f1aad3c0efdf5fa1399c8d3906f2f9b63307d978b944a4bfba35bafd"
+  },
+  {
+    "path": "tabletop/v07/table.html",
+    "bytes": 1560,
+    "sha256": "24d8c8e0d3499588f05f733b7f377a5d0113e61ea2185621c7e7051ae5e413ca"
   },
   {
     "path": "tabletop/v07/travel-prices.mjs",

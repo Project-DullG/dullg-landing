@@ -2911,13 +2911,13 @@
   },
   {
     "path": "assets/v07/promo/film-poster.jpg",
-    "bytes": 455492,
-    "sha256": "2abb145fc15264c021960ccb317b75b05b3455e19ced8bfd48cb276b9dddf1eb"
+    "bytes": 455460,
+    "sha256": "781db92542dd6163396f008929119a07ceea38983ca5ee8b414a5ab89f3cdb86"
   },
   {
     "path": "assets/v07/promo/play-ko.vtt",
-    "bytes": 530,
-    "sha256": "a5284e1b185a2cf07cbbcf6f58e2a9c25453a9dfe138a5db4afdae3d5f985b7f"
+    "bytes": 597,
+    "sha256": "f30b12a3fbc1f3f905d144c641fe02b672e46f5febf4bcce36bc203f9f842743"
   },
   {
     "path": "assets/v07/promo/table-spread.webp",
@@ -2926,8 +2926,8 @@
   },
   {
     "path": "assets/v07/promo/ulleung-marble-play.mp4",
-    "bytes": 9255451,
-    "sha256": "34e3bf77e528fbf2ca286e45317dfc4b0dd9b2c827f1911e8e65da9bbd36c2ee"
+    "bytes": 8968223,
+    "sha256": "35a702aa7e0aaa05bed6e101c9c2d5dba69be12fea23a9f4a65ee772ae7b5fb2"
   },
   {
     "path": "assets/v07/tourism-boxes.json",
@@ -2941,8 +2941,8 @@
   },
   {
     "path": "index.html",
-    "bytes": 21003,
-    "sha256": "8ba73a35bf46986b602998ab36379f63f496226e54c5750e18c7a4227b0dd31c"
+    "bytes": 21014,
+    "sha256": "f900e0f19b6b69f9c471a43465d324d55d5d95ab54c6182c2e24299fc5ecc2f4"
   },
   {
     "path": "tabletop/components.html",

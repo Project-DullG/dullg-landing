@@ -3490,3 +3490,25 @@ img.spr { vertical-align: -3px; }
   .sj-d-art { width:44px; height:44px; } .sj-d-art img { width:40px; height:40px; }
 }
 .sj-row.focus, .sj-fil.focus { outline-offset:-2px; outline-width:2px; filter:none; }
+
+/* 서사: 읽는 속도는 플레이어가 정한다. 지문은 초상을 비워 화자와 구별한다. */
+.dlg.narration .dlg-portrait { display: none; }
+.dlg.narration .dlg-box { padding-left: 30px; }
+.dlg.narration .dlg-name:empty { display: none; }
+.dlg-hint { display: flex; justify-content: space-between; align-items: center; }
+.dlg-prev { color: #e8d7a8; background: #17121ed9; border: 1px solid #6a5a44; border-radius: 5px; padding: 5px 14px; font: inherit; cursor: pointer; }
+.dlg-prev:disabled { opacity: .3; cursor: default; }
+.dlg-text { max-height: 190px; overflow-y: auto; }
+.story-journal { width: 700px; max-height: 90%; overflow-y: auto; }
+.story-recap { background: #211b26; border-left: 3px solid #e8d7a8; padding: 12px 20px; line-height: 1.65; }
+.story-recap h3 { margin: 5px 0; color: #ffe3a0; }
+.story-chapters { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
+.story-chapters .btn { display: flex; flex-direction: column; text-align: left; font-size: 16px; min-width: 0; }
+.story-chapters small { font-size: 12px; color: #b7acbd; }
+.title-promise { color: #d8c3a0; font-size: 15px; margin: 0 0 8px; text-shadow: 0 2px 4px #000; }
+.cinematic-menu { animation: titleMenuReveal 1.7s ease both; }
+@keyframes titleMenuReveal { 0%,35% { opacity: 0; transform: translateY(12px); } 100% { opacity: 1; transform: translateY(0); } }
+.opening-action { position: absolute; bottom: 38px; left: 0; width: 100%; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; padding: 24px; box-sizing: border-box; background: linear-gradient(transparent,#05070be8); }
+.opening-action > small, .opening-action > p { flex-basis: 100%; text-align: center; color: #d0ccb8; margin: 0; }
+.opening-action > p { font-size: 13px; }
+@media (prefers-reduced-motion: reduce) { .cinematic-menu, .dlg, .dlg-portrait.in, .dlg.ready .dlg-next { animation: none; } }

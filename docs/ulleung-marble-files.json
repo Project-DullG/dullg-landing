@@ -2870,6 +2870,76 @@
     "sha256": "7c2de9fb1380897e597d7c5f4ba9e447d7621503caa8fd7c5c2239c71f276184"
   },
   {
+    "path": "assets/v07/pitch/20260929/slide-01.webp",
+    "bytes": 258876,
+    "sha256": "8ad7dbde45b212ffef12bfaad35c902c66cffb7171194aff3f34350802c7e23e"
+  },
+  {
+    "path": "assets/v07/pitch/20260929/slide-02.webp",
+    "bytes": 163994,
+    "sha256": "7b64ebc113d490fcdfbd99219d87d8b252b5267195f795ea0895f0836db7a6a7"
+  },
+  {
+    "path": "assets/v07/pitch/20260929/slide-03.webp",
+    "bytes": 124782,
+    "sha256": "7970c7ebf2c418de7a2eb5157d1e04e0874335ee46cff1b8079920f600329441"
+  },
+  {
+    "path": "assets/v07/pitch/20260929/slide-04.webp",
+    "bytes": 106094,
+    "sha256": "7e773f36f838c1936ab269686c7f797139fb4862f1c1a2977c2e5a487c3ad5c3"
+  },
+  {
+    "path": "assets/v07/pitch/20260929/slide-05.webp",
+    "bytes": 109856,
+    "sha256": "466038210d9f6e7bb7aa63fdc2a0572f8e4ca46d3606eb22ba05d6a1b53c4acf"
+  },
+  {
+    "path": "assets/v07/pitch/20260929/slide-06.webp",
+    "bytes": 64944,
+    "sha256": "43471024da5b74fe413e08de6240951942088d809c27f298204348226d475c0e"
+  },
+  {
+    "path": "assets/v07/pitch/20260929/slide-07.webp",
+    "bytes": 180332,
+    "sha256": "6272a6e1710393cf217260f2b49bec969f18019fc213879663f71f92555c82a0"
+  },
+  {
+    "path": "assets/v07/pitch/20260929/slide-08.webp",
+    "bytes": 190966,
+    "sha256": "ef86c122c578df37aebaf6ce8bf673b8ff57200da91936f8d26bf86481f733e1"
+  },
+  {
+    "path": "assets/v07/pitch/20260929/slide-09.webp",
+    "bytes": 89480,
+    "sha256": "409fb336408e7deb1544e4b89599388b9793976cb478ae63599ac458304737e6"
+  },
+  {
+    "path": "assets/v07/pitch/20260929/slide-10.webp",
+    "bytes": 202826,
+    "sha256": "2922fe6611c0f5846b64037c541e44f7b97ce44470a4cc3b6b77b4e150c762bc"
+  },
+  {
+    "path": "assets/v07/pitch/20260929/slide-11.webp",
+    "bytes": 80372,
+    "sha256": "0051ef3b38c11e928ee51f8e4e02b9dd037feeee962386bb321ccb8afc886d99"
+  },
+  {
+    "path": "assets/v07/pitch/20260929/slide-12.webp",
+    "bytes": 77378,
+    "sha256": "aa09774c6493192e3bbc21b60c8d8f29a182a9e2cf616e65603be49c293a5fb8"
+  },
+  {
+    "path": "assets/v07/pitch/20260929/ulleung-marble-pitch.pdf",
+    "bytes": 12420942,
+    "sha256": "86bd6447a346a2b99083261d020efda06d0ba111273c53ccc79a55b0bef8e12c"
+  },
+  {
+    "path": "assets/v07/pitch/20260929/ulleung-marble-pitch.pptx",
+    "bytes": 20914403,
+    "sha256": "0db912901b829caac8a246c8ca02f314520e68198a0c32bef2ce39743924570d"
+  },
+  {
     "path": "assets/v07/portraits/traveler-0.jpg",
     "bytes": 334791,
     "sha256": "deada2d9bfde71886681b7a178761ef32c51fb24dfde1f31afef4c08e981ced1"
@@ -2946,8 +3016,8 @@
   },
   {
     "path": "index.html",
-    "bytes": 21983,
-    "sha256": "c7b5c8f328d7854d2878c0d4cb865a08963116e4ed2279030370b1c2e3ab29af"
+    "bytes": 25027,
+    "sha256": "e88a816e98e388ddd1f4111c7bb4849ecc8b628f74d4a44fe46569d746daa860"
   },
   {
     "path": "tabletop/components.html",
@@ -3100,6 +3170,11 @@
     "sha256": "f786fd153f5cd8c3173fdc865275e266d1c77d6eaeb700deb27e0aa1937a6785"
   },
   {
+    "path": "tabletop/v07/pitch-data.mjs",
+    "bytes": 6950,
+    "sha256": "d60dfee1c56651eebb782f65069f8772c7e5600abddce0b530e51ca2f6b3d8b2"
+  },
+  {
     "path": "tabletop/v07/play.css",
     "bytes": 30022,
     "sha256": "da94cd21993ab967dfeb0d3280f51ed6aa37d460fdba2de32559929024bba110"
@@ -3138,6 +3213,16 @@
     "path": "tabletop/v07/product-finish.css",
     "bytes": 9286,
     "sha256": "0d053f210113c4f9fe3e6e1c1b55c3149596634d4a655494d5d8cc962000349d"
+  },
+  {
+    "path": "tabletop/v07/product-pitch.css",
+    "bytes": 5068,
+    "sha256": "30b00b687df381ff1ce61b7b0314494cb5dff35bf6159981841bf3f71c397107"
+  },
+  {
+    "path": "tabletop/v07/product-pitch.mjs",
+    "bytes": 3327,
+    "sha256": "12d3c4d30daa6c594a4fce6a5388091416aaf0401793e3401c31705c1325ad33"
   },
   {
     "path": "tabletop/v07/product.css",

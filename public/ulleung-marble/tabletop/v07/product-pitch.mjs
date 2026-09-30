@@ -1,4 +1,4 @@
-import {slides} from './pitch-data.mjs';
+import {slides} from './pitch-data.mjs?v=20261001-webtoon';
 
 const viewer = document.querySelector('[data-pitch-viewer]');
 if (viewer) {
@@ -16,7 +16,7 @@ if (viewer) {
     const button = document.createElement('button');
     button.type = 'button';
     button.textContent = String(index + 1).padStart(2, '0');
-    button.setAttribute('aria-label', `${index + 1}장: ${slide.title}${index >= 10 ? ' (참고)' : ''}`);
+    button.setAttribute('aria-label', `${index + 1}장: ${slide.title}`);
     button.setAttribute('aria-pressed', String(index === 0));
     button.addEventListener('click', () => show(index));
     pages.append(button);
@@ -28,7 +28,7 @@ if (viewer) {
     image.src = new URL(`slide-${String(current + 1).padStart(2, '0')}.webp`, base).href;
     image.alt = `${current + 1}. ${slide.title}`;
     title.textContent = slide.title;
-    count.textContent = `${String(current + 1).padStart(2, '0')} / ${slides.length} · ${current < 10 ? '본편' : '참고'}`;
+    count.textContent = `${String(current + 1).padStart(2, '0')} / ${slides.length}`;
     copy.textContent = slide.script;
     previous.disabled = current === 0;
     next.disabled = current === slides.length - 1;

@@ -1,0 +1,19 @@
+/* Original sequential comic with an accessible dialogue transcript. */
+.prologue-section{background:#edf5f4;padding:48px 0 0;scroll-margin-top:15px}
+.prologue-section .prologue-intro{max-width:780px;margin:0 auto;padding:0 24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.prologue-intro h2{font-family:PM,serif;font-size:27px;font-weight:700;color:#153e48;line-height:1.5;margin:0;letter-spacing:-.6px}
+.prologue-intro a{font-size:14px;white-space:nowrap;color:#325e68;text-underline-offset:5px}
+.prologue{max-width:780px;margin:0 auto;background:#fffdf4;overflow:hidden}
+.prologue-comic{margin:0}
+.prologue-comic>img{display:block;width:100%;height:auto}
+.prologue-comic figcaption{padding:14px 24px;color:#375f66;font-size:14px;background:#fffdf4}
+.prologue-comic summary{cursor:pointer;text-underline-offset:4px;min-height:30px;display:list-item;line-height:30px}
+.comic-transcript{padding:12px 0 16px;font-size:16px;line-height:1.85;word-break:keep-all}
+.comic-transcript p{margin:0 0 12px;color:#173f48}
+.prologue-end{background:#fffdf4;text-align:center;padding:18px 24px 58px;color:#183f49}
+.prologue-end>p{font-family:PM,serif;font-weight:700;font-size:34px;line-height:1.6;letter-spacing:-.04em;margin:0 0 28px;word-break:keep-all}
+.prologue-end .actions{justify-content:center;margin:0;gap:22px}
+.prologue-end .text-link{font-size:16px}
+@media(max-width:700px){.prologue-section{padding-top:26px}.prologue-section .prologue-intro{padding:0 18px 22px;gap:12px}.prologue-intro h2{font-size:22px}.prologue-intro a{font-size:12px}.prologue-comic figcaption{padding:12px 18px}.prologue-end{padding:16px 18px 40px}.prologue-end>p{font-size:27px}.prologue-end .actions{gap:17px}.prologue-end .button{font-size:15px;min-height:48px}.prologue-end .text-link{font-size:14px}}
+@media(max-width:360px){.prologue-intro h2{font-size:20px}.prologue-intro a{font-size:11px}.prologue-end .actions{flex-direction:column}}
+@media print{.prologue-section{break-before:page}.prologue-intro a,.prologue-comic figcaption{display:none}}

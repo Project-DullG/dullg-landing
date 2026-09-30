@@ -3036,8 +3036,8 @@
   },
   {
     "path": "index.html",
-    "bytes": 25724,
-    "sha256": "f5af925c71d79265213bcffbacc80e64244b3dc6b289ee0fe3e23817a273f5f9"
+    "bytes": 25237,
+    "sha256": "44f4a55d8ef42438c0920ebee10981cb9addf4721209ff2b69e2a0579a369b9e"
   },
   {
     "path": "tabletop/components.html",
@@ -3241,8 +3241,8 @@
   },
   {
     "path": "tabletop/v07/product-editorial.css",
-    "bytes": 15139,
-    "sha256": "59136f2263574b45c6b9d175bb8b8b0f788123329b28059e6177b195d1e1518b"
+    "bytes": 15269,
+    "sha256": "cf274f29e4365706fa7168c415dcddbcfe19b351593edcf64a2b4079a662813c"
   },
   {
     "path": "tabletop/v07/product-finish.css",

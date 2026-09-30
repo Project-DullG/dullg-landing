@@ -2998,6 +2998,15 @@ img.spr { vertical-align: -3px; }
 .dlg-stage { position: relative; display: flex; align-items: flex-end; gap: 0; }
 .dlg-portrait { --c: #e8d7a8; position: relative; z-index: 2; flex: none; width: 150px; height: 150px; margin-right: -22px; margin-bottom: 10px; border-radius: 14px; background: radial-gradient(circle at 50% 65%, color-mix(in srgb, var(--c) 35%, #2a2030), #120d18 72%); border: 2px solid var(--c); box-shadow: 0 0 0 4px #0b0810, 0 0 0 5px color-mix(in srgb, var(--c) 45%, transparent), 0 12px 28px #000c; overflow: hidden; }
 .dlg-portrait img { width: 100%; height: 100%; object-fit: contain; image-rendering: auto; }
+.dlg-standing { display: none; width: 100%; height: 100%; }
+.dlg.has-standing .dlg-stage { gap: 20px; align-items: flex-end; }
+.dlg.has-standing .dlg-portrait { width: 238px; height: 310px; margin: 0; background: none; border: 0; border-radius: 0; box-shadow: none; overflow: hidden; }
+.dlg.has-standing .dlg-portrait img { position: absolute; bottom: 24px; left: 15%; width: 70%; height: 60%; }
+.dlg.has-standing .dlg-portrait.art-ready img { display: none; }
+.dlg.has-standing .dlg-portrait.art-ready .dlg-standing { display: block; }
+.dlg.has-standing .dlg-box { padding-left: 28px; }
+.dlg.has-standing .dlg-name { left: 24px; }
+.dlg.has-standing .dlg-text { font-size: calc(18px * var(--txt, 1)); }
 .dlg-portrait.empty img { display: none; }
 .dlg-portrait.in { animation: dlgPort .28s cubic-bezier(.2,.9,.3,1.2); }
 @keyframes dlgPort { from { transform: translateY(14px) scale(.92); opacity: .2; } to { transform: none; opacity: 1; } }

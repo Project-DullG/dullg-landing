@@ -1,6 +1,50 @@
 @font-face { font-family: 'Jua'; src: url('fonts/Jua-Regular.ttf') format('truetype'); font-display: swap; }
 @font-face { font-family: 'Do Hyeon'; src: url('fonts/DoHyeon-Regular.ttf') format('truetype'); font-display: swap; }
 
+/* The webtoon reader lives outside the scaled canvas so portrait text stays readable. */
+.comic-overlay { position: fixed; inset: 0; z-index: 1000; background: #060d10; color: #eee8da; --comic-text-scale: 1; }
+.comic-reader { height: 100%; display: flex; flex-direction: column; }
+.comic-bar { flex: none; display: flex; align-items: center; justify-content: space-between; min-height: 56px; padding: 4px max(20px, env(safe-area-inset-right)); border-bottom: 1px solid #8ca29726; background: #081014; }
+.comic-bar > span { font-family: 'Do Hyeon', sans-serif; font-size: 20px; letter-spacing: .03em; }
+.comic-bar i { font-style: normal; color: #82958f; font-size: 13px; margin-left: 8px; }
+.comic-overlay button { font: inherit; color: inherit; border: 1px solid transparent; background: none; cursor: pointer; min-height: 44px; padding: 8px 16px; border-radius: 3px; }
+.comic-overlay button:hover { background: #a0bead18; }
+.comic-overlay button:focus-visible, .comic-scroll:focus-visible { outline: 2px solid #e9c789; outline-offset: -3px; }
+.comic-overlay button:disabled { opacity: .28; cursor: default; }
+.comic-bar button { font-size: 13px; color: #b6c3ba; }
+.comic-bar kbd { margin-left: 6px; font: inherit; color: #6f8980; }
+.comic-scroll { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; background: radial-gradient(ellipse at center, #142622, #060d10 75%); scrollbar-color: #52695f #071014; }
+/* Captions occupy their own paper gutters, never the characters' faces. */
+.comic-page { position: relative; width: min(100%, 624px); margin: 0 auto; background: #f4edde; color: #3e443c; }
+.comic-heading { padding: 54px 38px 28px; }
+.comic-heading small { font-size: 12px; color: #8b856f; letter-spacing: .14em; }
+.comic-heading h1 { margin: 12px 0 10px; font: 40px/1.1 'Do Hyeon', sans-serif; letter-spacing: .02em; color: #3b493e; }
+.comic-heading p { margin: 0; font-size: 13px; color: #8b856f; }
+.comic-beat { padding-bottom: 28px; }
+.comic-caption, .comic-voice { margin: 0; padding: 28px 38px; font-size: calc(clamp(17px, 2.9vw, 21px) * var(--comic-text-scale)); line-height: 1.85; color: #424b40; word-break: keep-all; }
+.comic-frame { position: relative; overflow: hidden; aspect-ratio: 4 / 3; margin: 0 24px; background: #d5d1bd; }
+.comic-art { display: block; position: absolute; width: 100%; height: 400%; max-width: none; top: calc(var(--panel) * -100%); left: 0; }
+.comic-voice { text-align: center; color: #5d654e; padding-top: 38px; padding-bottom: 38px; }
+.comic-voice-near { padding-bottom: 0; }
+.comic-coda { padding: 20px 24px 52px; text-align: center; font-size: calc(18px * var(--comic-text-scale)); line-height: 1.7; color: #575e4e; }
+.comic-coda small { display: block; margin-top: 18px; color: #918b78; font-size: 12px; }
+.comic-controls { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 72px; padding: 10px max(18px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)); background: #081014; border-top: 1px solid #8ca29726; }
+.comic-controls > div { text-align: center; font-size: 13px; font-variant-numeric: tabular-nums; color: #d7c6a6; }
+.comic-controls small { display: block; margin-top: 4px; font-size: 12px; color: #81958c; }
+.comic-controls [data-comic-next] { border-color: #a28e6659; background: #d8bf8b12; color: #efdbac; min-width: 134px; }
+@media (max-width: 600px) {
+  .comic-bar { padding-left: 12px; padding-right: 8px; }
+  .comic-bar i, .comic-bar kbd, .comic-controls small { display: none; }
+  .comic-heading h1 { font-size: 32px; }
+  .comic-heading small, .comic-heading p { font-size: 11px; }
+  .comic-heading { padding: 36px 26px 16px; }
+  .comic-caption, .comic-voice { padding: 24px 26px; }
+  .comic-frame { margin: 0 14px; }
+  .comic-voice-near { padding-bottom: 0; }
+  .comic-controls { min-height: 64px; padding-left: 8px; padding-right: 8px; }
+  .comic-controls [data-comic-next] { min-width: 118px; }
+}
+
 /* ══════════════════════════════════════════════════════════════
    RIFTMASON — "forge" UI
    charcoal iron plates · brass trim + rivets · ember primary · rift purple as accent only

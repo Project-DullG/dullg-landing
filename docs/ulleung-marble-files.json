@@ -3036,8 +3036,8 @@
   },
   {
     "path": "index.html",
-    "bytes": 28348,
-    "sha256": "cb6edfb66cd0c22fe9654396d90ba583e8e938061c5e2f3ad8545d47e82c16d8"
+    "bytes": 25724,
+    "sha256": "a12fee4608032028a3a8ccc8d611a8313d3d3188addd61f46d8748f53d5f36ab"
   },
   {
     "path": "tabletop/components.html",
@@ -3240,6 +3240,11 @@
     "sha256": "e1f3cd4ff58f7f6607dc29eca3dca6b21698af324f80c4b90d7c887602a175f9"
   },
   {
+    "path": "tabletop/v07/product-editorial.css",
+    "bytes": 14687,
+    "sha256": "62f75eb2b1140d498907d38bcbdff8d2132239e7c86a1c63252f86f7f5888b73"
+  },
+  {
     "path": "tabletop/v07/product-finish.css",
     "bytes": 9286,
     "sha256": "0d053f210113c4f9fe3e6e1c1b55c3149596634d4a655494d5d8cc962000349d"
@@ -3256,8 +3261,8 @@
   },
   {
     "path": "tabletop/v07/product-prologue.css",
-    "bytes": 2058,
-    "sha256": "bf10325d0b63429b394d9213d6c7f4c7bd2dd9cd50d56fc656d4db5c1309510d"
+    "bytes": 4135,
+    "sha256": "0613d776155c6bccd91f2579d4e4e2946251d1f33866397f2231d518e67de750"
   },
   {
     "path": "tabletop/v07/product-quality.css",

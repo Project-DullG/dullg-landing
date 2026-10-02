@@ -255,6 +255,11 @@ details.danger summary { cursor: pointer; font-size: 13px; }
 .panel.result { width: 720px; text-align: left; padding-top: 20px; }
 .result .big { font-family: 'Do Hyeon', sans-serif; font-size: 46px; text-align: center; text-shadow: 0 3px 0 #000, 0 0 24px currentColor; line-height: 1.1; }
 .result .subtitle { margin: 4px 0 12px; }
+.result-aftermath { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; align-items: center; margin: 0 0 12px; padding: 10px 14px; border-left: 2px solid #d3ac66; background: #d3ac6610; color: #eee2ce; }
+.result-aftermath > span { color: #d3ac66; font-size: 13px; }
+.result-aftermath p { margin: 0; font-size: 14px; line-height: 1.55; word-break: keep-all; overflow-wrap: anywhere; }
+.result-aftermath.lost { border-color: #aa99c2; background: #aa99c20c; }
+.result-aftermath.lost > span { color: #c3b4d6; }
 .result-body { display: grid; grid-template-columns: 300px 1fr; gap: 18px; }
 
 .result td { padding: 4px 6px; border-bottom: 1px solid #ffffff0c; }
@@ -3346,6 +3351,11 @@ img.spr { vertical-align: -3px; }
 .drill-score{display:flex;align-items:baseline;gap:6px;justify-content:center;margin:6px 0}.drill-score b{font-family:'Do Hyeon',sans-serif;font-size:64px;color:#ffe27a;font-weight:normal;text-shadow:0 3px 0 #000}.drill-score span{font-size:20px;color:#ffe9a0}.drill-score em{font-style:normal;color:#7dff9a;font-size:15px;margin-left:8px}.drill-score small{color:#baa991;margin-left:8px}
 .town-guide .hub-guide-grid{grid-template-columns:repeat(4,1fr)}
 .town-guide{padding-left:24px;padding-right:24px} /* 발 줄(.panel .row:last-child)의 −24px 여백이 창 밖으로 4px 넘치던 것 */
+/* 출장소의 여러 바로가기는 줄을 바꾸고, 남은 높이는 스크롤 본문이 맡는다. */
+.panel.pn.town-guide > .pn-body { flex:1 1 auto; min-width:0; min-height:0; }
+.panel.pn.town-guide > .row.pn-foot { flex-wrap:wrap; justify-content:flex-start; gap:6px; }
+.panel.pn.town-guide > .pn-foot > .kh { flex:1 0 100%; margin:0; }
+.panel.pn.town-guide > .pn-foot > .btn { flex:0 0 auto; max-width:100%; }
 @media(max-width:620px){.farm-row{flex-wrap:wrap}.farm-btns{max-width:100%}.town-guide .hub-guide-grid{grid-template-columns:repeat(2,1fr)}}
 /* 창 크기 고정 (2026-09-28 · 유저: 무기고에서 고를 때마다 창 크기가 바뀌어 깜빡인다)
    원인: 자세히 칸이 무기마다 길이가 달라 창이 max-height 에 닿으면 창 스크롤 막대가 생기고 안쪽 너비가 줄었다.
@@ -3608,7 +3618,8 @@ img.spr { vertical-align: -3px; }
 .cinema-overlay button:hover { background:#b1b28c22; }
 .cinema-overlay button:disabled { opacity:.3; cursor:default; }
 .cinema-overlay button:focus-visible { outline:2px solid #ba7353; outline-offset:-3px; }
-.cinema-bar button { font-size:13px; color:#dce3d6; }
+.cinema-bar > div { display:flex; align-items:center; gap:4px; }
+.cinema-bar button { font-size:13px; color:#dce3d6; min-height:40px; padding:8px 12px; }
 .cinema-bar kbd { margin-left:8px; font:inherit; color:#8d9f90; background:none; border:0; }
 .cinema-stage { flex:1; min-height:0; display:grid; grid-template-columns:56% 44%; outline:none; }
 .cinema-visual { position:relative; overflow:hidden; background:#3c5647; }

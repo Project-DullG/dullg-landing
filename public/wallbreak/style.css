@@ -3601,42 +3601,62 @@ img.spr { vertical-align: -3px; }
 /* Full viewport story presentation: landscape beside prose, actors never under text. */
 .title-cover-overlay, .cinema-overlay { position:fixed; inset:0; z-index:1000; color:#283e36; background:#eae3d3; font-family:'Jua',sans-serif; }
 .title-cover-overlay *, .cinema-overlay * { box-sizing:border-box; }
-.title-cover-overlay { transition:opacity .65s ease; }
+.title-cover-overlay { color:#e5eee8; background:#102c30; transition:opacity .65s ease; }
 .title-cover-overlay.leaving { opacity:0; pointer-events:none; }
-.storybook-title { position:relative; width:100%; height:100%; min-height:320px; overflow:hidden; background:#f0eadc; }
-.title-edition { position:absolute; z-index:3; top:5.8%; left:6%; right:6%; display:flex; justify-content:space-between; font-size:12px; letter-spacing:.16em; color:#687465; }
-.title-edition span:last-child { color:#e8edda; font-size:11px; letter-spacing:.25em; }
-.title-cover-art { position:absolute; inset:0 0 0 40%; background:#536454; }
+.storybook-title { position:relative; width:100%; height:100%; min-height:320px; overflow:hidden; background:radial-gradient(ellipse at 12% 18%,#224647,#102c30 65%); }
+.title-edition { position:absolute; z-index:3; top:5.8%; left:6%; right:6%; display:flex; justify-content:space-between; font-size:12px; letter-spacing:.16em; color:#98b5ae; }
+.title-edition span:last-child { color:#a3c1be; font-size:11px; letter-spacing:.25em; }
+.title-cover-art { position:absolute; inset:0 0 0 40%; background:#173039; }
 .cinema-landscape { position:absolute; inset:0; overflow:hidden; background:radial-gradient(ellipse at 60% 35%,#8c9776,#344a40); }
 .cinema-landscape img { display:block; width:100%; height:100%; object-fit:cover; }
 .cinema-stage.night .cinema-visual .cinema-landscape { filter:saturate(.45) brightness(.34); }
 .cinema-stage[data-tone="dusk"] .cinema-visual .cinema-landscape { filter:sepia(.3) saturate(.75) brightness(.78); }
-.title-cover-art .cinema-landscape { filter:saturate(.65); }
-.title-cover-art::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,#f0eadc,transparent 30%),linear-gradient(0deg,#233c32de,transparent 38%); pointer-events:none; }
-.title-sun { position:absolute; width:47%; aspect-ratio:1; right:11%; top:11%; border:1px solid #f6efd7aa; border-radius:50%; background:#eee6cb26; }
+.title-cover-art .cinema-landscape { filter:saturate(.65) brightness(.52); }
+.title-cover-art::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,#102c30,transparent 42%),linear-gradient(0deg,#102c30ed,transparent 48%),linear-gradient(#183b5c33,#15393433); pointer-events:none; }
+.title-sun { position:absolute; width:47%; aspect-ratio:1; right:11%; top:11%; border:1px solid #98cfce3b; border-radius:50%; background:radial-gradient(circle,#85cfcc1a,transparent 70%); }
 .title-actor { position:absolute; z-index:1; height:85%; width:92%; display:block; bottom:9%; right:0; filter:drop-shadow(8px 15px 5px #182c352b); animation:coverActorIn 1s ease both; }
 .title-actor-name { position:absolute; z-index:3; right:10%; bottom:13%; text-align:right; color:#f8efcf; }
 .title-actor-name span { display:block; font-size:25px; letter-spacing:.17em; }
 .title-actor-name small { display:block; margin-top:6px; font-size:11px; color:#d9dfcc; }
 .title-cover-copy { position:absolute; z-index:2; inset:15% auto 15% 8%; width:40%; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
-.title-kicker { display:block; font-size:12px; color:#7d7965; letter-spacing:.06em; }
-.title-wordmark h1 { position:relative; margin:4px 0 -6px; color:#2f483e; font:clamp(66px,9.5vw,148px)/1 'Do Hyeon',sans-serif; letter-spacing:-.055em; transform:rotate(-3deg); }
-.title-wordmark h1 span { color:#b6553c; display:inline-block; transform:rotate(8deg); margin-left:6px; }
-.title-wordmark h2 { margin:14px 0 0; font:clamp(18px,2.5vw,32px)/1.2 'Do Hyeon',sans-serif; letter-spacing:.2em; color:#3e5347; }
-.title-invitation { margin:clamp(18px,4vh,42px) 0; font-size:clamp(15px,1.7vw,23px); line-height:1.7; color:#636959; }
+.title-kicker { display:block; font-size:12px; color:#91b6a6; letter-spacing:.06em; }
+.title-wordmark h1 { position:relative; margin:4px 0 -6px; color:#e8f1e9; font:clamp(66px,9.5vw,148px)/1 'Do Hyeon',sans-serif; letter-spacing:-.055em; transform:rotate(-3deg); }
+.title-wordmark h1 span { color:#f09d79; display:inline-block; transform:rotate(8deg); margin-left:6px; }
+.title-wordmark h2 { margin:14px 0 0; font:clamp(18px,2.5vw,32px)/1.2 'Do Hyeon',sans-serif; letter-spacing:.2em; color:#bdd8cd; }
+.title-invitation { margin:clamp(18px,4vh,42px) 0; font-size:clamp(15px,1.7vw,23px); line-height:1.7; color:#d4e0d5; }
 .title-actions { width:min(100%,290px); display:flex; flex-direction:column; gap:9px; }
 .title-cover-overlay .btn { font-family:inherit; cursor:pointer; border-radius:2px; box-shadow:none; text-shadow:none; margin:0; min-width:0; letter-spacing:0; }
-.title-actions .btn { position:relative; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; padding:12px 20px; min-height:46px; width:100%; font-size:19px; border:1px solid #a79e8366; background:transparent; color:#354b40; }
-.title-actions .cover-primary { background:#344d40; border-color:#344d40; color:#f8efd9; }
-.title-actions .cover-primary:hover { background:#446351; }
+.title-actions .btn { position:relative; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; padding:12px 20px; min-height:46px; width:100%; font-size:19px; border:1px solid #75a49666; background:transparent; color:#cde1d9; }
+.title-actions .cover-primary { background:#e3a074; border-color:#e3a074; color:#293b34; }
+.title-actions .cover-primary:hover { background:#f2b68d; }
 .title-actions .btn::before,.title-actions .btn::after,.title-cover-footer .btn::before,.title-cover-footer .btn::after { display:none; }
-.title-actions .btn small { flex-basis:100%; font-size:11px; margin-top:5px; color:#d1d8c3; }
-.title-actions .cover-replay { min-height:28px; padding:2px 0; border:none; font-size:13px; color:#6c7464; }
+.title-actions .btn small { flex-basis:100%; font-size:11px; margin-top:5px; color:#465345; }
+.title-actions .cover-replay { min-height:28px; padding:2px 0; border:none; font-size:13px; color:#9ab5a9; }
 .title-cover-footer { position:absolute; left:6%; right:6%; bottom:4%; z-index:3; display:flex; align-items:center; justify-content:space-between; gap:12px; }
 .title-cover-footer > div { display:flex; gap:6px; }
-.title-cover-footer .btn { padding:8px 10px; min-height:40px; border:0; background:transparent; color:#64715e; font-size:13px; }
-.title-cover-footer small { font-size:11px; color:#d9decf; }
-.title-cover-overlay button:focus-visible, .title-cover-overlay .btn.focus { outline:2px solid #ad573b; outline-offset:4px; filter:none; }
+.title-cover-footer .btn { padding:8px 10px; min-height:40px; border:0; background:transparent; color:#a5bcb0; font-size:13px; }
+.title-cover-footer small { font-size:11px; color:#a8c1ba; }
+.title-cover-overlay button:focus-visible, .title-cover-overlay .btn.focus { outline:2px solid #f0b583; outline-offset:4px; filter:none; }
+.title-invitation span { color:#9fb7aa; }
+.title-cover-copy { width:36%; }
+.title-wordmark, .title-invitation, .title-preview-status { word-break:keep-all; overflow-wrap:break-word; }
+.title-scene-caption { position:absolute; z-index:2; top:15%; left:22%; color:#d3e9da; text-shadow:0 2px 9px #102c30; }
+.title-scene-caption > span { display:block; font-size:clamp(17px,2.1vw,28px); }
+.title-scene-caption > small { display:block; margin-top:7px; font-size:12px; color:#a7c6b5; }
+.title-playground { position:absolute; z-index:2; inset:23% 4% 12% 10%; display:grid; grid-template-rows:minmax(0,1fr) auto; }
+.title-playground .title-actor { position:relative; inset:auto; width:100%; height:100%; min-height:0; animation:none; filter:drop-shadow(2px 5px 3px #182c352b); }
+.title-preview-controls { display:flex; flex-direction:column; align-items:center; gap:10px; color:#f7efd5; text-align:center; }
+.title-preview-steps { display:flex; justify-content:center; align-items:center; gap:9px; font-size:13px; text-shadow:0 1px 5px #243c32; }
+.title-preview-steps span { padding:4px 8px; border:1px solid #f5edd154; border-radius:3px; background:#29453580; transition:background .15s,color .15s; }
+.title-preview-steps i { font-style:normal; color:#d9dbc3; }
+.title-preview-steps .on { color:#344d40; background:#f7d686; border-color:#f7d686; text-shadow:none; }
+.title-preview-controls .btn { display:flex; align-items:center; justify-content:center; gap:14px; padding:10px 18px; min-height:42px; color:#dcf0df; background:#23483fde; border:1px solid #82ad936b; font-size:17px; border-radius:4px; }
+.title-preview-controls .btn:hover { background:#345d4c; }
+.title-preview-controls .btn small { color:#a0bca2; font-size:11px; }
+.title-preview-controls .btn[aria-disabled="true"] { cursor:default; background:#23483f; }
+.title-preview-status { min-height:18px; margin:0; font-size:12px; color:#e1e4cf; }
+.title-actions .cover-secondary:hover, .title-cover-footer .btn:hover { background:#47776a38; }
+.title-cover-overlay.leaving .title-preview-controls { pointer-events:none; }
 .story-cinema { width:100%; height:100%; display:flex; flex-direction:column; --cinema-text-scale:inherit; }
 .cinema-bar { height:62px; flex:none; display:flex; justify-content:space-between; align-items:center; padding:0 4%; background:#203b35; color:#e9e4cf; border-bottom:1px solid #bbbc972f; }
 .cinema-bar > span { font:22px 'Do Hyeon',sans-serif; }
@@ -3681,19 +3701,25 @@ img.spr { vertical-align: -3px; }
 }
 @media (max-width:640px) and (orientation:portrait) {
   .storybook-title { min-height:480px; }
-  .title-edition { top:4%; left:7%; right:7%; font-size:10px; } .title-edition span:last-child { color:#556e5c; font-size:9px; }
-  .title-cover-art { inset:0 0 28% 0; } .title-cover-art::after { background:linear-gradient(0deg,#f0eadc,transparent 34%),linear-gradient(90deg,#f0eadce0,transparent 58%); }
-  .title-cover-art .cinema-landscape { opacity:.6; }
-  .title-sun { width:48%; top:19%; right:5%; }
-  .title-actor { height:80%; width:75%; bottom:2%; right:-1%; }
+  .title-edition { top:4%; left:7%; right:7%; font-size:10px; } .title-edition span:last-child { color:#a3c1be; font-size:9px; }
+  .title-cover-art { inset:0 0 54% 0; } .title-cover-art::after { background:linear-gradient(0deg,#102c30,transparent 24%),linear-gradient(0deg,#15393455,transparent); }
+  .title-cover-art .cinema-landscape { opacity:.85; }
+  .title-sun { width:48%; top:10%; right:5%; }
+  .title-scene-caption { display:none; }
+  .title-playground { inset:12% 2% 4%; }
+  .title-preview-controls { gap:0; }
+  .title-preview-steps, .title-preview-status { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+  .title-preview-controls .btn { min-height:34px; padding:7px 16px; font-size:14px; gap:10px; }
   .title-actor-name { display:none; }
-  .title-cover-copy { inset:14% 7% 14%; width:auto; justify-content:flex-start; }
-  .title-kicker { font-size:10px; max-width:120px; line-height:1.65; }
-  .title-wordmark h1 { font-size:78px; margin-top:10px; } .title-wordmark h2 { font-size:19px; margin-top:8px; letter-spacing:.13em; }
-  .title-invitation { font-size:15px; margin:24px 0 0; max-width:170px; }
-  .title-actions { width:100%; max-width:360px; margin-top:auto; gap:7px; }
-  .title-actions .btn { min-height:44px; font-size:17px; padding:10px 16px; }
+  .title-cover-copy { inset:48% 7% 11%; width:auto; justify-content:flex-start; }
+  .title-kicker { display:none; }
+  .title-wordmark h1 { font-size:58px; margin:0 0 -4px; } .title-wordmark h2 { font-size:17px; margin-top:6px; letter-spacing:.13em; }
+  .title-invitation { font-size:13px; margin:10px 0; max-width:none; line-height:1.55; }
+  .title-actions { width:100%; max-width:420px; margin-top:auto; gap:6px; }
+  .title-actions .btn { min-height:40px; font-size:16px; padding:8px 14px; }
+  .title-actions .btn small { font-size:10px; margin-top:4px; }
   .title-actions .cover-replay { min-height:24px; font-size:12px; padding:2px 0; }
+  .has-expedition .title-invitation { display:none; }
   .title-cover-footer { left:5%; right:5%; bottom:2%; justify-content:center; }
   .title-cover-footer small { display:none; } .title-cover-footer .btn { font-size:12px; }
   .cinema-bar { height:52px; padding:0 14px; } .cinema-bar > span { font-size:20px; } .cinema-bar i { display:none; } .cinema-bar kbd { display:none; }
@@ -3708,8 +3734,13 @@ img.spr { vertical-align: -3px; }
 @media (max-height:430px) and (orientation:landscape) {
   .title-cover-copy { top:12%; bottom:13%; } .title-kicker { display:none; } .title-wordmark h1 { font-size:60px; } .title-wordmark h2 { font-size:18px; } .title-invitation { margin:10px 0; font-size:13px; } .title-actions { gap:4px; max-width:250px; } .title-actions .btn { min-height:30px; padding:6px 14px; font-size:14px; } .title-actions .cover-replay { font-size:11px; min-height:20px; } .title-edition { top:4%; font-size:10px; } .title-cover-footer { bottom:0; } .title-cover-footer .btn { min-height:30px; font-size:11px; } .title-cover-footer small { font-size:9px; }
   .cinema-bar { height:42px; } .cinema-controls { height:52px; } .cinema-stage { grid-template-columns:48% 52%; } .cinema-copy { padding:16px 8%; } .cinema-copy h1 { font-size:32px; } .cinema-deck { font-size:15px; } .cinema-prose { font-size:calc(14px * var(--cinema-text-scale,1)); line-height:1.65; } .cinema-rule { margin:10px 0; } .cinema-copy blockquote { margin-top:12px; font-size:16px; } .cinema-location { font-size:11px; }
+  .title-scene-caption { top:11%; left:18%; } .title-scene-caption > span { font-size:16px; } .title-scene-caption > small { display:none; }
+  .title-playground { inset:18% 3% 13% 8%; }
+  .title-preview-controls { gap:5px; } .title-preview-steps { gap:5px; font-size:11px; } .title-preview-steps span { padding:3px 5px; }
+  .title-preview-controls .btn { min-height:32px; padding:6px 13px; font-size:14px; } .title-preview-status { font-size:10px; min-height:14px; }
 }
 @media (prefers-reduced-motion:reduce) { .title-cover-overlay { transition:none; } .title-actor,.cinema-actor,.cinema-copy > div,.cinema-visual .cinema-landscape { animation:none; } }
+.title-cover-overlay.title-motion-reduced, .title-motion-reduced .title-preview-steps span { transition:none; }
 
 .story-cinema[data-kind="chapter"] .cinema-copy h1 { font-size:clamp(32px,4.2vw,56px); }
 

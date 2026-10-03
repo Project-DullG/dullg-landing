@@ -260,6 +260,13 @@ details.danger summary { cursor: pointer; font-size: 13px; }
 .result-aftermath p { margin: 0; font-size: 14px; line-height: 1.55; word-break: keep-all; overflow-wrap: anywhere; }
 .result-aftermath.lost { border-color: #aa99c2; background: #aa99c20c; }
 .result-aftermath.lost > span { color: #c3b4d6; }
+.rc-summary { display: grid; gap: 4px; margin: 4px 0 12px; color: var(--brass-hi); }
+.rc-summary b { font-size: 20px; font-family: 'Do Hyeon', sans-serif; }
+.rc-details { margin: 8px 0; }
+.rc-details summary { color: var(--brass-hi); font-size: 13px; cursor: pointer; padding: 5px 0; }
+.rc-details summary.focus { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
+.rc-empty { font-size: 14px; line-height: 1.6; color: var(--dim); }
+.rc-next { word-break: keep-all; overflow-wrap: anywhere; }
 .result-body { display: grid; grid-template-columns: 300px 1fr; gap: 18px; }
 
 .result td { padding: 4px 6px; border-bottom: 1px solid #ffffff0c; }
@@ -3322,6 +3329,26 @@ img.spr { vertical-align: -3px; }
 .skill-card .sk-pip.aw{border-radius:2px;transform:rotate(45deg)}.skill-card .sk-pips b{margin-left:6px;font-size:13px;color:var(--trait)}
 .skill-card .sk-awaken{margin-top:8px;padding-top:6px;border-top:1px dashed #ffffff30;font-size:12px;color:#c9c0b0;line-height:1.35}.skill-card .sk-awaken b{color:#ffcf5a;margin-right:4px}
 .skill-card .sk-new{color:#7dff9a}
+/* 능력 선택: 즉시 얻는 효과 → 쓰는 행동 → 다음 각성. 추가 카드는 몸통에서 스크롤한다. */
+.panel.skill-picker { width: 900px; max-height: 508px; }
+.skill-picker h2 { display: flex; align-items: baseline; justify-content: space-between; }
+.skill-picker h2 small { font-family: 'Jua', sans-serif; font-size: 14px; letter-spacing: 0; }
+.skill-picker .subtitle { margin: 0 0 12px; font-size: 14px; line-height: 1.5; }
+.skill-picker .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 9px 3px 14px; }
+.skill-picker .skill-card { width: auto; min-width: 0; min-height: 280px; padding: 12px 14px 34px; color: var(--trait); word-break: keep-all; overflow-wrap: anywhere; }
+.skill-picker .sk-top { display: flex; justify-content: space-between; align-items: center; min-height: 23px; gap: 4px; font-size: 12px; }
+.skill-picker .sk-recommend { border-radius: 4px; padding: 2px 7px; color: #ffe1a0; border: 1px solid #c9a06380; background: #c9a0631a; }
+.skill-picker .trait-icon { margin: 8px auto 3px; }
+.skill-picker .nm { font-size: 24px; }
+.skill-picker .sk-gain { text-align: center; color: var(--text); min-height: 24px; }
+.skill-picker .sk-awaken-now { display: block; margin-top: 4px; color: #ffe1a0; }
+.skill-picker .sk-action { margin-top: 10px; padding: 8px 10px; color: #e2d9ca; background: #0003; border-radius: 5px; font-size: 13px; line-height: 1.5; }
+.skill-picker .sk-reason { margin-top: 7px; font-size: 12px; line-height: 1.45; color: #e8cf82; }
+.skill-picker .sk-owned { display: inline; margin-left: 12px; font-size: 12px; }
+.skill-picker .sk-owned summary { display: inline-block; color: var(--brass-hi); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.skill-picker .sk-owned[open] { display: block; margin: 6px 0 0; }
+.skill-picker .sk-owned > div { margin-top: 4px; color: var(--dim); }
+.skill-picker .skill-choice-foot > span { color: var(--dim); font-size: 12px; margin-right: auto; }
 .mt-scope{margin-top:4px;padding-top:4px;border-top:1px dashed #ffffff26;color:#cfe3ff;font-size:12px;line-height:1.4}.mt-scope b{color:#8fd8ff;margin-right:4px}
 .wall-traits{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;padding:8px 10px;border:1px solid #514634;border-radius:8px;background:#131019}
 .wall-traits .wt-head b{color:#ffcf9a;margin-right:8px}.wall-traits .wt-head small{color:#a89f95;font-size:11px}

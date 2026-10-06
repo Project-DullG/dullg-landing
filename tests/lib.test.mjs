@@ -35,9 +35,9 @@ test("public routes are unique and cover the app tree", () => {
 });
 
 test("episode title constants", () => {
-  assert.equal(episodeTitle, "집에가고 싶어!");
+  assert.equal(episodeTitle, "집에 가고 싶어!");
   assert.equal(episodeSubtitle, "학원 보충반 미스터리 추리 게임");
-  assert.equal(episodeFullTitle, "집에가고 싶어! — 학원 보충반 미스터리 추리 게임");
+  assert.equal(episodeFullTitle, "집에 가고 싶어! — 학원 보충반 미스터리 추리 게임");
 });
 
 test("navigation hrefs exist in publicRoutes", async () => {

@@ -190,7 +190,7 @@ export default function EpisodePage() {
       </section>
 
       <section className={`shell ${trailerStyles.section}`} aria-labelledby="episode-trailer-heading">
-        <h2 id="episode-trailer-heading">{t("이전 버전 제작 영상")}</h2>
+        <h2 id="episode-trailer-heading">{t("게임 소개 영상")}</h2>
         <EpisodeTrailer id="episode-trailer" />
       </section>
 

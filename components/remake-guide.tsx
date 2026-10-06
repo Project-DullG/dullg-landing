@@ -1,18 +1,19 @@
 import { useText } from "@/lib/i18n/use-text";
+import { EpisodeTrailer } from "./episode-trailer";
 import styles from "./remake-guide.module.css";
 
 const guides = [
   {
     id: "synopsis",
-    title: "시놉시스",
-    note: "게임 시작 전 · 3분 55초",
+    title: "시나리오 인트로",
+    note: "게임 시작 전 · 2분 35초",
     body: "사건의 배경, 네 학생과 열쇠가 사라진 장소를 확인합니다.",
   },
   {
     id: "rulebook",
-    title: "룰 설명",
-    note: "진행 방법 · 약 4분",
-    body: "카드 공개, 중복 지목, 토론과 최종 투표를 그림과 음성으로 설명합니다.",
+    title: "게임 규칙",
+    note: "진행 방법 · 3분 18초 · 무음",
+    body: "카드 공개와 지목 순서를 자막과 그림으로 설명합니다. 소지품 9장 공개 후 최종 토론과 투표를 진행합니다.",
   },
 ];
 const contents = [
@@ -23,10 +24,10 @@ const contents = [
 export function RemakeGuide() {
   const t = useText();
   return (
-    <section className={`shell ${styles.section}`} aria-labelledby="remake-guide-title">
+    <section className={`shell ${styles.section}`} id="play-guide" aria-labelledby="remake-guide-title">
       <div className={styles.heading}>
         <p className={styles.label}>{t("리메이크 구성")}</p>
-        <h2 id="remake-guide-title">{t("자료를 확인하고, 진행 방법을 먼저 들어보세요.")}</h2>
+        <h2 id="remake-guide-title">{t("게임 소개부터 진행 방법까지, 영상으로 확인하세요.")}</h2>
         <p>
           {t(
             "게임은 4명이 한 팀으로 약 40~50분 이상 진행합니다. 영어 수업에서는 읽기·토론·보고서 작성을 4차시로 나누어 운영할 계획입니다.",
@@ -42,6 +43,7 @@ export function RemakeGuide() {
           </article>
         ))}
       </div>
+      <EpisodeTrailer id="academy-intro-film" />
       <div className={styles.videos}>
         {guides.map((guide) => (
           <article key={guide.id}>
@@ -51,11 +53,11 @@ export function RemakeGuide() {
               preload="none"
               width={1920}
               height={1080}
-              poster={`/assets/academy-remake/${guide.id}-poster.webp`}
+              poster={`/assets/going-home-20261006/${guide.id}-poster.webp`}
               aria-label={t(guide.title)}
             >
-              <source src={`/assets/academy-remake/${guide.id}.mp4`} type="video/mp4" />
-              <a href={`/assets/academy-remake/${guide.id}.mp4`}>{t("영상 파일 열기")}</a>
+              <source src={`/assets/going-home-20261006/${guide.id}.mp4`} type="video/mp4" />
+              <a href={`/assets/going-home-20261006/${guide.id}.mp4`}>{t("영상 파일 열기")}</a>
             </video>
             <div className={styles.caption}>
               <h3>{t(guide.title)}</h3>
@@ -68,7 +70,7 @@ export function RemakeGuide() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t("슬라이드와 전체 대본 보기 ↗")}
+              {t("영상과 전체 내용 보기 ↗")}
             </a>
           </article>
         ))}

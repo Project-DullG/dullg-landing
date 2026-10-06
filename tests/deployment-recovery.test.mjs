@@ -16,8 +16,8 @@ test("recovery preserves new films while retaining the revised home and course",
     assert.ok(home.indexOf('id="brand-works-title"') < home.indexOf('id="brand-film-title"'));
     assert.ok(home.includes("academy-remake/cover.webp"));
     assert.ok(!home.includes("two-keys-trailer-v8.mp4"));
-    assert.ok(episode.includes("two-keys-trailer-v8.mp4"));
-    assert.ok(episode.includes(prefix ? "Some story details differ" : "현재 수업팩과 일부 설정이 다릅니다."));
+    assert.ok(episode.includes("going-home-20261006/intro.mp4"));
+    assert.ok(!episode.includes("two-keys-trailer-v8.mp4"));
     assert.ok(episode.includes("academy-remake/yoonjiwon.webp"));
     assert.ok(!home.includes('href="/games/tide-room"'));
     assert.ok(!home.includes('href="/games/discharge-day"'));

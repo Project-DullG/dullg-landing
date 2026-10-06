@@ -1,6 +1,6 @@
 import { ulleungPresentation } from "./presentations.ts";
 
-export const episodeTitle = "집에가고 싶어!";
+export const episodeTitle = "집에 가고 싶어!";
 export const episodeSubtitle = "학원 보충반 미스터리 추리 게임";
 export const episodeFullTitle = `${episodeTitle} — ${episodeSubtitle}`;
 

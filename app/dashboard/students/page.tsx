@@ -3,10 +3,19 @@ import { localizedRedirect } from "@/lib/i18n/server";
 import { verifySession } from "@/lib/firebase/auth";
 import { getAdminDb } from "@/lib/firebase/admin";
 import { LiveStudents } from "./live-students";
-export default async function StudentsPage() {
+export default async function StudentsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ new?: string | string[] }>;
+}) {
   const t = await getText();
+  const startRegistration = (await searchParams).new === "1";
   const session = await verifySession();
-  if (!session || session.role !== "owner") return localizedRedirect("/login");
+  if (!session) {
+    const destination = `/dashboard/students${startRegistration ? "?new=1" : ""}`;
+    return localizedRedirect(`/login?next=${encodeURIComponent(destination)}`);
+  }
+  if (session.role !== "owner") return localizedRedirect("/dashboard");
   const academyId = session.academyId as string;
   if (!academyId) return localizedRedirect("/dashboard/onboarding");
   const academy = getAdminDb().collection("academies").doc(academyId);
@@ -28,5 +37,12 @@ export default async function StudentsPage() {
     id: doc.id,
     name: String(doc.data().name ?? ""),
   }));
-  return <LiveStudents students={students} classes={classes} limited={students.length === 100} />;
+  return (
+    <LiveStudents
+      students={students}
+      classes={classes}
+      limited={students.length === 100}
+      startRegistration={startRegistration}
+    />
+  );
 }

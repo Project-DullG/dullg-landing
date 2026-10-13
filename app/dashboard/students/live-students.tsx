@@ -12,10 +12,12 @@ export function LiveStudents({
   students,
   classes,
   limited,
+  startRegistration,
 }: {
   students: StudentItem[];
   classes: ClassItem[];
   limited: boolean;
+  startRegistration: boolean;
 }) {
   const t = useText();
   const router = useRouter();
@@ -24,6 +26,7 @@ export function LiveStudents({
       students={students}
       classes={classes}
       limited={limited}
+      startRegistration={startRegistration}
       onSave={async (data, id) => {
         if (id) await updateStudent(id, data);
         else await addStudent(data);

@@ -3,21 +3,15 @@
 import { localizedRedirect } from "@/lib/i18n/server";
 import { createSessionCookie, clearSession, verifySession } from "@/lib/firebase/auth";
 import { getAdminAuth, getAdminDb } from "@/lib/firebase/admin";
+import { postLoginPath } from "@/lib/auth-navigation";
 
-export async function loginAction(idToken: string) {
+export async function loginAction(idToken: string, nextPath?: string | null) {
+  const decoded = await getAdminAuth().verifyIdToken(idToken, true);
+  // Roles can change after an ID token was issued. Use the current claims,
+  // just as verifySession does for subsequent authenticated requests.
+  const user = await getAdminAuth().getUser(decoded.uid);
   await createSessionCookie(idToken);
-
-  const decoded = await getAdminAuth().verifyIdToken(idToken);
-  const role = decoded.role as string | undefined;
-
-  if (role === "student") {
-    return localizedRedirect("/dashboard/my");
-  } else if (role === "owner") {
-    return localizedRedirect("/dashboard");
-  } else {
-    // No role: could be a student needing to link, or unknown user
-    return localizedRedirect("/dashboard/link");
-  }
+  return localizedRedirect(postLoginPath(user.customClaims?.role, nextPath));
 }
 
 export async function logoutAction() {

@@ -65,10 +65,24 @@ for (let i = 0; i < routes.length; i += 4) {
 }
 await mkdir(".next", { recursive: true });
 for (const prefix of ["", "/en"]) {
-  const response = await fetch(`${origin}${prefix}/dashboard`, { redirect: "manual" });
-  const destination = new URL(response.headers.get("location") || "/", origin).pathname;
-  if (![307, 308].includes(response.status) || destination !== `${prefix}/login`)
-    throw new Error(`Dashboard login redirect lost its locale: ${prefix || "ko"}`);
+  for (const path of ["/dashboard", "/dashboard/students?new=1"]) {
+    const response = await fetch(`${origin}${prefix}${path}`, { redirect: "manual" });
+    const destination = new URL(response.headers.get("location") || "/", origin);
+    if (
+      ![307, 308].includes(response.status) ||
+      destination.pathname !== `${prefix}/login` ||
+      destination.searchParams.get("next") !== path
+    )
+      throw new Error(`Dashboard login redirect lost its destination: ${prefix || "ko"} ${path}`);
+  }
+  // An expired session must render login rather than bouncing back to the dashboard.
+  const response = await fetch(
+    `${origin}${prefix}/login?next=${encodeURIComponent("/dashboard/students?new=1")}`,
+    { redirect: "manual", headers: { Cookie: "session=expired-test-session" } },
+  );
+  const html = await response.text();
+  if (!response.ok || !html.includes("/dashboard/students?new=1"))
+    throw new Error(`Expired-session login lost the registration destination: ${prefix || "ko"}`);
 }
 if (save) {
   for (const route of ["sitemap.xml", "robots.txt"]) {

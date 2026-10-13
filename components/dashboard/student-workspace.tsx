@@ -1,6 +1,6 @@
 "use client";
 import { useText } from "@/lib/i18n/use-text";
-import { useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { validateStudent, type StudentData } from "@/lib/validators";
 import styles from "./student-workspace.module.css";
 export type StudentItem = StudentData & {
@@ -20,6 +20,7 @@ type Props = {
   detail?: (student: StudentItem) => ReactNode;
   demo?: boolean;
   limited?: boolean;
+  startRegistration?: boolean;
 };
 export function StudentWorkspace({
   students,
@@ -29,18 +30,27 @@ export function StudentWorkspace({
   detail,
   demo,
   limited,
+  startRegistration = false,
 }: Props) {
   const t = useText();
   const [query, setQuery] = useState("");
   const [group, setGroup] = useState("all");
-  const [selected, setSelected] = useState<string | null>(students[0]?.id ?? null);
+  const [selected, setSelected] = useState<string | null>(
+    startRegistration ? null : (students[0]?.id ?? null),
+  );
   const [editing, setEditing] = useState(false);
-  const [creating, setCreating] = useState(false);
+  const [creating, setCreating] = useState(startRegistration);
   const [deleting, setDeleting] = useState(false);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const panel = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (startRegistration) {
+      panel.current?.focus();
+      panel.current?.scrollIntoView({ block: "start" });
+    }
+  }, [startRegistration]);
   const student = students.find((item) => item.id === selected);
   const visible = students.filter(
     (item) =>

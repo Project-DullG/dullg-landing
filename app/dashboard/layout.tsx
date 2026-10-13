@@ -4,10 +4,14 @@ import { localizedRedirect } from "@/lib/i18n/server";
 import { verifySession } from "@/lib/firebase/auth";
 import { getAdminDb } from "@/lib/firebase/admin";
 import { Sidebar } from "@/components/dashboard/sidebar";
+import { loginPath } from "@/lib/auth-navigation";
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const t = await getText();
   const session = await verifySession();
-  if (!session) return localizedRedirect("/login");
+  if (!session) {
+    const headerList = await headers();
+    return localizedRedirect(loginPath(headerList.get("x-dashboard-return-path")));
+  }
   const role = (session.role as string) || "none";
   let academyName = "학원";
   // No role → student linking page

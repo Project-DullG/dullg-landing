@@ -265,7 +265,7 @@ const relationshipExpressions = [
 ];
 const relationshipPack = base(
   "sentence-relationships",
-  ["문장에서 누가 하는 일일까?", "Who does what?"],
+  ["문장 속 역할 구별하기", "Who does what?"],
   "sentence",
   [
     {
@@ -386,7 +386,7 @@ const relationshipPack = base(
       ]),
       expressionIds: [relationshipExpressions[0].id],
       versions: versions((level) => ({
-        passage: "Ask the person you are speaking to to check the address.",
+        passage: "Ask the other person to check the address.",
         translation: text(["주소를 확인해 주셨으면 해요.", "I'd like you to check the address."]),
         prompt: assemblyInstructions,
         tokens: ["I'd like", "you", "to check", "the address."],

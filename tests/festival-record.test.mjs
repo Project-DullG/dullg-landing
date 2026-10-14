@@ -4,16 +4,19 @@ import { readFile, stat } from "node:fs/promises";
 import { activityRecords } from "../lib/activities.ts";
 import { youthArtsFestival as festival } from "../lib/festival.ts";
 
-test("festival record is linked from home, activity and both language sitemaps", async () => {
+test("festival record remains linked from studio, activity and both language sitemaps", async () => {
   const record = activityRecords.find((item) => item.href === festival.href);
   assert.ok(record);
   assert.equal(record.type, "전시");
   for (const locale of ["", "en/"]) {
-    for (const page of ["index", "activity"]) {
+    for (const page of ["studio", "activity"]) {
       const html = await readFile(`.test-output/pages/${locale}${page}.html`, "utf8");
       assert.ok(html.includes(`href="/${locale}activity/ulsan-youth-arts-2026"`));
     }
-    const detail = await readFile(`.test-output/pages/${locale}activity/ulsan-youth-arts-2026.html`, "utf8");
+    const detail = await readFile(
+      `.test-output/pages/${locale}activity/ulsan-youth-arts-2026.html`,
+      "utf8",
+    );
     assert.ok(detail.includes(festival.image.src));
     for (const slug of ["snake-carnival", "red-lab", "gourmet-master", "too-many-doctors"])
       assert.ok(detail.includes(`href="/${locale}works/${slug}"`));

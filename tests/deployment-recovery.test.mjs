@@ -4,17 +4,24 @@ import { readFile, access } from "node:fs/promises";
 
 test("the restored course preview keeps its two-column image layout", async () => {
   const css = await readFile("styles/pages/home.css", "utf8");
-  assert.match(css, /\.brand-education-cards\s*\{[^}]*display: grid;[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\);/);
+  assert.match(
+    css,
+    /\.brand-education-cards\s*\{[^}]*display: grid;[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\);/,
+  );
   assert.match(css, /\.brand-education-cards img\s*\{[^}]*width: 100%;[^}]*height: auto;/);
 });
 
-test("recovery preserves new films while retaining the revised home and course", async () => {
+test("English home and studio preserve the films, course, and retired-content boundaries", async () => {
   for (const prefix of ["", "en/"]) {
     const home = await readFile(`.test-output/pages/${prefix}index.html`, "utf8");
+    const studio = await readFile(`.test-output/pages/${prefix}studio.html`, "utf8");
     const episode = await readFile(`.test-output/pages/${prefix}episode.html`, "utf8");
-    assert.ok(home.includes("project-dullg-brand-film-v1.mp4"));
-    assert.ok(home.indexOf('id="brand-works-title"') < home.indexOf('id="brand-film-title"'));
-    assert.ok(home.includes("academy-remake/cover.webp"));
+    assert.ok(studio.includes("project-dullg-brand-film-v1.mp4"));
+    assert.ok(studio.indexOf('id="brand-works-title"') < studio.indexOf('id="brand-film-title"'));
+    assert.ok(studio.includes("academy-remake/cover.webp"));
+    assert.ok(home.includes('id="english-title"'));
+    assert.ok(home.includes("/assets/english/bookshop.webp"));
+    assert.ok(home.includes(`href="/${prefix}studio"`));
     assert.ok(!home.includes("two-keys-trailer-v8.mp4"));
     assert.ok(episode.includes("going-home-20261006/intro.mp4"));
     assert.ok(!episode.includes("two-keys-trailer-v8.mp4"));
@@ -37,5 +44,6 @@ test("source-only games have no fictional English sitemap entries", async () => 
     "app/speaking/api/study/route.ts",
     "app/speaking/assets/[...path]/route.ts",
     "public/wallbreak/index.html",
-  ]) await access(file);
+  ])
+    await access(file);
 });

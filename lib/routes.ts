@@ -1,4 +1,4 @@
-export type RouteGroup = "studio" | "education" | "resources";
+export type RouteGroup = "learning" | "studio" | "education" | "resources";
 export type PublicRoute = {
   path: string;
   title: string;
@@ -11,9 +11,80 @@ export type PublicRoute = {
 
 export const publicRoutes: PublicRoute[] = [
   {
+    path: "/studio",
+    title: "공방 둘러보기",
+    description: "단서공방의 작품과 웹게임, 제작 영상, 교육 현장과 활동 기록을 함께 살펴봅니다.",
+    group: "studio",
+    priority: 0.8,
+    changeFrequency: "weekly",
+  },
+  {
+    path: "/english",
+    title: "영어 학습",
+    description:
+      "방탈출·추리·동화 속에서 읽고 듣고 쓰고 말하는 영어. 내 난이도로 이야기를 풀고 배운 표현을 복습합니다.",
+    group: "learning",
+    priority: 0.95,
+    changeFrequency: "weekly",
+  },
+  {
+    path: "/english/community",
+    title: "학습 커뮤니티",
+    description: "닉네임으로 학습 이야기를 나누고 서로 응원하는 단서공방 영어 학습 커뮤니티.",
+    group: "learning",
+    priority: 0.7,
+    changeFrequency: "weekly",
+  },
+  {
+    path: "/english/about",
+    title: "영어 학습 설계",
+    description:
+      "이야기 속 과제, 표현 인출과 간격 복습을 어떻게 영어 학습에 연결했는지 설명합니다.",
+    group: "learning",
+    priority: 0.6,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/english/review",
+    title: "표현 복습",
+    description: "계정에 저장한 표현을 시간이 지난 뒤 보기 없이 떠올리는 개인 복습실.",
+    group: "learning",
+    priority: 0.3,
+    changeFrequency: "weekly",
+    noIndex: true,
+  },
+  {
+    path: "/english/play/closed-bookshop",
+    title: "닫힌 서점의 밤",
+    description:
+      "서점의 단서와 대화를 따라 문제를 해결하는 영어 방탈출 이야기. 입문·기본·도전 난이도.",
+    group: "learning",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/english/play/locker-seven",
+    title: "7번 보관함의 편지",
+    description:
+      "역의 기록과 증언을 비교해 분실물의 주인을 찾는 영어 추리 이야기. 입문·기본·도전 난이도.",
+    group: "learning",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/english/play/moonlight-post",
+    title: "달빛 우체국",
+    description:
+      "달빛 아래 우체국에서 편지를 전하며 영어를 읽고 듣고 쓰고 말하는 동화. 입문·기본·도전 난이도.",
+    group: "learning",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  {
     path: "/games/wallbreak",
     title: "벽꿍! 균열의 석공",
-    description: "내 벽을 세워 적을 박고 부수는 액션 로그라이트. 벽 속에 잠든 마을 사람을 구하고, 숲 · 동굴 · 심연 · 성벽 균열을 돌파해 탑에 다가가세요.",
+    description:
+      "내 벽을 세워 적을 박고 부수는 액션 로그라이트. 벽 속에 잠든 마을 사람을 구하고, 숲 · 동굴 · 심연 · 성벽 균열을 돌파해 탑에 다가가세요.",
     group: "studio",
     priority: 0.8,
     changeFrequency: "monthly",
@@ -21,7 +92,8 @@ export const publicRoutes: PublicRoute[] = [
   {
     path: "/games/ulleung-marble",
     title: "울릉마블",
-    description: "4–8명이 일곱 라운드 동안 여행지와 카드를 고르는 울릉도·독도 여행 보드게임. 플레이 영상과 모든 구성품, 함께 쓰는 게임 테이블을 살펴보세요.",
+    description:
+      "4–8명이 일곱 라운드 동안 여행지와 카드를 고르는 울릉도·독도 여행 보드게임. 플레이 영상과 모든 구성품, 함께 쓰는 게임 테이블을 살펴보세요.",
     group: "studio",
     priority: 0.8,
     changeFrequency: "monthly",
@@ -37,7 +109,8 @@ export const publicRoutes: PublicRoute[] = [
   {
     path: "/materials/modoo-startup",
     title: "모두의 창업 · 아이디어부터 신청서까지",
-    description: "9월 16일 온라인 강의자료: AI로 아이디어 정리하기, 신청서 작성, 프롬프트와 신청 매뉴얼 다운로드.",
+    description:
+      "9월 16일 온라인 강의자료: AI로 아이디어 정리하기, 신청서 작성, 프롬프트와 신청 매뉴얼 다운로드.",
     group: "resources",
     priority: 0.6,
     changeFrequency: "monthly",
@@ -53,7 +126,8 @@ export const publicRoutes: PublicRoute[] = [
   {
     path: "/games/last-screening",
     title: "잔향 탐정",
-    description: "인물의 진술과 현장 기록을 조사하는 1인 추리 게임. 장편 사건 3편과 짧은 의뢰를 제공합니다.",
+    description:
+      "인물의 진술과 현장 기록을 조사하는 1인 추리 게임. 장편 사건 3편과 짧은 의뢰를 제공합니다.",
     group: "studio",
     priority: 0.7,
     changeFrequency: "monthly",
@@ -69,7 +143,8 @@ export const publicRoutes: PublicRoute[] = [
   {
     path: "/activity/ulsan-youth-arts-2026",
     title: "2026 울산 중구 청년예술제",
-    description: "청년디딤터 부스에서 단서공방의 머더미스터리 실물 작품과 캐릭터 자료를 전시했습니다.",
+    description:
+      "청년디딤터 부스에서 단서공방의 머더미스터리 실물 작품과 캐릭터 자료를 전시했습니다.",
     group: "studio",
     priority: 0.6,
     changeFrequency: "yearly",
@@ -78,7 +153,7 @@ export const publicRoutes: PublicRoute[] = [
     path: "/speaking",
     title: "스피킹 공부",
     description: "구글 로그인과 인증코드로 접속하는 토익스피킹 연습실입니다.",
-    group: "education",
+    group: "learning",
     priority: 0.3,
     changeFrequency: "monthly",
     noIndex: true,
@@ -87,8 +162,8 @@ export const publicRoutes: PublicRoute[] = [
     path: "/",
     title: "홈",
     description:
-      "단서공방(ProjectDullG)의 머더미스터리 작품, 게임·AI 교육 현장과 제작 이력을 소개합니다.",
-    group: "studio",
+      "이야기를 따라 영어를 읽고 듣고 쓰고 말하는 단서공방. 방탈출·추리·동화를 내 난이도로 플레이하고 배운 표현을 복습합니다.",
+    group: "learning",
     priority: 1,
     changeFrequency: "weekly",
   },
@@ -102,7 +177,7 @@ export const publicRoutes: PublicRoute[] = [
   },
   {
     path: "/mini-projects",
-    title: "미니 프로젝트",
+    title: "공방 게임",
     description:
       "단서공방이 제작한 퍼즐·카드·아케이드 게임. 지뢰찾기, 솔리테어, 스도쿠와 블록 퍼즐을 소개합니다.",
     group: "studio",

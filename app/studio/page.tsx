@@ -1,0 +1,189 @@
+import { useText } from "@/lib/i18n/use-text";
+import { localizeMetadata } from "@/lib/i18n/server";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
+import Link from "@/components/i18n/link";
+import Image from "next/image";
+import { BrandFilm } from "@/components/brand-film";
+import { Footer, Header, Kicker } from "@/components/site";
+import { SectionHead } from "@/components/section-head";
+import { educationFacts } from "@/lib/education";
+import { pageMetadata } from "@/lib/metadata";
+import { activityRecords, formatActivityDate } from "@/lib/activities";
+import { FestivalHighlight } from "@/components/festival-highlight";
+import activityStyles from "@/components/home-activities.module.css";
+import { HomeMiniProjects } from "@/components/mini-games/home-projects";
+import { HomeWorks } from "@/components/home-works";
+export async function generateMetadata() {
+  return localizeMetadata(
+    pageMetadata("/studio", {
+      absoluteTitle: "공방 둘러보기 | 단서공방의 작품과 수업",
+    }),
+  );
+}
+export const revalidate = 3600;
+export default function Studio() {
+  const t = useText();
+  return (
+    <>
+      <Header />
+
+      <main className="brand-home" id="main-content">
+        <section className="brand-hero shell" aria-labelledby="home-title">
+          <SectionHead
+            as="h1"
+            id="home-title"
+            kicker="단서공방 · ProjectDullG"
+            title={t(
+              <>
+                {t("함께 푸는 추리 게임,")}
+                <br />
+                <em>{t("직접 만드는 콘텐츠 수업")}</em>
+              </>,
+            )}
+            lead="머더미스터리를 제작하고, 게임·AI를 활용한 콘텐츠 제작 수업을 진행합니다."
+          />
+          <div className="brand-hero-actions">
+            <Link className="button button-dark" href="/works">
+              {t("작품 보기")}
+              <ArrowRight size={17} weight="bold" aria-hidden="true" />
+            </Link>
+            <Link href="/about">
+              {t("단서공방 소개")}
+              <ArrowRight size={17} weight="bold" aria-hidden="true" />
+            </Link>
+          </div>
+        </section>
+
+        <HomeWorks />
+
+        <BrandFilm />
+
+        <section
+          className={`shell ${activityStyles.section}`}
+          aria-labelledby="home-activity-title"
+        >
+          <div className="brand-section-head">
+            <div>
+              <Kicker>{t("활동 기록")}</Kicker>
+              <h2 id="home-activity-title">{t("최근 활동")}</h2>
+            </div>
+            <Link href="/activity">
+              {t("제작\u00B7활동 기록 전체 보기")}
+              <ArrowRight size={17} aria-hidden="true" />
+            </Link>
+          </div>
+          <FestivalHighlight />
+          <div className={activityStyles.grid}>
+            {t(
+              activityRecords
+                .filter((record) => record.type === "교육" && record.image)
+                .slice(0, 2)
+                .map((record) => (
+                  <Link className={activityStyles.item} href={record.href} key={record.href}>
+                    <Image
+                      src={record.image!.src}
+                      alt={t(record.image!.alt)}
+                      width={1448}
+                      height={1086}
+                      sizes="(max-width: 760px) 100vw, 50vw"
+                    />
+                    <time dateTime={record.date}>
+                      {t(formatActivityDate(record))} · {t(record.type)}
+                    </time>
+                    <h3>{t(record.title)}</h3>
+                    <p>{t(record.body)}</p>
+                    <span>
+                      {t("수업 기록 보기")}
+                      <ArrowRight size={17} aria-hidden="true" />
+                    </span>
+                  </Link>
+                )),
+            )}
+          </div>
+        </section>
+
+        <section className="brand-education" aria-labelledby="brand-education-title">
+          <div className="shell brand-education-grid">
+            <figure className="brand-education-cards">
+              <Image
+                src="/assets/academy-remake/cover.webp"
+                width={944}
+                height={1330}
+                alt={t("집에가고 싶어! 규칙서 표지")}
+                sizes="(max-width: 760px) 45vw, 22vw"
+              />
+              <Image
+                src="/assets/academy-remake/card-front.webp"
+                width={408}
+                height={650}
+                alt={t("리메이크한 영어 단서 카드 · 영어책과 쪽지")}
+                sizes="(max-width: 760px) 45vw, 22vw"
+              />
+            </figure>
+            <div>
+              <Kicker>{t("집에가고 싶어! · 영어 미스터리 수업팩")}</Kicker>
+              <h2 id="brand-education-title">
+                {t("영어 단서를 읽고")}
+                <br />
+                {t("사건을 해결하는 수업")}
+              </h2>
+              <p>
+                {t(
+                  "네 학생의 가방 속 단서를 영어로 읽고, 질문과 토론으로 사라진 열쇠를 찾습니다. 수업에서는 선택한 인물과 그 근거를 영어 사건보고서로 정리합니다.",
+                )}
+              </p>
+              <dl>
+                {t(
+                  educationFacts.map(([value, label]) => (
+                    <div key={value}>
+                      <dt>{t(value)}</dt>
+                      <dd>{t(label)}</dd>
+                    </div>
+                  )),
+                )}
+              </dl>
+              <Link href="/academy">
+                {t("수업팩 자세히 보기")}
+                <ArrowRight size={17} weight="bold" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <HomeMiniProjects />
+
+        <section className="brand-contact" id="apply" aria-labelledby="brand-contact-title">
+          <div className="shell brand-contact-inner">
+            <div>
+              <Kicker>{t("작품\u00B7교육\u00B7협업 문의")}</Kicker>
+              <h2 id="brand-contact-title">
+                {t("함께 만들고 싶은")}
+                <br />
+                {t("프로젝트가 있나요?")}
+              </h2>
+            </div>
+            <div>
+              <p>
+                {t(
+                  "작품 제작과 교육 협업에 관해 문의해 주세요. 영어 미스터리 수업팩이 궁금하다면 무료 검토팩을 먼저 확인할 수 있습니다.",
+                )}
+              </p>
+              <div className="brand-hero-actions">
+                <Link className="button button-dark" href="/contact">
+                  {t("프로젝트 문의")}
+                  <ArrowRight size={17} weight="bold" aria-hidden="true" />
+                </Link>
+                <Link href="/academy/pilot">
+                  {t("수업팩 검토 요청")}
+                  <ArrowRight size={17} weight="bold" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </>
+  );
+}

@@ -5,13 +5,11 @@ export type NavigationItem = {
 
 export const primaryNavigation: NavigationItem[] = [
   { href: "/", label: "홈" },
-  { href: "/works", label: "작품" },
-  { href: "/mini-projects", label: "미니 프로젝트" },
-  { href: "/activity", label: "활동 기록" },
-  { href: "/academy", label: "교육" },
-  { href: "/speaking", label: "스피킹 공부" },
-  { href: "/materials", label: "수강생 자료실" },
-  { href: "/about", label: "단서공방" },
+  { href: "/english", label: "영어 학습" },
+  { href: "/english/community", label: "학습 커뮤니티" },
+  { href: "/studio", label: "공방 둘러보기" },
+  { href: "/academy", label: "수업·교육 협업" },
+  { href: "/about", label: "공방 소개" },
 ];
 
 export const studioNavigation: NavigationItem[] = [

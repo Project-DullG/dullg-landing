@@ -34,12 +34,15 @@ const playfair = Playfair_Display({
 
 const baseMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "단서공방 | 영어 미스터리 수업과 추리 콘텐츠", template: "%s | 단서공방" },
+  title: { default: "단서공방 | 이야기를 따라, 영어가 쌓이는 곳", template: "%s | 단서공방" },
   description:
-    "단서공방이 만든 머더미스터리 작품과 제작 기록, 영어 미스터리 수업팩과 학원 운영 도구를 소개합니다.",
+    "방탈출·추리·동화 속에서 영어를 읽고 듣고 쓰고 말하세요. 내 난이도로 이야기를 풀고, 배운 표현을 복습하며 학습을 이어갑니다.",
   keywords: [
     "단서공방",
     "ProjectDullG",
+    "영어 학습 게임",
+    "영어 방탈출",
+    "영어 읽기 듣기 쓰기 말하기",
     "머더미스터리",
     "추리 콘텐츠",
     "영어 미스터리 수업팩",
@@ -54,15 +57,13 @@ const baseMetadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "단서공방 — 머더미스터리 작품과 영어 미스터리 수업팩",
+        alt: "단서공방 — 이야기를 따라, 영어가 쌓이는 곳",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: [
-      { url: "/opengraph-image", alt: "단서공방 — 머더미스터리 작품과 영어 미스터리 수업팩" },
-    ],
+    images: [{ url: "/opengraph-image", alt: "단서공방 — 이야기를 따라, 영어가 쌓이는 곳" }],
   },
 };
 

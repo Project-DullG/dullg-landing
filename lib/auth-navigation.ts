@@ -1,6 +1,6 @@
 const DASHBOARD_ROOT = "/dashboard";
 
-/** Only accept canonical, same-site dashboard paths for the login return URL. */
+/** Only accept canonical, same-site dashboard or English learning return URLs. */
 export function normalizeDashboardReturnPath(value: unknown): string | null {
   if (
     typeof value !== "string" ||
@@ -22,12 +22,17 @@ export function normalizeDashboardReturnPath(value: unknown): string | null {
   }
 
   const pathname = rawPathname.replace(/^\/en(?=\/|$)/, "");
-  if (pathname !== DASHBOARD_ROOT && !pathname.startsWith(`${DASHBOARD_ROOT}/`)) {
+  if (pathname !== DASHBOARD_ROOT && !pathname.startsWith(`${DASHBOARD_ROOT}/`) && !isEnglishReturnPath(pathname)) {
     return null;
   }
 
   // The login page's locale supplies /en on redirect, so never duplicate it.
   return `${pathname}${url.search}`;
+}
+
+function isEnglishReturnPath(pathname: string) {
+  return pathname === "/english" || pathname === "/english/community" || pathname === "/english/review" || pathname === "/english/about"
+    || /^\/english\/play\/[a-z0-9-]{1,80}$/.test(pathname);
 }
 
 function isRouteWithin(pathname: string, root: string) {
@@ -38,6 +43,7 @@ export function dashboardPathAllowedForRole(path: unknown, role: unknown): boole
   const normalized = normalizeDashboardReturnPath(path);
   if (!normalized) return false;
   const pathname = normalized.split("?")[0];
+  if (isEnglishReturnPath(pathname)) return true;
   // The registration page explains wrong-account sign-ins and checks ownership.
   if (pathname === "/dashboard/register" || pathname === "/dashboard/notebook") return true;
   if (role === "owner") return true;

@@ -21,39 +21,46 @@ export function Footer() {
             </span>
           </Link>
           <p>
-            {t("머더미스터리를 제작하고")}
+            {t("이야기로 배우는 영어와")}
             <br />
-            {t("게임\u00B7AI 활용 수업을 진행합니다.")}
+            {t("함께 푸는 추리 콘텐츠를 만듭니다.")}
           </p>
         </div>
 
         <div className="site-footer-links">
           <strong>{t("작품\u00B7공방")}</strong>
           {t(
-            primaryNavigation
-              .filter((item) =>
-                ["/works", "/mini-projects", "/activity", "/about"].includes(item.href),
-              )
-              .map((item) => (
-                <Link href={item.href} key={item.href}>
-                  {t(item.href === "/about" ? "공방 소개" : item.label)}
-                </Link>
-              )),
+            [
+              { href: "/studio", label: "공방 둘러보기" },
+              { href: "/mini-projects", label: "공방 게임" },
+              { href: "/works", label: "작품과 펀딩" },
+              { href: "/activity", label: "제작·활동 기록" },
+              { href: "/about", label: "공방 소개" },
+              { href: "/academy", label: "수업·교육 협업" },
+              { href: "/materials", label: "수강생 자료실" },
+            ].map((item) => (
+              <Link href={item.href} key={item.href}>
+                {t(item.href === "/about" ? "공방 소개" : item.label)}
+              </Link>
+            )),
           )}
+          <Link href="/login">{t("학원 관리 로그인")}</Link>
         </div>
 
         <div className="site-footer-links">
-          <strong>{t("교육\u00B7자료")}</strong>
+          <strong>{t("영어 학습")}</strong>
           {t(
             primaryNavigation
-              .filter((item) => ["/academy", "/materials", "/speaking"].includes(item.href))
+              .filter((item) => ["/english", "/english/community"].includes(item.href))
               .map((item) => (
                 <Link href={item.href} key={item.href}>
                   {t(item.label)}
                 </Link>
               )),
           )}
-          <Link href="/login">{t("학원 관리 로그인")}</Link>
+          <Link href="/english/review">{t("표현 복습")}</Link>
+          <Link href="/english/about">{t("학습 설계")}</Link>
+          <Link href="/speaking">{t("TOEIC Speaking · 기존 과정")}</Link>
         </div>
 
         <div className="site-footer-contact">

@@ -22,10 +22,15 @@ const nextConfig: NextConfig = {
           { key: "X-Robots-Tag", value: "noindex, nofollow" },
         ],
       },
+      {
+        source: "/english/:path*",
+        headers: [{ key: "Cache-Control", value: "private, no-store, max-age=0" }],
+      },
     ];
   },
   outputFileTracingIncludes: {
     "/speaking/assets/*": ["./private-assets/speaking/**/*"],
+    "/opengraph-image": ["./public/fonts/english-journal-og-bold.ttf"],
   },
   turbopack: {
     root: projectRoot,

@@ -10,6 +10,7 @@ export default function LoginForm({ nextPath }: { nextPath: string | null }) {
   const t = useText();
   const studentRegistration = nextPath?.split("?")[0] === "/dashboard/register";
   const notebook = nextPath?.split("?")[0] === "/dashboard/notebook";
+  const englishLearning = nextPath?.startsWith("/english") === true;
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   async function handleGoogleLogin() {
@@ -45,20 +46,24 @@ export default function LoginForm({ nextPath }: { nextPath: string | null }) {
         <LanguageSwitch />
         <h1>
           {t(
-            notebook
-              ? "추리노트 시작하기"
-              : studentRegistration
-                ? "학생 정보 등록 로그인"
-                : "학원 관리 로그인",
+            englishLearning
+              ? "영어 학습 로그인"
+              : notebook
+                ? "추리노트 시작하기"
+                : studentRegistration
+                  ? "학생 정보 등록 로그인"
+                  : "학원 관리 로그인",
           )}
         </h1>
         <p>
           {t(
-            notebook
-              ? "Google로 시작하면 계정이 만들어지고, 추리노트를 사진으로 등록할 수 있어요."
-              : studentRegistration
-                ? "학생 본인의 Google 계정으로 로그인하면 정보 등록 화면으로 연결됩니다."
-                : "학원생\u00B7반\u00B7성적을 관리합니다. 처음이라면 예시 화면부터 살펴보세요.",
+            englishLearning
+              ? "Google로 로그인하면 이야기 진도와 표현 복습을 저장하고, 닉네임으로 학습 커뮤니티에 참여할 수 있어요."
+              : notebook
+                ? "Google로 시작하면 계정이 만들어지고, 추리노트를 사진으로 등록할 수 있어요."
+                : studentRegistration
+                  ? "학생 본인의 Google 계정으로 로그인하면 정보 등록 화면으로 연결됩니다."
+                  : "학원생\u00B7반\u00B7성적을 관리합니다. 처음이라면 예시 화면부터 살펴보세요.",
           )}
         </p>
 
@@ -79,7 +84,13 @@ export default function LoginForm({ nextPath }: { nextPath: string | null }) {
           ),
         )}
         <p>
-          <Link href="/demo">{t("로그인 없이 예시로 체험하기 →")}</Link>
+          <Link href={englishLearning ? "/english" : "/demo"}>
+            {t(
+              englishLearning
+                ? "로그인 없이 영어 이야기 체험하기 →"
+                : "로그인 없이 예시로 체험하기 →",
+            )}
+          </Link>
         </p>
         <p>
           <Link href="/">{t("단서공방 홈으로")}</Link>

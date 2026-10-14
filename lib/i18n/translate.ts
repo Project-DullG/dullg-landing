@@ -1,5 +1,7 @@
 import dictionary from "./en.json" with { type: "json" };
 import interfaceDictionary from "./en-interface.json" with { type: "json" };
+import communityDictionary from "./en-community.json" with { type: "json" };
+import englishDictionary from "./en-english.json" with { type: "json" };
 import sourceOnlyPaths from "./source-only.json" with { type: "json" };
 export type Locale = "ko" | "en";
 const decodeText = (text: string) =>
@@ -10,10 +12,12 @@ const decodeText = (text: string) =>
     .replace(/&#39;/g, "'");
 export const normalizeText = (text: string) => decodeText(text).replace(/\s+/g, " ").trim();
 const messages: Record<string, string> = Object.fromEntries(
-  Object.entries({ ...dictionary, ...interfaceDictionary }).map(([key, value]) => [
-    normalizeText(key),
-    value,
-  ]),
+  Object.entries({
+    ...dictionary,
+    ...interfaceDictionary,
+    ...communityDictionary,
+    ...englishDictionary,
+  }).map(([key, value]) => [normalizeText(key), value]),
 );
 export function translateText(text: string, locale: string): string {
   text = decodeText(text);
@@ -21,6 +25,8 @@ export function translateText(text: string, locale: string): string {
   const key = normalizeText(text);
   if (messages[key] !== undefined) return messages[key];
   const patterns: [RegExp, (...groups: string[]) => string][] = [
+    [/^예문:\s*(.*)$/, (sentence) => `Example: ${sentence}`],
+    [/^(\d+)\. (.*)$/, (n, label) => `${n}. ${translateText(label, locale)}`],
     [/^(.*) 상세 보기$/, (name) => `View ${translateText(name, locale)}`],
     [/^(.*) 캐릭터$/, (name) => `${translateText(name, locale)} character`],
     [/^에피소드 (\d+)$/, (n) => `Episode ${n}`],

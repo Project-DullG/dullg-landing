@@ -7,8 +7,8 @@ import { activityRecords } from "../lib/activities.ts";
 const html = (route) =>
   readFile(new URL(`../.test-output/pages/${route}.html`, import.meta.url), "utf8");
 
-test("home distinguishes a featured work from two related works and keeps real work details", async () => {
-  const page = await html("index");
+test("studio preserves the featured work, related works, and original production details", async () => {
+  const page = await html("studio");
   const featured = page.match(
     /<article[^>]*aria-labelledby="featured-work-title"[\s\S]*?<\/article>/,
   )?.[0];
@@ -43,8 +43,8 @@ test("home distinguishes a featured work from two related works and keeps real w
   );
 });
 
-test("home shows existing education descriptions without merging the two courses", async () => {
-  const page = await html("index");
+test("studio keeps existing education descriptions without merging the two courses", async () => {
+  const page = await html("studio");
   for (const record of activityRecords.filter((r) => r.type === "교육" && r.image).slice(0, 2)) {
     assert.ok(page.includes(record.title));
     assert.ok(page.includes(record.body));

@@ -11,7 +11,7 @@ test("mini portfolio gives series context without invented release dates or repe
   assert.doesNotMatch(index, /2026년 9월 공개|설치·로그인 없이|계속 개발 중/);
   for (const slug of ["block-stack", "bumper-room", "lane-shift"])
     assert.match(index, new RegExp(`href="/mini-projects/${slug}"`));
-  const home = await html("index");
+  const home = await html("studio");
   assert.match(home, /href="\/mini-projects"/);
   assert.match(home, /단서공방이 만든 웹게임/);
   assert.match(home, /게임 전체 보기/);
@@ -79,7 +79,7 @@ test("six classic game routes are linked, playable and accurately described", as
     "sliding-puzzle",
   ];
   const index = await html("mini-projects"),
-    home = await html("index");
+    home = await html("studio");
   for (const slug of slugs) {
     assert.match(index, new RegExp(`href="/mini-projects/${slug}"`));
     const page = await html(`mini-projects/${slug}`);

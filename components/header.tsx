@@ -58,8 +58,13 @@ export function Header() {
     href === "/"
       ? pathname === "/"
       : pathname === href ||
-        pathname.startsWith(`${href}/`) ||
-        (href === "/academy" && pathname === "/episode");
+        (pathname.startsWith(`${href}/`) &&
+          !(href === "/english" && pathname.startsWith("/english/community"))) ||
+        (href === "/academy" && pathname === "/episode") ||
+        (href === "/studio" &&
+          ["/mini-projects", "/works", "/activity", "/games"].some(
+            (root) => pathname === root || pathname.startsWith(`${root}/`),
+          ));
   return (
     <header className="site-header">
       <nav className="nav shell" aria-label={t("주요 메뉴")}>
@@ -88,8 +93,8 @@ export function Header() {
         </div>
 
         <div className="nav-actions">
-          <Link className="nav-cta" href="/contact">
-            {t("문의하기")}
+          <Link className="nav-cta" href="/english#journey">
+            {t("나의 학습")}
             <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
           </Link>
         </div>
@@ -128,12 +133,28 @@ export function Header() {
               </Link>
             )),
           )}
-          <Link className="mobile-navigation-cta" href="/contact" onClick={() => setIsOpen(false)}>
-            {t("문의하기")}
+          <Link
+            className="mobile-navigation-cta"
+            href="/english#journey"
+            onClick={() => setIsOpen(false)}
+          >
+            {t("나의 학습")}
             <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
           </Link>
-          <Link className="mobile-navigation-login" href="/login" onClick={() => setIsOpen(false)}>
-            {t("학원 관리 로그인 →")}
+          <Link className="mobile-navigation-login" href="/login?next=%2Fenglish" onClick={() => setIsOpen(false)}>
+            {t("영어 학습 로그인 →")}
+          </Link>
+          <Link href="/works" onClick={() => setIsOpen(false)}>
+            {t("작품과 펀딩")}
+          </Link>
+          <Link href="/activity" onClick={() => setIsOpen(false)}>
+            {t("활동 기록")}
+          </Link>
+          <Link href="/materials" onClick={() => setIsOpen(false)}>
+            {t("수강생 자료실")}
+          </Link>
+          <Link href="/contact" onClick={() => setIsOpen(false)}>
+            {t("교육·제작 협업 문의")}
           </Link>
         </div>
       </div>

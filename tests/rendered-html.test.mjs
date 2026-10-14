@@ -16,8 +16,8 @@ test("separates studio history from the upcoming education product", async () =>
   assert.match(activity, /href="\/about#team-history"/);
 });
 
-test("renders the brand portfolio path with real work and education evidence", async () => {
-  const html = await readFile(routeHtml("index.html"), "utf8");
+test("studio keeps the portfolio path with real work and education evidence", async () => {
+  const html = await readFile(routeHtml("studio.html"), "utf8");
 
   assert.match(html, /함께 푸는 추리 게임/);
   assert.match(html, /직접 만드는 콘텐츠 수업/);

@@ -52,3 +52,6 @@ tsconfig.tsbuildinfo
 design-qa.md
 *-audit-*.md
 tmp/
+
+# Local design context and generation cache
+/.superdesign/

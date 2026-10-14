@@ -12,15 +12,21 @@ const episodes = [
 const checks = [
   ["/", "english-title"],
   ["/english", "library-title"],
-  ["/english/library", "지금 배우고 싶은 영어를 찾아요"],
+  ["/english/library", "오늘은 어떤 영어를 해볼까요?"],
+  ["/english/library?view=all", "library-results-title"],
+  ["/english/library?kind=sentence&view=all", "library-results-title"],
   [
     "/english/library?kind=story&focus=closed-bookshop&level=starter",
-    "콘텐츠를 소개하는 별도의 예문입니다.",
+    "문장 난이도를 미리 살펴볼까요?",
   ],
-  ["/english/library?kind=conversation&skill=speaking&pace=quick", "찾은 콘텐츠"],
-  ["/english/library?q=Could%20you", "조건 초기화"],
-  ["/en/english/library", "Find the English you want to learn"],
-  ["/en/english/library?focus=moonlight-post&level=challenge", "Try a short language preview"],
+  ["/english/library?kind=conversation&skill=speaking&pace=quick", "library-results-title"],
+  ["/english/library?q=Could%20you", "library-results-title"],
+  ["/en/english", "A little English, a new scene."],
+  ["/en/english/library", "What English would you like to try today?"],
+  ["/en/english/library?focus=moonlight-post&level=challenge", "content-preview-title"],
+  ...episodes
+    .filter((id) => id !== "moonlight-post")
+    .map((id) => ["/en/english/library?focus=" + id + "&level=starter", "content-preview-title"]),
   ["/english/about", "Ellis"],
   ["/english/community", "COMMUNITY"],
   ["/english/review", "MY FIELD NOTES"],
@@ -59,6 +65,14 @@ for (const [path, marker] of checks) {
     assert.match(response.headers.get("cache-control") || "", /no-store/);
     assert.ok(html.includes("english-content-search"));
     assert.ok(html.includes("/english/courses"));
+    const rendered = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
+    const cards = (rendered.match(/aria-describedby="library-goal-/g) || []).length;
+    if (path === "/english/library")
+      assert.equal(cards, 3, "default discovery should show only three start candidates");
+    if (path === "/english/library?view=all")
+      assert.equal(cards, 25, "all existing content must remain discoverable");
+    if (path === "/english/library?kind=sentence&view=all")
+      assert.equal(cards, 7, "category query must take effect on server render");
   }
   if (path.startsWith("/en/")) {
     const visible = html
@@ -83,7 +97,7 @@ for (const [path, marker] of checks) {
 }
 assert.equal((await fetch(`${origin}/english/play/not-an-episode`)).status, 404);
 assert.equal((await fetch(`${origin}/english/practice/not-a-pack`)).status, 404);
-for (const name of [
+const illustrations = [
   "bookshop",
   "locker",
   "moonpost",
@@ -96,7 +110,17 @@ for (const name of [
   "radio-tower",
   "garden",
   "garden-courtyard",
-]) {
+  "practice-conversation-v2",
+  "practice-sentence-v2",
+  "practice-reading-v2",
+  "bookshop-returns-v2",
+  "locker-desk-v2",
+  "moonpost-landing-v2",
+  "cafe-counter-v2",
+  "radio-noticeboard-v2",
+  "garden-seedlings-v2",
+];
+for (const name of illustrations) {
   const response = await fetch(`${origin}/assets/english/${name}.webp`);
   assert.equal(response.status, 200, name);
   assert.match(response.headers.get("content-type") || "", /image\/webp/);
@@ -135,5 +159,5 @@ function assertPublic(value) {
 }
 assertPublic(publicData.posts);
 console.log(
-  `English HTTP checks passed: ${checks.length} pages, 12 illustrations, guest authorization, Origin checks, public community privacy.`,
+  `English HTTP checks passed: ${checks.length} pages, ${illustrations.length} illustrations, guest authorization, Origin checks, public community privacy.`,
 );

@@ -33,7 +33,7 @@ export function EnglishCourses(
   return localizeEnglishTree(
     <div className={styles.page}>
       <div className={styles.shell}>
-        <StudyNavigation />
+        <StudyNavigation level={level} />
         <header className={styles.heading}>
           <div>
             <p className={styles.eyebrow}>A PATH THROUGH YOUR LIBRARY</p>
@@ -43,7 +43,7 @@ export function EnglishCourses(
               시작해도 좋습니다.
             </p>
           </div>
-          <Link className={styles.secondary} href="/english">
+          <Link className={styles.secondary} href="/english/library?view=all">
             전체 콘텐츠 보기 <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </header>

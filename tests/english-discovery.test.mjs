@@ -98,6 +98,9 @@ test("search accepts Korean goals and English titles, case, full-width text and 
       assert.ok(filter({ query: sample.ko }).some((result) => result.id === item.id));
     }
   assert.equal(filter({ query: "unrelated-no-content" }).length, 0);
+  for (const query of ["카페", "공항", "도서관"])
+    assert.ok(filter({ query }).length > 0, query + ": search example must find real content");
+  assert.ok(filter({ query: "실전 회화" }).every((item) => item.kind === "conversation"));
 });
 
 test("duration filters use the stated estimates, including 5- and 10-minute boundaries", () => {

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { useLocale } from "next-intl";
 import { localizeEnglishTree } from "@/lib/i18n/english-tree";
 import Image from "next/image";
@@ -134,6 +134,9 @@ export function EnglishPlayer({
     : -1;
   const completed = new Set(progress.episodes[episode.id]?.completedTasks || []);
   const completedTasks = episode.tasks.filter((candidate) => completed.has(candidate.id));
+  const paceCount = replaying
+    ? Math.min(index + (feedback?.correct ? 1 : 0), total)
+    : completedTasks.length;
   const collectedExpressions = episode.expressions.filter((expression) =>
     completedTasks.some((candidate) => candidate.expressionIds.includes(expression.id)),
   );
@@ -314,8 +317,22 @@ export function EnglishPlayer({
     }
   }
   const Icon = task ? icons[task.skill] : Check;
+  const actionCue =
+    task?.skill === "speaking"
+      ? "소리 내어 말한 뒤 아래 확인을 체크해요."
+      : task?.skill === "listening"
+        ? "먼저 듣고 알맞은 답을 골라요."
+        : version?.options?.length
+          ? "자료를 살펴보고 알맞은 답을 골라요."
+          : "전하고 싶은 내용을 짧게 영어로 써 봐요.";
+  const upcomingIndex = replaying
+    ? index + 1
+    : episode.tasks.findIndex(
+        (candidate, position) => position > index && !completed.has(candidate.id),
+      );
+  const upcomingTask = episode.tasks[upcomingIndex];
   return localizeEnglishTree(
-    <div className={styles.player}>
+    <div className={styles.player} style={{ "--episode-accent": episode.accent } as CSSProperties}>
       <div className={styles.topbar}>
         <Link
           href={course ? "/english/courses?course=" + course.id + "&level=" + level : "/english"}
@@ -349,7 +366,7 @@ export function EnglishPlayer({
             width={1672}
             height={941}
             priority
-            sizes="(max-width: 800px) 100vw, 58vw"
+            sizes="(max-width: 900px) 100vw, 340px"
           />
           <div className={styles.shade} />
           <div className={styles.sceneTop}>
@@ -363,7 +380,10 @@ export function EnglishPlayer({
               {storyChapter ? (
                 <>
                   <span className={styles.location}>{storyChapter.location}</span>
-                  <strong className={styles.sceneObjective}>{storyChapter.objective}</strong>
+                  <details className={styles.sceneGoal}>
+                    <summary>이 장면의 목표</summary>
+                    <p>{storyChapter.objective}</p>
+                  </details>
                 </>
               ) : finished ? (
                 episode.takeaway
@@ -372,33 +392,54 @@ export function EnglishPlayer({
               )}
             </div>
           </div>
+          <div className={styles.pace}>
+            <div>
+              <strong>{replaying ? "이번 다시 연습" : "이야기 진도"}</strong>
+              <span>
+                {paceCount} / {total}
+              </span>
+            </div>
+            <progress
+              value={paceCount}
+              max={total}
+              aria-label={replaying ? "이번 다시 연습" : "이야기 진도"}
+            />
+          </div>
           {chapters.length ? (
-            <nav className={styles.chapterSteps} aria-label="이야기 진행">
-              {chapters.map((chapter, chapterIndex) => {
-                const done = chapterComplete(chapter.id);
-                const available = chapterIndex <= currentChapterIndex || done;
-                return (
-                  <button
-                    key={chapter.id}
-                    type="button"
-                    disabled={!available || busy || recording}
-                    aria-current={storyChapter?.id === chapter.id ? "step" : undefined}
-                    className={done ? styles.chapterDone : ""}
-                    onClick={() => {
-                      resetTask();
-                      setViewedChapterId(chapter.id);
-                      focusWorkspace();
-                    }}
-                  >
-                    <span>
-                      {done ? <Check size={15} /> : chapterIndex + 1}
-                      <small>{done ? "완료" : available ? "진행 중" : "다음 장"}</small>
-                    </span>
-                    <strong>{chapter.title}</strong>
-                  </button>
-                );
-              })}
-            </nav>
+            <details className={styles.chapterMenu}>
+              <summary>
+                장면 목차{" "}
+                <span>
+                  {Math.max(1, currentChapterIndex + 1)} / {chapters.length}
+                </span>
+              </summary>
+              <nav className={styles.chapterSteps} aria-label="이야기 진행">
+                {chapters.map((chapter, chapterIndex) => {
+                  const done = chapterComplete(chapter.id);
+                  const available = chapterIndex <= currentChapterIndex || done;
+                  return (
+                    <button
+                      key={chapter.id}
+                      type="button"
+                      disabled={!available || busy || recording}
+                      aria-current={storyChapter?.id === chapter.id ? "step" : undefined}
+                      className={done ? styles.chapterDone : ""}
+                      onClick={() => {
+                        resetTask();
+                        setViewedChapterId(chapter.id);
+                        focusWorkspace();
+                      }}
+                    >
+                      <span>
+                        {done ? <Check size={15} /> : chapterIndex + 1}
+                        <small>{done ? "완료" : available ? "진행 중" : "다음 장"}</small>
+                      </span>
+                      <strong>{chapter.title}</strong>
+                    </button>
+                  );
+                })}
+              </nav>
+            </details>
           ) : (
             <div className={styles.simpleProgress}>
               {Math.min(index + 1, total)} / {total}
@@ -411,26 +452,21 @@ export function EnglishPlayer({
           tabIndex={-1}
           aria-label="영어 학습 장면"
         >
+          <ol className={styles.flow} aria-label="이 장면의 학습 흐름">
+            <li aria-current={chapterOpening ? "step" : undefined}>이야기</li>
+            <li>자료</li>
+            <li
+              aria-current={!chapterOpening && !finished && !feedback?.correct ? "step" : undefined}
+            >
+              내 반응
+            </li>
+            <li
+              aria-current={!chapterOpening && (feedback?.correct || finished) ? "step" : undefined}
+            >
+              결과
+            </li>
+          </ol>
           <div className={styles.storyUtilities}>
-            <details className={styles.overview}>
-              <summary>이야기 목차</summary>
-              <ol>
-                {chapters.map((chapter, chapterIndex) => (
-                  <li key={chapter.id}>
-                    <strong>
-                      {chapterIndex + 1}. {chapter.title}
-                    </strong>
-                    <span>
-                      {chapterComplete(chapter.id)
-                        ? "마친 장 · 다시 읽기"
-                        : chapterIndex === currentChapterIndex
-                          ? "진행 중인 장"
-                          : "다음 장에서 이어져요"}
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            </details>
             <details className={styles.notebook}>
               <summary>
                 <BookOpen size={14} /> 단서 수첩 <span>{completedTasks.length}</span>
@@ -466,6 +502,20 @@ export function EnglishPlayer({
                 )}
               </div>
             </details>
+            {!!episode.cast?.length && (
+              <details className={styles.cast}>
+                <summary>등장인물</summary>
+                {episode.cast.map((person) => (
+                  <div key={person.name}>
+                    <strong>
+                      {person.name}
+                      <span>{person.role}</span>
+                    </strong>
+                    <p>{person.motivation}</p>
+                  </div>
+                ))}
+              </details>
+            )}
           </div>
           {chapterOpening && error && (
             <div className={styles.error} role="alert">
@@ -485,6 +535,7 @@ export function EnglishPlayer({
                 {chapters.findIndex((chapter) => chapter.id === storyChapter.id) + 1} /{" "}
                 {chapters.length}
               </p>
+              <p className={styles.sectionLabel}>먼저, 이야기 속으로</p>
               <h2>{storyChapter.title}</h2>
               <div className={styles.storyProse}>
                 {storyParagraphs(locale === "en" ? storyChapter.storyEn : storyChapter.story).map(
@@ -522,20 +573,6 @@ export function EnglishPlayer({
                   {audioError}
                 </p>
               )}
-              {!!episode.cast?.length && (
-                <details className={styles.cast}>
-                  <summary>등장인물</summary>
-                  {episode.cast.map((person) => (
-                    <div key={person.name}>
-                      <strong>
-                        {person.name}
-                        <span>{person.role}</span>
-                      </strong>
-                      <p>{person.motivation}</p>
-                    </div>
-                  ))}
-                </details>
-              )}
               <button
                 type="button"
                 className={styles.primary}
@@ -547,7 +584,7 @@ export function EnglishPlayer({
                   focusWorkspace();
                 }}
               >
-                {viewedChapterId ? "진행하던 곳으로" : "계속하기"}
+                {viewedChapterId ? "진행하던 곳으로" : "이 장면에서 해 볼 일"}
                 <ArrowRight size={17} />
               </button>
               <p className={styles.note}>
@@ -579,45 +616,6 @@ export function EnglishPlayer({
                   Lv.{growth.level} · {progress.xp} XP
                 </b>
               </div>
-              <h3>다시 써 볼 표현</h3>
-              {episode.expressions.map((e) => (
-                <div className={styles.expression} key={e.id}>
-                  <p lang="en">{e.en}</p>
-                  <span>{e.ko}</span>
-                </div>
-              ))}
-              <p className={styles.note}>
-                {accountKey
-                  ? "배운 표현은 복습 목록에 담겼어요. 복습 시간이 되면 다시 꺼내 보세요."
-                  : "이번 기록은 이 화면에만 남아요. 로그인하고 공부하면 다음에도 이어할 수 있어요."}
-              </p>
-              {episode.debrief && (
-                <section className={styles.debrief} aria-labelledby="transfer-title">
-                  <p className={styles.eyebrow}>ONE MORE TRY</p>
-                  <h3 id="transfer-title">다른 상황에서도 써 볼까요?</h3>
-                  <p>{episode.debrief.question}</p>
-                  <label htmlFor="english-transfer">내 영어 답변</label>
-                  <textarea
-                    id="english-transfer"
-                    value={transferAnswer}
-                    onChange={(event) => setTransferAnswer(event.target.value)}
-                    lang="en"
-                    rows={4}
-                    maxLength={1200}
-                    className={styles.textarea}
-                    placeholder="Try your own response…"
-                    data-english-user-content
-                  />
-                  <details>
-                    <summary>예문 보기</summary>
-                    <p lang="en">{episode.debrief.model}</p>
-                    {locale === "ko" && <p>{episode.debrief.modelKo}</p>}
-                  </details>
-                  <p className={styles.note}>
-                    자유롭게 써 보세요. 이 답변은 저장하거나 채점하지 않아요.
-                  </p>
-                </section>
-              )}
               <div className={styles.endActions}>
                 <Link
                   href={
@@ -671,6 +669,48 @@ export function EnglishPlayer({
                   <RotateCcw size={14} /> 처음부터 다시 하기
                 </button>
               </div>
+              <h3>다시 써 볼 표현</h3>
+              {episode.expressions.map((e) => (
+                <div className={styles.expression} key={e.id}>
+                  <p lang="en">{e.en}</p>
+                  {locale === "ko" && <span>{e.ko}</span>}
+                </div>
+              ))}
+              <p className={styles.note}>
+                {accountKey
+                  ? "배운 표현은 복습 목록에 담겼어요. 복습 시간이 되면 다시 꺼내 보세요."
+                  : "이번 기록은 이 화면에만 남아요. 로그인하고 공부하면 다음에도 이어할 수 있어요."}
+              </p>
+              {episode.debrief && (
+                <details className={styles.transfer}>
+                  <summary>다른 상황에서도 한 번 더 · 선택</summary>
+                  <section className={styles.debrief} aria-labelledby="transfer-title">
+                    <p className={styles.eyebrow}>ONE MORE TRY</p>
+                    <h3 id="transfer-title">다른 상황에서도 써 볼까요?</h3>
+                    <p>{episode.debrief.question}</p>
+                    <label htmlFor="english-transfer">내 영어 답변</label>
+                    <textarea
+                      id="english-transfer"
+                      value={transferAnswer}
+                      onChange={(event) => setTransferAnswer(event.target.value)}
+                      lang="en"
+                      rows={4}
+                      maxLength={1200}
+                      className={styles.textarea}
+                      placeholder="Try your own response…"
+                      data-english-user-content
+                    />
+                    <details>
+                      <summary>예문 보기</summary>
+                      <p lang="en">{episode.debrief.model}</p>
+                      {locale === "ko" && <p>{episode.debrief.modelKo}</p>}
+                    </details>
+                    <p className={styles.note}>
+                      자유롭게 써 보세요. 이 답변은 저장하거나 채점하지 않아요.
+                    </p>
+                  </section>
+                </details>
+              )}
             </div>
           ) : (
             task &&
@@ -685,26 +725,37 @@ export function EnglishPlayer({
                     {index + 1} / {total}
                   </span>
                 </div>
+                <p className={styles.sectionLabel}>지금 할 일</p>
                 <h2>{task.title}</h2>
                 <p className={styles.context}>{task.context}</p>
-                <fieldset className={styles.difficulty}>
-                  <legend>나에게 맞는 난이도</legend>
-                  {englishLevels.map((l) => (
-                    <button
-                      type="button"
-                      key={l.id}
-                      disabled={busy || !!feedback?.correct || recording}
-                      aria-pressed={level === l.id}
-                      className={level === l.id ? styles.selected : ""}
-                      onClick={() => {
-                        setLevel(l.id);
-                        resetTask();
-                      }}
-                    >
-                      {l.label}
-                    </button>
-                  ))}
-                </fieldset>
+                <p className={styles.actionCue}>{actionCue}</p>
+                <details className={styles.settings}>
+                  <summary>
+                    난이도 <strong>{englishLevels.find((item) => item.id === level)?.label}</strong>
+                  </summary>
+                  <fieldset className={styles.difficulty}>
+                    <legend>나에게 맞는 난이도</legend>
+                    {englishLevels.map((l) => (
+                      <button
+                        type="button"
+                        key={l.id}
+                        disabled={busy || !!feedback?.correct || recording}
+                        aria-pressed={level === l.id}
+                        className={level === l.id ? styles.selected : ""}
+                        onClick={() => {
+                          setLevel(l.id);
+                          resetTask();
+                        }}
+                      >
+                        {l.label}
+                      </button>
+                    ))}
+                  </fieldset>
+                  <p className={styles.note}>
+                    {englishLevels.find((item) => item.id === level)?.description}
+                  </p>
+                </details>
+                <p className={styles.sectionLabel}>읽고 들을 자료</p>
                 <div className={styles.document}>
                   <span className={styles.documentLabel}>
                     {task.document || task.speaker || "STORY NOTE"}
@@ -728,6 +779,7 @@ export function EnglishPlayer({
                           {version.passage}
                         </p>
                       </details>
+                      <p className={styles.note}>소리를 듣기 어렵다면 대본을 펼쳐도 괜찮아요.</p>
                     </>
                   ) : (
                     <>
@@ -752,119 +804,127 @@ export function EnglishPlayer({
                     {audioError}
                   </p>
                 )}
-                <p className={styles.prompt}>{version.prompt}</p>
-                {version.options ? (
-                  <div className={styles.options}>
-                    {version.options.map((o, i) => (
-                      <button
-                        type="button"
-                        key={o.id}
+                <section className={styles.responseSection} aria-labelledby="english-task-prompt">
+                  <p className={styles.sectionLabel}>이제, 내 반응</p>
+                  <h3 id="english-task-prompt" className={styles.prompt}>
+                    {version.prompt}
+                  </h3>
+                  {version.options ? (
+                    <div className={styles.options}>
+                      {version.options.map((o, i) => (
+                        <button
+                          type="button"
+                          key={o.id}
+                          disabled={busy || !!feedback?.correct}
+                          aria-pressed={answer === o.id}
+                          className={answer === o.id ? styles.selected : ""}
+                          onClick={() => {
+                            setAnswer(o.id);
+                            setFeedback(null);
+                          }}
+                        >
+                          <span>{String.fromCharCode(65 + i)}</span>
+                          <span lang="en">{o.text}</span>
+                          {answer === o.id && <Check size={16} />}
+                        </button>
+                      ))}
+                    </div>
+                  ) : task.skill === "writing" ? (
+                    <>
+                      <label className={styles.inputLabel} htmlFor="english-response">
+                        내 영어 답변
+                      </label>
+                      <textarea
+                        id="english-response"
+                        lang="en"
+                        value={answer}
+                        maxLength={1200}
                         disabled={busy || !!feedback?.correct}
-                        aria-pressed={answer === o.id}
-                        className={answer === o.id ? styles.selected : ""}
-                        onClick={() => {
-                          setAnswer(o.id);
+                        placeholder={version.starter || "Write your message here…"}
+                        onChange={(e) => {
+                          setAnswer(e.target.value);
                           setFeedback(null);
                         }}
-                      >
-                        <span>{String.fromCharCode(65 + i)}</span>
-                        <span lang="en">{o.text}</span>
-                        {answer === o.id && <Check size={16} />}
-                      </button>
-                    ))}
-                  </div>
-                ) : task.skill === "writing" ? (
-                  <>
-                    <label className={styles.inputLabel} htmlFor="english-response">
-                      내 영어 답변
-                    </label>
-                    <textarea
-                      id="english-response"
-                      lang="en"
-                      value={answer}
-                      maxLength={1200}
-                      disabled={busy || !!feedback?.correct}
-                      placeholder={version.starter || "Write your message here…"}
-                      onChange={(e) => {
-                        setAnswer(e.target.value);
-                        setFeedback(null);
-                      }}
-                      className={styles.textarea}
-                      rows={4}
-                    />
-                    <p className={styles.note}>
-                      꼭 필요한 내용이 들어갔는지 확인해요. 문법을 모두 채점하지는 않아요.
-                    </p>
-                  </>
-                ) : (
-                  <div className={styles.speakArea}>
-                    <button
-                      type="button"
-                      className={styles.secondary}
-                      onClick={startRecording}
-                      disabled={busy || !!feedback?.correct}
-                    >
-                      <Mic size={16} />
-                      {recording
-                        ? "녹음 마치기"
-                        : recordingUrl
-                          ? "다시 녹음하기"
-                          : "녹음하며 말하기"}
-                    </button>
-                    {recording && <p role="status">녹음 중 · 최대 60초</p>}
-                    {recordingUrl && (
-                      <audio controls src={recordingUrl} aria-label="내 영어 녹음 다시 듣기" />
-                    )}
-                    {recordingError && (
-                      <p className={styles.note} role="status">
-                        {recordingError}
-                      </p>
-                    )}
-                    <p className={styles.note}>
-                      녹음 없이 말해도 돼요. 녹음 파일은 서버에 보내지 않아요.
-                    </p>
-                    <label className={styles.confirm}>
-                      <input
-                        type="checkbox"
-                        checked={confirmed}
-                        disabled={recording || busy || !!feedback?.correct}
-                        onChange={(e) => setConfirmed(e.target.checked)}
+                        className={styles.textarea}
+                        rows={4}
                       />
-                      직접 소리 내어 말해 봤어요.
-                    </label>
-                    <p className={styles.note}>
-                      말한 뒤 직접 체크해 주세요. 발음 점수는 매기지 않아요.
-                    </p>
-                  </div>
-                )}
-                <div className={styles.helpRow}>
-                  <button
-                    type="button"
-                    className={styles.textButton}
-                    onClick={() => setHint(!hint)}
-                  >
-                    {hint ? "도움 접기" : "뜻과 예문 보기"}
-                  </button>
-                  <span>힌트를 써도 괜찮아요.</span>
-                </div>
-                {hint && !version.options && (
-                  <div className={styles.model}>
-                    <span>이렇게 말할 수도 있어요</span>
-                    <p lang="en">{version.model}</p>
+                      <p className={styles.note}>
+                        꼭 필요한 내용이 들어갔는지 확인해요. 문법을 모두 채점하지는 않아요.
+                      </p>
+                    </>
+                  ) : (
+                    <div className={styles.speakArea}>
+                      <button
+                        type="button"
+                        className={styles.secondary}
+                        onClick={startRecording}
+                        disabled={busy || !!feedback?.correct}
+                      >
+                        <Mic size={16} />
+                        {recording
+                          ? "녹음 마치기"
+                          : recordingUrl
+                            ? "다시 녹음하기"
+                            : "녹음하며 말하기"}
+                      </button>
+                      {recording && <p role="status">녹음 중 · 최대 60초</p>}
+                      {recordingUrl && (
+                        <audio controls src={recordingUrl} aria-label="내 영어 녹음 다시 듣기" />
+                      )}
+                      {recordingError && (
+                        <p className={styles.note} role="status">
+                          {recordingError}
+                        </p>
+                      )}
+                      <p className={styles.note}>
+                        녹음 없이 말해도 돼요. 녹음 파일은 서버에 보내지 않아요.
+                      </p>
+                      <label className={styles.confirm}>
+                        <input
+                          type="checkbox"
+                          checked={confirmed}
+                          disabled={recording || busy || !!feedback?.correct}
+                          onChange={(e) => setConfirmed(e.target.checked)}
+                        />
+                        직접 소리 내어 말해 봤어요.
+                      </label>
+                      <p className={styles.note}>
+                        말한 뒤 직접 체크해 주세요. 발음 점수는 매기지 않아요.
+                      </p>
+                    </div>
+                  )}
+                  <div className={styles.helpRow}>
                     <button
                       type="button"
                       className={styles.textButton}
-                      onClick={() => listen(version.model)}
+                      onClick={() => setHint(!hint)}
                     >
-                      <Volume2 size={14} /> 예문 듣기
+                      {hint ? "도움 접기" : "뜻과 예문 보기"}
                     </button>
+                    <span>힌트를 써도 괜찮아요.</span>
                   </div>
-                )}
+                  {hint && !version.options && (
+                    <div className={styles.model}>
+                      <span>이렇게 말할 수도 있어요</span>
+                      <p lang="en">{version.model}</p>
+                      <button
+                        type="button"
+                        className={styles.textButton}
+                        onClick={() => listen(version.model)}
+                      >
+                        <Volume2 size={14} /> 예문 듣기
+                      </button>
+                    </div>
+                  )}
+                </section>
                 {feedback && (
                   <div
                     className={`${styles.feedback} ${feedback.correct ? styles.correct : ""}`}
                     role="status"
                   >
+                    <p className={styles.sectionLabel}>
+                      {feedback.correct ? "반응이 만든 변화" : "다시 해 볼 수 있어요"}
+                    </p>
                     <strong>
                       {feedback.correct
                         ? task.skill === "speaking"
@@ -884,7 +944,12 @@ export function EnglishPlayer({
                           </p>
                         ) : null;
                       })}
-                    {feedback.correct && <p>{feedback.consequence}</p>}
+                    {feedback.correct && (
+                      <div className={styles.consequence}>
+                        <strong>그다음, 이야기에서는</strong>
+                        <p>{feedback.consequence}</p>
+                      </div>
+                    )}
                   </div>
                 )}
                 {error && (
@@ -916,7 +981,7 @@ export function EnglishPlayer({
                         focusWorkspace();
                       }}
                     >
-                      {index + 1 === total ? "결말 보기" : "계속하기"}
+                      {upcomingTask ? "다음 활동으로" : "결말 보기"}
                       <ArrowRight size={17} />
                     </button>
                   ) : (
@@ -941,6 +1006,11 @@ export function EnglishPlayer({
                   )}
                   <span>{accountKey ? "학습 기록 저장" : "체험 중"}</span>
                 </div>
+                {feedback?.correct && upcomingTask && (
+                  <p className={styles.nextCue}>
+                    <span>다음 활동</span> {upcomingTask.title}
+                  </p>
+                )}
               </>
             )
           )}

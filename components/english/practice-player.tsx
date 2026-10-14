@@ -88,11 +88,31 @@ export function PracticePlayer({
   const tokens = version?.tokens || [];
   const assembled = practiceSentence(tokens, selected);
   const finished = index >= pack.tasks.length;
+  const completed = new Set(progress.episodes[pack.id]?.completedTasks || []);
+  const completedCount = pack.tasks.filter((candidate) => completed.has(candidate.id)).length;
+  const paceCount = replaying
+    ? Math.min(index + (feedback?.correct ? 1 : 0), pack.tasks.length)
+    : completedCount;
   const growth = getEnglishGrowth(progress);
   const course = getEnglishCourse(courseId || "");
   const followUp = course ? getCourseFollowUp(course, progress, pack.id, !!accountKey) : undefined;
   const loginReturn = getCourseHref(pack.id, level, { courseId, replay })!;
   const Icon = task ? icons[task.skill] : Check;
+  const actionCue = tokens.length
+    ? "조각을 연결해 문장을 만들고 확인해요."
+    : task?.skill === "speaking"
+      ? "소리 내어 말한 뒤 아래 확인을 체크해요."
+      : task?.skill === "listening"
+        ? "먼저 듣고 알맞은 답을 골라요."
+        : version?.options
+          ? "자료를 살펴보고 알맞은 답을 골라요."
+          : "전하고 싶은 내용을 짧게 영어로 써 봐요.";
+  const upcomingIndex = replaying
+    ? index + 1
+    : pack.tasks.findIndex(
+        (candidate, position) => position > index && !completed.has(candidate.id),
+      );
+  const upcomingTask = pack.tasks[upcomingIndex];
   const locked = busy || !!feedback?.correct;
   const invalidateSpeech = useCallback(() => {
     speechGeneration.current++;
@@ -260,27 +280,46 @@ export function PracticePlayer({
                 : "하루 한 장 리딩"}
           </p>
           <h1>{pack.title}</h1>
-          <p>{pack.synopsis}</p>
-          <ol aria-label="연습 진행 단계">
-            {pack.tasks.map((candidate, position) => {
-              const Skill = icons[candidate.skill];
-              const done = progress.episodes[pack.id]?.completedTasks.includes(candidate.id);
-              return (
-                <li key={candidate.id} aria-current={position === index ? "step" : undefined}>
-                  <span>{done ? <Check size={16} aria-hidden="true" /> : position + 1}</span>
-                  <div>
-                    <strong>{candidate.title}</strong>
-                    <small>
-                      <Skill size={12} aria-hidden="true" />
-                      {englishSkills[candidate.skill].label}
-                    </small>
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
+          <details className={styles.overview}>
+            <summary>이 연습에서 해 볼 일</summary>
+            <p>{pack.synopsis}</p>
+          </details>
+          <div className={styles.pace}>
+            <div>
+              <strong>{replaying ? "이번 다시 연습" : "연습 진도"}</strong>
+              <span>
+                {paceCount} / {pack.tasks.length}
+              </span>
+            </div>
+            <progress
+              value={paceCount}
+              max={pack.tasks.length}
+              aria-label={replaying ? "이번 다시 연습" : "연습 진도"}
+            />
+          </div>
+          <details className={styles.outlineSteps}>
+            <summary>연습 목차</summary>
+            <ol aria-label="연습 진행 단계">
+              {pack.tasks.map((candidate, position) => {
+                const Skill = icons[candidate.skill];
+                const done = completed.has(candidate.id);
+                return (
+                  <li key={candidate.id} aria-current={position === index ? "step" : undefined}>
+                    <span>{done ? <Check size={16} aria-hidden="true" /> : position + 1}</span>
+                    <div>
+                      <strong>{candidate.title}</strong>
+                      <small>
+                        <Skill size={12} aria-hidden="true" />
+                        {englishSkills[candidate.skill].label}
+                      </small>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          </details>
           <p className={styles.note}>
-            예상 {pack.minutes}분 · 4단계
+            예상 {pack.minutes}분 · {pack.tasks.length}단계
             <br />
             짧게 연습하고, 다음에 또 써 보세요.
           </p>
@@ -291,6 +330,11 @@ export function PracticePlayer({
           tabIndex={-1}
           aria-label="집중 영어 연습"
         >
+          <ol className={styles.flow} aria-label="이 연습의 학습 흐름">
+            <li>자료</li>
+            <li aria-current={!finished && !feedback?.correct ? "step" : undefined}>내 반응</li>
+            <li aria-current={finished || feedback?.correct ? "step" : undefined}>결과</li>
+          </ol>
           {finished ? (
             <div className={styles.finished}>
               <span className={styles.stamp}>
@@ -312,26 +356,6 @@ export function PracticePlayer({
                   {progress.xp} XP · {growth.completedPractices}개 연습 완료
                 </b>
               </div>
-              <h3>다시 써 볼 표현</h3>
-              {pack.expressions.map((expression) => (
-                <div className={styles.expression} key={expression.id}>
-                  <p lang="en">{expression.en}</p>
-                  {locale === "ko" && <span>{expression.ko}</span>}
-                  <button
-                    type="button"
-                    className={styles.textButton}
-                    onClick={() => listen(expression.en)}
-                  >
-                    <Volume2 size={14} aria-hidden="true" />
-                    예문 듣기
-                  </button>
-                </div>
-              ))}
-              <p className={styles.note}>
-                {accountKey
-                  ? "배운 표현은 복습 시간이 되면 다시 연습할 수 있어요."
-                  : "이번 기록은 이 화면에만 남아요. 로그인하고 공부하면 다음에도 이어할 수 있어요."}
-              </p>
               <div className={styles.endActions}>
                 <Link
                   className={styles.primary}
@@ -374,6 +398,26 @@ export function PracticePlayer({
                   <RotateCcw size={14} aria-hidden="true" />한 번 더 연습하기
                 </button>
               </div>
+              <h3>다시 써 볼 표현</h3>
+              {pack.expressions.map((expression) => (
+                <div className={styles.expression} key={expression.id}>
+                  <p lang="en">{expression.en}</p>
+                  {locale === "ko" && <span>{expression.ko}</span>}
+                  <button
+                    type="button"
+                    className={styles.textButton}
+                    onClick={() => listen(expression.en)}
+                  >
+                    <Volume2 size={14} aria-hidden="true" />
+                    예문 듣기
+                  </button>
+                </div>
+              ))}
+              <p className={styles.note}>
+                {accountKey
+                  ? "배운 표현은 복습 시간이 되면 다시 연습할 수 있어요."
+                  : "이번 기록은 이 화면에만 남아요. 로그인하고 공부하면 다음에도 이어할 수 있어요."}
+              </p>
             </div>
           ) : (
             task &&
@@ -388,25 +432,36 @@ export function PracticePlayer({
                     {index + 1} / {pack.tasks.length}
                   </span>
                 </div>
+                <p className={styles.sectionLabel}>지금 할 일</p>
                 <h2>{task.title}</h2>
                 <p className={styles.context}>{task.context}</p>
-                <fieldset className={styles.difficulty}>
-                  <legend>나에게 맞는 난이도</legend>
-                  {englishLevels.map((item) => (
-                    <button
-                      type="button"
-                      key={item.id}
-                      aria-pressed={level === item.id}
-                      disabled={locked}
-                      onClick={() => {
-                        setLevel(item.id);
-                        reset();
-                      }}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </fieldset>
+                <p className={styles.actionCue}>{actionCue}</p>
+                <details className={styles.settings}>
+                  <summary>
+                    난이도 <strong>{englishLevels.find((item) => item.id === level)?.label}</strong>
+                  </summary>
+                  <fieldset className={styles.difficulty}>
+                    <legend>나에게 맞는 난이도</legend>
+                    {englishLevels.map((item) => (
+                      <button
+                        type="button"
+                        key={item.id}
+                        aria-pressed={level === item.id}
+                        disabled={locked}
+                        onClick={() => {
+                          setLevel(item.id);
+                          reset();
+                        }}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </fieldset>
+                  <p className={styles.note}>
+                    {englishLevels.find((item) => item.id === level)?.description}
+                  </p>
+                </details>
+                <p className={styles.sectionLabel}>읽고 들을 자료</p>
                 <div className={styles.material}>
                   <span>{task.document || task.speaker || "PRACTICE NOTE"}</span>
                   {task.skill === "listening" ? (
@@ -428,6 +483,7 @@ export function PracticePlayer({
                           {version.passage}
                         </p>
                       </details>
+                      <p className={styles.note}>소리를 듣기 어렵다면 대본을 펼쳐도 괜찮아요.</p>
                     </>
                   ) : (
                     <>
@@ -474,168 +530,176 @@ export function PracticePlayer({
                     {audioError}
                   </p>
                 )}
-                <p className={styles.prompt}>{version.prompt}</p>
-                {tokens.length > 0 ? (
-                  <div className={styles.sentenceArea}>
-                    <p>조각을 눌러 문장을 만드세요. 다시 누르면 빠져요.</p>
-                    <div className={styles.sentence}>
-                      <output aria-live="polite">
-                        {assembled || "조각을 골라 문장을 만들어 보세요."}
-                      </output>
-                      <div>
-                        {selected.map((id) => (
+                <section className={styles.responseSection} aria-labelledby="practice-task-prompt">
+                  <p className={styles.sectionLabel}>이제, 내 반응</p>
+                  <h3 id="practice-task-prompt" className={styles.prompt}>
+                    {version.prompt}
+                  </h3>
+                  {tokens.length > 0 ? (
+                    <div className={styles.sentenceArea}>
+                      <p>조각을 눌러 문장을 만드세요. 다시 누르면 빠져요.</p>
+                      <div className={styles.sentence}>
+                        <output aria-live="polite">
+                          {assembled || "조각을 골라 문장을 만들어 보세요."}
+                        </output>
+                        <div>
+                          {selected.map((id) => (
+                            <button
+                              type="button"
+                              key={id}
+                              disabled={locked}
+                              aria-label={`${tokens[id]} · 조각 빼기`}
+                              onClick={() => {
+                                setSelected((previous) => previous.filter((value) => value !== id));
+                                setFeedback(null);
+                              }}
+                            >
+                              {tokens[id]}
+                              <span aria-hidden="true">×</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                      <div className={styles.tokenPool} aria-label="사용할 문장 조각">
+                        {practiceTokenPool(tokens).map((token) => (
                           <button
+                            key={token.id}
                             type="button"
-                            key={id}
-                            disabled={locked}
-                            aria-label={`${tokens[id]} · 조각 빼기`}
+                            disabled={locked || selected.includes(token.id)}
+                            aria-label={`${token.text} · 조각 넣기`}
                             onClick={() => {
-                              setSelected((previous) => previous.filter((value) => value !== id));
+                              setSelected((previous) =>
+                                previous.includes(token.id) ? previous : [...previous, token.id],
+                              );
                               setFeedback(null);
                             }}
                           >
-                            {tokens[id]}
-                            <span aria-hidden="true">×</span>
+                            {token.text}
                           </button>
                         ))}
                       </div>
-                    </div>
-                    <div className={styles.tokenPool} aria-label="사용할 문장 조각">
-                      {practiceTokenPool(tokens).map((token) => (
+                      <div className={styles.tokenActions}>
                         <button
-                          key={token.id}
                           type="button"
-                          disabled={locked || selected.includes(token.id)}
-                          aria-label={`${token.text} · 조각 넣기`}
+                          disabled={locked || !selected.length}
                           onClick={() => {
-                            setSelected((previous) =>
-                              previous.includes(token.id) ? previous : [...previous, token.id],
-                            );
+                            setSelected((previous) => previous.slice(0, -1));
                             setFeedback(null);
                           }}
                         >
-                          {token.text}
+                          하나 되돌리기
+                        </button>
+                        <button
+                          type="button"
+                          disabled={locked || !selected.length}
+                          onClick={() => {
+                            setSelected([]);
+                            setFeedback(null);
+                          }}
+                        >
+                          처음부터
+                        </button>
+                      </div>
+                    </div>
+                  ) : version.options ? (
+                    <div className={styles.options}>
+                      {version.options.map((option, position) => (
+                        <button
+                          type="button"
+                          key={option.id}
+                          disabled={locked}
+                          aria-pressed={answer === option.id}
+                          onClick={() => {
+                            setAnswer(option.id);
+                            setFeedback(null);
+                          }}
+                        >
+                          <span>{String.fromCharCode(65 + position)}</span>
+                          <span lang="en">{option.text}</span>
+                          {answer === option.id && <Check size={15} aria-hidden="true" />}
                         </button>
                       ))}
                     </div>
-                    <div className={styles.tokenActions}>
-                      <button
-                        type="button"
-                        disabled={locked || !selected.length}
-                        onClick={() => {
-                          setSelected((previous) => previous.slice(0, -1));
-                          setFeedback(null);
-                        }}
-                      >
-                        하나 되돌리기
-                      </button>
-                      <button
-                        type="button"
-                        disabled={locked || !selected.length}
-                        onClick={() => {
-                          setSelected([]);
-                          setFeedback(null);
-                        }}
-                      >
-                        처음부터
-                      </button>
-                    </div>
-                  </div>
-                ) : version.options ? (
-                  <div className={styles.options}>
-                    {version.options.map((option, position) => (
-                      <button
-                        type="button"
-                        key={option.id}
-                        disabled={locked}
-                        aria-pressed={answer === option.id}
-                        onClick={() => {
-                          setAnswer(option.id);
-                          setFeedback(null);
-                        }}
-                      >
-                        <span>{String.fromCharCode(65 + position)}</span>
-                        <span lang="en">{option.text}</span>
-                        {answer === option.id && <Check size={15} aria-hidden="true" />}
-                      </button>
-                    ))}
-                  </div>
-                ) : task.skill === "speaking" ? (
-                  <div className={styles.speakArea}>
-                    <p>이제 내 차례예요. 영어로 소리 내어 말해 보세요.</p>
-                    <details>
-                      <summary>막히면 예문 보기</summary>
-                      <p lang="en" className={styles.passage}>
-                        {version.model}
+                  ) : task.skill === "speaking" ? (
+                    <div className={styles.speakArea}>
+                      <p>이제 내 차례예요. 영어로 소리 내어 말해 보세요.</p>
+                      <details>
+                        <summary>막히면 예문 보기</summary>
+                        <p lang="en" className={styles.passage}>
+                          {version.model}
+                        </p>
+                        <button
+                          type="button"
+                          className={styles.textButton}
+                          onClick={() => listen(version.model)}
+                        >
+                          <Volume2 size={14} aria-hidden="true" />
+                          예문 듣기
+                        </button>
+                      </details>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={confirmed}
+                          disabled={locked}
+                          onChange={(event) => setConfirmed(event.target.checked)}
+                        />
+                        직접 소리 내어 말해 봤어요.
+                      </label>
+                      <p className={styles.note}>
+                        말한 뒤 직접 체크해 주세요. 음성은 보내지 않고, 발음은 채점하지 않아요.
                       </p>
+                    </div>
+                  ) : (
+                    <>
+                      <label className={styles.inputLabel} htmlFor="practice-response">
+                        내 영어 답변
+                      </label>
+                      <textarea
+                        id="practice-response"
+                        className={styles.textarea}
+                        lang="en"
+                        rows={4}
+                        maxLength={1200}
+                        value={answer}
+                        disabled={locked}
+                        onChange={(event) => {
+                          setAnswer(event.target.value);
+                          setFeedback(null);
+                        }}
+                        placeholder={version.starter || "Write your answer here…"}
+                        data-english-user-content
+                      />
+                      <p className={styles.note}>
+                        꼭 필요한 내용이 들어갔는지 확인해요. 문법을 모두 채점하지는 않아요.
+                      </p>
+                    </>
+                  )}
+                  {task.skill !== "speaking" && !version.options && (
+                    <div className={styles.help}>
                       <button
                         type="button"
                         className={styles.textButton}
-                        onClick={() => listen(version.model)}
+                        onClick={() => setHint(!hint)}
                       >
-                        <Volume2 size={14} aria-hidden="true" />
-                        예문 듣기
+                        {hint ? "예문 접기" : "예문 보기"}
                       </button>
-                    </details>
-                    <label>
-                      <input
-                        type="checkbox"
-                        checked={confirmed}
-                        disabled={locked}
-                        onChange={(event) => setConfirmed(event.target.checked)}
-                      />
-                      직접 소리 내어 말해 봤어요.
-                    </label>
-                    <p className={styles.note}>
-                      말한 뒤 직접 체크해 주세요. 음성은 보내지 않고, 발음은 채점하지 않아요.
-                    </p>
-                  </div>
-                ) : (
-                  <>
-                    <label className={styles.inputLabel} htmlFor="practice-response">
-                      내 영어 답변
-                    </label>
-                    <textarea
-                      id="practice-response"
-                      className={styles.textarea}
-                      lang="en"
-                      rows={4}
-                      maxLength={1200}
-                      value={answer}
-                      disabled={locked}
-                      onChange={(event) => {
-                        setAnswer(event.target.value);
-                        setFeedback(null);
-                      }}
-                      placeholder={version.starter || "Write your answer here…"}
-                      data-english-user-content
-                    />
-                    <p className={styles.note}>
-                      꼭 필요한 내용이 들어갔는지 확인해요. 문법을 모두 채점하지는 않아요.
-                    </p>
-                  </>
-                )}
-                {task.skill !== "speaking" && !version.options && (
-                  <div className={styles.help}>
-                    <button
-                      type="button"
-                      className={styles.textButton}
-                      onClick={() => setHint(!hint)}
-                    >
-                      {hint ? "예문 접기" : "예문 보기"}
-                    </button>
-                    {hint && (
-                      <p lang="en" className={styles.passage}>
-                        {version.model}
-                      </p>
-                    )}
-                  </div>
-                )}
+                      {hint && (
+                        <p lang="en" className={styles.passage}>
+                          {version.model}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </section>
                 {feedback && (
                   <div
                     className={`${styles.feedback} ${feedback.correct ? styles.correct : ""}`}
                     role="status"
                   >
+                    <p className={styles.sectionLabel}>
+                      {feedback.correct ? "다음 상황으로" : "다시 해 볼 수 있어요"}
+                    </p>
                     <strong>
                       {feedback.correct ? "한 단계 마쳤어요." : "다시 확인해 볼까요?"}
                     </strong>
@@ -645,7 +709,9 @@ export function PracticePlayer({
                         <p lang="en" className={styles.passage}>
                           {version.model}
                         </p>
-                        <p>{feedback.consequence}</p>
+                        <div className={styles.consequence}>
+                          <p>{feedback.consequence}</p>
+                        </div>
                       </>
                     )}
                   </div>
@@ -653,7 +719,7 @@ export function PracticePlayer({
                 <div className={styles.bottom}>
                   {feedback?.correct ? (
                     <button type="button" className={styles.primary} onClick={next}>
-                      {index + 1 === pack.tasks.length ? "연습 마치기" : "계속하기"}
+                      {upcomingTask ? "다음 활동으로" : "연습 마치기"}
                       <ArrowRight size={16} aria-hidden="true" />
                     </button>
                   ) : (
@@ -681,6 +747,11 @@ export function PracticePlayer({
                   )}
                   <span>{accountKey ? "학습 기록 저장" : "체험 중"}</span>
                 </div>
+                {feedback?.correct && upcomingTask && (
+                  <p className={styles.nextCue}>
+                    <span>다음 활동</span> {upcomingTask.title}
+                  </p>
+                )}
               </>
             )
           )}

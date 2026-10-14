@@ -266,6 +266,10 @@ test("all authored story versions, practice UI, growth labels, and feedback have
       "en-review-queue.json",
       "en-study-navigation.json",
       "en-library.json",
+      "en-home-v2.json",
+      "en-player-v2.json",
+      "en-discovery-v2.json",
+      "en-story-polish.json",
     ].map((file) =>
       JSON.parse(readFileSync(new URL(`../lib/i18n/${file}`, import.meta.url), "utf8")),
     ),
@@ -297,6 +301,7 @@ test("all authored story versions, practice UI, growth labels, and feedback have
   }
   for (const file of [
     "components/english/player.tsx",
+    "components/english/hub.tsx",
     "components/english/review.tsx",
     "components/english/courses.tsx",
     "components/english/journal.tsx",

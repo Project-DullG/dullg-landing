@@ -304,3 +304,30 @@
     grid-template-columns: 1fr;
   }
 }
+
+.page {
+  color: #17233b;
+  width: min(100% - 32px, 1160px);
+  max-width: 1160px;
+  padding: 28px 0 64px;
+}
+.heading {
+  padding-top: 30px;
+  border-bottom-color: #e0e4ef;
+}
+.heading h1 {
+  font-family: inherit;
+  font-weight: 750;
+}
+.heading p {
+  color: #66728a;
+}
+.page button,
+.page a {
+  min-height: 44px;
+}
+.page button:focus-visible,
+.page a:focus-visible {
+  outline: 3px solid #5364db;
+  outline-offset: 3px;
+}

@@ -39,7 +39,16 @@ export function englishDiscoveryLibrary(): EnglishDiscoveryItem[] {
       skills: [...new Set(item.tasks.map((task) => task.skill))],
       taskIds: item.tasks.map((task) => task.id),
       chapterCount: item.chapters?.length || 0,
-      cast: (item.cast || []).filter((person) => previewHelpers[item.id]?.includes(person.name)),
+      cast: (item.cast || [])
+        .filter((person) => previewHelpers[item.id]?.includes(person.name))
+        .map((person) =>
+          item.id === "locker-seven" && person.name === "미나"
+            ? {
+                ...person,
+                motivation: "기록을 차근차근 확인하고, 분실물이 맞는 주인에게 돌아가도록 도와요.",
+              }
+            : person,
+        ),
       courseIds: englishCourses
         .filter((course) => course.units.some((unit) => unit.contentId === item.id))
         .map((course) => course.id),

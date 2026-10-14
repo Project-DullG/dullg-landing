@@ -62,6 +62,12 @@ export function getDiscoveryStatus(item: EnglishDiscoveryItem, progress: English
 }
 const searchable = (text: string) =>
   text.normalize("NFKC").toLocaleLowerCase().replace(/[’‘]/g, "'");
+const categoryNames: Record<ContentKind, string> = {
+  story: "이야기 모험 Story adventures",
+  conversation: "실전 회화 Real-life conversation",
+  sentence: "문장과 표현 Sentences and expressions",
+  reading: "읽기와 이해 Reading and understanding",
+};
 export function filterDiscoveryItems(
   items: EnglishDiscoveryItem[],
   filters: LibraryFilters,
@@ -86,6 +92,7 @@ export function filterDiscoveryItems(
         item.englishTitle,
         item.synopsis,
         item.genreLabel,
+        categoryNames[item.kind],
         item.guide.goal.ko,
         item.guide.goal.en,
         item.guide.fit.ko,

@@ -93,7 +93,7 @@ export function Header() {
         </div>
 
         <div className="nav-actions">
-          <Link className="nav-cta" href="/english#journey">
+          <Link className="nav-cta" href="/english/journal">
             {t("나의 학습")}
             <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
           </Link>

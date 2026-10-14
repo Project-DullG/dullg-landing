@@ -9,6 +9,10 @@ import { practiceEnglishDictionary } from "../english/practice.ts";
 import { coursesEnglishDictionary } from "../english/courses.ts";
 import { guidesEnglishDictionary } from "../english/content-guides.ts";
 import libraryDictionary from "./en-library.json" with { type: "json" };
+import homeV2Dictionary from "./en-home-v2.json" with { type: "json" };
+import playerV2Dictionary from "./en-player-v2.json" with { type: "json" };
+import discoveryV2Dictionary from "./en-discovery-v2.json" with { type: "json" };
+import storyPolishDictionary from "./en-story-polish.json" with { type: "json" };
 import studyDictionary from "./en-study.json" with { type: "json" };
 import studyNavigationDictionary from "./en-study-navigation.json" with { type: "json" };
 import reviewQueueDictionary from "./en-review-queue.json" with { type: "json" };
@@ -37,6 +41,10 @@ const messages: Record<string, string> = Object.fromEntries(
     ...studyDictionary,
     ...studyNavigationDictionary,
     ...reviewQueueDictionary,
+    ...homeV2Dictionary,
+    ...playerV2Dictionary,
+    ...discoveryV2Dictionary,
+    ...storyPolishDictionary,
   }).map(([key, value]) => [normalizeText(key), value]),
 );
 export function translateText(text: string, locale: string): string {

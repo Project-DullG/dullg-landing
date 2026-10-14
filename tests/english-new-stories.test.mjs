@@ -139,12 +139,10 @@ test("each story has three coherent chapters, ten globally unique tasks, five ex
       assert.ok(chapter.story.length > 180);
       assert.ok(chapter.storyEn.split(/\s+/).length >= 65);
       assert.ok(chapter.dialogue.length >= 2 && chapter.dialogue.length <= 4);
-      assert.equal(
-        chapter.image,
-        chapter === episode.chapters[2] ? episode.chapters[2].image : episode.image,
-      );
+      assert.match(chapter.image, /^\/assets\/english\/.+\.webp$/);
     }
     assert.notEqual(episode.chapters[2].image, episode.image);
+    assert.equal(new Set(episode.chapters.map((chapter) => chapter.image)).size, 3);
   }
 });
 

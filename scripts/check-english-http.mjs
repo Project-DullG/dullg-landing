@@ -1,7 +1,14 @@
 import assert from "node:assert/strict";
 
 const origin = (process.argv[2] || "http://localhost:3015").replace(/\/$/, "");
-const episodes = ["closed-bookshop", "locker-seven", "moonlight-post"];
+const episodes = [
+  "closed-bookshop",
+  "locker-seven",
+  "moonlight-post",
+  "raincheck-cafe",
+  "midnight-radio",
+  "glasshouse-garden",
+];
 const checks = [
   ["/", "english-title"],
   ["/english", "library-title"],
@@ -11,7 +18,12 @@ const checks = [
   ["/studio", "project-dullg-brand-film-v1.mp4"],
   ["/speaking", "TOEIC"],
   ["/academy", "academy-details-title"],
-  ...episodes.map((id) => [`/english/play/${id}?level=starter`, "READ"]),
+  ["/login?next=%2Fenglish%2Fpractice%2Fconversation-airport", "영어 학습 로그인"],
+  ...episodes.map((id) => [`/english/play/${id}?level=starter`, "CHAPTER"]),
+  ...["conversation-airport", "sentence-requests", "reading-repair"].map((id) => [
+    `/english/practice/${id}?level=starter`,
+    "PRACTICE",
+  ]),
 ];
 for (const [path, marker] of checks) {
   const response = await fetch(`${origin}${path}`, { signal: AbortSignal.timeout(30_000) });
@@ -24,7 +36,21 @@ for (const [path, marker] of checks) {
   }
 }
 assert.equal((await fetch(`${origin}/english/play/not-an-episode`)).status, 404);
-for (const name of ["bookshop", "locker", "moonpost"]) {
+assert.equal((await fetch(`${origin}/english/practice/not-a-pack`)).status, 404);
+for (const name of [
+  "bookshop",
+  "locker",
+  "moonpost",
+  "bookshop-walkway",
+  "locker-platform",
+  "moonpost-lighthouse",
+  "cafe",
+  "cafe-gathering",
+  "radio",
+  "radio-tower",
+  "garden",
+  "garden-courtyard",
+]) {
   const response = await fetch(`${origin}/assets/english/${name}.webp`);
   assert.equal(response.status, 200, name);
   assert.match(response.headers.get("content-type") || "", /image\/webp/);
@@ -63,5 +89,5 @@ function assertPublic(value) {
 }
 assertPublic(publicData.posts);
 console.log(
-  `English HTTP checks passed: ${checks.length} pages, 3 illustrations, guest authorization, Origin checks, public community privacy.`,
+  `English HTTP checks passed: ${checks.length} pages, 12 illustrations, guest authorization, Origin checks, public community privacy.`,
 );

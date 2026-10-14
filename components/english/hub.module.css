@@ -49,6 +49,37 @@
   gap: 24px;
   align-items: stretch;
 }
+.learningNav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.learningNav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 17px;
+  border: 1px solid #cfd6d0;
+  border-radius: 8px;
+  color: #173c31;
+  font-size: 13px;
+  font-weight: 600;
+}
+.learningNav a:hover {
+  background: #edf1e9;
+}
+.learningNav span {
+  font-size: 10px;
+  font-weight: 400;
+  color: #626762;
+}
+.cardStructure {
+  font-size: 10px;
+  color: #626762;
+  margin: 6px 0 10px;
+}
 .leadStory,
 .journey {
   background: #fff;
@@ -922,6 +953,13 @@
   }
 }
 @media (max-width: 700px) {
+  .learningNav {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+  .learningNav a {
+    padding: 12px 16px;
+  }
   .hub {
     padding: 36px 0 44px;
   }

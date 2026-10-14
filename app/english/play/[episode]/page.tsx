@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { Header, Footer } from "@/components/site";
 import { EnglishPlayer } from "@/components/english/player";
-import { getEnglishEpisode } from "@/lib/english/catalog";
+import { englishEpisodes, getEnglishEpisode } from "@/lib/english/catalog";
 import { verifySession } from "@/lib/firebase/auth";
 import { readEnglishProgress, accountKey as englishAccountKey } from "@/lib/english/server";
 import { isEnglishLevel } from "@/lib/english/progress";
@@ -24,7 +24,8 @@ export default async function EnglishEpisodePage({
   searchParams: Promise<{ level?: string; replay?: string }>;
 }) {
   const episode = getEnglishEpisode((await params).episode);
-  if (!episode) notFound();
+  if (!episode || episode.format === "practice") notFound();
+  const next = englishEpisodes[englishEpisodes.findIndex((item) => item.id === episode.id) + 1];
   const requested = await searchParams;
   const requestedLevel = requested.level;
   const session = await verifySession();
@@ -42,12 +43,14 @@ export default async function EnglishEpisodePage({
       <Header />
       <main id="main-content">
         <EnglishPlayer
+          key={episode.id}
           episode={episode}
           initialProgress={progress}
           startingLevel={isEnglishLevel(requestedLevel) ? requestedLevel : undefined}
           accountKey={session ? englishAccountKey(session.uid) : null}
           loadError={loadError}
           replay={requested.replay === "1"}
+          nextEpisode={next ? { id: next.id, title: next.title } : undefined}
         />
       </main>
       <Footer />

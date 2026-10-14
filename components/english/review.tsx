@@ -4,11 +4,11 @@ import { useLocale } from "next-intl";
 import { localizeEnglishTree } from "@/lib/i18n/english-tree";
 import Link from "@/components/i18n/link";
 import { ArrowLeft, ArrowRight, BookOpen, Check, PenLine } from "lucide-react";
-import { englishEpisodes } from "@/lib/english/catalog";
+import { allEnglishContent } from "@/lib/english/catalog";
 import type { EnglishProgress } from "@/lib/english/types";
 import styles from "./review.module.css";
 
-const expressions = englishEpisodes.flatMap((episode) =>
+const expressions = allEnglishContent.flatMap((episode) =>
   episode.expressions.map((expression) => ({ ...expression, episodeTitle: episode.title })),
 );
 export function EnglishReview({

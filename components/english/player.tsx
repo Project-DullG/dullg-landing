@@ -19,6 +19,8 @@ import {
   advanceEnglishProgress,
   emptyEnglishProgress,
   getEnglishGrowth,
+  getEnglishEpisodeStatus,
+  reconcileEnglishProgress,
 } from "@/lib/english/progress";
 import {
   englishLevels,
@@ -31,6 +33,26 @@ import styles from "./player.module.css";
 
 const icons = { reading: BookOpen, listening: Headphones, writing: PenLine, speaking: Mic };
 type Feedback = { correct: boolean; feedback: string; consequence: string };
+// Paragraph breaks change presentation only; the authored words stay intact.
+function storyParagraphs(text: string): string[] {
+  return text
+    .split(/\n+/)
+    .filter(Boolean)
+    .flatMap((paragraph) => {
+      if (paragraph.length <= 400) return [paragraph];
+      const sentences = paragraph.split(/(?<=[.!?])\s+(?=[가-힣A-Z"'“])/u);
+      const groups: string[] = [];
+      let current = "";
+      for (const sentence of sentences) {
+        if (current && current.length + sentence.length > 350) {
+          groups.push(current);
+          current = sentence;
+        } else current = current ? `${current} ${sentence}` : sentence;
+      }
+      if (current) groups.push(current);
+      return groups;
+    });
+}
 export function EnglishPlayer({
   episode,
   initialProgress,
@@ -38,6 +60,7 @@ export function EnglishPlayer({
   loadError = false,
   startingLevel,
   replay = false,
+  nextEpisode,
 }: {
   episode: EnglishEpisode;
   initialProgress: EnglishProgress | null;
@@ -45,26 +68,31 @@ export function EnglishPlayer({
   loadError?: boolean;
   startingLevel?: EnglishLevel;
   replay?: boolean;
+  nextEpisode?: { id: string; title: string };
 }) {
   const locale = useLocale();
-  const [progress, setProgress] = useState(initialProgress || emptyEnglishProgress());
+  const [progress, setProgress] = useState(() =>
+    initialProgress ? reconcileEnglishProgress(initialProgress, [episode]) : emptyEnglishProgress(),
+  );
   const [level, setLevel] = useState<EnglishLevel>(
     startingLevel ||
       initialProgress?.episodes[episode.id]?.level ||
       initialProgress?.preferredLevel ||
       "standard",
   );
-  const first = episode.tasks.findIndex(
-    (t) => !initialProgress?.episodes[episode.id]?.completedTasks.includes(t.id),
-  );
-  const [index, setIndex] = useState(replay ? 0 : first < 0 ? episode.tasks.length : first);
+  const initialStatus = getEnglishEpisodeStatus(initialProgress || emptyEnglishProgress(), episode);
+  const [index, setIndex] = useState(replay ? 0 : initialStatus.firstMissingIndex);
+  const [replaying, setReplaying] = useState(replay);
+  const [introducedChapters, setIntroducedChapters] = useState<string[]>([]);
+  const [viewedChapterId, setViewedChapterId] = useState<string | null>(null);
+  const [transferAnswer, setTransferAnswer] = useState("");
   const [answer, setAnswer] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [hint, setHint] = useState(false);
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(
-    loadError ? "학습 기록을 불러오지 못했습니다. 연결을 다시 확인해 주세요." : "",
+    loadError ? "학습 기록을 불러오지 못했어요. 잠시 후 다시 시도해 주세요." : "",
   );
   const [storageReady, setStorageReady] = useState(!loadError);
   const [speaking, setSpeaking] = useState(false);
@@ -76,6 +104,7 @@ export function EnglishPlayer({
   const stream = useRef<MediaStream | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const mounted = useRef(true);
+  const workspace = useRef<HTMLElement>(null);
   const recordingUrlRef = useRef("");
   const recordingGeneration = useRef(0);
   const task = episode.tasks[index],
@@ -83,6 +112,28 @@ export function EnglishPlayer({
   const growth = getEnglishGrowth(progress),
     total = episode.tasks.length,
     finished = index >= total;
+  const chapters = episode.chapters || [];
+  const currentChapter = finished
+    ? chapters[chapters.length - 1]
+    : chapters.find((chapter) => chapter.id === task?.chapterId);
+  const storyChapter = chapters.find((chapter) => chapter.id === viewedChapterId) || currentChapter;
+  const chapterOpening =
+    !!storyChapter &&
+    (!!viewedChapterId || (!finished && !introducedChapters.includes(storyChapter.id)));
+  const currentChapterIndex = currentChapter
+    ? chapters.findIndex((chapter) => chapter.id === currentChapter.id)
+    : -1;
+  const completed = new Set(progress.episodes[episode.id]?.completedTasks || []);
+  const completedTasks = episode.tasks.filter((candidate) => completed.has(candidate.id));
+  const collectedExpressions = episode.expressions.filter((expression) =>
+    completedTasks.some((candidate) => candidate.expressionIds.includes(expression.id)),
+  );
+  const chapterComplete = (id: string) => {
+    const tasks = episode.tasks.filter((candidate) => candidate.chapterId === id);
+    return tasks.length > 0 && tasks.every((candidate) => completed.has(candidate.id));
+  };
+  const sceneImage = storyChapter?.image || episode.image;
+  const sceneAlt = storyChapter?.imageAlt || episode.imageAlt;
   useEffect(() => {
     mounted.current = true;
     return () => {
@@ -94,6 +145,12 @@ export function EnglishPlayer({
       if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     };
   }, []);
+  function focusWorkspace() {
+    window.requestAnimationFrame(() => {
+      workspace.current?.scrollIntoView({ block: "start", behavior: "auto" });
+      workspace.current?.focus({ preventScroll: true });
+    });
+  }
   function resetTask() {
     recordingGeneration.current++;
     if (recorder.current?.state === "recording") recorder.current.stop();
@@ -115,7 +172,7 @@ export function EnglishPlayer({
   function listen(text: string) {
     setAudioError("");
     if (!("speechSynthesis" in window)) {
-      setAudioError("음성을 지원하지 않는 브라우저입니다. 대본을 펼쳐 연습해 주세요.");
+      setAudioError("소리를 재생할 수 없어요. 대본을 보고 연습해 주세요.");
       return;
     }
     if (speaking) {
@@ -138,7 +195,7 @@ export function EnglishPlayer({
       if (mounted.current) {
         setSpeaking(false);
         if (!["canceled", "interrupted"].includes(e.error))
-          setAudioError("음성을 재생하지 못했습니다. 대본을 확인하거나 다시 눌러 주세요.");
+          setAudioError("소리가 재생되지 않았어요. 다시 눌러 보거나 대본을 확인해 주세요.");
       }
     };
     setSpeaking(true);
@@ -147,7 +204,7 @@ export function EnglishPlayer({
   async function startRecording() {
     setRecordingError("");
     if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) {
-      setRecordingError("녹음을 지원하지 않습니다. 직접 소리 내어 연습해 주세요.");
+      setRecordingError("녹음을 사용할 수 없어요. 소리 내어 연습만 해도 괜찮아요.");
       return;
     }
     if (recording) {
@@ -186,7 +243,7 @@ export function EnglishPlayer({
     } catch {
       if (generation === recordingGeneration.current)
         stream.current?.getTracks().forEach((track) => track.stop());
-      setRecordingError("마이크 권한을 확인해 주세요. 녹음 없이 직접 말하며 연습할 수도 있습니다.");
+      setRecordingError("마이크 사용이 허용됐는지 확인해 주세요. 녹음 없이 말해도 괜찮아요.");
     }
   }
   async function reloadProgress() {
@@ -196,17 +253,18 @@ export function EnglishPlayer({
         data = await response.json();
       if (!response.ok || data.accountKey !== accountKey)
         throw new Error(
-          "계정 또는 저장 연결을 확인해 주세요. 페이지를 새로 열어 다시 로그인할 수 있습니다.",
+          "로그인한 계정을 확인해 주세요. 계정이 바뀌었다면 페이지를 새로 열어 주세요.",
         );
-      setProgress(data.progress);
+      const restored = reconcileEnglishProgress(data.progress, [episode]);
+      setProgress(restored);
       setStorageReady(true);
       setError("");
-      const done = data.progress.episodes[episode.id]?.completedTasks || [],
-        next = episode.tasks.findIndex((t) => !done.includes(t.id));
+      const next = getEnglishEpisodeStatus(restored, episode).firstMissingIndex;
       resetTask();
-      setIndex(next < 0 ? total : next);
+      setViewedChapterId(null);
+      setIndex(next);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "기록을 불러오지 못했습니다.");
+      setError(e instanceof Error ? e.message : "기록을 불러오지 못했어요.");
     } finally {
       setBusy(false);
     }
@@ -234,12 +292,13 @@ export function EnglishPlayer({
             body: JSON.stringify({ action: "attempt", accountKey, ...attempt }),
           }),
           data = await response.json();
-        if (!response.ok) throw new Error(data.error || "저장하지 못했습니다. 다시 시도해 주세요.");
+        if (!response.ok)
+          throw new Error(data.error || "기록을 저장하지 못했어요. 다시 시도해 주세요.");
         setProgress(data.progress);
         setFeedback(data);
       }
     } catch (e) {
-      setError(e instanceof Error ? e.message : "저장하지 못했습니다.");
+      setError(e instanceof Error ? e.message : "기록을 저장하지 못했어요.");
     } finally {
       setBusy(false);
     }
@@ -249,7 +308,7 @@ export function EnglishPlayer({
     <div className={styles.player}>
       <div className={styles.topbar}>
         <Link href="/english">
-          <ArrowLeft size={16} /> 학습 서재
+          <ArrowLeft size={16} /> 학습 목록
         </Link>
         <span>FIRST PAGES / {episode.genreLabel}</span>
         <span>
@@ -258,17 +317,23 @@ export function EnglishPlayer({
       </div>
       {!accountKey && (
         <div className={styles.guest}>
-          지금은 체험 중입니다.{" "}
+          로그인 없이 플레이하고 있어요. 기록은 이 화면에만 남아요.{" "}
           <Link href={`/login?next=${encodeURIComponent(`/english/play/${episode.id}`)}`}>
-            로그인하고 진도·표현·레벨 이어가기 →
+            로그인하고 기록 남기기 →
           </Link>
         </div>
+      )}
+      {accountKey && initialStatus.completionRewarded && !initialStatus.finished && !finished && (
+        <p className={styles.updateNote}>
+          새 장면이 추가됐어요. 지난 학습 기록은 그대로 남아 있습니다. 아직 만나지 못한 장면부터
+          이어서 즐겨보세요.
+        </p>
       )}
       <div className={styles.layout}>
         <aside className={styles.scene}>
           <Image
-            src={episode.image}
-            alt={episode.imageAlt}
+            src={sceneImage}
+            alt={sceneAlt}
             width={1672}
             height={941}
             priority
@@ -277,50 +342,223 @@ export function EnglishPlayer({
           <div className={styles.shade} />
           <div className={styles.sceneTop}>
             <span>SEASON 01 · 첫 번째 페이지</span>
-            <span>{episode.minutes}분의 이야기</span>
+            <span>약 {episode.minutes}분</span>
           </div>
           <div className={styles.sceneCopy}>
             <p>{episode.englishTitle}</p>
             <h1>{episode.title}</h1>
             <div>
-              {finished
-                ? episode.ending
-                : feedback?.correct
-                  ? feedback.consequence
-                  : index === 0
-                    ? episode.intro
-                    : task.context}
+              {storyChapter ? (
+                <>
+                  <span className={styles.location}>{storyChapter.location}</span>
+                  <strong className={styles.sceneObjective}>{storyChapter.objective}</strong>
+                </>
+              ) : finished ? (
+                episode.takeaway
+              ) : (
+                episode.synopsis
+              )}
             </div>
           </div>
-          <div className={styles.steps} aria-label="이야기 진행">
-            {episode.tasks.map((t, i) => {
-              const Skill = icons[t.skill],
-                done = progress.episodes[episode.id]?.completedTasks.includes(t.id);
-              return (
-                <span
-                  key={t.id}
-                  className={`${done ? styles.done : ""} ${i === index ? styles.current : ""}`}
-                  aria-current={i === index ? "step" : undefined}
-                  title={`${i + 1}. ${t.title}`}
-                >
-                  {done ? <Check size={16} /> : <Skill size={16} />}
-                  <small>{i + 1}</small>
-                </span>
-              );
-            })}
-          </div>
+          {chapters.length ? (
+            <nav className={styles.chapterSteps} aria-label="이야기 진행">
+              {chapters.map((chapter, chapterIndex) => {
+                const done = chapterComplete(chapter.id);
+                const available = chapterIndex <= currentChapterIndex || done;
+                return (
+                  <button
+                    key={chapter.id}
+                    type="button"
+                    disabled={!available || busy || recording}
+                    aria-current={storyChapter?.id === chapter.id ? "step" : undefined}
+                    className={done ? styles.chapterDone : ""}
+                    onClick={() => {
+                      resetTask();
+                      setViewedChapterId(chapter.id);
+                      focusWorkspace();
+                    }}
+                  >
+                    <span>
+                      {done ? <Check size={15} /> : chapterIndex + 1}
+                      <small>{done ? "완료" : available ? "진행 중" : "다음 장"}</small>
+                    </span>
+                    <strong>{chapter.title}</strong>
+                  </button>
+                );
+              })}
+            </nav>
+          ) : (
+            <div className={styles.simpleProgress}>
+              {Math.min(index + 1, total)} / {total}
+            </div>
+          )}
         </aside>
-        <section className={styles.workspace} aria-label="영어 학습 장면">
-          {finished ? (
+        <section
+          className={styles.workspace}
+          ref={workspace}
+          tabIndex={-1}
+          aria-label="영어 학습 장면"
+        >
+          <div className={styles.storyUtilities}>
+            <details className={styles.overview}>
+              <summary>이야기 목차</summary>
+              <ol>
+                {chapters.map((chapter, chapterIndex) => (
+                  <li key={chapter.id}>
+                    <strong>
+                      {chapterIndex + 1}. {chapter.title}
+                    </strong>
+                    <span>
+                      {chapterComplete(chapter.id)
+                        ? "마친 장 · 다시 읽기"
+                        : chapterIndex === currentChapterIndex
+                          ? "진행 중인 장"
+                          : "다음 장에서 이어져요"}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </details>
+            <details className={styles.notebook}>
+              <summary>
+                <BookOpen size={14} /> 단서 수첩 <span>{completedTasks.length}</span>
+              </summary>
+              <div className={styles.notebookBody}>
+                <h3>지금까지 알아낸 것</h3>
+                {completedTasks.length ? (
+                  completedTasks.map((candidate) => (
+                    <article key={candidate.id}>
+                      <h4>{candidate.document || candidate.title}</h4>
+                      <p>{candidate.feedback}</p>
+                      <p lang="en" className={styles.evidenceModel}>
+                        {candidate.versions[level].model}
+                      </p>
+                      <small>{candidate.consequence}</small>
+                    </article>
+                  ))
+                ) : (
+                  <p>알아낸 단서는 여기에 모아 둘게요.</p>
+                )}
+                {!!collectedExpressions.length && (
+                  <>
+                    <h3>배운 표현</h3>
+                    {collectedExpressions.map((expression) => (
+                      <div key={expression.id}>
+                        <p lang="en" className={styles.evidenceModel}>
+                          {expression.en}
+                        </p>
+                        {locale === "ko" && <small>{expression.ko}</small>}
+                      </div>
+                    ))}
+                  </>
+                )}
+              </div>
+            </details>
+          </div>
+          {chapterOpening && error && (
+            <div className={styles.error} role="alert">
+              <p>{error}</p>
+              {accountKey && (
+                <button type="button" onClick={reloadProgress} disabled={busy}>
+                  다시 불러오기
+                </button>
+              )}
+              <Link href={`/login?next=${encodeURIComponent(`/english/play/${episode.id}`)}`}>
+                로그인 상태 확인
+              </Link>
+            </div>
+          )}
+          {chapterOpening && storyChapter ? (
+            <div className={styles.chapterOpening}>
+              <p className={styles.eyebrow}>
+                STORY CHAPTER ·{" "}
+                {chapters.findIndex((chapter) => chapter.id === storyChapter.id) + 1} /{" "}
+                {chapters.length}
+              </p>
+              <h2>{storyChapter.title}</h2>
+              <div className={styles.storyProse}>
+                {storyParagraphs(locale === "en" ? storyChapter.storyEn : storyChapter.story).map(
+                  (paragraph, paragraphIndex) => (
+                    <p key={paragraphIndex}>{paragraph}</p>
+                  ),
+                )}
+              </div>
+              <div className={styles.storyDialogue}>
+                {storyChapter.dialogue.map((line, lineIndex) => (
+                  <article key={`${line.speaker}-${lineIndex}`}>
+                    <div>
+                      <strong>{line.speaker}</strong>
+                      <button
+                        type="button"
+                        className={styles.textButton}
+                        onClick={() => listen(line.en)}
+                      >
+                        <Volume2 size={14} />
+                        {speaking ? "듣기 멈추기" : "대화 듣기"}
+                      </button>
+                    </div>
+                    <p lang="en">{line.en}</p>
+                    {locale === "ko" && (
+                      <details>
+                        <summary>뜻 보기</summary>
+                        <p>{line.ko}</p>
+                      </details>
+                    )}
+                  </article>
+                ))}
+              </div>
+              {audioError && (
+                <p className={styles.note} role="status">
+                  {audioError}
+                </p>
+              )}
+              {!!episode.cast?.length && (
+                <details className={styles.cast}>
+                  <summary>등장인물</summary>
+                  {episode.cast.map((person) => (
+                    <div key={person.name}>
+                      <strong>
+                        {person.name}
+                        <span>{person.role}</span>
+                      </strong>
+                      <p>{person.motivation}</p>
+                    </div>
+                  ))}
+                </details>
+              )}
+              <button
+                type="button"
+                className={styles.primary}
+                onClick={() => {
+                  if (!introducedChapters.includes(storyChapter.id))
+                    setIntroducedChapters([...introducedChapters, storyChapter.id]);
+                  setViewedChapterId(null);
+                  resetTask();
+                  focusWorkspace();
+                }}
+              >
+                {viewedChapterId ? "진행하던 곳으로" : "계속하기"}
+                <ArrowRight size={17} />
+              </button>
+              <p className={styles.note}>
+                이야기는 천천히 읽어도 괜찮아요. 연습을 마치면 진도와 XP가 쌓여요.
+              </p>
+            </div>
+          ) : finished ? (
             <div className={styles.ending}>
               <span className={styles.stamp}>
                 <Check size={25} />
               </span>
-              <p className={styles.eyebrow}>이야기 한 편을 마쳤어요</p>
+              <p className={styles.eyebrow}>STORY COMPLETE</p>
               <h2>
-                오늘의 영어가
-                <br />한 페이지 쌓였습니다.
+                이야기를 마쳤어요.
+                <br />
+                배운 표현을 다시 써 볼까요?
               </h2>
+              <div className={styles.storyResolution}>
+                <h3>이야기의 끝</h3>
+                <p>{episode.ending}</p>
+              </div>
               <p>{episode.takeaway}</p>
               <div className={styles.growth}>
                 <strong>{accountKey ? "내 학습 기록" : "체험 기록"}</strong>
@@ -331,7 +569,7 @@ export function EnglishPlayer({
                   Lv.{growth.level} · {progress.xp} XP
                 </b>
               </div>
-              <h3>다음에 다시 꺼내 쓸 표현</h3>
+              <h3>다시 써 볼 표현</h3>
               {episode.expressions.map((e) => (
                 <div className={styles.expression} key={e.id}>
                   <p lang="en">{e.en}</p>
@@ -340,13 +578,45 @@ export function EnglishPlayer({
               ))}
               <p className={styles.note}>
                 {accountKey
-                  ? "표현은 복습 수첩에 담겼습니다. 다음 복습 때 보기를 가리고 다시 떠올려 보세요."
-                  : "체험 기록은 이 화면에서만 유지됩니다. 로그인하면 다음 방문과 다른 기기에서도 이어갈 수 있습니다."}
+                  ? "배운 표현은 복습 목록에 담겼어요. 복습 시간이 되면 다시 꺼내 보세요."
+                  : "이번 기록은 이 화면에만 남아요. 로그인하고 공부하면 다음에도 이어할 수 있어요."}
               </p>
+              {episode.debrief && (
+                <section className={styles.debrief} aria-labelledby="transfer-title">
+                  <p className={styles.eyebrow}>ONE MORE TRY</p>
+                  <h3 id="transfer-title">다른 상황에서도 써 볼까요?</h3>
+                  <p>{episode.debrief.question}</p>
+                  <label htmlFor="english-transfer">내 영어 답변</label>
+                  <textarea
+                    id="english-transfer"
+                    value={transferAnswer}
+                    onChange={(event) => setTransferAnswer(event.target.value)}
+                    lang="en"
+                    rows={4}
+                    maxLength={1200}
+                    className={styles.textarea}
+                    placeholder="Try your own response…"
+                    data-english-user-content
+                  />
+                  <details>
+                    <summary>예문 보기</summary>
+                    <p lang="en">{episode.debrief.model}</p>
+                    {locale === "ko" && <p>{episode.debrief.modelKo}</p>}
+                  </details>
+                  <p className={styles.note}>
+                    자유롭게 써 보세요. 이 답변은 저장하거나 채점하지 않아요.
+                  </p>
+                </section>
+              )}
               <div className={styles.endActions}>
-                <Link href="/english" className={styles.primary}>
-                  다음 이야기 고르기 <ArrowRight size={17} />
+                <Link
+                  href={nextEpisode ? `/english/play/${nextEpisode.id}?level=${level}` : "/english"}
+                  className={styles.primary}
+                >
+                  {nextEpisode ? "다음 이야기 시작하기" : "다음 이야기 고르기"}{" "}
+                  <ArrowRight size={17} />
                 </Link>
+                {nextEpisode && <p className={styles.note}>{nextEpisode.title}</p>}
                 {accountKey && (
                   <Link href="/english/review" className={styles.secondary}>
                     내 복습 수첩
@@ -356,11 +626,15 @@ export function EnglishPlayer({
                   type="button"
                   onClick={() => {
                     resetTask();
+                    setViewedChapterId(null);
+                    setIntroducedChapters([]);
+                    setReplaying(true);
                     setIndex(0);
+                    focusWorkspace();
                   }}
                   className={styles.textButton}
                 >
-                  <RotateCcw size={14} /> 같은 이야기 다시 연습
+                  <RotateCcw size={14} /> 처음부터 다시 하기
                 </button>
               </div>
             </div>
@@ -409,13 +683,13 @@ export function EnglishPlayer({
                         onClick={() => listen(version.passage)}
                       >
                         <Volume2 size={19} />
-                        {speaking ? "듣기 멈추기" : `${task.speaker || "장면"}의 이야기 듣기`}
+                        {speaking ? "듣기 멈추기" : "음성 듣기"}
                       </button>
                       <p className={styles.note}>
-                        기기의 영어 음성으로 재생합니다. 반복해서 들을 수 있어요.
+                        기기 음성으로 재생해요. 원하는 만큼 다시 들어 보세요.
                       </p>
                       <details>
-                        <summary>대본 펼치기</summary>
+                        <summary>대본 보기</summary>
                         <p className={styles.passage} lang="en">
                           {version.passage}
                         </p>
@@ -432,7 +706,7 @@ export function EnglishPlayer({
                           className={styles.textButton}
                           onClick={() => listen(version.passage)}
                         >
-                          <Volume2 size={14} /> 문장 듣기
+                          <Volume2 size={14} /> 본문 듣기
                         </button>
                       )}
                     </>
@@ -468,7 +742,7 @@ export function EnglishPlayer({
                 ) : task.skill === "writing" ? (
                   <>
                     <label className={styles.inputLabel} htmlFor="english-response">
-                      상대에게 보낼 영어 메시지
+                      내 영어 답변
                     </label>
                     <textarea
                       id="english-response"
@@ -485,7 +759,7 @@ export function EnglishPlayer({
                       rows={4}
                     />
                     <p className={styles.note}>
-                      필요한 정보가 담겼는지 확인합니다. 문법 전체를 자동 평가하지는 않습니다.
+                      꼭 필요한 내용이 들어갔는지 확인해요. 문법을 모두 채점하지는 않아요.
                     </p>
                   </>
                 ) : (
@@ -501,7 +775,7 @@ export function EnglishPlayer({
                         ? "녹음 마치기"
                         : recordingUrl
                           ? "다시 녹음하기"
-                          : "녹음하며 말해보기"}
+                          : "녹음하며 말하기"}
                     </button>
                     {recording && <p role="status">녹음 중 · 최대 60초</p>}
                     {recordingUrl && (
@@ -513,8 +787,7 @@ export function EnglishPlayer({
                       </p>
                     )}
                     <p className={styles.note}>
-                      녹음은 이 기기에서만 재생하며 업로드하지 않습니다. 마이크 없이 직접 말해도
-                      됩니다.
+                      녹음 없이 말해도 돼요. 녹음 파일은 서버에 보내지 않아요.
                     </p>
                     <label className={styles.confirm}>
                       <input
@@ -523,10 +796,10 @@ export function EnglishPlayer({
                         disabled={recording || busy || !!feedback?.correct}
                         onChange={(e) => setConfirmed(e.target.checked)}
                       />
-                      필요한 정보를 소리 내어 말해보았어요.
+                      직접 소리 내어 말해 봤어요.
                     </label>
                     <p className={styles.note}>
-                      직접 확인하는 연습입니다. 발음 점수를 매기지 않습니다.
+                      말한 뒤 직접 체크해 주세요. 발음 점수는 매기지 않아요.
                     </p>
                   </div>
                 )}
@@ -536,13 +809,13 @@ export function EnglishPlayer({
                     className={styles.textButton}
                     onClick={() => setHint(!hint)}
                   >
-                    {hint ? "도움 접기" : "뜻·예문 도움 보기"}
+                    {hint ? "도움 접기" : "뜻과 예문 보기"}
                   </button>
                   <span>힌트를 써도 괜찮아요.</span>
                 </div>
                 {hint && !version.options && (
                   <div className={styles.model}>
-                    <span>표현 예시 · 다른 표현도 가능합니다</span>
+                    <span>이렇게 말할 수도 있어요</span>
                     <p lang="en">{version.model}</p>
                     <button
                       type="button"
@@ -561,9 +834,11 @@ export function EnglishPlayer({
                     <strong>
                       {feedback.correct
                         ? task.skill === "speaking"
-                          ? "말하기 연습을 기록했어요."
-                          : "필요한 정보를 전달했어요."
-                        : "단서를 한 번 더 살펴볼까요?"}
+                          ? "말하기를 마쳤어요."
+                          : task.skill === "writing"
+                            ? "잘 전달했어요."
+                            : "잘 이해했어요."
+                        : "다시 살펴볼까요?"}
                     </strong>
                     <p>{feedback.feedback}</p>
                     {feedback.correct &&
@@ -583,11 +858,11 @@ export function EnglishPlayer({
                     <p>{error}</p>
                     {accountKey && (
                       <button type="button" onClick={reloadProgress} disabled={busy}>
-                        기록 다시 불러오기
+                        다시 불러오기
                       </button>
                     )}
                     <Link href={`/login?next=${encodeURIComponent(`/english/play/${episode.id}`)}`}>
-                      로그인 확인
+                      로그인 상태 확인
                     </Link>
                   </div>
                 )}
@@ -598,10 +873,16 @@ export function EnglishPlayer({
                       className={styles.primary}
                       onClick={() => {
                         resetTask();
-                        setIndex(index + 1);
+                        setViewedChapterId(null);
+                        const nextMissing = episode.tasks.findIndex(
+                          (candidate, candidateIndex) =>
+                            candidateIndex > index && !completed.has(candidate.id),
+                        );
+                        setIndex(replaying ? index + 1 : nextMissing < 0 ? total : nextMissing);
+                        focusWorkspace();
                       }}
                     >
-                      {index + 1 === total ? "이야기의 끝으로" : "다음 장면으로"}
+                      {index + 1 === total ? "결말 보기" : "계속하기"}
                       <ArrowRight size={17} />
                     </button>
                   ) : (
@@ -619,12 +900,12 @@ export function EnglishPlayer({
                       {busy
                         ? "기록하는 중…"
                         : task.skill === "speaking"
-                          ? "말하기 연습 완료"
-                          : "이 행동으로 이어가기"}
+                          ? "말하기 마치기"
+                          : "확인하기"}
                       <ArrowRight size={17} />
                     </button>
                   )}
-                  <span>{accountKey ? "계정에 기록 저장" : "로그인 없이 체험"}</span>
+                  <span>{accountKey ? "학습 기록 저장" : "체험 중"}</span>
                 </div>
               </>
             )

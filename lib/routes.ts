@@ -1,3 +1,6 @@
+import { englishEpisodes } from "./english/catalog.ts";
+import { englishPracticePacks } from "./english/practice.ts";
+
 export type RouteGroup = "learning" | "studio" | "education" | "resources";
 export type PublicRoute = {
   path: string;
@@ -53,33 +56,26 @@ export const publicRoutes: PublicRoute[] = [
     changeFrequency: "weekly",
     noIndex: true,
   },
-  {
-    path: "/english/play/closed-bookshop",
-    title: "닫힌 서점의 밤",
-    description:
-      "서점의 단서와 대화를 따라 문제를 해결하는 영어 방탈출 이야기. 입문·기본·도전 난이도.",
-    group: "learning",
-    priority: 0.8,
-    changeFrequency: "monthly",
-  },
-  {
-    path: "/english/play/locker-seven",
-    title: "7번 보관함의 편지",
-    description:
-      "역의 기록과 증언을 비교해 분실물의 주인을 찾는 영어 추리 이야기. 입문·기본·도전 난이도.",
-    group: "learning",
-    priority: 0.8,
-    changeFrequency: "monthly",
-  },
-  {
-    path: "/english/play/moonlight-post",
-    title: "달빛 우체국",
-    description:
-      "달빛 아래 우체국에서 편지를 전하며 영어를 읽고 듣고 쓰고 말하는 동화. 입문·기본·도전 난이도.",
-    group: "learning",
-    priority: 0.8,
-    changeFrequency: "monthly",
-  },
+  ...englishEpisodes.map(
+    (episode): PublicRoute => ({
+      path: `/english/play/${episode.id}`,
+      title: episode.title,
+      description: episode.synopsis,
+      group: "learning",
+      priority: 0.8,
+      changeFrequency: "monthly",
+    }),
+  ),
+  ...englishPracticePacks.map(
+    (pack): PublicRoute => ({
+      path: `/english/practice/${pack.id}`,
+      title: pack.title,
+      description: pack.synopsis,
+      group: "learning",
+      priority: 0.6,
+      changeFrequency: "monthly",
+    }),
+  ),
   {
     path: "/games/wallbreak",
     title: "벽꿍! 균열의 석공",

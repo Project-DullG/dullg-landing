@@ -92,8 +92,8 @@ export default async function EnglishLearningAboutPage() {
           </p>
           <div className={styles.aboutNote}>
             <p>
-              현재 3편의 짧은 이야기는 무료로 체험할 수 있습니다. 기록을 저장하려면 Google로
-              로그인해 주세요.
+              현재 6편의 이야기와 회화·문장·리딩 18묶음은 무료로 체험할 수 있습니다. 기록을
+              저장하려면 Google로 로그인해 주세요.
             </p>
             <p>
               말하기는 예문을 듣고 직접 연습한 뒤 본인이 완료를 확인합니다. 쓰기는 제작한 예문과

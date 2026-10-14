@@ -106,14 +106,15 @@ test("role route checks use segment boundaries", () => {
 });
 
 test("English learners return to the hub, community, or their episode without an academy role", () => {
-  for (const target of ["/english", "/english/community", "/english/review", "/english/about", "/english/play/closed-bookshop?level=starter"]) {
+  for (const target of ["/english", "/english/community", "/english/review", "/english/about", "/english/play/closed-bookshop?level=starter", "/english/practice/conversation-airport?level=challenge"]) {
     for (const role of [undefined, "student", "owner"]) {
       assert.equal(postLoginPath(role, target), target);
       assert.equal(dashboardPathAllowedForRole(target, role), true);
     }
     assert.equal(new URL(loginPath(target), "https://site.example").searchParams.get("next"), target);
   }
-  for (const rejected of ["/english-evil", "/english/admin", "/english/play", "/english/play/one/extra", "/english/play/%2e%2e", "/english//community"]) {
+  assert.equal(postLoginPath(undefined, "/en/english/practice/reading-repair"), "/english/practice/reading-repair");
+  for (const rejected of ["/english-evil", "/english/admin", "/english/play", "/english/play/one/extra", "/english/play/%2e%2e", "/english/practice", "/english/practice/one/extra", "/english/practice/%2e%2e", "/english//community"]) {
     assert.equal(normalizeDashboardReturnPath(rejected), null);
   }
 });

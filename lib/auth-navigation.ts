@@ -32,7 +32,7 @@ export function normalizeDashboardReturnPath(value: unknown): string | null {
 
 function isEnglishReturnPath(pathname: string) {
   return pathname === "/english" || pathname === "/english/community" || pathname === "/english/review" || pathname === "/english/about"
-    || /^\/english\/play\/[a-z0-9-]{1,80}$/.test(pathname);
+    || /^\/english\/(?:play|practice)\/[a-z0-9-]{1,80}$/.test(pathname);
 }
 
 function isRouteWithin(pathname: string, root: string) {

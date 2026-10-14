@@ -31,3 +31,20 @@ Use case: illustration-story. Asset type: final wide 16:9 illustration for a pre
 ## 공유 이미지의 글꼴
 
 기존 저장소의 NanumGothic-Bold.ttf에서 공유 이미지에 필요한 글자를 추출했다. 수정한 서브셋은 예약 글꼴 이름을 사용하지 않도록 English Journal OG로 이름을 변경했고, 원본 저작권과 SIL Open Font License를 public/fonts/OFL-NanumGothic.txt에 보존했다. 최종 파일은 public/fonts/english-journal-og-bold.ttf다.
+
+## 장면 확장과 한국어 윤문
+
+초기 3편의 기록은 위에 그대로 보관한다. 이후 서사는 6편으로 확장하고 각 작품의 도입과 도착 장면을 원고에 맞춰 구성했다. 그림 9장을 추가로 생성해 기존 3장과 합쳐 최종 12장을 사용한다. 인물의 옷·외형·장소는 표지 그림을 참고해 이어지도록 했다.
+
+| 현재 작품 | 도입 그림 | 후반 장면 |
+| --- | --- | --- |
+| 서점에 남겨진 부탁 | public/assets/english/bookshop.webp | public/assets/english/bookshop-walkway.webp |
+| 7번 보관함의 편지 | public/assets/english/locker.webp | public/assets/english/locker-platform.webp |
+| 달빛 우체국 | public/assets/english/moonpost.webp | public/assets/english/moonpost-lighthouse.webp |
+| 비 오는 날, 카페에서 | public/assets/english/cafe.webp | public/assets/english/cafe-gathering.webp |
+| 여덟 시에 만나요 | public/assets/english/radio.webp | public/assets/english/radio-tower.webp |
+| 온실에 남겨진 지도 | public/assets/english/garden.webp | public/assets/english/garden-courtyard.webp |
+
+[후속 프롬프트 전체](./english-image-prompts-v2.json)와 [생성 원본·최종 경로](./english-image-assets-v2.json)를 기록했다. 모두 내장 image_gen을 사용했다. 동화의 등대 초안은 건물과 일출 시점이 원고와 맞지 않아 수정했다. 채택한 최종 그림은 석조 등대의 입구와 해 뜨기 전 하늘을 보여 준다.
+
+이미지의 시각·컵 수·장치 위치를 정답 증거로 쓰지 않는다. 화면의 문서와 대화가 검토한 단서를 제공하며, 사진처럼 특정 순간을 입증하는 이미지로 안내하지 않는다. 집중 연습은 별도의 인물 서사를 만들지 않고 읽기 문서, 표현 조각, 상대의 질문과 내 응답을 중심으로 배치했다.

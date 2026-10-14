@@ -15,6 +15,7 @@ export function englishLibrary(): EnglishEpisodeSummary[] {
     imageAlt: episode.imageAlt,
     takeaway: episode.takeaway,
     taskCount: episode.tasks.length,
+    chapterCount: episode.chapters?.length || 1,
     skills: [...new Set(episode.tasks.map((task) => task.skill))],
   }));
 }

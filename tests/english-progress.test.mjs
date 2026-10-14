@@ -7,6 +7,8 @@ import {
   englishAnswerAccepted,
   englishDay,
   getEnglishGrowth,
+  getEnglishEpisodeStatus,
+  reconcileEnglishProgress,
   setEnglishLevel,
   validateEnglishAttempt,
 } from "../lib/english/progress.ts";
@@ -303,4 +305,159 @@ test("daily activity and streak use Korean midnight and include yesterday before
   assert.equal(getEnglishGrowth(progress, new Date("2026-10-14T15:00:00Z")).streak, 3);
   assert.equal(getEnglishGrowth(progress, new Date("2026-10-15T15:00:00Z")).streak, 0);
   assert.equal(getEnglishGrowth(progress, now).todayActivities, 0);
+});
+
+test("expanding a five-task story preserves earned records and resumes the first missing authored ID", () => {
+  const fifth = {
+    ...episode.tasks[0],
+    id: "task-5",
+  };
+  const legacy = { ...episode, tasks: [...episode.tasks, fifth] };
+  let progress = emptyEnglishProgress();
+  for (const task of legacy.tasks) {
+    progress = advanceEnglishProgress(
+      progress,
+      attempt(task.id, {
+        ...(task.skill === "speaking"
+          ? { selfConfirmed: true }
+          : { answer: task.skill === "writing" ? expression.en : "red" }),
+      }),
+      legacy,
+      now,
+    ).progress;
+  }
+  // A previously deployed record has completedAt but no reward migration marker.
+  delete progress.episodes[episode.id].completionRewarded;
+  const inserted = { ...fifth, id: "task-new-middle" };
+  const added = { ...fifth, id: "task-new-ending" };
+  const expanded = {
+    ...legacy,
+    tasks: [legacy.tasks[0], inserted, ...legacy.tasks.slice(1), added],
+  };
+  const reconciled = reconcileEnglishProgress(progress, [expanded]);
+  assert.equal(progress.xp, 130);
+  assert.equal(reconciled.xp, progress.xp);
+  assert.equal(reconciled.skills, progress.skills);
+  assert.equal(reconciled.activeDates, progress.activeDates);
+  assert.equal(reconciled.reviews, progress.reviews);
+  assert.equal(reconciled.learnedExpressionIds, progress.learnedExpressionIds);
+  assert.deepEqual(
+    reconciled.episodes[episode.id].completedTasks,
+    legacy.tasks.map((task) => task.id),
+  );
+  assert.equal(reconciled.episodes[episode.id].completedAt, undefined);
+  assert.equal(reconciled.episodes[episode.id].completionRewarded, true);
+  assert.equal(progress.episodes[episode.id].completedAt, now.toISOString());
+  assert.equal(getEnglishGrowth(reconciled, now).completedEpisodes, 0);
+  assert.deepEqual(getEnglishEpisodeStatus(reconciled, expanded), {
+    completedTaskIds: legacy.tasks.map((task) => task.id),
+    completedCount: 5,
+    total: 7,
+    finished: false,
+    firstMissingIndex: 1,
+    completionRewarded: true,
+  });
+  assert.equal(reconcileEnglishProgress(reconciled, [expanded]), reconciled);
+  assert.throws(
+    () => advanceEnglishProgress(reconciled, attempt(added.id, { answer: "red" }), expanded, now),
+    { status: 409 },
+  );
+  const replay = advanceEnglishProgress(
+    reconciled,
+    attempt("task-4", { selfConfirmed: true }),
+    expanded,
+    now,
+  );
+  assert.equal(replay.correct, true);
+  assert.equal(replay.duplicate, true);
+  assert.equal(replay.progress.xp, 130);
+  const middle = advanceEnglishProgress(
+    reconciled,
+    attempt(inserted.id, { answer: "red" }),
+    expanded,
+    now,
+  ).progress;
+  assert.equal(middle.xp, 150);
+  assert.equal(middle.episodes[episode.id].completedAt, undefined);
+  const final = advanceEnglishProgress(
+    middle,
+    attempt(added.id, { answer: "red" }),
+    expanded,
+    now,
+  ).progress;
+  assert.equal(final.xp, 170, "a historic completion bonus must not be paid twice");
+  assert.equal(final.episodes[episode.id].completedAt, now.toISOString());
+  assert.equal(final.episodes[episode.id].completionRewarded, true);
+  assert.equal(getEnglishEpisodeStatus(final, expanded).finished, true);
+});
+
+test("unknown historic task IDs stay stored but do not count as current scene completion", () => {
+  const progress = emptyEnglishProgress();
+  progress.episodes[episode.id] = {
+    completedTasks: ["task-1", "retired-a", "retired-b", "retired-c"],
+    completedAt: now.toISOString(),
+    updatedAt: now.toISOString(),
+    level: "standard",
+  };
+  const next = reconcileEnglishProgress(progress, [episode]);
+  const status = getEnglishEpisodeStatus(next, episode);
+  assert.equal(status.completedCount, 1);
+  assert.equal(status.firstMissingIndex, 1);
+  assert.equal(status.finished, false);
+  assert.equal(next.episodes[episode.id].completedAt, undefined);
+  assert.deepEqual(
+    next.episodes[episode.id].completedTasks,
+    progress.episodes[episode.id].completedTasks,
+  );
+});
+
+test("new story completion awards one thirty-XP bonus and records that reward", () => {
+  let progress = emptyEnglishProgress();
+  for (const task of episode.tasks)
+    progress = advanceEnglishProgress(
+      progress,
+      attempt(task.id, {
+        ...(task.skill === "speaking"
+          ? { selfConfirmed: true }
+          : { answer: task.skill === "writing" ? expression.en : "red" }),
+      }),
+      episode,
+      now,
+    ).progress;
+  assert.equal(progress.xp, 110);
+  assert.equal(progress.episodes[episode.id].completionRewarded, true);
+  const replay = advanceEnglishProgress(
+    progress,
+    attempt("task-4", { selfConfirmed: true }),
+    episode,
+    now,
+  );
+  assert.equal(replay.progress.xp, 110);
+});
+
+test("practice packs keep their own completion count while legacy records remain stories", () => {
+  const initial = emptyEnglishProgress();
+  initial.episodes.legacy = {
+    completedTasks: ["old"],
+    completedAt: now.toISOString(),
+    updatedAt: now.toISOString(),
+    level: "standard",
+  };
+  const pack = { ...episode, format: "practice" };
+  let progress = initial;
+  for (const task of pack.tasks)
+    progress = advanceEnglishProgress(
+      progress,
+      attempt(task.id, {
+        ...(task.skill === "speaking"
+          ? { selfConfirmed: true }
+          : { answer: task.skill === "writing" ? expression.en : "red" }),
+      }),
+      pack,
+      now,
+    ).progress;
+  assert.equal(progress.episodes[pack.id].format, "practice");
+  const growth = getEnglishGrowth(progress, now);
+  assert.equal(growth.completedEpisodes, 1);
+  assert.equal(growth.completedPractices, 1);
 });

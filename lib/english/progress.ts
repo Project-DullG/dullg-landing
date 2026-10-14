@@ -51,6 +51,45 @@ export function emptyEnglishProgress(): EnglishProgress {
   };
 }
 
+/** Completion follows the current authored task IDs, not a historic timestamp or count. */
+export function getEnglishEpisodeStatus(progress: EnglishProgress, episode: EnglishEpisode) {
+  const saved = progress.episodes[episode.id];
+  const completed = new Set(saved?.completedTasks || []);
+  const completedTaskIds = episode.tasks
+    .filter((task) => completed.has(task.id))
+    .map((task) => task.id);
+  const firstMissingIndex = episode.tasks.findIndex((task) => !completed.has(task.id));
+  return {
+    completedTaskIds,
+    completedCount: completedTaskIds.length,
+    total: episode.tasks.length,
+    finished: episode.tasks.length > 0 && firstMissingIndex < 0,
+    firstMissingIndex: firstMissingIndex < 0 ? episode.tasks.length : firstMissingIndex,
+    completionRewarded: saved?.completionRewarded === true || !!saved?.completedAt,
+  };
+}
+
+/** Expanding an episode keeps earned records while reopening only its new tasks. */
+export function reconcileEnglishProgress(
+  progress: EnglishProgress,
+  episodes: EnglishEpisode[],
+): EnglishProgress {
+  let records = progress.episodes;
+  for (const episode of episodes) {
+    const saved = records[episode.id];
+    if (!saved) continue;
+    const status = getEnglishEpisodeStatus(progress, episode);
+    const outdatedCompletion = !!saved.completedAt && !status.finished;
+    const historicalReward = !!saved.completedAt && saved.completionRewarded !== true;
+    if (!outdatedCompletion && !historicalReward) continue;
+    if (records === progress.episodes) records = { ...records };
+    const next = { ...saved, completionRewarded: status.completionRewarded };
+    if (outdatedCompletion) delete next.completedAt;
+    records[episode.id] = next;
+  }
+  return records === progress.episodes ? progress : { ...progress, episodes: records };
+}
+
 export function normalizeEnglishAnswer(value: string): string {
   return value
     .normalize("NFKC")
@@ -162,6 +201,7 @@ export function advanceEnglishProgress(
   const attempt = validateEnglishAttempt(rawAttempt);
   if (!episode || attempt.episodeId !== episode.id)
     throw new EnglishInputError("이야기를 찾을 수 없습니다.");
+  progress = reconcileEnglishProgress(progress, [episode]);
   const taskIndex = episode.tasks.findIndex((task) => task.id === attempt.taskId);
   if (taskIndex < 0) throw new EnglishInputError("학습 단계를 찾을 수 없습니다.");
   const task = episode.tasks[taskIndex];
@@ -223,7 +263,8 @@ export function advanceEnglishProgress(
   }
 
   const nextTasks = [...completedTasks, task.id];
-  const completedEpisode = nextTasks.length === episode.tasks.length;
+  const completedEpisode = episode.tasks.every((candidate) => nextTasks.includes(candidate.id));
+  const completionRewarded = saved?.completionRewarded === true || !!saved?.completedAt;
   const newlyLearned = task.expressionIds.filter(
     (id) => !progress.learnedExpressionIds.includes(id),
   );
@@ -236,13 +277,15 @@ export function advanceEnglishProgress(
   const next = recordActivity(
     {
       ...progress,
-      xp: progress.xp + 20 + (completedEpisode ? 30 : 0),
+      xp: progress.xp + 20 + (completedEpisode && !completionRewarded ? 30 : 0),
       episodes: {
         ...progress.episodes,
         [episode.id]: {
           completedTasks: nextTasks,
           level: attempt.level,
           updatedAt: now.toISOString(),
+          completionRewarded: completionRewarded || completedEpisode,
+          format: episode.format || "story",
           ...(completedEpisode ? { completedAt: now.toISOString() } : {}),
         },
       },
@@ -336,7 +379,11 @@ export function getEnglishGrowth(progress: EnglishProgress, now: Date = new Date
     nextLevelXp: GROWTH_THRESHOLDS[index + 1] ?? GROWTH_THRESHOLDS[index] + (extraLevels + 1) * 300,
     streak,
     todayActivities: today.tasks + today.reviews,
-    completedEpisodes: Object.values(progress.episodes).filter((episode) => !!episode.completedAt)
-      .length,
+    completedEpisodes: Object.values(progress.episodes).filter(
+      (episode) => !!episode.completedAt && episode.format !== "practice",
+    ).length,
+    completedPractices: Object.values(progress.episodes).filter(
+      (episode) => !!episode.completedAt && episode.format === "practice",
+    ).length,
   };
 }

@@ -1,0 +1,26 @@
+{
+  "mode": "built-in image_gen",
+  "date": "2026-10-14",
+  "sources": {
+    "cafe": "/Users/kimkanghoon/.codex/generated_images/01a139c3-ada1-7b63-89fc-0ce47ba4ec9b/exec-2080e7ba-e1f6-4423-b4a9-6e493162fad6.png",
+    "radio": "/Users/kimkanghoon/.codex/generated_images/01a139c3-ada1-7b63-89fc-0ce47ba4ec9b/exec-22c93fe8-f431-4b3f-9d62-29716d19ab1a.png",
+    "garden": "/Users/kimkanghoon/.codex/generated_images/01a139c3-ada1-7b63-89fc-0ce47ba4ec9b/exec-5030e2d4-902f-4b0e-b567-cc1df5e78c00.png",
+    "bookshop-walkway": "/Users/kimkanghoon/.codex/generated_images/01a139c3-ada1-7b63-89fc-0ce47ba4ec9b/exec-1463e01d-fc6b-4bf5-a418-e1ff82a2136b.png",
+    "locker-platform": "/Users/kimkanghoon/.codex/generated_images/01a139c3-ada1-7b63-89fc-0ce47ba4ec9b/exec-4e808f38-7fa7-4577-a698-0a00a8d55b81.png",
+    "moonpost-lighthouse-v2": "/Users/kimkanghoon/.codex/generated_images/01a139c3-ada1-7b63-89fc-0ce47ba4ec9b/exec-6a7003db-1ce1-44b9-815b-4e2ffc62a442.png",
+    "cafe-gathering": "/Users/kimkanghoon/.codex/generated_images/01a139c3-ada1-7b63-89fc-0ce47ba4ec9b/exec-7f15557e-46e5-412b-b696-e65285d918ef.png",
+    "radio-tower": "/Users/kimkanghoon/.codex/generated_images/01a139c3-ada1-7b63-89fc-0ce47ba4ec9b/exec-39c691c5-12f2-4f0f-969e-8fff93801214.png",
+    "garden-courtyard": "/Users/kimkanghoon/.codex/generated_images/01a139c3-ada1-7b63-89fc-0ce47ba4ec9b/exec-682c30fd-f201-49a3-87a4-baf91b797da3.png"
+  },
+  "finalAssets": [
+    "public/assets/english/cafe.webp",
+    "public/assets/english/radio.webp",
+    "public/assets/english/garden.webp",
+    "public/assets/english/bookshop-walkway.webp",
+    "public/assets/english/locker-platform.webp",
+    "public/assets/english/moonpost-lighthouse.webp",
+    "public/assets/english/cafe-gathering.webp",
+    "public/assets/english/radio-tower.webp",
+    "public/assets/english/garden-courtyard.webp"
+  ]
+}

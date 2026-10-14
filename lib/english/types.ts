@@ -1,6 +1,6 @@
 export type EnglishLevel = "starter" | "standard" | "challenge";
 export type EnglishSkill = "reading" | "listening" | "writing" | "speaking";
-export type EnglishGenre = "escape" | "mystery" | "fairytale";
+export type EnglishGenre = "escape" | "mystery" | "fairytale" | "everyday" | "adventure";
 
 export const englishLevels = [
   { id: "starter" as const, label: "입문", description: "짧은 문장과 한국어 도움" },
@@ -24,9 +24,11 @@ export type TaskVersion = {
   accepted?: string[];
   keywords?: string[][];
   starter?: string;
+  tokens?: string[];
 };
 export type EnglishTask = {
   id: string;
+  chapterId?: string;
   skill: EnglishSkill;
   title: string;
   speaker?: string;
@@ -37,6 +39,17 @@ export type EnglishTask = {
   expressionIds: string[];
   versions: Record<EnglishLevel, TaskVersion>;
 };
+export type EnglishChapter = {
+  id: string;
+  title: string;
+  location: string;
+  objective: string;
+  story: string;
+  storyEn: string;
+  image: string;
+  imageAlt: string;
+  dialogue: { speaker: string; en: string; ko: string }[];
+};
 export type EnglishExpression = {
   id: string;
   en: string;
@@ -46,6 +59,7 @@ export type EnglishExpression = {
 };
 export type EnglishEpisode = {
   id: string;
+  format?: "story" | "practice";
   title: string;
   englishTitle: string;
   genre: EnglishGenre;
@@ -58,6 +72,9 @@ export type EnglishEpisode = {
   image: string;
   imageAlt: string;
   accent: string;
+  chapters?: EnglishChapter[];
+  cast?: { name: string; role: string; motivation: string }[];
+  debrief?: { question: string; model: string; modelKo: string };
   tasks: EnglishTask[];
   expressions: EnglishExpression[];
 };
@@ -78,6 +95,8 @@ export type EnglishProgress = {
     {
       completedTasks: string[];
       completedAt?: string;
+      completionRewarded?: boolean;
+      format?: "story" | "practice";
       level: EnglishLevel;
       updatedAt: string;
     }

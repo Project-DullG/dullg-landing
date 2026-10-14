@@ -48,10 +48,10 @@ for (const { id: level } of englishLevels) {
       }
       assert.equal(progress.episodes[episode.id].completedAt, now.toISOString());
     }
-    assert.equal(progress.xp, 390);
-    assert.deepEqual(progress.skills, { reading: 5, listening: 4, writing: 3, speaking: 3 });
-    assert.equal(progress.learnedExpressionIds.length, 9);
-    assert.equal(Object.keys(progress.reviews).length, 9);
+    assert.equal(progress.xp, 1440);
+    assert.deepEqual(progress.skills, { reading: 19, listening: 18, writing: 13, speaking: 13 });
+    assert.equal(progress.learnedExpressionIds.length, 33);
+    assert.equal(Object.keys(progress.reviews).length, 33);
   });
 }
 
@@ -182,13 +182,17 @@ test("the lost-property solution preserves the same independent identifying evid
     assert.match(records.versions[level].model, /(?:Bag )?B/);
   }
   assert.match(episode.ending, /초록색 공책/);
-  assert.match(episode.ending, /공개하지 않은/);
-  assert.match(episode.ending, /직원은 확인 후 가방/);
+  const resolution = [
+    episode.ending,
+    ...episode.tasks.map((task) => task.feedback + " " + task.consequence),
+  ].join(" ");
+  assert.match(resolution, /미공개|공개하지 않은/);
+  assert.match(resolution, /주인.{0,12}확인|확인.{0,12}주인/);
 });
 
 test("the bookshop door opens through the stated mechanism after staff clears the route", () => {
   const episode = getEnglishEpisode("closed-bookshop");
-  assert.match(episode.intro, /초록색 비상문은 언제든/);
+  assert.match(episode.intro, /초록색 비상문.*언제든/);
   const messageIndex = episode.tasks.findIndex((t) => t.id === "bookshop-message");
   const confirmationIndex = episode.tasks.findIndex((t) => t.id === "bookshop-intercom");
   const releaseIndex = episode.tasks.findIndex((t) => t.id === "bookshop-release");
@@ -201,12 +205,12 @@ test("the bookshop door opens through the stated mechanism after staff clears th
     assert.match(instructions, /pull[^.]*red lever down/i);
     assert.match(instructions, /push(?:ed)?[^.]*open|push the door/i);
   }
-  assert.match(episode.ending, /빨간 손잡이를 아래로 당겨/);
+  assert.match(episode.tasks[releaseIndex].consequence, /정문.*열/);
 });
 
 test("the fairy-tale's declared route and departure rules hold across all versions and the ending", () => {
   const episode = getEnglishEpisode("moonlight-post");
-  assert.match(episode.intro, /흰 등불 배는 동쪽 등대로/);
+  assert.match(episode.intro, /흰 등불 배.*동쪽 등대/);
   assert.match(episode.intro, /두 번째 종/);
   assert.match(episode.intro, /해가 뜨면 다음 밤까지/);
   const boat = episode.tasks.find((t) => t.id === "moonpost-boat");
@@ -218,9 +222,12 @@ test("the fairy-tale's declared route and departure rules hold across all versio
     assert.match(route.versions[level].passage, /shell signs/i);
     assert.match(route.versions[level].passage, /wooden bridge[^.]*orchard/i);
   }
-  assert.match(episode.ending, /두 번째 종이 울릴 때 흰 등불 배/);
-  assert.match(episode.ending, /조개 표지의 돌길/);
-  assert.match(episode.ending, /해 뜨기 전에 배달/);
+  assert.match(episode.ending, /두 번째 종.*흰 등불 배/);
+  assert.match(episode.ending, /조개 표지.*돌길/);
+  assert.match(
+    episode.tasks.find((task) => task.id === "moonpost-deliver").versions.challenge.passage,
+    /before sunrise/,
+  );
 });
 
 test("every collected expression resolves to exactly one original episode and every target is practiced", () => {
@@ -247,8 +254,17 @@ test("every collected expression resolves to exactly one original episode and ev
 });
 
 test("all authored story versions, practice UI, growth labels, and feedback have English translations", () => {
-  const dictionary = JSON.parse(
-    readFileSync(new URL("../lib/i18n/en-english.json", import.meta.url), "utf8"),
+  const dictionary = Object.assign(
+    {},
+    ...[
+      "en-english.json",
+      "en-interface.json",
+      "en-stories-revised.json",
+      "en-stories-new.json",
+      "en-player-story.json",
+    ].map((file) =>
+      JSON.parse(readFileSync(new URL(`../lib/i18n/${file}`, import.meta.url), "utf8")),
+    ),
   );
   const normalize = (text) => text.replace(/\s+/g, " ").trim();
   const missing = [];

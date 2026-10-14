@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useLocale } from "next-intl";
 import { localizeEnglishTree } from "@/lib/i18n/english-tree";
+import { PracticeLibrary } from "./practice-library";
 import Link from "@/components/i18n/link";
 import {
   ArrowRight,
@@ -41,7 +42,7 @@ export type EnglishEpisodeSummary = Pick<
   | "image"
   | "imageAlt"
   | "takeaway"
-> & { skills: EnglishSkill[]; taskCount: number };
+> & { skills: EnglishSkill[]; taskCount: number; chapterCount: number };
 const skillIcons = {
   reading: BookOpenText,
   listening: Headphones,
@@ -53,6 +54,8 @@ const genres: { id: "all" | EnglishGenre; label: string }[] = [
   { id: "escape", label: "방탈출" },
   { id: "mystery", label: "추리" },
   { id: "fairytale", label: "동화" },
+  { id: "everyday", label: "일상" },
+  { id: "adventure", label: "탐험·퍼즐" },
 ];
 type AccountState = "loading" | "guest" | "ready" | "error";
 
@@ -207,6 +210,18 @@ export function EnglishHub({
           </p>
         </section>
 
+        <nav className={styles.learningNav} aria-label="영어 학습 방식">
+          <a href="#library">
+            이야기 즐기기 <span>{episodes.length}편</span>
+          </a>
+          <a href="#practice">
+            짧게 집중 연습 <span>회화·문장·리딩</span>
+          </a>
+          <a href="#journey">
+            나의 학습 여정 <ArrowUpRight size={15} aria-hidden="true" />
+          </a>
+        </nav>
+
         <div className={styles.leadGrid}>
           {lead && (
             <article className={styles.leadStory}>
@@ -315,6 +330,9 @@ export function EnglishHub({
                   <ArrowUpRight size={17} aria-hidden="true" />
                 </Link>
                 <p className={styles.recordNote}>XP와 레벨은 연습 기록입니다.</p>
+                <p className={styles.recordNote}>
+                  집중 연습 <strong>{growth.completedPractices}</strong>묶음 완료
+                </p>
               </>
             ) : (
               <div className={styles.guestJourney}>
@@ -459,6 +477,9 @@ export function EnglishHub({
                       <span>예상 {episode.minutes}분</span>
                     </p>
                     <span className={styles.cardEnglish}>{episode.englishTitle}</span>
+                    <p className={styles.cardStructure}>
+                      {episode.chapterCount}장 · {episode.taskCount}개 활동
+                    </p>
                     <h3>
                       <Link href={playHref(episode.id)}>{episode.title}</Link>
                     </h3>
@@ -509,6 +530,8 @@ export function EnglishHub({
             </div>
           )}
         </section>
+
+        <PracticeLibrary progress={progress} level={level} />
 
         <section className={styles.learningMethod} aria-labelledby="method-title">
           <div>

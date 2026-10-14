@@ -1,3 +1,12 @@
+.updateNote {
+  padding: 14px 20px;
+  margin: 0;
+  background: #edf2e8;
+  color: #345341;
+  border-bottom: 1px solid #d7ded1;
+  font-size: 12px;
+  line-height: 1.8;
+}
 .player {
   background: #f6f4ed;
   color: #243c34;
@@ -710,4 +719,464 @@
   .growth b {
     grid-column: auto;
   }
+}
+
+/* Chapter prose stays in the reading pane; the art only carries location and purpose. */
+.location {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: #e8d8aa;
+  margin-bottom: 8px;
+}
+.sceneObjective {
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+}
+.chapterSteps {
+  position: absolute;
+  bottom: 25px;
+  left: 30px;
+  right: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+.chapterSteps button {
+  min-width: 0;
+  min-height: 74px;
+  border: 1px solid #b6c8b56b;
+  background: #123d2975;
+  border-radius: 6px;
+  padding: 10px;
+  color: #fffaf0;
+  text-align: left;
+  cursor: pointer;
+}
+.chapterSteps button > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+}
+.chapterSteps small {
+  font-family: var(--font-noto-sans), sans-serif;
+  font-size: 9px;
+  color: #d2dac8;
+  line-height: 1.5;
+}
+.chapterSteps strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  margin-top: 4px;
+}
+.chapterSteps button[aria-current="step"] {
+  border-color: #e4cc8c;
+  background: #243e2dbb;
+  outline: 1px solid #e4cc8c;
+}
+.chapterSteps button.chapterDone {
+  background: #e4cc8c;
+  color: #274234;
+  border-color: #e4cc8c;
+}
+.chapterSteps button.chapterDone small {
+  color: #415638;
+}
+.chapterSteps button:disabled {
+  color: #c5cebd;
+  background: #13261c75;
+  cursor: default;
+  opacity: 0.72;
+}
+.chapterSteps button[aria-current="step"]:disabled {
+  opacity: 1;
+}
+.simpleProgress {
+  position: absolute;
+  bottom: 30px;
+  left: 36px;
+  color: #e8d8aa;
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+}
+.sceneCopy {
+  bottom: 140px;
+}
+.storyUtilities {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  border-bottom: 1px solid #e1e3d6;
+  padding-bottom: 18px;
+  margin-bottom: 22px;
+}
+.storyUtilities summary,
+.cast summary,
+.debrief summary {
+  min-height: 44px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  cursor: pointer;
+  color: #54734f;
+}
+.storyUtilities summary::before,
+.cast summary::before,
+.debrief summary::before {
+  content: "+";
+  font-family: var(--font-mono), monospace;
+  color: #8d7c50;
+}
+.storyUtilities details[open] > summary::before,
+.cast[open] > summary::before,
+.debrief details[open] > summary::before {
+  content: "−";
+}
+.storyUtilities details[open] {
+  grid-column: 1/-1;
+}
+.overview ol {
+  list-style: none;
+  margin: 5px 0 10px;
+  padding: 0;
+}
+.overview li {
+  padding: 10px 0;
+  border-top: 1px solid #e1e3d6;
+}
+.overview li strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #344a3b;
+}
+.overview li span {
+  font-size: 10px;
+  color: #708069;
+}
+.notebook summary > span {
+  margin-left: auto;
+  padding: 2px 7px;
+  background: #e9efdf;
+  border-radius: 3px;
+  font-size: 10px;
+}
+.notebookBody {
+  background: #f7f4ea;
+  border: 1px solid #e1ddce;
+  padding: 19px;
+  border-radius: 4px;
+}
+.notebookBody h3 {
+  font-family: var(--font-noto-serif), serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #344a3b;
+  margin: 10px 0 16px;
+}
+.notebookBody article {
+  border-top: 1px solid #dedccb;
+  padding: 13px 0;
+}
+.notebookBody h4 {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+.notebookBody p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #687260;
+  margin: 7px 0;
+}
+.notebookBody small {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #727b66;
+}
+.notebookBody .evidenceModel {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  color: #344a3b;
+}
+.chapterOpening h2 {
+  font-size: 29px;
+  line-height: 1.5;
+  margin: 8px 0 20px;
+}
+.storyProse p {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 2.05;
+  color: #4a574f;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+.storyDialogue {
+  border-left: 2px solid #bda971;
+  padding: 0 0 0 20px;
+  margin: 28px 0;
+}
+.storyDialogue article {
+  margin-bottom: 25px;
+}
+.storyDialogue article > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.storyDialogue strong {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  color: #8d7c50;
+}
+.storyDialogue article > p {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1.9;
+  color: #344a3b;
+  margin: 9px 0;
+}
+.storyDialogue details {
+  font-size: 11px;
+  color: #727b66;
+}
+.storyDialogue details summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.storyDialogue details p {
+  line-height: 1.9;
+  padding: 10px 12px;
+  border-left: 1px solid #dedccb;
+  margin: 0 0 10px;
+}
+.cast {
+  border-block: 1px solid #e1e3d6;
+  margin: 22px 0 25px;
+}
+.cast > div {
+  padding: 10px 0;
+}
+.cast strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.cast strong span {
+  font-size: 10px;
+  color: #708069;
+  margin-left: 12px;
+}
+.cast p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #687260;
+  margin: 5px 0;
+}
+.chapterOpening > .primary {
+  min-height: 48px;
+}
+.storyResolution {
+  padding: 22px;
+  border: 1px solid #dedccb;
+  background: #f7f4ea;
+  border-radius: 5px;
+  margin: 25px 0;
+}
+.storyResolution h3 {
+  font-family: var(--font-noto-serif), serif;
+  font-weight: 500;
+  font-size: 17px;
+  margin: 0 0 12px;
+}
+.storyResolution p {
+  font-size: 14px;
+  line-height: 2;
+  color: #4a574f;
+  margin: 0;
+  white-space: pre-line;
+}
+.debrief {
+  border-block: 1px solid #e1e3d6;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+.debrief > h3 {
+  font-family: var(--font-noto-serif), serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+.debrief > p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #687260;
+}
+.debrief > label {
+  display: block;
+  font-size: 11px;
+  color: #6c7a65;
+  margin: 16px 0 8px;
+}
+.debrief details p[lang="en"] {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #344a3b;
+}
+.player button,
+.textButton {
+  min-height: 44px;
+}
+.storyUtilities summary:focus-visible,
+.storyDialogue summary:focus-visible,
+.cast summary:focus-visible,
+.debrief summary:focus-visible {
+  outline: 3px solid #ba9c50;
+  outline-offset: 3px;
+}
+@media (max-width: 1050px) {
+  .chapterSteps {
+    left: 22px;
+    right: 22px;
+    gap: 6px;
+  }
+  .chapterSteps button {
+    padding: 8px;
+  }
+  .chapterSteps small {
+    font-size: 8px;
+  }
+  .sceneCopy {
+    bottom: 150px;
+  }
+  .storyUtilities {
+    gap: 10px;
+  }
+  .chapterOpening h2 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 800px) {
+  .scene {
+    height: 410px;
+  }
+  .sceneCopy {
+    bottom: 145px;
+  }
+  .sceneCopy h1 {
+    font-size: 27px;
+    margin-bottom: 13px;
+  }
+  .sceneCopy > p {
+    font-size: 14px;
+  }
+  .sceneObjective {
+    font-size: 12px;
+  }
+  .location {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+  .chapterSteps {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+  .chapterSteps button {
+    min-height: 76px;
+    padding: 9px;
+  }
+  .chapterSteps strong {
+    font-size: 10px;
+  }
+  .chapterSteps small {
+    font-size: 8px;
+  }
+  .chapterOpening h2 {
+    font-size: 25px;
+  }
+  .storyProse p {
+    font-size: 13px;
+    line-height: 2;
+  }
+  .storyDialogue {
+    padding-left: 16px;
+    margin: 23px 0;
+  }
+  .storyDialogue article > p {
+    font-size: 16px;
+  }
+  .chapterOpening > .primary {
+    width: 100%;
+  }
+  .notebookBody {
+    padding: 16px;
+  }
+  .storyResolution {
+    padding: 18px;
+  }
+  .storyResolution p {
+    font-size: 13px;
+  }
+  .workspace {
+    padding: 23px 20px;
+  }
+  .storyUtilities summary {
+    font-size: 11px;
+  }
+  .debrief > h3 {
+    font-size: 17px;
+  }
+}
+@media (max-width: 380px) {
+  .chapterSteps button {
+    padding: 7px;
+  }
+  .chapterSteps strong {
+    font-size: 9px;
+  }
+  .chapterSteps small {
+    font-size: 7px;
+  }
+  .scene {
+    height: 405px;
+  }
+  .sceneCopy {
+    left: 20px;
+    right: 20px;
+  }
+  .sceneCopy h1 {
+    font-size: 24px;
+  }
+  .sceneCopy > p {
+    font-size: 12px;
+  }
+  .storyDialogue article > div {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .workspace {
+    padding-inline: 16px;
+  }
+}
+
+.workspace {
+  scroll-margin-top: 86px;
+}
+.workspace:focus {
+  outline: none;
 }

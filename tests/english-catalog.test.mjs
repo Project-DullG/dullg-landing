@@ -265,6 +265,7 @@ test("all authored story versions, practice UI, growth labels, and feedback have
       "en-study.json",
       "en-review-queue.json",
       "en-study-navigation.json",
+      "en-library.json",
     ].map((file) =>
       JSON.parse(readFileSync(new URL(`../lib/i18n/${file}`, import.meta.url), "utf8")),
     ),
@@ -301,6 +302,7 @@ test("all authored story versions, practice UI, growth labels, and feedback have
     "components/english/journal.tsx",
     "components/english/study-navigation.tsx",
     "components/english/use-study-progress.ts",
+    "components/english/library-browser.tsx",
     "components/english/practice-player.tsx",
     "lib/english/types.ts",
     "lib/english/progress.ts",

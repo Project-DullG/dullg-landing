@@ -2,13 +2,14 @@
 
 import { useLocale } from "next-intl";
 import { usePathname } from "next/navigation";
-import { BookOpen, Map, NotebookPen, RotateCcw, MessageCircle } from "lucide-react";
+import { BookOpen, Search, Map, NotebookPen, RotateCcw, MessageCircle } from "lucide-react";
 import Link from "@/components/i18n/link";
 import { translateText } from "@/lib/i18n/translate";
 import styles from "./study-navigation.module.css";
 
 const links = [
-  { href: "/english", label: "전체", icon: BookOpen },
+  { href: "/english", label: "학습 홈", icon: BookOpen },
+  { href: "/english/library", label: "콘텐츠 찾기", icon: Search },
   { href: "/english/courses", label: "학습 코스", icon: Map },
   { href: "/english/journal", label: "나의 학습", icon: NotebookPen },
   { href: "/english/review", label: "표현 복습", icon: RotateCcw },

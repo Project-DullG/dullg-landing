@@ -37,6 +37,7 @@ export function normalizeDashboardReturnPath(value: unknown): string | null {
 function isEnglishReturnPath(pathname: string) {
   return (
     pathname === "/english" ||
+    pathname === "/english/library" ||
     pathname === "/english/community" ||
     pathname === "/english/review" ||
     pathname === "/english/about" ||

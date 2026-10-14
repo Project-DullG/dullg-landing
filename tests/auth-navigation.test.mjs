@@ -108,6 +108,7 @@ test("role route checks use segment boundaries", () => {
 test("English learners return to the hub, community, or their episode without an academy role", () => {
   for (const target of [
     "/english",
+    "/english/library?kind=story&focus=closed-bookshop&level=starter",
     "/english/community",
     "/english/review",
     "/english/about",
@@ -131,6 +132,8 @@ test("English learners return to the hub, community, or their episode without an
   );
   for (const rejected of [
     "/english-evil",
+    "/english/library-admin",
+    "/english/library/foreign",
     "/english/admin",
     "/english/courses-admin",
     "/english/journal/foreign",

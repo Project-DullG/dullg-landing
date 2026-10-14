@@ -31,6 +31,15 @@ export const publicRoutes: PublicRoute[] = [
     changeFrequency: "weekly",
   },
   {
+    path: "/english/library",
+    title: "영어 콘텐츠 찾기",
+    description:
+      "이야기·회화·문장·리딩을 학습 목표와 난이도별 맛보기로 살펴보고 내게 맞는 영어 콘텐츠를 고릅니다.",
+    group: "learning",
+    priority: 0.9,
+    changeFrequency: "weekly",
+  },
+  {
     path: "/english/courses",
     title: "영어 학습 코스",
     description:

@@ -1,6 +1,7 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { EnglishProgress } from "@/lib/english/types";
+import { readEnglishSession } from "@/lib/english/session-ui";
 
 export type StudyProgressProps = {
   initialProgress: EnglishProgress | null;
@@ -29,20 +30,13 @@ export function useStudyProgress({
       setStatus("loading");
     }
     try {
-      const response = await fetch("/api/english/progress", {
-        cache: "no-store",
-        credentials: "same-origin",
-        signal: abort.signal,
-      });
-      if (generation !== request.current) return;
-      if (response.status === 401) {
+      const data = await readEnglishSession({ signal: abort.signal });
+      if (generation !== request.current || abort.signal.aborted) return;
+      if (!data) {
         setProgress(null);
         setStatus("guest");
         return;
       }
-      if (!response.ok) throw new Error("progress unavailable");
-      const data = (await response.json()) as { progress: EnglishProgress };
-      if (generation !== request.current) return;
       setProgress(data.progress);
       setStatus("ready");
       setNow(Date.now());
@@ -50,6 +44,8 @@ export function useStudyProgress({
       if (generation !== request.current || abort.signal.aborted) return;
       setProgress(null);
       setStatus("error");
+    } finally {
+      if (controller.current === abort) controller.current = null;
     }
   }, []);
   const invalidate = useCallback(() => {

@@ -5,7 +5,7 @@ import { useLocale } from "next-intl";
 import { localizeEnglishTree } from "@/lib/i18n/english-tree";
 import { PracticeLibrary } from "./practice-library";
 import { StudyNavigation } from "./study-navigation";
-import { allEnglishContent } from "@/lib/english/catalog";
+import { allEnglishContent, getEnglishEpisode } from "@/lib/english/catalog";
 import { getEnglishContinuation } from "@/lib/english/journal";
 import { getCourseHref } from "@/lib/english/courses";
 import { getEnglishReviewQueue } from "@/lib/english/review-queue";
@@ -32,7 +32,14 @@ import {
   type EnglishProgress,
   type EnglishSkill,
 } from "@/lib/english/types";
-import { getEnglishGrowth } from "@/lib/english/progress";
+import { getEnglishGrowth, getEnglishEpisodeStatus } from "@/lib/english/progress";
+import {
+  canChooseEnglishLevel,
+  ENGLISH_SESSION_TIMEOUT_MS,
+  getEnglishSessionHref,
+  readEnglishSession,
+  type EnglishSessionState,
+} from "@/lib/english/session-ui";
 import styles from "./hub.module.css";
 
 export type EnglishEpisodeSummary = Pick<
@@ -62,8 +69,6 @@ const genres: { id: "all" | EnglishGenre; label: string }[] = [
   { id: "everyday", label: "일상" },
   { id: "adventure", label: "탐험·퍼즐" },
 ];
-type AccountState = "loading" | "guest" | "ready" | "error";
-
 export function EnglishHub({
   episodes,
   home = false,
@@ -77,32 +82,37 @@ export function EnglishHub({
   const [genre, setGenre] = useState<EnglishGenre | "all">("all");
   const [skill, setSkill] = useState<EnglishSkill | "all">("all");
   const [progress, setProgress] = useState<EnglishProgress | null>(null);
-  const [account, setAccount] = useState<AccountState>("loading");
+  const [account, setAccount] = useState<EnglishSessionState>("loading");
   const [notice, setNotice] = useState("");
   const [savingLevel, setSavingLevel] = useState(false);
   const accountKey = useRef<string | null>(null);
   const requestNumber = useRef(0);
   const guestLevel = useRef<EnglishLevel>("standard");
+  const accountState = useRef<EnglishSessionState>("loading");
+  const levelSaving = useRef(false);
+  const refreshAfterSave = useRef(false);
 
   const refresh = useCallback(async () => {
+    if (levelSaving.current) {
+      refreshAfterSave.current = true;
+      return;
+    }
     const request = ++requestNumber.current;
+    accountState.current = "loading";
+    setAccount("loading");
     try {
-      const response = await fetch("/api/english/progress", {
-        cache: "no-store",
-        credentials: "same-origin",
-      });
+      const data = await readEnglishSession();
       if (request !== requestNumber.current) return;
-      if (response.status === 401) {
+      if (!data) {
         accountKey.current = null;
+        accountState.current = "guest";
         setProgress(null);
         setAccount("guest");
         setLevel(guestLevel.current);
         return;
       }
-      if (!response.ok) throw new Error("progress unavailable");
-      const data = (await response.json()) as { progress: EnglishProgress; accountKey: string };
-      if (request !== requestNumber.current) return;
       accountKey.current = data.accountKey;
+      accountState.current = "ready";
       setNow(Date.now());
       setProgress(data.progress);
       setLevel(data.progress.preferredLevel);
@@ -110,6 +120,7 @@ export function EnglishHub({
     } catch {
       if (request !== requestNumber.current) return;
       accountKey.current = null;
+      accountState.current = "error";
       setProgress(null);
       setAccount("error");
     }
@@ -135,15 +146,18 @@ export function EnglishHub({
   }, [refresh, invalidateRequest]);
 
   async function chooseLevel(next: EnglishLevel) {
+    if (!canChooseEnglishLevel(accountState.current, levelSaving.current)) return;
     guestLevel.current = next;
     setLevel(next);
     setNotice("");
     const key = accountKey.current;
-    if (!key || account !== "ready") return;
+    if (!key || accountState.current !== "ready") return;
+    levelSaving.current = true;
     setSavingLevel(true);
     try {
       const response = await fetch("/api/english/progress", {
         method: "POST",
+        signal: AbortSignal.timeout(ENGLISH_SESSION_TIMEOUT_MS),
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "level", level: next, accountKey: key }),
       });
@@ -153,7 +167,7 @@ export function EnglishHub({
             ? "계정이 바뀌었거나 로그인이 만료되어 기록을 다시 확인합니다."
             : "난이도를 저장하지 못했어요. 잠시 후 다시 선택해 주세요.",
         );
-        await refresh();
+        refreshAfterSave.current = true;
         return;
       }
       const data = (await response.json()) as { progress: EnglishProgress };
@@ -161,7 +175,12 @@ export function EnglishHub({
     } catch {
       setNotice("난이도를 저장하지 못했어요. 선택한 난이도로 체험은 계속할 수 있습니다.");
     } finally {
+      levelSaving.current = false;
       setSavingLevel(false);
+      if (refreshAfterSave.current) {
+        refreshAfterSave.current = false;
+        void refresh();
+      }
     }
   }
 
@@ -174,28 +193,29 @@ export function EnglishHub({
   );
   const dueReviews = reviewPlan.items.length;
   const continuation = progress ? getEnglishContinuation(progress) : undefined;
+  const storyStatus = (id: string) => {
+    const content = getEnglishEpisode(id);
+    return progress && content ? getEnglishEpisodeStatus(progress, content) : null;
+  };
+  const completedStories = episodes.filter((episode) => storyStatus(episode.id)?.finished).length;
   const activeEpisode = progress
     ? [...episodes]
-        .filter(
-          (episode) =>
-            progress.episodes[episode.id]?.completedTasks.length &&
-            !progress.episodes[episode.id]?.completedAt,
-        )
+        .filter((episode) => {
+          const status = storyStatus(episode.id);
+          return status?.completedCount && !status.finished;
+        })
         .sort((a, b) =>
           progress.episodes[b.id].updatedAt.localeCompare(progress.episodes[a.id].updatedAt),
         )[0]
     : undefined;
   const nextEpisode =
-    activeEpisode ||
-    episodes.find((episode) => !progress?.episodes[episode.id]?.completedAt) ||
-    lead;
+    activeEpisode || episodes.find((episode) => !storyStatus(episode.id)?.finished) || lead;
   const filtered = episodes.filter(
     (episode) =>
       (genre === "all" || episode.genre === genre) &&
       (skill === "all" || episode.skills.includes(skill)),
   );
-  const playHref = (id: string) =>
-    `/english/play/${id}?level=${level}${progress?.episodes[id]?.completedAt ? "&replay=1" : ""}`;
+  const playHref = (id: string) => getEnglishSessionHref(id, level, progress)!;
   const selectedLevel = englishLevels.find((item) => item.id === level)!;
 
   return localizeEnglishTree(
@@ -302,7 +322,7 @@ export function EnglishHub({
                   <div>
                     <CheckCircle size={20} aria-hidden="true" />
                     <strong>
-                      {growth.completedEpisodes}
+                      {completedStories}
                       <small>편</small>
                     </strong>
                     <span>마친 이야기</span>
@@ -343,7 +363,7 @@ export function EnglishHub({
                     <Link className={styles.primaryButton} href={playHref(nextEpisode.id)}>
                       {activeEpisode
                         ? "멈춘 이야기 이어하기"
-                        : growth.completedEpisodes === episodes.length
+                        : completedStories === episodes.length
                           ? "이야기 다시 연습"
                           : "다음 이야기 시작하기"}
                       <ArrowRight size={17} aria-hidden="true" />
@@ -440,7 +460,7 @@ export function EnglishHub({
                       name="english-level"
                       value={item.id}
                       checked={level === item.id}
-                      disabled={savingLevel}
+                      disabled={!canChooseEnglishLevel(account, savingLevel)}
                       onChange={() => void chooseLevel(item.id)}
                     />
                     <span>{item.label}</span>
@@ -491,7 +511,7 @@ export function EnglishHub({
           </p>
           <div className={styles.storyGrid}>
             {filtered.map((episode) => {
-              const saved = progress?.episodes[episode.id];
+              const status = storyStatus(episode.id);
               return (
                 <article className={styles.storyCard} key={episode.id}>
                   <Link
@@ -534,14 +554,14 @@ export function EnglishHub({
                       })}
                     </div>
                     <Link href={playHref(episode.id)} className={styles.cardAction}>
-                      {saved?.completedAt
+                      {status?.finished
                         ? "다시 플레이"
-                        : saved?.completedTasks.length
-                          ? `이어하기 · ${saved.completedTasks.length}/${episode.taskCount}`
+                        : status?.completedCount
+                          ? `이어하기 · ${status.completedCount}/${status.total}`
                           : "이야기 열기"}
                       <ArrowRight size={18} aria-hidden="true" />
                     </Link>
-                    {saved?.completedAt && (
+                    {status?.finished && (
                       <span className={styles.completed}>
                         <CheckCircle size={15} aria-hidden="true" />
                         완료한 이야기

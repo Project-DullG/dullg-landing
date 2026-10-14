@@ -31,6 +31,7 @@ import {
 } from "@/lib/english/types";
 import styles from "./player.module.css";
 import { getEnglishCourse, getCourseFollowUp, getCourseHref } from "@/lib/english/courses";
+import { getEnglishReloadIndex } from "@/lib/english/session-ui";
 
 const icons = { reading: BookOpen, listening: Headphones, writing: PenLine, speaking: Mic };
 type Feedback = { correct: boolean; feedback: string; consequence: string };
@@ -267,7 +268,7 @@ export function EnglishPlayer({
       setProgress(restored);
       setStorageReady(true);
       setError("");
-      const next = getEnglishEpisodeStatus(restored, episode).firstMissingIndex;
+      const next = getEnglishReloadIndex(restored, episode, replaying, index);
       resetTask();
       setViewedChapterId(null);
       setIndex(next);

@@ -7,6 +7,8 @@ import newStoryDictionary from "./en-stories-new.json" with { type: "json" };
 import playerStoryDictionary from "./en-player-story.json" with { type: "json" };
 import { practiceEnglishDictionary } from "../english/practice.ts";
 import { coursesEnglishDictionary } from "../english/courses.ts";
+import { guidesEnglishDictionary } from "../english/content-guides.ts";
+import libraryDictionary from "./en-library.json" with { type: "json" };
 import studyDictionary from "./en-study.json" with { type: "json" };
 import studyNavigationDictionary from "./en-study-navigation.json" with { type: "json" };
 import reviewQueueDictionary from "./en-review-queue.json" with { type: "json" };
@@ -30,6 +32,8 @@ const messages: Record<string, string> = Object.fromEntries(
     ...playerStoryDictionary,
     ...practiceEnglishDictionary,
     ...coursesEnglishDictionary,
+    ...guidesEnglishDictionary,
+    ...libraryDictionary,
     ...studyDictionary,
     ...studyNavigationDictionary,
     ...reviewQueueDictionary,

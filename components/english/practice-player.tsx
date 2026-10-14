@@ -31,6 +31,7 @@ import {
 import type { EnglishPracticePack } from "@/lib/english/practice";
 import styles from "./practice-player.module.css";
 import { getEnglishCourse, getCourseFollowUp, getCourseHref } from "@/lib/english/courses";
+import { getEnglishReloadIndex } from "@/lib/english/session-ui";
 
 const icons = { reading: BookOpen, listening: Headphones, writing: PenLine, speaking: Mic };
 type Feedback = { correct: boolean; feedback: string; consequence: string };
@@ -170,7 +171,7 @@ export function PracticePlayer({
       setStorageReady(true);
       setError("");
       reset();
-      setIndex(getEnglishEpisodeStatus(restored, pack).firstMissingIndex);
+      setIndex(getEnglishReloadIndex(restored, pack, replaying, index));
       focusWorkspace();
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "기록을 불러오지 못했어요.");

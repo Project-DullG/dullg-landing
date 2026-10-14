@@ -12,6 +12,15 @@ const episodes = [
 const checks = [
   ["/", "english-title"],
   ["/english", "library-title"],
+  ["/english/library", "지금 배우고 싶은 영어를 찾아요"],
+  [
+    "/english/library?kind=story&focus=closed-bookshop&level=starter",
+    "콘텐츠를 소개하는 별도의 예문입니다.",
+  ],
+  ["/english/library?kind=conversation&skill=speaking&pace=quick", "찾은 콘텐츠"],
+  ["/english/library?q=Could%20you", "조건 초기화"],
+  ["/en/english/library", "Find the English you want to learn"],
+  ["/en/english/library?focus=moonlight-post&level=challenge", "Try a short language preview"],
   ["/english/about", "Ellis"],
   ["/english/community", "COMMUNITY"],
   ["/english/review", "MY FIELD NOTES"],
@@ -45,6 +54,11 @@ for (const [path, marker] of checks) {
   if (path === "/english/journal" || path === "/en/english/journal") {
     assert.ok(html.includes("noindex"));
     assert.match(response.headers.get("cache-control") || "", /no-store/);
+  }
+  if (path.includes("/english/library")) {
+    assert.match(response.headers.get("cache-control") || "", /no-store/);
+    assert.ok(html.includes("english-content-search"));
+    assert.ok(html.includes("/english/courses"));
   }
   if (path.startsWith("/en/")) {
     const visible = html

@@ -17,6 +17,7 @@ import {
   getEnglishExpression,
 } from "../lib/english/catalog.ts";
 import { englishPracticePacks } from "../lib/english/practice.ts";
+import { getEnglishCourse } from "../lib/english/courses.ts";
 import {
   emptyEnglishProgress,
   englishDay,
@@ -51,6 +52,14 @@ const endpoint = `127.0.0.1:${freePort}`;
 process.env.FIRESTORE_EMULATOR_HOST = endpoint;
 process.env.GCLOUD_PROJECT = project;
 process.env.GOOGLE_CLOUD_PROJECT = project;
+function assertLocalDemoEnvironment() {
+  assert.match(project, /^demo-/);
+  assert.match(endpoint, /^127\.0\.0\.1:[1-9]\d*$/);
+  assert.equal(process.env.FIRESTORE_EMULATOR_HOST, endpoint);
+  assert.equal(process.env.GCLOUD_PROJECT, project);
+  assert.equal(process.env.GOOGLE_CLOUD_PROJECT, project);
+}
+assertLocalDemoEnvironment();
 let emulatorLog = "";
 const emulator = spawn(
   "java",
@@ -130,6 +139,7 @@ try {
     privateKeyEncoding: { type: "pkcs8", format: "pem" },
     publicKeyEncoding: { type: "spki", format: "pem" },
   });
+  assertLocalDemoEnvironment();
   app = initializeApp({
     projectId: project,
     credential: cert({
@@ -207,6 +217,105 @@ try {
   assert.equal((await backend.readEnglishProgress(uidA)).preferredLevel, "standard");
   check(
     "completion and replay remain idempotent, and account records and preferences are isolated",
+  );
+
+  const uidCourse = "emulator-course-learner",
+    uidOtherCourse = "emulator-course-other-learner",
+    uidRejectedCourse = "emulator-course-rejected-learner";
+  const courseKey = backend.accountKey(uidCourse),
+    otherCourseKey = backend.accountKey(uidOtherCourse),
+    rejectedCourseKey = backend.accountKey(uidRejectedCourse);
+  const courseContent = getEnglishEpisode("closed-bookshop"),
+    firstSteps = getEnglishCourse("first-steps"),
+    everyday = getEnglishCourse("everyday-english");
+  assert.ok(courseContent && firstSteps && everyday);
+  assert.ok(firstSteps.units.some((unit) => unit.contentId === courseContent.id));
+  assert.equal(
+    everyday.units.some((unit) => unit.contentId === courseContent.id),
+    false,
+  );
+  const courseDoc = db.collection("englishProgress").doc(uidCourse),
+    otherCourseDoc = db.collection("englishProgress").doc(uidOtherCourse),
+    rejectedCourseDoc = db.collection("englishProgress").doc(uidRejectedCourse);
+  const startedCourse = await backend.updateEnglishProgress(uidCourse, {
+    ...attemptInput(courseContent.tasks[0], courseKey, courseContent),
+    courseId: firstSteps.id,
+  });
+  assert.equal(startedCourse.correct, true);
+  assert.equal(startedCourse.duplicate, false);
+  assert.equal(startedCourse.progress.episodes[courseContent.id].courseId, firstSteps.id);
+  assert.equal(
+    (await courseDoc.get()).data().progress.episodes[courseContent.id].courseId,
+    firstSteps.id,
+  );
+  const continuedCourse = await backend.updateEnglishProgress(
+    uidCourse,
+    attemptInput(courseContent.tasks[1], courseKey, courseContent),
+  );
+  assert.equal(continuedCourse.correct, true);
+  assert.equal(continuedCourse.progress.episodes[courseContent.id].courseId, firstSteps.id);
+  const savedCourse = await backend.readEnglishProgress(uidCourse);
+  assert.equal(savedCourse.xp, 40);
+  assert.equal(savedCourse.episodes[courseContent.id].courseId, firstSteps.id);
+  assert.deepEqual(
+    savedCourse.episodes[courseContent.id].completedTasks,
+    courseContent.tasks.slice(0, 2).map((task) => task.id),
+  );
+  assert.equal(
+    (await backend.readEnglishProgress(uidOtherCourse)).episodes[courseContent.id],
+    undefined,
+  );
+  assert.equal((await otherCourseDoc.get()).exists, false);
+  const independentCourse = await backend.updateEnglishProgress(
+    uidOtherCourse,
+    attemptInput(courseContent.tasks[0], otherCourseKey, courseContent),
+  );
+  assert.equal(independentCourse.correct, true);
+  assert.equal(independentCourse.progress.episodes[courseContent.id].courseId, undefined);
+  assert.equal((await backend.readEnglishProgress(uidOtherCourse)).xp, 20);
+  assert.deepEqual(await backend.readEnglishProgress(uidCourse), savedCourse);
+
+  const beforeInvalidCourse = (await courseDoc.get()).data();
+  for (const courseId of [
+    "unknown-course",
+    "retired-course",
+    "first-steps?level=challenge",
+    everyday.id,
+  ]) {
+    const invalidAttempt = {
+      ...attemptInput(courseContent.tasks[2], courseKey, courseContent),
+      courseId,
+    };
+    await assert.rejects(() => backend.updateEnglishProgress(uidCourse, invalidAttempt), {
+      status: 400,
+      message: "학습 코스를 확인해 주세요.",
+    });
+    assert.deepEqual((await courseDoc.get()).data(), beforeInvalidCourse);
+    await assert.rejects(
+      () =>
+        backend.updateEnglishProgress(uidRejectedCourse, {
+          ...attemptInput(courseContent.tasks[0], rejectedCourseKey, courseContent),
+          courseId,
+        }),
+      { status: 400, message: "학습 코스를 확인해 주세요." },
+    );
+    assert.equal((await rejectedCourseDoc.get()).exists, false);
+  }
+  await assert.rejects(
+    () =>
+      backend.updateEnglishProgress(uidCourse, {
+        ...attemptInput(courseContent.tasks[2], otherCourseKey, courseContent),
+        courseId: firstSteps.id,
+      }),
+    { status: 409 },
+  );
+  assert.deepEqual((await courseDoc.get()).data(), beforeInvalidCourse);
+  assert.equal(
+    (await otherCourseDoc.get()).data().progress.episodes[courseContent.id].courseId,
+    undefined,
+  );
+  check(
+    "valid course context persists across omitted follow-up IDs, stays account-isolated, and invalid, retired, unrelated, or stale-account requests leave Firestore unchanged",
   );
 
   const uidLegacy = "emulator-original-five-complete",

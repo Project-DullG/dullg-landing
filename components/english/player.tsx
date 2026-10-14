@@ -30,6 +30,7 @@ import {
   type EnglishProgress,
 } from "@/lib/english/types";
 import styles from "./player.module.css";
+import { getEnglishCourse, getCourseFollowUp, getCourseHref } from "@/lib/english/courses";
 
 const icons = { reading: BookOpen, listening: Headphones, writing: PenLine, speaking: Mic };
 type Feedback = { correct: boolean; feedback: string; consequence: string };
@@ -61,6 +62,7 @@ export function EnglishPlayer({
   startingLevel,
   replay = false,
   nextEpisode,
+  courseId,
 }: {
   episode: EnglishEpisode;
   initialProgress: EnglishProgress | null;
@@ -69,6 +71,7 @@ export function EnglishPlayer({
   startingLevel?: EnglishLevel;
   replay?: boolean;
   nextEpisode?: { id: string; title: string };
+  courseId?: string;
 }) {
   const locale = useLocale();
   const [progress, setProgress] = useState(() =>
@@ -81,6 +84,11 @@ export function EnglishPlayer({
       "standard",
   );
   const initialStatus = getEnglishEpisodeStatus(initialProgress || emptyEnglishProgress(), episode);
+  const course = getEnglishCourse(courseId || "");
+  const followUp = course
+    ? getCourseFollowUp(course, progress, episode.id, !!accountKey)
+    : undefined;
+  const loginReturn = getCourseHref(episode.id, level, { courseId, replay })!;
   const [index, setIndex] = useState(replay ? 0 : initialStatus.firstMissingIndex);
   const [replaying, setReplaying] = useState(replay);
   const [introducedChapters, setIntroducedChapters] = useState<string[]>([]);
@@ -277,6 +285,7 @@ export function EnglishPlayer({
       episodeId: episode.id,
       taskId: task.id,
       level,
+      ...(courseId ? { courseId } : {}),
       answer,
       selfConfirmed: confirmed,
     };
@@ -307,8 +316,10 @@ export function EnglishPlayer({
   return localizeEnglishTree(
     <div className={styles.player}>
       <div className={styles.topbar}>
-        <Link href="/english">
-          <ArrowLeft size={16} /> 학습 목록
+        <Link
+          href={course ? "/english/courses?course=" + course.id + "&level=" + level : "/english"}
+        >
+          <ArrowLeft size={16} /> {course ? "코스 목차" : "학습 목록"}
         </Link>
         <span>FIRST PAGES / {episode.genreLabel}</span>
         <span>
@@ -318,7 +329,7 @@ export function EnglishPlayer({
       {!accountKey && (
         <div className={styles.guest}>
           로그인 없이 플레이하고 있어요. 기록은 이 화면에만 남아요.{" "}
-          <Link href={`/login?next=${encodeURIComponent(`/english/play/${episode.id}`)}`}>
+          <Link href={`/login?next=${encodeURIComponent(loginReturn)}`}>
             로그인하고 기록 남기기 →
           </Link>
         </div>
@@ -463,9 +474,7 @@ export function EnglishPlayer({
                   다시 불러오기
                 </button>
               )}
-              <Link href={`/login?next=${encodeURIComponent(`/english/play/${episode.id}`)}`}>
-                로그인 상태 확인
-              </Link>
+              <Link href={`/login?next=${encodeURIComponent(loginReturn)}`}>로그인 상태 확인</Link>
             </div>
           )}
           {chapterOpening && storyChapter ? (
@@ -563,7 +572,7 @@ export function EnglishPlayer({
               <div className={styles.growth}>
                 <strong>{accountKey ? "내 학습 기록" : "체험 기록"}</strong>
                 <span>
-                  {total}개 장면 · {episode.expressions.length}개 표현
+                  {total}개 활동 · {episode.expressions.length}개 표현
                 </span>
                 <b>
                   Lv.{growth.level} · {progress.xp} XP
@@ -610,13 +619,37 @@ export function EnglishPlayer({
               )}
               <div className={styles.endActions}>
                 <Link
-                  href={nextEpisode ? `/english/play/${nextEpisode.id}?level=${level}` : "/english"}
+                  href={
+                    followUp
+                      ? getCourseHref(
+                          followUp.contentId,
+                          followUp.inProgress
+                            ? progress.episodes[followUp.contentId]?.level || level
+                            : level,
+                          { courseId: course?.id },
+                        )!
+                      : course
+                        ? "/english/courses?course=" + course.id + "&level=" + level
+                        : nextEpisode
+                          ? `/english/play/${nextEpisode.id}?level=${level}`
+                          : "/english"
+                  }
                   className={styles.primary}
                 >
-                  {nextEpisode ? "다음 이야기 시작하기" : "다음 이야기 고르기"}{" "}
+                  {followUp
+                    ? "코스의 다음 학습으로"
+                    : course
+                      ? "코스 목차 보기"
+                      : nextEpisode
+                        ? "다음 이야기 시작하기"
+                        : "다음 이야기 고르기"}{" "}
                   <ArrowRight size={17} />
                 </Link>
-                {nextEpisode && <p className={styles.note}>{nextEpisode.title}</p>}
+                {course ? (
+                  <p className={styles.note}>{course.title.ko}</p>
+                ) : (
+                  nextEpisode && <p className={styles.note}>{nextEpisode.title}</p>
+                )}
                 {accountKey && (
                   <Link href="/english/review" className={styles.secondary}>
                     내 복습 수첩
@@ -861,7 +894,7 @@ export function EnglishPlayer({
                         다시 불러오기
                       </button>
                     )}
-                    <Link href={`/login?next=${encodeURIComponent(`/english/play/${episode.id}`)}`}>
+                    <Link href={`/login?next=${encodeURIComponent(loginReturn)}`}>
                       로그인 상태 확인
                     </Link>
                   </div>

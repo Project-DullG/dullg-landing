@@ -97,7 +97,7 @@ export function PracticeLibrary({
                 예상 {pack.minutes}분 · {pack.tasks.length}단계
               </span>
               <Link
-                href={`/english/practice/${pack.id}?level=${level}${status?.finished ? "&replay=1" : ""}`}
+                href={`/english/practice/${pack.id}?level=${status?.completedCount && !status.finished ? progress?.episodes[pack.id]?.level || level : level}${status?.finished ? "&replay=1" : ""}`}
               >
                 {status?.finished ? (
                   <>

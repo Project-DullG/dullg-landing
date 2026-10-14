@@ -1,5 +1,6 @@
 import { Header, Footer } from "@/components/site";
 import { EnglishReview } from "@/components/english/review";
+import { StudyNavigation } from "@/components/english/study-navigation";
 import { verifySession } from "@/lib/firebase/auth";
 import { accountKey, readEnglishProgress } from "@/lib/english/server";
 import type { EnglishProgress } from "@/lib/english/types";
@@ -27,6 +28,11 @@ export default async function EnglishReviewPage() {
     <>
       <Header />
       <main id="main-content">
+        <div style={{ background: "#f8f6f0", padding: "24px 24px 0" }}>
+          <div style={{ maxWidth: 1120, marginInline: "auto" }}>
+            <StudyNavigation />
+          </div>
+        </div>
         <EnglishReview
           initialProgress={progress}
           accountKey={session ? accountKey(session.uid) : null}

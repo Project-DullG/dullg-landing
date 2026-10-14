@@ -22,7 +22,11 @@ export function normalizeDashboardReturnPath(value: unknown): string | null {
   }
 
   const pathname = rawPathname.replace(/^\/en(?=\/|$)/, "");
-  if (pathname !== DASHBOARD_ROOT && !pathname.startsWith(`${DASHBOARD_ROOT}/`) && !isEnglishReturnPath(pathname)) {
+  if (
+    pathname !== DASHBOARD_ROOT &&
+    !pathname.startsWith(`${DASHBOARD_ROOT}/`) &&
+    !isEnglishReturnPath(pathname)
+  ) {
     return null;
   }
 
@@ -31,8 +35,15 @@ export function normalizeDashboardReturnPath(value: unknown): string | null {
 }
 
 function isEnglishReturnPath(pathname: string) {
-  return pathname === "/english" || pathname === "/english/community" || pathname === "/english/review" || pathname === "/english/about"
-    || /^\/english\/(?:play|practice)\/[a-z0-9-]{1,80}$/.test(pathname);
+  return (
+    pathname === "/english" ||
+    pathname === "/english/community" ||
+    pathname === "/english/review" ||
+    pathname === "/english/about" ||
+    pathname === "/english/courses" ||
+    pathname === "/english/journal" ||
+    /^\/english\/(?:play|practice)\/[a-z0-9-]{1,80}$/.test(pathname)
+  );
 }
 
 function isRouteWithin(pathname: string, root: string) {

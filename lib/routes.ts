@@ -31,6 +31,25 @@ export const publicRoutes: PublicRoute[] = [
     changeFrequency: "weekly",
   },
   {
+    path: "/english/courses",
+    title: "영어 학습 코스",
+    description:
+      "처음부터 차근차근, 일상 회화, 단서 읽기, 읽고 말하기. 이야기와 집중 연습을 목적에 맞는 순서로 함께 배웁니다.",
+    group: "learning",
+    priority: 0.85,
+    changeFrequency: "weekly",
+  },
+  {
+    path: "/english/journal",
+    title: "나의 영어 학습",
+    description:
+      "이어 할 학습, 최근 7일 기록과 검색할 수 있는 배운 표현 노트를 한곳에서 확인합니다.",
+    group: "learning",
+    priority: 0.3,
+    changeFrequency: "weekly",
+    noIndex: true,
+  },
+  {
     path: "/english/community",
     title: "학습 커뮤니티",
     description: "닉네임으로 학습 이야기를 나누고 서로 응원하는 단서공방 영어 학습 커뮤니티.",

@@ -5,6 +5,7 @@ import { englishPracticePacks } from "@/lib/english/practice";
 import { verifySession } from "@/lib/firebase/auth";
 import { readEnglishProgress, accountKey as englishAccountKey } from "@/lib/english/server";
 import { isEnglishLevel } from "@/lib/english/progress";
+import { getEnglishCourse } from "@/lib/english/courses";
 import type { EnglishProgress } from "@/lib/english/types";
 import { localizeMetadata } from "@/lib/i18n/server";
 export const dynamic = "force-dynamic";
@@ -22,7 +23,7 @@ export default async function EnglishPracticePage({
   searchParams,
 }: {
   params: Promise<{ pack: string }>;
-  searchParams: Promise<{ level?: string; replay?: string }>;
+  searchParams: Promise<{ level?: string; replay?: string; course?: string }>;
 }) {
   const id = (await params).pack;
   const pack = englishPracticePacks.find((item) => item.id === id);
@@ -38,6 +39,7 @@ export default async function EnglishPracticePage({
       loadError = true;
     }
   }
+  const course = getEnglishCourse(requested.course || progress?.episodes[pack.id]?.courseId || "");
   return (
     <>
       <Header />
@@ -50,6 +52,9 @@ export default async function EnglishPracticePage({
           loadError={loadError}
           startingLevel={isEnglishLevel(requested.level) ? requested.level : undefined}
           replay={requested.replay === "1"}
+          courseId={
+            course?.units.some((unit) => unit.contentId === pack.id) ? course.id : undefined
+          }
         />
       </main>
       <Footer />

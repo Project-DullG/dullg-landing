@@ -4,6 +4,11 @@ import Image from "next/image";
 import { useLocale } from "next-intl";
 import { localizeEnglishTree } from "@/lib/i18n/english-tree";
 import { PracticeLibrary } from "./practice-library";
+import { StudyNavigation } from "./study-navigation";
+import { allEnglishContent } from "@/lib/english/catalog";
+import { getEnglishContinuation } from "@/lib/english/journal";
+import { getCourseHref } from "@/lib/english/courses";
+import { getEnglishReviewQueue } from "@/lib/english/review-queue";
 import Link from "@/components/i18n/link";
 import {
   ArrowRight,
@@ -162,9 +167,13 @@ export function EnglishHub({
 
   const lead = episodes[0];
   const growth = progress ? getEnglishGrowth(progress, new Date(now)) : null;
-  const dueReviews = progress
-    ? Object.values(progress.reviews).filter((review) => Date.parse(review.dueAt) <= now).length
-    : 0;
+  const reviewPlan = getEnglishReviewQueue(
+    progress,
+    allEnglishContent.flatMap((item) => item.expressions),
+    new Date(now),
+  );
+  const dueReviews = reviewPlan.items.length;
+  const continuation = progress ? getEnglishContinuation(progress) : undefined;
   const activeEpisode = progress
     ? [...episodes]
         .filter(
@@ -192,6 +201,7 @@ export function EnglishHub({
   return localizeEnglishTree(
     <div className={styles.hub}>
       <div className={styles.shell}>
+        <StudyNavigation />
         <section className={styles.intro} aria-labelledby="english-title">
           <div>
             <p className={styles.eyebrow}>
@@ -272,7 +282,7 @@ export function EnglishHub({
                 </div>
                 <div className={styles.xpRow}>
                   <span>{growth.xp} XP</span>
-                  <span>다음 표식 {growth.nextLevelXp} XP</span>
+                  <span>다음 레벨 {growth.nextLevelXp} XP</span>
                 </div>
                 <progress
                   className={styles.progressBar}
@@ -314,25 +324,50 @@ export function EnglishHub({
                       : "장면 풀이와 표현 복습을 합쳐 3개씩."}
                   </p>
                 </div>
-                {nextEpisode && (
-                  <Link className={styles.primaryButton} href={playHref(nextEpisode.id)}>
-                    {activeEpisode
-                      ? "멈춘 이야기 이어하기"
-                      : growth.completedEpisodes === episodes.length
-                        ? "이야기 다시 연습"
-                        : "다음 이야기 시작하기"}
+                {continuation ? (
+                  <Link
+                    className={styles.primaryButton}
+                    href={
+                      getCourseHref(continuation.content.id, continuation.level, {
+                        courseId: continuation.courseId,
+                      })!
+                    }
+                  >
+                    {continuation.content.format === "practice"
+                      ? "하던 연습 이어하기"
+                      : "멈춘 이야기 이어하기"}
                     <ArrowRight size={17} aria-hidden="true" />
                   </Link>
+                ) : (
+                  nextEpisode && (
+                    <Link className={styles.primaryButton} href={playHref(nextEpisode.id)}>
+                      {activeEpisode
+                        ? "멈춘 이야기 이어하기"
+                        : growth.completedEpisodes === episodes.length
+                          ? "이야기 다시 연습"
+                          : "다음 이야기 시작하기"}
+                      <ArrowRight size={17} aria-hidden="true" />
+                    </Link>
+                  )
                 )}
                 <Link className={styles.reviewLink} href="/english/review">
                   표현 복습{" "}
-                  <span>{dueReviews ? `${dueReviews}개가 기다려요` : "배운 표현 모아보기"}</span>
+                  <span>
+                    {dueReviews
+                      ? `${dueReviews}개가 기다려요`
+                      : reviewPlan.limitReached && reviewPlan.deferredCount
+                        ? "오늘 복습 완료"
+                        : "배운 표현 모아보기"}
+                  </span>
                   <ArrowUpRight size={17} aria-hidden="true" />
                 </Link>
                 <p className={styles.recordNote}>XP와 레벨은 연습 기록입니다.</p>
                 <p className={styles.recordNote}>
                   집중 연습 <strong>{growth.completedPractices}</strong>묶음 완료
                 </p>
+                <Link className={styles.reviewLink} href="/english/journal">
+                  표현 노트와 주간 기록 <ArrowUpRight size={17} aria-hidden="true" />
+                </Link>
               </>
             ) : (
               <div className={styles.guestJourney}>
@@ -363,6 +398,9 @@ export function EnglishHub({
                   </Link>
                 )}
                 <span className={styles.guestNote}>로그인 없이도 이야기를 체험할 수 있어요.</span>
+                <Link className={styles.reviewLink} href="/english/courses">
+                  어디서 시작할까? 학습 코스 보기 <ArrowUpRight size={17} aria-hidden="true" />
+                </Link>
               </div>
             )}
             <div className={styles.skillSummary}>

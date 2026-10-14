@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import type { QueryDocumentSnapshot } from "firebase-admin/firestore";
 import { getAdminDb } from "@/lib/firebase/admin";
 import { allEnglishContent, getEnglishEpisode, getEnglishExpression } from "./catalog";
+import { getEnglishCourse } from "./courses";
 import type { EnglishProgress } from "./types";
 import {
   advanceEnglishProgress,
@@ -67,6 +68,11 @@ export async function updateEnglishProgress(uid: string, value: Record<string, u
   if (!["attempt", "level", "review"].includes(value.action as string))
     throw new EnglishInputError("학습 요청을 확인해 주세요.");
   const attempt = value.action === "attempt" ? validateEnglishAttempt(value) : undefined;
+  if (
+    attempt?.courseId &&
+    !getEnglishCourse(attempt.courseId)?.units.some((unit) => unit.contentId === attempt.episodeId)
+  )
+    throw new EnglishInputError("학습 코스를 확인해 주세요.");
   if (
     value.action === "review" &&
     (typeof value.expressionId !== "string" || !/^[a-z0-9-]{1,100}$/.test(value.expressionId))

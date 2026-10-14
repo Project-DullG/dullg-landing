@@ -1,0 +1,19 @@
+{
+  "학습 기록을 불러오지 못했어요. 잠시 후 다시 확인해 주세요.": "We couldn't load your learning record. Please try again shortly.",
+  "로그인 상태와 학습 기록을 다시 확인해 주세요.": "Please check your sign-in status and reload your learning record.",
+  "배운 표현을 이번에는 보기 없이 떠올려 보세요.": "Recall the expressions you learned without looking at the examples.",
+  "로그인해 연습하면 배운 표현이 여기에 쌓여요.": "Sign in and practise to collect the expressions you learn here.",
+  "복습은 하루에 최대 20개까지 기록할 수 있어요.": "You can record up to 20 expression reviews per day.",
+  "개의 표현이 기다리고 있어요.": "expressions are waiting.",
+  "남은 표현은 다음 학습일에 이어서 복습할 수 있어요.": "You can continue reviewing the remaining expressions on your next study day.",
+  "한국시간 자정이 지나면 오늘의 복습 한도가 새로 시작돼요.": "Your daily review allowance resets at midnight in Korea Standard Time.",
+  "기록 다시 확인": "Reload learning record",
+  "로그인 상태 확인": "Check sign-in status",
+  "지금 복습할 표현은 없어요.": "No expressions are due for review right now.",
+  "첫 연습을 시작해 볼까요?": "Ready for your first practice?",
+  "표현 복습 완료": "expression reviews completed",
+  "다음 복습 때 다시 떠올려 보세요. 아래 수첩은 언제든 펼쳐볼 수 있어요.": "Try recalling these expressions at your next review. You can browse your collection below at any time.",
+  "이야기와 집중 연습에서 배운 표현이 내 수첩에 담겨요.": "Expressions from stories and focused practice appear in your collection.",
+  "다음 연습 고르기": "Choose your next practice",
+  "배운 표현": "Learned expressions"
+}

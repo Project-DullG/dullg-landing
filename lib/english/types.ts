@@ -88,6 +88,7 @@ export type EnglishAttempt = {
   episodeId: string;
   taskId: string;
   level: EnglishLevel;
+  courseId?: string;
   answer?: string;
   selfConfirmed?: boolean;
 };
@@ -102,6 +103,7 @@ export type EnglishProgress = {
       completedAt?: string;
       completionRewarded?: boolean;
       format?: "story" | "practice";
+      courseId?: string;
       level: EnglishLevel;
       updatedAt: string;
     }

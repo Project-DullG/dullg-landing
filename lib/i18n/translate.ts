@@ -6,6 +6,10 @@ import revisedStoryDictionary from "./en-stories-revised.json" with { type: "jso
 import newStoryDictionary from "./en-stories-new.json" with { type: "json" };
 import playerStoryDictionary from "./en-player-story.json" with { type: "json" };
 import { practiceEnglishDictionary } from "../english/practice.ts";
+import { coursesEnglishDictionary } from "../english/courses.ts";
+import studyDictionary from "./en-study.json" with { type: "json" };
+import studyNavigationDictionary from "./en-study-navigation.json" with { type: "json" };
+import reviewQueueDictionary from "./en-review-queue.json" with { type: "json" };
 import sourceOnlyPaths from "./source-only.json" with { type: "json" };
 export type Locale = "ko" | "en";
 const decodeText = (text: string) =>
@@ -25,6 +29,10 @@ const messages: Record<string, string> = Object.fromEntries(
     ...newStoryDictionary,
     ...playerStoryDictionary,
     ...practiceEnglishDictionary,
+    ...coursesEnglishDictionary,
+    ...studyDictionary,
+    ...studyNavigationDictionary,
+    ...reviewQueueDictionary,
   }).map(([key, value]) => [normalizeText(key), value]),
 );
 export function translateText(text: string, locale: string): string {

@@ -1,11 +1,17 @@
 "use client";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useLocale } from "next-intl";
 import { localizeEnglishTree } from "@/lib/i18n/english-tree";
 import Link from "@/components/i18n/link";
 import { ArrowLeft, ArrowRight, BookOpen, Check, PenLine } from "lucide-react";
 import { allEnglishContent } from "@/lib/english/catalog";
 import type { EnglishProgress } from "@/lib/english/types";
+import { englishDay } from "@/lib/english/progress";
+import {
+  finishEnglishReviewItem,
+  getEnglishReviewQueue,
+  reconcileEnglishReviewSession,
+} from "@/lib/english/review-queue";
 import styles from "./review.module.css";
 
 const expressions = allEnglishContent.flatMap((episode) =>
@@ -24,24 +30,139 @@ export function EnglishReview({
 }) {
   const locale = useLocale();
   const [progress, setProgress] = useState(initialProgress);
-  const [queue] = useState(
-    expressions.filter((expression) => {
-      const review = initialProgress?.reviews[expression.id];
-      return review && Date.parse(review.dueAt) <= Date.parse(serverNow);
-    }),
-  );
-  const [index, setIndex] = useState(0),
-    [answer, setAnswer] = useState(""),
-    [busy, setBusy] = useState(false);
-  const [feedback, setFeedback] = useState<{ correct: boolean; feedback: string } | null>(null);
+  const [activeAccountKey, setActiveAccountKey] = useState(accountKey);
+  const [session, setSession] = useState(() => ({
+    plan: getEnglishReviewQueue(initialProgress, expressions, new Date(serverNow)),
+    index: 0,
+    answer: "",
+    feedback: null as { correct: boolean; feedback: string } | null,
+  }));
+  const [busy, setBusy] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
+  const [storageReady, setStorageReady] = useState(!loadError);
   const [error, setError] = useState(
-    loadError ? "학습 기록을 불러오지 못했습니다. 잠시 후 페이지를 다시 열어 주세요." : "",
+    loadError ? "학습 기록을 불러오지 못했어요. 잠시 후 다시 확인해 주세요." : "",
   );
   const [reviewConflict, setReviewConflict] = useState(false);
-  const current = queue[index],
-    learned = expressions.filter((e) => progress?.learnedExpressionIds.includes(e.id));
+  const keyRef = useRef(accountKey);
+  const requestNumber = useRef(0);
+  const busyRef = useRef(false);
+  const refreshingRef = useRef(false);
+  const pendingRefresh = useRef(false);
+  const limitedDay = useRef<string | null>(null);
+  const { plan, index, answer, feedback } = session;
+  const queue = plan.items;
+  const current = queue[index];
+  const learned = expressions.filter((expression) =>
+    progress?.learnedExpressionIds.includes(expression.id),
+  );
+
+  const refresh = useCallback(async () => {
+    if (busyRef.current) {
+      pendingRefresh.current = true;
+      return;
+    }
+    const request = ++requestNumber.current;
+    refreshingRef.current = true;
+    setRefreshing(true);
+    try {
+      const response = await fetch("/api/english/progress", {
+        cache: "no-store",
+        credentials: "same-origin",
+      });
+      if (request !== requestNumber.current) return;
+      if (response.status === 401) {
+        keyRef.current = null;
+        limitedDay.current = null;
+        setActiveAccountKey(null);
+        setProgress(null);
+        setSession({
+          plan: getEnglishReviewQueue(null, expressions),
+          index: 0,
+          answer: "",
+          feedback: null,
+        });
+        setStorageReady(false);
+        setError("");
+        return;
+      }
+      if (!response.ok)
+        throw new Error("학습 기록을 불러오지 못했어요. 잠시 후 다시 확인해 주세요.");
+      const data = (await response.json()) as { progress: EnglishProgress; accountKey: string };
+      if (request !== requestNumber.current) return;
+      const changedAccount = keyRef.current !== data.accountKey;
+      if (changedAccount) limitedDay.current = null;
+      keyRef.current = data.accountKey;
+      setActiveAccountKey(data.accountKey);
+      const nextPlan = getEnglishReviewQueue(
+        data.progress,
+        expressions,
+        new Date(),
+        limitedDay.current,
+      );
+      setProgress(data.progress);
+      setSession((previous) => reconcileEnglishReviewSession(previous, nextPlan, changedAccount));
+      setStorageReady(true);
+      setError("");
+      setReviewConflict(false);
+    } catch (reason) {
+      if (request !== requestNumber.current) return;
+      setStorageReady(false);
+      setError(
+        reason instanceof Error
+          ? reason.message
+          : "학습 기록을 불러오지 못했어요. 잠시 후 다시 확인해 주세요.",
+      );
+    } finally {
+      if (request === requestNumber.current) {
+        refreshingRef.current = false;
+        setRefreshing(false);
+      }
+    }
+  }, []);
+
+  const invalidateRequest = useCallback(() => {
+    requestNumber.current++;
+  }, []);
+
+  useEffect(() => {
+    const initialLoad = window.setTimeout(() => void refresh(), 0);
+    const visible = () => {
+      if (document.visibilityState === "visible") void refresh();
+    };
+    window.addEventListener("focus", visible);
+    document.addEventListener("visibilitychange", visible);
+    return () => {
+      window.clearTimeout(initialLoad);
+      invalidateRequest();
+      window.removeEventListener("focus", visible);
+      document.removeEventListener("visibilitychange", visible);
+    };
+  }, [accountKey, refresh, invalidateRequest]);
+
+  useEffect(() => {
+    const wait = Math.max(0, Date.parse(plan.resetAt) - Date.now());
+    const midnight = window.setTimeout(() => void refresh(), wait);
+    return () => window.clearTimeout(midnight);
+  }, [plan.resetAt, refresh]);
+
   async function submit() {
-    if (!current || !answer.trim() || busy || !accountKey) return;
+    const key = keyRef.current;
+    if (
+      !current ||
+      !answer.trim() ||
+      busyRef.current ||
+      refreshingRef.current ||
+      !storageReady ||
+      !key
+    )
+      return;
+    if (plan.day !== englishDay()) {
+      await refresh();
+      return;
+    }
+    const request = ++requestNumber.current;
+    busyRef.current = true;
     setBusy(true);
     setError("");
     setReviewConflict(false);
@@ -49,19 +170,52 @@ export function EnglishReview({
       const response = await fetch("/api/english/progress", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "review", accountKey, expressionId: current.id, answer }),
+        credentials: "same-origin",
+        body: JSON.stringify({
+          action: "review",
+          accountKey: key,
+          expressionId: current.id,
+          answer,
+        }),
       });
       const data = await response.json();
-      if (!response.ok) {
-        setReviewConflict(response.status === 409);
-        throw new Error(data.error || "기록을 저장하지 못했습니다.");
+      if (request !== requestNumber.current || keyRef.current !== key) return;
+      if (response.status === 429) {
+        limitedDay.current = englishDay();
+        setSession({
+          plan: getEnglishReviewQueue(progress, expressions, new Date(), limitedDay.current),
+          index: 0,
+          answer: "",
+          feedback: null,
+        });
+        pendingRefresh.current = true;
+        return;
       }
+      if (response.status === 401 || response.status === 409) {
+        setStorageReady(false);
+        setReviewConflict(true);
+        pendingRefresh.current = true;
+        throw new Error(data.error || "로그인 상태와 학습 기록을 다시 확인해 주세요.");
+      }
+      if (!response.ok) throw new Error(data.error || "기록을 저장하지 못했습니다.");
       setProgress(data.progress);
-      setFeedback(data);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "다시 시도해 주세요.");
+      const nextPlan = getEnglishReviewQueue(
+        data.progress,
+        expressions,
+        new Date(),
+        limitedDay.current,
+      );
+      setSession((previous) => finishEnglishReviewItem(previous, nextPlan, data));
+    } catch (reason) {
+      if (request === requestNumber.current)
+        setError(reason instanceof Error ? reason.message : "다시 시도해 주세요.");
     } finally {
+      busyRef.current = false;
       setBusy(false);
+      if (request === requestNumber.current && pendingRefresh.current) {
+        pendingRefresh.current = false;
+        await refresh();
+      }
     }
   }
   return localizeEnglishTree(
@@ -72,14 +226,14 @@ export function EnglishReview({
       <div className={styles.heading}>
         <span>MY FIELD NOTES</span>
         <h1>내 복습 수첩</h1>
-        <p>이야기에서 만난 영어를, 이번에는 보기 없이 꺼내 봅니다.</p>
+        <p>배운 표현을 이번에는 보기 없이 떠올려 보세요.</p>
       </div>
-      {!accountKey ? (
+      {!activeAccountKey ? (
         <div className={styles.empty}>
           <BookOpen size={30} />
           <h2>나의 표현을 모아두는 곳</h2>
           <p>
-            로그인하고 이야기를 마치면 배운 표현이 여기에 쌓입니다.
+            로그인해 연습하면 배운 표현이 여기에 쌓여요.
             <br />
             복습할 시간이 된 표현부터 다시 만날 수 있어요.
           </p>
@@ -90,7 +244,7 @@ export function EnglishReview({
       ) : error && !progress ? (
         <div className={styles.empty} role="alert">
           <p>{error}</p>
-          <button type="button" className={styles.primary} onClick={() => window.location.reload()}>
+          <button type="button" className={styles.primary} onClick={() => void refresh()}>
             다시 불러오기
           </button>
         </div>
@@ -110,6 +264,30 @@ export function EnglishReview({
               <span>학습 XP</span>
             </div>
           </div>
+          <div className={styles.dailyNote} role="status">
+            <p>복습은 하루에 최대 20개까지 기록할 수 있어요.</p>
+            {plan.deferredCount > 0 && (
+              <p>
+                <strong>{plan.deferredCount}</strong>개의 표현이 기다리고 있어요.
+                <br />
+                남은 표현은 다음 학습일에 이어서 복습할 수 있어요.
+              </p>
+            )}
+            {plan.limitReached && <p>한국시간 자정이 지나면 오늘의 복습 한도가 새로 시작돼요.</p>}
+          </div>
+          {error && !current && (
+            <div className={styles.error} role="alert">
+              <p>{error}</p>
+              <button
+                type="button"
+                className={styles.primary}
+                onClick={() => void refresh()}
+                disabled={busy || refreshing}
+              >
+                기록 다시 확인
+              </button>
+            </div>
+          )}
           {current ? (
             <section className={styles.card} aria-label="보기 없이 표현 떠올리기">
               <div className={styles.cardTop}>
@@ -130,8 +308,10 @@ export function EnglishReview({
                 maxLength={1200}
                 rows={3}
                 placeholder="Try to remember the expression…"
-                disabled={busy || !!feedback}
-                onChange={(e) => setAnswer(e.target.value)}
+                disabled={busy || refreshing || !storageReady || !!feedback}
+                onChange={(e) =>
+                  setSession((previous) => ({ ...previous, answer: e.target.value }))
+                }
               />
               <p className={styles.note}>
                 이 복습은 수록된 표현을 떠올리는 연습입니다. 가능한 영어 표현 전체를 채점하지
@@ -152,7 +332,17 @@ export function EnglishReview({
               {error && (
                 <div className={styles.error} role="alert">
                   <p>{error}</p>
-                  {reviewConflict && <button type="button" className={styles.primary} onClick={() => window.location.reload()} disabled={busy}>페이지 다시 열기</button>}
+                  <button
+                    type="button"
+                    className={styles.primary}
+                    onClick={() => void refresh()}
+                    disabled={busy || refreshing}
+                  >
+                    기록 다시 확인
+                  </button>
+                  {reviewConflict && (
+                    <Link href="/login?next=%2Fenglish%2Freview">로그인 상태 확인</Link>
+                  )}
                 </div>
               )}
               <div className={styles.cardBottom}>
@@ -161,9 +351,12 @@ export function EnglishReview({
                     type="button"
                     className={styles.primary}
                     onClick={() => {
-                      setIndex(index + 1);
-                      setAnswer("");
-                      setFeedback(null);
+                      setSession((previous) => ({
+                        ...previous,
+                        index: previous.index + 1,
+                        answer: "",
+                        feedback: null,
+                      }));
                       setError("");
                       setReviewConflict(false);
                     }}
@@ -175,7 +368,7 @@ export function EnglishReview({
                   <button
                     type="button"
                     className={styles.primary}
-                    disabled={busy || !answer.trim()}
+                    disabled={busy || refreshing || !storageReady || !answer.trim()}
                     onClick={submit}
                   >
                     {busy ? "기록하는 중…" : "표현 확인하기"}
@@ -188,26 +381,31 @@ export function EnglishReview({
             <div className={styles.empty}>
               <Check size={30} />
               <h2>
-                {queue.length
+                {queue.length || plan.limitReached
                   ? "오늘의 복습을 마쳤어요."
                   : learned.length
-                    ? "지금은 새 이야기를 만나도 좋아요."
-                    : "첫 이야기를 펼쳐볼까요?"}
+                    ? "지금 복습할 표현은 없어요."
+                    : "첫 연습을 시작해 볼까요?"}
               </h2>
+              {queue.length > 0 && (
+                <p className={styles.completedCount}>
+                  {queue.length} / {queue.length} 표현 복습 완료
+                </p>
+              )}
               <p>
                 {learned.length
-                  ? "복습할 시간이 된 표현은 다음 방문 때 여기에서 확인할 수 있습니다. 아래 수첩은 언제든 펼쳐볼 수 있어요."
-                  : "이야기 속에서 읽고 듣고 표현한 문장이 내 수첩에 담깁니다."}
+                  ? "다음 복습 때 다시 떠올려 보세요. 아래 수첩은 언제든 펼쳐볼 수 있어요."
+                  : "이야기와 집중 연습에서 배운 표현이 내 수첩에 담겨요."}
               </p>
               <Link href="/english" className={styles.primary}>
-                이야기 고르기 <ArrowRight size={16} />
+                다음 연습 고르기 <ArrowRight size={16} />
               </Link>
             </div>
           )}
           {learned.length > 0 && (
             <section className={styles.collection}>
               <h2>
-                이야기에서 모은 표현 <span>{learned.length}</span>
+                배운 표현 <span>{learned.length}</span>
               </h2>
               <div>
                 {learned.map((e) => (

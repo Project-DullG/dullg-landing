@@ -52,6 +52,30 @@
   font-size: 11px;
   color: #809075;
 }
+.dailyNote {
+  margin: 0 0 24px;
+  padding: 16px 20px;
+  border-left: 3px solid #b6c7a5;
+  border-radius: 0 5px 5px 0;
+  background: #f3f6eb;
+  color: #647b56;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.dailyNote p {
+  margin: 0;
+}
+.dailyNote p + p {
+  margin-top: 8px;
+}
+.dailyNote strong {
+  margin-right: 3px;
+  color: #294736;
+}
+.completedCount {
+  font-family: var(--font-mono), monospace;
+  color: #294736;
+}
 .card {
   padding: 32px;
   border: 1px solid #cedbc3;

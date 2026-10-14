@@ -150,6 +150,11 @@ export function validateEnglishAttempt(input: unknown): EnglishAttempt {
   }
   if (!isEnglishLevel(value.level)) throw new EnglishInputError("난이도를 확인해 주세요.");
   if (
+    value.courseId !== undefined &&
+    (typeof value.courseId !== "string" || !/^[a-z0-9-]{1,80}$/.test(value.courseId))
+  )
+    throw new EnglishInputError("학습 코스를 확인해 주세요.");
+  if (
     value.answer !== undefined &&
     (typeof value.answer !== "string" || value.answer.length > 1200)
   )
@@ -160,6 +165,7 @@ export function validateEnglishAttempt(input: unknown): EnglishAttempt {
     episodeId: value.episodeId as string,
     taskId: value.taskId as string,
     level: value.level,
+    ...(typeof value.courseId === "string" ? { courseId: value.courseId } : {}),
     ...(typeof value.answer === "string" ? { answer: value.answer.trim() } : {}),
     ...(typeof value.selfConfirmed === "boolean" ? { selfConfirmed: value.selfConfirmed } : {}),
   };
@@ -286,6 +292,9 @@ export function advanceEnglishProgress(
           updatedAt: now.toISOString(),
           completionRewarded: completionRewarded || completedEpisode,
           format: episode.format || "story",
+          ...(attempt.courseId || saved?.courseId
+            ? { courseId: attempt.courseId || saved?.courseId }
+            : {}),
           ...(completedEpisode ? { completedAt: now.toISOString() } : {}),
         },
       },
@@ -349,7 +358,7 @@ export function advanceEnglishReview(
     correct,
     duplicate: false,
     feedback: correct
-      ? "보기 없이 표현을 떠올렸어요. 다음 간격에 다시 만나세요."
+      ? "보기 없이 표현을 떠올렸어요. 다음 복습 때 다시 떠올려 보세요."
       : `예문: ${expression.en} · 내일 다시 떠올려 보세요.`,
     consequence: "",
   };

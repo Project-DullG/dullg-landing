@@ -30,6 +30,7 @@ import {
 } from "@/lib/english/types";
 import type { EnglishPracticePack } from "@/lib/english/practice";
 import styles from "./practice-player.module.css";
+import { getEnglishCourse, getCourseFollowUp, getCourseHref } from "@/lib/english/courses";
 
 const icons = { reading: BookOpen, listening: Headphones, writing: PenLine, speaking: Mic };
 type Feedback = { correct: boolean; feedback: string; consequence: string };
@@ -40,6 +41,7 @@ export function PracticePlayer({
   loadError = false,
   startingLevel,
   replay = false,
+  courseId,
 }: {
   pack: EnglishPracticePack;
   initialProgress: EnglishProgress | null;
@@ -47,6 +49,7 @@ export function PracticePlayer({
   loadError?: boolean;
   startingLevel?: EnglishLevel;
   replay?: boolean;
+  courseId?: string;
 }) {
   const locale = useLocale();
   const [progress, setProgress] = useState(() =>
@@ -85,6 +88,9 @@ export function PracticePlayer({
   const assembled = practiceSentence(tokens, selected);
   const finished = index >= pack.tasks.length;
   const growth = getEnglishGrowth(progress);
+  const course = getEnglishCourse(courseId || "");
+  const followUp = course ? getCourseFollowUp(course, progress, pack.id, !!accountKey) : undefined;
+  const loginReturn = getCourseHref(pack.id, level, { courseId, replay })!;
   const Icon = task ? icons[task.skill] : Check;
   const locked = busy || !!feedback?.correct;
   const invalidateSpeech = useCallback(() => {
@@ -180,6 +186,7 @@ export function PracticePlayer({
       episodeId: pack.id,
       taskId: task.id,
       level,
+      ...(courseId ? { courseId } : {}),
       answer: tokens.length ? assembled : answer,
       selfConfirmed: confirmed,
     };
@@ -220,8 +227,14 @@ export function PracticePlayer({
   return localizeEnglishTree(
     <div className={styles.player}>
       <div className={styles.topbar}>
-        <Link href="/english#practice">
-          <ArrowLeft size={16} aria-hidden="true" /> 연습 목록
+        <Link
+          href={
+            course
+              ? "/english/courses?course=" + course.id + "&level=" + level
+              : "/english#practice"
+          }
+        >
+          <ArrowLeft size={16} aria-hidden="true" /> {course ? "코스 목차" : "연습 목록"}
         </Link>
         <span>THE PRACTICE JOURNAL</span>
         <span>
@@ -231,7 +244,7 @@ export function PracticePlayer({
       {!accountKey && (
         <p className={styles.guest}>
           로그인 없이 연습하고 있어요. 기록은 이 화면에만 남아요.{" "}
-          <Link href={`/login?next=${encodeURIComponent(`/english/practice/${pack.id}`)}`}>
+          <Link href={`/login?next=${encodeURIComponent(loginReturn)}`}>
             로그인하고 기록 남기기
           </Link>
         </p>
@@ -319,8 +332,27 @@ export function PracticePlayer({
                   : "이번 기록은 이 화면에만 남아요. 로그인하고 공부하면 다음에도 이어할 수 있어요."}
               </p>
               <div className={styles.endActions}>
-                <Link className={styles.primary} href="/english#practice">
-                  다른 연습 고르기
+                <Link
+                  className={styles.primary}
+                  href={
+                    followUp
+                      ? getCourseHref(
+                          followUp.contentId,
+                          followUp.inProgress
+                            ? progress.episodes[followUp.contentId]?.level || level
+                            : level,
+                          { courseId: course?.id },
+                        )!
+                      : course
+                        ? "/english/courses?course=" + course.id + "&level=" + level
+                        : "/english#practice"
+                  }
+                >
+                  {followUp
+                    ? "코스의 다음 학습으로"
+                    : course
+                      ? "코스 목차 보기"
+                      : "다른 연습 고르기"}
                   <ArrowRight size={16} aria-hidden="true" />
                 </Link>
                 {accountKey && (
@@ -659,9 +691,7 @@ export function PracticePlayer({
                   다시 불러오기
                 </button>
               )}
-              <Link href={`/login?next=${encodeURIComponent(`/english/practice/${pack.id}`)}`}>
-                로그인 상태 확인
-              </Link>
+              <Link href={`/login?next=${encodeURIComponent(loginReturn)}`}>로그인 상태 확인</Link>
             </div>
           )}
           {finished && audioError && (

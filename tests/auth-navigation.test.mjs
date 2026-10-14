@@ -58,9 +58,9 @@ test("reject external redirects, non-dashboard targets, and ambiguous encodings"
 test("a return URL cannot take a student or unassigned account to owner routes", () => {
   const target = "/dashboard/students?new=1";
   assert.equal(postLoginPath("owner", target), target);
-  assert.equal(postLoginPath("student", target), "/dashboard/my");
+  assert.equal(postLoginPath("student", target), "/dashboard/notebook");
   for (const role of [undefined, null, "teacher", "none", "admin"]) {
-    assert.equal(postLoginPath(role, target), "/dashboard/link");
+    assert.equal(postLoginPath(role, target), "/dashboard/notebook");
   }
   assert.equal(
     postLoginPath("student", "/en/dashboard/my?report=latest"),
@@ -70,6 +70,29 @@ test("a return URL cannot take a student or unassigned account to owner routes",
     postLoginPath(undefined, "/dashboard/link?academy=example"),
     "/dashboard/link?academy=example",
   );
+});
+
+test("new students return to personal registration with the QR academy code", () => {
+  const target = "/dashboard/register?academy=school-code";
+  const login = new URL(loginPath(target), "https://site.example");
+  assert.equal(login.searchParams.get("next"), target);
+  assert.equal(postLoginPath(undefined, login.searchParams.get("next")), target);
+  assert.equal(postLoginPath(undefined, null), "/dashboard/notebook");
+  assert.equal(postLoginPath("student", target), target);
+  // Privileged accounts see the page's switch-account explanation; the action denies registration.
+  assert.equal(postLoginPath("owner", target), target);
+  assert.equal(dashboardPathAllowedForRole("/dashboard/register-admin", undefined), false);
+});
+
+test("Google signup can go straight to private notes without contact or academy verification", () => {
+  const target = "/dashboard/notebook";
+  for (const role of [undefined, "student", "owner"]) {
+    assert.equal(postLoginPath(role, target), target);
+    assert.equal(dashboardPathAllowedForRole(target, role), true);
+  }
+  assert.equal(postLoginPath(undefined, null), target);
+  assert.equal(dashboardPathAllowedForRole("/dashboard/notebook-admin", undefined), false);
+  assert.equal(dashboardPathAllowedForRole("/dashboard/my", undefined), true);
 });
 
 test("role route checks use segment boundaries", () => {

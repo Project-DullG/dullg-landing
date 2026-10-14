@@ -38,19 +38,20 @@ export function dashboardPathAllowedForRole(path: unknown, role: unknown): boole
   const normalized = normalizeDashboardReturnPath(path);
   if (!normalized) return false;
   const pathname = normalized.split("?")[0];
+  // The registration page explains wrong-account sign-ins and checks ownership.
+  if (pathname === "/dashboard/register" || pathname === "/dashboard/notebook") return true;
   if (role === "owner") return true;
   if (role === "student") {
     return isRouteWithin(pathname, "/dashboard/my") || isRouteWithin(pathname, "/dashboard/link");
   }
-  return isRouteWithin(pathname, "/dashboard/link");
+  return pathname === "/dashboard/my" || isRouteWithin(pathname, "/dashboard/link");
 }
 
 export function postLoginPath(role: unknown, requestedPath: unknown): string {
   const normalized = normalizeDashboardReturnPath(requestedPath);
   if (normalized && dashboardPathAllowedForRole(normalized, role)) return normalized;
   if (role === "owner") return DASHBOARD_ROOT;
-  if (role === "student") return "/dashboard/my";
-  return "/dashboard/link";
+  return "/dashboard/notebook";
 }
 
 export function loginPath(requestedPath: unknown): string {

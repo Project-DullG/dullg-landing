@@ -13,20 +13,36 @@ export default async function DashboardLayout({ children }: { children: React.Re
     return localizedRedirect(loginPath(headerList.get("x-dashboard-return-path")));
   }
   const role = (session.role as string) || "none";
+  const pathname = (await headers()).get("x-pathname") || "";
+  if (pathname === "/dashboard/notebook") {
+    return (
+      <main id="main-content" className="dash-main" style={{ padding: "24px 16px" }}>
+        {children}
+      </main>
+    );
+  }
   let academyName = "학원";
-  // No role → student linking page
+  // Unassigned accounts can enter their own student information.
   if (role === "none") {
     const headerList = await headers();
     const pathname = headerList.get("x-pathname") || "";
-    if (!pathname.startsWith("/dashboard/link")) {
-      return localizedRedirect("/dashboard/link");
+    if (
+      pathname !== "/dashboard/register" &&
+      pathname !== "/dashboard/link" &&
+      pathname !== "/dashboard/my"
+    ) {
+      return localizedRedirect("/dashboard/notebook");
     }
   }
-  // Student can only access /dashboard/my and /dashboard/link
+  // Students see their own records or registration status.
   if (role === "student") {
     const headerList = await headers();
     const pathname = headerList.get("x-pathname") || "";
-    if (!pathname.startsWith("/dashboard/my") && !pathname.startsWith("/dashboard/link")) {
+    if (
+      !pathname.startsWith("/dashboard/my") &&
+      pathname !== "/dashboard/link" &&
+      pathname !== "/dashboard/register"
+    ) {
       return localizedRedirect("/dashboard/my");
     }
   }

@@ -10,8 +10,14 @@ export type ClassItem = {
   id: string;
   name: string;
 };
-export const schoolYear = (year: number) =>
-  year <= 6 ? `초등 ${year}학년` : year <= 9 ? `중등 ${year - 6}학년` : `고등 ${year - 9}학년`;
+export const schoolYear = (year: number | null) =>
+  year === null || !Number.isInteger(year) || year < 1 || year > 12
+    ? "학년 미등록"
+    : year <= 6
+      ? `초등 ${year}학년`
+      : year <= 9
+        ? `중등 ${year - 6}학년`
+        : `고등 ${year - 9}학년`;
 type Props = {
   students: StudentItem[];
   classes: ClassItem[];
@@ -204,11 +210,13 @@ export function StudentWorkspace({
                 onSubmit={async (event) => {
                   event.preventDefault();
                   const form = new FormData(event.currentTarget);
+                  const grade = String(form.get("grade") ?? "");
                   const data: StudentData = {
                     name: String(form.get("name") ?? "").trim(),
-                    grade: Number(form.get("grade")),
+                    grade: grade ? Number(grade) : null,
                     parentContact: String(form.get("contact") ?? "").trim(),
                     classId: String(form.get("classId") ?? ""),
+                    phoneNumber: creating ? undefined : student?.phoneNumber,
                   };
                   const invalid = validateStudent(data);
                   if (invalid) {
@@ -238,7 +246,9 @@ export function StudentWorkspace({
                   {t(
                     demo
                       ? "실제 개인정보 대신 가상 정보를 입력해 주세요."
-                      : "이름과 학년, 보호자 연락처는 필수입니다.",
+                      : !creating && student?.phoneNumber
+                        ? "이름은 필수입니다. 학년과 보호자 연락처는 나중에 입력할 수 있습니다."
+                        : "이름과 보호자 연락처는 필수입니다.",
                   )}
                 </p>
                 <fieldset disabled={busy} className={styles.fields}>
@@ -253,7 +263,8 @@ export function StudentWorkspace({
                   </label>
                   <label>
                     {t("학년")}
-                    <select name="grade" defaultValue={creating ? "6" : student!.grade}>
+                    <select name="grade" defaultValue={creating ? "6" : (student!.grade ?? "")}>
+                      <option value="">{t("학년 미등록")}</option>
                       {t(
                         Array.from({ length: 12 }, (_, i) => (
                           <option key={i} value={i + 1}>
@@ -268,12 +279,22 @@ export function StudentWorkspace({
                     <input
                       name="contact"
                       type="tel"
-                      required
+                      required={creating || !student?.phoneNumber}
                       maxLength={40}
                       defaultValue={creating ? "" : student!.parentContact}
                       placeholder={t(demo ? "예시 연락처" : "010-0000-0000")}
                     />
                   </label>
+                  {!creating && student?.phoneNumber && (
+                    <p>
+                      {t("학생 본인 휴대전화")}: {student.phoneNumber}
+                    </p>
+                  )}
+                  {!creating && student?.email && (
+                    <p>
+                      {t("인증된 이메일")}: {student.email}
+                    </p>
+                  )}
                   <label>
                     {t("배정할 반")}
                     <select name="classId" defaultValue={creating ? "" : student!.classId}>
@@ -319,8 +340,20 @@ export function StudentWorkspace({
                   </div>
                   <div>
                     <dt>{t("보호자 연락처")}</dt>
-                    <dd>{t(student.parentContact)}</dd>
+                    <dd>{t(student.parentContact || "미등록")}</dd>
                   </div>
+                  {student.phoneNumber && (
+                    <div>
+                      <dt>{t("학생 본인 휴대전화")}</dt>
+                      <dd>{student.phoneNumber}</dd>
+                    </div>
+                  )}
+                  {student.email && (
+                    <div>
+                      <dt>{t("인증된 이메일")}</dt>
+                      <dd>{student.email}</dd>
+                    </div>
+                  )}
                 </dl>
                 <div className={styles.actions}>
                   <button onClick={() => setEditing(true)}>{t("정보 수정 \u00B7 반 배정")}</button>

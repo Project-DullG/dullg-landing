@@ -16,10 +16,12 @@ export default async function GradesPage() {
     .collection("students")
     .orderBy("name")
     .get();
-  const students = studentsSnap.docs.map((doc) => ({
-    id: doc.id,
-    name: doc.data().name,
-  }));
+  const students = studentsSnap.docs
+    .filter((doc) => !["inactive", "left"].includes(doc.data().status))
+    .map((doc) => ({
+      id: doc.id,
+      name: doc.data().name,
+    }));
   return (
     <div>
       <h1 className="dash-page-title">{t("성적 입력")}</h1>

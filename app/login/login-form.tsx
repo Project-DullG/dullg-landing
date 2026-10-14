@@ -8,6 +8,8 @@ import { loginAction } from "@/app/actions/auth";
 import { LanguageSwitch } from "@/components/i18n/language-switch";
 export default function LoginForm({ nextPath }: { nextPath: string | null }) {
   const t = useText();
+  const studentRegistration = nextPath?.split("?")[0] === "/dashboard/register";
+  const notebook = nextPath?.split("?")[0] === "/dashboard/notebook";
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   async function handleGoogleLogin() {
@@ -41,8 +43,24 @@ export default function LoginForm({ nextPath }: { nextPath: string | null }) {
     <div className="login-page">
       <div className="login-card">
         <LanguageSwitch />
-        <h1>{t("학원 관리 로그인")}</h1>
-        <p>{t("학원생\u00B7반\u00B7성적을 관리합니다. 처음이라면 예시 화면부터 살펴보세요.")}</p>
+        <h1>
+          {t(
+            notebook
+              ? "추리노트 시작하기"
+              : studentRegistration
+                ? "학생 정보 등록 로그인"
+                : "학원 관리 로그인",
+          )}
+        </h1>
+        <p>
+          {t(
+            notebook
+              ? "Google로 시작하면 계정이 만들어지고, 추리노트를 사진으로 등록할 수 있어요."
+              : studentRegistration
+                ? "학생 본인의 Google 계정으로 로그인하면 정보 등록 화면으로 연결됩니다."
+                : "학원생\u00B7반\u00B7성적을 관리합니다. 처음이라면 예시 화면부터 살펴보세요.",
+          )}
+        </p>
 
         <button
           className="login-google-button"
@@ -50,7 +68,7 @@ export default function LoginForm({ nextPath }: { nextPath: string | null }) {
           disabled={pending}
           type="button"
         >
-          {t(pending ? "로그인 중…" : "Google로 로그인")}
+          {t(pending ? "로그인 중…" : notebook ? "Google로 시작하기" : "Google로 로그인")}
         </button>
 
         {t(

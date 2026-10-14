@@ -65,7 +65,7 @@ for (let i = 0; i < routes.length; i += 4) {
 }
 await mkdir(".next", { recursive: true });
 for (const prefix of ["", "/en"]) {
-  for (const path of ["/dashboard", "/dashboard/students?new=1"]) {
+  for (const path of ["/dashboard", "/dashboard/students?new=1", "/dashboard/register?academy=qr-code", "/dashboard/notebook"]) {
     const response = await fetch(`${origin}${prefix}${path}`, { redirect: "manual" });
     const destination = new URL(response.headers.get("location") || "/", origin);
     if (

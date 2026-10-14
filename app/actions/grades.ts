@@ -29,6 +29,8 @@ export async function addGrade(data: GradeData) {
     .get();
 
   if (!studentDoc.exists) throw new Error("학생을 찾을 수 없습니다.");
+  if (["inactive", "left"].includes(studentDoc.data()?.status))
+    throw new Error("탈퇴한 학생에게는 성적을 입력할 수 없습니다.");
   const userId = studentDoc.data()?.userId || null;
 
   await getAdminDb()

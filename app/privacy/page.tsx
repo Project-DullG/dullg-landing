@@ -7,7 +7,7 @@ import { BRAND, emailHref } from "@/lib/site-config";
 export async function generateMetadata() {
   return localizeMetadata(
     pageMetadata("/privacy", {
-      description: "단서공방 문의와 스피킹 공부 서비스에서 처리하는 개인정보 안내입니다.",
+      description: "단서공방 문의, 학습 계정과 추리노트 서비스에서 처리하는 개인정보 안내입니다.",
     }),
   );
 }
@@ -92,6 +92,14 @@ const getSections = (t: ReturnType<typeof useText>) => [
       </>
     ),
   },
+  {
+    title: "7. 학생 계정과 추리노트",
+    body: <>
+      <p>{t("추리노트는 Google 계정으로 로그인해 사진을 페이지별로 저장합니다. 저장된 사진은 본인만 볼 수 있으며, 학원 연결만으로 공유되지 않습니다. 사진은 등록 화면에서 삭제할 수 있습니다.")}</p>
+      <p>{t("학원 연결을 선택하면 이름과 인증된 이메일·휴대전화 번호를 등록합니다. Firebase가 이메일 및 문자 인증을 처리하며, 휴대전화 번호는 Google에 전달되어 스팸·오용 방지에도 사용됩니다.")}</p>
+      <p>{t("학원 가입 신청에는 이름·이메일·휴대전화 번호가 해당 학원에 전달됩니다. 학원의 승인을 받아야 연결되며, 학생은 신청 취소와 학원 탈퇴를 할 수 있습니다. 탈퇴하면 해당 학원 정보에 대한 학생의 접근이 중단되며, 기존 성적 기록은 자동 삭제되지 않습니다.")}</p>
+    </>,
+  },
 ];
 export default function PrivacyPage() {
   const t = useText();
@@ -106,7 +114,7 @@ export default function PrivacyPage() {
         </h1>
         <p>
           {t(
-            "이 안내는 샘플 자료 요청, 파일럿 문의와 스피킹 공부에서 처리하는 개인정보에 적용됩니다.",
+            "이 안내는 샘플 자료 요청, 파일럿 문의, 스피킹 공부와 학생 계정·추리노트에서 처리하는 개인정보에 적용됩니다.",
           )}
         </p>
       </section>
@@ -116,7 +124,7 @@ export default function PrivacyPage() {
           <strong>{t("시행일")}</strong>
           <span>{t("2026년 7월 26일")}</span>
           <strong>{t("최근 수정")}</strong>
-          <span>{t("2026년 9월 9일")}</span>
+          <span>{t("2026년 10월 14일")}</span>
           <strong>{t("문의")}</strong>
           <a href={emailHref}>{t(BRAND.email)}</a>
         </div>
@@ -132,7 +140,7 @@ export default function PrivacyPage() {
           )}
 
           <article>
-            <h2>{t("7. 문의 및 요청")}</h2>
+            <h2>{t("8. 문의 및 요청")}</h2>
             <p>
               {t("개인정보 관련 요청은")}
               <a href={emailHref}>{t(BRAND.email)}</a>

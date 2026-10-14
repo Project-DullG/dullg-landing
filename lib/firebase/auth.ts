@@ -1,6 +1,7 @@
 import { cache } from "react";
 import { cookies } from "next/headers";
 import { getAdminAuth } from "./admin";
+import { currentSessionClaims } from "./session-claims";
 
 const SESSION_COOKIE_NAME = "session";
 const SESSION_EXPIRY_MS = 60 * 60 * 24 * 5 * 1000; // 5 days
@@ -30,7 +31,8 @@ export const verifySession = cache(async () => {
   try {
     const decoded = await getAdminAuth().verifySessionCookie(sessionCookie, true);
     const user = await getAdminAuth().getUser(decoded.uid);
-    return { ...decoded, ...(user.customClaims ?? {}) };
+    if (user.disabled) return null;
+    return currentSessionClaims(decoded, user.customClaims ?? {});
   } catch {
     return null;
   }

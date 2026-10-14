@@ -2,9 +2,11 @@
 
 export type StudentData = {
   name: string;
-  grade: number;
+  grade: number | null;
   parentContact: string;
   classId: string;
+  phoneNumber?: string;
+  email?: string;
 };
 
 export type DullgGradeData = {
@@ -32,10 +34,15 @@ export type GradeData = DullgGradeData | ExamGradeData;
 // ── Validators ─────────────────────────────────────────────
 
 export function validateStudent(data: StudentData): string | null {
-  if (!data.name.trim()) return "이름을 입력해주세요.";
-  if (!Number.isInteger(data.grade) || data.grade < 1 || data.grade > 12)
+  if (typeof data.name !== "string" || !data.name.trim()) return "이름을 입력해주세요.";
+  if (data.grade !== null && (!Number.isInteger(data.grade) || data.grade < 1 || data.grade > 12))
     return "학년은 1~12 사이 정수여야 합니다.";
-  if (!data.parentContact.trim()) return "학부모 연락처를 입력해주세요.";
+  if (
+    typeof data.parentContact !== "string" ||
+    (!data.parentContact.trim() && !data.phoneNumber?.trim())
+  )
+    return "학부모 연락처를 입력해주세요.";
+  if (typeof data.classId !== "string") return "반을 확인해주세요.";
   return null;
 }
 

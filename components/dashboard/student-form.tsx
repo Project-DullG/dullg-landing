@@ -29,7 +29,7 @@ export function StudentForm({ classes, student, onDone }: Props) {
     setLoading(true);
     const data: StudentData = {
       name: name.trim(),
-      grade: parseInt(grade, 10),
+      grade: grade ? Number(grade) : null,
       parentContact: parentContact.trim(),
       classId,
     };
@@ -69,14 +69,23 @@ export function StudentForm({ classes, student, onDone }: Props) {
         max={12}
         value={grade}
         onChange={(e) => setGrade(e.target.value)}
-        required
       />
+      {student?.phoneNumber && (
+        <p>
+          {t("학생 본인 휴대전화")}: {student.phoneNumber}
+        </p>
+      )}
+      {student?.email && (
+        <p>
+          {t("인증된 이메일")}: {student.email}
+        </p>
+      )}
       <input
         className="dash-input"
         placeholder={t("학부모 연락처")}
         value={parentContact}
         onChange={(e) => setParentContact(e.target.value)}
-        required
+        required={!student?.phoneNumber}
       />
       <select className="dash-select" value={classId} onChange={(e) => setClassId(e.target.value)}>
         <option value="">{t("반 선택 (선택사항)")}</option>

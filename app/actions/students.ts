@@ -11,11 +11,21 @@ async function getAcademyId(): Promise<string> {
   if (!session || session.role !== "owner") throw new Error("권한이 없습니다.");
   const academyId = session.academyId as string;
   if (!academyId) throw new Error("학원이 등록되지 않았습니다.");
+  const academy = await getAdminDb().collection("academies").doc(academyId).get();
+  if (!academy.exists || academy.data()?.ownerId !== session.uid)
+    throw new Error("권한이 없습니다.");
   return academyId;
 }
 
 export async function addStudent(data: StudentData) {
-  const error = validateStudent(data);
+  // Contact verification and account linkage can only be set by registration.
+  const editable = {
+    name: data.name,
+    grade: data.grade,
+    parentContact: data.parentContact,
+    classId: data.classId,
+  };
+  const error = validateStudent(editable);
   if (error) throw new Error(error);
 
   const academyId = await getAcademyId();
@@ -25,7 +35,7 @@ export async function addStudent(data: StudentData) {
     .doc(academyId)
     .collection("students")
     .add({
-      ...data,
+      ...editable,
       userId: null,
       createdAt: FieldValue.serverTimestamp(),
       updatedAt: FieldValue.serverTimestamp(),
@@ -35,20 +45,30 @@ export async function addStudent(data: StudentData) {
 }
 
 export async function updateStudent(studentId: string, data: StudentData) {
-  const error = validateStudent(data);
-  if (error) throw new Error(error);
-
   const academyId = await getAcademyId();
-
-  await getAdminDb()
+  const studentRef = getAdminDb()
     .collection("academies")
     .doc(academyId)
     .collection("students")
-    .doc(studentId)
-    .update({
-      ...data,
-      updatedAt: FieldValue.serverTimestamp(),
-    });
+    .doc(studentId);
+  const existing = await studentRef.get();
+  if (!existing.exists) throw new Error("학생을 찾을 수 없습니다.");
+  const editable = {
+    name: data.name,
+    grade: data.grade,
+    parentContact: data.parentContact,
+    classId: data.classId,
+  };
+  const verifiedPhone = existing.data()?.phoneNumber;
+  const error = validateStudent({
+    ...editable,
+    phoneNumber: typeof verifiedPhone === "string" ? verifiedPhone : undefined,
+  });
+  if (error) throw new Error(error);
+  await studentRef.update({
+    ...editable,
+    updatedAt: FieldValue.serverTimestamp(),
+  });
 
   revalidatePath("/dashboard/students");
   revalidatePath(`/dashboard/students/${studentId}`);

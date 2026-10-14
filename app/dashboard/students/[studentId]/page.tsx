@@ -25,6 +25,17 @@ export default async function StudentDetailPage({
     .get();
   if (!studentDoc.exists) return localizedRedirect("/dashboard/students");
   const student = studentDoc.data()!;
+  const schoolYear =
+    typeof student.grade === "number" &&
+    Number.isInteger(student.grade) &&
+    student.grade >= 1 &&
+    student.grade <= 12
+      ? student.grade <= 6
+        ? `초등 ${student.grade}학년`
+        : student.grade <= 9
+          ? `중등 ${student.grade - 6}학년`
+          : `고등 ${student.grade - 9}학년`
+      : "학년 미등록";
   const gradesSnap = await getAdminDb()
     .collection("academies")
     .doc(academyId)
@@ -50,15 +61,27 @@ export default async function StudentDetailPage({
 
       <div className="dash-card">
         <h2>{t("기본 정보")}</h2>
+        {student.status === "inactive" && (
+          <p>{t("학원 탈퇴 학생입니다. 기존 성적 이력은 보관됩니다.")}</p>
+        )}
         <p>
           {t("학년:")}
-          {t(student.grade)}
-          {t("학년")}
+          {t(schoolYear)}
         </p>
         <p>
           {t("학부모 연락처:")}
-          {t(student.parentContact)}
+          {t(student.parentContact || "미등록")}
         </p>
+        {student.phoneNumber && (
+          <p>
+            {t("학생 본인 휴대전화")}: {student.phoneNumber}
+          </p>
+        )}
+        {student.email && (
+          <p>
+            {t("인증된 이메일")}: {student.email}
+          </p>
+        )}
       </div>
 
       <div className="dash-card">

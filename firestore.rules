@@ -15,15 +15,49 @@ service cloud.firestore {
         && get(/databases/$(database)/documents/academies/$(academyId)).data.ownerId == request.auth.uid;
     }
 
-    function isLinkedStudent(academyId, studentId) {
+    function hasStudentApplication(academyId) {
       return isAuthenticated()
-        && get(/databases/$(database)/documents/academies/$(academyId)/students/$(studentId)).data.userId == request.auth.uid;
+        && exists(/databases/$(database)/documents/academies/$(academyId)/studentApplications/$(request.auth.uid));
+    }
+
+    function isApprovedAcademyStudent(academyId) {
+      return isAuthenticated()
+        && hasStudentApplication(academyId)
+        && get(/databases/$(database)/documents/academies/$(academyId)/studentApplications/$(request.auth.uid)).data.userId == request.auth.uid
+        && get(/databases/$(database)/documents/academies/$(academyId)/studentApplications/$(request.auth.uid)).data.academyId == academyId
+        && get(/databases/$(database)/documents/academies/$(academyId)/studentApplications/$(request.auth.uid)).data.status == "approved"
+        && get(/databases/$(database)/documents/academies/$(academyId)/students/$(request.auth.uid)).data.userId == request.auth.uid
+        && get(/databases/$(database)/documents/academies/$(academyId)/students/$(request.auth.uid)).data.status == "active";
+    }
+
+    // A canonical pending/rejected/left application overrides old token claims.
+    // Legacy accounts retain access only while their linked record still exists.
+    function isLegacyAcademyStudent(academyId) {
+      return isAuthenticated()
+        && !hasStudentApplication(academyId)
+        && request.auth.token.get("role", "") == "student"
+        && request.auth.token.get("academyId", "") == academyId
+        && request.auth.token.get("studentId", "") is string
+        && request.auth.token.get("studentId", "") != ""
+        && get(/databases/$(database)/documents/academies/$(academyId)/students/$(request.auth.token.studentId)).data.userId == request.auth.uid
+        && get(/databases/$(database)/documents/academies/$(academyId)/students/$(request.auth.token.studentId)).data.get("status", "active") == "active";
     }
 
     function isAcademyStudent(academyId) {
-      return isAuthenticated()
-        && request.auth.token.role == "student"
-        && request.auth.token.academyId == academyId;
+      return isApprovedAcademyStudent(academyId) || isLegacyAcademyStudent(academyId);
+    }
+
+    function isLinkedStudent(academyId, studentId) {
+      return (isApprovedAcademyStudent(academyId) && studentId == request.auth.uid)
+        || (isLegacyAcademyStudent(academyId) && studentId == request.auth.token.studentId);
+    }
+
+    function ownerStudentCreateAllowed() {
+      return !request.resource.data.keys().hasAny(["status", "email", "phoneNumber", "emailVerified", "phoneVerified"]);
+    }
+
+    function ownerStudentUpdateAllowed() {
+      return !request.resource.data.diff(resource.data).affectedKeys().hasAny(["userId", "status", "email", "phoneNumber", "emailVerified", "phoneVerified"]);
     }
 
     match /academies/{academyId} {
@@ -32,8 +66,16 @@ service cloud.firestore {
       allow read: if isAcademyStudent(academyId);
 
       match /students/{studentId} {
-        allow read, write: if isAcademyOwner(academyId);
+        allow read, delete: if isAcademyOwner(academyId);
+        allow create: if isAcademyOwner(academyId) && ownerStudentCreateAllowed();
+        allow update: if isAcademyOwner(academyId) && ownerStudentUpdateAllowed();
         allow read: if isLinkedStudent(academyId, studentId);
+      }
+
+      match /studentApplications/{studentUid} {
+        allow read: if isAcademyOwner(academyId)
+          || (isAuthenticated() && studentUid == request.auth.uid);
+        allow write: if false;
       }
 
       match /classes/{classId} {
@@ -43,8 +85,27 @@ service cloud.firestore {
 
       match /grades/{gradeId} {
         allow read, write: if isAcademyOwner(academyId);
-        allow read: if isAuthenticated()
-          && resource.data.userId == request.auth.uid;
+        allow read: if isLinkedStudent(academyId, resource.data.studentId);
+      }
+    }
+
+    match /studentProfiles/{studentUid} {
+      allow read: if isAuthenticated() && studentUid == request.auth.uid;
+      allow write: if false;
+
+      match /memberships/{academyId} {
+        allow read: if isAuthenticated() && studentUid == request.auth.uid;
+        allow write: if false;
+      }
+    }
+
+    match /studentNotebooks/{studentUid} {
+      allow read: if isAuthenticated() && studentUid == request.auth.uid;
+      allow write: if false;
+
+      match /pages/{page} {
+        allow read: if isAuthenticated() && studentUid == request.auth.uid;
+        allow write: if false;
       }
     }
   }

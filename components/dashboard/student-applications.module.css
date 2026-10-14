@@ -1,0 +1,81 @@
+.section {
+  max-width: 1240px;
+  margin: 0 auto 32px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: white;
+  color: var(--ink);
+}
+.heading h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+.section p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+.list {
+  padding: 0;
+  margin: 20px 0 0;
+  list-style: none;
+}
+.list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+.identity {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+.identity span {
+  font-size: 14px;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.actions button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.actions button:first-child {
+  background: #245847;
+  color: white;
+  border-color: #245847;
+}
+.actions button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+.section .message {
+  margin-bottom: 0;
+}
+.section .error {
+  color: #a03228;
+}
+@media (max-width: 600px) {
+  .section {
+    padding: 20px;
+  }
+  .list li {
+    align-items: start;
+    flex-direction: column;
+    gap: 14px;
+  }
+}

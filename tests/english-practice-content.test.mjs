@@ -35,7 +35,7 @@ function attempt(episode, item, level) {
 }
 
 for (const level of levels) {
-  test(`all 18 practice packs are completable with real answers at ${level}`, () => {
+  test(`all 19 practice packs are completable with real answers at ${level}`, () => {
     let progress = emptyEnglishProgress();
     for (const episode of englishPracticePacks) {
       assert.equal(episode.format, "practice");
@@ -54,12 +54,12 @@ for (const level of levels) {
       assert.equal(progress.episodes[episode.id].completedAt, now.toISOString());
       assert.equal(progress.episodes[episode.id].format, "practice");
     }
-    assert.equal(progress.xp, 1980);
-    assert.deepEqual(progress.skills, { reading: 6, listening: 12, writing: 30, speaking: 24 });
-    assert.equal(progress.learnedExpressionIds.length, 30);
+    assert.equal(progress.xp, 2090);
+    assert.deepEqual(progress.skills, { reading: 7, listening: 13, writing: 32, speaking: 24 });
+    assert.equal(progress.learnedExpressionIds.length, 32);
     const growth = getEnglishGrowth(progress, now);
     assert.equal(growth.completedEpisodes, 0, "practice packs must not inflate story completion");
-    assert.equal(growth.completedPractices, 18);
+    assert.equal(growth.completedPractices, 19);
   });
 }
 
@@ -110,7 +110,7 @@ test("sentence chunks produce the promised sentence, and reversed orders cannot 
       }
     }
   }
-  assert.equal(assembled, 54);
+  assert.equal(assembled, 57);
 });
 
 test("sentence difficulty changes support rather than secretly changing the practiced expression", () => {
@@ -122,6 +122,170 @@ test("sentence difficulty changes support rather than secretly changing the prac
       assert.equal(new Set(levels.map((level) => item.versions[level].model)).size, 1);
       assert.deepEqual(item.versions.standard.tokens, item.versions.challenge.tokens);
     }
+  }
+});
+
+test("relationship comparison and listening keep the desiring person, acting person, sender, and recipient distinct", () => {
+  const episode = pack("sentence-relationships");
+  const compare = episode.tasks.find((item) => item.id === "relationship-compare");
+  const receiver = episode.tasks.find((item) => item.id === "relationship-receiver");
+  const build = episode.tasks.find((item) => item.id === "relationship-build");
+  assert.equal(compare.skill, "reading");
+  assert.equal(receiver.skill, "listening");
+  assert.equal(build.skill, "writing");
+  assert.equal(new Set(levels.map((level) => compare.versions[level].passage)).size, 3);
+  const mapped = (ko) => practiceEnglishDictionary[ko] || ko;
+  for (const level of levels) {
+    const first = compare.versions[level];
+    for (const sentence of ["Riley wants to check the map", "Riley wants Sam to check the map"]) {
+      assert.ok(first.passage.includes(sentence), `${level}: comparison lost an actor`);
+      assert.ok(
+        mapped(first.translation).includes(sentence),
+        `${level}: bilingual comparison lost an actor`,
+      );
+    }
+    assert.equal(first.options.find((option) => option.id === first.correctOption).text, "Sam.");
+    assert.deepEqual(Object.fromEntries(first.structure.map((part) => [part.role, part.text])), {
+      subject: "Riley",
+      action: "wants",
+      person: "Sam",
+      purpose: "to check the map.",
+    });
+    assert.equal(
+      mapped(first.structure.find((part) => part.role === "person").label),
+      "The person who would do it",
+    );
+    let progress = emptyEnglishProgress();
+    for (const wrong of first.options.filter((option) => option.id !== first.correctOption)) {
+      const result = advanceEnglishProgress(
+        progress,
+        { episodeId: episode.id, taskId: compare.id, level, answer: wrong.id },
+        episode,
+        now,
+      );
+      assert.equal(result.correct, false, `${level}: wrong acting person accepted`);
+      assert.equal(result.progress, progress);
+    }
+    progress = advanceEnglishProgress(
+      progress,
+      attempt(episode, compare, level),
+      episode,
+      now,
+    ).progress;
+    const heard = receiver.versions[level];
+    assert.equal(heard.passage, "We sent the parcel to Nia.");
+    assert.equal(mapped(heard.translation), heard.passage);
+    assert.equal(
+      heard.options.find((option) => option.id === heard.correctOption).text,
+      "Who did you send the parcel to?",
+    );
+    assert.deepEqual(Object.fromEntries(heard.structure.map((part) => [part.role, part.text])), {
+      subject: "We",
+      action: "sent the parcel",
+      person: "to Nia.",
+    });
+    assert.equal(
+      mapped(heard.structure.find((part) => part.role === "person").label),
+      "The recipient",
+    );
+    assert.ok(heard.options.some((option) => option.text === "Who sent the parcel to you?"));
+    assert.ok(heard.options.some((option) => option.text === "What did you send to Nia?"));
+    for (const wrong of heard.options.filter((option) => option.id !== heard.correctOption)) {
+      const result = advanceEnglishProgress(
+        progress,
+        { episodeId: episode.id, taskId: receiver.id, level, answer: wrong.id },
+        episode,
+        now,
+      );
+      assert.equal(
+        result.correct,
+        false,
+        `${level}: sender or item question accepted as recipient question`,
+      );
+      assert.equal(result.progress, progress);
+    }
+    const assembled = build.versions[level];
+    assert.deepEqual(
+      Object.fromEntries(assembled.structure.map((part) => [part.role, part.text])),
+      {
+        subject: "I",
+        action: "'d like",
+        person: "you",
+        purpose: "to check the address.",
+      },
+    );
+    assert.equal(mapped(assembled.translation), assembled.model);
+    assert.equal(
+      englishAnswerAccepted("I'd like to check your address.", assembled),
+      false,
+      "the speaker checking is different from requesting the listener to check",
+    );
+    assert.equal(
+      mapped(episode.tasks.at(-1).versions[level].translation),
+      episode.tasks.at(-1).versions[level].model,
+    );
+  }
+});
+
+test("relationship requests preserve who is being asked, what they should check, and the requested object", () => {
+  const episode = pack("sentence-relationships");
+  assert.ok(episode, "the relationship practice must be available");
+  assert.deepEqual(
+    episode.tasks.map((item) => item.id),
+    ["relationship-compare", "relationship-receiver", "relationship-build", "relationship-request"],
+  );
+  const request = episode.tasks.at(-1);
+  assert.equal(request.skill, "writing");
+  for (const level of levels) {
+    const version = request.versions[level];
+    for (const answer of [
+      "Please ask Nia to check the address.",
+      "Could you ask Nia to check the address?",
+      "Ask Nia to check the address, please.",
+    ]) {
+      assert.equal(
+        englishAnswerAccepted(answer, version),
+        true,
+        `${level}: equivalent request rejected`,
+      );
+    }
+    const wrongRoles = [
+      "I will check Nia's address.",
+      "Nia will ask me to check the address.",
+      "Please ask me to check Nia's address.",
+      "Please ask Nia about the address.",
+      "Please ask Nia to check the name.",
+      "Please don't ask Nia to check the address.",
+    ];
+    let progress = emptyEnglishProgress();
+    for (const item of episode.tasks.slice(0, -1)) {
+      const result = advanceEnglishProgress(progress, attempt(episode, item, level), episode, now);
+      assert.equal(result.correct, true);
+      progress = result.progress;
+    }
+    for (const answer of wrongRoles) {
+      assert.equal(
+        englishAnswerAccepted(answer, version),
+        false,
+        `${level}: changed relationship accepted: ${answer}`,
+      );
+      const result = advanceEnglishProgress(
+        progress,
+        { ...attempt(episode, request, level), answer },
+        episode,
+        now,
+      );
+      assert.equal(result.correct, false);
+      assert.equal(result.progress, progress, "wrong actor or purpose must not advance practice");
+    }
+    const result = advanceEnglishProgress(
+      progress,
+      { ...attempt(episode, request, level), answer: "Could you ask Nia to check the address?" },
+      episode,
+      now,
+    );
+    assert.equal(result.correct, true);
+    assert.equal(result.progress.episodes[episode.id].completedAt, now.toISOString());
   }
 });
 
@@ -278,7 +442,7 @@ test("reading choices do not reward unsupported permissions or conditions", () =
 });
 
 test("listening instructions do not print the answer, and all three response positions are used", () => {
-  const positions = { conversation: new Set(), reading: new Set() };
+  const positions = { conversation: new Set(), reading: new Set(), sentence: new Set() };
   for (const episode of englishPracticePacks)
     for (const item of episode.tasks.filter((t) => t.skill === "listening")) {
       const version = item.versions.standard;
@@ -314,9 +478,16 @@ test("listening instructions do not print the answer, and all three response pos
 });
 
 test("every practice target resolves through the shared content catalogue and remains locally linked", () => {
-  assert.equal(englishPracticePacks.length, 18);
-  for (const format of ["sentence", "conversation", "reading"])
-    assert.equal(englishPracticePacks.filter((item) => item.practiceFormat === format).length, 6);
+  assert.equal(englishPracticePacks.length, 19);
+  for (const [format, count] of [
+    ["sentence", 7],
+    ["conversation", 6],
+    ["reading", 6],
+  ])
+    assert.equal(
+      englishPracticePacks.filter((item) => item.practiceFormat === format).length,
+      count,
+    );
   const ids = new Set(),
     taskIds = new Set(),
     expressionIds = new Set();
@@ -343,8 +514,8 @@ test("every practice target resolves through the shared content catalogue and re
         assert.ok(episode.expressions.some((expression) => expression.id === id));
     }
   }
-  assert.equal(taskIds.size, 72);
-  assert.equal(expressionIds.size, 30);
+  assert.equal(taskIds.size, 76);
+  assert.equal(expressionIds.size, 32);
   assert.equal(getEnglishPracticePack("missing-practice-pack"), undefined);
 });
 
@@ -372,18 +543,24 @@ test("all practice text, choice labels, meaning cues, and dynamic metadata title
     for (const item of episode.tasks)
       for (const level of levels) {
         const version = item.versions[level];
-        if (!/[가-힣]/.test(version.passage))
+        // Relationship tasks translate the target sentence separately from their
+        // English instructions; their actors and meanings are checked above.
+        if (!/[가-힣]/.test(version.passage) && episode.id !== "sentence-relationships")
           assert.equal(
             dictionary[normal(version.translation)],
             version.passage,
             `${item.id}: bilingual source changed meaning`,
           );
-        if (version.tokens)
+        if (version.tokens) {
           assert.equal(
-            dictionary[normal(version.passage)],
+            dictionary[normal(version.translation)],
             version.model,
             `${item.id}: assembly meaning differs from its model`,
           );
+          if (/[가-힣]/.test(version.passage)) {
+            assert.equal(dictionary[normal(version.passage)], version.model);
+          }
+        }
       }
     for (const expression of episode.expressions)
       assert.equal(dictionary[normal(expression.ko)], expression.en);

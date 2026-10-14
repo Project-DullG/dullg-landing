@@ -24,8 +24,8 @@ export const practiceCollections = [
     id: "sentence" as const,
     title: text(["문장 조립", "Sentence workshop"]),
     description: text([
-      "뜻을 보고 표현 조각을 연결해요. 완성한 문장은 직접 말해 봅니다.",
-      "Connect phrase chunks to express a meaning, then say the sentence yourself.",
+      "문장에서 누가 무엇을 하는지 살펴보고, 표현 조각을 연결하거나 직접 써 봐요.",
+      "Explore who does what in a sentence, then connect phrase chunks or write a reply.",
     ]),
     minutes: 4,
   },
@@ -250,6 +250,204 @@ const sentencePacks = sentenceSets.map((set) => {
   });
   return base(id, set.title, "sentence", tasks, expressions);
 });
+
+const relationshipExpressions = [
+  expression(
+    "sentence-relationships-expression-1",
+    "I'd like you to check the address.",
+    "주소를 확인해 주셨으면 해요.",
+  ),
+  expression(
+    "sentence-relationships-expression-2",
+    "Please ask Nia to check the address.",
+    "니아에게 주소를 확인해 달라고 부탁해 주세요.",
+  ),
+];
+const relationshipPack = base(
+  "sentence-relationships",
+  ["문장에서 누가 하는 일일까?", "Who does what?"],
+  "sentence",
+  [
+    {
+      id: "relationship-compare",
+      skill: "reading",
+      title: text(["원하는 사람과 행동할 사람", "Who wants it, and who will do it?"]),
+      context: text([
+        "라이리가 직접 지도를 확인하고 싶은 건지, 샘이 확인해 주길 원하는 건지 구별해 보세요.",
+        "Does Riley want to check the map, or want Sam to check it? Look at the difference.",
+      ]),
+      document: text(["한 단어가 바꾸는 역할", "A word changes the roles"]),
+      feedback: text([
+        "첫 문장은 라이리가 지도를 확인하고 싶다는 뜻이에요. 두 번째 문장은 샘이 확인해 주길 바란다는 뜻입니다. wants 뒤에 Sam이 들어가면서 확인할 사람이 달라졌어요.",
+        "In the first sentence, Riley wants to check the map. In the second, Riley wants Sam to check it. Adding Sam after wants changes who would check the map.",
+      ]),
+      consequence: text([
+        "뜻을 구별했다면, 다음에는 물건을 받는 사람을 묻는 표현을 들어 보세요.",
+        "Next, listen for the person who receives something.",
+      ]),
+      expressionIds: [],
+      versions: versions((level, index) => ({
+        passage: [
+          '"Riley wants to check the map."\n"Riley wants Sam to check the map."',
+          'Read both sentences: "Riley wants to check the map." Now compare: "Riley wants Sam to check the map."',
+          'Riley and Sam have a map to check. Compare "Riley wants to check the map" with "Riley wants Sam to check the map." Which person would check it in the second sentence?',
+        ][index],
+        translation: text([
+          "첫 문장: 라이리는 지도를 확인하고 싶어 합니다.\n두 번째 문장: 라이리는 샘이 지도를 확인해 주길 바랍니다.",
+          "First: Riley wants to check the map.\nSecond: Riley wants Sam to check the map.",
+        ]),
+        prompt: text([
+          "두 번째 문장에서 지도를 확인할 사람은 누구인가요?",
+          "Who would check the map in the second sentence?",
+        ]),
+        options: [
+          { id: "riley", text: "Riley." },
+          { id: "sam", text: "Sam." },
+          { id: "both", text: "Both Riley and Sam." },
+        ],
+        correctOption: "sam",
+        model: "Sam.",
+        ...(level === "starter" ? { starter: "Look at the name after wants." } : {}),
+        structure: [
+          {
+            role: "subject",
+            label: text(["원하는 사람", "The person who wants it"]),
+            text: "Riley",
+          },
+          { role: "action", label: text(["원한다는 표현", "Expressing a wish"]), text: "wants" },
+          {
+            role: "person",
+            label: text(["그 일을 할 사람", "The person who would do it"]),
+            text: "Sam",
+          },
+          {
+            role: "purpose",
+            label: text(["원하는 일", "The desired action"]),
+            text: "to check the map.",
+          },
+        ],
+      })),
+    },
+    {
+      id: "relationship-receiver",
+      skill: "listening",
+      title: text(["누구에게 보냈을까?", "Who received it?"]),
+      context: text([
+        "택배를 누구에게 보냈는지 듣고, 받는 사람을 묻는 질문을 골라 보세요.",
+        "Listen to who received the parcel, then choose a question about the recipient.",
+      ]),
+      speaker: text(["택배를 보낸 사람", "The sender"]),
+      feedback: text([
+        "Who did you send the parcel to?는 누구에게 보냈는지 묻습니다. Who sent the parcel to you?는 누가 당신에게 보냈는지 묻는 질문이에요. 질문의 단어가 비슷해도 묻는 역할은 다릅니다.",
+        "Who did you send the parcel to? asks about the recipient. Who sent the parcel to you? asks about the sender. Similar words can ask about different roles.",
+      ]),
+      consequence: text([
+        "받는 사람을 구별했어요. 이번에는 다른 사람에게 해 달라고 부탁하는 문장을 만들어 보세요.",
+        "Now build a sentence asking another person to do something.",
+      ]),
+      expressionIds: [],
+      versions: versions(() => ({
+        passage: "We sent the parcel to Nia.",
+        translation: text(["우리는 니아에게 택배를 보냈어요.", "We sent the parcel to Nia."]),
+        prompt: text([
+          "받는 사람을 알고 싶을 때 어떤 질문을 하나요?",
+          "Which question asks who received the parcel?",
+        ]),
+        options: [
+          { id: "sender", text: "Who sent the parcel to you?" },
+          { id: "item", text: "What did you send to Nia?" },
+          { id: "recipient", text: "Who did you send the parcel to?" },
+        ],
+        correctOption: "recipient",
+        model: "Who did you send the parcel to?",
+        structure: [
+          { role: "subject", label: text(["보낸 사람", "The sender"]), text: "We" },
+          { role: "action", label: text(["한 일", "The action"]), text: "sent the parcel" },
+          { role: "person", label: text(["받는 사람", "The recipient"]), text: "to Nia." },
+        ],
+      })),
+    },
+    {
+      id: "relationship-build",
+      skill: "writing",
+      title: text(["확인해 달라고 부탁하기", "Ask someone to check"]),
+      context: text([
+        "내가 확인하고 싶다고 말하는 대신, 상대에게 주소를 확인해 달라고 부탁해 보세요.",
+        "Ask the other person to check the address, rather than saying you want to check it yourself.",
+      ]),
+      document: text(["표현 조각", "Phrase chunks"]),
+      feedback: text([
+        "I'd like to check…는 내가 확인하고 싶다는 뜻이고, I'd like you to check…는 상대가 확인해 주길 바란다는 뜻이에요. you가 들어가면서 행동할 사람이 바뀝니다.",
+        "I'd like to check… means you want to check it yourself. I'd like you to check… asks the other person to check it. You changes who would perform the action.",
+      ]),
+      consequence: text([
+        "문장을 완성했어요. 다음에는 확인할 사람을 니아로 바꿔 직접 써 보세요.",
+        "Next, write a request for Nia to do the checking.",
+      ]),
+      expressionIds: [relationshipExpressions[0].id],
+      versions: versions((level) => ({
+        passage: "Ask the person you are speaking to to check the address.",
+        translation: text(["주소를 확인해 주셨으면 해요.", "I'd like you to check the address."]),
+        prompt: assemblyInstructions,
+        tokens: ["I'd like", "you", "to check", "the address."],
+        model: "I'd like you to check the address.",
+        accepted: ["I'd like you to check the address."],
+        ...(level === "starter" ? { starter: "I'd like" } : {}),
+        structure: [
+          { role: "subject", label: text(["원하는 사람", "The person who wants it"]), text: "I" },
+          { role: "action", label: text(["원한다는 표현", "Expressing a wish"]), text: "'d like" },
+          {
+            role: "person",
+            label: text(["그 일을 할 사람", "The person who would do it"]),
+            text: "you",
+          },
+          {
+            role: "purpose",
+            label: text(["원하는 일", "The desired action"]),
+            text: "to check the address.",
+          },
+        ],
+      })),
+    },
+    {
+      id: "relationship-request",
+      skill: "writing",
+      title: text(["확인할 사람을 바꿔 쓰기", "Change who will check"]),
+      context: text([
+        "주소는 니아가 확인해야 합니다. 함께 있는 사람에게 니아에게 확인을 부탁해 달라고 영어로 써 보세요.",
+        "Nia needs to check the address. Ask the person with you to pass the request to Nia.",
+      ]),
+      feedback: text([
+        "ask Nia to check…라고 쓰면 확인할 사람이 니아라는 점이 분명해져요. 예문과 내가 쓴 문장에서 부탁받는 사람, 실제로 확인할 사람을 각각 짚어 보세요.",
+        "Ask Nia to check… makes Nia the person who would check it. In your answer and the example, identify who passes on the request and who does the checking.",
+      ]),
+      consequence: text([
+        "단어 순서와 역할을 살펴보고, 필요한 사람에게 부탁하는 문장까지 직접 썼어요.",
+        "You explored word order and roles, then wrote a request for the right person.",
+      ]),
+      expressionIds: [relationshipExpressions[1].id],
+      versions: versions((level) => ({
+        passage: "Ask the person with you to ask Nia to check the address.",
+        translation: text([
+          "니아에게 주소를 확인해 달라고 부탁해 주세요.",
+          "Please ask Nia to check the address.",
+        ]),
+        prompt: text([
+          "니아가 주소를 확인하도록 부탁하는 문장을 직접 써 보세요.",
+          "Write a request for Nia to check the address.",
+        ]),
+        model: "Please ask Nia to check the address.",
+        accepted: [
+          "Please ask Nia to check the address.",
+          "Could you ask Nia to check the address?",
+        ],
+        keywords: [["ask"], ["Nia to check"], ["address"]],
+        ...(level === "starter" ? { starter: "Please ask Nia" } : {}),
+      })),
+    },
+  ],
+  relationshipExpressions,
+);
 
 type ConversationSpec = {
   id: string;
@@ -990,6 +1188,7 @@ const readingPacks = readings.map((item, readingIndex) => {
 export const englishPracticePacks: EnglishPracticePack[] = [
   ...conversationPacks,
   ...sentencePacks,
+  relationshipPack,
   ...readingPacks,
 ];
 export function getEnglishPracticePack(id: string) {

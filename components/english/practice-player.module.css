@@ -254,6 +254,73 @@
   padding-top: 12px;
   margin: 0 0 8px;
 }
+.structure {
+  border-top: 1px solid #dedccb;
+  margin-top: 12px;
+  padding-top: 4px;
+}
+.structureParts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px 12px;
+  list-style: none;
+  margin: 12px 0 6px;
+  padding: 0;
+}
+.structureParts li {
+  display: flex;
+  flex: 1 1 112px;
+  max-width: 160px;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  text-align: center;
+}
+.structureShape {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 96px;
+  padding: 15px;
+  background: #e3ebdd;
+  border: 1px solid #b8c8b0;
+  color: #173c31;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.structureParts strong {
+  font-size: 11px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #344a3b;
+  overflow-wrap: anywhere;
+}
+.subject {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+}
+.action {
+  border-radius: 0;
+}
+.person {
+  border-radius: 22px;
+  background: #ece6d4;
+  border-color: #cbbd97;
+}
+.purpose {
+  min-height: 110px;
+  padding: 24px 32px;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  border: 0;
+  background: #e4e2ec;
+}
 .audioButton {
   display: flex;
   justify-content: center;

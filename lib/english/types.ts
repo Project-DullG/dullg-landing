@@ -25,6 +25,11 @@ export type TaskVersion = {
   keywords?: string[][];
   starter?: string;
   tokens?: string[];
+  structure?: {
+    role: "subject" | "action" | "person" | "purpose";
+    label: string;
+    text: string;
+  }[];
 };
 export type EnglishTask = {
   id: string;

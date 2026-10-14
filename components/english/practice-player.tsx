@@ -419,6 +419,22 @@ export function PracticePlayer({
                       <p className={styles.translation}>{version.translation}</p>
                     </details>
                   )}
+                  {!!version.structure?.length &&
+                    (task.skill !== "listening" || feedback?.correct) && (
+                      <details key={`${task.id}-${level}`} className={styles.structure}>
+                        <summary>문장 구조 살펴보기</summary>
+                        <ol className={styles.structureParts} aria-label="문장 구조">
+                          {version.structure.map((part, position) => (
+                            <li key={`${part.role}-${position}`}>
+                              <span className={`${styles.structureShape} ${styles[part.role]}`}>
+                                <span lang="en">{part.text}</span>
+                              </span>
+                              <strong>{part.label}</strong>
+                            </li>
+                          ))}
+                        </ol>
+                      </details>
+                    )}
                 </div>
                 {audioError && (
                   <p className={styles.note} role="status">

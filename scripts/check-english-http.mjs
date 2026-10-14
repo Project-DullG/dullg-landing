@@ -20,10 +20,9 @@ const checks = [
   ["/academy", "academy-details-title"],
   ["/login?next=%2Fenglish%2Fpractice%2Fconversation-airport", "영어 학습 로그인"],
   ...episodes.map((id) => [`/english/play/${id}?level=starter`, "CHAPTER"]),
-  ...["conversation-airport", "sentence-requests", "reading-repair"].map((id) => [
-    `/english/practice/${id}?level=starter`,
-    "PRACTICE",
-  ]),
+  ...["conversation-airport", "sentence-requests", "sentence-relationships", "reading-repair"].map(
+    (id) => [`/english/practice/${id}?level=starter`, "PRACTICE"],
+  ),
 ];
 for (const [path, marker] of checks) {
   const response = await fetch(`${origin}${path}`, { signal: AbortSignal.timeout(30_000) });
@@ -33,6 +32,11 @@ for (const [path, marker] of checks) {
   if (path.startsWith("/english/play")) {
     assert.ok(html.includes("기록") || html.includes("진도"));
     assert.match(response.headers.get("cache-control") || "", /no-store/);
+  }
+  if (path.includes("sentence-relationships")) {
+    assert.ok(html.includes("문장 구조 살펴보기"));
+    assert.ok(html.includes("원하는 사람"));
+    assert.ok(html.includes("그 일을 할 사람"));
   }
 }
 assert.equal((await fetch(`${origin}/english/play/not-an-episode`)).status, 404);

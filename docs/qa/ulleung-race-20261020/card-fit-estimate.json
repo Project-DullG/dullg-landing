@@ -1,0 +1,735 @@
+{
+  "method": "Estimate from actual Pretendard750 glyph widths and declared CSS lengths; not a browser rendering result.",
+  "nominal_card_mm": [
+    58,
+    90
+  ],
+  "content_width_px": 195.29,
+  "body_point_estimate": {
+    "item": 10.55,
+    "event_effect": 10.11
+  },
+  "overflow_estimates": [],
+  "cards": [
+    {
+      "id": "event-1",
+      "title": "손끝에서 놓친 오징어",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-2",
+      "title": "바위틈의 찬바람",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-3",
+      "title": "케이블카가 들어온다",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-4",
+      "title": "파도 옆 산책",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-5",
+      "title": "다리 건너 관음도",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-6",
+      "title": "산채비빔밥 한 그릇",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-7",
+      "title": "해 뜨기를 기다리며",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-8",
+      "title": "죽도에 오르는 계단",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-9",
+      "title": "등대까지 걸어볼까",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-10",
+      "title": "갈매기와 모자",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-11",
+      "title": "호박엿을 나눠 먹다",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-12",
+      "title": "숲속에서 길을 묻다",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-13",
+      "title": "시원한 물회",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-14",
+      "title": "바위 이름 맞히기",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-15",
+      "title": "숲길의 쉼표",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-16",
+      "title": "사진 한 장 부탁해요",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-17",
+      "title": "배 시간을 확인하다",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-18",
+      "title": "일주버스 창가 자리",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-19",
+      "title": "지도를 펴놓고 수다",
+      "estimated_content_px": 270.7,
+      "available_content_px": 316.2,
+      "spare_px": 45.6,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 131.9
+      },
+      "outcome_lines": [
+        1,
+        1,
+        2
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "event-20",
+      "title": "저 멀리 보이는 섬",
+      "estimated_content_px": 259.4,
+      "available_content_px": 316.2,
+      "spare_px": 56.8,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "picture": 37.5,
+        "results": 120.7
+      },
+      "outcome_lines": [
+        1,
+        1,
+        1
+      ],
+      "outcome_width": 139.8
+    },
+    {
+      "id": "item-1",
+      "title": "순풍이다!",
+      "estimated_content_px": 232.8,
+      "available_content_px": 316.2,
+      "spare_px": 83.4,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 27.5
+      },
+      "rule_lines": 1
+    },
+    {
+      "id": "item-2",
+      "title": "한 번 더 출발",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-3",
+      "title": "가벼운 배낭",
+      "estimated_content_px": 232.8,
+      "available_content_px": 316.2,
+      "spare_px": 83.4,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 27.5
+      },
+      "rule_lines": 1
+    },
+    {
+      "id": "item-4",
+      "title": "홀수의 행운",
+      "estimated_content_px": 232.8,
+      "available_content_px": 316.2,
+      "spare_px": 83.4,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 27.5
+      },
+      "rule_lines": 1
+    },
+    {
+      "id": "item-5",
+      "title": "느린 걸음도 괜찮아",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-6",
+      "title": "혼자 걷는 시간",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-7",
+      "title": "여기서 내려주세요",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-8",
+      "title": "발걸음 돌리기",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-9",
+      "title": "천천히 둘러보기",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-10",
+      "title": "사진 찍고 갈게",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-11",
+      "title": "쉼터도 지나쳐",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-12",
+      "title": "돌아갈 일 없는 날",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-13",
+      "title": "간식 꾸러미",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-14",
+      "title": "모자 날아갔다!",
+      "estimated_content_px": 254.6,
+      "available_content_px": 316.2,
+      "spare_px": 61.6,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 55.7,
+        "target": 30.9,
+        "rule": 66.9
+      },
+      "rule_lines": 3
+    },
+    {
+      "id": "item-15",
+      "title": "내가 길 안내할게",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-16",
+      "title": "이쪽도 보고 가",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-17",
+      "title": "잠깐만 기다려",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-18",
+      "title": "무거워진 짐",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    },
+    {
+      "id": "item-19",
+      "title": "각자 구경하자",
+      "estimated_content_px": 254.6,
+      "available_content_px": 316.2,
+      "spare_px": 61.6,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 55.7,
+        "target": 30.9,
+        "rule": 66.9
+      },
+      "rule_lines": 3
+    },
+    {
+      "id": "item-20",
+      "title": "여행 계획 변경",
+      "estimated_content_px": 252.5,
+      "available_content_px": 316.2,
+      "spare_px": 63.7,
+      "parts": {
+        "ribbon": 20.7,
+        "title": 36.0,
+        "footer": 44.5,
+        "art": 73.2,
+        "target": 30.9,
+        "rule": 47.2
+      },
+      "rule_lines": 2
+    }
+  ]
+}

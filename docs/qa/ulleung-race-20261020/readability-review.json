@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-20",
+  "scope": "card typography and compact physical table, follow-up to the annotated screenshot",
+  "principle": "실제 사람이 읽고 다루는 카드의 정보위계와 보드·손패 관계를 기준으로 구성. 작은 글자를 일괄 확대하는 방식 대신 불필요한 정보와 예약 공간을 걷어냄.",
+  "reference_material": [
+    {
+      "type": "provided kit",
+      "path": "/Users/kimkanghoon/Downloads/문체작업_이식키트_v1.0_2026-09-22.zip",
+      "application": "같은 용도·매체 원문에서 기능과 읽는 순서를 가져오기, 규칙의 수량·조건 보존"
+    },
+    {
+      "type": "provided kit",
+      "path": "/Users/kimkanghoon/Downloads/PPT_제작_실행키트",
+      "application": "작은 보조 글자로 핵심 설명을 대신하지 않기; 여백이 관계를 끊지 않도록; 실제 전체 화면 확인과 자동 검사를 구분"
+    },
+    {
+      "type": "official physical card photograph",
+      "url": "https://cdn.imweb.me/upload/S2020082123f2972a823ba/30231d1133f1b.jpg",
+      "source": "https://www.bluemarble1982.com/cs/?bmode=view&idx=17623942",
+      "observed": "씨앗사 황금열쇠 뒷면은 큰 그림과 큰 덱 이름으로 식별. 미세한 영문·지명 부제 없음. 사진 직접 확인."
+    },
+    {
+      "type": "official manufacturer dimensions",
+      "url": "https://pandagm.com/tools/",
+      "application": "카드 표준 크기는 비교 기준이며 기존58×90mm를 임의로63×88mm로 바꾸지 않음. 제조사 최소 글자 pt 수치로 주장하지 않음."
+    },
+    {
+      "type": "official rules",
+      "url": "https://www.hasbro.com/common/instruct/Monopoly_Vintage.pdf",
+      "application": "관련 카드와 보드를 같은 플레이 구역으로 배치"
+    }
+  ],
+  "changes": [
+    "뒷면의 영문·스피드 레이싱·울릉도독도 반복표기 삭제. 인쇄본은 브랜드·엠블럼·큰 덱 이름; 테이블 축소 보기에서는 엠블럼·덱 이름으로 식별.",
+    "앞면의 카드번호·중복 서사·플레이버를 걷고 실제 효과와 주사위 결과를 우선. 기존 카드 규격58×90mm 유지.",
+    "이벤트60결과·아이템20규칙 보존. 인쇄94장 앞면과94장 뒷면,22쪽 및 규칙서 예시 동기화.",
+    "보드와 손패의 기본 빈 간격283world→90world. 슬롯 네 장을 항상 펼치던 공간 삭제. 손패 카드154×196→220×342로 실제 카드 비율에 맞춰 확대.",
+    "플레이어 이름14CSSpx·손패 수13CSSpx가 테이블 축소에 함께 작아지지 않도록 보정. 의미 단위로 카드 바로 아래 묶음.",
+    "3~6인에 맞춰 손패·제출 베팅·공용 카드·주사위 배치를 압축. 제출한 베팅 번호가 다음 카드에 가려지지 않게 겹침 순서 반전.",
+    "보드의 불필요한 위치 관계 설명 삭제, 독도 거리와 동도·서도 지명 확대.",
+    "개인 자리 선택 시 전체 테이블 보기를 먼저 켜 숨겨진 손패 영역으로 이동하지 않도록 수정."
+  ],
+  "verification": {
+    "preservation": {
+      "event_effects": 60,
+      "item_full_rules": 20,
+      "print_fronts": 94,
+      "print_backs": 94,
+      "print_sheets": 22,
+      "back_microcopy_removed": true
+    },
+    "game_tests": "20 passed: movement-preview and undo-policy engine comparisons",
+    "syntax_and_diff": "modified module node --check and git diff --check passed",
+    "font_fit": "card-fit-estimate.json: actual Pretendard750 glyph widths, CSS layout budget,40event/item cards with no estimated height overflow. An estimate, not a browser rendering.",
+    "geometry": "3–6participants at1280/1440 widths and800/900 heights checked by coordinate estimates. Hand-to-board90world; label fixed font sizes. Not actual CSS painting.",
+    "browser": "Not verified this turn: server binding blocked by sandbox permission; escalated execution explicitly rejected by granular approval policy; file:// browser proof opening rejected by URL protocol policy. No workaround attempted after browser rejection.",
+    "production": "Pre-deployment validation: npm run build and complete site checks passed (375passed,0failed,6skipped;78routes in2languages). Live git fetch main confirmed baseline475a7f7. Deployment/production verification happens after this report."
+  },
+  "review_artifacts": [
+    ".design-audit/ulleung-race-20261020/table-proof.html",
+    ".design-audit/ulleung-race-20261020/card-proof.html",
+    "docs/qa/ulleung-race-20261020/card-fit-estimate.json"
+  ],
+  "artifact_note": "Proof HTML uses the same game sources bundled with local data. Card and game assets are referenced from the local checkout. Browser opening by the assistant was blocked; these are not evidence of rendered QA. Paths are relative to repository root; large local proof files are excluded from deployment source."
+}

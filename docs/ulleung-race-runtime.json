@@ -31,6 +31,7 @@
   "board-art.html",
   "board.html",
   "board.svg",
+  "card-readable.css",
   "cards.html",
   "cards.mjs",
   "catalog.mjs",
@@ -44,6 +45,8 @@
   "geometry-check.json",
   "index.html",
   "landing.css",
+  "movement-preview.mjs",
+  "play-focus.css",
   "print.html",
   "race-ui.mjs",
   "race.css",
@@ -54,6 +57,8 @@
   "rules-text.html",
   "rules.html",
   "showreel.html",
+  "table-close.css",
   "table.html",
+  "undo-policy.mjs",
   "view.mjs"
 ]

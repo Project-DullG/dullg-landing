@@ -1,0 +1,59 @@
+/* A table is one playing area. Bring hands to the board; don't reserve four empty cards per seat. */
+.race-focus.table-overview .seats { display:none; }
+.race-focus.table-overview .piece.hand {
+  width:220px; height:342px; padding:8px; --rotation:0deg;
+  border-radius:9px; border-color:#d9c8a7;
+  box-shadow:3px 5px 0 #c4b796,6px 9px 0 #ede2c7,9px 16px 12px #251c1940;
+}
+.race-focus.table-overview .piece.hand.owner-current { outline:4px solid #f2d59b; outline-offset:8px; }
+.table-world .card-back.back-design.readable-back > .back-brand { display:none; }
+.table-world .card-back.back-design.readable-back > b {
+  font-size:24cqw!important; line-height:1.22!important; letter-spacing:-.6px!important;
+  max-width:100%; word-break:keep-all;
+}
+.table-world .card-back.back-design.readable-back > img { width:55cqw!important; height:55cqw!important; margin:0 0 15cqw!important; }
+.table-world .hand-label {
+  position:absolute; left:50%; top:calc(100% + 24px); width:142px;
+  display:grid; gap:3px; color:#fffaf0; text-align:center; font-size:12px;
+  line-height:1.35; letter-spacing:0; white-space:nowrap;
+  transform:scale(var(--inverse-scale,1)) translateX(-50%); transform-origin:top left;
+  text-shadow:0 1px 4px #221911,0 0 6px #221911;
+}
+.table-world .hand-label>b { font-size:14px; font-weight:750; }
+.table-world .hand-label>span { font-weight:500; color:#f2e5cb; }
+.race-focus.table-overview .piece.bet-pair { width:88px; height:136px; padding:5px; }
+.table-world .bet-pair .card-back.readable-back > b,
+.table-world .bet-pair .card-back.readable-back > .back-brand { display:none; }
+.table-world .bet-pair .card-back.readable-back > img { width:62cqw!important; height:62cqw!important; margin:0!important; }
+.table-world .bet-pair .pair-number { width:38px; height:38px; font-size:26px; top:-12px; right:-8px; }
+.race-focus.table-overview .public-props .deck { width:200px; height:310px; }
+.table-world .prop-caption {
+  top:calc(100% + 26px); left:50%; right:auto; width:140px;
+  transform:scale(var(--inverse-scale,1)) translateX(-50%); transform-origin:top left;
+  font-size:13px; line-height:1.4; letter-spacing:0; color:#fff7e7;
+  text-shadow:0 1px 4px #221911;
+}
+.race-focus.table-overview .dice-tray { left:1120px; top:1600px; width:540px; height:320px; border-width:12px; border-radius:45px; }
+.race-focus.table-overview .dice-tray .tray-title { top:20px; font-size:25px; font-weight:650; color:#fff1d5; letter-spacing:0; }
+.race-focus.table-overview .dice-tray #table-roll { left:45px; right:45px; bottom:14px; font-size:27px; font-weight:750; }
+.table-world .die-label { top:125px; font-size:28px; font-weight:750; }
+.race-focus.table-overview .bet-marker { width:200px; height:170px; border-width:3px; }
+.race-focus.table-overview .bet-marker b { font-size:40px; }
+.race-focus.table-overview .bet-marker small { font-size:22px; }
+.race-focus.table-overview .bet-marker small:first-child { display:none; }
+.race-focus.table-overview .rule-book { width:165px; height:238px; }
+.race-focus.table-overview .rule-book img { width:90px; height:90px; }
+.race-focus.table-overview .rule-book b { font-size:42px; }
+.race-focus.table-overview .pending-card { z-index:9; }
+
+/* Public interruptions sit on the owner's hand, clear of the course. */
+.race-focus.table-overview .pending-card { width:220px;height:110px;padding:10px 13px;gap:0; }
+.race-focus.table-overview .pending-card .line-icon,
+.race-focus.table-overview .pending-card small { display:none; }
+.race-focus.table-overview .pending-card b { font-size:36px;line-height:1.15;word-break:keep-all; }
+.race-focus.table-overview .bet-marker { width:170px;height:165px;padding:15px; }
+.race-focus.table-overview .bet-marker b { font-size:38px;line-height:1.2; }
+.race-focus.table-overview .bet-marker small { display:none; }
+
+.table-world .hand-label { display:flex;align-items:center;justify-content:center;gap:7px;min-height:20px; }
+.table-world .hand-label>span { font-size:13px;line-height:1.4; }

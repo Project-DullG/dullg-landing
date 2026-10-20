@@ -1,4 +1,4 @@
-import {EVENTS} from './cards.mjs';import {cardHTML,icon,dieHTML,backHTML} from './view.mjs?v=20261018c';
+import {EVENTS} from './cards.mjs';import {cardHTML,icon,dieHTML,backHTML} from './view.mjs?v=20261020-readable2';
 const meeple=(id,extra='')=>`<img class="book-meeple ${extra}" src="assets/racer-${id}.svg" alt="${['강치','호박','오징어','괭이갈매기','등대'][id]}">`;
 const number=n=>`<span class="book-number">${String(n).padStart(2,'0')}</span>`;
 function page(n,label,title,html,cls=''){return `<section class="book-page ${cls}" data-book-page="${n}"><header class="book-page-head"><span>울릉마블 <i>스피드 레이싱</i></span><b>${label}</b></header>${title?`<h2 class="book-title">${title}</h2>`:''}<div class="book-content">${html}</div><footer class="book-page-foot"><span>ULLEUNG MARBLE</span><b>${String(n).padStart(2,'0')}</b></footer></section>`;}

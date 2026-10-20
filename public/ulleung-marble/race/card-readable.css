@@ -1,0 +1,36 @@
+/* 58 × 90 mm cards: make the action readable before adding decoration.
+   Container units keep the same hierarchy in print, the catalogue and dialogs. */
+.game-card.premium-card.readable-card .card-ribbon{font-size:5.9cqw;line-height:1.25;padding-bottom:2.7cqw;color:var(--card-ink)}
+.game-card.premium-card.readable-card .card-ribbon .line-icon{width:6.5cqw;height:6.5cqw}
+.game-card.premium-card.readable-card h3{font-size:10.2cqw!important;line-height:1.18!important;letter-spacing:-.035em!important;margin:3.4cqw 0 3cqw!important;font-weight:800!important}
+.game-card.premium-card.readable-card>footer{padding-top:2.6cqw!important;font-size:6.7cqw!important;line-height:1.35!important;color:var(--card-ink);letter-spacing:-.035em;word-break:keep-all}
+.game-card.premium-card.readable-card>footer b{font-size:6.7cqw;line-height:1.35;font-weight:750}
+.game-card.premium-card.readable-card>footer span{margin-top:1.6cqw}
+.game-card.premium-card.readable-card .event-picture{height:16cqw;border:0;border-radius:3px;margin:0 0 3.2cqw}
+.game-card.premium-card.readable-card .event-picture:after{content:none}
+.game-card.premium-card.readable-card .result-list{gap:2.2cqw;margin:0 0 3.4cqw;flex:1;align-content:start}
+.game-card.premium-card.readable-card .result-row{grid-template-columns:19cqw 1fr;gap:3cqw;min-height:18cqw;padding:2.4cqw 2.7cqw;border-radius:3px}
+.game-card.premium-card.readable-card .face-pair{gap:1.5cqw}
+.game-card.premium-card.readable-card .face-pair .pip-face{width:8.6cqw;height:8.6cqw}
+.game-card.premium-card.readable-card .effect-label{font-size:6.9cqw;line-height:1.3;font-weight:750;letter-spacing:-.035em;word-break:keep-all;overflow-wrap:normal}
+.game-card.premium-card.readable-card .item-visual{height:35cqw;margin:0 0 2.5cqw}
+.game-card.premium-card.readable-card .item-visual:before{width:31cqw;height:31cqw}
+.game-card.premium-card.readable-card .item-visual>.line-icon{width:23cqw;height:23cqw;stroke-width:1.45}
+.game-card.premium-card.readable-card .item-visual .item-orbit{opacity:.3}
+.game-card.premium-card.readable-card .item-target{font-size:6.4cqw;line-height:1.25;padding:1.9cqw 2.6cqw;margin:0 0 3cqw;letter-spacing:-.03em;word-break:keep-all}
+.game-card.premium-card.readable-card .item-rule{font-size:7.2cqw!important;line-height:1.4!important;letter-spacing:-.035em;font-weight:700;margin:0 0 4cqw!important;word-break:keep-all;overflow-wrap:normal}
+.game-card.premium-card.readable-card.dense-card .item-visual{height:26cqw}
+.game-card.premium-card.readable-card.dense-card .item-visual:before{height:25cqw;width:25cqw}
+.game-card.premium-card.readable-card.dense-card .item-rule{font-size:7.2cqw!important;line-height:1.4!important}
+.game-card.premium-card.readable-card .horse-stage{height:72cqw;margin:4cqw -5.6% 0}
+.game-card.premium-card.readable-card .horse-halo{height:58cqw;width:58cqw}
+.game-card.premium-card.readable-card .horse-figure{height:58cqw;width:52cqw}
+.game-card.premium-card.readable-card.horse-card h3{font-size:14cqw!important;margin:6cqw 0 4cqw!important;line-height:1.2!important}
+.game-card.premium-card.readable-card .bet-rank{font-family:Pretendard,sans-serif;font-size:14cqw;line-height:1.2;margin:8cqw 0 0;letter-spacing:-.04em;font-weight:800}
+.game-card.premium-card.readable-card .bet-value{font-size:42cqw!important;line-height:1.1!important;margin:2cqw 0 0}
+.game-card.premium-card.readable-card .bet-value small{font-size:11cqw!important}
+.game-card.premium-card.readable-card .bet-rule{padding:4cqw 0 0;margin-top:5cqw;font-size:7.2cqw;line-height:1.4;letter-spacing:-.035em;word-break:keep-all}
+.card-back.back-design.readable-back{justify-content:center;padding:9%!important}
+.card-back.back-design.readable-back>.back-brand{position:absolute;top:12%;left:5%;right:5%;font-size:11.5cqw;font-weight:800;line-height:1.2;letter-spacing:-.045em}
+.card-back.back-design.readable-back>img{width:47cqw!important;height:47cqw!important;margin:2cqw 0 9cqw!important}
+.card-back.back-design.readable-back>b{font-size:16cqw!important;line-height:1.15;font-weight:800;letter-spacing:-.045em!important;word-break:keep-all}

@@ -8,7 +8,7 @@ args = p.parse_args()
 root = Path(__file__).resolve().parents[1]
 src = args.source.resolve()
 dest = root / 'public/ulleung-marble'
-runtime = {'film-poster.jpg', 'ulleung-marble-play.mp4', 'coast-bright.webp', 'table-spread.webp', 'play-ko.vtt', 'gameplay-demo.mp4', 'gameplay-demo-poster.jpg', 'gameplay-demo-ko.vtt', 'music-license.txt'}
+runtime = {'coast-bright.webp', 'table-spread.webp', 'gameplay-demo.mp4', 'gameplay-demo-poster.jpg', 'gameplay-demo-ko.vtt', 'music-license.txt'}
 paths = [Path(x) for x in ['index.html', 'favicon.svg', 'tabletop/master.html', 'tabletop/components.html', 'tabletop/models.mjs', 'assets/master/character-candidates.webp']]
 for folder in ['tabletop/v07', 'assets/v07', 'assets/geography', 'vendor']:
     paths += [f.relative_to(src) for f in (src / folder).rglob('*') if f.is_file() and f.name != '.DS_Store' and ('/promo/' not in str(f) or f.name in runtime)]

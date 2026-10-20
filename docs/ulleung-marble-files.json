@@ -3005,14 +3005,9 @@
     "sha256": "a648f3a6923bbf137bb13e47187065c62ed62665707cc34cf99060f34072ed66"
   },
   {
-    "path": "assets/v07/promo/film-poster.jpg",
-    "bytes": 603217,
-    "sha256": "72d5ea480f9611452c0e878370fe2467657423aac3d67c4fe20eedc417075d61"
-  },
-  {
     "path": "assets/v07/promo/gameplay-demo-ko.vtt",
-    "bytes": 1785,
-    "sha256": "303053175d316ca59585e523a6cf387a7e76458c63c7b80642bb3a002ca99cc7"
+    "bytes": 638,
+    "sha256": "dd4a3525e681c0cf084fd3c61e1acf0c8c00c899eb7101c6b4ea0c61ebdb1365"
   },
   {
     "path": "assets/v07/promo/gameplay-demo-poster.jpg",
@@ -3021,8 +3016,8 @@
   },
   {
     "path": "assets/v07/promo/gameplay-demo.mp4",
-    "bytes": 6780069,
-    "sha256": "5a5a822d93ad63734955e62896ae5a53016e2e472d9def8403143e1f779fa737"
+    "bytes": 6201815,
+    "sha256": "ce76e36af7798b744ce67eefbddf2e7a89a4182f6d00c4ccb34b75aabf5cb74d"
   },
   {
     "path": "assets/v07/promo/music-license.txt",
@@ -3030,19 +3025,9 @@
     "sha256": "477ee23f41cbda0c5156402dddad4e85890c7a0e298a3121acd3b1b1868f715e"
   },
   {
-    "path": "assets/v07/promo/play-ko.vtt",
-    "bytes": 371,
-    "sha256": "e064fe228843a1dc2bb9e4bd2e5a26ab44310eb122bad774d04587a1b3d5bb71"
-  },
-  {
     "path": "assets/v07/promo/table-spread.webp",
     "bytes": 275174,
     "sha256": "0b4cc0f1ce970223dbd6eab67404f0b5db98bece64a89d42a6e3d49afa6f56f4"
-  },
-  {
-    "path": "assets/v07/promo/ulleung-marble-play.mp4",
-    "bytes": 45170743,
-    "sha256": "a051a60e69d6adddcacde4534ed734fe1ebbe2ff6748ecb6014f4745bd09e7ee"
   },
   {
     "path": "assets/v07/tourism-boxes.json",
@@ -3056,8 +3041,8 @@
   },
   {
     "path": "index.html",
-    "bytes": 27409,
-    "sha256": "bee1fb050d8aa5b484943bec3bd46348afd8c4269ebd915f372bc7d43588f316"
+    "bytes": 26789,
+    "sha256": "124a5d2765dc65e048dbdbfb3168a8cf4e516c2da7e631e6f69a336fd879d7f5"
   },
   {
     "path": "race/assets/NanumMyeongjoBold.ttf",
@@ -3083,6 +3068,11 @@
     "path": "race/assets/emblem.svg",
     "bytes": 283,
     "sha256": "a9fa44f73ef9fcedae22048f4b200cd586ca6ec7795901477a1e18d4ce2d4a9b"
+  },
+  {
+    "path": "race/assets/race-story.webp",
+    "bytes": 475500,
+    "sha256": "7b99a8d9e7bbbd88f8c69900dcd92a37548250ef05a6dbed801074d06adfa91d"
   },
   {
     "path": "race/assets/racer-0.svg",
@@ -3246,8 +3236,8 @@
   },
   {
     "path": "race/film/captions-ko.vtt",
-    "bytes": 1323,
-    "sha256": "d503de0fb8684834477b3f0db0b79a82924718dbed6e7a9b273ee4da190cfef9"
+    "bytes": 919,
+    "sha256": "def31c244fa83bc7488680ba1887bd1534ab90a192ad147a87cb95aad779cf2c"
   },
   {
     "path": "race/film/music-license.txt",
@@ -3261,8 +3251,8 @@
   },
   {
     "path": "race/film/ulleung-speed-racing-showreel.mp4",
-    "bytes": 11669675,
-    "sha256": "f4e6355397f415985f325d88762101cb76f020517c225f63c9824061e0427011"
+    "bytes": 12744353,
+    "sha256": "302675136b023e7472c21b2de5cba814996e0e92fb6896bc6dccd5d7b273b920"
   },
   {
     "path": "race/geometry-check.json",
@@ -3271,8 +3261,13 @@
   },
   {
     "path": "race/index.html",
-    "bytes": 6399,
-    "sha256": "77cb208d194431f4a1a38b516dab528a636131f4185fef4f04352d2c07ab0565"
+    "bytes": 9326,
+    "sha256": "3f734459451c57ecdf6c19a3feff5c509066c65a251ae7c5db3d73dd163381e5"
+  },
+  {
+    "path": "race/landing.css",
+    "bytes": 13984,
+    "sha256": "0895a32bd67eeaacc61b3129693d2fa4471f7cd9712cb9e057c6bb296f592b2d"
   },
   {
     "path": "race/print.html",
@@ -3321,8 +3316,8 @@
   },
   {
     "path": "race/showreel.html",
-    "bytes": 6399,
-    "sha256": "77cb208d194431f4a1a38b516dab528a636131f4185fef4f04352d2c07ab0565"
+    "bytes": 648,
+    "sha256": "dae51ba5035e96847054aa566f8b3e842b4871b66faa862d35b88553733bba55"
   },
   {
     "path": "race/table.html",
@@ -3546,8 +3541,8 @@
   },
   {
     "path": "tabletop/v07/product-gameplay.css",
-    "bytes": 2017,
-    "sha256": "667f758447c00d8ad653241022315df9b37edfc8eec389c56e928db7c4b9f673"
+    "bytes": 1692,
+    "sha256": "24852d4bc2e6870df30bdd8dc36255584c2a4f7c59a6128088a9b2f11409d1b5"
   },
   {
     "path": "tabletop/v07/product-pitch.css",

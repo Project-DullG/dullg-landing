@@ -2926,13 +2926,13 @@
   },
   {
     "path": "assets/v07/pitch/20261001/ulleung-marble-pitch.pdf",
-    "bytes": 15046323,
-    "sha256": "21915caa1602fa15d8b798f9e5152e940fbd8ed13a8cee60508bdaa3664eab9a"
+    "bytes": 3485100,
+    "sha256": "06a2868b1bcdeb041505e34c353cdfe2c18b37508ec67264e48a93ba22b75953"
   },
   {
     "path": "assets/v07/pitch/20261001/ulleung-marble-pitch.pptx",
-    "bytes": 25825237,
-    "sha256": "086d4238926dd4730fba51283be92a096d66cbf1b39365b9e76128ef1b85c776"
+    "bytes": 12827102,
+    "sha256": "0f9f2658d2ca1c499bc21a0e63e6c4b34396740cb3a86dab2009357ec45690e2"
   },
   {
     "path": "assets/v07/portraits/traveler-0.jpg",
@@ -3007,17 +3007,17 @@
   {
     "path": "assets/v07/promo/gameplay-demo-ko.vtt",
     "bytes": 1801,
-    "sha256": "99821347876371496db6aa6d93d8d613779f7cf382b11850aa0e21e5f34da21c"
+    "sha256": "f637026e674f3d186a64e25a243a354555f8858d91001f4e31a3c8b0a553a67c"
   },
   {
     "path": "assets/v07/promo/gameplay-demo-poster.jpg",
-    "bytes": 219411,
-    "sha256": "cc6118eb6b3f6c1d6180769e4326cfba09cac0df70bc2f74e68d8dff35094946"
+    "bytes": 109997,
+    "sha256": "ec127a1e494f1c73bbfd5a27f4a5d23e3208512af3bfec764533ec263e369cf1"
   },
   {
     "path": "assets/v07/promo/gameplay-demo.mp4",
-    "bytes": 13219408,
-    "sha256": "709517cbd3186969ff2f601d6d012803e4a3816c3ea081e1a3c25e6ac8bfe881"
+    "bytes": 16590128,
+    "sha256": "281b931563a282006096b3c5403835df390b083484bba67f9141109d7f884f82"
   },
   {
     "path": "assets/v07/promo/music-license.txt",
@@ -3041,8 +3041,8 @@
   },
   {
     "path": "index.html",
-    "bytes": 26892,
-    "sha256": "1c3005cd9022ab72674d0a900d91d275f6d386c30e03a882fd0368d80d812843"
+    "bytes": 27018,
+    "sha256": "f30b658e3af5edda37b64d894f110426905bbb01857b7d89186ca7479df72af0"
   },
   {
     "path": "race/assets/NanumMyeongjoBold.ttf",
@@ -3191,8 +3191,8 @@
   },
   {
     "path": "race/board-art.html",
-    "bytes": 5024997,
-    "sha256": "4c66fe8f83b00cbebdfba7988346341dc60f99b258f01301ca4be60e0688561b"
+    "bytes": 1530,
+    "sha256": "794da932729fb667772d8dd7c58b4894fe97dbaf2644ca1cea27fd2fe9f89935"
   },
   {
     "path": "race/board.html",
@@ -3237,7 +3237,7 @@
   {
     "path": "race/film/captions-ko.vtt",
     "bytes": 2370,
-    "sha256": "69ec94a3bd9bc93c92eec488b49152a36828f8f39b657de1c6558110327961a1"
+    "sha256": "24280c1554d83af9d78afc1e5649bbc01c9be46872ab131e455c4f43cd94c9bc"
   },
   {
     "path": "race/film/music-license.txt",
@@ -3246,13 +3246,13 @@
   },
   {
     "path": "race/film/poster.jpg",
-    "bytes": 332931,
-    "sha256": "8f88099b7e66d71adbf4523b0a96e2056cb6b3d15e0698941049b32aace55dec"
+    "bytes": 146600,
+    "sha256": "585db845a25b92b7c9ed87e270435ba93eda86283ee2f3473e35d0ef31deb86c"
   },
   {
     "path": "race/film/ulleung-speed-racing-showreel.mp4",
-    "bytes": 19904648,
-    "sha256": "3189fd58a65b2fa5fb4ad287e0b0abf6349fe37935160967bd38c3ff96e12e18"
+    "bytes": 22812172,
+    "sha256": "815645628120bae12f53f437bc9023ab4c88166449d55e7cf3ddc294b8f0f502"
   },
   {
     "path": "race/geometry-check.json",
@@ -3261,8 +3261,8 @@
   },
   {
     "path": "race/index.html",
-    "bytes": 10849,
-    "sha256": "797a2d2706a30216ce1387662d5f70a6991c92756bf1593a6e27e5b1cc66aff9"
+    "bytes": 10892,
+    "sha256": "aedb607881a8ea7fa57169dd3cf36fbc4b54898058ae450ea0b3a987a16a8079"
   },
   {
     "path": "race/landing.css",

@@ -3006,18 +3006,18 @@
   },
   {
     "path": "assets/v07/promo/gameplay-demo-ko.vtt",
-    "bytes": 638,
-    "sha256": "dd4a3525e681c0cf084fd3c61e1acf0c8c00c899eb7101c6b4ea0c61ebdb1365"
+    "bytes": 1801,
+    "sha256": "99821347876371496db6aa6d93d8d613779f7cf382b11850aa0e21e5f34da21c"
   },
   {
     "path": "assets/v07/promo/gameplay-demo-poster.jpg",
-    "bytes": 611068,
-    "sha256": "bf5ebc829148071f205f3eb8ccd78157020a094f7ce42041f474016fca1ab17b"
+    "bytes": 219411,
+    "sha256": "cc6118eb6b3f6c1d6180769e4326cfba09cac0df70bc2f74e68d8dff35094946"
   },
   {
     "path": "assets/v07/promo/gameplay-demo.mp4",
-    "bytes": 6201815,
-    "sha256": "ce76e36af7798b744ce67eefbddf2e7a89a4182f6d00c4ccb34b75aabf5cb74d"
+    "bytes": 13219408,
+    "sha256": "709517cbd3186969ff2f601d6d012803e4a3816c3ea081e1a3c25e6ac8bfe881"
   },
   {
     "path": "assets/v07/promo/music-license.txt",
@@ -3041,8 +3041,8 @@
   },
   {
     "path": "index.html",
-    "bytes": 26789,
-    "sha256": "124a5d2765dc65e048dbdbfb3168a8cf4e516c2da7e631e6f69a336fd879d7f5"
+    "bytes": 26892,
+    "sha256": "1c3005cd9022ab72674d0a900d91d275f6d386c30e03a882fd0368d80d812843"
   },
   {
     "path": "race/assets/NanumMyeongjoBold.ttf",
@@ -3236,8 +3236,8 @@
   },
   {
     "path": "race/film/captions-ko.vtt",
-    "bytes": 919,
-    "sha256": "def31c244fa83bc7488680ba1887bd1534ab90a192ad147a87cb95aad779cf2c"
+    "bytes": 2370,
+    "sha256": "69ec94a3bd9bc93c92eec488b49152a36828f8f39b657de1c6558110327961a1"
   },
   {
     "path": "race/film/music-license.txt",
@@ -3246,13 +3246,13 @@
   },
   {
     "path": "race/film/poster.jpg",
-    "bytes": 562008,
-    "sha256": "ca31a989b89c79431bd8ede1a161cb6a926215899534fc3106bce4813b43db15"
+    "bytes": 332931,
+    "sha256": "8f88099b7e66d71adbf4523b0a96e2056cb6b3d15e0698941049b32aace55dec"
   },
   {
     "path": "race/film/ulleung-speed-racing-showreel.mp4",
-    "bytes": 12744353,
-    "sha256": "302675136b023e7472c21b2de5cba814996e0e92fb6896bc6dccd5d7b273b920"
+    "bytes": 19904648,
+    "sha256": "3189fd58a65b2fa5fb4ad287e0b0abf6349fe37935160967bd38c3ff96e12e18"
   },
   {
     "path": "race/geometry-check.json",
@@ -3261,13 +3261,13 @@
   },
   {
     "path": "race/index.html",
-    "bytes": 9326,
-    "sha256": "3f734459451c57ecdf6c19a3feff5c509066c65a251ae7c5db3d73dd163381e5"
+    "bytes": 10849,
+    "sha256": "797a2d2706a30216ce1387662d5f70a6991c92756bf1593a6e27e5b1cc66aff9"
   },
   {
     "path": "race/landing.css",
-    "bytes": 13984,
-    "sha256": "0895a32bd67eeaacc61b3129693d2fa4471f7cd9712cb9e057c6bb296f592b2d"
+    "bytes": 14420,
+    "sha256": "e96cdd2ee587a72a51647c39eb4193eb4fb4866f4d5d839cd0b5770ebadb7a5f"
   },
   {
     "path": "race/print.html",
@@ -3541,8 +3541,8 @@
   },
   {
     "path": "tabletop/v07/product-gameplay.css",
-    "bytes": 1692,
-    "sha256": "24852d4bc2e6870df30bdd8dc36255584c2a4f7c59a6128088a9b2f11409d1b5"
+    "bytes": 1740,
+    "sha256": "bacb539b5823e190a49376b6d2ba5dba5ad0d35e993aa7f2b4544be00d6ed4a0"
   },
   {
     "path": "tabletop/v07/product-pitch.css",

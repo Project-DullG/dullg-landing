@@ -1,6 +1,6 @@
 .hero .hero-race-link{display:inline-block;margin-top:14px;font-size:13px;color:#456a75}
 .gameplay-film .eyebrow{margin-bottom:10px;color:#52727a}
-.gameplay-film video{display:block;width:100%;height:auto;max-height:none;aspect-ratio:16/9;background:#153d48}
+.gameplay-film video{display:block;width:100%;height:auto;max-height:80vh;max-height:min(80svh,900px);aspect-ratio:32/21;object-fit:contain;background:#153d48}
 .gameplay-film .film-toolbar{align-items:flex-start;gap:18px}
 .gameplay-film .chapters{flex-wrap:wrap;row-gap:8px}
 .gameplay-film .film-toolbar>a{white-space:nowrap}

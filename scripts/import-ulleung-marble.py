@@ -8,10 +8,12 @@ args = p.parse_args()
 root = Path(__file__).resolve().parents[1]
 src = args.source.resolve()
 dest = root / 'public/ulleung-marble'
-runtime = {'film-poster.jpg', 'ulleung-marble-play.mp4', 'coast-bright.webp', 'table-spread.webp', 'play-ko.vtt'}
+runtime = {'film-poster.jpg', 'ulleung-marble-play.mp4', 'coast-bright.webp', 'table-spread.webp', 'play-ko.vtt', 'gameplay-demo.mp4', 'gameplay-demo-poster.jpg', 'gameplay-demo-ko.vtt', 'music-license.txt'}
 paths = [Path(x) for x in ['index.html', 'favicon.svg', 'tabletop/master.html', 'tabletop/components.html', 'tabletop/models.mjs', 'assets/master/character-candidates.webp']]
 for folder in ['tabletop/v07', 'assets/v07', 'assets/geography', 'vendor']:
     paths += [f.relative_to(src) for f in (src / folder).rglob('*') if f.is_file() and f.name != '.DS_Store' and ('/promo/' not in str(f) or f.name in runtime)]
+# Preserve the separately packaged race when refreshing the travel game.
+race_paths = json.loads((root / 'docs/ulleung-race-runtime.json').read_text())
 manifest = []
 for rel in sorted(set(paths)):
     f, out = src / rel, dest / rel
@@ -34,5 +36,11 @@ for rel in sorted(set(paths)):
     else:
         out.write_bytes(data)
     manifest.append({'path': str(rel), 'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()})
-(root / 'docs/ulleung-marble-files.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2))
+for name in race_paths:
+    rel = Path('race') / name
+    target = dest / rel
+    if target.is_file():
+        data = target.read_bytes()
+        manifest.append({'path': str(rel), 'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()})
+(root / 'docs/ulleung-marble-files.json').write_text(json.dumps(sorted(manifest, key=lambda item: item['path']), ensure_ascii=False, indent=2))
 print(f'{len(manifest)} files imported into {dest}')

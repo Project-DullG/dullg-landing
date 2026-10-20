@@ -3010,6 +3010,26 @@
     "sha256": "72d5ea480f9611452c0e878370fe2467657423aac3d67c4fe20eedc417075d61"
   },
   {
+    "path": "assets/v07/promo/gameplay-demo-ko.vtt",
+    "bytes": 1785,
+    "sha256": "303053175d316ca59585e523a6cf387a7e76458c63c7b80642bb3a002ca99cc7"
+  },
+  {
+    "path": "assets/v07/promo/gameplay-demo-poster.jpg",
+    "bytes": 611068,
+    "sha256": "bf5ebc829148071f205f3eb8ccd78157020a094f7ce42041f474016fca1ab17b"
+  },
+  {
+    "path": "assets/v07/promo/gameplay-demo.mp4",
+    "bytes": 6780069,
+    "sha256": "5a5a822d93ad63734955e62896ae5a53016e2e472d9def8403143e1f779fa737"
+  },
+  {
+    "path": "assets/v07/promo/music-license.txt",
+    "bytes": 235,
+    "sha256": "477ee23f41cbda0c5156402dddad4e85890c7a0e298a3121acd3b1b1868f715e"
+  },
+  {
     "path": "assets/v07/promo/play-ko.vtt",
     "bytes": 371,
     "sha256": "e064fe228843a1dc2bb9e4bd2e5a26ab44310eb122bad774d04587a1b3d5bb71"
@@ -3021,8 +3041,8 @@
   },
   {
     "path": "assets/v07/promo/ulleung-marble-play.mp4",
-    "bytes": 45907915,
-    "sha256": "7946e1adfbf9fe493e4306c5b94971299552db8d054a70b8951a8f9205d8d0ea"
+    "bytes": 45170743,
+    "sha256": "a051a60e69d6adddcacde4534ed734fe1ebbe2ff6748ecb6014f4745bd09e7ee"
   },
   {
     "path": "assets/v07/tourism-boxes.json",
@@ -3036,8 +3056,283 @@
   },
   {
     "path": "index.html",
-    "bytes": 24606,
-    "sha256": "f267f529164b4377b2565bb14f864818d71b3ddb7044b74401fb1335fd49b2d8"
+    "bytes": 27409,
+    "sha256": "bee1fb050d8aa5b484943bec3bd46348afd8c4269ebd915f372bc7d43588f316"
+  },
+  {
+    "path": "race/assets/NanumMyeongjoBold.ttf",
+    "bytes": 4183592,
+    "sha256": "cb47c5d029dd5ee5b8f6fe142c468d670edbe4e9caaad33b91e6ac399e99194a"
+  },
+  {
+    "path": "race/assets/OFL-NanumMyeongjo.txt",
+    "bytes": 4457,
+    "sha256": "a06fb4706bd70da776e78c0df4fc08e49f12e604668d1da26abd689661e2ba4d"
+  },
+  {
+    "path": "race/assets/OFL-Pretendard.txt",
+    "bytes": 4816,
+    "sha256": "82e9c8a4b203261f10ddba1296422d64914ff3d4b7bd8a12896d03f0f088d70a"
+  },
+  {
+    "path": "race/assets/PretendardVariable.woff2",
+    "bytes": 2057688,
+    "sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4"
+  },
+  {
+    "path": "race/assets/emblem.svg",
+    "bytes": 283,
+    "sha256": "a9fa44f73ef9fcedae22048f4b200cd586ca6ec7795901477a1e18d4ce2d4a9b"
+  },
+  {
+    "path": "race/assets/racer-0.svg",
+    "bytes": 1251,
+    "sha256": "986246e4420b8c8332f52f038039ffa47fc2ae7772ed2fd02bfca054ae73b570"
+  },
+  {
+    "path": "race/assets/racer-1.svg",
+    "bytes": 1176,
+    "sha256": "83f1cfc6034ee9a51272168ba82c6ab404ed0b2a57dcec0d9104bdba6b372819"
+  },
+  {
+    "path": "race/assets/racer-2.svg",
+    "bytes": 1312,
+    "sha256": "88941f17435ff491c76e022ec4d8e060bd1a5532321371fecbadae5376fd2677"
+  },
+  {
+    "path": "race/assets/racer-3.svg",
+    "bytes": 1152,
+    "sha256": "ad087f2534177ecfbb34fd9f5336850cb070ccb7970cdfb0d9ee962efa94dc90"
+  },
+  {
+    "path": "race/assets/racer-4.svg",
+    "bytes": 1294,
+    "sha256": "c654fa3cb4d84d310d47851f5b210a1972e3f116e8589946a0943cb4eae99c11"
+  },
+  {
+    "path": "race/assets/scenes/arch.webp",
+    "bytes": 171830,
+    "sha256": "4a7adc0b4b298732e64861ace19574a4baaaaabcd754df6606d98588a9633e97"
+  },
+  {
+    "path": "race/assets/scenes/bongrae.webp",
+    "bytes": 254090,
+    "sha256": "ef8e7257258116b0f042f794e38cc76bb1746c5bc8bbaee284af02fc4d013a4a"
+  },
+  {
+    "path": "race/assets/scenes/coast.webp",
+    "bytes": 180472,
+    "sha256": "f599881df8faf9b65511919f2270c3ead4081e4386a12ad08f6a90800b21a16f"
+  },
+  {
+    "path": "race/assets/scenes/dokdo.webp",
+    "bytes": 163668,
+    "sha256": "a8b50dbb7194df53cbce92c7f6dbf55b08b0a16bb2bd6541499d2578bb1f5308"
+  },
+  {
+    "path": "race/assets/scenes/food-bibimbap.webp",
+    "bytes": 137020,
+    "sha256": "11daed83e032d4237ca7dab267e85e841688d43325ce1ae73149b06737eb5f80"
+  },
+  {
+    "path": "race/assets/scenes/food-limpet-rice.webp",
+    "bytes": 150420,
+    "sha256": "4e772e161d712170c76478d47c9c603ce67421c1855a2aaba35382aa7cf447a4"
+  },
+  {
+    "path": "race/assets/scenes/food-mulhoe.webp",
+    "bytes": 119748,
+    "sha256": "d40dbbd252253cd0f11e134216c1a41f96a37a8b011bfbe4ac2b427babfb7f5d"
+  },
+  {
+    "path": "race/assets/scenes/food-pumpkin.webp",
+    "bytes": 123054,
+    "sha256": "e037b4ad51936c280c32274966ad4af3342d5eb2154902dbf74954115df6aef0"
+  },
+  {
+    "path": "race/assets/scenes/food-squid.webp",
+    "bytes": 203850,
+    "sha256": "cc38439a5d6a0655c74b02f45f676fe1ad303253de8700ac602447091f0c90d5"
+  },
+  {
+    "path": "race/assets/scenes/gwanum.webp",
+    "bytes": 200240,
+    "sha256": "8c219a1cda19c092a840d4fc3d07a73075c35ccfc8b2716d898b3ad2ad9fd6bd"
+  },
+  {
+    "path": "race/assets/scenes/lighthouse.webp",
+    "bytes": 191822,
+    "sha256": "36c43b48d1173229aebe0b2eebfbf8744427129ae266ec8c596a535948e6beaf"
+  },
+  {
+    "path": "race/assets/scenes/nari.webp",
+    "bytes": 226328,
+    "sha256": "d6401f56c283a554dabaa967541db771d9297f1e15a6866b5ec73770f1db34bc"
+  },
+  {
+    "path": "race/assets/scenes/port.webp",
+    "bytes": 212138,
+    "sha256": "02b5690e8051b473ccbfb328d2cfd59922a23b4f2faebfc3fe407977729da0b0"
+  },
+  {
+    "path": "race/assets/scenes/seongin.webp",
+    "bytes": 233624,
+    "sha256": "f15a73f45659f929ea6d2595c9acbc084b9c13b1e9a281f737713c177b6736db"
+  },
+  {
+    "path": "race/assets/scenes/stacks.webp",
+    "bytes": 147172,
+    "sha256": "ac5aa58a6166707257915dd483352c91409f25ccf32dcd2cab9d791f1c4538c4"
+  },
+  {
+    "path": "race/assets/scenes/turtle.webp",
+    "bytes": 203458,
+    "sha256": "7c67cfef04e26a1b8ca621631b1c90123041a1bc0e982f4ccb1ae2aa8ce1677c"
+  },
+  {
+    "path": "race/assets/table-walnut.png",
+    "bytes": 2392853,
+    "sha256": "40bd5924f8586a5e4cff4896696c35b1b4236c4fe4854d446b928951520fb55a"
+  },
+  {
+    "path": "race/betmat.html",
+    "bytes": 9635,
+    "sha256": "681c79795a0c4cf6395d44cd5eb6c7470366647f9764f34152d9f1feaaef385d"
+  },
+  {
+    "path": "race/board-art.html",
+    "bytes": 5024997,
+    "sha256": "4c66fe8f83b00cbebdfba7988346341dc60f99b258f01301ca4be60e0688561b"
+  },
+  {
+    "path": "race/board.html",
+    "bytes": 4565,
+    "sha256": "22faa857152317caa35e125c8fe272336927b59a2de8606e2821819dc94574c5"
+  },
+  {
+    "path": "race/board.svg",
+    "bytes": 5023705,
+    "sha256": "9a5c7f5ea51305ecd153760f23203bb03af43f20a29a1b5352a094344210e224"
+  },
+  {
+    "path": "race/cards.html",
+    "bytes": 2460,
+    "sha256": "e8b194fcbfbf50d013a1b10fb65a57e2c7b0390fc4e0be1f4504b5c65a4f85fe"
+  },
+  {
+    "path": "race/cards.mjs",
+    "bytes": 12604,
+    "sha256": "3603df28b7d14b84aad718b1bd0ecb0f295e5c1def82038b0214b2f9d256eb5a"
+  },
+  {
+    "path": "race/catalog.mjs",
+    "bytes": 1518,
+    "sha256": "b20b6a6c580a019637b9f68dc96d28a70126ac4c31269a423090de453f54595b"
+  },
+  {
+    "path": "race/content.mjs",
+    "bytes": 9778,
+    "sha256": "c5e17d2f2e8b5706a4796154ca701e7d2f922341c6e8bcb7263b7a5eee09b807"
+  },
+  {
+    "path": "race/design-preview.html",
+    "bytes": 3299,
+    "sha256": "87baf380b61f97393ba531df76fdbb506f6e114ff2cc0fb3ff89824d835ca7cf"
+  },
+  {
+    "path": "race/engine.mjs",
+    "bytes": 18437,
+    "sha256": "9a89f6341d23d50a6cacbf173e0b0bc40ccc85f54efc3c62da21ac1bcbb60a2b"
+  },
+  {
+    "path": "race/film/captions-ko.vtt",
+    "bytes": 1323,
+    "sha256": "d503de0fb8684834477b3f0db0b79a82924718dbed6e7a9b273ee4da190cfef9"
+  },
+  {
+    "path": "race/film/music-license.txt",
+    "bytes": 235,
+    "sha256": "477ee23f41cbda0c5156402dddad4e85890c7a0e298a3121acd3b1b1868f715e"
+  },
+  {
+    "path": "race/film/poster.jpg",
+    "bytes": 562008,
+    "sha256": "ca31a989b89c79431bd8ede1a161cb6a926215899534fc3106bce4813b43db15"
+  },
+  {
+    "path": "race/film/ulleung-speed-racing-showreel.mp4",
+    "bytes": 11669675,
+    "sha256": "f4e6355397f415985f325d88762101cb76f020517c225f63c9824061e0427011"
+  },
+  {
+    "path": "race/geometry-check.json",
+    "bytes": 7530,
+    "sha256": "e8caee8038cc593c6e7049a81395eed79d0487f2d4d83b160c93deea9642a005"
+  },
+  {
+    "path": "race/index.html",
+    "bytes": 6399,
+    "sha256": "77cb208d194431f4a1a38b516dab528a636131f4185fef4f04352d2c07ab0565"
+  },
+  {
+    "path": "race/print.html",
+    "bytes": 197958,
+    "sha256": "2292ae46c08574ffd773e1d42a0e7e1fd1df193573c22773ec5dfef131f62c3a"
+  },
+  {
+    "path": "race/race-ui.mjs",
+    "bytes": 42353,
+    "sha256": "c10893151023b314929021f87cf0afec355332b6113b6acf29773a3feb545adc"
+  },
+  {
+    "path": "race/race.css",
+    "bytes": 45093,
+    "sha256": "d68d57e1ce01deeca3f02b2d72c665ca7b4d1740a86b880b4f1ac0a44b4640db"
+  },
+  {
+    "path": "race/racers.json",
+    "bytes": 5333,
+    "sha256": "251a124d3e598bd0d97f6fdbaa2eac0c7a88c8a6657e9995335e72b1f848b509"
+  },
+  {
+    "path": "race/rulebook.css",
+    "bytes": 14426,
+    "sha256": "a2293d3ee473e503d4c87b56a3ca709519cea0ecc810f7794378117c6941610b"
+  },
+  {
+    "path": "race/rulebook.mjs",
+    "bytes": 12591,
+    "sha256": "0a23aa378273dad56cdea88cbec90fc8714ac93ead5be6eb49ce0deab0a32ee3"
+  },
+  {
+    "path": "race/rules-config.mjs",
+    "bytes": 386,
+    "sha256": "84c6de3b29016fc9ae7b10ff2c77f4affe98a3e9b757c0ad6263ff29d88d119f"
+  },
+  {
+    "path": "race/rules-text.html",
+    "bytes": 8876,
+    "sha256": "130c0d13c7d565518c8fa2ba98cfa89d57d7797110921ed152c743762b044065"
+  },
+  {
+    "path": "race/rules.html",
+    "bytes": 21356,
+    "sha256": "336556d91e961eda6482b5164bbe795b8633d02adb6aa1e4b6752d75aec5140a"
+  },
+  {
+    "path": "race/showreel.html",
+    "bytes": 6399,
+    "sha256": "77cb208d194431f4a1a38b516dab528a636131f4185fef4f04352d2c07ab0565"
+  },
+  {
+    "path": "race/table.html",
+    "bytes": 4576,
+    "sha256": "66596d7d8b4023a5ce0aaf97d65c3230e9ffd60689022c8d03e1e8c4dc090058"
+  },
+  {
+    "path": "race/view.mjs",
+    "bytes": 8920,
+    "sha256": "47330a234414ae82ba9e59c003e3fe81ff9fd147c17d7cd0b8f5b7e9a83e8eab"
   },
   {
     "path": "tabletop/components.html",
@@ -3248,6 +3543,11 @@
     "path": "tabletop/v07/product-finish.css",
     "bytes": 9286,
     "sha256": "0d053f210113c4f9fe3e6e1c1b55c3149596634d4a655494d5d8cc962000349d"
+  },
+  {
+    "path": "tabletop/v07/product-gameplay.css",
+    "bytes": 2017,
+    "sha256": "667f758447c00d8ad653241022315df9b37edfc8eec389c56e928db7c4b9f673"
   },
   {
     "path": "tabletop/v07/product-pitch.css",

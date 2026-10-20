@@ -37,10 +37,14 @@
 .race-focus.table-overview .dice-tray .tray-title { top:20px; font-size:25px; font-weight:650; color:#fff1d5; letter-spacing:0; }
 .race-focus.table-overview .dice-tray #table-roll { left:45px; right:45px; bottom:14px; font-size:27px; font-weight:750; }
 .table-world .die-label { top:125px; font-size:28px; font-weight:750; }
-.race-focus.table-overview .bet-marker { width:200px; height:170px; border-width:3px; }
-.race-focus.table-overview .bet-marker b { font-size:40px; }
-.race-focus.table-overview .bet-marker small { font-size:22px; }
-.race-focus.table-overview .bet-marker small:first-child { display:none; }
+.race-focus.table-overview .bet-marker {
+  width:170px; height:165px; padding:15px; gap:10px; border-width:3px;
+  word-break:keep-all;
+}
+.race-focus.table-overview .bet-marker b { font-size:32px; line-height:1.2; white-space:nowrap; }
+.race-focus.table-overview .bet-marker-state {
+  display:block; font-size:42px; line-height:1.2; font-weight:850; white-space:nowrap;
+}
 .race-focus.table-overview .rule-book { width:165px; height:238px; }
 .race-focus.table-overview .rule-book img { width:90px; height:90px; }
 .race-focus.table-overview .rule-book b { font-size:42px; }
@@ -51,9 +55,6 @@
 .race-focus.table-overview .pending-card .line-icon,
 .race-focus.table-overview .pending-card small { display:none; }
 .race-focus.table-overview .pending-card b { font-size:36px;line-height:1.15;word-break:keep-all; }
-.race-focus.table-overview .bet-marker { width:170px;height:165px;padding:15px; }
-.race-focus.table-overview .bet-marker b { font-size:38px;line-height:1.2; }
-.race-focus.table-overview .bet-marker small { display:none; }
 
 .table-world .hand-label { display:flex;align-items:center;justify-content:center;gap:7px;min-height:20px; }
 .table-world .hand-label>span { font-size:13px;line-height:1.4; }

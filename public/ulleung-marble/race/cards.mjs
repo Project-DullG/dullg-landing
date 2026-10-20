@@ -51,8 +51,8 @@ export const ITEMS=[
  item(19,'각자 구경하자','방해','상대의 다음 +이동에서 고른 말만 이동하게 합니다. 같은 칸의 다른 말은 남습니다.','여기서는 잠깐 따로 돌아보자.',{plusSolo:true},'opponent','shoe'),
  item(20,'여행 계획 변경','방어','내 앞에 놓인 방해 아이템 1장을 버립니다.','계획을 바꿔 다시 출발한다.',{clear:true},'self','shield')
 ];
-export const BETS=[{id:'first-5',rank:'first',points:5,name:'1등 · 5점'},{id:'first-3',rank:'first',points:3,name:'1등 · 3점'},{id:'last-4',rank:'last',points:4,name:'꼴등 · 4점'},{id:'last-2',rank:'last',points:2,name:'꼴등 · 2점'}];
+export const BETS=[{id:'first-5',rank:'first',points:5,name:'1등 5점'},{id:'first-3',rank:'first',points:3,name:'1등 3점'},{id:'last-4',rank:'last',points:4,name:'꼴등 4점'},{id:'last-2',rank:'last',points:2,name:'꼴등 2점'}];
 export const EVENT_BY_ID=Object.fromEntries(EVENTS.map(c=>[c.id,c]));
 export const ITEM_BY_ID=Object.fromEntries(ITEMS.map(c=>[c.id,c]));
 export const BET_BY_ID=Object.fromEntries(BETS.map(c=>[c.id,c]));
-export const SOURCES=[{title:'한국관광공사 · 섬들이 노는 섬, 울릉도',url:'https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=b02c1460-248b-41cb-9edc-ab8e8e08304c'},{title:'한국관광공사 · 봉래폭포',url:'https://data.visitkorea.or.kr/page/126071'}];
+export const SOURCES=[{title:'한국관광공사: 섬들이 노는 섬, 울릉도',url:'https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=b02c1460-248b-41cb-9edc-ab8e8e08304c'},{title:'한국관광공사: 봉래폭포',url:'https://data.visitkorea.or.kr/page/126071'}];

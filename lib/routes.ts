@@ -140,6 +140,15 @@ export const publicRoutes: PublicRoute[] = [
     changeFrequency: "monthly",
   },
   {
+    path: "/materials/ulleung-high-lesson-4",
+    title: "울릉고 리빙랩 4차시",
+    description:
+      "AI와 함께 콘텐츠를 기획하고 계획서로 정리하는 울릉고 리빙랩 4차시 발표자료와 실습 예시.",
+    group: "resources",
+    priority: 0.6,
+    changeFrequency: "monthly",
+  },
+  {
     path: "/activity/ulleung-online-startup-2026",
     title: "울릉도 학생 대상 모두의 창업 온라인 강의",
     description: "2026년 9월 16일 울릉도 학생들을 대상으로 진행한 모두의 창업 온라인 강의 기록.",

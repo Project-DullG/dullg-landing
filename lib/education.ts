@@ -1,4 +1,5 @@
 import { ulleungPresentation } from "./presentations.ts";
+import { lesson4 } from "./lesson4.ts";
 
 export const episodeTitle = "집에 가고 싶어!";
 export const episodeSubtitle = "학원 보충반 미스터리 추리 게임";
@@ -50,6 +51,12 @@ type CourseMaterial = {
 };
 
 export const courseMaterials: CourseMaterial[] = [
+  {
+    title: lesson4.title,
+    meta: lesson4.meta,
+    description: lesson4.description,
+    href: lesson4.href,
+  },
   {
     title: "울릉고 리빙랩 3차시",
     meta: "울릉고등학교 · 2026년 9월 19일",

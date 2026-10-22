@@ -3,3 +3,83 @@
   flex-wrap: wrap;
   gap: 4px 20px;
 }
+
+.wizard {
+  scroll-margin-top: 96px;
+  margin: 32px 0 48px;
+  padding: clamp(20px, 4vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--page);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.wizard h2 {
+  margin: 0 0 16px;
+  font-size: clamp(23px, 3vw, 30px);
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.wizard p {
+  max-width: 850px;
+  margin: 12px 0;
+}
+
+.wizard ol {
+  margin: 20px 0;
+  padding-left: 24px;
+}
+
+.wizard li {
+  margin: 6px 0;
+}
+
+.wizard button {
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid var(--accent);
+  border-radius: var(--control-radius);
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.wizard button:disabled {
+  cursor: wait;
+}
+
+.wizard a,
+.wizard summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.wizard :is(button, a, summary):focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+
+.promptText {
+  margin: 12px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: inherit;
+  line-height: 1.85;
+}
+
+.wizard .sourceNote {
+  margin-top: 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+}

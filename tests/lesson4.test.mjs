@@ -3,6 +3,7 @@ import { readFile, stat } from "node:fs/promises";
 import test from "node:test";
 import sharp from "sharp";
 import { lesson4, lesson4Slides } from "../lib/lesson4.ts";
+import { contentDesignWizard } from "../lib/content-design-wizard.ts";
 
 test("session 4 publishes the 24-slide deck with PDF and editable PPT downloads", async () => {
   assert.equal(lesson4Slides(false).length, 24);
@@ -28,5 +29,18 @@ test("session 4 publishes the 24-slide deck with PDF and editable PPT downloads"
     assert.ok(page.includes(`href="/${locale}materials/ulleung-high-lesson-2"`));
     const index = await readFile(`.test-output/pages/${locale}materials.html`, "utf8");
     assert.ok(index.includes(`href="/${locale}materials/ulleung-high-lesson-4"`));
+  }
+});
+
+test("the lesson's copy prompt, visible text and downloadable TXT stay identical", async () => {
+  const download = await readFile(`public${contentDesignWizard.href}`, "utf8");
+  assert.equal(download, contentDesignWizard.prompt);
+  for (const locale of ["", "en/"]) {
+    const page = await readFile(
+      `.test-output/pages/${locale}materials/ulleung-high-lesson-4.html`,
+      "utf8",
+    );
+    assert.ok(page.includes('id="design-wizard"'));
+    assert.ok(page.includes(contentDesignWizard.href));
   }
 });

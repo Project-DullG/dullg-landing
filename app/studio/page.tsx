@@ -32,7 +32,7 @@ export default function Studio() {
           <SectionHead
             as="h1"
             id="home-title"
-            kicker="트위즈덤 · Twisdom"
+            kicker="트위즈덤 · twisdom"
             title={t(
               <>
                 {t("함께 푸는 추리 게임,")}

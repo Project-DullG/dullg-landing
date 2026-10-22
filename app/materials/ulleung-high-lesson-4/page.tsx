@@ -24,24 +24,25 @@ export default function LessonFourPage() {
         <header className={styles.header}>
           <div>
             <p>
-              {en ? "Session 4" : "4차시"} · {lesson4.titles.length}
+              {en ? "Session 4" : "4차시"} · 16:00–17:00 · 60{en ? " min" : "분"} ·{" "}
+              {lesson4.titles.length}
               {en ? " pages" : "쪽"}
             </p>
             <h1>{en ? "Ulleung High School Living Lab · Session 4" : lesson4.title}</h1>
           </div>
           <div className={lessonStyles.downloads}>
-            <a href={lesson4.pdf} download>
+            <a href={`${lesson4.pdf}?v=${lesson4.version}`} download>
               {en ? "Download PDF ↓" : "PDF 다운로드 ↓"}
             </a>
-            <a href={lesson4.pptx} download>
+            <a href={`${lesson4.pptx}?v=${lesson4.version}`} download>
               {en ? "Download editable PPT ↓" : "편집용 PPT 다운로드 ↓"}
             </a>
           </div>
         </header>
         <p className={styles.note}>
           {en
-            ? "Develop a content idea through a conversation with AI. Compare proposals, make specific revision requests, and organize your team's decisions into a plan. The 32 slides include board game and media examples, prompting exercises, and a sample content plan."
-            : "AI와 대화하며 콘텐츠 아이디어를 발전시키는 수업자료입니다. 서로 다른 제안을 비교하고, 구체적으로 수정 요청한 뒤, 팀에서 결정한 내용을 계획서로 정리합니다. 보드게임과 미디어 기획 예시, 프롬프팅 실습, 계획서 예시를 32장에 담았습니다."}
+            ? "A 60-minute class on designing regional tourism board games or hands-on learning kits with AI. Use historical and tourism sources, compare proposals, and develop one direction into a concept plan and a design plan. The 24 slides include prompting practice, component and activity examples, and peer review."
+            : "16:00~17:00, 60분 동안 AI와 함께 지역 관광 보드게임 또는 체험형 교구를 기획합니다. 역사·관광자료를 바탕으로 제안을 비교하고 한 방향을 골라, 기획안과 설계안을 작성합니다. 프롬프팅 실습, 구성품·활동 설계 예시, 팀 간 공유와 보완을 24장에 담았습니다."}
         </p>
         <SourceLanguageNote />
         <PresentationViewer slides={lesson4Slides(en)} />

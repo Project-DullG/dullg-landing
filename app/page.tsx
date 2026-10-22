@@ -38,7 +38,7 @@ export default async function Home() {
                 <h2 id="home-studio-title">게임과 교육을 만드는 트위즈덤</h2>
               </div>
               <p>
-                Twisdom은 Twist와 Wisdom을 합친 이름입니다. 이야기의 반전을 통해 이해가
+                twisdom은 Twist와 Wisdom을 합친 이름입니다. 이야기의 반전을 통해 이해가
                 깊어진다는 뜻으로, 추리 게임과 교육 콘텐츠를 함께 만듭니다.
               </p>
             </div>

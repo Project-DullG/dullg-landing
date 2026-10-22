@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 import { BrandMark } from "@/components/brand-mark";
 import { BRAND } from "@/lib/site-config";
 
-export const alt = "Twisdom — Games and learning through stories";
+export const alt = "twisdom — Games and learning through stories";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

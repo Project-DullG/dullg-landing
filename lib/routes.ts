@@ -143,7 +143,7 @@ export const publicRoutes: PublicRoute[] = [
     path: "/materials/ulleung-high-lesson-4",
     title: "울릉고 리빙랩 4차시",
     description:
-      "AI와 함께 콘텐츠를 기획하고 계획서로 정리하는 울릉고 리빙랩 4차시 발표자료와 실습 예시.",
+      "AI로 역사·관광자원 기반 보드게임 또는 체험형 교구의 기획안과 설계안을 작성하는 60분 수업자료.",
     group: "resources",
     priority: 0.6,
     changeFrequency: "monthly",

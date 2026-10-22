@@ -10,10 +10,10 @@ const html = (path) => source(`.test-output/pages/${path}.html`);
 const visibleDocument = (page) =>
   page.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "").replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, "");
 
-test("the current brand is Twisdom with its supplied name and meaning", () => {
+test("the current brand is twisdom with its supplied name and meaning", () => {
   assert.equal(BRAND.name, "트위즈덤");
-  assert.equal(BRAND.englishName, "Twisdom");
-  assert.equal(BRAND.fullName, "트위즈덤(Twisdom)");
+  assert.equal(BRAND.englishName, "twisdom");
+  assert.equal(BRAND.fullName, "트위즈덤(twisdom)");
   assert.equal(BRAND.meaning, "Twist + Wisdom");
   assert.match(BRAND.description, /반전/);
   assert.match(BRAND.description, /게임/);
@@ -41,7 +41,7 @@ test("navigation names describe destinations under the new brand", () => {
 
 test("Korean and English page chrome and discovery metadata use the current brand", async () => {
   for (const prefix of ["", "en/"]) {
-    const name = prefix ? "Twisdom" : "트위즈덤";
+    const name = prefix ? "twisdom" : "트위즈덤";
     for (const route of ["index", "studio", "about", "works", "academy", "mini-projects", "contact", "privacy"]) {
       const page = visibleDocument(await html(`${prefix}${route}`));
       const header = page.match(/<header\b[^>]*>[\s\S]*?<\/header>/)?.[0];

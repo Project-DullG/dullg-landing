@@ -4,9 +4,9 @@ import test from "node:test";
 import sharp from "sharp";
 import { lesson4, lesson4Slides } from "../lib/lesson4.ts";
 
-test("session 4 publishes the 32-slide deck with PDF and editable PPT downloads", async () => {
-  assert.equal(lesson4Slides(false).length, 32);
-  assert.equal(lesson4Slides(true).length, 32);
+test("session 4 publishes the 24-slide deck with PDF and editable PPT downloads", async () => {
+  assert.equal(lesson4Slides(false).length, 24);
+  assert.equal(lesson4Slides(true).length, 24);
   for (const file of [lesson4.pdf, lesson4.pptx]) {
     assert.ok((await stat(`public${file}`)).size > 1_000_000);
   }
@@ -20,7 +20,9 @@ test("session 4 publishes the 32-slide deck with PDF and editable PPT downloads"
       `.test-output/pages/${locale}materials/ulleung-high-lesson-4.html`,
       "utf8",
     );
-    assert.equal((page.match(/id="slide-\d+"/g) || []).length, 32);
+    assert.equal((page.match(/id="slide-\d+"/g) || []).length, 24);
+    assert.ok(page.includes("16:00–17:00"));
+    assert.ok(page.includes(lesson4.version));
     assert.ok(page.includes(lesson4.pdf));
     assert.ok(page.includes(lesson4.pptx));
     assert.ok(page.includes(`href="/${locale}materials/ulleung-high-lesson-2"`));

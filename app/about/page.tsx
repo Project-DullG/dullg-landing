@@ -38,7 +38,7 @@ export default function AboutPage() {
           <Kicker>{BRAND.meaning}</Kicker>
           <h2 id="about-brand-title">{t("트위즈덤, 게임과 교육을 함께 만듭니다")}</h2>
           <p>
-            {t("Twisdom은 반전을 뜻하는 Twist와 지혜를 뜻하는 Wisdom을 합친 이름입니다. 이야기의 반전을 통해 이해가 깊어진다는 의미를 담았습니다.")}
+            {t("twisdom은 반전을 뜻하는 Twist와 지혜를 뜻하는 Wisdom을 합친 이름입니다. 이야기의 반전을 통해 이해가 깊어진다는 의미를 담았습니다.")}
           </p>
           <p>
             {t(

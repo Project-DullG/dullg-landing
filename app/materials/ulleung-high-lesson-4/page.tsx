@@ -3,7 +3,7 @@ import Link from "@/components/i18n/link";
 import { PageFrame } from "@/components/site";
 import { PresentationViewer } from "@/components/presentation-viewer";
 import { SourceLanguageNote } from "@/components/i18n/source-language-note";
-import { CopyResource } from "@/components/copy-resource";
+import { ContentDesignForm } from "@/components/content-design-form";
 import { localizeMetadata } from "@/lib/i18n/server";
 import { pageMetadata } from "@/lib/metadata";
 import { lesson4, lesson4Slides } from "@/lib/lesson4";
@@ -51,39 +51,14 @@ export default function LessonFourPage() {
           <h2>{en ? "Create a content design with AI" : "AI와 함께 콘텐츠 설계서 만들기"}</h2>
           <p>
             {en
-              ? "Paste the full Korean prompt into a new AI conversation. Start with one sentence about your idea, or ask for a recommendation. AI will propose options, help you choose and revise, and organize the result into a concept plan and a design document."
-              : "프롬프트 전체를 복사해 AI의 새 대화창에 붙여넣으세요. 아이디어 한 줄이나 ‘추천’으로 시작하면 됩니다. AI가 제안한 안을 선택·수정하며 기획안과 설계서를 작성합니다."}
+              ? "Fill in the fields below, then copy your answers and the prompt into a new AI conversation. Choose whether to develop the design through conversation or receive a complete first draft."
+              : "아래 칸에 우리 팀의 생각을 적고, 입력한 내용과 프롬프트를 함께 복사하세요. AI와 대화하며 정하거나 기획안·설계서 초안을 한 번에 받을 수 있습니다."}
           </p>
-          <ol>
-            <li>
-              {en
-                ? "Choose a direction from two or three proposals."
-                : "서로 다른 2~3안에서 방향을 고릅니다."}
-            </li>
-            <li>
-              {en
-                ? "Refine the audience, material and experience."
-                : "대상·소재·줄 경험을 다듬습니다."}
-            </li>
-            <li>
-              {en
-                ? "Design the components, flow and ending."
-                : "구성 요소·진행 방식·마무리를 설계합니다."}
-            </li>
-            <li>
-              {en
-                ? "Choose a first test, then generate both documents."
-                : "첫 시험을 정하면 두 문서가 완성됩니다."}
-            </li>
-          </ol>
-          <p>
-            {en
-              ? "It adapts to board games, hands-on learning kits, mysteries, escape activities, stories, videos, magazines and exhibitions. The prompt is in Korean; blank input fields are optional."
-              : "보드게임·체험형 교구·추리·방탈출·이야기·영상·매거진·전시 등 형태에 맞춰 설계합니다. 입력칸은 아는 부분만 채워도 됩니다."}
-          </p>
-          <CopyResource href={contentDesignWizard.href} en={en} />
+          <ContentDesignForm en={en} />
           <a href={contentDesignWizard.href} download>
-            {en ? "Download wizard prompt (TXT) ↓" : "설계서 위자드 프롬프트 다운로드 (TXT) ↓"}
+            {en
+              ? "Download the blank wizard prompt (TXT) ↓"
+              : "빈 입력 양식과 기본 프롬프트 받기 (TXT) ↓"}
           </a>
           <p>
             {en

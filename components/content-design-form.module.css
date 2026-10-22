@@ -1,0 +1,126 @@
+.form {
+  margin: 24px 0;
+  max-width: 920px;
+}
+
+.help,
+.status {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.group,
+.mode {
+  min-width: 0;
+  margin: 28px 0;
+  padding: 0;
+  border: 0;
+}
+
+.group legend,
+.mode legend {
+  margin-bottom: 16px;
+  padding: 0;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.field {
+  min-width: 0;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.field :is(input, textarea, select),
+.preview textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid var(--control-border);
+  border-radius: var(--control-radius);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  line-height: 1.6;
+}
+
+.field textarea,
+.preview textarea {
+  resize: vertical;
+}
+
+.field ::placeholder {
+  color: #6c736d;
+  opacity: 1;
+}
+
+.form :is(input, textarea, select):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.extra,
+.preview {
+  margin: 24px 0;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.extra summary,
+.preview summary {
+  min-height: 44px;
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.mode label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-right: 24px;
+  cursor: pointer;
+}
+
+.mode input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.preview textarea {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+@media (max-width: 650px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

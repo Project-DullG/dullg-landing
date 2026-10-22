@@ -32,7 +32,7 @@ test("session 4 publishes the 24-slide deck with PDF and editable PPT downloads"
   }
 });
 
-test("the lesson's copy prompt, visible text and downloadable TXT stay identical", async () => {
+test("the blank wizard template and fillable form remain available in both languages", async () => {
   const download = await readFile(`public${contentDesignWizard.href}`, "utf8");
   assert.equal(download, contentDesignWizard.prompt);
   for (const locale of ["", "en/"]) {
@@ -42,5 +42,9 @@ test("the lesson's copy prompt, visible text and downloadable TXT stay identical
     );
     assert.ok(page.includes('id="design-wizard"'));
     assert.ok(page.includes(contentDesignWizard.href));
+    for (const name of ["idea", "format", "audience"]) assert.ok(page.includes(`name="${name}"`));
+    assert.ok(
+      page.includes(locale ? "Copy my answers and the prompt" : "입력한 내용과 프롬프트 복사"),
+    );
   }
 });

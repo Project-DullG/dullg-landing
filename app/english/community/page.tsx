@@ -9,7 +9,7 @@ import { StudyNavigation } from "@/components/english/study-navigation";
 
 const metadata: Metadata = {
   title: "영어 학습 커뮤니티",
-  description: "이야기로 배우는 영어, 오늘 배운 표현과 질문을 함께 나누는 단서공방 학습 커뮤니티.",
+  description: "이야기로 배우는 영어, 오늘 배운 표현과 질문을 함께 나누는 트위즈덤 학습 커뮤니티.",
   alternates: { canonical: "/english/community" },
 };
 

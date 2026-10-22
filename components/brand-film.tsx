@@ -7,9 +7,9 @@ export function BrandFilm() {
     <section className={`shell ${styles.section}`} id="brand-film" aria-labelledby="brand-film-title">
       <div className={styles.intro}>
         <span className={styles.eyebrow}>{t("소개 영상 · 42초")}</span>
-        <h2 id="brand-film-title">{t("단서공방 소개 영상")}</h2>
+        <h2 id="brand-film-title">{t("브랜드 변경 전 소개 영상")}</h2>
         <p id="brand-film-description">
-          {t("머더미스터리 제작과 게임·AI 수업을 소개합니다.")}
+          {t("이전 브랜드 ‘단서공방’으로 제작한 영상입니다. 머더미스터리 제작과 게임·AI 수업을 소개합니다.")}
         </p>
       </div>
       <div className={styles.content}>

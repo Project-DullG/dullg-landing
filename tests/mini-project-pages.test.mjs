@@ -13,7 +13,7 @@ test("mini portfolio gives series context without invented release dates or repe
     assert.match(index, new RegExp(`href="/mini-projects/${slug}"`));
   const home = await html("studio");
   assert.match(home, /href="\/mini-projects"/);
-  assert.match(home, /단서공방이 만든 웹게임/);
+  assert.match(home, /트위즈덤이 만든 웹게임/);
   assert.match(home, /게임 전체 보기/);
   assert.doesNotMatch(home, /2026\.02 시작|미니 게임 시리즈|두 달에 한 편/);
 });

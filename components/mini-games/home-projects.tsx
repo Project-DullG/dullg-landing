@@ -12,7 +12,7 @@ export function HomeMiniProjects() {
       <div className="brand-section-head">
         <div>
           <Kicker>{t("미니 프로젝트")}</Kicker>
-          <h2 id="home-mini-title">{t("단서공방이 만든 웹게임")}</h2>
+          <h2 id="home-mini-title">{t("트위즈덤이 만든 웹게임")}</h2>
         </div>
         <Link href="/mini-projects">{t("게임 전체 보기 →")}</Link>
       </div>

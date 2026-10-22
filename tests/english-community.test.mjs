@@ -293,7 +293,7 @@ test("authored community UI and API messages have English translations while use
   const dictionary = Object.assign(
     {},
     ...(await Promise.all(
-      ["en-community.json", "en-study.json"].map(async (file) =>
+      ["en-community.json", "en-study.json", "en-brand.json"].map(async (file) =>
         JSON.parse(await readFile(new URL("../lib/i18n/" + file, import.meta.url), "utf8")),
       ),
     )),

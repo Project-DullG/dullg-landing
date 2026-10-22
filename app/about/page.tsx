@@ -7,6 +7,7 @@ import { SectionHead } from "@/components/section-head";
 import { ClueProcess } from "@/components/clue-process";
 import { PageIntro } from "@/components/page-intro";
 import { pageMetadata } from "@/lib/metadata";
+import { BRAND } from "@/lib/site-config";
 import { didimterResidency, riseAward } from "@/lib/recognition";
 import styles from "./recognition.module.css";
 export async function generateMetadata() {
@@ -17,8 +18,8 @@ export default function AboutPage() {
   return (
     <PageFrame>
       <PageIntro
-        title={t("공방 소개")}
-        description="단서공방(ProjectDullG)은 머더미스터리를 제작하고 게임·AI 활용 수업을 진행하는 팀입니다."
+        title={t("브랜드 소개")}
+        description={t(BRAND.description)}
       />
 
       <section id="team-history" className="about-brand shell" aria-labelledby="about-brand-title">
@@ -27,18 +28,21 @@ export default function AboutPage() {
             src="/assets/brand/project-dullg-banner-top.webp"
             width={1701}
             height={2835}
-            alt={t("단서공방의 이전 프로젝트 덜지 소개 배너 상단")}
+            alt={t("이전 브랜드 ProjectDullG 소개 배너")}
             sizes="(max-width: 760px) 82vw, 32vw"
             priority
           />
-          <figcaption>{t("ProjectDullG 소개 배너")}</figcaption>
+          <figcaption>{t("이전 브랜드 ProjectDullG로 활동할 때 사용한 배너입니다.")}</figcaption>
         </figure>
         <div>
-          <Kicker>{t("ProjectDullG에서 단서공방으로")}</Kicker>
-          <h2 id="about-brand-title">{t("단서공방의 시작")}</h2>
+          <Kicker>{BRAND.meaning}</Kicker>
+          <h2 id="about-brand-title">{t("트위즈덤, 게임과 교육을 함께 만듭니다")}</h2>
+          <p>
+            {t("Twisdom은 반전을 뜻하는 Twist와 지혜를 뜻하는 Wisdom을 합친 이름입니다. 이야기의 반전을 통해 이해가 깊어진다는 의미를 담았습니다.")}
+          </p>
           <p>
             {t(
-              "보드게임 동아리 덜지니어스에서 시작해 ProjectDullG라는 이름으로 머더미스터리를 제작했습니다. 지금은 단서공방이라는 이름으로 작품을 선보이고 게임·AI 활용 수업을 진행합니다.",
+              "보드게임 동아리 덜지니어스에서 시작해 ProjectDullG와 단서공방이라는 이름으로 작품을 제작하고 수업을 진행했습니다. 이제 트위즈덤이라는 이름으로 게임과 교육 콘텐츠를 선보입니다.",
             )}
           </p>
           <a
@@ -59,8 +63,8 @@ export default function AboutPage() {
               <dd>{t("게임\u00B7AI 활용 수업 \u00B7 영어 미스터리 수업팩 준비")}</dd>
             </div>
             <div>
-              <dt>{t("공식 명칭")}</dt>
-              <dd>{t("단서공방(ProjectDullG)")}</dd>
+              <dt>{t("브랜드명")}</dt>
+              <dd>{t(BRAND.fullName)}</dd>
             </div>
             <div>
               <dt>{t("입주 이력")}</dt>

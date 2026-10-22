@@ -142,7 +142,7 @@ test("every public page has a unique templated title and its own canonical", asy
   for (const r of routes) {
     const html = await readFile(routeHtml(`${r}.html`), "utf8");
     const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
-    assert.ok(title?.endsWith(" | 단서공방"), `${r}: ${title}`);
+    assert.ok(title?.endsWith(" | 트위즈덤"), `${r}: ${title}`);
     assert.ok(!titles.has(title), `duplicate title ${title}`);
     titles.add(title);
     assert.match(

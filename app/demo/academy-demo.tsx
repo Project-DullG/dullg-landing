@@ -6,6 +6,7 @@ import { StudentWorkspace, type StudentItem } from "@/components/dashboard/stude
 import { ScoreChart } from "@/components/dashboard/score-chart";
 import styles from "./page.module.css";
 import { LanguageSwitch } from "@/components/i18n/language-switch";
+import { BRAND } from "@/lib/site-config";
 const classes = [
   { id: "a", name: "초6 A반" },
   { id: "b", name: "중1 B반" },
@@ -40,7 +41,7 @@ export function AcademyDemo() {
       <aside className={styles.sidebar}>
         <LanguageSwitch />
         <Link href="/" className={styles.brand}>
-          {t("단서공방")}
+          {t(BRAND.name)}
         </Link>
         <span>{t("예시 학원")}</span>
         <nav aria-label={t("체험 메뉴")}>

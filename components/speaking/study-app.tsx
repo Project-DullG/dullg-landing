@@ -22,6 +22,7 @@ import type { FishRecord } from "@/lib/speaking/catalog/fishing/collection";
 import { LessonBook } from "./lesson-book";
 import { StudyTimer } from "./study-timer";
 import { useStudyAudio, type StudyAudio } from "./use-study-audio";
+import { BRAND } from "@/lib/site-config";
 import styles from "./speaking.module.css";
 
 type View = "today" | "practice" | "repeat" | "collection" | "feeding" | "guide";
@@ -260,13 +261,13 @@ export function SpeakingStudy({
   return (
     <div className={styles.studyPage}>
       <header className={styles.studyHeader}>
-        <Link href="/" className={`brand ${styles.studyBrand}`} aria-label="단서공방 홈">
+        <Link href="/" className={`brand ${styles.studyBrand}`} aria-label={`${BRAND.name} 홈`}>
           <span className="brand-mark" aria-hidden="true">
             <i />
             <i />
             <i />
           </span>
-          <span className="brand-name">단서공방</span>
+          <span className="brand-name">{BRAND.name}</span>
         </Link>
         <strong>스피킹 공부</strong>
         <details className={styles.account}>

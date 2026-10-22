@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getRoute } from "./routes.ts";
+import { BRAND } from "./site-config.ts";
 
 type Overrides = {
   title?: string;
@@ -23,7 +24,7 @@ export function pageMetadata(path: string, overrides: Overrides = {}): Metadata 
       url: path,
       type: "website",
       locale: "ko_KR",
-      siteName: "단서공방",
+      siteName: BRAND.name,
       images,
     },
     twitter: {

@@ -93,7 +93,7 @@ export default function LoginForm({ nextPath }: { nextPath: string | null }) {
           </Link>
         </p>
         <p>
-          <Link href="/">{t("단서공방 홈으로")}</Link>
+          <Link href="/">{t("트위즈덤 홈으로")}</Link>
         </p>
       </div>
     </div>

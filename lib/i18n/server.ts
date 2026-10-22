@@ -2,6 +2,7 @@ import { getLocale } from "next-intl/server";
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
+import { BRAND } from "@/lib/site-config";
 import { translateText, translateValue, localizedPath } from "./translate";
 export async function getText() {
   const locale = await getLocale();
@@ -32,7 +33,7 @@ export async function localizeMetadata(metadata: Metadata): Promise<Metadata> {
   result.openGraph = {
     ...result.openGraph,
     locale: locale === "en" ? "en_US" : "ko_KR",
-    siteName: locale === "en" ? "ProjectDullG" : "단서공방",
+    siteName: locale === "en" ? BRAND.englishName : BRAND.name,
     url: localizedPath(original, locale),
   };
   return result;

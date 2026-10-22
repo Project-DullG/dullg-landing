@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Mono, Noto_Sans_KR, Noto_Serif_KR, Playfair_Display } from "next/font/google";
 import { SITE_URL } from "@/lib/site";
+import { BRAND } from "@/lib/site-config";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
@@ -34,12 +35,12 @@ const playfair = Playfair_Display({
 
 const baseMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "단서공방 | 이야기를 따라, 영어가 쌓이는 곳", template: "%s | 단서공방" },
+  title: { default: "트위즈덤 | 게임과 이야기로 배우는 곳", template: `%s | ${BRAND.name}` },
   description:
-    "방탈출·추리·동화 속에서 영어를 읽고 듣고 쓰고 말하세요. 내 난이도로 이야기를 풀고, 배운 표현을 복습하며 학습을 이어갑니다.",
+    BRAND.description,
   keywords: [
-    "단서공방",
-    "ProjectDullG",
+    BRAND.name,
+    BRAND.englishName,
     "영어 학습 게임",
     "영어 방탈출",
     "영어 읽기 듣기 쓰기 말하기",
@@ -51,19 +52,19 @@ const baseMetadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    siteName: "단서공방",
+    siteName: BRAND.name,
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "단서공방 — 이야기를 따라, 영어가 쌓이는 곳",
+        alt: "트위즈덤 — 게임과 이야기로 배우는 곳",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: [{ url: "/opengraph-image", alt: "단서공방 — 이야기를 따라, 영어가 쌓이는 곳" }],
+    images: [{ url: "/opengraph-image", alt: "트위즈덤 — 게임과 이야기로 배우는 곳" }],
   },
 };
 

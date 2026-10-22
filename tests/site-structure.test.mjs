@@ -44,7 +44,7 @@ test("footer groups destinations without duplicate links and desktop nav omits r
   const nav = page.match(/<div class="nav-links">([\s\S]*?)<\/div>/)?.[1];
   assert.ok(nav);
   assert.doesNotMatch(nav, /href="\/"/);
-  assert.match(nav, /공방 소개/);
+  assert.match(nav, /브랜드 소개/);
   const footer = page.match(/<footer class="site-footer">([\s\S]*?)<\/footer>/)?.[1];
   assert.ok(footer);
   const hrefs = [...footer.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);

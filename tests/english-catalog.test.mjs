@@ -270,6 +270,7 @@ test("all authored story versions, practice UI, growth labels, and feedback have
       "en-player-v2.json",
       "en-discovery-v2.json",
       "en-story-polish.json",
+      "en-brand.json",
     ].map((file) =>
       JSON.parse(readFileSync(new URL(`../lib/i18n/${file}`, import.meta.url), "utf8")),
     ),

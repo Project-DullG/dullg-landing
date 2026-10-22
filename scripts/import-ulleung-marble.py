@@ -28,7 +28,7 @@ for rel in sorted(set(paths)):
             url = 'https://dullg-landing-one.vercel.app/games/ulleung-marble'
             s = s.replace('</head>', f'<link rel="canonical" href="{url}"><meta property="og:url" content="{url}"></head>')
             s = s.replace('content="/ulleung-marble/assets/v07/promo/coast-bright.webp"', 'content="https://dullg-landing-one.vercel.app/ulleung-marble/assets/v07/promo/coast-bright.webp"')
-            s = s.replace('<footer class="wrap footer">', '<footer class="wrap footer"><a href="/mini-projects">단서공방 게임 목록 ↗</a>')
+            s = s.replace('<footer class="wrap footer">', '<footer class="wrap footer"><a href="/mini-projects">트위즈덤 게임 목록 ↗</a>')
         data = s.encode('utf-8')
     if data == f.read_bytes():
         result = subprocess.run(['/bin/cp', '-c', str(f), str(out)], capture_output=True)

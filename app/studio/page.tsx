@@ -16,7 +16,7 @@ import { HomeWorks } from "@/components/home-works";
 export async function generateMetadata() {
   return localizeMetadata(
     pageMetadata("/studio", {
-      absoluteTitle: "공방 둘러보기 | 단서공방의 작품과 수업",
+      absoluteTitle: "작품·활동 | 트위즈덤",
     }),
   );
 }
@@ -32,7 +32,7 @@ export default function Studio() {
           <SectionHead
             as="h1"
             id="home-title"
-            kicker="단서공방 · ProjectDullG"
+            kicker="트위즈덤 · Twisdom"
             title={t(
               <>
                 {t("함께 푸는 추리 게임,")}
@@ -48,7 +48,7 @@ export default function Studio() {
               <ArrowRight size={17} weight="bold" aria-hidden="true" />
             </Link>
             <Link href="/about">
-              {t("단서공방 소개")}
+              {t("브랜드 소개")}
               <ArrowRight size={17} weight="bold" aria-hidden="true" />
             </Link>
           </div>

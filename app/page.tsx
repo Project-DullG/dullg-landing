@@ -15,7 +15,7 @@ import styles from "@/components/english/hub.module.css";
 export async function generateMetadata() {
   return localizeMetadata(
     pageMetadata("/", {
-      absoluteTitle: "단서공방 | 이야기를 따라, 영어가 쌓이는 곳",
+      absoluteTitle: "트위즈덤 | 게임과 이야기로 배우는 곳",
       ogImage: "/assets/english/bookshop.webp",
     }),
   );
@@ -35,11 +35,11 @@ export default async function Home() {
             <div className={styles.studioHead}>
               <div>
                 <p className={styles.eyebrow}>FROM THE STUDIO</p>
-                <h2 id="home-studio-title">이야기를 만드는 공방.</h2>
+                <h2 id="home-studio-title">게임과 교육을 만드는 트위즈덤</h2>
               </div>
               <p>
-                단서공방은 추리 게임을 만들고, 게임과 AI를 활용한 수업을 진행합니다. 우리가 만들어
-                온 이야기들도 만나보세요.
+                Twisdom은 Twist와 Wisdom을 합친 이름입니다. 이야기의 반전을 통해 이해가
+                깊어진다는 뜻으로, 추리 게임과 교육 콘텐츠를 함께 만듭니다.
               </p>
             </div>
             <div className={styles.studioCards}>
@@ -53,10 +53,10 @@ export default async function Home() {
                 />
                 <div>
                   <span>추리·퍼즐·아케이드</span>
-                  <h3>단서공방 게임</h3>
+                  <h3>트위즈덤 웹게임</h3>
                   <p>잔향 탐정의 사건을 조사하고, 울릉마블과 여러 퍼즐 게임을 즐겨보세요.</p>
                   <Link href="/mini-projects">
-                    공방 게임 둘러보기
+                    웹게임 둘러보기
                     <ArrowRight size={16} aria-hidden="true" />
                   </Link>
                 </div>
@@ -74,7 +74,7 @@ export default async function Home() {
                     <span>함께 푸는 머더미스터리</span>
                     <h3>{work.title}</h3>
                     <p>
-                      인물이 되어 단서를 나누고, 이야기 속 사건을 함께 해결하는 단서공방의 실물
+                      인물이 되어 단서를 나누고, 이야기 속 사건을 함께 해결하는 트위즈덤의 실물
                       작품.
                     </p>
                     <Link href="/works">
@@ -87,11 +87,11 @@ export default async function Home() {
             </div>
             <div className={styles.studioMore}>
               <Link href="/studio">
-                공방 전체 둘러보기
+                작품·활동 전체 보기
                 <ArrowUpRight size={15} aria-hidden="true" />
               </Link>
               <Link href="/about">
-                공방 소개
+                브랜드 소개
                 <ArrowUpRight size={15} aria-hidden="true" />
               </Link>
               <Link href="/activity">

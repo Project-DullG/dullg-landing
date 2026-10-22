@@ -9,7 +9,7 @@ import { PageIntro } from "@/components/page-intro";
 export async function generateMetadata() {
   return localizeMetadata(
     pageMetadata("/contact", {
-      description: "단서공방에 궁금한 것이 있으면 편하게 연락주세요. 영업일 1~2일 내 답변합니다.",
+      description: "트위즈덤에 궁금한 것이 있으면 편하게 연락주세요. 영업일 1~2일 내 답변합니다.",
     }),
   );
 }

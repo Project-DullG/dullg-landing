@@ -6,6 +6,7 @@ import { Kicker, PageFrame } from "@/components/site";
 import { GamePlayer } from "@/components/mini-games/game-player";
 import { TableGamePlayer } from "@/components/mini-games/table-game-player";
 import { miniProjects, getMiniProject, isArcadeGame } from "@/lib/mini-projects";
+import { BRAND } from "@/lib/site-config";
 import styles from "@/components/mini-games/games.module.css";
 type Props = {
   params: Promise<{
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: project.description,
     alternates: { canonical: `/mini-projects/${project.slug}` },
     openGraph: {
-      title: `${project.title} · 단서공방`,
+      title: `${project.title} · ${BRAND.name}`,
       description: project.description,
       url: `/mini-projects/${project.slug}`,
     },
@@ -70,7 +71,7 @@ export default async function MiniProjectPage({ params }: Props) {
               <dl>
                 <div>
                   <dt>{t("제작")}</dt>
-                  <dd>{t("단서공방(ProjectDullG)")}</dd>
+                  <dd>{t(BRAND.fullName)}</dd>
                 </div>
                 <div>
                   <dt>{t("구현")}</dt>

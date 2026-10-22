@@ -2,8 +2,9 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { BrandMark } from "@/components/brand-mark";
+import { BRAND } from "@/lib/site-config";
 
-export const alt = "ProjectDullG — Story-based English learning and mystery games";
+export const alt = "Twisdom — Games and learning through stories";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -26,9 +27,9 @@ export default async function OpenGraphImage() {
       >
         <BrandMark size={88} color="#fff" />
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-          <div style={{ fontSize: 72, fontWeight: 700, letterSpacing: -2 }}>단서공방</div>
+          <div style={{ fontSize: 72, fontWeight: 700, letterSpacing: -2 }}>{BRAND.englishName}</div>
           <div style={{ fontSize: 34, color: "#cfd3cf" }}>
-            이야기를 따라, 영어가 쌓이는 곳
+            Twist + Wisdom · Games &amp; Education
           </div>
         </div>
       </div>

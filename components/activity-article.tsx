@@ -3,6 +3,7 @@ import Link from "@/components/i18n/link";
 import { PageFrame } from "@/components/site";
 import { useText } from "@/lib/i18n/use-text";
 import type { ActivityArticleData } from "@/lib/activity-articles";
+import { BRAND } from "@/lib/site-config";
 import styles from "./activity-article.module.css";
 
 export function ActivityArticle({ article }: { article: ActivityArticleData }) {
@@ -17,7 +18,7 @@ export function ActivityArticle({ article }: { article: ActivityArticleData }) {
           <div className={styles.meta}>
             <span>{t(article.category)}</span>
             <time dateTime={article.date}>{article.date.replaceAll("-", ".")}</time>
-            <span>{t("단서공방")}</span>
+            <span>{t(BRAND.name)}</span>
           </div>
           <h1>{t(article.title)}</h1>
           <p className={styles.intro}>{t(article.intro)}</p>

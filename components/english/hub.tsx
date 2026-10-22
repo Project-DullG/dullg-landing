@@ -633,7 +633,7 @@ export function EnglishHub({
           <p className={styles.studioLink}>
             추리 게임과 퍼즐도 즐기고 싶다면{" "}
             <Link href="/studio">
-              공방 둘러보기 <ArrowUpRight size={15} aria-hidden="true" />
+              작품·활동 <ArrowUpRight size={15} aria-hidden="true" />
             </Link>
           </p>
         )}

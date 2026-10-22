@@ -26,7 +26,7 @@ const byGroup = (group: RouteGroup) =>
     .map((r) => ({ href: r.path, title: r.title, body: r.description }));
 const quickSteps = [
   { icon: BookOpenText, text: "영어 이야기 시작하기" },
-  { icon: Camera, text: "공방 게임·작품 살펴보기" },
+  { icon: Camera, text: "게임·작품 살펴보기" },
   { icon: FileText, text: "자료와 문의 찾기" },
 ];
 export default function SitemapPage() {
@@ -41,8 +41,8 @@ export default function SitemapPage() {
     },
     {
       number: "02",
-      title: "작품과 단서공방",
-      description: "공개한 작품과 펀딩 기록, 단서공방의 제작 활동을 확인할 수 있습니다.",
+      title: "작품과 트위즈덤",
+      description: "공개한 작품과 펀딩 기록, 트위즈덤의 제작 활동을 확인할 수 있습니다.",
       icon: Buildings,
       links: [
         ...byGroup("studio").filter((item) => item.href === "/works"),
@@ -70,7 +70,7 @@ export default function SitemapPage() {
     {
       number: "04",
       title: "자료와 문의",
-      description: "지난 교육의 공개 자료를 찾거나 단서공방에 문의할 수 있습니다.",
+      description: "지난 교육의 공개 자료를 찾거나 트위즈덤에 문의할 수 있습니다.",
       icon: FolderOpen,
       links: byGroup("resources"),
     },
@@ -95,7 +95,7 @@ export default function SitemapPage() {
           <MapTrifold size={34} weight="duotone" aria-hidden="true" />
           <p>
             {t(
-              "영어 학습과 커뮤니티, 공방 게임과 작품, 교사·학원용 수업팩과 지난 교육 자료를 목적에 따라 정리했습니다.",
+              "영어 학습과 커뮤니티, 게임과 작품, 교사·학원용 수업팩과 지난 교육 자료를 목적에 따라 정리했습니다.",
             )}
           </p>
         </div>

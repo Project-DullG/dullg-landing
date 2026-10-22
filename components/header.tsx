@@ -68,7 +68,7 @@ export function Header() {
   return (
     <header className="site-header">
       <nav className="nav shell" aria-label={t("주요 메뉴")}>
-        <Link className="brand" href="/" aria-label={t("단서공방 홈")}>
+        <Link className="brand" href="/" aria-label={t(`${BRAND.name} 홈`)}>
           <BrandMark />
           <span className="brand-name">
             {t(BRAND.name)}
@@ -86,7 +86,7 @@ export function Header() {
                   href={link.href}
                   aria-current={isActive(link.href) ? "page" : undefined}
                 >
-                  {t(link.href === "/about" ? "공방 소개" : link.label)}
+                  {t(link.label)}
                 </Link>
               )),
           )}
@@ -129,7 +129,7 @@ export function Header() {
                 aria-current={isActive(link.href) ? "page" : undefined}
                 onClick={() => setIsOpen(false)}
               >
-                {t(link.href === "/about" ? "공방 소개" : link.label)}
+                {t(link.label)}
               </Link>
             )),
           )}

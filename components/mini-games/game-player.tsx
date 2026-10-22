@@ -485,7 +485,7 @@ export function GamePlayer({ kind, title }: { kind: ArcadeGameId; title: string 
         {t(
           status !== "running" && (
             <div className={styles.overlay}>
-              <small>{t("단서공방 \u00B7 미니 게임")}</small>
+              <small>{t("트위즈덤 · 미니 게임")}</small>
               <span>{t(status === "ready" ? title : labels[status])}</span>
               <p>
                 {t(

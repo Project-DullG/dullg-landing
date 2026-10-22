@@ -8,7 +8,7 @@ export async function generateMetadata() {
   return localizeMetadata(
     pageMetadata("/privacy", {
       description:
-        "단서공방 문의, 영어 학습 기록과 커뮤니티, 학습 계정과 추리노트에서 처리하는 개인정보 안내입니다.",
+        "트위즈덤 문의, 영어 학습 기록과 커뮤니티, 학습 계정과 추리노트에서 처리하는 개인정보 안내입니다.",
     }),
   );
 }
@@ -51,7 +51,7 @@ const getSections = (t: ReturnType<typeof useText>) => [
     body: (
       <p>
         {t(
-          "신청 내용은 이메일 전달을 위해 FormSubmit 서비스를 통해 전송되며, 웹사이트는 Vercel을 통해 제공됩니다. 이 과정에서 서비스 운영을 위한 서버를 경유할 수 있습니다. 단서공방은 신청 정보를 판매하거나 광고 목적으로 제3자에게 제공하지 않습니다.",
+          "신청 내용은 이메일 전달을 위해 FormSubmit 서비스를 통해 전송되며, 웹사이트는 Vercel을 통해 제공됩니다. 이 과정에서 서비스 운영을 위한 서버를 경유할 수 있습니다. 트위즈덤은 신청 정보를 판매하거나 광고 목적으로 제3자에게 제공하지 않습니다.",
         )}
       </p>
     ),
@@ -72,7 +72,7 @@ const getSections = (t: ReturnType<typeof useText>) => [
       <>
         <p>
           {t(
-            "스피킹 공부는 Google 로그인과 Firebase를 사용합니다. 로그인된 계정의 식별자로 학습 기록을 구분하고, 이름은 계정 표시와 인사말에 사용합니다. Google 비밀번호는 단서공방에서 받지 않습니다.",
+            "스피킹 공부는 Google 로그인과 Firebase를 사용합니다. 로그인된 계정의 식별자로 학습 기록을 구분하고, 이름은 계정 표시와 인사말에 사용합니다. Google 비밀번호는 트위즈덤에서 받지 않습니다.",
           )}
         </p>
         <p>

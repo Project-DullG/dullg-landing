@@ -28,19 +28,19 @@ export function Footer() {
         </div>
 
         <div className="site-footer-links">
-          <strong>{t("작품\u00B7공방")}</strong>
+          <strong>{t("작품·활동")}</strong>
           {t(
             [
-              { href: "/studio", label: "공방 둘러보기" },
-              { href: "/mini-projects", label: "공방 게임" },
+              { href: "/studio", label: "작품·활동" },
+              { href: "/mini-projects", label: "웹게임" },
               { href: "/works", label: "작품과 펀딩" },
               { href: "/activity", label: "제작·활동 기록" },
-              { href: "/about", label: "공방 소개" },
+              { href: "/about", label: "브랜드 소개" },
               { href: "/academy", label: "수업·교육 협업" },
               { href: "/materials", label: "수강생 자료실" },
             ].map((item) => (
               <Link href={item.href} key={item.href}>
-                {t(item.href === "/about" ? "공방 소개" : item.label)}
+                {t(item.label)}
               </Link>
             )),
           )}
@@ -75,7 +75,7 @@ export function Footer() {
 
       <div className="shell site-footer-bottom">
         <p>
-          © 2026 {t("단서공방(ProjectDullG)")} · {t("사업자등록번호")} {BRAND.businessNumber}
+          © 2026 {t(BRAND.fullName)} · {t("사업자등록번호")} {BRAND.businessNumber}
         </p>
         <span>
           <Link href="/sitemap">{t("전체 페이지")}</Link>

@@ -70,7 +70,7 @@ export function FormSection() {
           관심유형: data.get("interest"),
           동의: "예",
           제출시각: new Date().toISOString(),
-          _subject: `[단서공방] 검토팩 요청 - ${data.get("academy")}`,
+          _subject: `[${BRAND.name}] 검토팩 요청 - ${data.get("academy")}`,
           _template: "box",
           _captcha: "false",
         }),

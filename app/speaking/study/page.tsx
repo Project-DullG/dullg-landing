@@ -25,7 +25,7 @@ export default async function StudyPage() {
             다시 불러오기
           </a>
           <Link className={styles.textButton} href="/">
-            단서공방 홈으로
+            트위즈덤 홈으로
           </Link>
         </div>
       </main>

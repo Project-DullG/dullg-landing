@@ -15,8 +15,8 @@ export type PublicRoute = {
 export const publicRoutes: PublicRoute[] = [
   {
     path: "/studio",
-    title: "공방 둘러보기",
-    description: "단서공방의 작품과 웹게임, 제작 영상, 교육 현장과 활동 기록을 함께 살펴봅니다.",
+    title: "작품·활동",
+    description: "트위즈덤의 작품과 웹게임, 제작 영상, 교육 현장과 활동 기록을 함께 살펴봅니다.",
     group: "studio",
     priority: 0.8,
     changeFrequency: "weekly",
@@ -61,7 +61,7 @@ export const publicRoutes: PublicRoute[] = [
   {
     path: "/english/community",
     title: "학습 커뮤니티",
-    description: "닉네임으로 학습 이야기를 나누고 서로 응원하는 단서공방 영어 학습 커뮤니티.",
+    description: "닉네임으로 학습 이야기를 나누고 서로 응원하는 트위즈덤 영어 학습 커뮤니티.",
     group: "learning",
     priority: 0.7,
     changeFrequency: "weekly",
@@ -195,7 +195,7 @@ export const publicRoutes: PublicRoute[] = [
     path: "/",
     title: "홈",
     description:
-      "이야기를 따라 영어를 읽고 듣고 쓰고 말하는 단서공방. 방탈출·추리·동화를 내 난이도로 플레이하고 배운 표현을 복습합니다.",
+      "트위즈덤은 이야기의 반전을 통해 이해가 깊어지는 게임과 교육 콘텐츠를 만듭니다. 추리 게임과 이야기 속 영어 학습, 교육 활동을 만나보세요.",
     group: "learning",
     priority: 1,
     changeFrequency: "weekly",
@@ -210,9 +210,9 @@ export const publicRoutes: PublicRoute[] = [
   },
   {
     path: "/mini-projects",
-    title: "공방 게임",
+    title: "웹게임",
     description:
-      "단서공방이 제작한 퍼즐·카드·아케이드 게임. 지뢰찾기, 솔리테어, 스도쿠와 블록 퍼즐을 소개합니다.",
+      "트위즈덤이 제작한 퍼즐·카드·아케이드 게임. 지뢰찾기, 솔리테어, 스도쿠와 블록 퍼즐을 소개합니다.",
     group: "studio",
     priority: 0.7,
     changeFrequency: "monthly",
@@ -220,7 +220,7 @@ export const publicRoutes: PublicRoute[] = [
   {
     path: "/activity",
     title: "제작·활동 기록",
-    description: "단서공방의 교육 현장, 텀블벅 펀딩과 수상 기록을 확인합니다.",
+    description: "트위즈덤의 교육 현장, 텀블벅 펀딩과 수상 기록을 확인합니다.",
     group: "studio",
     priority: 0.7,
     changeFrequency: "weekly",
@@ -243,9 +243,9 @@ export const publicRoutes: PublicRoute[] = [
   },
   {
     path: "/about",
-    title: "단서공방 소개",
+    title: "브랜드 소개",
     description:
-      "덜지니어스에서 시작한 단서공방의 작품 제작·교육 활동, 청년디딤터 입주와 RISE 수상 이력을 소개합니다.",
+      "트위즈덤의 이름에 담긴 Twist + Wisdom의 의미와 게임·교육 제작 활동, 단서공방으로 활동한 이력을 소개합니다.",
     group: "studio",
     priority: 0.6,
     changeFrequency: "monthly",

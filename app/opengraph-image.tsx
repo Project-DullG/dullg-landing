@@ -1,8 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { BrandMark } from "@/components/brand-mark";
-import { BRAND } from "@/lib/site-config";
+import { BrandMark, BrandWordmark } from "@/components/brand-mark";
 
 export const alt = "twisdom — Games and learning through stories";
 export const size = { width: 1200, height: 630 };
@@ -20,14 +19,14 @@ export default async function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          background: "#203b30",
+          background: "#151515",
           color: "#fff",
           fontFamily: '"English Journal OG"',
         }}
       >
         <BrandMark size={88} color="#fff" />
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-          <div style={{ fontSize: 72, fontWeight: 700, letterSpacing: -2 }}>{BRAND.englishName}</div>
+          <BrandWordmark width={800} color="#fff" />
           <div style={{ fontSize: 34, color: "#cfd3cf" }}>
             Twist + Wisdom · Games &amp; Education
           </div>

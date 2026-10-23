@@ -6,6 +6,8 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getClientAuth } from "@/lib/firebase/config";
 import { loginAction } from "@/app/actions/auth";
 import { LanguageSwitch } from "@/components/i18n/language-switch";
+import { BrandWordmark } from "@/components/brand-mark";
+import { BRAND } from "@/lib/site-config";
 export default function LoginForm({ nextPath }: { nextPath: string | null }) {
   const t = useText();
   const studentRegistration = nextPath?.split("?")[0] === "/dashboard/register";
@@ -43,7 +45,12 @@ export default function LoginForm({ nextPath }: { nextPath: string | null }) {
   return (
     <div className="login-page">
       <div className="login-card">
-        <LanguageSwitch />
+        <div className="login-brand-row">
+          <Link className="brand" href="/" aria-label={t(`${BRAND.name} 홈`)}>
+            <BrandWordmark width={144} />
+          </Link>
+          <LanguageSwitch />
+        </div>
         <h1>
           {t(
             englishLearning

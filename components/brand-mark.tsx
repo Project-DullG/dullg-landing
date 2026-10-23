@@ -1,3 +1,5 @@
+import artwork from "@/lib/brand-artwork.json";
+
 export function BrandMark({
   size = 32,
   color = "currentColor",
@@ -9,18 +11,37 @@ export function BrandMark({
     <svg
       className="brand-mark brand-symbol"
       width={size}
-      height={size}
-      viewBox="0 0 48 48"
-      fill="none"
+      height={size * artwork.symbol.height / artwork.symbol.width}
+      viewBox={artwork.symbol.viewBox}
+      fill={color}
+      fillRule="evenodd"
       aria-hidden="true"
+      focusable="false"
     >
-      <path
-        d="M23 7C33 7 41 14 41 24S33 41 23 41H10V21"
-        stroke={color}
-        strokeWidth="5.5"
-        strokeLinecap="square"
-      />
-      <rect x="7.25" y="4.25" width="9.5" height="9.5" rx="1" fill="#c96645" />
+      {artwork.symbol.paths.map(({ d }, index) => <path key={index} d={d} />)}
+    </svg>
+  );
+}
+
+export function BrandWordmark({
+  width = 160,
+  color = "currentColor",
+}: {
+  width?: number;
+  color?: string;
+}) {
+  return (
+    <svg
+      className="brand-wordmark"
+      width={width}
+      height={width * artwork.wordmark.height / artwork.wordmark.width}
+      viewBox={artwork.wordmark.viewBox}
+      fill={color}
+      fillRule="evenodd"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {artwork.wordmark.paths.map(({ d }, index) => <path key={index} d={d} />)}
     </svg>
   );
 }

@@ -1,5 +1,5 @@
 import { useText } from "@/lib/i18n/use-text";
-import { BrandMark } from "@/components/brand-mark";
+import { BrandWordmark } from "@/components/brand-mark";
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "@/components/i18n/link";
 import type { ReactNode } from "react";
@@ -13,12 +13,8 @@ export function Footer() {
     <footer className="site-footer">
       <div className="shell site-footer-grid">
         <div className="site-footer-brand">
-          <Link className="brand" href="/">
-            <BrandMark />
-            <span className="brand-name">
-              {t(BRAND.name)}
-              <small>{t(BRAND.englishName)}</small>
-            </span>
+          <Link className="brand" href="/" aria-label={t(`${BRAND.name} 홈`)}>
+            <BrandWordmark width={176} />
           </Link>
           <p>
             {t("이야기로 배우는 영어와")}

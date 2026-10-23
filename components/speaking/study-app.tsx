@@ -23,6 +23,7 @@ import { LessonBook } from "./lesson-book";
 import { StudyTimer } from "./study-timer";
 import { useStudyAudio, type StudyAudio } from "./use-study-audio";
 import { BRAND } from "@/lib/site-config";
+import { BrandWordmark } from "@/components/brand-mark";
 import styles from "./speaking.module.css";
 
 type View = "today" | "practice" | "repeat" | "collection" | "feeding" | "guide";
@@ -262,12 +263,7 @@ export function SpeakingStudy({
     <div className={styles.studyPage}>
       <header className={styles.studyHeader}>
         <Link href="/" className={`brand ${styles.studyBrand}`} aria-label={`${BRAND.name} 홈`}>
-          <span className="brand-mark" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </span>
-          <span className="brand-name">{BRAND.name}</span>
+          <BrandWordmark width={144} />
         </Link>
         <strong>스피킹 공부</strong>
         <details className={styles.account}>

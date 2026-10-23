@@ -1,5 +1,31 @@
 import artwork from "@/lib/brand-artwork.json";
 
+export function BrandLogo({
+  width = 176,
+  color = "currentColor",
+  variant = "horizontal",
+}: {
+  width?: number;
+  color?: string;
+  variant?: "horizontal" | "fullLockup";
+}) {
+  const shape = artwork[variant];
+  return (
+    <svg
+      className="brand-logo"
+      width={width}
+      height={width * shape.height / shape.width}
+      viewBox={shape.viewBox}
+      fill={color}
+      fillRule="evenodd"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {shape.paths.map(({ d }, index) => <path key={index} d={d} />)}
+    </svg>
+  );
+}
+
 export function BrandMark({
   size = 32,
   color = "currentColor",

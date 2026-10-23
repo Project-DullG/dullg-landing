@@ -27,10 +27,10 @@ test("festival record remains linked from studio, activity and both language sit
   assert.ok((await stat(`public${festival.image.src}`)).size < 250000);
 });
 
-test("header, footer and social image use the current shared vector wordmark", async () => {
+test("header, footer and social image use the current shared vector logo", async () => {
   for (const path of ["components/header.tsx", "components/site.tsx", "app/opengraph-image.tsx"]) {
     const source = await readFile(path, "utf8");
-    assert.match(source, /<BrandWordmark\b/);
+    assert.match(source, /<BrandLogo\b/);
   }
   const icon = await readFile("app/icon.svg", "utf8");
   assert.match(icon, /<path\b/);

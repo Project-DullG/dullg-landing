@@ -6,7 +6,7 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getClientAuth } from "@/lib/firebase/config";
 import { loginAction } from "@/app/actions/auth";
 import { LanguageSwitch } from "@/components/i18n/language-switch";
-import { BrandWordmark } from "@/components/brand-mark";
+import { BrandLogo } from "@/components/brand-mark";
 import { BRAND } from "@/lib/site-config";
 export default function LoginForm({ nextPath }: { nextPath: string | null }) {
   const t = useText();
@@ -47,7 +47,7 @@ export default function LoginForm({ nextPath }: { nextPath: string | null }) {
       <div className="login-card">
         <div className="login-brand-row">
           <Link className="brand" href="/" aria-label={t(`${BRAND.name} 홈`)}>
-            <BrandWordmark width={144} />
+            <BrandLogo width={168} />
           </Link>
           <LanguageSwitch />
         </div>

@@ -7,7 +7,7 @@ import { ScoreChart } from "@/components/dashboard/score-chart";
 import styles from "./page.module.css";
 import { LanguageSwitch } from "@/components/i18n/language-switch";
 import { BRAND } from "@/lib/site-config";
-import { BrandWordmark } from "@/components/brand-mark";
+import { BrandLogo } from "@/components/brand-mark";
 const classes = [
   { id: "a", name: "초6 A반" },
   { id: "b", name: "중1 B반" },
@@ -42,7 +42,7 @@ export function AcademyDemo() {
       <aside className={styles.sidebar}>
         <LanguageSwitch />
         <Link href="/" className={styles.brand} aria-label={t(`${BRAND.name} 홈`)}>
-          <BrandWordmark width={144} />
+          <BrandLogo width={168} />
         </Link>
         <span>{t("예시 학원")}</span>
         <nav aria-label={t("체험 메뉴")}>

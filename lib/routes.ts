@@ -14,6 +14,15 @@ export type PublicRoute = {
 
 export const publicRoutes: PublicRoute[] = [
   {
+    path: "/certificates",
+    title: "교육 참여 수료증",
+    description: "울릉도·독도 지역 콘텐츠 제작 교육 참여자를 위한 수료증 발급 페이지입니다.",
+    group: "resources",
+    priority: 0.2,
+    changeFrequency: "yearly",
+    noIndex: true,
+  },
+  {
     path: "/studio",
     title: "작품·활동",
     description: "트위즈덤의 작품과 웹게임, 제작 영상, 교육 현장과 활동 기록을 함께 살펴봅니다.",

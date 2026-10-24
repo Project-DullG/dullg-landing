@@ -8,7 +8,7 @@ export async function generateMetadata() {
   return localizeMetadata(
     pageMetadata("/privacy", {
       description:
-        "트위즈덤 문의, 영어 학습 기록과 커뮤니티, 학습 계정과 추리노트에서 처리하는 개인정보 안내입니다.",
+        "트위즈덤 문의, 영어 학습과 커뮤니티, 학습 계정과 수료증에서 처리하는 개인정보 안내입니다.",
     }),
   );
 }
@@ -142,6 +142,22 @@ const getSections = (t: ReturnType<typeof useText>) => [
       </>
     ),
   },
+  {
+    title: "9. 교육 참여 수료증",
+    body: (
+      <>
+        <p>
+          {t("수료증에 표시할 이름은 발급 요청을 처리하고 문서에 표시하는 데만 사용하며, 서버 데이터베이스에 저장하지 않습니다. 이름은 이 브라우저의 현재 화면에만 남고, 인증을 종료하거나 페이지를 새로고침하면 지워집니다.")}
+        </p>
+        <p>
+          {t("수료증 접근 쿠키는 최대 2시간 유지됩니다. 인증 남용을 막기 위해 IP 주소를 비밀키로 변환한 값과 인증 실패 시각을 Firestore에 기록하며, 원본 IP 주소와 입력한 인증번호는 이 기록에 저장하지 않습니다. 이 기록은 학습 진도나 학생 명단에 연결하지 않습니다.")}
+        </p>
+        <p>
+          {t("저장·인쇄한 파일은 이용자가 관리합니다. 공용 기기에서는 발급 후 인증을 종료하고, 내려받은 파일과 인쇄 대기열에 이름이 남아 있지 않은지 확인해 주세요.")}
+        </p>
+      </>
+    ),
+  },
 ];
 export default function PrivacyPage() {
   const t = useText();
@@ -156,7 +172,7 @@ export default function PrivacyPage() {
         </h1>
         <p>
           {t(
-            "이 안내는 샘플 자료 요청, 영어 이야기 학습과 커뮤니티, 스피킹 공부와 학생 계정·추리노트에서 처리하는 개인정보에 적용됩니다.",
+            "이 안내는 샘플 자료 요청, 영어 이야기 학습과 커뮤니티, 스피킹 공부, 학생 계정·추리노트와 교육 참여 수료증에서 처리하는 개인정보에 적용됩니다.",
           )}
         </p>
       </section>
@@ -166,7 +182,7 @@ export default function PrivacyPage() {
           <strong>{t("시행일")}</strong>
           <span>{t("2026년 7월 26일")}</span>
           <strong>{t("최근 수정")}</strong>
-          <span>{t("2026년 10월 14일")}</span>
+          <span>{t("2026년 10월 24일")}</span>
           <strong>{t("문의")}</strong>
           <a href={emailHref}>{t(BRAND.email)}</a>
         </div>
@@ -182,7 +198,7 @@ export default function PrivacyPage() {
           )}
 
           <article>
-            <h2>{t("9. 문의 및 요청")}</h2>
+            <h2>{t("10. 문의 및 요청")}</h2>
             <p>
               {t("개인정보 관련 요청은")}
               <a href={emailHref}>{t(BRAND.email)}</a>

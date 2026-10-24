@@ -1,0 +1,12 @@
+{
+  "교육 참여 수료증": "Education participation certificate",
+  "교육 참여 수료증 발급 →": "Get a participation certificate →",
+  "울릉도·독도 지역 콘텐츠 제작 교육 참여자를 위한 수료증 발급 페이지입니다.": "Certificates for participants in the Ulleungdo and Dokdo regional content-making course.",
+  "트위즈덤 문의, 영어 학습과 커뮤니티, 학습 계정과 수료증에서 처리하는 개인정보 안내입니다.": "How Twisdom handles personal information for inquiries, English learning, community participation, accounts, and certificates.",
+  "9. 교육 참여 수료증": "9. Education participation certificates",
+  "수료증에 표시할 이름은 발급 요청을 처리하고 문서에 표시하는 데만 사용하며, 서버 데이터베이스에 저장하지 않습니다. 이름은 이 브라우저의 현재 화면에만 남고, 인증을 종료하거나 페이지를 새로고침하면 지워집니다.": "The name entered is used only to prepare and display the certificate. It is not stored in the server database. It remains in the current browser view until access is ended or the page is refreshed.",
+  "수료증 접근 쿠키는 최대 2시간 유지됩니다. 인증 남용을 막기 위해 IP 주소를 비밀키로 변환한 값과 인증 실패 시각을 Firestore에 기록하며, 원본 IP 주소와 입력한 인증번호는 이 기록에 저장하지 않습니다. 이 기록은 학습 진도나 학생 명단에 연결하지 않습니다.": "Certificate access cookies last up to two hours. To limit access-code abuse, Firestore records a keyed hash of the IP address and failed-attempt times, not the original IP address or entered code. These records are not linked to study progress or student rosters.",
+  "저장·인쇄한 파일은 이용자가 관리합니다. 공용 기기에서는 발급 후 인증을 종료하고, 내려받은 파일과 인쇄 대기열에 이름이 남아 있지 않은지 확인해 주세요.": "You are responsible for saved and printed files. On a shared device, end access after use and check downloaded files and print queues for personal information.",
+  "이 안내는 샘플 자료 요청, 영어 이야기 학습과 커뮤니티, 스피킹 공부, 학생 계정·추리노트와 교육 참여 수료증에서 처리하는 개인정보에 적용됩니다.": "This notice covers sample requests, English story learning and community participation, speaking practice, student accounts and notebooks, and education participation certificates.",
+  "10. 문의 및 요청": "10. Inquiries and requests"
+}

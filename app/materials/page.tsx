@@ -17,7 +17,9 @@ export default function MaterialsPage() {
         <PageIntro
           title={t("수강생 자료실")}
           description="참여한 수업의 발표자료와 실습 자료를 확인하세요."
-        />
+        >
+          <Link href="/certificates">{t("교육 참여 수료증 발급 →")}</Link>
+        </PageIntro>
 
         <section className="course-archive shell" aria-label={t("교육 과정별 자료")}>
           {t(

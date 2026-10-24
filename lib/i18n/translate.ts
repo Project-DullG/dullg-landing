@@ -17,6 +17,7 @@ import studyDictionary from "./en-study.json" with { type: "json" };
 import studyNavigationDictionary from "./en-study-navigation.json" with { type: "json" };
 import reviewQueueDictionary from "./en-review-queue.json" with { type: "json" };
 import brandDictionary from "./en-brand.json" with { type: "json" };
+import certificateDictionary from "./en-certificates.json" with { type: "json" };
 import sourceOnlyPaths from "./source-only.json" with { type: "json" };
 export type Locale = "ko" | "en";
 const decodeText = (text: string) =>
@@ -47,6 +48,7 @@ const messages: Record<string, string> = Object.fromEntries(
     ...discoveryV2Dictionary,
     ...storyPolishDictionary,
     ...brandDictionary,
+    ...certificateDictionary,
   }).map(([key, value]) => [normalizeText(key), value]),
 );
 export function translateText(text: string, locale: string): string {

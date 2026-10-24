@@ -49,6 +49,11 @@ export default function LessonFourPage() {
                 ? "Download board and mystery game creation prompt (MD, Korean) ↓"
                 : "보드게임·추리게임 통합 제작 프롬프트 (MD) ↓"}
             </a>
+            <a href={lesson4.detailedPlanningPrompt} download>
+              {en
+                ? "Download detailed board game and murder mystery plan prompt (MD, Korean) ↓"
+                : "보드게임·머더미스터리 기획서 상세형 (MD) ↓"}
+            </a>
           </div>
         </header>
         <p className={styles.note}>

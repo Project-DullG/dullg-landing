@@ -53,6 +53,30 @@ test("session 4 exposes the board and mystery game prompt download in both langu
   assert.ok(page.includes("Download board and mystery game creation prompt (MD, Korean) ↓"));
 });
 
+test("session 4 serves the unmodified detailed board game planning prompt", async () => {
+  assert.equal(
+    lesson4.detailedPlanningPrompt,
+    "/assets/materials/ulleung-high-lesson-4/board-game-detailed-planning-prompt.md",
+  );
+  const file = await readFile(new URL(`../public${lesson4.detailedPlanningPrompt}`, import.meta.url));
+  assert.equal(
+    createHash("sha256").update(file).digest("hex"),
+    "9f361577e15da8089a86092276d7f3e6d45c11f3f23557f36caec1e2d87831de",
+    "The detailed planning prompt must match the supplied v1.1 original byte for byte",
+  );
+  assert.match(file.toString("utf8"), /^# 보드게임·머더미스터리 기획서 만들기 — 상세형\n/);
+});
+
+test("session 4 exposes the detailed planning prompt download in both languages", async () => {
+  const page = await readFile(
+    new URL("../app/materials/ulleung-high-lesson-4/page.tsx", import.meta.url),
+    "utf8",
+  );
+  assert.match(page, /<a href=\{lesson4\.detailedPlanningPrompt\} download>/);
+  assert.ok(page.includes("보드게임·머더미스터리 기획서 상세형 (MD) ↓"));
+  assert.ok(page.includes("Download detailed board game and murder mystery plan prompt (MD, Korean) ↓"));
+});
+
 test("session 4 retains its existing PDF and editable PPT downloads", async () => {
   for (const href of [lesson4.pdf, lesson4.pptx]) {
     assert.ok((await stat(new URL(`../public${href}`, import.meta.url))).size > 1_000_000);

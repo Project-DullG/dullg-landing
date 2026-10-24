@@ -10,6 +10,8 @@ export const lesson4 = {
     "/assets/materials/ulleung-high-lesson-4/murder-mystery-co-creation-v1-1.md",
   boardAndMysteryGamePrompt:
     "/assets/materials/ulleung-high-lesson-4/board-and-mystery-game-creation-prompt.md",
+  detailedPlanningPrompt:
+    "/assets/materials/ulleung-high-lesson-4/board-game-detailed-planning-prompt.md",
   titles: [
     [
       "AI 활용 지역 관광 보드게임 및 체험형 교구 디자인",

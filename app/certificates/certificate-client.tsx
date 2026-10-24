@@ -40,7 +40,7 @@ const copy = {
     close: "닫기",
     previewHint: "이름을 확인한 뒤 저장해 주세요. PDF 저장은 인쇄창에서 선택할 수 있습니다.",
     sourceNote:
-      "수료증 원본은 한국어로 제공됩니다. 출력 후 담당자가 빈 서명란과 날인란에 직접 서명·날인할 수 있습니다.",
+      "서명과 교육활동용 인장은 자동으로 반영됩니다. 학생 이름을 확인한 뒤 저장·출력해 주세요.",
     ready: "수료증이 준비되었습니다. 이름을 확인한 뒤 저장하거나 인쇄하세요.",
     changed: "이름 또는 참여 확인이 변경되었습니다. 수료증을 다시 준비해 주세요.",
     codeRequired: "인증번호 숫자 4자리를 입력해 주세요.",
@@ -86,7 +86,7 @@ const copy = {
     close: "Close",
     previewHint: "Check the name before saving. Select Save as PDF in the print dialog.",
     sourceNote:
-      "The original certificate is in Korean. The coordinator can sign and stamp the blank spaces after printing.",
+      "The signatures and educational-activity seal are included automatically. Check the student's name before saving or printing.",
     ready: "Your certificate is ready. Check the name, then save or print it.",
     changed: "The name or participation confirmation changed. Prepare the certificate again.",
     codeRequired: "Enter the four-digit access code.",

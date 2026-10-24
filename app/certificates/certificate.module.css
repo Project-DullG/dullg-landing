@@ -256,7 +256,7 @@
   height: 792px;
   overflow: hidden;
   border: 0;
-  padding: 56px 84px 42px;
+  padding: 56px 84px 56px;
   background: #fff;
   color: #14283e;
   text-align: center;
@@ -292,13 +292,13 @@
 .paperHeading h2 {
   margin: 0;
   font-family: var(--font-noto-serif), serif;
-  font-size: 54px;
+  font-size: 48px;
   letter-spacing: 8px;
   font-weight: 600;
   line-height: 1.5;
 }
 .englishTitle {
-  margin: 3px 0 21px;
+  margin: 3px 0 16px;
   color: #8e7545;
   font-size: 13px;
   letter-spacing: 3.6px;
@@ -357,36 +357,44 @@
   max-width: 760px;
   margin: 0 auto;
   color: #454b52;
-  font-size: 19px;
-  line-height: 1.95;
+  font-size: 18px;
+  line-height: 1.85;
   word-break: keep-all;
   text-wrap: balance;
+}
+.program > span {
+  display: block;
 }
 .issueDate {
   flex: 0 0 auto;
   min-height: 32px;
-  margin: 20px 0 0;
+  margin: 14px 0 0;
   font-size: 18px;
   line-height: 1.7;
 }
 .paperFooter {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.35fr;
-  gap: 22px;
-  align-items: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  align-items: start;
   margin-top: auto;
-  padding-top: 14px;
+  padding-top: 12px;
+}
+.endorser {
+  min-width: 0;
 }
 .partner {
   display: flex;
   gap: 12px;
   align-items: center;
+  justify-content: center;
+  height: 60px;
   text-align: left;
 }
 .partner img {
   display: block;
   flex-shrink: 0;
-  width: 64px;
+  width: 46px;
   height: auto;
   object-fit: contain;
 }
@@ -403,39 +411,69 @@
   line-height: 1.5;
 }
 .issuer {
-  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
   text-align: center;
 }
 .issuer svg {
   display: block;
   max-width: none;
 }
-.signatures {
-  display: grid;
-  grid-template-columns: minmax(100px, 1fr) 82px;
-  gap: 20px;
-  align-items: end;
-  color: #7d7770;
-  font-size: 12px;
+.school {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 60px;
+  text-align: left;
 }
-.signatureLine {
-  height: 82px;
-  border-bottom: 1px solid #a9a69e;
+.school img {
+  width: 58px;
+  height: auto;
 }
-.stampBox {
-  width: 82px;
-  height: 82px;
-  border: 1px solid #c3c0b8;
+.school strong {
+  font-size: 17px;
+  font-weight: 500;
+  white-space: nowrap;
 }
-.signature > span,
-.stamp > span {
+.signoff {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 80px;
+  margin-top: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.signoff strong {
+  margin-left: 4px;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.signatureImage {
+  width: 150px;
+  height: 74px;
+}
+.sealImage {
+  width: 76px;
+  height: 76px;
+  margin-left: 5px;
+}
+.signatureImage img,
+.sealImage img {
   display: block;
-  margin-top: 6px;
-  line-height: 1.5;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .paperFinePrint {
   flex: 0 0 auto;
-  margin-top: 18px;
+  margin-top: 12px;
   color: #777a7d;
   font-size: 10px;
   line-height: 1.6;

@@ -24,18 +24,21 @@ test("certificate access is discoverable from resources but excluded from indexi
   assert.match(page, /index: false, follow: false/);
 });
 
-test("the certificate has real blank signature and stamp spaces rather than generated approvals", async () => {
+test("the certificate maps supplied signatures and the educational seal to the correct people", async () => {
   const paper = await read("app/certificates/certificate-paper.tsx");
-  assert.match(paper, /signatureLine/);
-  assert.match(paper, /stampBox/);
-  assert.match(paper, /담당자 서명/);
-  assert.match(paper, /확인 \/ 날인/);
+  assert.equal(certificateCourse.professor, "김병철");
+  assert.equal(certificateCourse.representative, "이성로");
+  assert.equal(certificateCourse.school, "울릉고등학교");
+  assert.equal(certificateCourse.principal, "김상현");
+  for (const asset of ["kim-byeongcheol", "lee-seongro", "ulleung-education-seal"]) {
+    assert.ok(paper.includes(`/api/certificates/assets/${asset}`));
+  }
+  assert.equal((paper.match(/certificate &&/g) || []).length, 3);
+  assert.match(paper, /울릉고등학교 교육활동용 인장/);
+  assert.match(paper, /ulleung-high-logo\.png/);
   assert.match(paper, /교육 연계/);
   assert.match(paper, /발급 ·/);
-  assert.doesNotMatch(
-    paper,
-    /총장|직인\.png|signature\.png|seal\.png|<canvas|dangerouslySetInnerHTML/,
-  );
+  assert.doesNotMatch(paper, /김강훈|교장.*서명|총장|직인\.png|<canvas|dangerouslySetInnerHTML/);
 });
 
 test("the client keeps its access code private and does not persist student names", async () => {
@@ -55,7 +58,7 @@ test("only the print root is printed and the document includes safe physical mar
   assert.match(css, /@media print/);
   assert.match(css, /\.printRoot\s*\{\s*display: none/);
   assert.match(css, /inset: 30px/);
-  assert.match(css, /\.stampBox\s*\{\s*width: 82px;\s*height: 82px/);
+  assert.match(css, /\.sealImage\s*\{\s*width: 76px;\s*height: 76px/);
   const paper = await read("app/certificates/certificate-paper.tsx");
   assert.match(paper, /preview &&/);
   assert.match(paper, /lang="ko"/);

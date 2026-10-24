@@ -39,6 +39,16 @@ export default function LessonFourPage() {
             <a href={`${lesson4.pptx}?v=${lesson4.version}`} download>
               {en ? "Download editable PPT ↓" : "편집용 PPT 다운로드 ↓"}
             </a>
+            <a href={lesson4.murderMysteryPrompt} download>
+              {en
+                ? "Download murder mystery co-creation prompt (MD, Korean) ↓"
+                : "머더미스터리 함께 만들기 프롬프트 (MD) ↓"}
+            </a>
+            <a href={lesson4.boardAndMysteryGamePrompt} download>
+              {en
+                ? "Download board and mystery game creation prompt (MD, Korean) ↓"
+                : "보드게임·추리게임 통합 제작 프롬프트 (MD) ↓"}
+            </a>
           </div>
         </header>
         <p className={styles.note}>

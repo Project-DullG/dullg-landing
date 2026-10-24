@@ -6,6 +6,10 @@ export const lesson4 = {
   description: "AI 활용 역사·관광 콘텐츠 기획안·설계안 작성 · 60분 · 발표자료 24쪽",
   pdf: "/assets/materials/ulleung-high-lesson-4.pdf",
   pptx: "/assets/materials/ulleung-high-lesson-4.pptx",
+  murderMysteryPrompt:
+    "/assets/materials/ulleung-high-lesson-4/murder-mystery-co-creation-v1-1.md",
+  boardAndMysteryGamePrompt:
+    "/assets/materials/ulleung-high-lesson-4/board-and-mystery-game-creation-prompt.md",
   titles: [
     [
       "AI 활용 지역 관광 보드게임 및 체험형 교구 디자인",

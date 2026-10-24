@@ -2,6 +2,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 4px 20px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.downloads a[download] {
+  max-width: 100%;
+  min-width: 0;
+  flex-shrink: 1;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .wizard {

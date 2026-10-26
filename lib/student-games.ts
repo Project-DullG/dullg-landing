@@ -1,0 +1,56 @@
+export const studentGames = [
+  {
+    slug: "island-snap",
+    title: "오징어 호박엿 명이나물 독도 성인봉",
+    titleEn: "Squid, Pumpkin Candy, Wild Garlic, Dokdo, Seonginbong",
+    authors: "박성은, 서우림",
+    authorsEn: "Park Seongeun, Seo Urim",
+    genre: "순발력 카드 놀이",
+    genreEn: "Quick-reaction card game",
+    players: "3–6명",
+    playersEn: "3–6 players",
+    duration: "예상 10–20분",
+    durationEn: "Est. 10–20 min",
+    description:
+      "다섯 이름을 외치고 카드를 넘깁니다. 그림과 말이 같다면 누구보다 빠르게 반응하세요.",
+    descriptionEn:
+      "Call five island names and reveal a card. When the word matches the picture, everyone reacts.",
+    color: "#d16b4e",
+  },
+  {
+    slug: "missing-log",
+    title: "울릉도: 사라진 항해일지",
+    titleEn: "Ulleungdo: The Missing Voyage Log",
+    authors: "손예령, 한효원",
+    authorsEn: "Son Yeryeong, Han Hyowon",
+    genre: "협력 기록 미스터리",
+    genreEn: "Cooperative archive mystery",
+    players: "2–4명",
+    playersEn: "2–4 players",
+    duration: "예상 30–50분",
+    durationEn: "Est. 30–50 min",
+    description:
+      "네 장소에 남은 기록을 맞춰 봅니다. 날짜와 전시 번호 사이에서 사라진 여행의 순서를 되찾으세요.",
+    descriptionEn:
+      "Compare records from four places and distinguish dates from exhibition numbers to restore a journey.",
+    color: "#285d66",
+  },
+  {
+    slug: "island-market",
+    title: "섬마을 장터",
+    titleEn: "Island Market",
+    authors: "이신우, 정순혁",
+    authorsEn: "Lee Sinwoo, Jeong Sunhyeok",
+    genre: "요리와 거래 경쟁",
+    genreEn: "Cooking and trading game",
+    players: "2–4명",
+    playersEn: "2–4 players",
+    duration: "예상 30–40분",
+    durationEn: "Est. 30–40 min",
+    description:
+      "재료를 모으고 이웃 가게와 흥정합니다. 주문을 먼저 완성하고 열 번의 장날 뒤 가장 많은 돈을 남기세요.",
+    descriptionEn:
+      "Gather ingredients, negotiate with nearby shops, and fulfill orders to earn the most money over ten rounds.",
+    color: "#9c543c",
+  },
+] as const;

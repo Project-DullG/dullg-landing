@@ -1,0 +1,6 @@
+import{MATERIALS,RECIPES}from'./engine.mjs';import{ingredientArt,dishArt,materialNames}from'./art.mjs';
+export const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export const recipeById=Object.fromEntries(RECIPES.map(r=>[r.id,r]));
+export const needsText=r=>Object.entries(r.needs).map(([id,n])=>`${materialNames[id]} ${n}`).join(' + ');
+export function recipeCard(r,{button=false,cost=r.base,attrs='',extra='',className=''}={}){const tag=button?'button':'article';return `<${tag} class="recipe-card ${className}" ${attrs}><div class="card-top"><span>오늘의 주문</span><span>${r.id}</span></div><h3>${r.name}</h3>${dishArt(r)}<div class="recipe-needs">${Object.entries(r.needs).map(([id,n])=>`<span>${materialNames[id]} ${n}</span>`).join('')}</div><div class="recipe-price"><b>${cost}<small>냥</small></b><span>${cost!==r.base?'소식 반영':'기본 판매가'}</span></div>${extra}</${tag}>`;}
+export function materialCard(id,i,{selected=false,disabled=false}={}){const m=MATERIALS.find(x=>x.id===id);return `<button class="material-card" data-market="${i}" aria-label="${m.name} 선택" aria-pressed="${selected}" ${disabled?'disabled':''}>${ingredientArt(id)}<b>${m.name}</b><small>${m.cardId} / 재료 카드</small></button>`;}

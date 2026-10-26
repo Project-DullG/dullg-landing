@@ -1,5 +1,6 @@
 import { GameFeature } from '@/components/game-feature';
 import { UlleungMarbleFeature } from "@/components/ulleung-marble-feature";
+import { StudentGameShowcase } from "@/components/student-game-showcase";
 import { useText } from "@/lib/i18n/use-text";
 import { localizeMetadata } from "@/lib/i18n/server";
 import { PageFrame } from "@/components/site";
@@ -36,6 +37,7 @@ export default function MiniProjectsPage() {
           <span>{t("두 달에 한 편 제작 목표")}</span>
         </span>
       </PageIntro>
+      <StudentGameShowcase />
       <div className={`shell ${styles.collection}`}>
         <UlleungMarbleFeature />
         <GameFeature id="last-screening" />

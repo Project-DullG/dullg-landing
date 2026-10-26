@@ -10,6 +10,7 @@ import { PageIntro } from "@/components/page-intro";
 import { fundingSummaryPeriod, getFundingProject, getFundingStatus } from "@/lib/funding";
 import { pageMetadata } from "@/lib/metadata";
 import { currentWorks, getWorkStatus, publishedWorks } from "@/lib/works";
+import { StudentGameShowcase } from "@/components/student-game-showcase";
 export async function generateMetadata() {
   return localizeMetadata(pageMetadata("/works", { title: "작품과 펀딩" }));
 }
@@ -140,6 +141,8 @@ export default function WorksPage() {
           )}
         </div>
       </section>
+
+      <StudentGameShowcase />
 
       <section className="funding-archive shell" aria-labelledby="funding-archive-title">
         {/* keeps a grid-item box; see SectionHead */}

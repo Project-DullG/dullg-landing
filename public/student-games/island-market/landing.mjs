@@ -1,0 +1,2 @@
+import{MATERIALS,RECIPES}from'./engine.mjs';import{ingredientArt}from'./art.mjs';import{recipeCard}from'./cards.mjs';
+document.querySelector('#ingredient-gallery').innerHTML=MATERIALS.map(m=>`<div class="ingredient-sample">${ingredientArt(m.id)}<b>${m.name}</b><small>${m.cardId} / 20 CARDS</small></div>`).join('');document.querySelector('#recipe-gallery').innerHTML=RECIPES.map(r=>recipeCard(r)).join('');

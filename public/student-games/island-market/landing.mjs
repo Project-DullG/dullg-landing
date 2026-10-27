@@ -29,7 +29,3 @@ $('#demo-ingredient').addEventListener('click',()=>{if(!sold){selected=!selected
 $('#demo-sell').addEventListener('click',()=>{if(selected&&!sold){sold=true;renderDemo();$('#demo-reset').focus({preventScroll:true});}});
 $('#demo-reset').addEventListener('click',()=>{selected=false;sold=false;renderDemo();$('#demo-ingredient').focus({preventScroll:true});});
 renderDemo();
-
-$('#overview-market').innerHTML=MATERIALS.map(m=>`<div class="mp-real-material">${ingredientArt(m.id)}<b>${m.name}</b><small>재료 카드</small></div>`).join('');
-$('#overview-orders').innerHTML=['D01','D04','D08','D11'].map(id=>recipeCard(recipeById[id])).join('');
-$('#overview-shops').innerHTML=[['바다 가게','쌀 1, 오징어 1, 명이나물 1'],['초록 가게','쌀 1, 감자 1, 홍합 1'],['노을 가게','쌀 1, 새우 1, 감자 1'],['달빛 가게','쌀 1, 명이나물 1, 홍합 1']].map(([name,stock])=>`<div class="mp-overview-shop"><div><strong>${name}</strong><b>5냥</b></div><p>${stock}</p></div>`).join('');

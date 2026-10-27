@@ -16,7 +16,9 @@
         "width": 1280,
         "height": 720,
         "pix_fmt": "yuv420p",
-        "r_frame_rate": "24/1"
+        "r_frame_rate": "24/1",
+        "duration": "90.000000",
+        "nb_frames": "2160"
       },
       {
         "index": 1,
@@ -24,28 +26,33 @@
         "codec_type": "audio",
         "sample_rate": "48000",
         "channels": 2,
-        "r_frame_rate": "0/0"
+        "r_frame_rate": "0/0",
+        "duration": "90.000000",
+        "nb_frames": "4219"
       }
     ],
     "format": {
       "duration": "90.000000",
-      "size": "8899871"
+      "size": "4455181"
     }
   },
   "production": {
-    "method": "Native SVG printed-component tabletop demonstration; camera pan/zoom and physical card, document, envelope, pawn and coin motion. Raster illustrations reuse the shared ImageGen artwork.",
+    "method": "Offline SVG and Sharp image composition with generated product mockup wide shots, native large card/document layouts and physical component movement. Frames are streamed to FFmpeg without browser rendering.",
     "livePhysicalProductPhotography": false,
-    "frames": "RGB frames streamed through stdin; no full-frame sequence stored on disk",
-    "encoder": "H264, yuv420p, AAC stereo, 24fps, faststart",
-    "workers": "sharp concurrency 1; ffmpeg threads 1",
-    "temporaryOutput": "intro-tabletop.tmp.mp4, renamed to intro.mp4 only after encoder success"
+    "frames": "PNG buffers streamed through stdin; repeated hold frames reused in memory; no complete frame sequence stored",
+    "encoder": "H264 1280x720 yuv420p 24fps faststart; original AAC stream copied without encoding",
+    "workers": "Sharp concurrency 1; FFmpeg encoder threads 2; full decode threads 1",
+    "temporaryOutput": "Encoded and fully validated in an audit output directory before atomic asset replacement",
+    "usesLegacyChapterCameraMetadata": false
   },
   "credits": {
     "studentConcept": "이신우, 정순혁",
     "tableTexture": "Existing Ulleung Marble table-walnut.png asset",
     "illustration": "Existing shared-art/*.webp assets generated with built-in ImageGen for this project",
-    "music": "Existing music.mp3 reused, looped, 2-second fade in and 4-second fade out",
-    "font": "Existing PretendardVariable.woff2 and NanumMyeongjoBold.ttf, text rendered as glyph paths"
+    "music": "Original intro.mp4 AAC packets preserved by stream copy; music.mp3 unchanged",
+    "font": "Existing PretendardVariable.woff2 rendered as glyph paths",
+    "productPhoto": "Built-in ImageGen generated product layout mockup tabletop-showcase-v2.webp; not live physical product photography",
+    "paperTexture": "Existing assets/last-screening/media/paper.webp, blank central paper material only"
   },
   "artworkFingerprints": {
     "squid": "5b7fade9b5f91676c9fa2860191b72b641aa5cf9090deb5b808e9b35ff7cc6a6",
@@ -68,43 +75,70 @@
     "D12": "7d0d287fa4dd54b9d7a8918c958c6bde87a40d4a2c67a3ba7a9a3e67b65c8dc9"
   },
   "hashes": {
-    "video": "337293af2b7ac872f7959ecf8bd907906e1464d340737a4bf65d80642bd820e8",
-    "poster": "e695a9c9cffe9def409af8da48e8f5bd01829369be25b9f02caed512e2b8337d",
+    "video": "37fbd7e545c5df312261425ed2ddd38bcd5d5b38893ab362944d8f51d6f52b02",
+    "poster": "efe990d9aa15398e7f948da673eec0f0dc7632d538fa881593a8b39fafa2e87c",
     "captions": "faee658c556183425ea738e500fa82be079eacaab201cc0307bcc7a0c3fa4c84",
     "chapters": "629d0c42e64e35829c3ec9e3c8a1b7f5eddf1adf8ea91692a81333e92bf799fe",
-    "preservedMusic": "832d9eba242da2a35a1c34154ec3b8e1ab88ff4cff5b50d007d5538dfdd233c1"
+    "preservedMusic": "832d9eba242da2a35a1c34154ec3b8e1ab88ff4cff5b50d007d5538dfdd233c1",
+    "originalAudioADTS": "e87d4d83aed0a51b6f01b5968653d446b2ae211b04f3d978b114612560c2460e",
+    "productLayout": "dabe55ffdb6b7dc91fef8f572c2e7f366c96aa5639699150d0318720438ffb21",
+    "renderer": "cd8cac9558bb1d84fe66205cccb548aaf88ffdb7dc64f75fe4d864dc7ff6afab"
   },
   "validation": {
     "ffprobe": true,
-    "middleDotCount": 0,
-    "spacesBeforeCommas": 0,
+    "fullAudioVideoDecode": true,
+    "decodedVideoFrames": 2160,
     "audioTrackUnchanged": true,
     "musicFileUnchanged": true,
+    "chaptersAndVttUnchanged": true,
     "aacSha256": "e87d4d83aed0a51b6f01b5968653d446b2ae211b04f3d978b114612560c2460e",
-    "renderedCopyLedger": ".design-audit/student-games-quality-up/media/island-market-rendered-copy.json",
-    "renderedStringCount": 232,
     "eightContinuousChapters": true,
     "eightVttCues": true,
-    "burnedInCaptionFontPx": 24,
+    "burnedInCaptionFontPx": 26,
     "maxCaptionLines": 2,
-    "maxMeasuredCaptionWidthPx": 784,
-    "expectedPrimaryCardTitlePx": 32.3,
+    "closeupDocumentBodyPx": null,
+    "closeupPrimaryCardTitlePx": 38,
+    "componentBoundsCheckedEveryFrame": true,
+    "stageSafety": {
+      "left": 40,
+      "right": 1242,
+      "top": 116,
+      "bottom": 590
+    },
+    "cardOpacity": "opaque throughout movement",
+    "sourceRulesReview": "Engine/source checked; independent agent reviewed all storyboard sample frames and rechecked three text collisions and D08 sold/refill state",
+    "renderedCopyLedger": ".design-audit/student-games-video-v2/copy-ledger.json",
     "encodedSampleFrames": [
-      ".design-audit/student-games-quality-up/qa/tabletop-video/island-market-encoded-05.jpg",
-      ".design-audit/student-games-quality-up/qa/tabletop-video/island-market-encoded-37.jpg",
-      ".design-audit/student-games-quality-up/qa/tabletop-video/island-market-encoded-53.jpg",
-      ".design-audit/student-games-quality-up/qa/tabletop-video/island-market-encoded-59.jpg",
-      ".design-audit/student-games-quality-up/qa/tabletop-video/island-market-encoded-85.jpg"
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-01.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-21.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-26.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-37.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-42.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-48.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-49.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-50.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-51.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-52.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-54.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-59.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-65.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-76.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-83.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-88.jpg"
     ],
-    "sourceRulesReview": "Engine and print source checked; independent agent reviewed storyboard and sample frames",
-    "humanPlaytest": "Not part of video production",
-    "copyFinalEncodedFrame": ".design-audit/student-games-quality-up/qa/tabletop-video/island-market-copy-final-14.jpg",
-    "copyFinalEncodedFrameActuallyViewed": true,
+    "encodedSamplesActuallyViewed": true,
     "cleanPosterActuallyViewed": true,
-    "audioSample5to9seconds": {
-      "mean_volume": -23.0,
-      "max_volume": -8.7
-    }
+    "browserRendererUsed": false,
+    "humanPlaytest": "Not part of media production",
+    "actuallyViewedEncodedFrames": [
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-42.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-48.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-52.jpg",
+      ".design-audit/student-games-video-v2/encoded-qa/island-market-54.jpg"
+    ],
+    "visualReviewScope": "Full-size encoded critical frames listed here; all 46 source storyboard samples reviewed, and independent source/sample review completed. All audio/video streams fully decoded.",
+    "middleDotCount": 0,
+    "renderedStringCount": 269
   },
-  "checkedAt": "2026-10-27T04:44:50.195Z"
+  "checkedAt": "2026-10-27T13:19:51.106Z"
 }

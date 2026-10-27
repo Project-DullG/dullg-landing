@@ -1,4 +1,4 @@
-import {cardHTML} from './art.mjs?v=quality-final-20261027';
+import {cardHTML} from './art.mjs?v=deep-review-20261027';
 
 const $=selector=>document.querySelector(selector);
 $('#cover-cards').innerHTML=['squid','candy','leaves'].map(kind=>`<div>${cardHTML({kind})}</div>`).join('');
@@ -37,6 +37,7 @@ $('#lesson-choices').addEventListener('click',event=>{
   $('#lesson-choices').querySelectorAll('button').forEach(choice=>choice.disabled=true);
   $('#lesson-next').textContent=current===2?'한 번 더 해보기 ↻':'다음 카드 →';
   $('#lesson-next').hidden=false;
+  $('#lesson-next').focus({preventScroll:true});
 });
 $('#lesson-next').addEventListener('click',()=>{
   current=(current+1)%lessons.length;completed=false;flaps=0;renderLesson();

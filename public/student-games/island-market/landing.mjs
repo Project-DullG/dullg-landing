@@ -1,6 +1,6 @@
 import{MATERIALS,RECIPES}from'./engine.mjs';
-import{ingredientArt}from './art.mjs?v=quality-final-20261027';
-import{recipeCard,recipeById}from './cards.mjs?v=quality-final-20261027';
+import{ingredientArt}from './art.mjs?v=deep-review-20261027';
+import{recipeCard,recipeById}from './cards.mjs?v=deep-review-20261027';
 const $=s=>document.querySelector(s);
 $('#hero-order-main').innerHTML=recipeCard(recipeById.D12);
 $('#hero-order-back').innerHTML=recipeCard(recipeById.D11);

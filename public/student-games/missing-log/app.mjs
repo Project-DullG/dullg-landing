@@ -1,4 +1,4 @@
-import { LOCATIONS, LOCATION_BY_ID, INTRO, RULES, ROLES, FINAL_CAUSES, FINAL_EVIDENCE, FINAL_CORRECTIONS, SOLUTION, ENDING } from './content.mjs?v=quality-final-20261027';
+import { LOCATIONS, LOCATION_BY_ID, INTRO, RULES, ROLES, FINAL_CAUSES, FINAL_EVIDENCE, FINAL_CORRECTIONS, SOLUTION, ENDING } from './content.mjs?v=deep-review-20261027';
 import { createGame, validState, visitLocation, answerLocation, useHint, setFinalAnswer, submitFinal, canSubmitFinal } from './engine.mjs';
 
 const $ = selector => document.querySelector(selector);
@@ -6,6 +6,7 @@ const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&a
 const storageKey = 'student-missing-log-v1';
 let state, selectedLocation = null, pendingAnswers = {}, noticeTimer, resumed = false;
 const names = ids => ids.map(id => LOCATION_BY_ID[id].shortName).join(' → ');
+const scrollBehavior = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
 function initialOrders(value) {
   if (value.phase === 'finished') return value;
@@ -55,10 +56,12 @@ function renderMap() {
   $('#player-count').value = state.playerCount;
   $('#player-count').disabled = state.visited.length > 0;
   $('#player-count').title = state.visited.length ? '인원 변경은 새 조사에서 할 수 있습니다.' : '';
-  $('#team-state').textContent = '현재 ' + state.playerCount + '명 ' + (state.visited.length ? '조사 중' : '준비 중');
+  $('#team-state').textContent = '현재 ' + state.playerCount + '명 ' + (state.phase === 'finished' ? '복원 완료' : state.visited.length ? '조사 중' : '준비 중');
   const confirmed = LOCATIONS.filter(location => state.answers[location.id]?.correct).length;
   $('#desk-route-status').textContent = state.phase === 'finished' ? '복원을 마쳤습니다.' : selectedLocation ? LOCATION_BY_ID[selectedLocation].shortName + ' 자료 펼침, 질문 ' + confirmed + ' / 4 확인' : '원하는 장소의 봉투부터 열어 주세요.';
   $('#question-jump').disabled = !selectedLocation;
+  $('#restoration-jump').href = state.phase === 'finished' ? '#ending' : '#restoration';
+  $('#restoration-jump').textContent = state.phase === 'finished' ? '복원 결과' : '복원 답안';
 }
 function renderLocation() {
   const target = $('#location-content');
@@ -105,7 +108,7 @@ $('#restart-open').addEventListener('click', () => $('#restart-dialog').showModa
 $('#restart-confirm').addEventListener('click', () => {
   resumed = false; state = initialOrders(createGame(state.playerCount)); selectedLocation = null; pendingAnswers = {};
   try { localStorage.removeItem(storageKey + '-memory'); } catch {}
-  $('#restart-dialog').close(); save(); render(); window.scrollTo({ top: 0, behavior: 'smooth' }); notice('새 봉투와 힌트 토큰 6개를 준비했습니다.');
+  $('#restart-dialog').close(); save(); render(); window.scrollTo({ top: 0, behavior: scrollBehavior() }); notice('새 봉투와 힌트 토큰 6개를 준비했습니다.');
 });
 $('#player-count').addEventListener('change', event => {
   if (state.visited.length) { event.target.value = state.playerCount; return; }
@@ -126,10 +129,10 @@ document.addEventListener('click', event => {
     const id = button.dataset.visit;
     if (state.phase !== 'finished' && !update(value => visitLocation(value, id), { all: false })) return;
     selectedLocation = id; save(); render();
-    if (window.matchMedia('(max-width: 800px)').matches) $('#investigation').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.matchMedia('(max-width: 800px)').matches) $('#investigation').scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
     $('#investigation').focus({ preventScroll: true }); return;
   }
-  if (button.dataset.hint) { if (update(value => useHint(value, button.dataset.hint))) { const hint = document.querySelector('.hint-sheet:last-child'); hint?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); hint?.focus({ preventScroll: true }); } return; }
+  if (button.dataset.hint) { if (update(value => useHint(value, button.dataset.hint))) { const hint = document.querySelector('.hint-sheet:last-child'); hint?.scrollIntoView({ behavior: scrollBehavior(), block: 'nearest' }); hint?.focus({ preventScroll: true }); } return; }
   if (button.dataset.order) {
     const field = button.dataset.order, index = Number(button.dataset.index), direction = Number(button.dataset.direction), next = index + direction, order = [...state.finalAnswer[field]];
     if (next < 0 || next >= order.length) return;
@@ -155,7 +158,7 @@ document.addEventListener('submit', event => {
     event.preventDefault(); const id = event.target.dataset.location, answer = new FormData(event.target).get('site-answer');
     if (!answer) { notice('함께 의논한 답 하나를 골라 주세요.'); return; }
     if (update(value => answerLocation(value, id, answer))) {
-      const feedback = $('.question-feedback'); feedback?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); feedback?.focus({ preventScroll: true });
+      const feedback = $('.question-feedback'); feedback?.scrollIntoView({ behavior: scrollBehavior(), block: 'nearest' }); feedback?.focus({ preventScroll: true });
       if (state.answers[id]?.correct && canSubmitFinal(state)) notice('네 장소를 모두 확인했습니다. 아래 복원 답안을 완성해 주세요.');
     }
   }
@@ -163,8 +166,8 @@ document.addEventListener('submit', event => {
     event.preventDefault();
     if (state.finalAnswer.evidenceIds.length !== 3) { notice('근거를 정확히 3개 골라 주세요.'); return; }
     if (update(submitFinal)) {
-      if (state.phase === 'finished') { $('#ending').scrollIntoView({ behavior: 'smooth', block: 'start' }); $('#ending').focus({ preventScroll: true }); }
-      else { $('.final-feedback')?.scrollIntoView({ behavior: 'smooth', block: 'center' }); $('.final-feedback')?.focus({ preventScroll: true }); }
+      if (state.phase === 'finished') { $('#ending').scrollIntoView({ behavior: scrollBehavior(), block: 'start' }); $('#ending').focus({ preventScroll: true }); }
+      else { $('.final-feedback')?.scrollIntoView({ behavior: scrollBehavior(), block: 'center' }); $('.final-feedback')?.focus({ preventScroll: true }); }
     }
   }
 });

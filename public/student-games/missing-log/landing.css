@@ -248,3 +248,33 @@ body.publication-page{--ml-paper:#f2eee4;--ml-ink:#182f34;--ml-teal:#214d4d;--ml
 @media(max-width:390px){.ml-hero h1{font-size:62px;letter-spacing:-2.3px}}
 
 .ml-film-cover{justify-content:flex-end;background:none}.ml-film-cover .ml-play-label{margin-top:0;background:#112b2df2}
+/* Narrow covers use readable documents instead of clipping a scaled desktop spread. */
+@media(max-width:430px){
+  .ml-kit-display{height:auto;margin-top:24px;padding-bottom:14px}
+  .ml-kit-display:before{display:none}
+  .ml-display-caption{position:static;display:block;font-size:12px;text-align:left;margin-bottom:16px}
+  .ml-kit-stage{position:relative;top:auto;left:auto;width:100%;height:auto;transform:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+  .ml-folio{display:none}
+  .ml-letter,.ml-notice,.ml-worksheet{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:100%;min-height:0;transform:none;padding:18px 14px;min-width:0}
+  .ml-letter{grid-column:1/-1;grid-row:1;padding:20px}
+  .ml-letter:before,.ml-letter-lines{display:none}
+  .ml-letter h2{font-size:21px;line-height:1.5}
+  .ml-letter p{font-size:16px;line-height:1.8;margin-top:15px}
+  .ml-letter p br{display:none}
+  .ml-pencil-note{font-size:12px;margin-top:15px}
+  .ml-document-top{font-size:11px;gap:8px;margin-bottom:15px}
+  .ml-notice{grid-column:1;grid-row:2;align-self:stretch}
+  .ml-notice h2{font-size:19px;line-height:1.5}
+  .ml-notice li{font-size:15px;gap:10px;padding-block:7px}
+  .ml-review-stamp{position:static;display:inline-block;margin-top:12px;font-size:11px;transform:rotate(-4deg)}
+  .ml-worksheet{grid-column:2;grid-row:2;align-self:stretch}
+  .ml-worksheet h2{font-size:16px;line-height:1.6;white-space:normal;margin-bottom:16px}
+  .ml-worksheet>div:not(.ml-document-top){flex-direction:column;align-items:stretch;gap:2px;font-size:13px;margin-top:12px}
+  .ml-worksheet i{flex:none;height:13px;width:100%}
+  .ml-envelope{position:relative;left:auto;right:auto;top:auto;bottom:auto;grid-column:1/-1;grid-row:3;transform:none;width:100%;height:164px;margin-top:2px}
+  .ml-envelope>strong{font-size:25px;bottom:35px;left:22px}
+  .ml-envelope>span{left:22px;bottom:81px}
+  .ml-envelope>small{left:22px;bottom:12px;font-size:11px}
+  .ml-envelope>img{top:64px;right:22px}
+}
+.ml-brief>div>p,.ml-training-copy>p:not(.ml-label):not(.ml-training-note),.ml-sample p,.ml-sample-label p,.ml-faq details>p{color:#526e49}

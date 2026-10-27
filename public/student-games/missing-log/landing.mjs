@@ -24,6 +24,7 @@ const sceneData = [
 const image = document.querySelector('#comic-image');
 const caption = document.querySelector('#comic-caption');
 for (const button of document.querySelectorAll('[data-scene]')) {
+  button.setAttribute('aria-controls', 'comic-image comic-caption');
   button.addEventListener('click', () => {
     const scene = sceneData[Number(button.dataset.scene)];
     if (!scene) return;

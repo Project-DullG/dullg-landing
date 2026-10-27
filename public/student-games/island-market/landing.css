@@ -10,3 +10,5 @@
 /* Narrow screens keep the product name and first cards in the same opening view. */
 @media(max-width:760px){.mp-hero h1{font-size:66px;letter-spacing:-4.5px;line-height:1.22}.mp-hero h1 br{display:none}.mp-lead{font-size:22px!important;line-height:1.5!important;margin-top:20px}.mp-demo-bottom>p{font-size:14px!important}.mp-demo-copy .mp-demo-footnote{font-size:12px!important}}
 @media(max-width:370px){.mp-hero h1{font-size:60px;letter-spacing:-4px}}
+/* Keep the ornamental ring within the narrow product display. */
+@media(max-width:760px){.mp-display-ring{width:min(340px,100%);height:auto;aspect-ratio:1;left:50%;transform:translateX(-50%)}}

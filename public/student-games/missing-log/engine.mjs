@@ -1,4 +1,4 @@
-import { LOCATIONS, LOCATION_BY_ID, FINAL_CAUSES, FINAL_EVIDENCE, FINAL_CORRECTIONS, SOLUTION } from './content.mjs?v=quality-final-20261027';
+import { LOCATIONS, LOCATION_BY_ID, FINAL_CAUSES, FINAL_EVIDENCE, FINAL_CORRECTIONS, SOLUTION } from './content.mjs?v=deep-review-20261027';
 
 export const VERSION = 1;
 const ids = LOCATIONS.map(location => location.id);

@@ -16,7 +16,7 @@ export function StudentGameShowcase() {
           </h2>
         </div>
         <a href="/student-games/index.html">
-          {en ? "Visit the showcase (Korean) →" : "전시 페이지 둘러보기 →"}
+          {en ? "Visit the game gallery (Korean) →" : "학생 게임 갤러리 →"}
         </a>
       </div>
       <div className={styles.grid}>
@@ -28,7 +28,7 @@ export function StudentGameShowcase() {
                 alt={en ? game.titleEn : game.title}
                 width={1536}
                 height={1024}
-                sizes="(max-width: 760px) 100vw, 33vw"
+                sizes="(max-width: 520px) 100vw, (max-width: 760px) 38vw, 33vw"
               />
               <span className={styles.coverLabel}><span>0{index + 1}</span>{en ? game.genreEn : game.genre}</span>
             </a>

@@ -1,0 +1,13 @@
+/* Keep the page controls in the viewport; only the physical A4 sheets pan. */
+@media screen{
+  .print-page{overflow-x:hidden}
+  .print-page main{width:100%;max-width:100%;min-width:0}
+  .print-page #print-sheets{width:100%;max-width:100%;min-width:0;overflow-x:auto;overscroll-behavior-inline:contain;padding-bottom:12px;-webkit-overflow-scrolling:touch}
+  .print-page #print-sheets:focus-visible{outline:3px solid #397a80;outline-offset:-3px}
+  .print-info .print-preview-note{font-size:14px;line-height:1.65;color:#426a6d;margin-top:13px}
+}
+@media print{
+  .print-page{overflow:visible!important}
+  .print-page main,.print-page #print-sheets{width:auto;max-width:none;min-width:0;overflow:visible!important;padding:0!important}
+  .print-preview-note{display:none!important}
+}

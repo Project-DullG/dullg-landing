@@ -1,4 +1,4 @@
-import{MATERIALS,RECIPES}from'./engine.mjs';import{ingredientArt,dishArt,materialNames}from './art.mjs?v=quality-final-20261027';
+import{MATERIALS,RECIPES}from'./engine.mjs';import{ingredientArt,dishArt,materialNames}from './art.mjs?v=deep-review-20261027';
 export const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const recipeById=Object.fromEntries(RECIPES.map(r=>[r.id,r]));
 export const needsText=r=>Object.entries(r.needs).map(([id,n])=>`${materialNames[id]} ${n}`).join(' + ');

@@ -16,3 +16,6 @@
 @media print{.include-solutions .solution-content{display:block!important}.screen-solution-controls{display:none!important}}
 
 .wordmark small,.table-page .wordmark small{font-size:14px;line-height:1.5;letter-spacing:0;font-weight:500}
+/* Screen preview and inclusion in the printed set are independent choices. */
+@media screen{.show-solutions .solution-sheets{display:block}}
+@media screen and (max-width:430px){.print-page .token-grid{display:grid;grid-template-columns:repeat(3,52px);gap:12px}}

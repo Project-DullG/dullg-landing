@@ -1,7 +1,8 @@
-import { LOCATIONS, LOCATION_BY_ID, INTRO, RULES, ROLES, FINAL_CAUSES, FINAL_EVIDENCE, FINAL_CORRECTIONS, SOLUTION, ENDING } from './content.mjs?v=quality-final-20261027';
+import { LOCATIONS, LOCATION_BY_ID, INTRO, RULES, ROLES, FINAL_CAUSES, FINAL_EVIDENCE, FINAL_CORRECTIONS, SOLUTION, ENDING } from './content.mjs?v=deep-review-20261027';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const names = ids => ids.map(id => LOCATION_BY_ID[id].shortName).join(' → ');
+const scrollBehavior = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 const options = values => `<div class="print-options">${values.map(value => `<div>□ ${esc(value.text)}</div>`).join('')}</div>`;
 const docHTML = doc => `<article class="evidence-document"><div class="document-meta"><span>${esc(doc.id)} / ${esc(doc.type)}</span><span>창작 조사 자료</span></div><h3>${esc(doc.title)}</h3><div class="document-body">${esc(doc.body)}</div></article>`;
 const blankOrder = () => `<div class="blank-order">${[1, 2, 3, 4].map(number => `<div>${number}<br><br></div>`).join('')}</div>`;
@@ -22,5 +23,5 @@ document.querySelector('#print-button').addEventListener('click', () => window.p
 document.querySelector('#show-solutions').addEventListener('click', event => {
   const shown = document.body.classList.toggle('show-solutions');
   event.target.textContent = shown ? '화면에서 해설 접기' : '준비용 해설 화면에서 보기';
-  if (shown) document.querySelector('.solution-sheets').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (shown) document.querySelector('.solution-sheets').scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
 });

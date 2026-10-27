@@ -41,15 +41,28 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
   const el=id=>doc.getElementById(id);
   const voteButtons=[...doc.querySelectorAll('[data-vote-game]')];
   const countNodes=[...doc.querySelectorAll('[data-vote-count]')];
+  const totalNodes=[...doc.querySelectorAll('[data-gallery-total]')];
   const query=new URLSearchParams(win.location.search);
   const selected=validGame(query.get('pick'))?query.get('pick'):GAME_IDS[0];
   const state={snapshot:null,status:'loading',busy:false,reading:false,unknown:false,selected,drafts:new Map(),deleteArmed:false,notice:'실제 투표와 응원을 불러오고 있습니다.',error:false,galleryNotice:'',galleryError:false,galleryKind:null,lastRead:0,cooldownUntil:0};
   let readController=null,readVersion=0,cooldownTimer=null,destroyed=false;
-  const ui={galleryStatus:el('gallery-action-status'),total:el('gallery-total'),account:el('gallery-account-state'),login:el('gallery-login'),logout:el('gallery-logout'),voteState:el('gallery-vote-state'),notice:el('participation-notice'),retry:el('participation-retry'),select:el('cheer-game'),list:el('cheer-list'),signin:el('cheer-signin-note'),form:el('cheer-form'),formTitle:el('cheer-form-title'),nickname:el('cheer-nickname'),body:el('cheer-body'),counter:el('cheer-body-count'),submit:el('cheer-submit'),delete:el('cheer-delete'),confirm:el('cheer-delete-confirm'),yes:el('cheer-delete-yes'),no:el('cheer-delete-no')};
+  const ui={dockState:el('vote-dock-state'),dockCount:el('vote-dock-count'),dockLink:el('vote-dock-link'),introState:el('vote-intro-state'),galleryStatus:el('gallery-action-status'),total:el('gallery-total'),account:el('gallery-account-state'),login:el('gallery-login'),logout:el('gallery-logout'),voteState:el('gallery-vote-state'),notice:el('participation-notice'),retry:el('participation-retry'),select:el('cheer-game'),list:el('cheer-list'),signin:el('cheer-signin-note'),form:el('cheer-form'),formTitle:el('cheer-form-title'),nickname:el('cheer-nickname'),body:el('cheer-body'),counter:el('cheer-body-count'),submit:el('cheer-submit'),delete:el('cheer-delete'),confirm:el('cheer-delete-confirm'),yes:el('cheer-delete-yes'),no:el('cheer-delete-no')};
   ui.select.value=selected;
   function draftFor(id){
     if(!state.drafts.has(id))state.drafts.set(id,{nickname:'',body:'',dirty:false});
     return state.drafts.get(id);
+  }
+  function setText(node,text){if(node&&node.textContent!==text)node.textContent=text;}
+  function renderSummaries(snapshot){
+    const count=snapshot?countFormat.format(snapshot.totalVotes):'—';
+    for(const node of totalNodes)setText(node,count);
+    setText(ui.dockCount,'총 '+count+'표');
+    const caption=state.unknown?'요청 결과를 다시 확인해 주세요.':state.status==='error'?'투표 현황을 불러오지 못했습니다.':!snapshot?'투표 현황을 불러오는 중입니다.':!snapshot.signedIn?'로그인 후 한 작품에 한 표':snapshot.myVote?'내 선택: '+GAME_NAMES[snapshot.myVote]:'마음에 드는 작품을 골라주세요';
+    setText(ui.dockState,caption);setText(ui.introState,caption);
+    if(ui.dockLink){
+      ui.dockLink.href='#gallery';
+      setText(ui.dockLink,snapshot?.myVote?'투표 바꾸기':'지금 투표하기');
+    }
   }
   function setGalleryNotice(text,error=false,kind='vote'){
     state.galleryNotice=text;state.galleryError=error;state.galleryKind=text?kind:null;
@@ -144,10 +157,11 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
       const id=button.dataset.voteGame,chosen=snapshot?.myVote===id;
       button.setAttribute('aria-pressed',String(chosen));
       button.disabled=state.busy||state.reading||state.status!=='ready'||state.unknown||!snapshot;
-      button.textContent=!snapshot?(state.status==='error'?'불러오기 필요':'불러오는 중'):!snapshot.signedIn?'로그인하고 투표':chosen?'내가 선택한 작품':snapshot.myVote?'이 작품으로 변경':'이 작품에 투표';
-      button.setAttribute('aria-label',GAME_NAMES[id]+', '+button.textContent);
+      button.textContent=!snapshot?(state.status==='error'?'불러오기 필요':'불러오는 중'):!snapshot.signedIn?'이 작품에 투표하기':chosen?'내가 투표한 작품':snapshot.myVote?'이 작품으로 변경':'이 작품에 투표하기';
+      button.setAttribute('aria-label',GAME_NAMES[id]+', '+button.textContent+(snapshot&&!snapshot.signedIn?', Google 로그인 후 참여':''));
     }
     ui.total.textContent=snapshot?'모인 마음 '+countFormat.format(snapshot.totalVotes)+'표':state.status==='error'?'집계를 불러오지 못했습니다':'집계를 불러오는 중';
+    renderSummaries(snapshot);
     ui.account.textContent=!snapshot?'참여 상태를 확인하고 있습니다.':snapshot.signedIn?'로그인한 계정으로 참여하고 있습니다.':'로그인하면 투표와 응원을 남길 수 있습니다.';
     ui.login.href=loginURL(state.selected);ui.login.hidden=!snapshot||snapshot.signedIn;
     ui.logout.hidden=!snapshot?.signedIn;

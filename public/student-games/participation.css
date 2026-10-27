@@ -583,3 +583,72 @@
 .cheer-compose textarea[aria-invalid="true"] {
   border-color: #b44935;
 }
+
+/* Each cover ends with a single unmistakable ballot action. */
+.gallery-vote {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  padding: 17px 24px 18px;
+  background: #fff5ee;
+  border-top: 1px solid #ead4c8;
+}
+.gallery-vote > p {
+  flex-wrap: wrap;
+  gap: 6px;
+  width: 100%;
+}
+.gallery-vote .vote-count-label {
+  margin-right: auto;
+  font-size: 15px;
+  color: #7e4a3b;
+  font-weight: 650;
+}
+.gallery-vote strong {
+  min-width: 0;
+  font-size: 32px;
+  font-weight: 800;
+}
+.gallery-vote button {
+  width: 100%;
+  max-width: 100%;
+  min-height: 54px;
+  padding: 13px 16px;
+  border-color: #b44935;
+  background: #b44935;
+  color: white;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 800;
+}
+.gallery-vote button:hover {
+  border-color: #963a2a;
+  background: #963a2a;
+}
+.gallery-vote button[aria-pressed="true"] {
+  background: #102e42;
+  border-color: #102e42;
+}
+.gallery-vote button:disabled {
+  background: #e8dfd7;
+  color: #645e58;
+  border-color: #d5c7bc;
+}
+.participation-pick button {
+  background: #b44935;
+  border-color: #b44935;
+  color: white;
+}
+.participation-pick button:hover {
+  background: #963a2a;
+  border-color: #963a2a;
+}
+@media (max-width: 640px) {
+  .gallery-vote {
+    padding-inline: 22px;
+  }
+  .gallery-vote button {
+    min-height: 54px;
+    font-size: 17px;
+  }
+}

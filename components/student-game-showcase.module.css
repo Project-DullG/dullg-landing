@@ -351,3 +351,29 @@
     transform: none;
   }
 }
+
+/* Voting is the primary action; the two game links remain secondary. */
+.links {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.links a:not(.voteLink) {
+  border-color: var(--showcase-line);
+  background: #fff;
+  color: var(--showcase-ocean);
+}
+
+.links a.voteLink {
+  grid-column: 1 / -1;
+  min-height: 54px;
+  border-color: #b44935;
+  background: #b44935;
+  color: #fff;
+  font-size: 16px;
+}
+
+@media (max-width: 680px) {
+  .links a.voteLink {
+    min-height: 48px;
+  }
+}

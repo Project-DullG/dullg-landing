@@ -16,7 +16,7 @@ export function StudentGameShowcase() {
           </h2>
         </div>
         <a href="/student-games/index.html">
-          {en ? "Visit the game gallery (Korean) →" : "학생 게임 갤러리 →"}
+          {en ? "Explore and vote →" : "작품 보고 투표하기 →"}
         </a>
       </div>
       <div className={styles.grid}>
@@ -45,6 +45,9 @@ export function StudentGameShowcase() {
               </p>
               <p className={styles.contents}>{en ? game.contentsEn : game.contents}</p>
               <div className={styles.links}>
+                <a className={styles.voteLink} href={`/student-games/index.html?participate=1&pick=${game.slug}#vote`}>
+                  {en ? "Vote for this game" : "이 작품 투표하기"}
+                </a>
                 <a href={`/student-games/${game.slug}/index.html`}>
                   {en ? "About the game" : "작품 소개"}
                 </a>

@@ -28,7 +28,7 @@ export function StudentGameShowcase() {
                 alt={en ? game.titleEn : game.title}
                 width={1536}
                 height={1024}
-                sizes="(max-width: 520px) 100vw, (max-width: 760px) 38vw, 33vw"
+                sizes="(max-width: 680px) 100vw, (max-width: 1100px) 50vw, 33vw"
               />
               <span className={styles.coverLabel}><span>0{index + 1}</span>{en ? game.genreEn : game.genre}</span>
             </a>

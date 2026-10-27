@@ -43,15 +43,28 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
   const countNodes=[...doc.querySelectorAll('[data-vote-count]')];
   const query=new URLSearchParams(win.location.search);
   const selected=validGame(query.get('pick'))?query.get('pick'):GAME_IDS[0];
-  const state={snapshot:null,status:'loading',busy:false,reading:false,unknown:false,selected,drafts:new Map(),deleteArmed:false,notice:'실제 투표와 응원을 불러오고 있습니다.',error:false,lastRead:0,cooldownUntil:0};
+  const state={snapshot:null,status:'loading',busy:false,reading:false,unknown:false,selected,drafts:new Map(),deleteArmed:false,notice:'실제 투표와 응원을 불러오고 있습니다.',error:false,galleryNotice:'',galleryError:false,galleryKind:null,lastRead:0,cooldownUntil:0};
   let readController=null,readVersion=0,cooldownTimer=null,destroyed=false;
-  const ui={total:el('gallery-total'),account:el('gallery-account-state'),login:el('gallery-login'),logout:el('gallery-logout'),voteState:el('gallery-vote-state'),notice:el('participation-notice'),retry:el('participation-retry'),select:el('cheer-game'),list:el('cheer-list'),signin:el('cheer-signin-note'),form:el('cheer-form'),formTitle:el('cheer-form-title'),nickname:el('cheer-nickname'),body:el('cheer-body'),counter:el('cheer-body-count'),submit:el('cheer-submit'),delete:el('cheer-delete'),confirm:el('cheer-delete-confirm'),yes:el('cheer-delete-yes'),no:el('cheer-delete-no')};
+  const ui={galleryStatus:el('gallery-action-status'),total:el('gallery-total'),account:el('gallery-account-state'),login:el('gallery-login'),logout:el('gallery-logout'),voteState:el('gallery-vote-state'),notice:el('participation-notice'),retry:el('participation-retry'),select:el('cheer-game'),list:el('cheer-list'),signin:el('cheer-signin-note'),form:el('cheer-form'),formTitle:el('cheer-form-title'),nickname:el('cheer-nickname'),body:el('cheer-body'),counter:el('cheer-body-count'),submit:el('cheer-submit'),delete:el('cheer-delete'),confirm:el('cheer-delete-confirm'),yes:el('cheer-delete-yes'),no:el('cheer-delete-no')};
   ui.select.value=selected;
   function draftFor(id){
     if(!state.drafts.has(id))state.drafts.set(id,{nickname:'',body:'',dirty:false});
     return state.drafts.get(id);
   }
-  function setNotice(text,error=false){state.notice=text;state.error=error;ui.notice.textContent=text;ui.notice.parentElement.dataset.error=String(error);}
+  function setGalleryNotice(text,error=false,kind='vote'){
+    state.galleryNotice=text;state.galleryError=error;state.galleryKind=text?kind:null;
+    if(!ui.galleryStatus)return;
+    if(ui.galleryStatus.textContent!==text)ui.galleryStatus.textContent=text;
+    ui.galleryStatus.hidden=!text;
+    ui.galleryStatus.dataset.error=String(error);
+  }
+  function setNotice(text,error=false,mirror=false,kind='vote'){
+    state.notice=text;state.error=error;
+    if(ui.notice.textContent!==text)ui.notice.textContent=text;
+    ui.notice.parentElement.dataset.error=String(error);
+    ui.notice.parentElement.hidden=!text&&ui.retry.hidden;
+    if(mirror)setGalleryNotice(text,error,kind);
+  }
   function clearPersonal(){
     for(const draft of state.drafts.values())draft.dirty=true;
     if(state.snapshot)state.snapshot={...state.snapshot,signedIn:false,accountKey:null,myVote:null,mine:Object.fromEntries(GAME_IDS.map(id=>[id,null])),cheers:Object.fromEntries(GAME_IDS.map(id=>[id,state.snapshot.cheers[id].map(item=>({...item,isMine:false}))]))};
@@ -62,7 +75,7 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
     if(previous&&previous!==snapshot.accountKey){
       for(const draft of state.drafts.values())draft.dirty=true;
       state.deleteArmed=false;
-      setNotice('로그인 계정이 바뀌었습니다. 내 선택과 응원을 확인한 뒤 다시 참여해 주세요.');
+      setNotice('로그인 계정이 바뀌었습니다. 내 선택과 응원을 확인한 뒤 다시 참여해 주세요.',false,true,'account');
     }
     state.snapshot=snapshot;state.status='ready';state.unknown=false;state.lastRead=Date.now();
   }
@@ -71,6 +84,12 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
     const date=new Date(value);
     if(!Number.isFinite(date.getTime()))return '';
     return new Intl.DateTimeFormat('ko-KR',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(date);
+  }
+  function updateCounter(body){
+    const length=Array.from(body).length;
+    ui.counter.textContent=length+' / 140자';
+    ui.counter.dataset.overLimit=String(length>140);
+    ui.body.setAttribute('aria-invalid',String(length>140));
   }
   function renderCheers(){
     const snapshot=state.snapshot;
@@ -100,10 +119,10 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
     if(ui.body.value!==draft.body)ui.body.value=draft.body;
     ui.form.hidden=!signedIn;
     ui.signin.hidden=signedIn;
-    ui.signin.textContent=snapshot?'응원은 로그인 후 남길 수 있습니다. 공개된 응원은 누구나 읽을 수 있어요.':'참여 상태를 확인한 뒤 응원을 남길 수 있습니다.';
+    ui.signin.textContent='공개된 응원은 누구나 읽을 수 있어요.';
     ui.formTitle.textContent=own?'내 응원 수정하기':'내 응원 남기기';
     ui.submit.textContent=state.busy?'처리 중':own?'응원 수정하기':'응원 남기기';
-    ui.counter.textContent=Array.from(draft.body).length+' / 140자';
+    updateCounter(draft.body);
     const unavailable=state.busy||state.reading||state.status!=='ready'||state.unknown;
     ui.nickname.disabled=state.busy;ui.body.disabled=state.busy;
     ui.submit.disabled=unavailable||Date.now()<state.cooldownUntil;
@@ -114,6 +133,7 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
   }
   function render(){
     const snapshot=state.snapshot;
+    setGalleryNotice(state.galleryNotice,state.galleryError,state.galleryKind??'vote');
     for(const node of countNodes){
       const id=node.dataset.voteCount;
       node.textContent=snapshot?countFormat.format(snapshot.counts[id]):'—';
@@ -131,7 +151,8 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
     ui.account.textContent=!snapshot?'참여 상태를 확인하고 있습니다.':snapshot.signedIn?'로그인한 계정으로 참여하고 있습니다.':'로그인하면 투표와 응원을 남길 수 있습니다.';
     ui.login.href=loginURL(state.selected);ui.login.hidden=!snapshot||snapshot.signedIn;
     ui.logout.hidden=!snapshot?.signedIn;
-    ui.voteState.textContent=!snapshot?'':snapshot.myVote?'내가 선택한 작품: '+GAME_NAMES[snapshot.myVote]:snapshot.signedIn?'아직 선택한 작품이 없습니다. 위의 포스터에서 한 작품을 골라주세요.':'위 포스터에서 실제 투표 현황을 볼 수 있습니다.';
+    ui.voteState.textContent=!snapshot?'':snapshot.myVote?'내가 선택한 작품: '+GAME_NAMES[snapshot.myVote]:snapshot.signedIn?'아직 선택한 작품이 없습니다. 세 작품 중 한 작품을 골라주세요.':'';
+    ui.voteState.hidden=!ui.voteState.textContent;
     ui.retry.hidden=state.status!=='error'&&!state.unknown;
     ui.retry.disabled=state.busy||state.reading;
     setNotice(state.notice,state.error);
@@ -160,8 +181,9 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
       if(version!==readVersion||destroyed)return false;
       const previousAccount=state.snapshot?.accountKey;
       applySnapshot(result.snapshot);
-      if(!previousAccount||previousAccount===result.snapshot.accountKey){
-        if(!silent&&!afterWrite)setNotice('집계와 응원을 불러왔습니다.');
+      if((!previousAccount||previousAccount===result.snapshot.accountKey)&&!afterWrite){
+        setNotice('');
+        if(state.galleryKind==='load')setGalleryNotice('');
       }
       return true;
     }catch(error){
@@ -169,6 +191,7 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
       state.status='error';
       if(error.status===401||error.status===409)clearPersonal();
       setNotice(afterWrite?'요청 처리 결과를 아직 확인하지 못했습니다. 다시 불러와 내 선택과 응원을 확인해 주세요.':'집계와 응원을 불러오지 못했습니다. 작품 소개와 게임은 계속 이용할 수 있습니다.',true);
+      setGalleryNotice(afterWrite?'요청 결과를 아직 확인하지 못했습니다. 아래 투표와 응원 영역에서 다시 불러와 주세요.':'투표 현황을 불러오지 못했습니다. 아래 투표와 응원 영역에서 다시 불러와 주세요.',true,'load');
       return false;
     }finally{
       if(version===readVersion){state.reading=false;render();}
@@ -185,7 +208,7 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
     if(state.busy||state.reading||state.status!=='ready'||state.unknown||!snapshot?.signedIn)return;
     readVersion++;readController?.abort();state.reading=false;
     state.busy=true;state.deleteArmed=false;
-    setNotice(action==='vote'?'내 선택을 저장하고 있습니다.':action==='cheer'?'응원을 저장하고 있습니다.':'내 응원을 삭제하고 있습니다.');render();
+    setNotice(action==='vote'?'내 선택을 저장하고 있습니다.':action==='cheer'?'응원을 저장하고 있습니다.':'내 응원을 삭제하고 있습니다.',false,action==='vote');render();
     const body={action,gameId,accountKey:snapshot.accountKey,...fields};
     try{
       const result=await request('POST',body);
@@ -194,19 +217,19 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
         if(action==='delete-cheer'){draft.nickname='';draft.body='';}
       }
       applySnapshot(result.snapshot);
-      setNotice(result.notice||(action==='vote'?'내 선택을 저장했습니다.':action==='cheer'?'응원을 저장했습니다.':'내 응원을 삭제했습니다.'));
+      setNotice(result.notice||(action==='vote'?'내 선택을 저장했습니다.':action==='cheer'?'응원을 저장했습니다.':'내 응원을 삭제했습니다.'),false,action==='vote');
     }catch(error){
       if(error.status===401||error.status===409){
         clearPersonal();state.status='loading';
-        setNotice('로그인 상태가 바뀌었습니다. 최신 상태를 확인하고 있습니다.');render();
+        setNotice('로그인 상태가 바뀌었습니다. 최신 상태를 확인하고 있습니다.',false,action==='vote');render();
         const ok=await refresh({silent:true,afterWrite:true});
-        if(ok)setNotice('로그인 상태를 다시 확인했습니다. 내 선택과 응원을 확인한 뒤 다시 눌러 주세요.',true);
+        if(ok)setNotice('로그인 상태를 다시 확인했습니다. 내 선택과 응원을 확인한 뒤 다시 눌러 주세요.',true,action==='vote');
       }else if(error.status>=400&&error.status<500){
         if(error.status===429)cooldown(error.retryAfter);
-        setNotice(error.message,true);
+        setNotice(error.message,true,action==='vote');
       }else{
         state.unknown=true;
-        setNotice('응답이 늦어 처리 결과를 다시 확인하고 있습니다. 잠시 기다려 주세요.');render();
+        setNotice('응답이 늦어 처리 결과를 다시 확인하고 있습니다. 잠시 기다려 주세요.',false,action==='vote');render();
         const ok=await refresh({silent:true,afterWrite:true});
         if(ok){
           const current=state.snapshot;
@@ -215,8 +238,8 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
           const confirmed=sameAccount&&(action==='vote'?current.myVote===gameId:action==='delete-cheer'?!own:own?.nickname===fields.nickname&&own?.body===fields.body);
           if(confirmed){
             if(action==='cheer'||action==='delete-cheer')draftFor(gameId).dirty=false;
-            setNotice(action==='vote'?'내 선택이 저장된 것을 확인했습니다.':action==='cheer'?'응원이 저장된 것을 확인했습니다.':'내 응원이 삭제된 것을 확인했습니다.');
-          }else setNotice('최신 상태를 다시 불러왔습니다. 내 선택과 응원을 확인한 뒤 다시 참여해 주세요.',true);
+            setNotice(action==='vote'?'내 선택이 저장된 것을 확인했습니다.':action==='cheer'?'응원이 저장된 것을 확인했습니다.':'내 응원이 삭제된 것을 확인했습니다.',false,action==='vote');
+          }else setNotice('최신 상태를 다시 불러왔습니다. 내 선택과 응원을 확인한 뒤 다시 참여해 주세요.',true,action==='vote');
         }
       }
     }finally{state.busy=false;render();}
@@ -226,11 +249,11 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
     if(!state.snapshot||state.busy||state.reading)return;
     state.selected=id;ui.select.value=id;state.deleteArmed=false;render();
     if(!state.snapshot.signedIn){win.location.assign(loginURL(id));return;}
-    if(state.snapshot.myVote===id){setNotice('이미 이 작품을 선택했습니다. 다른 작품을 누르면 표가 옮겨갑니다.');return;}
+    if(state.snapshot.myVote===id){setNotice('이미 이 작품을 선택했습니다. 다른 작품을 누르면 표가 옮겨갑니다.',false,true);return;}
     void write('vote',id);
   });
   ui.select.addEventListener('change',()=>{state.selected=validGame(ui.select.value)?ui.select.value:GAME_IDS[0];state.deleteArmed=false;render();});
-  function saveDraft(){const draft=draftFor(state.selected);draft.nickname=ui.nickname.value;draft.body=ui.body.value;draft.dirty=true;ui.counter.textContent=Array.from(draft.body).length+' / 140자';}
+  function saveDraft(){const draft=draftFor(state.selected);draft.nickname=ui.nickname.value;draft.body=ui.body.value;draft.dirty=true;updateCounter(draft.body);}
   ui.nickname.addEventListener('input',saveDraft);ui.body.addEventListener('input',saveDraft);
   ui.form.addEventListener('submit',event=>{
     event.preventDefault();saveDraft();
@@ -249,11 +272,11 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
   const onPageShow=event=>{if(event.persisted)onFocus();};
   win.addEventListener('focus',onFocus);win.addEventListener('pageshow',onPageShow);
   render();
-  void refresh().then(ok=>{
+  void refresh().then(()=>{
     if(query.get('participate')!=='1')return;
-    const target=voteButtons.find(button=>button.dataset.voteGame===selected);
-    if(target){target.closest('.gallery-entry')?.setAttribute('data-returned','true');win.requestAnimationFrame(()=>{target.scrollIntoView({block:'center',behavior:'auto'});target.focus({preventScroll:true});});}
-    if(ok)setNotice(state.snapshot.signedIn?'작품을 확인한 뒤 투표 버튼을 눌러 주세요.':'로그인하면 선택한 작품에 투표하고 응원을 남길 수 있습니다.');
+    const inParticipation=win.location.hash==='#vote'&&voteButtons.find(button=>button.dataset.voteGame===selected&&root.contains(button));
+    const target=inParticipation||voteButtons.find(button=>button.dataset.voteGame===selected);
+    if(target){win.requestAnimationFrame(()=>{target.scrollIntoView({block:'center',behavior:'auto'});target.focus({preventScroll:true});});}
   });
   return {refresh,getState:()=>state,destroy(){destroyed=true;readVersion++;readController?.abort();win.clearTimeout(cooldownTimer);win.removeEventListener('focus',onFocus);win.removeEventListener('pageshow',onPageShow);}};
 }

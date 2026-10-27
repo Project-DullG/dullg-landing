@@ -1,0 +1,110 @@
+{
+  "game": "island-market",
+  "duration": 90,
+  "video": "intro.mp4",
+  "poster": "tabletop-poster.webp",
+  "captions": "intro.ko.vtt",
+  "chapterFile": "intro.chapters.json",
+  "format": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1280,
+        "height": 720,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "24/1"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "channels": 2,
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "90.000000",
+      "size": "8899871"
+    }
+  },
+  "production": {
+    "method": "Native SVG printed-component tabletop demonstration; camera pan/zoom and physical card, document, envelope, pawn and coin motion. Raster illustrations reuse the shared ImageGen artwork.",
+    "livePhysicalProductPhotography": false,
+    "frames": "RGB frames streamed through stdin; no full-frame sequence stored on disk",
+    "encoder": "H264, yuv420p, AAC stereo, 24fps, faststart",
+    "workers": "sharp concurrency 1; ffmpeg threads 1",
+    "temporaryOutput": "intro-tabletop.tmp.mp4, renamed to intro.mp4 only after encoder success"
+  },
+  "credits": {
+    "studentConcept": "이신우, 정순혁",
+    "tableTexture": "Existing Ulleung Marble table-walnut.png asset",
+    "illustration": "Existing shared-art/*.webp assets generated with built-in ImageGen for this project",
+    "music": "Existing music.mp3 reused, looped, 2-second fade in and 4-second fade out",
+    "font": "Existing PretendardVariable.woff2 and NanumMyeongjoBold.ttf, text rendered as glyph paths"
+  },
+  "artworkFingerprints": {
+    "squid": "5b7fade9b5f91676c9fa2860191b72b641aa5cf9090deb5b808e9b35ff7cc6a6",
+    "leaves": "fab1171b0a176e5876dfef1be2b9d3de23c95996fb19ed574d5aaadec4237995",
+    "mussel": "b70c65f8949681b0f6e810b4b420a81fca55c7cefc26e67f02b0c638b83ee87d",
+    "potato": "c7661f5b8fbcc18ced709e150eae0a75e3c6eb03b9c52bdc6a195e9db8bcf765",
+    "shrimp": "8800a3bb2c7fc5b8f2d2739bdb8dc5e99ab418aa0c7bd13400fba7f8dfc096de",
+    "rice": "54a3cb76728b89c472adb4f155d1e6515d4ddaf170cd2298f4da5faa60c6dc2f",
+    "D01": "210246043d5add7c7be4b55f7ac5d95b58865b125eeedc786de52c5cd786b4ce",
+    "D02": "7224542e7d4dc9d61492e9da5f2f39b14113b6495d7866c2d5da2ba7138246a8",
+    "D03": "28bc4ab1c0b64856a7e5075f6516971bb7ed139431b2bd0190df3e829098b78d",
+    "D04": "33f4920aa71d911aa8df2bc5fa0d05d6c6a906605d5b7d66ddb4c6b9f92154c7",
+    "D05": "a0a1c314a1dc227947fea1f3ad8959459cbddd4933ec08c8a91fca87ba4d9b86",
+    "D06": "3911a510d0f873360bd12ed67f76c7d536466a0f6b1d0242a0d6e735829f298a",
+    "D07": "39e1e7f79c8434ae20902b9bc775f19fccd493edcede75a3e7a0156ddac66ed0",
+    "D08": "1bbe2bfaf07e67f9e01368e1130c75bb1c8bf81c80c67d18a21e9e995422074e",
+    "D09": "55851531b858263b6ea2345b88306f9e7c0ef5bdd38f025faa324490591e3afc",
+    "D10": "cf8b7cbbf69cb328af88e72955df4cceb53cde21695cdf3e02fde21bf80a0222",
+    "D11": "23a3ae9cc5575bd00a04a0f9a171a87af7d3f050a07b611cef6e70b296aebacb",
+    "D12": "7d0d287fa4dd54b9d7a8918c958c6bde87a40d4a2c67a3ba7a9a3e67b65c8dc9"
+  },
+  "hashes": {
+    "video": "337293af2b7ac872f7959ecf8bd907906e1464d340737a4bf65d80642bd820e8",
+    "poster": "e695a9c9cffe9def409af8da48e8f5bd01829369be25b9f02caed512e2b8337d",
+    "captions": "faee658c556183425ea738e500fa82be079eacaab201cc0307bcc7a0c3fa4c84",
+    "chapters": "629d0c42e64e35829c3ec9e3c8a1b7f5eddf1adf8ea91692a81333e92bf799fe",
+    "preservedMusic": "832d9eba242da2a35a1c34154ec3b8e1ab88ff4cff5b50d007d5538dfdd233c1"
+  },
+  "validation": {
+    "ffprobe": true,
+    "middleDotCount": 0,
+    "spacesBeforeCommas": 0,
+    "audioTrackUnchanged": true,
+    "musicFileUnchanged": true,
+    "aacSha256": "e87d4d83aed0a51b6f01b5968653d446b2ae211b04f3d978b114612560c2460e",
+    "renderedCopyLedger": ".design-audit/student-games-quality-up/media/island-market-rendered-copy.json",
+    "renderedStringCount": 232,
+    "eightContinuousChapters": true,
+    "eightVttCues": true,
+    "burnedInCaptionFontPx": 24,
+    "maxCaptionLines": 2,
+    "maxMeasuredCaptionWidthPx": 784,
+    "expectedPrimaryCardTitlePx": 32.3,
+    "encodedSampleFrames": [
+      ".design-audit/student-games-quality-up/qa/tabletop-video/island-market-encoded-05.jpg",
+      ".design-audit/student-games-quality-up/qa/tabletop-video/island-market-encoded-37.jpg",
+      ".design-audit/student-games-quality-up/qa/tabletop-video/island-market-encoded-53.jpg",
+      ".design-audit/student-games-quality-up/qa/tabletop-video/island-market-encoded-59.jpg",
+      ".design-audit/student-games-quality-up/qa/tabletop-video/island-market-encoded-85.jpg"
+    ],
+    "sourceRulesReview": "Engine and print source checked; independent agent reviewed storyboard and sample frames",
+    "humanPlaytest": "Not part of video production",
+    "copyFinalEncodedFrame": ".design-audit/student-games-quality-up/qa/tabletop-video/island-market-copy-final-14.jpg",
+    "copyFinalEncodedFrameActuallyViewed": true,
+    "cleanPosterActuallyViewed": true,
+    "audioSample5to9seconds": {
+      "mean_volume": -23.0,
+      "max_volume": -8.7
+    }
+  },
+  "checkedAt": "2026-10-27T04:44:50.195Z"
+}

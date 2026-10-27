@@ -1,0 +1,89 @@
+{
+  "game": "missing-log",
+  "duration": 88,
+  "video": "intro.mp4",
+  "poster": "tabletop-poster.webp",
+  "captions": "intro.ko.vtt",
+  "chapterFile": "intro.chapters.json",
+  "format": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1280,
+        "height": 720,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "24/1"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "channels": 2,
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "88.000000",
+      "size": "6972541"
+    }
+  },
+  "production": {
+    "method": "Native SVG printed-component tabletop demonstration; camera pan/zoom and physical card, document, envelope, pawn and coin motion. Raster illustrations reuse the shared ImageGen artwork.",
+    "livePhysicalProductPhotography": false,
+    "frames": "RGB frames streamed through stdin; no full-frame sequence stored on disk",
+    "encoder": "H264, yuv420p, AAC stereo, 24fps, faststart",
+    "workers": "sharp concurrency 1; ffmpeg threads 1",
+    "temporaryOutput": "intro-tabletop.tmp.mp4, renamed to intro.mp4 only after encoder success"
+  },
+  "credits": {
+    "studentConcept": "손예령, 한효원",
+    "tableTexture": "Existing Ulleung Marble table-walnut.png asset",
+    "illustration": "Existing shared-art/*.webp assets generated with built-in ImageGen for this project",
+    "music": "Existing music.mp3 reused, looped, 2-second fade in and 4-second fade out",
+    "font": "Existing PretendardVariable.woff2 and NanumMyeongjoBold.ttf, text rendered as glyph paths"
+  },
+  "artworkFingerprints": {},
+  "hashes": {
+    "video": "a2c0a4735264280651cd1ea95c3b53c828ee89953816fe9d40f11b2116f06a06",
+    "poster": "3d4a0a480d5110bd08163c1dd5e57117f6131a2e8941861beb3ed6f93c2f7f50",
+    "captions": "b46cdfea99eccd00db82acf6dc7bf494ffce71e3a2fdd074a56b5d307ecdeb3a",
+    "chapters": "48b5c8db49d99d07f99d52f6dd2678e90f30142e3c3af9cdcf01b09012f8dcfb",
+    "preservedMusic": "0e93a7954e60ed821bf1a0c9452ea4e866c276b4a48ebd83c2d16262b0741619"
+  },
+  "validation": {
+    "ffprobe": true,
+    "middleDotCount": 0,
+    "spacesBeforeCommas": 0,
+    "audioTrackUnchanged": true,
+    "musicFileUnchanged": true,
+    "aacSha256": "2a3451604b31bf73d953ba1de187efe948e8d2c1a6d418f518685b956cd97660",
+    "renderedCopyLedger": ".design-audit/student-games-quality-up/media/missing-log-rendered-copy.json",
+    "renderedStringCount": 234,
+    "eightContinuousChapters": true,
+    "eightVttCues": true,
+    "burnedInCaptionFontPx": 24,
+    "maxCaptionLines": 2,
+    "maxMeasuredCaptionWidthPx": 784,
+    "expectedPrimaryCardTitlePx": 32.8,
+    "encodedSampleFrames": [
+      ".design-audit/student-games-quality-up/qa/tabletop-video/missing-log-encoded-05.jpg",
+      ".design-audit/student-games-quality-up/qa/tabletop-video/missing-log-encoded-37.jpg",
+      ".design-audit/student-games-quality-up/qa/tabletop-video/missing-log-encoded-64.jpg"
+    ],
+    "sourceRulesReview": "Engine and print source checked; independent agent reviewed storyboard and sample frames",
+    "humanPlaytest": "Not part of video production",
+    "copyFinalEncodedFrame": ".design-audit/student-games-quality-up/qa/tabletop-video/missing-log-copy-final-37.jpg",
+    "copyFinalEncodedFrameActuallyViewed": true,
+    "cleanPosterActuallyViewed": true,
+    "audioSample5to9seconds": {
+      "mean_volume": -24.4,
+      "max_volume": -9.1
+    }
+  },
+  "checkedAt": "2026-10-27T04:44:50.133Z"
+}

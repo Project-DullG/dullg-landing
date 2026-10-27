@@ -1,0 +1,97 @@
+{
+  "game": "island-snap",
+  "duration": 84,
+  "video": "intro.mp4",
+  "poster": "tabletop-poster.webp",
+  "captions": "intro.ko.vtt",
+  "chapterFile": "intro.chapters.json",
+  "format": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1280,
+        "height": 720,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "24/1"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "channels": 2,
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "84.000000",
+      "size": "7150100"
+    }
+  },
+  "production": {
+    "method": "Native SVG printed-component tabletop demonstration; camera pan/zoom and physical card, document, envelope, pawn and coin motion. Raster illustrations reuse the shared ImageGen artwork.",
+    "livePhysicalProductPhotography": false,
+    "frames": "RGB frames streamed through stdin; no full-frame sequence stored on disk",
+    "encoder": "H264, yuv420p, AAC stereo, 24fps, faststart",
+    "workers": "sharp concurrency 1; ffmpeg threads 1",
+    "temporaryOutput": "intro-tabletop.tmp.mp4, renamed to intro.mp4 only after encoder success"
+  },
+  "credits": {
+    "studentConcept": "박성은, 서우림",
+    "tableTexture": "Existing Ulleung Marble table-walnut.png asset",
+    "illustration": "Existing shared-art/*.webp assets generated with built-in ImageGen for this project",
+    "music": "Existing music.mp3 reused, looped, 2-second fade in and 4-second fade out",
+    "font": "Existing PretendardVariable.woff2 and NanumMyeongjoBold.ttf, text rendered as glyph paths"
+  },
+  "artworkFingerprints": {
+    "squid": "5b7fade9b5f91676c9fa2860191b72b641aa5cf9090deb5b808e9b35ff7cc6a6",
+    "candy": "c477a77231f0d422d2b00a8b59134f3fa5e685326895371778b7c1204db23bbe",
+    "leaves": "fab1171b0a176e5876dfef1be2b9d3de23c95996fb19ed574d5aaadec4237995",
+    "dokdo": "7d158dcc815838cebb86e0fe7a16c4462ceeaef646a59d6dcaaa539e55cb1f21",
+    "mountain": "b9c29ac3fb8f003af6ca52d8f4609b19cb4b628ff7e8acf11132e0577b793c4a",
+    "gull": "0b93b499f655f6c5385190264f141671068eaeaab9727cb9e30e65e810f46455",
+    "boat": "8db996e6039be6f027f30b6a99d6ee8b53c583ea3607c618489707fe98e5ea6b"
+  },
+  "hashes": {
+    "video": "1d6fe4011dda2e2ffc2ac456896d1177d10ff12d876f6da1336278a958b13fd1",
+    "poster": "e331cdf9685b6bdf4a267ee996cc3db211f7498f159ef795af089c485d6c1873",
+    "captions": "477a6d351f0e927e03057de316ecf1d39d2596ede7b02b6ab15f701037aa998b",
+    "chapters": "6bfab56915639eee13b406487888a6fb868a2e331d88fee2a350a8681dbf7cea",
+    "preservedMusic": "0e09806eb9c845e6aaca54363797f5147bf8875f040abff31c123e7c2cbeeb49"
+  },
+  "validation": {
+    "ffprobe": true,
+    "middleDotCount": 0,
+    "spacesBeforeCommas": 0,
+    "audioTrackUnchanged": true,
+    "musicFileUnchanged": true,
+    "aacSha256": "82855e1dfec1ab0c3b456555ff12bdb09df863e6ebb72fb739ff7fa0a6b6553c",
+    "renderedCopyLedger": ".design-audit/student-games-quality-up/media/island-snap-rendered-copy.json",
+    "renderedStringCount": 239,
+    "eightContinuousChapters": true,
+    "eightVttCues": true,
+    "burnedInCaptionFontPx": 24,
+    "maxCaptionLines": 2,
+    "maxMeasuredCaptionWidthPx": 784,
+    "expectedPrimaryCardTitlePx": 32.2,
+    "encodedSampleFrames": [
+      ".design-audit/student-games-quality-up/qa/tabletop-video/island-snap-encoded-05.jpg",
+      ".design-audit/student-games-quality-up/qa/tabletop-video/island-snap-encoded-43.jpg",
+      ".design-audit/student-games-quality-up/qa/tabletop-video/island-snap-encoded-79.jpg"
+    ],
+    "sourceRulesReview": "Engine and print source checked; independent agent reviewed storyboard and sample frames",
+    "humanPlaytest": "Not part of video production",
+    "copyFinalEncodedFrame": ".design-audit/student-games-quality-up/qa/tabletop-video/island-snap-copy-final-05.jpg",
+    "copyFinalEncodedFrameActuallyViewed": true,
+    "cleanPosterActuallyViewed": true,
+    "audioSample5to9seconds": {
+      "mean_volume": -21.3,
+      "max_volume": -8.9
+    }
+  },
+  "checkedAt": "2026-10-27T04:44:50.073Z"
+}

@@ -1,10 +1,10 @@
-import { LOCATIONS, LOCATION_BY_ID, INTRO, RULES, ROLES, FINAL_CAUSES, FINAL_EVIDENCE, FINAL_CORRECTIONS, SOLUTION, ENDING } from './content.mjs';
+import { LOCATIONS, LOCATION_BY_ID, INTRO, RULES, ROLES, FINAL_CAUSES, FINAL_EVIDENCE, FINAL_CORRECTIONS, SOLUTION, ENDING } from './content.mjs?v=quality-final-20261027';
 import { createGame, validState, visitLocation, answerLocation, useHint, setFinalAnswer, submitFinal, canSubmitFinal } from './engine.mjs';
 
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const storageKey = 'student-missing-log-v1';
-let state, selectedLocation = null, pendingAnswers = {}, noticeTimer;
+let state, selectedLocation = null, pendingAnswers = {}, noticeTimer, resumed = false;
 const names = ids => ids.map(id => LOCATION_BY_ID[id].shortName).join(' → ');
 
 function initialOrders(value) {
@@ -14,7 +14,8 @@ function initialOrders(value) {
 }
 try {
   const stored = JSON.parse(localStorage.getItem(storageKey));
-  state = initialOrders(validState(stored?.state) ? stored.state : createGame(2));
+  resumed = validState(stored?.state);
+  state = initialOrders(resumed ? stored.state : createGame(2));
   if (state.visited.includes(stored?.selectedLocation)) selectedLocation = stored.selectedLocation;
 } catch { state = initialOrders(createGame(2)); }
 selectedLocation ||= state.visited.at(-1) || null;
@@ -25,7 +26,7 @@ function notice(message) {
   clearTimeout(noticeTimer); noticeTimer = setTimeout(() => { element.hidden = true; }, 5000);
 }
 function save() {
-  try { localStorage.setItem(storageKey, JSON.stringify({ state, selectedLocation })); $('#save-status').textContent = '이 기기에 진행을 저장했습니다.'; }
+  try { localStorage.setItem(storageKey, JSON.stringify({ state, selectedLocation })); $('#save-status').textContent = resumed ? '저장한 조사 이어가기, 변경 사항 자동 저장' : '이 기기에 진행을 자동 저장합니다.'; }
   catch { $('#save-status').textContent = '저장할 수 없습니다. 이 창을 유지해 주세요.'; }
 }
 function update(action, { all = true } = {}) {
@@ -54,6 +55,10 @@ function renderMap() {
   $('#player-count').value = state.playerCount;
   $('#player-count').disabled = state.visited.length > 0;
   $('#player-count').title = state.visited.length ? '인원 변경은 새 조사에서 할 수 있습니다.' : '';
+  $('#team-state').textContent = '현재 ' + state.playerCount + '명 ' + (state.visited.length ? '조사 중' : '준비 중');
+  const confirmed = LOCATIONS.filter(location => state.answers[location.id]?.correct).length;
+  $('#desk-route-status').textContent = state.phase === 'finished' ? '복원을 마쳤습니다.' : selectedLocation ? LOCATION_BY_ID[selectedLocation].shortName + ' 자료 펼침, 질문 ' + confirmed + ' / 4 확인' : '원하는 장소의 봉투부터 열어 주세요.';
+  $('#question-jump').disabled = !selectedLocation;
 }
 function renderLocation() {
   const target = $('#location-content');
@@ -98,7 +103,7 @@ $('#rules-content').innerHTML = `<p><b>${esc(INTRO.title)}</b><br>2–4명이 �
 $('#rules-open').addEventListener('click', () => $('#rules-dialog').showModal());
 $('#restart-open').addEventListener('click', () => $('#restart-dialog').showModal());
 $('#restart-confirm').addEventListener('click', () => {
-  state = initialOrders(createGame(state.playerCount)); selectedLocation = null; pendingAnswers = {};
+  resumed = false; state = initialOrders(createGame(state.playerCount)); selectedLocation = null; pendingAnswers = {};
   try { localStorage.removeItem(storageKey + '-memory'); } catch {}
   $('#restart-dialog').close(); save(); render(); window.scrollTo({ top: 0, behavior: 'smooth' }); notice('새 봉투와 힌트 토큰 6개를 준비했습니다.');
 });
@@ -114,6 +119,7 @@ $('#music-toggle').addEventListener('click', async () => {
 });
 document.addEventListener('click', event => {
   const button = event.target.closest('button'); if (!button || button.disabled) return;
+  if (button.dataset.deskJump) { const target = $('#' + button.dataset.deskJump); if (target) { target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); target.querySelector('input:not(:disabled),button:not(:disabled)')?.focus({ preventScroll: true }); } return; }
   if (button.dataset.close) { $('#' + button.dataset.close).close(); return; }
   if (button.dataset.open) { $('#' + button.dataset.open).showModal(); return; }
   if (button.dataset.visit) {

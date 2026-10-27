@@ -26,7 +26,7 @@ function references(source) {
     ...source.matchAll(/\b(?:src|href|poster)\s*=\s*["']([^"']+)["']/g),
     ...source.matchAll(/\bfrom\s*["']([^"']+)["']/g),
     ...source.matchAll(/url\(\s*["']?([^\s)'";]+)/g),
-  ].map(match => match[1]).filter(reference => !reference.includes('${') && resourceExtension.test(reference));
+  ].map(match => match[1]).filter(reference => !reference.includes('${') && resourceExtension.test(reference.split(/[?#]/)[0]));
 }
 
 function sourceFiles(directory) {
@@ -35,6 +35,17 @@ function sourceFiles(directory) {
     return entry.isDirectory() ? sourceFiles(file) : /\.(?:html|mjs|css)$/.test(entry.name) ? [file] : [];
   });
 }
+
+test('복귀 query와 해시의 파일명은 자산으로 보지 않고 실제 자산의 버전 query는 보존한다', () => {
+  assert.deepEqual(references(`
+    <a href="/logout?next=%2Fstudent-games%2Findex.html">로그아웃</a>
+    <a href="/login?next=%2Fstudent-games%2Findex.html">로그인</a>
+    <a href="#help.html">현재 문서 설명</a>
+    <img src="assets/hero.webp?v=20261027">
+    <link rel="stylesheet" href="style.css?v=quality-20261027">
+    <a href="print.html#orders">인쇄 구성품</a>
+  `), ['assets/hero.webp?v=20261027', 'style.css?v=quality-20261027', 'print.html#orders']);
+});
 
 test('세 게임의 소개·테이블·인쇄에서 사용하는 로컬 자산과 모듈이 존재한다', () => {
   const queue = [join(gamesRoot, 'index.html'), ...slugs.flatMap(slug => ['index.html', 'table.html', 'print.html'].map(page => join(gamesRoot, slug, page)))];

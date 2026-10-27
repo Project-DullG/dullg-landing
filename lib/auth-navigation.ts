@@ -1,6 +1,12 @@
 const DASHBOARD_ROOT = "/dashboard";
+const STUDENT_GAME_RETURN_PATHS = new Set([
+  "/student-games/index.html",
+  "/student-games/island-snap/index.html",
+  "/student-games/missing-log/index.html",
+  "/student-games/island-market/index.html",
+]);
 
-/** Only accept canonical, same-site dashboard or English learning return URLs. */
+/** Only accept canonical, same-site return URLs for the supported sign-in flows. */
 export function normalizeDashboardReturnPath(value: unknown): string | null {
   if (
     typeof value !== "string" ||
@@ -22,16 +28,27 @@ export function normalizeDashboardReturnPath(value: unknown): string | null {
   }
 
   const pathname = rawPathname.replace(/^\/en(?=\/|$)/, "");
+  // Static game pages have no /en aliases. Only the four exact public files qualify.
+  const studentGameReturn = rawPathname === pathname && STUDENT_GAME_RETURN_PATHS.has(pathname);
   if (
     pathname !== DASHBOARD_ROOT &&
     !pathname.startsWith(`${DASHBOARD_ROOT}/`) &&
-    !isEnglishReturnPath(pathname)
+    !isEnglishReturnPath(pathname) &&
+    !studentGameReturn
   ) {
     return null;
   }
 
   // The login page's locale supplies /en on redirect, so never duplicate it.
   return `${pathname}${url.search}`;
+}
+
+/** Public game returns may be used by sign-in and sign-out without granting dashboard access. */
+export function normalizeStudentGameReturnPath(value: unknown): string | null {
+  const normalized = normalizeDashboardReturnPath(value);
+  return normalized && STUDENT_GAME_RETURN_PATHS.has(normalized.split("?")[0])
+    ? normalized
+    : null;
 }
 
 function isEnglishReturnPath(pathname: string) {
@@ -55,7 +72,7 @@ export function dashboardPathAllowedForRole(path: unknown, role: unknown): boole
   const normalized = normalizeDashboardReturnPath(path);
   if (!normalized) return false;
   const pathname = normalized.split("?")[0];
-  if (isEnglishReturnPath(pathname)) return true;
+  if (isEnglishReturnPath(pathname) || STUDENT_GAME_RETURN_PATHS.has(pathname)) return true;
   // The registration page explains wrong-account sign-ins and checks ownership.
   if (pathname === "/dashboard/register" || pathname === "/dashboard/notebook") return true;
   if (role === "owner") return true;

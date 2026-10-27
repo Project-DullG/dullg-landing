@@ -58,6 +58,23 @@ async function academyData(id, uid, status, studentId = uid, studentStatus = "ac
     });
 }
 
+run("student gallery summaries, votes, cheers and limits deny direct client reads and writes", async () => {
+  const uid = "gallery-participant";
+  for (const path of [
+    "studentGameGallery/main",
+    "studentGameGallery/main/votes/encoded-account",
+    "studentGameGallery/main/games/island-snap/cheers/encoded-account",
+    "studentGameGallery/main/cheerLimits/island-snap_encoded-account",
+  ]) {
+    await seed(path, { authorUid: uid, body: "server-only storage" });
+    await expect(path, undefined, false);
+    await expect(path, token(uid), false);
+    await expect(path, token(uid, { role: "owner" }), false);
+    await expect(path, token(uid), false, "PATCH", { authorUid: uid, body: "forged" });
+    await expect(path, token(uid), false, "DELETE");
+  }
+});
+
 run(
   "own UID reads profile/membership/notebook/photos; foreign UID and unauthenticated reads fail",
   async () => {

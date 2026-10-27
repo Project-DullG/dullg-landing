@@ -2,6 +2,11 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
+    // Gallery votes, author UIDs, rate limits and cheers are served only by the session-authenticated Admin API.
+    match /studentGameGallery/{document=**} {
+      allow read, write: if false;
+    }
+
     // Original signatures, seal and byte chunks are served only by the authenticated Admin route.
     match /certificateAssets/{document=**} {
       allow read, write: if false;

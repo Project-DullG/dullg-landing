@@ -8,8 +8,10 @@ import { loginAction } from "@/app/actions/auth";
 import { LanguageSwitch } from "@/components/i18n/language-switch";
 import { BrandLogo } from "@/components/brand-mark";
 import { BRAND } from "@/lib/site-config";
+import { normalizeStudentGameReturnPath } from "@/lib/auth-navigation";
 export default function LoginForm({ nextPath }: { nextPath: string | null }) {
   const t = useText();
+  const studentGameReturn = normalizeStudentGameReturnPath(nextPath);
   const studentRegistration = nextPath?.split("?")[0] === "/dashboard/register";
   const notebook = nextPath?.split("?")[0] === "/dashboard/notebook";
   const englishLearning = nextPath?.startsWith("/english") === true;
@@ -53,7 +55,9 @@ export default function LoginForm({ nextPath }: { nextPath: string | null }) {
         </div>
         <h1>
           {t(
-            englishLearning
+            studentGameReturn
+              ? "게임 갤러리 로그인"
+              : englishLearning
               ? "영어 학습 로그인"
               : notebook
                 ? "추리노트 시작하기"
@@ -64,7 +68,9 @@ export default function LoginForm({ nextPath }: { nextPath: string | null }) {
         </h1>
         <p>
           {t(
-            englishLearning
+            studentGameReturn
+              ? "Google로 로그인하면 마음에 드는 작품에 한 표를 보내고, 직접 고른 닉네임으로 응원 한마디를 남길 수 있어요."
+              : englishLearning
               ? "Google로 로그인하면 이야기 진도와 표현 복습을 저장하고, 닉네임으로 학습 커뮤니티에 참여할 수 있어요."
               : notebook
                 ? "Google로 시작하면 계정이 만들어지고, 추리노트를 사진으로 등록할 수 있어요."
@@ -91,9 +97,11 @@ export default function LoginForm({ nextPath }: { nextPath: string | null }) {
           ),
         )}
         <p>
-          <Link href={englishLearning ? "/english" : "/demo"}>
+          <Link href={studentGameReturn ?? (englishLearning ? "/english" : "/demo")}>
             {t(
-              englishLearning
+              studentGameReturn
+                ? "로그인 없이 작품 둘러보기 →"
+                : englishLearning
                 ? "로그인 없이 영어 이야기 체험하기 →"
                 : "로그인 없이 예시로 체험하기 →",
             )}

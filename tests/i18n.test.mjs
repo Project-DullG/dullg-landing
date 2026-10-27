@@ -2,6 +2,27 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { translateText, translateValue, localizedPath } from "../lib/i18n/translate.ts";
 
+test("game gallery sign-in copy is translated and shared Korean game links stay canonical", () => {
+  const copy = [
+    ["게임 갤러리 로그인", "Game gallery sign-in"],
+    ["Google로 로그인하면 마음에 드는 작품에 한 표를 보내고, 직접 고른 닉네임으로 응원 한마디를 남길 수 있어요.", "Sign in with Google to vote for your favourite game and leave a message of support under a nickname you choose."],
+    ["로그인 없이 작품 둘러보기 →", "Browse the games without signing in →"],
+  ];
+  for (const [korean, english] of copy) {
+    assert.equal(translateText(korean, "en"), english);
+    assert.equal(translateText(korean, "ko"), korean);
+  }
+  for (const path of [
+    "/student-games/index.html",
+    "/student-games/island-snap/index.html",
+    "/student-games/missing-log/index.html",
+    "/student-games/island-market/index.html",
+  ]) {
+    const target = path + "?participate=1&pick=island-snap";
+    assert.equal(localizedPath(target, "en"), target);
+  }
+});
+
 test("locale links preserve route details and leave files and external services unchanged", () => {
   for (const path of ["/works?sort=new#list", "/mini-projects/snake", "/dashboard/students?id=1"]) {
     assert.equal(localizedPath(path, "en"), `/en${path}`);

@@ -1,10 +1,61 @@
-import{MATERIALS,RECIPES,NEWS,GOALS}from'./engine.mjs';import{ingredientArt,dishArt}from './art.mjs?v=deep-review-20261027';import{needsText}from './cards.mjs?v=deep-review-20261027';
-const section=(title,cards,id='')=>`<section class="print-section" ${id?`id="${id}"`:''}><h2>${title}</h2><div class="print-grid">${cards}</div></section>`;
-let html=section('재료 카드 120장, 각 재료 20장',MATERIALS.flatMap(m=>Array.from({length:20},(_,i)=>`<article class="print-card"><small>섬마을 장터 / ${m.cardId} / ${i+1} of 20</small><h3>${m.name}</h3>${ingredientArt(m.id)}<p>요리의 재료로 사용하거나<br>그대로 판매할 수 있습니다.</p><div class="print-value">재료 판매 <strong>2</strong>냥<br><small>최종 재고 정산 1냥</small></div></article>`)).join(''));
-html+=section('공개 주문 카드 12장',RECIPES.map(r=>`<article class="print-card"><small>오늘의 주문 / ${r.id}</small><h3>${r.name}</h3>${dishArt(r)}<p class="recipe-needs">${needsText(r)}</p><div class="print-value">기본 판매가 <strong>${r.base}</strong>냥</div><small>${r.tags.includes('rice')?'밥':'단품'} / ${r.tags.includes('seafood')?'해물':'채소'}</small></article>`).join(''),'orders-print');
-html+=section('장터 소식 12장, 각 소식 2장',NEWS.flatMap(n=>Array.from({length:2},()=>`<article class="print-card"><small>장터 소식 / ${n.id}</small><h3>${n.name}</h3><div class="big-mark">소식</div><p class="card-rule">${n.description}</p><div class="print-value">이번 라운드에만 적용</div><small>거래와 최종 정산에는 적용하지 않습니다.</small></article>`)).join(''));
-html+=section('선착순 가게 목표 6장, 한 판에는 3장',GOALS.map(g=>`<article class="print-card"><small>선착순 가게 목표 / ${g.id}</small><h3>${g.name}</h3><div class="big-mark">5<small style="font-size:22px">냥</small></div><p class="card-rule">${g.description}</p><div class="print-value">요리 판매 직후 최초 달성</div><small>목표마다 한 가게. 가게마다 보상 최대 한 번.</small></article>`).join(''));
-html+=section('가게별 예약권 4장',Array.from({length:4},(_,i)=>`<article class="print-card"><small>섬마을 장터 / 가게 ${i+1}</small><h3>주문 예약권</h3><div class="big-mark">${i+1}</div><p class="card-rule">자기 차례 마지막에 공개 주문 한 장을 예약합니다.</p><div class="print-value">한 판에 한 번</div><small>다음 자기 주행동 종료까지. 사용 후 뒤집으세요.<br>10라운드에는 새 예약을 할 수 없습니다.</small></article>`).join(''));
-html+=`<section class="print-section"><h2>가게 기록지, 돈과 재료는 모두 공개</h2>${Array.from({length:4},(_,i)=>`<article class="record-sheet"><h3>${i+1}번 가게 이름: __________________</h3><p>시작 5냥, 쌀 1장과 다른 재료 2장, 보관 한도 10장</p><div class="record-table-scroll" role="region" aria-label="${i+1}번 가게 라운드별 기록표" tabindex="0"><table><thead><tr><th>라운드</th>${Array.from({length:10},(_,i)=>`<th>${i+1}</th>`).join('')}</tr></thead><tbody><tr><th>현금</th>${'<td>　</td>'.repeat(10)}</tr><tr><th>요리 판매 ID</th>${'<td>　</td>'.repeat(10)}</tr></tbody></table></div><p>예약권: 미사용 / 사용　　목표 달성: ______________　　최종 현금 ______ + 재료 ______장 = ______냥</p></article>`).join('')}</section>`;
-html+=`<section class="print-section"><h2>준비와 차례 요약</h2><div class="print-rules"><p><strong>준비</strong>모두 5냥, 쌀 1장과 다른 무작위 재료 2장. 재료 6장, 주문 4장, 목표 3장을 공개합니다. 소식은 12장을 섞어 10장만 사용하고 이번 소식과 다음 예고를 공개합니다. 첫 선공은 무작위이며 라운드마다 한 자리 옮깁니다.</p><p><strong>한 차례</strong>거래 제안 선택 1회 → 주행동 1회 → 목표 확인 → 기존 예약 만료 → 새 예약 선택 → 다음 가게.</p><p><strong>주행동</strong>수집: 공개 재료 1–2장 무료, 한 번에 선택 후 보충. 재료 판매: 보유 1–2장, 장당 2냥. 요리 판매: 공개 주문 재료 모두 지불, 돈 수령, 새 주문 보충. 패스: 자원 변화 없음. 보관 한도 10장은 항상 지킵니다.</p><p><strong>거래</strong>현재 차례의 가게만 다른 한 가게에 공식 제안 1회. 양쪽 모두 현재 가진 돈이나 재료를 내야 합니다. 30초 안에 응답하며, 수락하면 동시에 교환합니다. 거절도 기회 소모. 거래 후 잔고 0 이상, 재료 10장 이하. 주문, 예약권, 미래 약속 거래 불가.</p><p><strong>예약</strong>가게별 한 판에 한 번, 차례 끝 공개 주문에 가게 표식을 놓습니다. 예약한 가게의 다음 주행동이 끝날 때까지 다른 가게는 그 주문을 판매할 수 없습니다. 다른 주행동을 해도 기한에 해제됩니다. 10라운드에는 새 예약 불가.</p><p><strong>목표</strong>요리 판매 직후 처음 충족한 목표 하나를 골라 5냥. 가게마다 최대 1개, 목표마다 한 가게. 보상 후 빈칸은 보충하지 않습니다.</p><p><strong>라운드 종료</strong>전원 행동 후 가장 오래된 공개 재료 2장을 사용 더미로 보내고 보충. 요리 판매가 없던 라운드에는 가장 오래된 미예약 주문 1개도 정리. 이번 소식을 예고 소식으로 교체하고 다음 예고 공개. 사용 더미는 공급이 바닥나면 섞어 재사용합니다.</p><p><strong>열 번째 라운드 종료</strong>장터 정리 없이 즉시 종료. 남은 재료 1장당 1냥을 현금에 더합니다. 목표 보상을 또 더하지 않습니다. 가장 돈이 많은 가게 승리, 동률 공동 승리.</p></div></section>`;
-document.querySelector('#print-content').innerHTML=html;document.querySelector('#print-all').onclick=()=>window.print();
+import kit,{getCardInventory,CARD_WIDTH} from './physical-kit.mjs?v=physical-components-20261029-v1';
+// A world unit is a fixed length, including type and all internal artwork.
+const WORLD_PER_MM=CARD_WIDTH/58;
+const PRINT_SCALE=(96/25.4)/WORLD_PER_MM;
+const mm=world=>(world/WORLD_PER_MM).toFixed(9);
+const esc=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+function cut(piece,side='front',{cropX=0,cropWidth=piece.width,extraClass=''}={}){
+ const face=piece[side];if(!face)return '';
+ // mountPhysicalTable adds this class to the very same writable fields.
+ const faceHTML=face.replace(/<textarea /g,'<textarea class="physical-inline-note" ').replace(/<input /g,'<input class="physical-inline-note" ');
+ const bare=piece.printBare;
+ return `<div class="mk-print-cut ${extraClass}" data-physical-id="${esc(piece.id)}" data-side="${side}" data-type="${piece.type}" data-crop-x="${cropX}" style="width:${mm(cropWidth)}mm;height:${mm(piece.height)}mm"><div class="mk-print-original ${bare?'':'physical-piece'}" data-type="${piece.type}" data-world-width="${piece.width}" data-world-height="${piece.height}" style="width:${piece.width}px;height:${piece.height}px;left:${-cropX*PRINT_SCALE}px;transform:scale(${PRINT_SCALE})">${bare?faceHTML:`<div class="physical-face">${faceHTML}</div>`}</div></div>`;
+}
+const sheet=(title,body,mode='support',extra='')=>`<section class="mk-print-sheet ${extra}" data-print-section="${mode}"><h2>${title}</h2>${body}</section>`;
+const blankBack=(title,mode='support')=>sheet(`${title} / 이 앞면 구성품의 빈 뒷면`,'',mode,'mk-blank-back');
+const oneSidedSheet=(title,body,mode='support',extra='')=>sheet(title,body,mode,extra)+blankBack(title,mode);
+function mirroredRows(items,columns){const result=[];for(let start=0;start<items.length;start+=columns)result.push(...items.slice(start,start+columns).reverse());return result;}
+function imposed(title,items,{columns,rows,cellWidth,cellHeight,mode='support',captions=false}={}){
+ const capacity=columns*rows,total=Math.ceil(items.length/capacity);let output='';
+ for(let page=0;page<total;page++){
+  const cells=Array.from({length:capacity},(_,index)=>items[page*capacity+index]||null);
+  for(const side of ['front','back']){
+   if(side==='back'&&!cells.some(piece=>piece?.back)){output+=blankBack(`${title} / ${page+1} / ${total}`,mode==='card'?'back':'support');continue;}
+   const placed=side==='back'?mirroredRows(cells,columns):cells;
+   const grid=placed.map(piece=>`<div class="mk-print-cell ${piece?.[side]?'':'is-blank'}" style="width:${cellWidth}mm;height:${cellHeight}mm">${piece?.[side]?cut(piece,side,{extraClass:piece.type==='card'?'mk-print-card':piece.id.startsWith('coin-')?'mk-print-coin':''})+(captions?`<span class="mk-print-caption">${esc(piece.label)}${side==='back'?' 뒷면':''}</span>`:''):''}</div>`).join('');
+   const sectionMode=mode==='card'?side:'support';
+   output+=sheet(`${title} / ${side==='front'?'앞면':'뒷면 좌우 대응'} / ${page+1} / ${total}`,`<div class="mk-print-grid" style="grid-template-columns:repeat(${columns},${cellWidth}mm)">${grid}</div>`,sectionMode,'mk-imposed-sheet');
+  }
+ }
+ return output;
+}
+function pairedPaper(piece,title=piece.label){let output='';for(const side of ['front','back'])if(piece[side])output+=sheet(`${title} / ${side==='front'?'앞면':'뒷면'} / ${mm(piece.width).slice(0,6)} × ${mm(piece.height).slice(0,6)}mm`,`<div class="mk-print-single">${cut(piece,side,{extraClass:piece.id.startsWith('ledger-')?'mk-print-ledger':''})}</div>`);if(!piece.back)output+=blankBack(title);return output;}
+const originalIds=new Set(getCardInventory().map(card=>card.id));
+const cards=[...getCardInventory().map(card=>kit.pieces.find(piece=>piece.id===card.id)),...kit.pieces.filter(piece=>piece.type==='card'&&!originalIds.has(piece.id))];
+let html=imposed('섬마을 장터 카드 154장과 참고 카드 6장',cards,{columns:3,rows:3,cellWidth:58,cellHeight:88,mode:'card'});
+for(const [value,columns,rows]of [[1,8,12],[5,7,10],[10,6,9]]){
+ const coins=kit.pieces.filter(piece=>piece.id.startsWith('coin-'+value+'-'));
+ html+=imposed(`${value}냥 동전 ${coins.length}개`,coins,{columns,rows,cellWidth:mm(coins[0].width),cellHeight:mm(coins[0].height)});
+}
+const markerIds=['round-marker','first-player','turn-pawn','trade-opportunity','round-cooked'];
+html+=imposed('장날과 차례, 거래와 요리 판매 표식',markerIds.map(id=>kit.pieces.find(piece=>piece.id===id)),{columns:4,rows:2,cellWidth:43,cellHeight:55,captions:true});
+for(const piece of kit.pieces.filter(piece=>piece.id.startsWith('ledger-')))html+=pairedPaper(piece);
+const ruleCover=kit.pieces.find(piece=>piece.id==='rule-cover');html+=pairedPaper(ruleCover);
+for(const piece of kit.pieces.filter(piece=>piece.id.startsWith('rule-page-')))html+=pairedPaper(piece);
+// The mat is not rearranged into another grid. These are two crops of one original.
+for(const mat of kit.pieces.filter(piece=>piece.id.startsWith('mat-'))){
+ html+=oneSidedSheet(`${mat.label} / 왼쪽 6칸 / 1번 조각`,`<p class="mk-crop-note">오른쪽 조각과 맞대어 붙입니다. 원본 매트 ${mm(mat.width).slice(0,6)} × ${mm(mat.height).slice(0,6)}mm</p><div class="mk-print-single">${cut(mat,'front',{cropWidth:508,extraClass:'mk-print-mat'})}</div>`);
+ html+=oneSidedSheet(`${mat.label} / 오른쪽 4칸 / 2번 조각`,`<p class="mk-crop-note">왼쪽 조각과 같은 높이로 붙입니다. 매트의 1~10칸을 함께 사용합니다.</p><div class="mk-print-single">${cut(mat,'front',{cropX:508,cropWidth:mat.width-508,extraClass:'mk-print-mat'})}</div>`);
+}
+const track=kit.pieces.find(piece=>piece.id==='round-track');
+html+=oneSidedSheet('장날 트랙 / 왼쪽 1~5와 오른쪽 6~10을 이어 붙입니다.',`<div class="mk-print-track-tiles">${cut(track,'front',{cropWidth:480,extraClass:'mk-print-track'})}${cut(track,'front',{cropX:480,cropWidth:track.width-480,extraClass:'mk-print-track'})}</div>`);
+const slip=kit.pieces.find(piece=>piece.id==='bank-slip');
+html+=imposed('은행 확인증 / 필요할 때만 쓰는 여분 8장',Array.from({length:8},(_,index)=>({...slip,id:'printed-bank-slip-'+(index+1)})),{columns:2,rows:4,cellWidth:mm(slip.width),cellHeight:mm(slip.height)});
+const envelope=kit.pieces.find(piece=>piece.id==='unused-envelope');
+const envelopeWidth=Number(mm(envelope.width)),envelopeHeight=Number(mm(envelope.height));
+html+=oneSidedSheet('이번 판 미사용 카드 보관 봉투 / 실선 자르기, 점선 접기',`<p class="mk-crop-note">양옆 날개와 아래 날개를 붙입니다. 카드는 가로로 넣고 위 날개로 닫습니다.</p><div class="mk-envelope-net" style="width:${envelopeWidth+40}mm;height:${envelopeHeight+90}mm"><div class="mk-envelope-front">${cut(envelope)}</div><div class="mk-envelope-flap mk-flap-top" style="width:${envelopeWidth}mm">윗날개</div><div class="mk-envelope-flap mk-flap-bottom" style="width:${envelopeWidth}mm;top:${envelopeHeight+40}mm">아래 날개</div><div class="mk-envelope-flap mk-flap-left" style="height:${envelopeHeight}mm">풀칠</div><div class="mk-envelope-flap mk-flap-right" style="left:${envelopeWidth+20}mm;height:${envelopeHeight}mm">풀칠</div></div>`);
+const bankZone=kit.zones.find(zone=>zone.id==='bank'),bank={id:'bank-place-strip',label:'은행 자리',type:'paper',width:bankZone.width,height:bankZone.height,front:bankZone.html,printBare:true};
+html+=oneSidedSheet('공용 은행 자리 / 두 조각을 맞대어 붙입니다.',`<div class="mk-print-track-tiles">${cut(bank,'front',{cropWidth:415})}${cut(bank,'front',{cropX:415,cropWidth:bank.width-415})}</div>`);
+document.querySelector('#print-content').innerHTML=html;
+document.querySelectorAll('[data-print]').forEach(button=>button.addEventListener('click',()=>{document.body.dataset.printMode=button.dataset.print;window.print();}));
+window.addEventListener('afterprint',()=>delete document.body.dataset.printMode);

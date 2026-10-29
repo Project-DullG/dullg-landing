@@ -71,18 +71,28 @@ test('학생 작품 모음은 Next에서 404가 나는 폴더 URL 대신 index.h
   }
 });
 
-test('세 소개 영상과 한국어 자막, 테이블 음악이 실제 파일에 연결된다', () => {
+test('세 소개 영상과 한국어 자막, 기존 안내형 테이블 음악을 보존한다', () => {
   for (const slug of slugs) {
     const directory = join(gamesRoot, slug);
     const intro = read(join(directory, 'index.html'));
-    const table = read(join(directory, 'table.html'));
+    const assisted = read(join(directory, 'assisted.html'));
     assert.match(intro, /<video\b[^>]*>[\s\S]*?<source\b[^>]*src="assets\/intro\.mp4(?:\?[^"]*)?"/);
     assert.match(intro, /<track\b(?=[^>]*src="assets\/intro\.ko\.vtt(?:\?[^"]*)?")(?=[^>]*srclang="ko")[^>]*>/);
-    assert.match(table, /<audio\b[^>]*src="assets\/music\.mp3"/);
+    assert.match(assisted, /<audio\b[^>]*src="assets\/music\.mp3"/);
     const video = readFileSync(join(directory, 'assets/intro.mp4'));
     assert.equal(video.subarray(4, 8).toString(), 'ftyp', `${slug}: MP4 컨테이너`);
     assert.match(read(join(directory, 'assets/intro.ko.vtt')), /^WEBVTT\s+[\s\S]*\d\d:\d\d:\d\d\.\d{3} --> /);
     assert.ok(statSync(join(directory, 'assets/music.mp3')).size > 1024, `${slug}: 음악 파일`);
+  }
+});
+
+test('기본 테이블은 물리 구성품만 다루고 기존 안내형 진행기는 별도 보존한다',()=>{
+  for(const slug of slugs){
+    const directory=join(gamesRoot,slug), table=read(join(directory,'table.html'));
+    assert.match(table,/physical-kit\.mjs/);
+    assert.match(table,/physical-table\.mjs/);
+    assert.doesNotMatch(table,/(?:src|from)\s*=?\s*["'](?:\.\/)?(?:app|market|table)\.mjs/);
+    assert.match(read(join(directory,'assisted.html')),new RegExp(`src="${slug==='missing-log'?'app':slug==='island-market'?'market':'table'}\\.mjs`));
   }
 });
 

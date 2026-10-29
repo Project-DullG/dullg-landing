@@ -1,32 +1,21 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e2e6d6"><title>장터 열기 — 섬마을 장터</title><link rel="stylesheet" href="market.css?v=deep-review-20261027"><link rel="stylesheet" href="../tabletop.css?v=physical-table-v2-20261029"><link rel="stylesheet" href="table-polish.css?v=physical-short-20261029"></head><body class="play-page tabletop-market">
-<a class="skip" href="#market-action-dock">이번 차례로 바로 가기</a>
-<header class="play-header">
-  <a class="game-brand" href="index.html"><span id="brand-art"></span><span><b>섬마을 장터</b><small>기획 이신우, 정순혁</small></span></a>
-  <nav class="play-links" aria-label="다른 페이지"><a href="/student-games/index.html">모든 게임</a><a href="index.html">게임 소개</a><a href="print.html">인쇄 구성품</a></nav>
-  <div class="play-tools"><span id="save-status" role="status">한 기기로 함께</span><button id="music-toggle" aria-pressed="false">음악 꺼짐</button><button id="rules-open">게임 방법</button><button id="new-game">새 구성</button></div>
-</header>
-<div id="market-play-surface" class="market-play-surface">
-<main class="market-room">
-  <section class="market-tabletop" aria-label="모든 구성품을 펼친 공개 장터">
-    <div id="market-camera-controls" class="market-camera-controls tabletop-controls"></div>
-    <div id="market-viewport" class="market-viewport tabletop-viewport" tabindex="0" aria-label="장터 탁자. 카드를 누르면 크게 볼 수 있습니다." aria-describedby="table-help">
-      <div id="market-world" class="market-world tabletop-world" style="--tabletop-width:2280px;--tabletop-height:1660px">
-        <div class="market-cloth" aria-hidden="true"></div>
-        <div class="table-nameplate" aria-hidden="true"><b>섬마을 장터</b><span>우리들의 작은 밥집</span></div>
-        <section class="physical-news" aria-label="현재와 다음 장터 소식"><div id="round-strip" class="round-strip"></div></section>
-        <section class="physical-goals" aria-labelledby="goals-label"><div class="zone-heading"><h2 id="goals-label">가게 목표</h2><p>먼저 달성하면 5냥</p></div><div id="goals" class="goals-row"></div></section>
-        <section class="physical-materials" aria-labelledby="market-zone"><div class="zone-heading"><h2 id="market-zone" tabindex="-1">재료 장터</h2><p>공개 6장</p></div><div id="market" class="market-row"></div></section>
-        <section class="physical-orders" aria-labelledby="orders-zone"><div class="zone-heading"><h2 id="orders-zone" tabindex="-1">오늘의 주문</h2><p>공개 4장</p></div><div id="orders" class="orders-row"></div></section>
-        <section id="supply-piles" class="supply-piles" aria-label="카드 더미"></section>
-        <div class="bank-piece" aria-label="공용 은행"><span class="bank-coins" aria-hidden="true"><i></i><i></i><i></i></span><b>공용 은행</b></div>
-        <section id="shops" class="shop-row physical-shops" aria-label="모든 가게의 재료와 돈"></section>
-        <p class="table-print-note">10라운드 장사한 뒤, 가장 많은 돈을 남긴 가게가 승리합니다.</p>
-      </div>
-    </div>
-    <p id="table-help" class="tabletop-sr-only">탁자를 옮기거나 확대해 살펴보세요. 카드와 가게를 누르면 크게 읽을 수 있습니다.</p>
-  </section>
-</main>
-<section id="market-action-dock" class="market-action-dock" tabindex="-1" aria-label="현재 선택과 확정"></section>
-<dialog id="card-reader" class="card-reader" aria-labelledby="reader-title"><header class="dialog-head"><h2 id="reader-title" tabindex="-1">구성품 크게 보기</h2><button data-close="card-reader" aria-label="크게 보기 닫기">×</button></header><div id="reader-body" class="dialog-body"></div></dialog>
-<dialog id="action-dialog" class="action-dialog" aria-labelledby="action-dialog-title"><header class="dialog-head"><h2 id="action-dialog-title">이번 가게의 행동과 장부</h2><button data-close="action-dialog" aria-label="행동과 장부 닫기">×</button></header><div class="turn-panel"><section id="action-panel" tabindex="-1"></section><section class="history-block"><h2>장터 장부</h2><ol id="history"></ol></section><p class="save-note">진행 상황이 이 브라우저에 저장됩니다.</p></div></dialog>
-<dialog id="setup" aria-labelledby="setup-title"><header class="dialog-head"><h2 id="setup-title">우리 가게를 열어볼까요?</h2><button data-close="setup" aria-label="닫기">×</button></header><form id="setup-form" class="dialog-body"><p id="session-summary" class="setup-current"></p><p>모든 자원이 공개된 게임입니다. 같은 화면을 보며 번갈아 장사하세요. 각 가게는 5냥, 쌀 1장과 다른 재료 2장으로 출발합니다.</p><label for="player-count">가게 수</label><select id="player-count"><option value="2">2가게</option><option value="3">3가게</option><option value="4" selected>4가게</option></select><div id="name-inputs" class="name-inputs"></div><div class="dialog-actions"><button type="button" class="button outline" data-close="setup">지금 장터로</button><button class="button primary" type="submit">10라운드 장사 시작</button></div></form></dialog><dialog id="info" aria-labelledby="info-title"><header class="dialog-head"><h2 id="info-title"></h2><button data-close="info" aria-label="닫기">×</button></header><div id="info-body" class="dialog-body"></div></dialog><dialog id="trade-dialog" aria-labelledby="trade-title"><header class="dialog-head"><h2 id="trade-title">이웃 가게와 흥정</h2><button data-close="trade-dialog" aria-label="닫기">×</button></header><div id="trade-body" class="dialog-body"></div></dialog><div id="toast" class="toast" role="status" hidden></div></div><audio id="music" loop preload="none" src="assets/music.mp3"></audio><noscript>이 게임에는 자바스크립트가 필요합니다. <a href="print.html">인쇄 구성품으로 플레이하기</a></noscript><script type="module" src="market.mjs?v=physical-table-v2-20261029"></script></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#77533d">
+<title>섬마을 장터 — 직접 펼치는 테이블</title>
+<link rel="stylesheet" href="../tabletop.css?v=physical-components-20261029-v1">
+<link rel="stylesheet" href="../physical-table.css?v=physical-components-20261029-v1">
+<link rel="stylesheet" href="physical-kit.css?v=physical-components-20261029-v1">
+</head>
+<body class="physical-table-page market-physical-page">
+<div id="physical-table-app"></div>
+<noscript>카드와 돈을 직접 옮기려면 자바스크립트가 필요합니다. <a href="print.html">전체 구성품을 인쇄해서 플레이하기</a></noscript>
+<script type="module">
+import kit from './physical-kit.mjs?v=physical-components-20261029-v1';
+import { mountPhysicalTable } from '../physical-table.mjs?v=physical-components-20261029-v1';
+mountPhysicalTable(kit);
+</script>
+</body>
+</html>

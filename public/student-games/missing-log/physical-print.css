@@ -1,0 +1,51 @@
+.mlk-print{margin:0;background:#e3e5dc;color:#293c39;font-family:LogSans,sans-serif;line-height:1.7}
+.mlk-print *{box-sizing:border-box}
+.mlk-print-toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 5vw;border-bottom:1px solid #c4c5b4;background:#fbf8ed;box-shadow:0 2px 5px #253e3520}
+.mlk-print-toolbar a{color:#2a5755;font-size:15px;text-underline-offset:4px}
+.mlk-print-toolbar p{margin:0;font-size:16px}.mlk-print-toolbar p span{display:block;font-size:12px;color:#5a6d60}
+.mlk-print-toolbar label{font-size:14px;display:flex;align-items:center;gap:7px}
+.mlk-print :is(button,a,input):focus-visible{outline:3px solid #9c7838;outline-offset:3px}
+.mlk-print button{min-height:44px;padding:10px 18px;border:1px solid #7c876d;border-radius:4px;color:#fff8e4;background:#28565b;font:650 15px/1.5 LogSans,sans-serif;cursor:pointer}
+.mlk-print #print-content{max-width:100%;overflow:hidden}
+.mlk-print-sheet{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;width:210mm;min-height:297mm;break-after:page;margin:24px auto;padding:10mm;background:#fffdf7;box-shadow:0 5px 22px #21382b1c}
+.mlk-print-sheet:last-child{break-after:auto}
+.mlk-landscape-sheet{width:297mm;min-height:210mm;padding:0}
+.mlk-full-sheet{padding:0}
+.mlk-print-frame{position:relative;box-sizing:content-box;flex:none;overflow:visible;outline:1px solid #9ba18c;background:#f7f2e6}
+.mlk-print-face{position:absolute;top:0;left:0;transform-origin:0 0}
+.mlk-print-writing{height:calc(var(--writing-rows)*23px);min-height:23px;background:repeating-linear-gradient(to bottom,transparent 0,transparent 22px,#a9b59c 22px,#a9b59c 23px)}
+.mlk-final-worksheet .mlk-print-writing{height:calc(var(--writing-rows)*25px);background:repeating-linear-gradient(to bottom,transparent 0,transparent 24px,#a9b59c 24px,#a9b59c 25px)}
+.mlk-cut-label{font-size:11pt;margin:0 0 8mm;color:#62715f;text-align:center}
+.mlk-preparation{align-items:stretch;justify-content:flex-start;padding:16mm 17mm}
+.mlk-preparation h1{font:700 25pt/1.5 LogMyeongjo,serif;margin:0 0 5mm}
+.mlk-preparation h2,.mlk-token-sheet h2,.mlk-envelope-sheet h2{font:700 14pt/1.5 LogMyeongjo,serif;margin:7mm 0 3mm}
+.mlk-preparation p,.mlk-preparation li{font-size:10.3pt;line-height:1.8;margin:0 0 3mm;word-break:keep-all}
+.mlk-preparation ol{padding-left:6mm;margin:2mm 0}
+.mlk-preparation .mlk-print-lead{font-size:12pt;line-height:1.8;margin-bottom:4mm}
+.mlk-preparation .mlk-print-credit{font-size:9pt;color:#6d7967;margin-top:4mm}
+.mlk-envelope-sheet{justify-content:flex-start;padding:8mm;gap:6mm}
+.mlk-envelope-sheet h2{margin:0 0 2mm;font-size:14pt}
+.mlk-envelope-sheet>p{font-size:10pt;line-height:1.7;max-width:165mm;margin:0}
+.mlk-token-sheet{align-items:flex-start;justify-content:flex-start;padding:18mm}
+.mlk-token-sheet p{font-size:11pt;margin:0 0 5mm;word-break:keep-all}
+.mlk-print-tokens{display:grid;grid-template-columns:repeat(3,29mm);gap:8mm;margin:4mm 0 7mm}
+.mlk-print-tokens .mlk-print-frame{outline:0;border-radius:50%;background:transparent}
+.mlk-secret-divider{padding:25mm;text-align:center}
+.mlk-secret-divider h2{font:700 23pt/1.6 LogMyeongjo,serif}.mlk-secret-divider p{font-size:13pt}
+.mlk-secret-sheets{display:none}.show-solutions .mlk-secret-sheets{display:block}
+.mlk-fold-sheet{padding:6mm 8mm}
+.mlk-fold-instruction{font-size:8pt;margin:0 0 2mm;text-align:center}
+.mlk-fold-pair{display:flex;gap:0;border:1px solid #8c9783}
+.mlk-fold-pair .mlk-print-frame{outline:0}.mlk-fold-pair .mlk-print-frame+ .mlk-print-frame{border-left:1px dashed #667760}
+.mlk-fold-label{font-size:8pt;margin:2mm 0 0;color:#5b6c55}
+.mlk-map-half-window{width:210mm;height:297mm;overflow:hidden}
+.mlk-print-duo{display:flex;gap:0;align-items:center;width:296mm;height:210mm}
+.mlk-print-duo .mlk-print-frame+.mlk-print-frame{outline:1px dashed #7e8b76}
+.mlk-hint-folds{display:flex;flex-direction:column;justify-content:center;gap:0}
+.mlk-hint-folds .mlk-fold-pair{border:0;outline:1px solid #8c9783}
+.mlk-calibration{width:100mm;border-bottom:1px solid #314c47;padding:0 0 3mm;margin:10mm 0 5mm;font-size:9pt;line-height:1.5}
+/* Keep A4 sheets and cut sizes intact on screen; the page scrolls within its preview. */
+@media screen and (max-width:1150px){.mlk-print #print-content{overflow-x:auto}.mlk-print-sheet{margin-left:18px;margin-right:18px}.mlk-print-toolbar{position:relative;flex-wrap:wrap}.mlk-print-toolbar p{flex:1 1 170px}}
+@page{size:A4 portrait;margin:0}
+@page mlkLandscape{size:A4 landscape;margin:0}
+@media print{html,.mlk-print{width:auto;height:auto;margin:0;background:#fff;print-color-adjust:exact;-webkit-print-color-adjust:exact}.mlk-print-toolbar,.mlk-screen-only,.mlk-fold-instruction,.mlk-fold-label{display:none!important}.mlk-print #print-content{overflow:visible;max-width:none}.mlk-print-sheet{margin:0;border:0;box-shadow:none;min-height:297mm;height:297mm;overflow:visible}.mlk-landscape-sheet{page:mlkLandscape;height:210mm;min-height:210mm}.mlk-fold-sheet{padding:0}.mlk-fold-pair{border:0}.mlk-secret-divider{display:none}.mlk-secret-sheets{display:none!important}.include-solutions .mlk-secret-sheets{display:block!important}.mlk-print-sheet{break-inside:avoid;break-after:page}.mlk-print-sheet:last-child{break-after:auto}.mlk-print-sheet *{animation:none!important;transition:none!important}}

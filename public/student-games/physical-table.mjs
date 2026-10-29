@@ -1,4 +1,4 @@
-import { mountTabletop } from './tabletop.mjs?v=physical-components-20261029-v1';
+import { mountTabletop } from './tabletop.mjs?v=tabletop3d-20261029-v1';
 import { createPhysicalTableState } from './physical-state.mjs?v=physical-components-20261029-v1';
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
@@ -22,7 +22,7 @@ export function mountPhysicalTable(kit, host = document.querySelector('#physical
       <footer class="physical-hand-tools"><div class="physical-selected-label" id="physical-selection" aria-live="polite">카드나 구성품을 골라 주세요.</div><div class="physical-tool-buttons" role="group" aria-label="선택한 구성품 다루기"><button type="button" data-hand="flip" disabled>뒤집기 <kbd>F</kbd></button><button type="button" data-hand="rotate-left" aria-label="왼쪽으로 15도 회전" disabled>↶</button><button type="button" data-hand="rotate-right" aria-label="오른쪽으로 15도 회전" disabled>↷</button><button type="button" data-hand="pile" aria-pressed="false" disabled>더미째 이동</button><button type="button" data-hand="shuffle" disabled>더미 섞기</button><button type="button" data-hand="spread" disabled>나란히 놓기</button><button type="button" data-hand="open" disabled>봉투 펼치기</button><button type="button" data-hand="inspect" disabled>크게 읽기</button><button type="button" data-hand="undo" disabled>되돌리기</button><button type="button" data-hand="reset">처음 배치</button></div></footer><p class="physical-hint">카드 한 장 끌기 / Shift로 더미째 끌기 / F 뒤집기 / R 회전 / 두 번 눌러 크게 읽기</p>
       <p class="physical-live tabletop-sr-only" id="physical-live" role="status" aria-live="polite"></p>
       <dialog id="physical-inspection" aria-labelledby="physical-inspection-title"><header class="physical-inspection-head"><h2 id="physical-inspection-title"></h2><div><button type="button" data-inspection="flip">뒤집기</button><button type="button" data-inspection="close" autofocus>탁자로 돌아가기</button></div></header><div class="physical-inspection-body"></div></dialog>
-      <dialog id="physical-help" aria-labelledby="physical-help-title"><header class="physical-inspection-head"><h2 id="physical-help-title">손으로 다루는 법</h2><button type="button" data-help-close autofocus>탁자로 돌아가기</button></header><div class="physical-help-copy"><p>테이블의 카드, 종이, 말과 동전을 직접 옮겨 진행합니다. 게임 준비와 차례, 끝내는 방법은 탁자 위 <strong>규칙서</strong>에 적혀 있습니다.</p><dl><dt>한 장 가져오기</dt><dd>더미 맨 위 카드를 끌어 빈 곳에 놓습니다.</dd><dt>더미 옮기기</dt><dd>Shift를 누른 채 끌거나, 구성품을 고르고 ‘더미째 이동’을 켭니다.</dd><dt>카드 포개기</dt><dd>같은 크기 카드 위에 중심을 맞춰 놓으면 한 더미가 됩니다.</dd><dt>뒤집고 읽기</dt><dd>구성품을 고르고 F로 뒤집습니다. 두 번 누르거나 ‘크게 읽기’로 같은 면을 확대합니다. 반대 면은 직접 뒤집기 전까지 열리지 않습니다.</dd><dt>봉투와 기록지</dt><dd>봉투를 고르고 ‘봉투 펼치기’로 내용물을 꺼냅니다. 종이의 빈칸을 눌러 기록할 수 있습니다.</dd><dt>자리와 시점</dt><dd>선택한 물건은 방향키로 옮기고, R로 돌립니다. 빈 탁자를 끌면 시점이 움직입니다. 전체보기는 물건의 위치를 바꾸지 않습니다.</dd></dl><p>구성품의 위치와 필기는 이 브라우저에 보관됩니다. ‘되돌리기’는 물건을 직전 상태로, ‘처음 배치’는 모든 구성품을 준비 위치로 돌려놓습니다.</p></div></dialog>
+      <dialog id="physical-help" aria-labelledby="physical-help-title"><header class="physical-inspection-head"><h2 id="physical-help-title">손으로 다루는 법</h2><button type="button" data-help-close autofocus>탁자로 돌아가기</button></header><div class="physical-help-copy"><p>테이블의 카드, 종이, 말과 동전을 직접 옮겨 진행합니다. 게임 준비와 차례, 끝내는 방법은 탁자 위 <strong>규칙서</strong>에 적혀 있습니다.</p><dl><dt>한 장 가져오기</dt><dd>더미 맨 위 카드를 끌어 빈 곳에 놓습니다.</dd><dt>더미 옮기기</dt><dd>Shift를 누른 채 끌거나, 구성품을 고르고 ‘더미째 이동’을 켭니다.</dd><dt>카드 포개기</dt><dd>같은 크기 카드 위에 중심을 맞춰 놓으면 한 더미가 됩니다.</dd><dt>뒤집고 읽기</dt><dd>구성품을 고르고 F로 뒤집습니다. 두 번 누르거나 ‘크게 읽기’로 같은 면을 확대합니다. 반대 면은 직접 뒤집기 전까지 열리지 않습니다.</dd><dt>봉투와 기록지</dt><dd>봉투를 고르고 ‘봉투 펼치기’로 내용물을 꺼냅니다. 종이의 빈칸을 눌러 기록할 수 있습니다.</dd><dt>자리와 시점</dt><dd>선택한 물건은 방향키로 옮기고, R로 돌립니다. 빈 탁자를 끌면 시점이 움직입니다. 전체보기는 물건의 위치를 바꾸지 않습니다. 입체 보기에서는 오른쪽 버튼으로 빈 탁자를 끌어 각도를 바꿉니다.</dd></dl><p>구성품의 위치와 필기는 이 브라우저에 보관됩니다. ‘되돌리기’는 물건을 직전 상태로, ‘처음 배치’는 모든 구성품을 준비 위치로 돌려놓습니다.</p></div></dialog>
       <dialog id="physical-reset" aria-labelledby="physical-reset-title"><header class="physical-inspection-head"><h2 id="physical-reset-title">구성품을 처음 자리로 돌릴까요?</h2></header><div class="physical-help-copy"><p>탁자의 배치와 필기를 처음 상태로 돌려 새로 준비합니다.</p><div class="physical-confirm-buttons"><button type="button" data-reset="cancel" autofocus>계속 두기</button><button type="button" data-reset="confirm">처음 자리로</button></div></div></dialog>
     </div>`;
   const shell = host.querySelector('.physical-shell');
@@ -33,7 +33,7 @@ export function mountPhysicalTable(kit, host = document.querySelector('#physical
   const inspectionBody = inspection.querySelector('.physical-inspection-body');
   const buttons = Object.fromEntries([...toolbar.querySelectorAll('[data-hand]')].map(b => [b.dataset.hand,b]));
   const nodes = new Map();
-  let selected = null, pileMode = false, dragging = null, suppressClick = false, camera, inspectId = null;
+  let selected = null, pileMode = false, dragging = null, suppressClick = false, camera, inspectId = null, scene = null, destroyed = false;
   const cleanups = [];
   const on = (node, event, fn, options) => { node.addEventListener(event, fn, options); cleanups.push(() => node.removeEventListener(event, fn, options)); };
   const announce = text => { host.querySelector('#physical-live').textContent = text; };
@@ -64,6 +64,7 @@ export function mountPhysicalTable(kit, host = document.querySelector('#physical
     model.note(field.dataset.note, field.value); save();
     // The enlarged sheet and its original are the same writable piece of paper.
     host.querySelectorAll('textarea[data-note],input[data-note]').forEach(other => { if (other !== field && other.dataset.note === field.dataset.note) other.value = field.value; });
+    scene?.sync();
   }
   on(host,'input',saveNotes);
 
@@ -94,9 +95,10 @@ export function mountPhysicalTable(kit, host = document.querySelector('#physical
       el.querySelector('.physical-front').hidden = s.faceDown;
       if (p.back) el.querySelector('.physical-back').hidden = !s.faceDown;
       const badge = el.querySelector('.physical-pile-count'); badge.hidden = ids.length < 2 || top !== p.id; badge.textContent = ids.length > 1 ? countLabel(p.id,ids.length) : '';
-      el.querySelectorAll('textarea[data-note],input[data-note]').forEach(input => { const value = Object.hasOwn(notes,input.dataset.note)?notes[input.dataset.note]:input.defaultValue; if (document.activeElement !== input) input.value = value;input.tabIndex=camera?.getState().scale<.85?-1:0; });
+      el.querySelectorAll('textarea[data-note],input[data-note]').forEach(input => { const value = Object.hasOwn(notes,input.dataset.note)?notes[input.dataset.note]:input.defaultValue; if (document.activeElement !== input) input.value = value;input.tabIndex=viewport.classList.contains('physical-scene-ready') || camera?.getState().scale<.85?-1:0; });
     }
     updateTools();
+    scene?.sync();
   }
 
   function select(id, focus = false) {
@@ -183,19 +185,24 @@ export function mountPhysicalTable(kit, host = document.querySelector('#physical
   });
   // Pointer picking keeps the object under the hand; keyboard focus may reveal it.
   on(world,'focusin',event=>{if(dragging)event.stopPropagation();});
+  // DOM and 3D hands commit exactly the same physical move and optional stack.
+  function commitMove(id, dx, dy, wholePile = false) {
+    if (!model.isMovable(id) || ![dx,dy].every(Number.isFinite)) return false;
+    const moved = wholePile ? model.members(id) : [id];
+    const changed = model.batch(() => {
+      model.move(id,dx,dy,wholePile);
+      const p = model.get(id), spec = model.spec(id);
+      const target = kit.pieces.filter(other => other.id !== id && !moved.includes(other.id) && other.type === spec.type && !model.get(other.id).hidden && model.members(other.id).at(-1) === other.id && Math.abs(other.width-spec.width)<1 && Math.abs(other.height-spec.height)<1).sort((a,b)=>model.get(b.id).z-model.get(a.id).z).find(other => { const s=model.get(other.id); return Math.abs(s.x-p.x)<28 && Math.abs(s.y-p.y)<28; });
+      if (['card','token'].includes(spec.type) && target) model.stack(moved,target.id);
+    });
+    if (changed) { save(); announce(`${visibleLabel(id)} 구성품을 옮겼습니다.`); }
+    paint();
+    return changed;
+  }
   function finishDrag(event, cancelled = false) {
     if (!dragging || event.pointerId !== dragging.pointer) return;
     const d = dragging; dragging = null;
-    if (d.moved && !cancelled) {
-      const moved = d.group ? model.members(d.id) : [d.id];
-      model.batch(() => {
-        model.move(d.id,d.dx,d.dy,d.group);
-        const p = model.get(d.id), spec = model.spec(d.id);
-        const target = kit.pieces.filter(other => other.id !== d.id && !moved.includes(other.id) && other.type === spec.type && !model.get(other.id).hidden && model.members(other.id).at(-1) === other.id && Math.abs(other.width-spec.width)<1 && Math.abs(other.height-spec.height)<1).sort((a,b)=>model.get(b.id).z-model.get(a.id).z).find(other => { const s=model.get(other.id); return Math.abs(s.x-p.x)<28 && Math.abs(s.y-p.y)<28; });
-        if (['card','token'].includes(spec.type) && target) model.stack(moved,target.id);
-      });
-      suppressClick = true; save(); announce(`${visibleLabel(d.id)} 구성품을 옮겼습니다.`);
-    }
+    if (d.moved && !cancelled) { commitMove(d.id,d.dx,d.dy,d.group); suppressClick = true; }
     nodes.forEach(node => node.classList.remove('is-dragging')); paint();
   }
   on(world,'pointerup',event => finishDrag(event));
@@ -224,14 +231,34 @@ export function mountPhysicalTable(kit, host = document.querySelector('#physical
   if(helpId)document.getElementById(helpId).textContent='빈 탁자를 끌면 시점이 움직입니다. 구성품을 끌어 옮기고, F로 뒤집고 R로 회전합니다. 두 번 누르거나 Enter로 같은 면을 크게 읽습니다. 축소된 기록지의 빈칸을 누르면 그 종이를 들어서 기록합니다.';
   let fieldAccessSmall=null;
   on(viewport,'tabletopchange',()=>{
-    const small=camera.getState().scale<.85;
+    const small=viewport.classList.contains('physical-scene-ready') || camera.getState().scale<.85;
     if(small===fieldAccessSmall)return;
     fieldAccessSmall=small;
     world.querySelectorAll('textarea[data-note],input[data-note]').forEach(input=>{input.tabIndex=small?-1:0;});
   });
   on(viewport,'click',event=>{if(event.target===viewport)select(null);});
   paint();
-  return { camera, destroy() { camera.destroy(); cleanups.forEach(fn=>fn()); } };
+  const sceneFallback = () => {
+    const failed = scene; scene = null; failed?.destroy();
+    const instructions=host.querySelector('.tabletop-instructions');
+    if(instructions)instructions.textContent='빈 자리를 드래그하여 이동하고, 휠로 확대하세요.';
+    if (!destroyed) { paint(); announce('입체 표시를 불러오지 못해 기본 탁자로 계속합니다.'); }
+  };
+  const ready = (async () => {
+    try {
+      const { mountPhysicalScene } = await import('./physical-scene.mjs?v=tabletop3d-20261029-v1');
+      if (destroyed) return false;
+      const mounted = mountPhysicalScene({ viewport, world, kit, model, camera, onSelect:id=>{ select(id,true); if (!id) viewport.focus({preventScroll:true}); }, onMove:commitMove, onInspect:inspect, getSelection:()=>selected, getPileMode:()=>pileMode, onError:sceneFallback });
+      scene = mounted;
+      await mounted.ready;
+      if (destroyed) { mounted.destroy(); return false; }
+      paint();
+      const instructions=host.querySelector('.tabletop-instructions');
+      if(instructions)instructions.textContent='빈 자리 끌기 / 휠로 확대 / 오른쪽 드래그로 시점 회전';
+      return true;
+    } catch { sceneFallback(); return false; }
+  })();
+  return { camera, ready, destroy() { destroyed = true; scene?.destroy(); scene = null; camera.destroy(); cleanups.forEach(fn=>fn()); } };
 }
 
 export default mountPhysicalTable;

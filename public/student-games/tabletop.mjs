@@ -334,7 +334,7 @@ export function mountTabletop(options = {}) {
   // Tab navigation should move the camera, rather than leave a focused card
   // outside the viewport or create an untracked native overflow scroll.
   on(viewport, 'focusin', event => {
-    if (!ready || event.target === viewport || !world.contains(event.target)) return;
+    if (!ready || viewport.classList.contains('physical-scene-ready') || event.target === viewport || !world.contains(event.target)) return;
     viewport.scrollLeft = 0;
     viewport.scrollTop = 0;
     const target = event.target.getBoundingClientRect();

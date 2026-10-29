@@ -1,3 +1,4 @@
+import scenePresentation from './scene-presentation.mjs?v=tabletop3d-20261029-v1';
 import { LOCATIONS, LOCATION_BY_ID, ROLES, SOLUTION, ENDING } from './content.mjs?v=deep-review-20261027';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
@@ -64,10 +65,23 @@ pieces.push(
   { id: 'epilogue', label: 'F2 끝맺음', type: 'paper', x: 780, y: 420, width: 420, height: 594, hidden: true, faceDown: true, backLabel: '봉인된 끝맺음 카드', front: sheet('F2 / 복원을 마친 뒤', ENDING.title, `<h3>수정한 안내문</h3><p class="mlk-corrected-notice">${esc(SOLUTION.correctedNotice)}</p>${ENDING.paragraphs.map(p => `<p>${esc(p)}</p>`).join('')}<p class="mlk-callout">기록을 되찾았습니다. M1 여행 기억지를 읽고 가 보고 싶은 장소를 서로 소개하세요. 개인 승자나 탈락자는 없습니다.</p>`, 'mlk-epilogue'), back: cover('F2 / 끝맺음', '기록을 되찾은 뒤', 'F1 확인 카드 다섯 장을 대조하고 복원안을 완성한 뒤 함께 읽으세요.', 'mlk-sealed') },
 );
 
+// Small rotations belong to the initial physical arrangement, never to a printed face.
+const initialPresentationAngles = {
+  map: -0.65, rulebook: -1.8, R1: -3, R2: 2.4,
+  worksheet: 1.1, 'final-worksheet': -1.4,
+  'jeodong-envelope': 2.3, 'samseonam-envelope': 1.2,
+  'taeha-envelope': -2.8, 'nari-envelope': -1.7, 'final-envelope': -1.3,
+  'jeodong-hint-1': 1.2, 'jeodong-hint-2': 1.2,
+  'samseonam-hint-1': -1.5, 'samseonam-hint-2': -1.5,
+  'taeha-hint-1': -1.2, 'taeha-hint-2': -1.2,
+  'nari-hint-1': 1.1, 'nari-hint-2': 1.1,
+};
+for (const piece of pieces) if (Object.hasOwn(initialPresentationAngles, piece.id)) piece.angle = initialPresentationAngles[piece.id];
+
 export const PRINT_SIZES = Object.fromEntries(pieces.map(piece => [piece.id, piece.id === 'map' ? [420, 297] : piece.id === 'shared-pawn' ? [19, 24] : piece.type === 'token' ? [29, 29] : piece.type === 'envelope' ? [162, 114] : piece.width === 594 ? [297, 210] : piece.width === 420 ? [210, 297] : piece.height === 210 ? [148, 105] : [148, 210]]));
 
 const kit = {
-  id: 'missing-log-physical-v1', title: '울릉도: 사라진 항해일지', subtitle: '손예령, 한효원의 협력 기록 미스터리',
+  id: 'missing-log-physical-v1', scene: scenePresentation, title: '울릉도: 사라진 항해일지', subtitle: '손예령, 한효원의 협력 기록 미스터리',
   size: { width: 2200, height: 1500 }, pieces,
   zones: [
     { id: 'spent-hints', label: '사용한 힌트 토큰', x: 1475, y: 455, width: 210, height: 125, html: '<span class="mlk-zone-label">사용한 힌트 토큰</span>', className: 'mlk-spent-zone' },

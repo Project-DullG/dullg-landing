@@ -1,5 +1,6 @@
 // Static physical edition of the v0.2 components. No game engine or turn state is loaded.
 import { ingredientArt, dishArt, crest, materialNames } from './art.mjs?v=deep-review-20261027';
+import { scenePresentation, bankCoinPose } from './scene-presentation.mjs';
 export const MATERIALS = [
   {
     "id": "squid",
@@ -353,15 +354,16 @@ export function buildMarketKit(seed=20261029){
  for(const [amountText,total]of Object.entries(COIN_COUNTS)){
   const amount=Number(amountText),diameter=amount===1?52:amount===5?62:72;
   for(let index=0;index<total;index++){
-   let x=amount===1?1250:amount===5?1470:1690,y=610,pileId=`bank-${amount}`;
-   if(amount===1&&index<20){const player=Math.floor(index/5),coin=index%5,mat=PLAYER_MATS[player];x=mat.x+90+coin*40;y=mat.y-93;pileId=undefined;}
-   pieces.push(piece(`coin-${amount}-${index+1}`,`${amount}냥 동전`,'token',x,y,diameter,diameter,coinFace(amount),{back:coinFace(amount),...(pileId?{pile:pileId}:{})}));
+   const bankPose=bankCoinPose(amount,index);
+   let x=bankPose?.x,y=bankPose?.y;
+   if(amount===1&&index<20){const player=Math.floor(index/5),coin=index%5,mat=PLAYER_MATS[player];x=mat.x+90+coin*40;y=mat.y-93;}
+   pieces.push(piece(`coin-${amount}-${index+1}`,`${amount}냥 동전`,'token',x,y,diameter,diameter,coinFace(amount),{back:coinFace(amount),...(bankPose?{pile:bankPose.pile,angle:bankPose.angle}:{})}));
   }
  }
  pieces.push(piece('bank-slip','은행 확인증','paper',1460,2350,235,150,'<article class="mk-bank-slip"><b>은행 확인증</b><label>가게와 금액<textarea data-note="market-bank-slip" aria-label="은행 확인증 가게 이름과 금액"></textarea></label><small>동전으로 바꾸면 사용 완료로 표시합니다.</small></article>'));
  for(let index=0;index<6;index++)pieces.push(piece(`rule-page-${index+1}`,`규칙서 ${index*2+1}~${index*2+2}쪽`,'paper',1710,2010,420,594,rulePageFace(index*2),{back:rulePageFace(index*2+1),pile:'rulebook'}));
  pieces.push(piece('rule-cover','섬마을 장터 규칙서 표지','book',1710,2010,420,594,ruleCover(),{back:'<article class="mk-rule-page"><header><small>섬마을 장터 규칙서</small><h2>차례</h2></header><div><ol>'+RULE_PAGES.map(page=>'<li>'+page.title+'</li>').join('')+'</ol></div><footer>책장을 앞면과 뒷면으로 차례대로 읽습니다.</footer></article>',pile:'rulebook'}));
- return {id:'island-market-physical-v1',title:'섬마을 장터',subtitle:'기획 이신우, 정순혁 / 카드와 돈을 직접 옮기는 4가게 장터',size:{width:3000,height:2670},pieces,zones:[
+ return {id:'island-market-physical-v1',title:'섬마을 장터',subtitle:'기획 이신우, 정순혁 / 카드와 돈을 직접 옮기는 4가게 장터',scene:scenePresentation,size:{width:3000,height:2670},pieces,zones:[
   {id:'public-cloth',label:'공용 장터',x:1010,y:270,width:990,height:2000,className:'mk-public-zone',html:'<div class="mk-public-cloth"><b class="mk-public-news-label">현재 소식 <span>다음 예고</span><span>이후 소식 더미</span></b><b class="mk-public-goal-label">이번 판의 선착순 목표 3장</b><b class="mk-public-material-label">재료 장터 <small>1 → 2 → 3<br>4 → 5 → 6　오래된 순서</small></b><b class="mk-public-order-label">오늘의 주문 <small>왼쪽이 가장 오래된 주문입니다.</small></b></div>'},
   {id:'bank',label:'공용 은행',x:1090,y:595,width:830,height:95,html:'<div class="mk-bank-strip"><b>공용<br>은행</b><span>1냥</span><span>5냥</span><span>10냥</span></div>'},
   {id:'material-supply',label:'재료 공급',x:736,y:1030,width:215,height:35},

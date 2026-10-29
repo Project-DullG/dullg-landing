@@ -46,7 +46,7 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
   const selected=validGame(query.get('pick'))?query.get('pick'):GAME_IDS[0];
   const state={snapshot:null,status:'loading',busy:false,reading:false,unknown:false,selected,drafts:new Map(),deleteArmed:false,notice:'실제 투표와 응원을 불러오고 있습니다.',error:false,galleryNotice:'',galleryError:false,galleryKind:null,lastRead:0,cooldownUntil:0};
   let readController=null,readVersion=0,cooldownTimer=null,destroyed=false;
-  const ui={dockState:el('vote-dock-state'),dockCount:el('vote-dock-count'),dockLink:el('vote-dock-link'),introState:el('vote-intro-state'),galleryStatus:el('gallery-action-status'),total:el('gallery-total'),account:el('gallery-account-state'),login:el('gallery-login'),logout:el('gallery-logout'),voteState:el('gallery-vote-state'),notice:el('participation-notice'),retry:el('participation-retry'),select:el('cheer-game'),list:el('cheer-list'),signin:el('cheer-signin-note'),form:el('cheer-form'),formTitle:el('cheer-form-title'),nickname:el('cheer-nickname'),body:el('cheer-body'),counter:el('cheer-body-count'),submit:el('cheer-submit'),delete:el('cheer-delete'),confirm:el('cheer-delete-confirm'),yes:el('cheer-delete-yes'),no:el('cheer-delete-no')};
+  const ui={dockState:el('vote-dock-state'),dockCount:el('vote-dock-count'),dockLink:el('vote-dock-link'),introState:el('vote-intro-state'),galleryStatus:el('gallery-action-status'),galleryFeedback:el('gallery-action-feedback'),galleryRetry:el('gallery-retry'),total:el('gallery-total'),account:el('gallery-account-state'),login:el('gallery-login'),logout:el('gallery-logout'),voteState:el('gallery-vote-state'),notice:el('participation-notice'),retry:el('participation-retry'),select:el('cheer-game'),list:el('cheer-list'),signin:el('cheer-signin-note'),cheerLogin:el('cheer-login'),form:el('cheer-form'),formTitle:el('cheer-form-title'),nickname:el('cheer-nickname'),body:el('cheer-body'),counter:el('cheer-body-count'),submit:el('cheer-submit'),delete:el('cheer-delete'),confirm:el('cheer-delete-confirm'),yes:el('cheer-delete-yes'),no:el('cheer-delete-no')};
   ui.select.value=selected;
   function draftFor(id){
     if(!state.drafts.has(id))state.drafts.set(id,{nickname:'',body:'',dirty:false});
@@ -64,11 +64,21 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
       setText(ui.dockLink,snapshot?.myVote?'투표 바꾸기':'지금 투표하기');
     }
   }
+  function renderGalleryFeedback(){
+    const recover=state.status==='error'||state.unknown;
+    if(ui.galleryFeedback){ui.galleryFeedback.hidden=!state.galleryNotice&&!recover;ui.galleryFeedback.dataset.error=String(state.galleryError);}
+    if(ui.galleryRetry){
+      ui.galleryRetry.hidden=!recover;
+      ui.galleryRetry.disabled=state.busy||state.reading;
+      setText(ui.galleryRetry,state.reading?'투표 현황을 불러오는 중':'투표 현황 다시 불러오기');
+    }
+  }
   function setGalleryNotice(text,error=false,kind='vote'){
     state.galleryNotice=text;state.galleryError=error;state.galleryKind=text?kind:null;
+    renderGalleryFeedback();
     if(!ui.galleryStatus)return;
-    if(ui.galleryStatus.textContent!==text)ui.galleryStatus.textContent=text;
     ui.galleryStatus.hidden=!text;
+    if(ui.galleryStatus.textContent!==text)ui.galleryStatus.textContent=text;
     ui.galleryStatus.dataset.error=String(error);
   }
   function setNotice(text,error=false,mirror=false,kind='vote'){
@@ -107,6 +117,7 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
   function renderCheers(){
     const snapshot=state.snapshot;
     ui.list.setAttribute('aria-busy',String(state.reading||!snapshot&&state.status==='loading'));
+    ui.list.setAttribute('aria-label',GAME_NAMES[state.selected]+' 최근 응원');
     ui.list.replaceChildren();
     if(!snapshot){ui.list.append(make('p','cheer-empty',state.status==='error'?'응원을 불러오지 못했습니다. 다시 불러오기를 눌러 주세요.':'응원을 불러오는 중입니다.'));return;}
     const items=snapshot.cheers[state.selected];
@@ -132,7 +143,8 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
     if(ui.body.value!==draft.body)ui.body.value=draft.body;
     ui.form.hidden=!signedIn;
     ui.signin.hidden=signedIn;
-    ui.signin.textContent='공개된 응원은 누구나 읽을 수 있어요.';
+    ui.signin.textContent=!snapshot?(state.status==='error'?'참여 상태를 확인하지 못했습니다. 다시 불러온 뒤 응원을 남길 수 있어요.':'참여 상태를 확인하고 있습니다.'):'응원은 로그인 후 직접 정한 닉네임으로 남길 수 있어요. 공개된 응원은 누구나 읽을 수 있습니다.';
+    if(ui.cheerLogin){ui.cheerLogin.href=loginURL(state.selected);ui.cheerLogin.hidden=!snapshot||signedIn||state.status!=='ready'||state.unknown;}
     ui.formTitle.textContent=own?'내 응원 수정하기':'내 응원 남기기';
     ui.submit.textContent=state.busy?'처리 중':own?'응원 수정하기':'응원 남기기';
     updateCounter(draft.body);
@@ -188,7 +200,10 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
     readController?.abort();readController=new AbortController();
     const version=++readVersion;
     state.reading=true;
-    if(!silent)setNotice(state.snapshot?'최신 집계와 응원을 확인하고 있습니다.':'실제 투표와 응원을 불러오고 있습니다.');
+    if(!silent){
+      setNotice(state.snapshot?'최신 집계와 응원을 확인하고 있습니다.':'실제 투표와 응원을 불러오고 있습니다.');
+      if(state.status==='error'||state.unknown)setGalleryNotice('투표 현황을 다시 불러오고 있습니다.',false,'load');
+    }
     render();
     try{
       const result=await request('GET',null,readController.signal);
@@ -205,7 +220,7 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
       state.status='error';
       if(error.status===401||error.status===409)clearPersonal();
       setNotice(afterWrite?'요청 처리 결과를 아직 확인하지 못했습니다. 다시 불러와 내 선택과 응원을 확인해 주세요.':'집계와 응원을 불러오지 못했습니다. 작품 소개와 게임은 계속 이용할 수 있습니다.',true);
-      setGalleryNotice(afterWrite?'요청 결과를 아직 확인하지 못했습니다. 아래 투표와 응원 영역에서 다시 불러와 주세요.':'투표 현황을 불러오지 못했습니다. 아래 투표와 응원 영역에서 다시 불러와 주세요.',true,'load');
+      setGalleryNotice(afterWrite?'요청 결과를 아직 확인하지 못했습니다. 다시 불러와 내 선택과 응원을 확인해 주세요.':'투표 현황을 불러오지 못했습니다. 다시 불러오기를 눌러 주세요.',true,'load');
       return false;
     }finally{
       if(version===readVersion){state.reading=false;render();}
@@ -217,7 +232,25 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
     win.clearTimeout(cooldownTimer);
     cooldownTimer=win.setTimeout(()=>{state.cooldownUntil=0;renderEditor();},Math.min(seconds,300)*1000+20);
   }
-  async function write(action,gameId,fields={}){
+  function availableFocus(node){return node&&node.isConnected!==false&&!node.disabled&&!node.hidden&&!node.closest?.('[hidden]');}
+  function restoreOperationFocus(preferred,action){
+    const active=doc.activeElement;
+    if(active&&active!==doc.body&&active!==doc.documentElement&&availableFocus(active))return;
+    let target=action==='delete-cheer'&&!ui.delete.hidden?ui.delete:preferred;
+    if(!availableFocus(target)){
+      const retry=root.contains(preferred)?ui.retry:ui.galleryRetry;
+      target=availableFocus(retry)?retry:availableFocus(ui.cheerLogin)?ui.cheerLogin:ui.login;
+    }
+    if(availableFocus(target))target.focus({preventScroll:true});
+  }
+  async function retryFrom(button){
+    const top=button.getBoundingClientRect().top;
+    const ok=await refresh();
+    const nearby=voteButtons.filter(candidate=>button===ui.galleryRetry?candidate.closest('.gallery-entry'):root.contains(candidate));
+    nearby.sort((a,b)=>Math.abs(a.getBoundingClientRect().top-top)-Math.abs(b.getBoundingClientRect().top-top));
+    restoreOperationFocus(ok?nearby.find(availableFocus)||button:button,'retry');
+  }
+  async function write(action,gameId,fields={},focusTarget=doc.activeElement){
     const snapshot=state.snapshot;
     if(state.busy||state.reading||state.status!=='ready'||state.unknown||!snapshot?.signedIn)return;
     readVersion++;readController?.abort();state.reading=false;
@@ -256,7 +289,7 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
           }else setNotice('최신 상태를 다시 불러왔습니다. 내 선택과 응원을 확인한 뒤 다시 참여해 주세요.',true,action==='vote');
         }
       }
-    }finally{state.busy=false;render();}
+    }finally{state.busy=false;render();restoreOperationFocus(focusTarget,action);}
   }
   for(const button of voteButtons)button.addEventListener('click',()=>{
     const id=button.dataset.voteGame;
@@ -264,7 +297,7 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
     state.selected=id;ui.select.value=id;state.deleteArmed=false;render();
     if(!state.snapshot.signedIn){win.location.assign(loginURL(id));return;}
     if(state.snapshot.myVote===id){setNotice('이미 이 작품을 선택했습니다. 다른 작품을 누르면 표가 옮겨갑니다.',false,true);return;}
-    void write('vote',id);
+    void write('vote',id,{},button);
   });
   ui.select.addEventListener('change',()=>{state.selected=validGame(ui.select.value)?ui.select.value:GAME_IDS[0];state.deleteArmed=false;render();});
   function saveDraft(){const draft=draftFor(state.selected);draft.nickname=ui.nickname.value;draft.body=ui.body.value;draft.dirty=true;updateCounter(draft.body);}
@@ -276,12 +309,13 @@ export function initParticipation({document:doc=globalThis.document,window:win=g
     if(!/^[\p{L}\p{N}_ .-]+$/u.test(nickname)){setNotice('닉네임에는 글자, 숫자, 공백, 밑줄, 마침표와 하이픈을 쓸 수 있습니다.',true);ui.nickname.focus();return;}
     if(!body||Array.from(body).length>140){setNotice('응원을 1~140자로 적어 주세요.',true);ui.body.focus();return;}
     if(Date.now()<state.cooldownUntil)return;
-    void write('cheer',state.selected,{nickname,body});
+    void write('cheer',state.selected,{nickname,body},ui.submit);
   });
   ui.delete.addEventListener('click',()=>{state.deleteArmed=true;renderEditor();ui.yes.focus();});
   ui.no.addEventListener('click',()=>{state.deleteArmed=false;renderEditor();ui.delete.focus();});
-  ui.yes.addEventListener('click',()=>void write('delete-cheer',state.selected));
-  ui.retry.addEventListener('click',()=>void refresh());
+  ui.yes.addEventListener('click',()=>void write('delete-cheer',state.selected,{},ui.submit));
+  ui.retry.addEventListener('click',()=>void retryFrom(ui.retry));
+  ui.galleryRetry?.addEventListener('click',()=>void retryFrom(ui.galleryRetry));
   const onFocus=()=>{if(Date.now()-state.lastRead>1500&&!state.busy&&!state.reading)void refresh({silent:true});};
   const onPageShow=event=>{if(event.persisted)onFocus();};
   win.addEventListener('focus',onFocus);win.addEventListener('pageshow',onPageShow);

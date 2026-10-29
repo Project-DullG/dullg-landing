@@ -1,16 +1,56 @@
-import{MATERIALS,RECIPES}from'./engine.mjs';
-import{ingredientArt}from './art.mjs?v=deep-review-20261027';
-import{recipeCard,recipeById}from './cards.mjs?v=deep-review-20261027';
+import {MATERIALS, RECIPES, CARD_WIDTH, CARD_HEIGHT, recipeFace, materialFace, reservationFace} from './physical-kit.mjs?v=tabletop3d-20261029-v1';
+
+const fittedFaces = new Set();
+const scaleFace = node => {
+  const width = Number(node.dataset.faceWidth);
+  if (width > 0 && node.clientWidth > 0) node.style.setProperty('--intro-face-scale', String(node.clientWidth / width));
+};
+const faceObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(entries => entries.forEach(entry => scaleFace(entry.target))) : null;
+function fitFaces(root = document) {
+  for (const old of fittedFaces) if (!old.isConnected) { faceObserver?.unobserve(old); fittedFaces.delete(old); }
+  for (const node of root.querySelectorAll('.intro-physical-card')) {
+    scaleFace(node);
+    if (!fittedFaces.has(node)) { fittedFaces.add(node); faceObserver?.observe(node); }
+  }
+}
+window.addEventListener('resize', () => fitFaces());
+const escIntro = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+function nativeFace(html, width, height, preview = null) {
+  // Paper and text can paint immediately while the artwork decodes independently.
+  html = html.replace(/<img\b/g, '<img decoding="async"');
+  return `<div class="intro-physical-card" data-face-width="${width}" style="aspect-ratio:${width}/${height}"><div class="intro-face-original" style="width:${width}px;height:${height}px">${html}</div>${preview ? `<button type="button" class="intro-card-open" data-intro-card="${escIntro(preview.id)}" aria-label="${escIntro(preview.label)} 크게 보기" aria-haspopup="dialog" aria-controls="component-preview"><span>크게 보기</span></button>` : ''}</div>`;
+}
+function setupPreview(render, title) {
+  const dialog = document.querySelector('#component-preview');
+  let opener = null;
+  document.addEventListener('click', event => {
+    const button = event.target.closest('[data-intro-card]');
+    if (!button || !dialog || dialog.open) return;
+    opener = button;
+    const id = button.dataset.introCard;
+    dialog.querySelector('#component-preview-title').textContent = title(id);
+    dialog.querySelector('.intro-preview-body').innerHTML = render(id);
+    dialog.showModal(); fitFaces(dialog);
+    dialog.querySelector('[data-preview-close]').focus({preventScroll:true});
+  });
+  dialog?.querySelector('[data-preview-close]').addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('close', () => { if (opener?.isConnected) opener.focus({preventScroll:true}); });
+}
+
+const recipeById=Object.fromEntries(RECIPES.map(recipe=>[recipe.id,recipe]));
+const recipeCard=(recipe, preview=false)=>nativeFace(recipeFace(recipe),CARD_WIDTH,CARD_HEIGHT,preview?{id:recipe.id,label:recipe.name+' 주문 카드'}:null);
+const materialCard=(material,preview=false)=>nativeFace(materialFace(material),CARD_WIDTH,CARD_HEIGHT,preview?{id:material.id,label:material.name+' 재료 카드'}:null);
 const $=s=>document.querySelector(s);
 $('#hero-order-main').innerHTML=recipeCard(recipeById.D12);
 $('#hero-order-back').innerHTML=recipeCard(recipeById.D11);
-$('#hero-material').innerHTML=`<div class="mp-real-material">${ingredientArt('squid')}<b>오징어</b><small>요리의 재료 1장</small></div>`;
-$('#ingredient-gallery').innerHTML=MATERIALS.map(m=>`<div class="mp-shelf-material"><div class="mp-real-material">${ingredientArt(m.id)}<b>${m.name}</b><small>재료 카드 20장</small></div></div>`).join('');
-$('#featured-recipes').innerHTML=['D01','D04','D11','D12'].map(id=>recipeCard(recipeById[id])).join('');
-$('#recipe-gallery').innerHTML=RECIPES.map(r=>recipeCard(r)).join('');
+$('#hero-material').innerHTML=materialCard(MATERIALS.find(m=>m.id==='squid'));
+$('#hero-reservation').innerHTML=nativeFace(reservationFace(1),CARD_WIDTH,CARD_HEIGHT,{id:'reservation-1',label:'주문 예약권'});
+$('#ingredient-gallery').innerHTML=MATERIALS.map(m=>`<div class="mp-shelf-material">${materialCard(m,true)}<p class="intro-material-count">종류마다 20장</p></div>`).join('');
+$('#featured-recipes').innerHTML=['D01','D04','D11','D12'].map(id=>recipeCard(recipeById[id],true)).join('');
+$('#recipe-gallery').innerHTML=RECIPES.map(r=>recipeCard(r,true)).join('');
 $('#print-preview-card').innerHTML=recipeCard(recipeById.D08);
 $('#demo-recipe').innerHTML=recipeCard(recipeById.D01);
-$('#demo-ingredient').innerHTML=`${ingredientArt('squid')}<b>오징어</b><small>1장 선택하기</small>`;
+$('#demo-ingredient').innerHTML=materialCard(MATERIALS.find(m=>m.id==='squid'));
 let selected=false,sold=false;
 function renderDemo(){
  $('#demo-ingredient').setAttribute('aria-pressed',String(selected));
@@ -29,3 +69,6 @@ $('#demo-ingredient').addEventListener('click',()=>{if(!sold){selected=!selected
 $('#demo-sell').addEventListener('click',()=>{if(selected&&!sold){sold=true;renderDemo();$('#demo-reset').focus({preventScroll:true});}});
 $('#demo-reset').addEventListener('click',()=>{selected=false;sold=false;renderDemo();$('#demo-ingredient').focus({preventScroll:true});});
 renderDemo();
+
+setupPreview(id => id==='reservation-1' ? nativeFace(reservationFace(1),CARD_WIDTH,CARD_HEIGHT) : recipeById[id] ? recipeCard(recipeById[id]) : materialCard(MATERIALS.find(m=>m.id===id)), id => id==='reservation-1' ? '주문 예약권' : recipeById[id]?.name || MATERIALS.find(m=>m.id===id)?.name || '카드');
+fitFaces();

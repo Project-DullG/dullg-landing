@@ -1,10 +1,49 @@
-import {cardHTML} from './art.mjs?v=deep-review-20261027';
+import {cardHTML as physicalCardHTML, CARD_SIZE, CARD_TYPES} from './physical-kit.mjs?v=tabletop3d-20261029-v1';
+
+const fittedFaces = new Set();
+const scaleFace = node => {
+  const width = Number(node.dataset.faceWidth);
+  if (width > 0 && node.clientWidth > 0) node.style.setProperty('--intro-face-scale', String(node.clientWidth / width));
+};
+const faceObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(entries => entries.forEach(entry => scaleFace(entry.target))) : null;
+function fitFaces(root = document) {
+  for (const old of fittedFaces) if (!old.isConnected) { faceObserver?.unobserve(old); fittedFaces.delete(old); }
+  for (const node of root.querySelectorAll('.intro-physical-card')) {
+    scaleFace(node);
+    if (!fittedFaces.has(node)) { fittedFaces.add(node); faceObserver?.observe(node); }
+  }
+}
+window.addEventListener('resize', () => fitFaces());
+const escIntro = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+function nativeFace(html, width, height, preview = null) {
+  // Paper and text can paint immediately while the artwork decodes independently.
+  html = html.replace(/<img\b/g, '<img decoding="async"');
+  return `<div class="intro-physical-card" data-face-width="${width}" style="aspect-ratio:${width}/${height}"><div class="intro-face-original" style="width:${width}px;height:${height}px">${html}</div>${preview ? `<button type="button" class="intro-card-open" data-intro-card="${escIntro(preview.id)}" aria-label="${escIntro(preview.label)} 크게 보기" aria-haspopup="dialog" aria-controls="component-preview"><span>크게 보기</span></button>` : ''}</div>`;
+}
+function setupPreview(render, title) {
+  const dialog = document.querySelector('#component-preview');
+  let opener = null;
+  document.addEventListener('click', event => {
+    const button = event.target.closest('[data-intro-card]');
+    if (!button || !dialog || dialog.open) return;
+    opener = button;
+    const id = button.dataset.introCard;
+    dialog.querySelector('#component-preview-title').textContent = title(id);
+    dialog.querySelector('.intro-preview-body').innerHTML = render(id);
+    dialog.showModal(); fitFaces(dialog);
+    dialog.querySelector('[data-preview-close]').focus({preventScroll:true});
+  });
+  dialog?.querySelector('[data-preview-close]').addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('close', () => { if (opener?.isConnected) opener.focus({preventScroll:true}); });
+}
+
+const cardHTML = ({kind}, preview = false) => nativeFace(physicalCardHTML(kind), CARD_SIZE.width, CARD_SIZE.height, preview ? {id:kind,label:CARD_TYPES[kind].name+' 카드'} : null);
 
 const $=selector=>document.querySelector(selector);
 $('#cover-cards').innerHTML=['squid','candy','leaves'].map(kind=>`<div>${cardHTML({kind})}</div>`).join('');
-$('#basic-cards').innerHTML=['squid','candy','leaves','dokdo','mountain'].map(kind=>`<div class="shelf-card">${cardHTML({kind})}<p class="shelf-count"><b>10</b>장</p></div>`).join('');
-$('#gull-card').innerHTML=cardHTML({kind:'gull'});
-$('#boat-card').innerHTML=cardHTML({kind:'boat'});
+$('#basic-cards').innerHTML=['squid','candy','leaves','dokdo','mountain'].map(kind=>`<div class="shelf-card">${cardHTML({kind},true)}<p class="shelf-count"><b>10</b>장</p></div>`).join('');
+$('#gull-card').innerHTML=cardHTML({kind:'gull'},true);
+$('#boat-card').innerHTML=cardHTML({kind:'boat'},true);
 $('#final-card').innerHTML=cardHTML({kind:'squid'});
 
 const lessons=[
@@ -21,6 +60,7 @@ function renderLesson(){
   $('#lesson-feedback').textContent='정답을 골라 보세요. 여기서는 틀려도 괜찮아요.';
   $('#lesson-next').hidden=true;
   $('#lesson-choices').querySelectorAll('button').forEach(button=>button.disabled=false);
+  fitFaces($('#lesson-cards'));
 }
 $('#lesson-choices').addEventListener('click',event=>{
   const button=event.target.closest('button[data-answer]');
@@ -55,3 +95,6 @@ document.querySelectorAll('[data-rhythm]').forEach(button=>button.addEventListen
   const finish=setTimeout(()=>{scene.classList.remove('is-demonstrating','beat-one','beat-two');button.disabled=false;rhythmTimers.delete(scene);},1150);
   rhythmTimers.set(scene,[second,finish]);
 }));
+
+setupPreview(kind => cardHTML({kind}), kind => CARD_TYPES[kind].name+' 카드');
+fitFaces();

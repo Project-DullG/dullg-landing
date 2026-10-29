@@ -59,26 +59,60 @@ export function restorePhysicalState(kit, candidate) {
 }
 
 export function createPhysicalTableState(kit, candidate) {
-  let state = restorePhysicalState(kit, candidate);
+  let membershipRevision = 0, membershipIndex = null;
+  const invalidateMembers = () => { membershipRevision++; membershipIndex = null; };
+  // get() exposes live, cloneable records. Observe only fields that affect a pile
+  // so direct assignments and reads inside a batch cannot leave the index stale.
+  const observeMembership = next => {
+    for (const p of Object.values(next.pieces)) for (const key of ['pile', 'hidden', 'z']) {
+      let value = p[key];
+      Object.defineProperty(p, key, {
+        enumerable: true, configurable: true,
+        get: () => value,
+        set: nextValue => { if (value !== nextValue) { value = nextValue; invalidateMembers(); } },
+      });
+    }
+    return next;
+  };
+  let state = observeMembership(restorePhysicalState(kit, candidate));
   const specs = new Map(kit.pieces.map(p => [p.id, p]));
   const history = [];
   let batching = false;
   const get = id => state.pieces[id];
   const spec = id => specs.get(id);
+  const indexedPiles = () => {
+    if (membershipIndex?.state === state && membershipIndex.revision === membershipRevision) return membershipIndex.piles;
+    const piles = new Map();
+    for (const [id, p] of Object.entries(state.pieces)) {
+      if (p.hidden || !p.pile) continue;
+      if (!piles.has(p.pile)) piles.set(p.pile, []);
+      piles.get(p.pile).push(id);
+    }
+    // Stable sorting preserves Object.keys order when z values are equal.
+    for (const ids of piles.values()) ids.sort((a, b) => get(a).z - get(b).z);
+    membershipIndex = { state, revision: membershipRevision, piles };
+    return piles;
+  };
   const members = id => {
     const p = get(id);
     if (!p || p.hidden) return [];
-    return (p.pile ? Object.keys(state.pieces).filter(key => !get(key).hidden && get(key).pile === p.pile) : [id]).sort((a, b) => get(a).z - get(b).z);
+    return p.pile ? indexedPiles().get(p.pile).slice() : [id];
   };
   const remember = (restoreNotes = false) => { history.push({data:copy(state),restoreNotes}); if (history.length > 30) history.shift(); };
   const nextZ = () => Math.max(0, ...Object.values(state.pieces).map(p => p.z)) + 1;
   const lift = ids => { let z = nextZ(); ids.forEach(id => { get(id).z = z++; }); };
   function movable(id) { return Boolean(get(id) && !get(id).hidden && !spec(id).locked); }
-  function transact(fn) { const before = copy(state); fn(); if (JSON.stringify(before) !== JSON.stringify(state)) { if (!batching) { history.push({data:before,restoreNotes:false}); if (history.length > 30) history.shift(); } return true; } return false; }
+  function transact(fn) {
+    const before = copy(state); invalidateMembers();
+    try { fn(); } finally { invalidateMembers(); }
+    if (JSON.stringify(before) === JSON.stringify(state)) return false;
+    if (!batching) { history.push({data:before,restoreNotes:false}); if (history.length > 30) history.shift(); }
+    return true;
+  }
   function batch(fn) {
     if (batching) return fn();
-    const before = copy(state); batching = true;
-    try { fn(); } finally { batching = false; }
+    const before = copy(state); batching = true; invalidateMembers();
+    try { fn(); } finally { batching = false; invalidateMembers(); }
     if (JSON.stringify(before) !== JSON.stringify(state)) { history.push({data:before,restoreNotes:false}); if (history.length > 30) history.shift(); return true; }
     return false;
   }
@@ -154,8 +188,8 @@ export function createPhysicalTableState(kit, candidate) {
   return {
     get, spec, members, move, rotate, flip, stack, shuffle, spread, container, note, batch,
     snapshot: () => copy(state),
-    undo: () => { if (!history.length) return false; const previous=history.pop(),notes=state.notes; state=previous.data; if(!previous.restoreNotes)state.notes=notes;return true; },
-    reset: () => { remember(true); state = initialPhysicalState(kit); },
+    undo: () => { if (!history.length) return false; const previous=history.pop(),notes=state.notes; state=observeMembership(previous.data); invalidateMembers(); if(!previous.restoreNotes)state.notes=notes;return true; },
+    reset: () => { remember(true); state = observeMembership(initialPhysicalState(kit)); invalidateMembers(); },
     canUndo: () => history.length > 0,
     isMovable: movable,
   };

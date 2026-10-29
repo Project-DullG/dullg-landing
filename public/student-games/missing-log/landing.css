@@ -284,3 +284,25 @@ body.publication-page{--ml-paper:#f4ebdd;--ml-ink:#213844;--ml-teal:#184654;--ml
 @media(max-width:760px){body.publication-page{font-size:16px}.publication-page .ml-nav{min-height:74px}.publication-page .ml-brand img{width:108px}.publication-page :is(.ml-hero-description,.ml-table-overview-heading p,.ml-brief>div>p,.ml-training-copy>p:not(.ml-label):not(.ml-training-note),.ml-film-copy>p:not(.ml-label),.ml-section-heading>p,.ml-faq p){font-size:16px;line-height:1.8}.publication-page .ml-footer-main nav{flex-direction:column;align-items:flex-start;gap:4px}.publication-page .ml-footer-main nav>a{font-size:13px}.publication-page .ml-colophon>p{font-size:13px}}
 
 .publication-page .ml-training-note{font-size:15px!important;line-height:1.75;color:#4e6659!important}.publication-page .ml-paper-type{font-size:13px;color:#4e6659}.publication-page .ml-product-info dt{color:#4e6659}
+
+.publication-page .intro-start-note{max-width:42em;font-size:15px;line-height:1.7;margin:12px 0 0;color:#4c6869;word-break:keep-all}
+.publication-page video[data-tabletop-film]{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.publication-page video[data-tabletop-film]:focus-visible{outline:3px solid #b88a49;outline-offset:4px}
+.publication-page .intro-transcript{width:100%;margin-top:15px;border-top:1px solid currentColor;color:inherit;text-align:left}
+.publication-page .intro-transcript summary{display:list-item;cursor:pointer;min-height:48px;padding:13px 0;font-size:15px;font-weight:650;line-height:1.6;list-style-position:inside}
+.publication-page .intro-transcript summary:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.publication-page .intro-transcript ol{padding:0 0 0 24px;margin:3px 0 20px}
+.publication-page .intro-transcript li{margin:0 0 16px;padding-left:3px;font-size:16px;line-height:1.75;word-break:keep-all}
+.publication-page .intro-transcript li>b{font-size:16px;font-weight:700;line-height:1.6}
+.publication-page .intro-transcript li p{margin:5px 0 0;font-size:16px!important;line-height:1.75!important;color:inherit}
+.publication-page .intro-media-downloads{display:flex;flex-wrap:wrap;gap:6px 20px;padding-bottom:12px;margin:0;font-size:14px!important}
+.publication-page .intro-media-downloads a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px}
+
+.publication-page .coast-night .intro-start-note{color:#c8d5d4}
+.publication-page .ml-film-section .intro-transcript{color:#d2dedb}
+.publication-page .ml-film-section .intro-transcript summary{color:#f2e9d7}
+
+/* Public records keep the kit's complete copy within their paper proportions. */
+.publication-page .ml-public-record h2{font-size:19.5px;line-height:1.5}
+.publication-page .ml-public-record .ml-public-body p{font-size:13.5px;line-height:1.65;margin-top:10px;color:#4e645a}
+@media(max-width:430px){.publication-page .ml-letter.ml-public-record h2{font-size:21px}.publication-page .ml-letter.ml-public-record .ml-public-body p{font-size:16px;line-height:1.8}.publication-page .ml-notice.ml-public-record h2{font-size:17px;line-height:1.5}.publication-page .ml-notice.ml-public-record .ml-public-body p{font-size:14px;line-height:1.7}}

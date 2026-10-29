@@ -20,6 +20,7 @@ if(tablist&&tabs.length===3){
     tabs.forEach((tab,index)=>{
       tab.addEventListener('click',()=>selectPreview(index));
       tab.addEventListener('keydown',event=>{
+        if(event.altKey||event.ctrlKey||event.metaKey)return;
         let next;
         if(event.key==='ArrowRight')next=(index+1)%tabs.length;
         else if(event.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;

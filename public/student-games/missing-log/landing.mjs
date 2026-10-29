@@ -1,3 +1,16 @@
+import { PUBLIC_DOCUMENTS } from './physical-kit.mjs?v=tabletop3d-20261029-v1';
+
+// The same two public documents appear here and inside the physical kit.
+for (const record of document.querySelectorAll('[data-public-document]')) {
+  const doc = PUBLIC_DOCUMENTS.find(item => item.id === record.dataset.publicDocument);
+  if (!doc) continue;
+  record.querySelector('[data-public-type]').textContent = doc.type;
+  record.querySelector('h2').textContent = doc.title;
+  record.querySelector('.ml-public-body').replaceChildren(...doc.body.split('\n').map(line => {
+    const paragraph = document.createElement('p'); paragraph.textContent = line; return paragraph;
+  }));
+}
+
 const training = document.querySelector('.ml-training-desk');
 const feedback = document.querySelector('#training-feedback');
 const trainingButtons = [...document.querySelectorAll('[data-training-answer]')];
@@ -42,7 +55,14 @@ const cover = document.querySelector('#film-play');
 if (film && cover) {
   film.addEventListener('play', () => { cover.hidden = true; });
   cover.addEventListener('click', async () => {
-    try { await film.play(); cover.hidden = true; }
-    catch { cover.hidden = true; film.focus(); }
+    if (cover.disabled) return;
+    cover.disabled = true;
+    try { await film.play(); }
+    catch {
+      const note = document.querySelector('.ml-caption-note');
+      if (note) note.textContent = '영상의 재생 버튼을 다시 누르거나 아래 글 설명을 읽어 주세요.';
+    } finally {
+      cover.hidden = true; cover.disabled = false; film.focus({preventScroll:true});
+    }
   });
 }

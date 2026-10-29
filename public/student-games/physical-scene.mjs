@@ -4,22 +4,46 @@ const rad = degrees => degrees * Math.PI / 180;
 const relative = (path, base) => new URL(path, base).href;
 
 /** Camera mapping is independent of piece state and can be checked without GL. */
-export function computeSceneView(state, width, height, aspect, tilt = rad(29), azimuth = 0) {
+export function computeSceneView(state, width, height, aspect, tilt = rad(29), azimuth = 0, framing = {}) {
   const tangent = Math.tan(rad(32) / 2);
   const sinA = Math.sin(azimuth), cosA = Math.cos(azimuth), sinT = Math.sin(tilt), cosT = Math.cos(tilt);
-  let distance = 1;
-  for (const x of [-width / 2, width / 2]) for (const z of [-height / 2, height / 2]) {
-    const across = cosA * x - sinA * z;
-    const up = -sinA * cosT * x - cosA * cosT * z;
-    const toward = sinA * sinT * x + cosA * sinT * z;
-    distance = Math.max(distance, toward + Math.abs(across) / (tangent * Math.max(.05, aspect)), toward + Math.abs(up) / tangent);
+  const margin = framing.margin ?? 75, depth = framing.depth ?? 80, padding = framing.padding ?? .05;
+  const corners = [];
+  for (const x of [-width / 2 - margin, width / 2 + margin]) for (const z of [-height / 2 - margin, height / 2 + margin]) for (const y of [-depth - .5, 0]) {
+    corners.push({ across: cosA * x - sinA * z, up: -sinA * cosT * x + sinT * y - cosA * cosT * z, toward: sinA * sinT * x + cosT * y + cosA * sinT * z });
   }
-  distance *= 1.085 * 1.1;
+  // Translate the optical centre in the camera's own plane. Unlike aiming at
+  // the XY midpoint, this centres the perspective bounds of the actual rim.
+  function centredAxis(distance, axis) {
+    let shift = 0, low, high;
+    for (let attempt = 0; attempt < 5; attempt++) {
+      let min = Infinity, max = -Infinity;
+      for (const corner of corners) {
+        const value = (corner[axis] - shift) / (distance - corner.toward);
+        if (value < min) { min = value; low = corner; }
+        if (value > max) { max = value; high = corner; }
+      }
+      shift = (low[axis] * (distance - high.toward) + high[axis] * (distance - low.toward)) / (2 * distance - low.toward - high.toward);
+    }
+    const values = corners.map(corner => (corner[axis] - shift) / (distance - corner.toward));
+    return { shift, span: Math.max(...values) - Math.min(...values) };
+  }
+  let low = Math.max(1, ...corners.map(corner => corner.toward + 1));
+  let high = Math.max(low * 2, width / Math.max(.05, aspect) * 4, height * 4);
+  const limit = 2 / (1 + padding);
+  for (let attempt = 0; attempt < 30; attempt++) {
+    const distance = (low + high) / 2;
+    if (centredAxis(distance, 'across').span / (tangent * Math.max(.05, aspect)) <= limit && centredAxis(distance, 'up').span / tangent <= limit) high = distance;
+    else low = distance;
+  }
+  const distance = high;
+  const offsetX = centredAxis(distance, 'across').shift, offsetY = centredAxis(distance, 'up').shift;
   const zoom = Math.max(.1, state.scale / Math.max(.0001, state.fitScale));
-  const x = (state.viewportWidth / 2 - state.x) / state.scale;
-  const z = (state.viewportHeight / 2 - state.y) / state.scale;
+  const x = (state.viewportWidth / 2 - state.x) / state.scale + (cosA * offsetX - sinA * cosT * offsetY) / zoom;
+  const y = sinT * offsetY / zoom;
+  const z = (state.viewportHeight / 2 - state.y) / state.scale + (-sinA * offsetX - cosA * cosT * offsetY) / zoom;
   const d = distance / zoom;
-  return { target: { x, y: 0, z }, position: { x: x + Math.sin(azimuth) * Math.sin(tilt) * d, y: Math.cos(tilt) * d, z: z + Math.cos(azimuth) * Math.sin(tilt) * d }, distance: d };
+  return { target: { x, y, z }, position: { x: x + sinA * sinT * d, y: y + cosT * d, z: z + cosA * sinT * d }, distance: d };
 }
 
 /** Wrap ink without dropping Korean characters or user-entered newlines. */
@@ -53,18 +77,22 @@ export function mountPhysicalScene(options) {
   const cleanups = [];
   const objects = new Map();
   const geometryCache = new Map();
+  const outlineCache = new Map();
   const faceMaterials = new Map();
   const noteMaterials = new Map();
   const atlasImages = new Map();
   const atlasTextures = new Map();
   const loadingPages = new Map();
   const picks = [];
+  let activePicks = [];
+  const touches = new Map();
   const originalNoteTabs = new Map();
   let THREE, renderer, scene, view, raycaster, pointer, tablePlane, atlas;
-  let selectionOutline, focusId = null;
+  let selectionOutline, selectionOuter, selectionInner, focusId = null;
   let initialized = false, destroyed = false, scheduled = 0, gesture = null;
   let size = { width: 0, height: 0 }, tilt = rad(29), azimuth = 0;
-  let lastTap = null, lastFrame = 0, dirtyShadows = true;
+  let lastTap = null, lastFrame = 0, lastHover = -Infinity, dirtyShadows = true;
+  let pendingFocus = null, revealingFocus = false, selectingFocus = false;
   let resolveReady, rejectReady, settled = false;
   const ready = new Promise((resolve, reject) => { resolveReady = resolve; rejectReady = reject; });
   // Consumers can await/rethrow ready; an unmounted view never makes a rejection
@@ -77,7 +105,7 @@ export function mountPhysicalScene(options) {
   viewport.append(canvas);
   if (!doc.querySelector('link[data-physical-scene-style]')) {
     const stylesheet = doc.createElement('link');
-    stylesheet.rel = 'stylesheet'; stylesheet.href = relative('./physical-scene.css', import.meta.url);
+    stylesheet.rel = 'stylesheet'; stylesheet.href = relative('./physical-scene.css?v=exhibition-ux-20261029-v3', import.meta.url);
     stylesheet.dataset.physicalSceneStyle = ''; doc.head.append(stylesheet);
   }
   const originalOpacity = world.style.opacity;
@@ -91,6 +119,10 @@ export function mountPhysicalScene(options) {
   const materialColor = (name, fallback) => {
     const value = config.materials?.[name] ?? (name === 'cloth' ? config.theme?.felt : config.theme?.[name]);
     return typeof value === 'string' ? value : value?.color || fallback;
+  };
+  const surfaceTint = (name, fallback, hasMap) => {
+    const color = new THREE.Color(materialColor(name, fallback));
+    return hasMap ? color.lerp(new THREE.Color('#ffffff'), .8) : color;
   };
   const entries = () => atlas.entries || atlas.faces || atlas;
   const entryFor = (id, side) => entries()[`${id}:${side}`];
@@ -238,7 +270,7 @@ export function mountPhysicalScene(options) {
 
   function updateCamera() {
     if (!renderer || !size.width || !size.height) return;
-    const pose = computeSceneView(camera.getState(), kit.size.width, kit.size.height, size.width / size.height, tilt, azimuth);
+    const pose = computeSceneView(camera.getState(), kit.size.width, kit.size.height, size.width / size.height, tilt, azimuth, { depth: 32 * perMm });
     view.aspect = size.width / size.height;
     view.near = Math.max(1, pose.distance / 100);
     view.far = Math.max(pose.distance * 2, pose.distance + Math.max(kit.size.width, kit.size.height) * 2);
@@ -254,11 +286,145 @@ export function mountPhysicalScene(options) {
     updateCamera(); invalidate();
   }
 
+  function chosenId() {
+    const focused = objects.get(focusId);
+    return focused?.pickable && focused.root.visible ? focusId : getSelection();
+  }
+
+  function updateOutline() {
+    if (!selectionOutline) return;
+    const record = objects.get(chosenId());
+    selectionOutline.visible = Boolean(record?.pickable && record.root.visible);
+    if (!selectionOutline.visible) return;
+    const centre = record.root.position.clone(), projected = centre.clone().project(view);
+    const x = centre.clone().add(new THREE.Vector3(1, 0, 0)).project(view);
+    const z = centre.clone().add(new THREE.Vector3(0, 0, 1)).project(view);
+    const pixels = Math.max(.01, Math.min(Math.hypot((x.x - projected.x) * size.width / 2, (x.y - projected.y) * size.height / 2), Math.hypot((z.x - projected.x) * size.width / 2, (z.y - projected.y) * size.height / 2)));
+    const unit = Number((1 / pixels).toPrecision(2));
+    const key = `${record.shape}/${record.p.width}/${record.p.height}/${unit}`;
+    if (!outlineCache.has(key)) {
+      const round = ['cylinder', 'pawn'].includes(record.shape);
+      const width = record.shape === 'pawn' ? record.p.width * .86 : record.p.width;
+      const height = record.shape === 'pawn' ? record.p.width * .86 : record.p.height;
+      const radius = record.p.type === 'card' ? Math.min(width, height) * .035 : record.p.type === 'board' ? 4 : 1.2;
+      const ring = (outer, inner) => {
+        const shape = round ? new THREE.Shape() : roundedShape(width + outer * 2, height + outer * 2, radius + outer);
+        const hole = new THREE.Path();
+        if (round) {
+          shape.absellipse(0, 0, width / 2 + outer, height / 2 + outer, 0, Math.PI * 2, false);
+          hole.absellipse(0, 0, width / 2 + inner, height / 2 + inner, 0, Math.PI * 2, true);
+        } else {
+          hole.setFromPoints(roundedShape(width + inner * 2, height + inner * 2, radius + inner).getPoints(48).reverse());
+        }
+        shape.holes.push(hole);
+        return own(new THREE.ShapeGeometry(shape, 12));
+      };
+      outlineCache.set(key, { outer: ring(2.8 * unit, .4 * unit), inner: ring(2.25 * unit, .75 * unit) });
+    }
+    const geometry = outlineCache.get(key);
+    selectionOuter.geometry = geometry.outer; selectionInner.geometry = geometry.inner;
+    selectionOutline.position.copy(record.root.position);
+    selectionOutline.position.y += record.shape === 'pawn' ? .3 : record.depth / 2 + .42;
+    selectionOutline.rotation.y = record.root.rotation.y;
+    // Zoom gestures can visit many fractional scales; retain only a small set
+    // of reusable rings rather than keeping every intermediate GPU buffer.
+    while (outlineCache.size > 32) {
+      const oldest = outlineCache.keys().next().value;
+      if (oldest === key) break;
+      const previous = outlineCache.get(oldest);
+      previous.outer.dispose(); previous.inner.dispose(); resources.delete(previous.outer); resources.delete(previous.inner); outlineCache.delete(oldest);
+    }
+  }
+
+  // Use the shared camera API to preserve its limits, toolbar and resize mode.
+  // A viewport-sized rectangle with zero padding changes only the camera pose.
+  function setCameraPose(scale, x, y) {
+    if (typeof camera.reveal !== 'function') return;
+    const state = camera.getState();
+    camera.reveal({ x: -x / scale, y: -y / scale, width: state.viewportWidth / scale, height: state.viewportHeight / scale }, { padding: 0 });
+    updateCamera();
+  }
+
+  function projectedBounds(record) {
+    record.root.updateWorldMatrix(true, true);
+    const box = new THREE.Box3().setFromObject(record.root);
+    const bounds = { left: Infinity, right: -Infinity, top: Infinity, bottom: -Infinity };
+    for (const x of [box.min.x, box.max.x]) for (const y of [box.min.y, box.max.y]) for (const z of [box.min.z, box.max.z]) {
+      const p = new THREE.Vector3(x, y, z).project(view);
+      if (![p.x, p.y, p.z].every(Number.isFinite)) return null;
+      const px = (p.x + 1) * size.width / 2, py = (1 - p.y) * size.height / 2;
+      bounds.left = Math.min(bounds.left, px); bounds.right = Math.max(bounds.right, px);
+      bounds.top = Math.min(bounds.top, py); bounds.bottom = Math.max(bounds.bottom, py);
+    }
+    return bounds;
+  }
+
+  function revealFocus(id) {
+    const record = objects.get(id);
+    if (revealingFocus || gesture || !record?.pickable || !record.root.visible || typeof camera.reveal !== 'function') return;
+    revealingFocus = true;
+    const metrics = debug ? { id, attempts: 0, fallback: false, clamped: false } : null;
+    try {
+      const inset = 22, viewportRect = canvas.getBoundingClientRect();
+      const tools = viewport.closest?.('.physical-shell')?.querySelector?.('.physical-tool-buttons')?.getBoundingClientRect();
+      const covered = tools && tools.top < viewportRect.bottom && tools.bottom > viewportRect.top && tools.width > size.width / 2
+        ? Math.max(0, viewportRect.bottom - tools.top + 8) : 0;
+      const safe = { left: inset, right: size.width - inset, top: inset, bottom: size.height - Math.max(inset, Math.min(covered, size.height * .45)) };
+      if (metrics) metrics.safe = safe;
+      const inside = bounds => bounds && bounds.left >= safe.left - 1 && bounds.right <= safe.right + 1 && bounds.top >= safe.top - 1 && bounds.bottom <= safe.bottom + 1;
+      let bounds = projectedBounds(record);
+      if (!bounds) return;
+      const fit = Math.min(1, (safe.right - safe.left) / Math.max(1, bounds.right - bounds.left), (safe.bottom - safe.top) / Math.max(1, bounds.bottom - bounds.top));
+      if (fit < .98 && typeof camera.zoomTo === 'function') { camera.zoomTo(camera.getState().scale * fit * .97); updateCamera(); }
+      for (let attempt = 0; attempt < 3; attempt++) {
+        if (metrics) metrics.attempts++;
+        bounds = projectedBounds(record);
+        if (!bounds) break;
+        const shift = (low, high, min, max) => high - low > max - min ? (min + max - low - high) / 2 : low < min ? min - low : high > max ? max - high : 0;
+        const dx = shift(bounds.left, bounds.right, safe.left, safe.right), dy = shift(bounds.top, bounds.bottom, safe.top, safe.bottom);
+        if (Math.abs(dx) < 1 && Math.abs(dy) < 1) break;
+        const center = { x: (bounds.left + bounds.right) / 2, y: (bounds.top + bounds.bottom) / 2 };
+        const from = point({ clientX: viewportRect.left + center.x, clientY: viewportRect.top + center.y }, record.root.position.y);
+        const to = point({ clientX: viewportRect.left + center.x + dx, clientY: viewportRect.top + center.y + dy }, record.root.position.y);
+        if (!from || !to) break;
+        const state = camera.getState();
+        const x = state.x - (from.x - to.x) * state.scale, y = state.y - (from.z - to.z) * state.scale;
+        setCameraPose(state.scale, x, y);
+        const actual = camera.getState();
+        if (metrics && (Math.abs(actual.x - x) > 1 || Math.abs(actual.y - y) > 1)) metrics.clamped = true;
+      }
+      bounds = projectedBounds(record);
+      if (!inside(bounds)) {
+        if (metrics) metrics.fallback = true;
+        const centre = () => {
+          const state = camera.getState();
+          setCameraPose(state.scale, state.viewportWidth / 2 - record.root.position.x * state.scale, state.viewportHeight / 2 - record.root.position.z * state.scale);
+          return projectedBounds(record);
+        };
+        bounds = centre();
+        // The common camera deliberately bounds panning to the 2D table. A
+        // perspective near-edge sheet can exceed that bound even though it is
+        // smaller than the viewport. Prefer a little less zoom to a clipped
+        // keyboard target; pointer taps never enter this path.
+        for (let attempt = 0; !inside(bounds) && attempt < 9 && typeof camera.zoomTo === 'function'; attempt++) {
+          const before = camera.getState().scale;
+          camera.zoomTo(before * .86); updateCamera();
+          bounds = centre();
+          if (metrics) metrics.attempts++;
+          if (Math.abs(camera.getState().scale - before) < .00001) break;
+        }
+      }
+      if (metrics) { metrics.bounds = bounds; metrics.inside = Boolean(inside(bounds)); metrics.scale = camera.getState().scale; }
+    } finally {
+      revealingFocus = false;
+      if (metrics) canvas.dataset.focusMetrics = JSON.stringify(metrics);
+    }
+  }
+
   function sync({ immediate = false } = {}) {
     if (!initialized || destroyed) return;
     const notes = model.snapshot().notes || {};
     lockNoteTabs();
-    const chosen = getSelection() || focusId;
     // A player mat is a real supporting board. Its cards must sit on its top,
     // not intersect it merely because both share the same logical XY plane.
     const supports = [];
@@ -300,16 +466,8 @@ export function mountPhysicalScene(options) {
       if (front) { front.visible = isTop; if (isTop) front.material = faceMaterial(p, 'front', notes, !state.faceDown); }
       if (back) { back.visible = isTop; if (isTop) back.material = faceMaterial(p, 'back', notes, state.faceDown); }
     }
-    if (selectionOutline) {
-      const record = objects.get(chosen);
-      selectionOutline.visible = Boolean(record?.root.visible);
-      if (record) {
-        const points = roundedShape(record.p.width + 8, record.p.height + 8, 8).getPoints(32).map(point => new THREE.Vector3(point.x, .1, -point.y));
-        selectionOutline.geometry.dispose(); resources.delete(selectionOutline.geometry);
-        selectionOutline.geometry = own(new THREE.BufferGeometry().setFromPoints(points));
-        selectionOutline.position.copy(record.root.position); selectionOutline.position.y += record.shape === 'pawn' ? .3 : record.depth / 2 + .3; selectionOutline.rotation.y = record.root.rotation.y;
-      }
-    }
+    activePicks = picks.filter(mesh => { const record = objects.get(mesh.userData.id); return record?.pickable && record.root.visible && mesh.visible; });
+    updateOutline();
     dirtyShadows = true; invalidate();
   }
 
@@ -332,8 +490,8 @@ export function mountPhysicalScene(options) {
         record.root.position.set(target.x, target.y, target.z); record.root.rotation.y = target.angle; record.flip.rotation.y = target.flip;
       }
     }
-    const chosen = objects.get(getSelection() || focusId);
-    if (chosen && selectionOutline?.visible) { selectionOutline.position.copy(chosen.root.position); selectionOutline.position.y += chosen.shape === 'pawn' ? .3 : chosen.depth / 2 + .3; selectionOutline.rotation.y = chosen.root.rotation.y; }
+    if (pendingFocus && !gesture) { const id = pendingFocus; pendingFocus = null; revealFocus(id); }
+    updateOutline();
     renderer.shadowMap.needsUpdate = dirtyShadows || moving || Boolean(gesture); dirtyShadows = false;
     try { renderer.render(scene, view); writeMetrics(); } catch (error) { fail(error); return; }
     if (moving) invalidate();
@@ -358,7 +516,7 @@ export function mountPhysicalScene(options) {
   function pick(event) {
     if (!initialized) return null;
     point(event);
-    const intersections = raycaster.intersectObjects(picks, false);
+    const intersections = raycaster.intersectObjects(activePicks, false);
     return intersections.map(hit => objects.get(hit.object.userData.id)).find(record => record?.pickable && record.root.visible) || null;
   }
 
@@ -380,28 +538,101 @@ export function mountPhysicalScene(options) {
     invalidate();
   }
 
+  function capture(id) {
+    try { canvas.setPointerCapture(id); } catch { /* A browser may end a pointer before capture. */ }
+  }
+
+  function startPiece(event, record) {
+    const planeY = record.root.position.y + (record.shape === 'pawn' ? 0 : record.depth / 2);
+    const start = point(event, planeY);
+    if (!start) return;
+    const whole = Boolean(event.shiftKey || getSelection() === record.p.id && getPileMode());
+    const ids = whole ? model.members(record.p.id) : [record.p.id];
+    gesture = { kind: 'piece', id: record.p.id, ids, pointer: event.pointerId, planeY, start, clientX: event.clientX, clientY: event.clientY, whole, moved: false, dx: 0, dy: 0, locked: Boolean(record.p.locked), positions: new Map(ids.map(id => [id, objects.get(id).root.position.clone()])) };
+    capture(event.pointerId); onSelect(record.p.id);
+  }
+
+  function startTouchPan(touch) {
+    gesture = { kind: 'touch-pan', pointer: touch.id, x: touch.x, y: touch.y, camera: { ...camera.getState() }, moved: false };
+  }
+
+  function startPinch() {
+    // A second finger changes the intention from moving a card to moving the
+    // view. Discard the uncommitted lift; never turn it into an accidental drop.
+    gesture = null; lastTap = null;
+    canvas.classList.remove('is-dragging', 'is-orbiting'); sync();
+    const [a, b] = touches.values(), state = camera.getState(), rect = canvas.getBoundingClientRect();
+    const x = (a.x + b.x) / 2 - rect.left, y = (a.y + b.y) / 2 - rect.top;
+    gesture = { kind: 'pinch', distance: Math.max(1, Math.hypot(a.x - b.x, a.y - b.y)), scale: state.scale, anchorX: (x - state.x) / state.scale, anchorY: (y - state.y) / state.scale };
+  }
+
+  function endTouch(event, finish) {
+    if (!touches.has(event.pointerId)) return;
+    event.preventDefault(); event.stopPropagation();
+    touches.delete(event.pointerId);
+    if (gesture?.kind === 'piece') stop(event, finish);
+    else { gesture = null; canvas.classList.remove('is-dragging', 'is-orbiting'); }
+    try { if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId); } catch { /* Already cancelled. */ }
+    if (touches.size >= 2) startPinch();
+    else if (touches.size === 1) startTouchPan(touches.values().next().value);
+    invalidate();
+  }
+
+  function cancelPointers() {
+    if (gesture?.pointer != null) stop({ pointerId: gesture.pointer, stopPropagation() {} });
+    gesture = null; lastTap = null;
+    for (const id of touches.keys()) {
+      try { if (canvas.hasPointerCapture(id)) canvas.releasePointerCapture(id); } catch { /* The pointer may already be gone. */ }
+    }
+    touches.clear(); canvas.classList.remove('is-dragging', 'is-orbiting'); sync();
+  }
+
   function bindPointers() {
     on(canvas, 'pointerdown', event => {
-      if (!initialized || destroyed || gesture) return;
+      if (!initialized || destroyed) return;
+      pendingFocus = null;
+      if (event.pointerType === 'touch') {
+        event.preventDefault(); event.stopPropagation();
+        touches.set(event.pointerId, { id: event.pointerId, x: event.clientX, y: event.clientY });
+        capture(event.pointerId);
+        if (touches.size >= 2) { startPinch(); return; }
+        const record = pick(event);
+        if (record) startPiece(event, record);
+        else { onSelect(null); startTouchPan(touches.get(event.pointerId)); }
+        return;
+      }
+      if (gesture) return;
       if (event.button === 2) {
         gesture = { kind: 'orbit', pointer: event.pointerId, x: event.clientX, y: event.clientY, tilt, azimuth };
-        event.preventDefault(); event.stopPropagation(); canvas.setPointerCapture(event.pointerId); canvas.classList.add('is-orbiting'); return;
+        event.preventDefault(); event.stopPropagation(); capture(event.pointerId); canvas.classList.add('is-orbiting'); return;
       }
       if (event.button !== 0) return;
       const record = pick(event);
       if (!record) { onSelect(null); return; } // Empty table keeps viewport pan/zoom.
-      const planeY = record.root.position.y + (record.shape === 'pawn' ? 0 : record.depth / 2);
-      const start = point(event, planeY);
-      if (!start) return;
-      const whole = Boolean(event.shiftKey || getPileMode());
-      const ids = whole ? model.members(record.p.id) : [record.p.id];
-      gesture = { kind: 'piece', id: record.p.id, ids, pointer: event.pointerId, planeY, start, clientX: event.clientX, clientY: event.clientY, whole, moved: false, dx: 0, dy: 0, locked: Boolean(record.p.locked), positions: new Map(ids.map(id => [id, objects.get(id).root.position.clone()])) };
-      event.preventDefault(); event.stopPropagation(); canvas.setPointerCapture(event.pointerId);
-      onSelect(record.p.id);
+      event.preventDefault(); event.stopPropagation(); startPiece(event, record);
     });
     on(canvas, 'pointermove', event => {
+      if (touches.has(event.pointerId)) {
+        touches.set(event.pointerId, { id: event.pointerId, x: event.clientX, y: event.clientY });
+        event.preventDefault(); event.stopPropagation();
+        if (gesture?.kind === 'pinch') {
+          const [a, b] = touches.values(), rect = canvas.getBoundingClientRect();
+          if (!a || !b) return;
+          camera.zoomTo?.(gesture.scale * Math.hypot(a.x - b.x, a.y - b.y) / gesture.distance);
+          const scale = camera.getState().scale;
+          setCameraPose(scale, (a.x + b.x) / 2 - rect.left - gesture.anchorX * scale, (a.y + b.y) / 2 - rect.top - gesture.anchorY * scale);
+          invalidate(); return;
+        }
+        if (gesture?.kind === 'touch-pan') {
+          const dx = event.clientX - gesture.x, dy = event.clientY - gesture.y;
+          if (!gesture.moved && Math.hypot(dx, dy) < 5) return;
+          gesture.moved = true; setCameraPose(gesture.camera.scale, gesture.camera.x + dx, gesture.camera.y + dy);
+          invalidate(); return;
+        }
+      }
       if (!gesture || gesture.pointer !== event.pointerId) {
-        if (!gesture && event.pointerType !== 'touch') canvas.classList.toggle('is-over-piece', Boolean(pick(event)));
+        const now = event.timeStamp ?? Date.now();
+        if (!gesture && event.pointerType !== 'touch' && now - lastHover >= 40) { lastHover = now; canvas.classList.toggle('is-over-piece', Boolean(pick(event))); }
         return;
       }
       event.preventDefault(); event.stopPropagation();
@@ -419,14 +650,25 @@ export function mountPhysicalScene(options) {
       }
       canvas.classList.add('is-dragging'); dirtyShadows = true; invalidate();
     });
-    on(canvas, 'pointerup', event => stop(event, true));
-    on(canvas, 'pointercancel', event => stop(event));
-    on(canvas, 'lostpointercapture', event => stop(event));
+    on(canvas, 'pointerup', event => touches.has(event.pointerId) ? endTouch(event, true) : stop(event, true));
+    on(canvas, 'pointercancel', event => touches.has(event.pointerId) ? endTouch(event, false) : stop(event));
+    on(canvas, 'lostpointercapture', event => touches.has(event.pointerId) ? endTouch(event, false) : stop(event));
     on(canvas, 'dblclick', event => { const record = pick(event); if (record) { event.preventDefault(); event.stopPropagation(); onInspect(record.p.id); } });
     on(canvas, 'contextmenu', event => event.preventDefault());
-    on(viewport, 'focusin', event => { focusId = event.target.closest('[data-piece]')?.dataset.piece || null; sync(); });
+    on(viewport, 'focusin', event => {
+      focusId = event.target.closest('[data-piece]')?.dataset.piece || null;
+      if (focusId && !gesture && !selectingFocus && getSelection() !== focusId && objects.get(focusId)?.pickable) {
+        selectingFocus = true;
+        try { onSelect(focusId); } finally { selectingFocus = false; }
+      }
+      pendingFocus = gesture ? null : focusId;
+      sync();
+    });
+    on(viewport, 'focusout', event => { if (!event.relatedTarget?.closest?.('[data-piece]')) { focusId = null; pendingFocus = null; sync(); } });
     on(viewport, 'tabletopchange', () => { lockNoteTabs(); updateCamera(); invalidate(); });
-    on(win, 'blur', () => { if (gesture) stop({ pointerId: gesture.pointer, stopPropagation() {} }); });
+    on(win, 'blur', cancelPointers);
+    on(doc, 'visibilitychange', () => { if (doc.hidden) cancelPointers(); });
+    on(win, 'keydown', event => { if (event.key === 'Escape' && gesture) cancelPointers(); }, true);
     on(canvas, 'webglcontextlost', event => { event.preventDefault(); fail(new Error('WebGL context was lost.')); });
     const resizeObserver = new win.ResizeObserver(resize); resizeObserver.observe(viewport); cleanups.push(() => resizeObserver.disconnect());
   }
@@ -457,17 +699,22 @@ export function mountPhysicalScene(options) {
     });
   }
 
-  async function loadSurface(path) {
+  async function loadSurface(path, contrast = 1) {
     const picture = await image(relative(path, import.meta.url));
-    const texture = own(new THREE.Texture(picture)); texture.colorSpace = THREE.SRGBColorSpace; texture.needsUpdate = true;
+    let surface = picture;
+    if (contrast !== 1) {
+      surface = doc.createElement('canvas'); surface.width = picture.width; surface.height = picture.height;
+      const context = surface.getContext('2d'); context.filter = `contrast(${contrast})`; context.drawImage(picture, 0, 0);
+    }
+    const texture = own(new THREE.Texture(surface)); texture.colorSpace = THREE.SRGBColorSpace; texture.needsUpdate = true;
     texture.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy()); return texture;
   }
 
   async function createEnvironment() {
     const { width, height } = kit.size;
     scene.background = new THREE.Color('#263937');
-    scene.add(new THREE.HemisphereLight('#fff8e8', '#687770', 2.15));
-    const key = new THREE.DirectionalLight('#fff5e3', 2.6);
+    scene.add(new THREE.HemisphereLight('#fff8e8', '#687770', 1.75));
+    const key = new THREE.DirectionalLight('#fff5e3', 2.4);
     key.position.set(-width * .25, Math.max(width, height) * 1.25, height * .08);
     key.target.position.set(width / 2, 0, height / 2); scene.add(key, key.target);
     key.castShadow = true;
@@ -475,17 +722,17 @@ export function mountPhysicalScene(options) {
     Object.assign(key.shadow.camera, { left: -extent, right: extent, top: extent, bottom: -extent, near: 10, far: Math.max(width, height) * 4 });
     key.shadow.mapSize.set(2048, 2048); key.shadow.normalBias = .75; key.shadow.bias = -.00004; key.shadow.radius = 4;
     const fill = new THREE.DirectionalLight('#d9e5e3', .7); fill.position.set(width * 1.3, height, height); scene.add(fill);
-    const [woodMap, clothMap] = await Promise.all([loadSurface('./scene-assets/walnut-albedo-v1.webp').catch(() => null), loadSurface('./scene-assets/felt-albedo-v1.webp').catch(() => null)]);
+    const [woodMap, clothMap] = await Promise.all([loadSurface('./scene-assets/walnut-albedo-v1.webp').catch(() => null), loadSurface('./scene-assets/felt-albedo-v1.webp', .86).catch(() => null)]);
     if (destroyed) return;
     const wood = own(new THREE.MeshStandardMaterial({ color: '#664b38', roughness: .82, metalness: 0 }));
     const table = new THREE.Mesh(geometry(width + 150, height + 150, 32 * perMm, 35), wood);
     table.rotation.x = -Math.PI / 2; table.position.set(width / 2, -16 * perMm - .5, height / 2); table.receiveShadow = true; table.castShadow = false; scene.add(table);
-    const woodTop = new THREE.Mesh(geometry(width + 150, height + 150, 0, 35, 'face'), own(new THREE.MeshStandardMaterial({ color: woodMap ? '#ffffff' : materialColor('wood', '#92735b'), map: woodMap, roughness: .82, metalness: 0, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 })));
+    const woodTop = new THREE.Mesh(geometry(width + 150, height + 150, 0, 35, 'face'), own(new THREE.MeshStandardMaterial({ color: surfaceTint('wood', '#92735b', woodMap), map: woodMap, roughness: .82, metalness: 0, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 })));
     woodTop.rotation.x = -Math.PI / 2; woodTop.position.set(width / 2, -.35, height / 2); woodTop.receiveShadow = true; scene.add(woodTop);
     const clothMaterial = own(new THREE.MeshStandardMaterial({ color: materialColor('cloth', '#77928b'), roughness: .98, metalness: 0 }));
     const cloth = new THREE.Mesh(geometry(width * .965, height * .96, 1.6, 23), clothMaterial);
     cloth.rotation.x = -Math.PI / 2; cloth.position.set(width / 2, .8, height / 2); cloth.receiveShadow = true; scene.add(cloth);
-    const clothTop = new THREE.Mesh(geometry(width * .965, height * .96, 0, 23, 'face'), own(new THREE.MeshStandardMaterial({ color: clothMap ? '#ffffff' : materialColor('cloth', '#315b5b'), map: clothMap, roughness: .98, metalness: 0, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 })));
+    const clothTop = new THREE.Mesh(geometry(width * .965, height * .96, 0, 23, 'face'), own(new THREE.MeshStandardMaterial({ color: surfaceTint('cloth', '#315b5b', clothMap), map: clothMap, roughness: .98, metalness: 0, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 })));
     clothTop.rotation.x = -Math.PI / 2; clothTop.position.set(width / 2, 1.8, height / 2); clothTop.receiveShadow = true; scene.add(clothTop);
     // The cloth's sewn border is geometry, not a bright painted UI frame.
     const seamPoints = roundedShape(width * .965 - 12, height * .96 - 12, 20).getPoints(64).map(p => new THREE.Vector3(p.x + width / 2, 1.83, -p.y + height / 2));
@@ -520,7 +767,7 @@ export function mountPhysicalScene(options) {
       atlas = await response.json();
       renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' });
       renderer.setPixelRatio(Math.min(win.devicePixelRatio || 1, 1.8));
-      renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.12;
+      renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1;
       renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap; renderer.shadowMap.autoUpdate = false;
       scene = new THREE.Scene(); view = new THREE.PerspectiveCamera(32, 1, 1, 50000);
       raycaster = new THREE.Raycaster(); pointer = new THREE.Vector2(); tablePlane = new THREE.Plane(new THREE.Vector3(0,1,0), 0);
@@ -545,8 +792,12 @@ export function mountPhysicalScene(options) {
       await createEnvironment();
       if (destroyed) return;
       kit.pieces.forEach(createPiece);
-      selectionOutline = new THREE.LineLoop(own(new THREE.BufferGeometry()), own(new THREE.LineBasicMaterial({ color: '#f0ce83', transparent: true, opacity: .9, depthTest: false })));
-      selectionOutline.renderOrder = 20; selectionOutline.visible = false; scene.add(selectionOutline);
+      selectionOutline = new THREE.Group(); selectionOutline.renderOrder = 20; selectionOutline.visible = false;
+      selectionOuter = new THREE.Mesh(own(new THREE.BufferGeometry()), own(new THREE.MeshBasicMaterial({ color: '#233b37', transparent: true, opacity: .96, depthTest: false, depthWrite: false, toneMapped: false })));
+      selectionInner = new THREE.Mesh(own(new THREE.BufferGeometry()), own(new THREE.MeshBasicMaterial({ color: '#efbd61', transparent: true, opacity: .98, depthTest: false, depthWrite: false, toneMapped: false })));
+      selectionOuter.rotation.x = selectionInner.rotation.x = -Math.PI / 2;
+      selectionOuter.renderOrder = 20; selectionInner.renderOrder = 21;
+      selectionOutline.add(selectionOuter, selectionInner); scene.add(selectionOutline);
       initialized = true; bindPointers(); resize(); sync({ immediate: true });
       renderer.shadowMap.needsUpdate = true;
       renderer.render(scene, view); writeMetrics();
@@ -559,6 +810,7 @@ export function mountPhysicalScene(options) {
   }
 
   function fail(error) {
+    if (destroyed) return;
     if (!settled) { settled = true; rejectReady(error); }
     destroy(); options.onError?.(error);
   }
@@ -573,7 +825,7 @@ export function mountPhysicalScene(options) {
     if (instructions) instructions.textContent = originalInstructions;
     resources.forEach(resource => resource.dispose?.()); resources.clear();
     scene?.traverse(node => { node.shadow?.map?.dispose(); node.shadow?.mapPass?.dispose(); });
-    scene?.clear(); objects.clear(); picks.length = 0; geometryCache.clear(); faceMaterials.clear(); noteMaterials.clear(); atlasImages.clear(); atlasTextures.clear(); loadingPages.clear(); originalNoteTabs.clear();
+    scene?.clear(); objects.clear(); picks.length = 0; activePicks = []; touches.clear(); geometryCache.clear(); outlineCache.clear(); faceMaterials.clear(); noteMaterials.clear(); atlasImages.clear(); atlasTextures.clear(); loadingPages.clear(); originalNoteTabs.clear();
     renderer?.renderLists?.dispose(); renderer?.dispose();
     if (!settled) { settled = true; rejectReady(new Error('The physical scene was unmounted.')); }
   }

@@ -652,3 +652,65 @@
     font-size: 17px;
   }
 }
+
+/* Recovery belongs beside the ballots as well as beside the cheer form. */
+.gallery-page .gallery-action-feedback {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin: 0 0 24px;
+  padding: 16px 20px;
+  border: 1px solid #bfd5df;
+  border-radius: 8px;
+  background: white;
+}
+.gallery-page .gallery-action-feedback[data-error="true"] {
+  border-color: #d9b3a6;
+  background: #fff5ef;
+  color: #8c3928;
+}
+.gallery-page .gallery-action-status {
+  flex: 1 1 280px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow-wrap: anywhere;
+}
+.gallery-page .gallery-action-feedback button {
+  max-width: 100%;
+  min-height: 44px;
+}
+.gallery-page .participation-summary,
+.gallery-page .cheer-heading,
+.gallery-page .cheer-columns > *,
+.gallery-page .cheer-game-select select,
+.gallery-page .cheer-compose input,
+.gallery-page .cheer-compose textarea {
+  min-width: 0;
+}
+.gallery-page .cheer-game-select select,
+.gallery-page .cheer-compose input,
+.gallery-page .cheer-compose textarea,
+.gallery-page .participation-secondary {
+  border-color: #748d9c;
+}
+.gallery-page .cheer-compose textarea[aria-invalid="true"] {
+  border-color: #b44935;
+}
+.gallery-page .cheer-login {
+  max-width: 100%;
+  white-space: normal;
+  word-break: keep-all;
+}
+@media (max-width: 640px) {
+  .gallery-page .gallery-action-feedback {
+    padding: 16px;
+  }
+  .gallery-page .gallery-action-feedback button {
+    width: 100%;
+  }
+}

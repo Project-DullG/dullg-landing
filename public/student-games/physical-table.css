@@ -136,6 +136,8 @@
   white-space: nowrap;
 }
 .physical-header nav :is(a, button):hover { border-color: #748e83; background: #e9ede2; }
+.physical-header nav a.physical-vote-link { border-color: #a95740; color: #fffaf0; background: #a95740; }
+.physical-header nav a.physical-vote-link:hover { border-color: #8f4431; background: #8f4431; }
 
 .physical-main {
   position: relative;
@@ -165,6 +167,36 @@
 .physical-camera .tabletop-control-buttons { flex-wrap: wrap; gap: 6px; }
 .physical-camera .tabletop-instructions { margin: 0; color: #c7d7d1; }
 .physical-camera .tabletop-scale { color: #ead19f; }
+.physical-scene-status {
+  position: absolute;
+  z-index: 4;
+  top: 70px;
+  left: 50%;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  margin: 0;
+  padding: 9px 14px;
+  border: 1px solid #d5dac34d;
+  border-radius: 6px;
+  color: #f6f3df;
+  background: #183333ed;
+  box-shadow: 0 3px 14px #091e2226;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  word-break: keep-all;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.physical-scene-status[data-scene-state='ready'] {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 .physical-camera [data-tabletop-action] { min-height: 44px; padding: 8px 13px; font-size: 15px; }
 .physical-table-page #physical-viewport {
   flex: 1 1 0%;

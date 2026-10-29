@@ -36,6 +36,12 @@
     border-color: #ffffff25;
     background: #ffffff0c;
   }
+  .physical-table-page:has(.physical-scene-ready) .physical-header nav a.physical-vote-link {
+    border-color: #c1785b;
+    color: #fffaf0;
+    background: #a95740;
+  }
+  .physical-table-page:has(.physical-scene-ready) .physical-header nav a.physical-vote-link:hover { background: #b26349; }
   .physical-table-page:has(.physical-scene-ready) .physical-camera .tabletop-instructions { color: #aebfb6; }
   .physical-table-page:has(.physical-scene-ready) .physical-camera .tabletop-scale { color: #c2cdbf; }
   .physical-table-page:has(.physical-scene-ready) .physical-camera [data-tabletop-action] {
@@ -46,9 +52,14 @@
     font-weight: 550;
   }
   .physical-table-page:has(.physical-scene-ready) .physical-camera [data-tabletop-action='fit'] {
+    border-color: #ffffff25;
+    color: #e4ebe0;
+    background: transparent;
+  }
+  .physical-table-page:has(.physical-scene-ready) .physical-camera [data-tabletop-action='fit'][aria-pressed='true'] {
     border-color: #c5b58c80;
     color: #eee0bc;
-    background: #d8b46c0b;
+    background: #d8b46c10;
   }
   .physical-table-page:has(.physical-scene-ready) .physical-camera [data-tabletop-action]:hover:not(:disabled) {
     border-color: #d7dfcf80;
@@ -132,19 +143,36 @@
     width: max-content;
     max-width: calc(100% - 28px);
     gap: 8px 16px;
-    min-height: 54px;
-    max-height: min(24dvh, 128px);
+    flex: 0 0 72px;
+    height: 72px;
+    min-height: 72px;
+    max-height: 72px;
     margin: 6px auto 8px;
-    padding: 4px 8px;
+    padding: 8px 12px;
     border: 1px solid #ffffff25;
     border-radius: 5px;
   }
   .physical-table-page:has(.physical-scene-ready) .physical-selected-label {
-    flex: 0 1 220px;
+    flex: 0 0 clamp(150px, 15vw, 220px);
+    max-height: 42px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
     font-size: 14px;
     line-height: 1.4;
   }
-  .physical-table-page:has(.physical-scene-ready) .physical-tool-buttons { flex: 0 1 auto; gap: 4px; }
+  .physical-table-page:has(.physical-scene-ready) .physical-tool-buttons {
+    flex: 1 1 auto;
+    align-self: stretch;
+    flex-wrap: nowrap;
+    gap: 4px;
+    padding: 1px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #8da39955 transparent;
+  }
   .physical-table-page:has(.physical-scene-ready) .physical-hand-tools [data-hand] { min-height: 44px; padding: 7px 9px; font-size: 14px; }
   .physical-table-page:has(.physical-scene-ready) .physical-hand-tools.is-empty .physical-selected-label { flex-basis: auto; }
 }
@@ -155,6 +183,9 @@
   .physical-table-page:has(.physical-scene-ready) .physical-camera [data-tabletop-action] { min-height: 44px; padding: 6px 10px; font-size: 14px; }
   .physical-table-page:has(.physical-scene-ready) .physical-camera .tabletop-instructions { font-size: 13px; }
   .physical-table-page:has(.physical-scene-ready) .physical-camera .tabletop-scale { min-width: 44px; font-size: 14px; }
+  .physical-table-page:has(.physical-scene-ready) [data-tabletop-action='zoom-in'] { margin-left: 6px; border-radius: 4px 0 0 4px; }
+  .physical-table-page:has(.physical-scene-ready) [data-tabletop-action='zoom-out'] { margin-left: -5px; border-radius: 0 4px 4px 0; }
+  .physical-table-page:has(.physical-scene-ready) [data-tabletop-action='fullscreen'] { margin-left: 6px; }
 }
 
 /* Preserve the steady phone selection rail and its existing floating tools. */
@@ -170,6 +201,11 @@
 @media print {
   .physical-scene-canvas { display: none !important; }
   .physical-scene-ready .tabletop-world { opacity: 1 !important; pointer-events: auto !important; }
+}
+
+@media screen and (max-width: 700px) {
+  .physical-header nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; gap: 4px; }
+  .physical-header nav :is(a, button) { min-width: 0; min-height: 44px; padding: 7px 3px; font-size: 13px; }
 }
 
 /* A hand tool is offered only when the selected physical object supports it. */

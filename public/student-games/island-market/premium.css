@@ -1,0 +1,104 @@
+
+/* Publisher edition: large exhibits, one primary film, and optional deeper reading. */
+.market-product .pub-feature-film{scroll-margin-top:24px}
+.market-product .pub-film-action{display:flex;justify-content:flex-end;margin-top:20px}
+.market-product .pub-film-action a{display:inline-flex;align-items:center;gap:28px;min-height:52px;padding:13px 20px;border:1px solid currentColor;border-radius:4px;font-size:17px;font-weight:700;line-height:1.5;text-decoration:none}
+.market-product .pub-film-action a:hover{background:#819a7d14}
+.market-product .pub-optional{width:min(1312px,calc(100% - 80px));margin:24px auto;border-top:1px solid #bbc9bf;border-bottom:1px solid #bbc9bf;background:#fffdf380}
+.market-product .pub-optional>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:100px;padding:22px 26px;cursor:pointer;color:#234c54}
+.market-product .pub-optional>summary::-webkit-details-marker{display:none}
+.market-product .pub-optional>summary b{display:block;font-size:24px;font-weight:750;line-height:1.5;letter-spacing:-.035em}
+.market-product .pub-optional>summary small{display:block;margin-top:5px;font-size:16px;font-weight:400;line-height:1.7;color:#56716a}
+.market-product .pub-optional-mark{display:grid;place-items:center;flex:none;width:44px;height:44px;font-size:27px;line-height:1;transition:transform .15s}
+.market-product .pub-optional[open]>summary .pub-optional-mark{transform:rotate(45deg)}
+.market-product .pub-optional>summary:focus-visible{outline:3px solid #a7753d;outline-offset:4px}
+.market-product .pub-optional-content{border-top:1px solid #bbc9bf}
+.market-product .pub-optional-content .shell,.market-product .pub-optional-content .mp-shell,.market-product .pub-optional-content .ml-shell{width:calc(100% - 64px)}
+.market-product .intro-transcript{margin-top:24px}
+.market-product .intro-transcript summary{font-size:16px;min-height:50px}
+@media(max-width:760px){.market-product .pub-optional{width:calc(100% - 40px);margin:18px auto}.market-product .pub-optional>summary{padding:20px 18px;gap:14px;min-height:96px}.market-product .pub-optional>summary b{font-size:21px}.market-product .pub-optional>summary small{font-size:16px}.market-product .pub-optional-content .shell,.market-product .pub-optional-content .mp-shell,.market-product .pub-optional-content .ml-shell{width:calc(100% - 32px)}.market-product .pub-film-action{justify-content:flex-start}.market-product .pub-film-action a{font-size:16px;min-height:50px}}
+@media(max-width:360px){.market-product .pub-optional{width:calc(100% - 32px)}.market-product .pub-optional>summary{padding:18px 14px}.market-product .pub-optional>summary b{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.market-product .pub-optional-mark{transition:none}}
+
+.market-product{background:#fbf6e9;color:#294b40}
+.market-product .island-coast{--coast-image:url('assets/hero.webp')}
+.market-product .mp-nav{background:#fbf6e9;height:84px}
+.market-product .mp-shell{width:min(1472px,calc(100% - 96px))}
+.market-product .mp-hero{grid-template-columns:.78fr 1.62fr;gap:48px;align-items:center;min-height:730px;padding-top:58px;padding-bottom:62px}
+.market-product .mp-hero-copy{padding:0;min-width:0}
+.market-product .mp-label{font-size:16px!important;line-height:1.6!important;color:#4e684b;letter-spacing:0;margin-bottom:24px}
+.market-product .mp-hero h1{font-size:clamp(80px,7.1vw,118px);line-height:1.08;letter-spacing:-.055em}
+.market-product .mp-description{font-size:18px!important;line-height:1.8!important;color:#4e654e;margin:26px 0}
+.market-product .mp-hero-copy>.mp-button{min-height:56px;font-size:17px;padding:15px 23px}
+.market-product .mp-hero-copy>.mp-text-link{font-size:16px;margin-top:14px;min-height:44px}
+.market-product .mp-hero-facts{margin-top:24px;gap:20px;flex-wrap:wrap}
+.market-product .mp-hero-facts b{font-size:20px}
+.market-product .mp-hero-facts span{font-size:14px;line-height:1.6}
+.market-product .pub-market-stage{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr) 32px minmax(0,1.18fr);align-items:center;gap:14px;width:100%;max-width:940px;min-width:0;height:auto;min-height:0;padding:32px 22px 22px;margin:0;isolation:isolate}
+.market-product .pub-market-surface{position:absolute;inset:0;border:1px solid #c2ccb4;border-radius:16px;background:linear-gradient(#e9edddd9,#dde5d4ed),url('/student-games/scene-assets/felt-albedo-v1.webp') center/460px;box-shadow:inset 0 0 0 8px #e9e3ce,inset 0 0 0 9px #a8b29a,0 8px 0 #b6ab88,0 20px 30px #343e2420;z-index:-1}
+.market-product .pub-market-ingredient,.market-product .pub-market-order{position:relative;min-width:0;width:100%;inset:auto;transform:none}
+.market-product .pub-market-squid{grid-column:1;grid-row:1}
+.market-product .pub-material-plus{grid-column:2;grid-row:1;color:#7c8c69;font-size:26px;text-align:center}
+.market-product .pub-market-rice{grid-column:3;grid-row:1}
+.market-product .pub-recipe-arrow{grid-column:4;grid-row:1;font-size:30px;line-height:1;text-align:center;color:#a2643c}
+.market-product .pub-market-order{grid-column:5;grid-row:1;align-self:center}
+.market-product .pub-market-stage .pub-market-ingredient>.intro-physical-card,.market-product .pub-market-stage .pub-market-order>.intro-physical-card{box-shadow:1px 4px 0 #c8bf9d,0 9px 15px #2c4a3224;border-radius:8px}
+.market-product .pub-market-payment{grid-column:1/-1;display:flex;justify-content:flex-end;align-items:center;gap:20px;margin-top:18px;padding-right:14px}
+.market-product .pub-market-coins{display:flex;gap:9px;align-items:center;min-width:0}
+.market-product .pub-payment-coin{flex:none}
+.market-product .pub-payment-coin-5{width:66px}
+.market-product .pub-payment-coin-1{width:56px}
+.market-product .pub-market-payment>p{font-size:15px!important;line-height:1.6!important;color:#53684b;margin:0;white-space:nowrap}
+.market-product .pub-market-payment>p strong{display:block;font:800 32px/1.2 MarketSans,sans-serif;color:#a5432e}
+.market-product .pub-feature-film{display:flex;flex-direction:column-reverse;align-items:stretch;gap:27px;padding-top:64px;padding-bottom:68px;border-top:1px solid #cecdb8}
+.market-product .pub-feature-film .mp-film-copy{display:grid;grid-template-columns:1.15fr 1fr;gap:12px 55px;align-items:end}
+.market-product .pub-feature-film .mp-film-copy>.mp-section-label{grid-column:1/-1;margin:0;font-size:14px!important}
+.market-product .pub-feature-film .mp-film-copy h2{font-size:40px;line-height:1.4;margin:0}
+.market-product .pub-feature-film .mp-film-copy>p:not(.mp-section-label){font-size:18px!important;line-height:1.8!important;margin:0}
+.market-product .pub-feature-film .mp-film-copy>.mp-small-note{display:none}
+.market-product .pub-feature-film .mp-film-player{width:100%;min-width:0}
+.market-product .pub-feature-film video{border-radius:10px;background:#193b3d;box-shadow:0 7px 26px #2a432116}
+.market-product .mp-demo-section{padding-top:70px;padding-bottom:70px;background:#284c3e}
+.market-product .mp-demo-layout{grid-template-columns:.85fr 1.15fr;gap:60px}
+.market-product .mp-demo-copy h2{font-size:42px;line-height:1.4}
+.market-product .mp-demo-copy>p:not(.mp-section-label){font-size:18px!important;line-height:1.8!important}
+.market-product .mp-product-overview{background:#faf7ee;padding-block:72px;border-color:#d4d6c1}
+.market-product .mp-product-overview .mp-section-label{color:#7f5e31}
+.market-product .mp-product-shot{padding:14px;border-color:#c9c9b2;background:#fffdf5;box-shadow:0 8px 22px #30412d12;border-radius:6px}
+.market-product .mp-product-shot figcaption{color:#52684f}
+.market-product .mp-kit-inventory{background:#f3eddc;border-color:#cec6ad}
+.market-product .mp-kit-inventory h3 strong,.market-product .mp-kit-contents dd{color:#9b5234}
+.market-product .mp-kit-contents dt small{color:#52654d}
+.market-product .pub-market-setup{width:100%;margin-top:35px;background:#f7f0dc}
+.market-product .pub-market-setup>summary{padding:20px 24px}
+.market-product .pub-market-setup .mp-table-preparation{padding:28px;margin:0;border:0}
+.market-product .mp-components{padding-top:76px;padding-bottom:60px}
+.market-product .mp-section-head h2{font-size:clamp(32px,3.3vw,46px);line-height:1.4}
+.market-product .mp-ingredient-shelf{gap:26px}
+.market-product .pub-market-accessory{display:flex;align-items:center;gap:50px;padding:40px 0 15px;margin-top:28px;border-top:1px solid #cbd0bc}
+.market-product .pub-reservation-preview{width:200px;flex:none;min-width:0}
+.market-product .pub-market-accessory>div:last-child>h3{font:700 29px/1.5 MarketSerif,serif;letter-spacing:-.035em;margin:0 0 13px;color:#3b583d}
+.market-product .pub-market-accessory>div:last-child>p{max-width:520px;font-size:18px;line-height:1.8;color:#52684c}
+.market-product .mp-how{padding-block:68px;background:#edf0df}
+.market-product .mp-turn-order{margin-bottom:0;gap:20px;align-items:center}
+.market-product .mp-turn-order small{font-size:14px;line-height:1.6}
+.market-product .mp-turn-order b{font-size:17px;line-height:1.65}
+.market-product .pub-market-comic{width:100%;margin-top:30px;background:#f7faee}
+.market-product .pub-market-comic .mp-story-grid{padding:26px}
+.market-product .mp-paper-section{padding-block:64px}
+.market-product .mp-paper-layout{grid-template-columns:1fr 1fr;gap:70px}
+.market-product .mp-paper-display{position:relative;display:grid;grid-template-columns:.86fr 1.14fr;gap:28px;align-items:center;width:100%;max-width:none;height:auto;min-width:0}
+.market-product .mp-print-preview{position:relative;inset:auto;width:100%;transform:rotate(-2deg)}
+.market-product .pub-market-rulebook{min-width:0;position:relative;transform:rotate(1deg);box-shadow:1px 3px 0 #b1b199,4px 7px 15px #29402e1e}
+.market-product .mp-faq{padding-top:65px;padding-bottom:65px;grid-template-columns:.65fr 1.35fr;gap:90px}
+.market-product .mp-faq-list p{font-size:18px!important;line-height:1.8!important}
+.market-product .mp-closing{padding-top:68px;padding-bottom:70px;background:#e4e9d4}
+@media(max-width:1200px){.market-product .mp-hero{grid-template-columns:.82fr 1.45fr;gap:25px}.market-product .pub-market-stage{padding:28px 18px 20px;gap:10px;grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr) 24px minmax(0,1.18fr)}.market-product .pub-market-payment{gap:15px;padding-right:0}.market-product .pub-payment-coin-5{width:57px}.market-product .pub-payment-coin-1{width:48px}.market-product .mp-hero h1{font-size:88px}.market-product .mp-hero-facts{gap:13px}.market-product .mp-hero-facts>div+div{padding-left:13px}}
+@media(max-width:1050px){.market-product .mp-hero{display:flex;flex-direction:column;align-items:stretch;gap:42px;min-height:0}.market-product .mp-hero-copy{max-width:720px}.market-product .mp-hero h1{font-size:94px}.market-product .mp-hero h1 br{display:none}.market-product .pub-market-stage{max-width:900px;align-self:center;padding:32px 28px 25px;gap:14px}.market-product .pub-market-payment{justify-content:center}.market-product .pub-feature-film .mp-film-copy{grid-template-columns:1fr;gap:15px}.market-product .pub-feature-film .mp-film-copy h2{font-size:36px}.market-product .mp-demo-layout{gap:36px}.market-product .mp-paper-layout{gap:35px}.market-product .mp-faq{gap:45px}}
+@media(max-width:760px){.market-product .mp-shell{width:calc(100% - 40px)}.market-product .mp-nav{height:76px}.market-product .mp-hero{padding-top:32px;padding-bottom:45px;gap:34px}.market-product .mp-label{font-size:16px!important;line-height:1.65!important;margin-bottom:20px}.market-product .mp-hero h1{font-size:66px;line-height:1.2;letter-spacing:-.05em}.market-product .mp-description{font-size:16px!important;margin:20px 0 23px}.market-product .mp-hero-copy>.mp-button{min-height:54px;font-size:16px}.market-product .mp-hero-copy>.mp-text-link{font-size:15px;margin-top:9px}.market-product .mp-hero-facts{gap:12px;padding-top:21px;margin-top:22px}.market-product .mp-hero-facts b{font-size:18px}.market-product .mp-hero-facts span{font-size:13px}.market-product .pub-market-stage{grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr);gap:18px 10px;padding:24px 18px 20px;background:none}.market-product .pub-market-order{grid-column:1/-1;grid-row:1;width:68%;max-width:230px;justify-self:center}.market-product .pub-market-squid{grid-column:1;grid-row:2}.market-product .pub-material-plus{grid-column:2;grid-row:2;font-size:24px}.market-product .pub-market-rice{grid-column:3;grid-row:2}.market-product .pub-recipe-arrow{display:none}.market-product .pub-market-payment{grid-column:1/-1;grid-row:3;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:4px}.market-product .pub-market-payment>p{font-size:14px!important}.market-product .pub-market-payment>p strong{font-size:28px}.market-product .pub-payment-coin-5{width:56px}.market-product .pub-payment-coin-1{width:47px}.market-product .pub-feature-film{padding-top:40px;padding-bottom:42px;gap:23px}.market-product .pub-feature-film .mp-film-copy h2{font-size:29px}.market-product .pub-feature-film .mp-film-copy>p:not(.mp-section-label){font-size:16px!important}.market-product .pub-feature-film video{border-radius:6px}.market-product .mp-demo-section{padding-block:44px}.market-product .mp-demo-layout{display:block}.market-product .mp-demo-copy h2{font-size:31px}.market-product .mp-demo-copy>p:not(.mp-section-label){font-size:16px!important}.market-product .mp-product-overview{padding-block:46px}.market-product .pub-market-setup>summary{padding:18px}.market-product .pub-market-setup .mp-table-preparation{padding:20px 16px}.market-product .mp-components{padding-block:48px}.market-product .mp-section-head h2{font-size:31px}.market-product .pub-market-accessory{gap:22px;align-items:flex-start;padding-top:28px}.market-product .pub-reservation-preview{width:135px}.market-product .pub-market-accessory>div:last-child>h3{font-size:23px;line-height:1.5;margin-bottom:10px}.market-product .pub-market-accessory>div:last-child>p{font-size:16px;line-height:1.8}.market-product .mp-how{padding-block:44px}.market-product .mp-turn-order{gap:12px}.market-product .mp-turn-order>div{min-width:0}.market-product .mp-turn-order small{font-size:12px}.market-product .mp-turn-order b{font-size:14px}.market-product .mp-turn-main{padding-inline:8px}.market-product .pub-market-comic .mp-story-grid{padding:20px 14px}.market-product .mp-paper-section{padding-block:44px}.market-product .mp-paper-layout{display:flex;flex-direction:column-reverse;gap:28px}.market-product .mp-paper-display{max-width:470px;align-self:center;gap:22px}.market-product .mp-faq{padding-block:45px;display:block}.market-product .mp-faq-list p{font-size:16px!important}.market-product .mp-closing{padding-block:46px}}
+@media(max-width:360px){.market-product .mp-shell{width:calc(100% - 32px)}.market-product .mp-hero h1{font-size:58px}.market-product .pub-market-stage{padding:22px 14px 18px;gap:16px 8px}.market-product .pub-market-payment{gap:14px}.market-product .pub-market-payment>p strong{font-size:26px}.market-product .pub-market-coins{gap:6px}.market-product .pub-payment-coin-5{width:50px}.market-product .pub-payment-coin-1{width:43px}.market-product .pub-market-accessory{flex-direction:column;align-items:center;gap:23px}.market-product .pub-market-accessory>div:last-child{width:100%}.market-product .pub-reservation-preview{width:160px}}
+
+.market-product .pub-payment-coin .intro-physical-card{border-radius:50%;box-shadow:0 3px 0 #a58a50,0 6px 10px #293d2626}
+
+/* Narrow screens introduce the dish before the explanatory copy. */
+@media(max-width:1050px){.market-product .mp-hero{gap:0}.market-product .mp-hero-copy{display:contents}.market-product .mp-hero-copy>.mp-label{order:0}.market-product .mp-hero-copy>h1{order:1}.market-product .pub-market-stage{order:2;margin-top:30px;margin-bottom:8px}.market-product .mp-hero-copy>.mp-description{order:3;max-width:720px;margin-top:28px}.market-product .mp-hero-copy>.mp-button,.market-product .mp-hero-copy>.mp-text-link{order:4;align-self:flex-start}.market-product .mp-hero-copy>.intro-start-note{order:5}.market-product .mp-hero-copy>.mp-hero-facts{order:6;align-self:flex-start;max-width:720px}}

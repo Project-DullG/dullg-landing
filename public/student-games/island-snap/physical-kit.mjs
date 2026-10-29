@@ -1,4 +1,4 @@
-import scenePresentation from './scene-presentation.mjs?v=tabletop3d-20261029-v1';
+import scenePresentation from './scene-presentation.mjs?v=premium-20261029-v1';
 // Printed components only. No gameplay engine, turn state, bots, or adjudication.
 export const CARD_SIZE={width:157.5,height:220,mmWidth:63,mmHeight:88};
 export const CARD_TYPES={

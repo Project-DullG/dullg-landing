@@ -94,17 +94,21 @@ export function mountPhysicalTable(kit, host = document.querySelector('#physical
     if (!selected) pileMode = false;
     for (const p of kit.pieces) {
       const s = model.get(p.id), el = nodes.get(p.id), ids = model.members(p.id), top = ids.at(-1), index = ids.indexOf(p.id);
+      const exposed = !s.hidden && (ids.length < 2 || top === p.id);
       const offset = ids.length > 1 ? Math.min(index,7) * .65 : 0;
       el.classList.toggle('is-hidden',s.hidden); el.classList.toggle('is-selected',selected === p.id); el.classList.toggle('is-locked',Boolean(p.locked));
       el.classList.toggle('is-under',ids.length > 1 && top !== p.id); el.classList.toggle('is-top',ids.length > 1 && top === p.id); el.classList.toggle('is-face-down',s.faceDown);
-      el.setAttribute('aria-hidden',String(s.hidden || ids.length > 1 && top !== p.id));
+      // Keep the visible pile edges, while its covered objects and fields cannot
+      // receive focus or enter the accessibility tree until they become the top.
+      el.inert = !exposed;
+      el.setAttribute('aria-hidden',String(!exposed));
       el.style.left = `${s.x + offset * (s.x+p.width/2<kit.size.width/2 ? 1 : -1)}px`; el.style.top = `${s.y + offset * (s.y+p.height/2<kit.size.height/2 ? 1 : -1)}px`; el.style.transform = `rotate(${s.angle}deg)`; el.style.zIndex = String(s.z);
       el.setAttribute('aria-label',visibleLabel(p.id) + (ids.length > 1 ? ` ${countLabel(p.id,ids.length)} 더미` : ''));
-      el.setAttribute('aria-pressed',String(selected === p.id)); el.tabIndex = s.hidden || ids.length > 1 && top !== p.id ? -1 : 0;
+      el.setAttribute('aria-pressed',String(selected === p.id)); el.tabIndex = exposed ? 0 : -1;
       el.querySelector('.physical-front').hidden = s.faceDown;
       if (p.back) el.querySelector('.physical-back').hidden = !s.faceDown;
       const badge = el.querySelector('.physical-pile-count'); badge.hidden = ids.length < 2 || top !== p.id; badge.textContent = ids.length > 1 ? countLabel(p.id,ids.length) : '';
-      el.querySelectorAll('textarea[data-note],input[data-note]').forEach(input => { const value = Object.hasOwn(notes,input.dataset.note)?notes[input.dataset.note]:input.defaultValue; if (document.activeElement !== input) input.value = value;input.tabIndex=viewport.classList.contains('physical-scene-ready') || camera?.getState().scale<.85?-1:0; });
+      el.querySelectorAll('textarea[data-note],input[data-note]').forEach(input => { const value = Object.hasOwn(notes,input.dataset.note)?notes[input.dataset.note]:input.defaultValue; if (document.activeElement !== input) input.value = value;input.tabIndex=!exposed || viewport.classList.contains('physical-scene-ready') || camera?.getState().scale<.85?-1:0; });
     }
     updateTools();
     scene?.sync();
@@ -305,7 +309,7 @@ export function mountPhysicalTable(kit, host = document.querySelector('#physical
   setSceneState('loading');
   const ready = (async () => {
     try {
-      const { mountPhysicalScene } = await import('./physical-scene.mjs?v=exhibition-ux-20261029-v3');
+      const { mountPhysicalScene } = await import('./physical-scene.mjs?v=premium-20261029-v1');
       if (destroyed) return false;
       const mounted = mountPhysicalScene({ viewport, world, kit, model, camera, onSelect:id=>{ select(id,true); if (!id) viewport.focus({preventScroll:true}); }, onMove:commitMove, onInspect:inspect, getSelection:()=>selected, getPileMode:()=>pileMode, onError:sceneFallback });
       scene = mounted;

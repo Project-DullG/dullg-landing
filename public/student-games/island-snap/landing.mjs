@@ -1,4 +1,4 @@
-import {cardHTML as physicalCardHTML, CARD_SIZE, CARD_TYPES} from './physical-kit.mjs?v=tabletop3d-20261029-v1';
+import {cardHTML as physicalCardHTML, CARD_SIZE, CARD_TYPES, chantHTML, responseHTML} from './physical-kit.mjs?v=premium-20261029-v1';
 
 const fittedFaces = new Set();
 const scaleFace = node => {
@@ -17,7 +17,7 @@ window.addEventListener('resize', () => fitFaces());
 const escIntro = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 function nativeFace(html, width, height, preview = null) {
   // Paper and text can paint immediately while the artwork decodes independently.
-  html = html.replace(/<img\b/g, '<img decoding="async"');
+  html = html.replace(/<img\b/g, '<img loading="lazy" decoding="async"');
   return `<div class="intro-physical-card" data-face-width="${width}" style="aspect-ratio:${width}/${height}"><div class="intro-face-original" style="width:${width}px;height:${height}px">${html}</div>${preview ? `<button type="button" class="intro-card-open" data-intro-card="${escIntro(preview.id)}" aria-label="${escIntro(preview.label)} 크게 보기" aria-haspopup="dialog" aria-controls="component-preview"><span>크게 보기</span></button>` : ''}</div>`;
 }
 function setupPreview(render, title) {
@@ -40,7 +40,10 @@ function setupPreview(render, title) {
 const cardHTML = ({kind}, preview = false) => nativeFace(physicalCardHTML(kind), CARD_SIZE.width, CARD_SIZE.height, preview ? {id:kind,label:CARD_TYPES[kind].name+' 카드'} : null);
 
 const $=selector=>document.querySelector(selector);
-$('#cover-cards').innerHTML=['squid','candy','leaves'].map(kind=>`<div>${cardHTML({kind})}</div>`).join('');
+const eagerFace = html => html.replaceAll('loading="lazy"', 'loading="eager" fetchpriority="high"');
+$('#cover-cards').innerHTML=['squid','candy','leaves'].map(kind=>`<div>${eagerFace(cardHTML({kind}))}</div>`).join('');
+$('#hero-chant').innerHTML=nativeFace(chantHTML(),470,80);
+$('#hero-response').innerHTML=nativeFace(responseHTML(1),76,76);
 $('#basic-cards').innerHTML=['squid','candy','leaves','dokdo','mountain'].map(kind=>`<div class="shelf-card">${cardHTML({kind},true)}<p class="shelf-count"><b>10</b>장</p></div>`).join('');
 $('#gull-card').innerHTML=cardHTML({kind:'gull'},true);
 $('#boat-card').innerHTML=cardHTML({kind:'boat'},true);

@@ -6,6 +6,27 @@ if (video && tools) {
   const chapterUrl = new URL('intro.chapters.json', source);
   chapterUrl.search = new URL(source).search;
   const clock = seconds => `${Math.floor(seconds / 60).toString().padStart(2, '0')}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
+  // Keep native media controls available; the invitation only covers the untouched poster.
+  const frame = document.createElement('div');
+  frame.className = 'film-screen';
+  video.before(frame);
+  frame.append(video);
+  const invitation = document.createElement('button');
+  invitation.type = 'button';
+  invitation.className = 'film-invitation';
+  const playMark = document.createElement('span');
+  playMark.className = 'film-play-mark';
+  playMark.setAttribute('aria-hidden', 'true');
+  const playCopy = document.createElement('span');
+  const playTitle = document.createElement('strong');
+  playTitle.textContent = '영상으로 둘러보기';
+  const playDetail = document.createElement('span');
+  playDetail.className = 'film-invitation-detail';
+  playDetail.textContent = '구성품부터 한 판의 흐름까지';
+  playCopy.append(playTitle, playDetail);
+  invitation.append(playMark, playCopy);
+  frame.append(invitation);
+  invitation.addEventListener('click', () => requestPlayback(0));
   const feedback = document.createElement('p');
   feedback.className = 'film-feedback';
   feedback.setAttribute('role', 'status');
@@ -42,6 +63,8 @@ if (video && tools) {
     const request = ++playbackRequest;
     requestedTime = time;
     pending = true;
+    invitation.hidden = true;
+    if (document.activeElement === invitation) video.focus({preventScroll: true});
     report('선택한 장면을 불러오는 중입니다.');
     stopLoadingTimer();
     loadingTimer = setTimeout(() => {
@@ -75,6 +98,20 @@ if (video && tools) {
     pending = false;
     stopLoadingTimer();
     report('');
+    invitation.hidden = true;
+  });
+  video.addEventListener('ended', () => {
+    pending = false;
+    stopLoadingTimer();
+    playTitle.textContent = '처음부터 다시 보기';
+    invitation.hidden = false;
+    report('');
+  });
+  video.addEventListener('pause', () => {
+    // A native pause cancels the loading announcement without resuming playback later.
+    pending = false;
+    stopLoadingTimer();
+    if (!video.error) report('');
   });
   video.addEventListener('error', () => {
     pending = false;
@@ -89,23 +126,45 @@ if (video && tools) {
     const response = await fetch(chapterUrl);
     if (!response.ok) throw new Error('Chapter metadata unavailable');
     const manifest = await response.json();
-    const chapters = (manifest.chapters || []).filter(chapter => Number.isFinite(chapter.time) && chapter.time >= 0 && typeof chapter.title === 'string');
+    const chapters = (manifest.chapters || []).filter(chapter => Number.isFinite(chapter.time) && chapter.time >= 0 && typeof chapter.title === 'string').sort((a, b) => a.time - b.time);
     if (!chapters.length) throw new Error('No chapters');
     const note = document.createElement('p');
     note.className = 'film-note';
-    note.textContent = '보고 싶은 장면부터 골라보세요.';
+    note.textContent = '궁금한 장면부터 보세요';
     const nav = document.createElement('nav');
     nav.className = 'film-chapters';
     nav.setAttribute('aria-label', '플레이 시연 장면');
     for (const chapter of chapters) {
       const button = document.createElement('button');
       button.type = 'button';
+      if (typeof chapter.thumbnail === 'string') {
+        const thumbnailUrl = new URL(chapter.thumbnail, chapterUrl);
+        // Only the same origin's generated stills are used in the public player.
+        if (thumbnailUrl.origin === chapterUrl.origin) {
+          thumbnailUrl.search = chapterUrl.search;
+          const still = document.createElement('img');
+          still.src = thumbnailUrl.href;
+          still.alt = '';
+          still.width = 480;
+          still.height = 270;
+          still.loading = 'lazy';
+          still.decoding = 'async';
+          still.addEventListener('error', () => { still.remove(); button.classList.remove('has-still'); }, {once: true});
+          button.classList.add('has-still');
+          button.append(still);
+        }
+      }
+      const caption = document.createElement('span');
+      caption.className = 'film-chapter-caption';
       const time = document.createElement('span');
+      time.className = 'film-chapter-time';
       time.textContent = clock(chapter.time);
       time.setAttribute('aria-hidden', 'true');
       const label = document.createElement('span');
+      label.className = 'film-chapter-title';
       label.textContent = chapter.title;
-      button.append(time, label);
+      caption.append(time, label);
+      button.append(caption);
       button.setAttribute('aria-label', `${clock(chapter.time)} ${chapter.title} 재생`);
       button.addEventListener('click', () => requestPlayback(chapter.time));
       nav.append(button);
@@ -122,13 +181,18 @@ if (video && tools) {
     tools.replaceChildren(note, nav, tail, feedback, retry);
     const buttons = [...nav.children];
     function update() {
+      const duration = Number.isFinite(video.duration) ? video.duration : manifest.duration;
       let active = 0;
       for (let i = 0; i < chapters.length; i++) if (video.currentTime >= chapters[i].time) active = i;
       buttons.forEach((button, i) => {
         if (i === active) button.setAttribute('aria-current', 'step');
         else button.removeAttribute('aria-current');
+        const end = chapters[i + 1]?.time ?? duration;
+        const progress = end > chapters[i].time ? Math.max(0, Math.min(1, (video.currentTime - chapters[i].time) / (end - chapters[i].time))) : 0;
+        button.style.setProperty('--chapter-progress', `${progress * 100}%`);
       });
-      status.textContent = `${clock(video.currentTime)} / ${clock(Number.isFinite(video.duration) ? video.duration : manifest.duration)}`;
+      status.textContent = `${clock(video.currentTime)} / ${clock(duration)}`;
+      playDetail.textContent = `${clock(duration)} 영상으로 배우는 게임 방법`;
     }
     video.addEventListener('timeupdate', update);
     video.addEventListener('loadedmetadata', update);

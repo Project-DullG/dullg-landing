@@ -6,123 +6,262 @@
   "captions": "intro.ko.vtt",
   "chapterFile": "intro.chapters.json",
   "format": {
-    "programs": [],
-    "stream_groups": [],
     "streams": [
       {
         "index": 0,
         "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
         "codec_type": "video",
-        "width": 1280,
-        "height": 720,
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "mime_codec_string": "avc1.640028",
+        "width": 1920,
+        "height": 1080,
+        "coded_width": 1920,
+        "coded_height": 1080,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "16:9",
         "pix_fmt": "yuv420p",
+        "level": 40,
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
         "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "time_base": "1/12288",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 1032192,
         "duration": "84.000000",
-        "nb_frames": "2016"
+        "bit_rate": "1390559",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "2016",
+        "extradata_size": 48,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler"
+        }
       },
       {
         "index": 1,
         "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
         "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "mime_codec_string": "mp4a.40.2",
+        "sample_fmt": "fltp",
         "sample_rate": "48000",
         "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
         "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 4032000,
         "duration": "84.000000",
-        "nb_frames": "3938"
+        "bit_rate": "158942",
+        "nb_frames": "3938",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler"
+        }
       }
     ],
     "format": {
+      "filename": "intro.mp4",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
       "duration": "84.000000",
-      "size": "4668664"
+      "size": "16329767",
+      "bit_rate": "1555215",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "encoder": "Lavf62.12.100"
+      }
     }
   },
   "production": {
-    "method": "Offline SVG and Sharp image composition with generated product mockup wide shots, native large card/document layouts and physical component movement. Frames are streamed to FFmpeg without browser rendering.",
+    "method": "Native Godot offline 3D material/lighting render of the actual physical-kit faces, camera movement and component manipulation, with local fontkit typography and FFmpeg encode.",
+    "browserRendererUsed": false,
     "livePhysicalProductPhotography": false,
-    "frames": "PNG buffers streamed through stdin; repeated hold frames reused in memory; no complete frame sequence stored",
-    "encoder": "H264 1280x720 yuv420p 24fps faststart; original AAC stream copied without encoding",
-    "workers": "Sharp concurrency 1; FFmpeg encoder threads 2; full decode threads 1",
-    "temporaryOutput": "Encoded and fully validated in an audit output directory before atomic asset replacement",
-    "usesLegacyChapterCameraMetadata": false
+    "generatedProductMockupUsed": false,
+    "resolution": "1920x1080",
+    "frames": "JPEG92 only for moving camera/objects; static holds reuse the last source; temporary source frames deleted after candidate encode/verification.",
+    "encoder": "H264 High1080p24 yuv420p faststart; original AAC stream copied",
+    "workers": "One game at a time; Sharp1 and FFmpeg2 threads"
   },
   "credits": {
     "studentConcept": "박성은, 서우림",
-    "tableTexture": "Existing Ulleung Marble table-walnut.png asset",
-    "illustration": "Existing shared-art/*.webp assets generated with built-in ImageGen for this project",
-    "music": "Original intro.mp4 AAC packets preserved by stream copy; music.mp3 unchanged",
-    "font": "Existing PretendardVariable.woff2 rendered as glyph paths",
-    "productPhoto": "Built-in ImageGen generated product layout mockup tabletop-showcase-v2.webp; not live physical product photography",
-    "paperTexture": "Existing assets/last-screening/media/paper.webp, blank central paper material only"
+    "printedFaces": "Current physical-kit native atlas, no reconstructed card typography",
+    "font": "Existing PretendardVariable and NanumMyeongjoBold",
+    "music": "Original intro.mp4 AAC stream copied byte-for-byte; music.mp3 unchanged",
+    "textures": "Existing scene-assets walnut/felt albedo"
   },
-  "artworkFingerprints": {
-    "squid": "5b7fade9b5f91676c9fa2860191b72b641aa5cf9090deb5b808e9b35ff7cc6a6",
-    "candy": "c477a77231f0d422d2b00a8b59134f3fa5e685326895371778b7c1204db23bbe",
-    "leaves": "fab1171b0a176e5876dfef1be2b9d3de23c95996fb19ed574d5aaadec4237995",
-    "dokdo": "7d158dcc815838cebb86e0fe7a16c4462ceeaef646a59d6dcaaa539e55cb1f21",
-    "mountain": "b9c29ac3fb8f003af6ca52d8f4609b19cb4b628ff7e8acf11132e0577b793c4a",
-    "gull": "0b93b499f655f6c5385190264f141671068eaeaab9727cb9e30e65e810f46455",
-    "boat": "8db996e6039be6f027f30b6a99d6ee8b53c583ea3607c618489707fe98e5ea6b"
+  "nativeFaceManifest": {
+    "qaReference": "native-face-manifest",
+    "sha256": "8e1d624a8bad91c9079c04281e4425edd00f846cf3e57763c6a85277fc890300",
+    "printedFaceCount": 309,
+    "source": "Current native physical-kit and tabletop3d atlas. Full extraction evidence retained with production QA."
+  },
+  "sourceFingerprints": {
+    "physical-kit.mjs": "787dbb7f69f957d0afe4aa82dc2d8d9c199cd6e68654b8e94e6c6cdef7b31fd2",
+    "physical-kit.css": "234f8bbe2ab79a3ecf0a402fac5509ee8ff2d44562b72e96a95be0cab239de64",
+    "assets/tabletop3d/atlas.json": "cb2e230892aded36c6bc97c5d84d594c9be544b197a5d6f1f53d7170073d483a"
   },
   "hashes": {
-    "video": "6f2253136ba2f1eeeee635ab37373886e6503bd05448bdcd5b81a280f370b32c",
-    "poster": "ec2caf703d0caeefc8b956ac22c2caa4e56e31e08a607f0820433a7f2f4efef6",
+    "video": "7cb51a90bfb524bfd824592fc2ba986dc74d19611d342356537c70aacb60a6e0",
+    "poster": "915414067bf63a34cc987566bd86e8fd85ce13908e449ca5d04b7808bc47647f",
     "captions": "477a6d351f0e927e03057de316ecf1d39d2596ede7b02b6ab15f701037aa998b",
-    "chapters": "6bfab56915639eee13b406487888a6fb868a2e331d88fee2a350a8681dbf7cea",
+    "chapters": "7e1292b1cd4933c8afdb89ebe5682645f144270337377d7989f06898da4a599e",
     "preservedMusic": "0e09806eb9c845e6aaca54363797f5147bf8875f040abff31c123e7c2cbeeb49",
     "originalAudioADTS": "82855e1dfec1ab0c3b456555ff12bdb09df863e6ebb72fb739ff7fa0a6b6553c",
-    "productLayout": "e41fb3142782dd7069881602a0b0862baa48c8653a62da6ae3e2e92ad29be427",
-    "renderer": "cd8cac9558bb1d84fe66205cccb548aaf88ffdb7dc64f75fe4d864dc7ff6afab"
+    "thumbnails": {
+      "intro-scenes/01.webp": "92bab32069ea87c51aed7eeee1e1f76f7cf224bd3dcafafa2c9583952f09e7be",
+      "intro-scenes/02.webp": "1b1eae5c90ab49c70d70c60494949549ab418b03ade81df812d747777b17f5b3",
+      "intro-scenes/03.webp": "198a1f7283674fd3ae9d7b85a60c839c614df123b3a68f24c47165413bb6a118",
+      "intro-scenes/04.webp": "0dd95bed468c2fbbaf5b527f25b8b2e72a941e3810b5262684d5436a8c6b8330",
+      "intro-scenes/05.webp": "ce727bb60a92eb176cc891830beba86ae5e79528347d03e77f8f744cb06cc3a5",
+      "intro-scenes/06.webp": "4f888989690c02e2a7c51d25708817c4f85eff5d7205ed7086275776f759142d",
+      "intro-scenes/07.webp": "06683310ee6364114d54deea9a8789938779b018873867e7c16e2961a6c11a46",
+      "intro-scenes/08.webp": "0da8c77d1783304868d5081d5ea6c66b3eb6ac20d33c77ee4a3bf5d51632b328"
+    }
   },
   "validation": {
     "ffprobe": true,
     "fullAudioVideoDecode": true,
     "decodedVideoFrames": 2016,
     "audioTrackUnchanged": true,
-    "musicFileUnchanged": true,
-    "chaptersAndVttUnchanged": true,
+    "audioPacketDataAndTimingUnchanged": true,
+    "audioPackets": 3938,
     "aacSha256": "82855e1dfec1ab0c3b456555ff12bdb09df863e6ebb72fb739ff7fa0a6b6553c",
+    "musicFileUnchanged": true,
     "eightContinuousChapters": true,
     "eightVttCues": true,
-    "burnedInCaptionFontPx": 26,
+    "chapterThumbnails": 8,
+    "burnedInCaptionFontPx": 40,
     "maxCaptionLines": 2,
-    "closeupDocumentBodyPx": null,
-    "closeupPrimaryCardTitlePx": 38,
-    "componentBoundsCheckedEveryFrame": true,
-    "stageSafety": {
-      "left": 40,
-      "right": 1242,
-      "top": 116,
-      "bottom": 590
-    },
-    "cardOpacity": "opaque throughout movement",
-    "sourceRulesReview": "Engine/source checked; independent agent reviewed all storyboard sample frames and rechecked three text collisions and D08 sold/refill state",
-    "renderedCopyLedger": ".design-audit/student-games-video-v2/copy-ledger.json",
     "encodedSampleFrames": [
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-01.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-12.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-21.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-32.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-37.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-44.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-46.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-54.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-56.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-64.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-68.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-74.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-82.jpg"
+      {
+        "chapter": 1,
+        "time": 3.5,
+        "thumbnail": "intro-scenes/01.webp"
+      },
+      {
+        "chapter": 2,
+        "time": 11.5,
+        "thumbnail": "intro-scenes/02.webp"
+      },
+      {
+        "chapter": 3,
+        "time": 20.5,
+        "thumbnail": "intro-scenes/03.webp"
+      },
+      {
+        "chapter": 4,
+        "time": 34.8,
+        "thumbnail": "intro-scenes/04.webp"
+      },
+      {
+        "chapter": 5,
+        "time": 43.5,
+        "thumbnail": "intro-scenes/05.webp"
+      },
+      {
+        "chapter": 6,
+        "time": 53.5,
+        "thumbnail": "intro-scenes/06.webp"
+      },
+      {
+        "chapter": 7,
+        "time": 66.8,
+        "thumbnail": "intro-scenes/07.webp"
+      },
+      {
+        "chapter": 8,
+        "time": 73.5,
+        "thumbnail": "intro-scenes/08.webp"
+      }
     ],
     "encodedSamplesActuallyViewed": true,
-    "cleanPosterActuallyViewed": true,
-    "browserRendererUsed": false,
-    "humanPlaytest": "Not part of media production",
-    "actuallyViewedEncodedFrames": [
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-44.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-snap-64.jpg"
-    ],
-    "visualReviewScope": "Full-size encoded critical frames listed here; all 46 source storyboard samples reviewed, and independent source/sample review completed. All audio/video streams fully decoded.",
-    "middleDotCount": 0,
-    "renderedStringCount": 269
+    "sourceGeometry": "All widths/heights/depths originate in the actual kit, in mm; camera projection does not change print proportions",
+    "boundedCorrection": {
+      "chapters": [
+        1
+      ],
+      "unchangedDecodedFrames": 1824,
+      "untouchedFramesPixelIdentical": true,
+      "originalAacDataAndTimestampsPreserved": true,
+      "reasons": [
+        "Opening title raised by8px."
+      ]
+    },
+    "visualReview": {
+      "representativeFrames": 8,
+      "corePrintFacesAndCaptionsReadable": true,
+      "nativeDimensionsPreserved": true,
+      "review": "Actual ffmpeg-encoded representative frames directly inspected; full24 reviewed independently. Final Snap01 and Market03/04/07 corrections reviewed separately."
+    },
+    "independentReview": "24 chapter frames visually reviewed; native-face pixels, all audio packets and timing, continuous captions, final stream decode and thumbnails independently verified."
   },
-  "checkedAt": "2026-10-27T13:19:42.047Z"
+  "checkedAt": "2026-10-29T14:58:59.033Z"
 }

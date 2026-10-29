@@ -2,157 +2,253 @@
   "title": "울릉도: 사라진 항해일지",
   "duration": 88,
   "fps": 24,
-  "width": 1280,
-  "height": 720,
-  "approach": "actual printed-component artwork on an animated physical tabletop",
+  "width": 1920,
+  "height": 1080,
+  "approach": "Offline 3D physical components using the exact native printed faces and physical dimensions",
   "chapters": [
     {
       "time": 0,
       "end": 9,
       "title": "네 장소를 펼친 조사 테이블",
-      "caption": "장소 봉투 4개, 공용 말 1개, 힌트 토큰 6개를 준비합니다."
+      "caption": "장소 봉투 4개, 공용 말 1개, 힌트 토큰 6개를 준비합니다.",
+      "thumbnail": "intro-scenes/01.webp",
+      "thumbnailTime": 3.5
     },
     {
       "time": 9,
       "end": 20,
       "title": "다음 장소를 함께 고르기",
-      "caption": "장소는 어느 순서로 조사해도 됩니다. 공용 말을 옮기고 봉투를 열어 보세요."
+      "caption": "장소는 어느 순서로 조사해도 됩니다. 공용 말을 옮기고 봉투를 열어 보세요.",
+      "thumbnail": "intro-scenes/02.webp",
+      "thumbnailTime": 13
     },
     {
       "time": 20,
       "end": 33,
       "title": "세 장의 자료를 나누어 읽기",
-      "caption": "읽기, 기록, 대조, 설명 역할을 나누고, 장소가 바뀌면 교대합니다."
+      "caption": "읽기, 기록, 대조, 설명 역할을 나누고, 장소가 바뀌면 교대합니다.",
+      "thumbnail": "intro-scenes/03.webp",
+      "thumbnailTime": 24.5
     },
     {
       "time": 33,
       "end": 46,
       "title": "여행 날짜와 전시 번호",
-      "caption": "자료에 붙은 이름을 확인하세요. 여행의 날짜와 전시장의 자리는 다른 정보입니다."
+      "caption": "자료에 붙은 이름을 확인하세요. 여행의 날짜와 전시장의 자리는 다른 정보입니다.",
+      "thumbnail": "intro-scenes/04.webp",
+      "thumbnailTime": 36.5
     },
     {
       "time": 46,
       "end": 57,
       "title": "막혔다면 도움 한 단계",
-      "caption": "힌트 한 단계에 토큰 1개. 여섯 개를 다 써도 무료 도움으로 끝까지 이어갑니다."
+      "caption": "힌트 한 단계에 토큰 1개. 여섯 개를 다 써도 무료 도움으로 끝까지 이어갑니다.",
+      "thumbnail": "intro-scenes/05.webp",
+      "thumbnailTime": 50
     },
     {
       "time": 57,
       "end": 68,
       "title": "근거를 복원판에 적기",
-      "caption": "날짜와 전시칸, 표제를 따로 적고 근거 자료 번호를 함께 남깁니다."
+      "caption": "날짜와 전시칸, 표제를 따로 적고 근거 자료 번호를 함께 남깁니다.",
+      "thumbnail": "intro-scenes/06.webp",
+      "thumbnailTime": 60.5
     },
     {
       "time": 68,
       "end": 78,
       "title": "팀의 복원안을 먼저 정하기",
-      "caption": "네 장소를 조사한 뒤 팀의 복원안을 먼저 기록합니다. 최종 확인 봉투는 그다음에 엽니다."
+      "caption": "네 장소를 조사한 뒤 팀의 복원안을 먼저 기록합니다. 최종 확인 봉투는 그다음에 엽니다.",
+      "thumbnail": "intro-scenes/07.webp",
+      "thumbnailTime": 74.7
     },
     {
       "time": 78,
       "end": 88,
       "title": "함께 복원하고 여행을 나누기",
-      "caption": "처음 맞히면 독립 복원, 고쳐 완성하면 재검토 복원. 개인 승자나 탈락자는 없습니다."
+      "caption": "처음 맞히면 독립 복원, 고쳐 완성하면 재검토 복원. 개인 승자나 탈락자는 없습니다.",
+      "thumbnail": "intro-scenes/08.webp",
+      "thumbnailTime": 81.5
     }
   ],
-  "sourceArt": "content.mjs + print.mjs",
+  "sourceArt": "physical-kit.mjs + physical-kit.css + current tabletop3d/atlas.json",
   "camera": [
-    [
-      0,
-      640,
-      340,
-      1
-    ],
-    [
-      8,
-      640,
-      340,
-      1
-    ],
-    [
-      14,
-      730,
-      410,
-      1.8
-    ],
-    [
-      19,
-      551,
-      340,
-      1.45
-    ],
-    [
-      24,
-      640,
-      340,
-      1.75
-    ],
-    [
-      31,
-      640,
-      340,
-      1.75
-    ],
-    [
-      36,
-      662,
-      333,
-      2.05
-    ],
-    [
-      44,
-      662,
-      333,
-      2.05
-    ],
-    [
-      49,
-      640,
-      350,
-      1.8
-    ],
-    [
-      55,
-      640,
-      350,
-      1.8
-    ],
-    [
-      61,
-      640,
-      344,
-      1.45
-    ],
-    [
-      67,
-      640,
-      344,
-      1.45
-    ],
-    [
-      72,
-      930,
-      514,
-      1.6
-    ],
-    [
-      77,
-      930,
-      514,
-      1.6
-    ],
-    [
-      82,
-      640,
-      340,
-      1
-    ],
-    [
-      88,
-      640,
-      340,
-      1
-    ]
+    {
+      "chapter": 1,
+      "start": {
+        "size": 955,
+        "x": 0,
+        "z": 50,
+        "elevation": 67,
+        "azimuth": -5
+      },
+      "end": {
+        "size": 921.5749999999999,
+        "x": 0,
+        "z": 50,
+        "elevation": 67,
+        "azimuth": -5
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 2,
+      "start": {
+        "size": 590,
+        "x": 0,
+        "z": 40,
+        "elevation": 70,
+        "azimuth": 0
+      },
+      "end": {
+        "size": 569.35,
+        "x": 0,
+        "z": 40,
+        "elevation": 70,
+        "azimuth": 0
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 3,
+      "start": {
+        "size": 355,
+        "x": 0,
+        "z": -12,
+        "elevation": 82,
+        "azimuth": 0
+      },
+      "end": {
+        "size": 300,
+        "x": 0,
+        "z": -12,
+        "elevation": 83,
+        "azimuth": 0
+      },
+      "transition": [
+        2,
+        4
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 4,
+      "start": {
+        "size": 330,
+        "x": 0,
+        "z": -12,
+        "elevation": 82,
+        "azimuth": 0
+      },
+      "end": {
+        "size": 320,
+        "x": 0,
+        "z": -12,
+        "elevation": 82,
+        "azimuth": 0
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 5,
+      "start": {
+        "size": 310,
+        "x": 0,
+        "z": 30,
+        "elevation": 75,
+        "azimuth": -3
+      },
+      "end": {
+        "size": 299.15,
+        "x": 0,
+        "z": 30,
+        "elevation": 75,
+        "azimuth": -3
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 6,
+      "start": {
+        "size": 440,
+        "x": 45,
+        "z": -15,
+        "elevation": 81,
+        "azimuth": -2
+      },
+      "end": {
+        "size": 430,
+        "x": 45,
+        "z": -15,
+        "elevation": 81,
+        "azimuth": -2
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 7,
+      "start": {
+        "size": 440,
+        "x": 30,
+        "z": -15,
+        "elevation": 75,
+        "azimuth": -4
+      },
+      "end": {
+        "size": 430,
+        "x": 30,
+        "z": -15,
+        "elevation": 75,
+        "azimuth": -4
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 8,
+      "start": {
+        "size": 565,
+        "x": 65,
+        "z": 65,
+        "elevation": 69,
+        "azimuth": 4
+      },
+      "end": {
+        "size": 545.225,
+        "x": 65,
+        "z": 65,
+        "elevation": 69,
+        "azimuth": 4
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    }
   ],
-  "music": "existing music.mp3; loop, 2s fade-in, 4s fade-out"
+  "music": "Original intro AAC packet stream preserved without encoding; music.mp3 unchanged"
 }

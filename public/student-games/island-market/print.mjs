@@ -1,4 +1,4 @@
-import kit,{getCardInventory,CARD_WIDTH} from './physical-kit.mjs?v=physical-components-20261029-v1';
+import kit,{getCardInventory,CARD_WIDTH} from './physical-kit.mjs?v=premium-20261029-v1';
 // A world unit is a fixed length, including type and all internal artwork.
 const WORLD_PER_MM=CARD_WIDTH/58;
 const PRINT_SCALE=(96/25.4)/WORLD_PER_MM;

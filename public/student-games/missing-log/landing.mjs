@@ -1,4 +1,4 @@
-import { PUBLIC_DOCUMENTS } from './physical-kit.mjs?v=tabletop3d-20261029-v1';
+import kit, { PUBLIC_DOCUMENTS } from './physical-kit.mjs?v=premium-20261029-v1';
 
 // The same two public documents appear here and inside the physical kit.
 for (const record of document.querySelectorAll('[data-public-document]')) {
@@ -11,6 +11,26 @@ for (const record of document.querySelectorAll('[data-public-document]')) {
   }));
 }
 
+const publicPieceIds = new Set(['rulebook','jeodong-envelope']);
+const publicPieces = [...document.querySelectorAll('[data-native-public-piece]')];
+function fitPublicPiece(host) {
+  const piece = kit.pieces.find(item => item.id === host.dataset.nativePublicPiece);
+  if (piece && host.clientWidth > 0) host.style.setProperty('--public-piece-scale', String(host.clientWidth / piece.width));
+}
+for (const host of publicPieces) {
+  const id = host.dataset.nativePublicPiece;
+  if (!publicPieceIds.has(id)) continue;
+  const piece = kit.pieces.find(item => item.id === id);
+  host.style.aspectRatio = piece.width + '/' + piece.height;
+  host.innerHTML = '<div class="pub-native-original" style="width:'+piece.width+'px;height:'+piece.height+'px">'+piece.front.replace(/<img\b/g,'<img loading="eager" fetchpriority="high" decoding="async"')+'</div>';
+  fitPublicPiece(host);
+}
+if (typeof ResizeObserver === 'function') {
+  const observer = new ResizeObserver(entries => entries.forEach(entry => fitPublicPiece(entry.target)));
+  publicPieces.forEach(host => observer.observe(host));
+}
+window.addEventListener('resize', () => publicPieces.forEach(fitPublicPiece));
+
 const training = document.querySelector('.ml-training-desk');
 const feedback = document.querySelector('#training-feedback');
 const trainingButtons = [...document.querySelectorAll('[data-training-answer]')];
@@ -22,7 +42,7 @@ for (const button of trainingButtons) {
     training?.classList.toggle('needs-review', !correct);
     if (feedback) feedback.innerHTML = correct
       ? '<strong>맞아요. 여행 날짜는 6일차입니다.</strong> 표찰의 2번은 전시장에서 읽는 자리예요. <a href="table.html">이제 실제 봉투 열어 보기 →</a>'
-      : '<strong>표찰에는 “전시칸 번호”라고 적혀 있습니다.</strong> 글을 쓴 날짜는 원고의 제목에서 다시 찾아볼까요?';
+      : '<strong>표찰에는 “전시칸 번호”라고 적혀 있습니다.</strong> 원고에 적힌 날짜를 다시 찾아볼까요?';
   });
 }
 
@@ -47,22 +67,5 @@ for (const button of document.querySelectorAll('[data-scene]')) {
     }
     if (image) { image.style.backgroundPosition = scene.position; image.setAttribute('aria-label', scene.alt); }
     if (caption) { caption.querySelector('span').textContent = scene.label; caption.querySelector('strong').textContent = scene.caption; }
-  });
-}
-
-const film = document.querySelector('#intro-film');
-const cover = document.querySelector('#film-play');
-if (film && cover) {
-  film.addEventListener('play', () => { cover.hidden = true; });
-  cover.addEventListener('click', async () => {
-    if (cover.disabled) return;
-    cover.disabled = true;
-    try { await film.play(); }
-    catch {
-      const note = document.querySelector('.ml-caption-note');
-      if (note) note.textContent = '영상의 재생 버튼을 다시 누르거나 아래 글 설명을 읽어 주세요.';
-    } finally {
-      cover.hidden = true; cover.disabled = false; film.focus({preventScroll:true});
-    }
   });
 }

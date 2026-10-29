@@ -3,6 +3,7 @@
 export const scenePresentation = {
   worldPerMm: 2.5,
   depthMm: { card: .32, board: 2, token: 3, book: .4, paper: .15, envelope: 2 },
+  surfaces: { feltContrast: .78, feltBumpMm: .06 },
   materials: {
     cloth: '#234f59',
     wood: '#966440',

@@ -699,12 +699,19 @@ export function mountPhysicalScene(options) {
     });
   }
 
-  async function loadSurface(path, contrast = 1) {
+  async function loadSurface(path, contrast = 1, preserveColor = false) {
     const picture = await image(relative(path, import.meta.url));
     let surface = picture;
     if (contrast !== 1) {
       surface = doc.createElement('canvas'); surface.width = picture.width; surface.height = picture.height;
-      const context = surface.getContext('2d'); context.filter = `contrast(${contrast})`; context.drawImage(picture, 0, 0);
+      const context = surface.getContext('2d');
+      if (preserveColor) {
+        // Attenuate fine fibres against a softened copy of the same colour,
+        // rather than shifting a dark cloth towards CSS contrast's grey pivot.
+        context.drawImage(picture, 0, 0);
+        context.filter = 'blur(1.8px)'; context.globalAlpha = 1 - clamp(contrast, 0, 1);
+        context.drawImage(picture, 0, 0);
+      } else { context.filter = `contrast(${contrast})`; context.drawImage(picture, 0, 0); }
     }
     const texture = own(new THREE.Texture(surface)); texture.colorSpace = THREE.SRGBColorSpace; texture.needsUpdate = true;
     texture.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy()); return texture;
@@ -722,8 +729,12 @@ export function mountPhysicalScene(options) {
     Object.assign(key.shadow.camera, { left: -extent, right: extent, top: extent, bottom: -extent, near: 10, far: Math.max(width, height) * 4 });
     key.shadow.mapSize.set(2048, 2048); key.shadow.normalBias = .75; key.shadow.bias = -.00004; key.shadow.radius = 4;
     const fill = new THREE.DirectionalLight('#d9e5e3', .7); fill.position.set(width * 1.3, height, height); scene.add(fill);
-    const [woodMap, clothMap] = await Promise.all([loadSurface('./scene-assets/walnut-albedo-v1.webp').catch(() => null), loadSurface('./scene-assets/felt-albedo-v1.webp', .86).catch(() => null)]);
+    const [woodMap, clothMap] = await Promise.all([loadSurface('./scene-assets/walnut-albedo-v1.webp').catch(() => null), loadSurface('./scene-assets/felt-albedo-v1.webp', config.surfaces?.feltContrast ?? .76, config.surfaces?.feltPreserveColor ?? false).catch(() => null)]);
     if (destroyed) return;
+    // Keep the visible weave quiet. Its very small height variation responds
+    // to the existing light instead of competing with the printed components.
+    const clothBump = clothMap ? own(clothMap.clone()) : null;
+    if (clothBump) { clothBump.colorSpace = THREE.NoColorSpace; clothBump.needsUpdate = true; }
     const wood = own(new THREE.MeshStandardMaterial({ color: '#664b38', roughness: .82, metalness: 0 }));
     const table = new THREE.Mesh(geometry(width + 150, height + 150, 32 * perMm, 35), wood);
     table.rotation.x = -Math.PI / 2; table.position.set(width / 2, -16 * perMm - .5, height / 2); table.receiveShadow = true; table.castShadow = false; scene.add(table);
@@ -732,7 +743,7 @@ export function mountPhysicalScene(options) {
     const clothMaterial = own(new THREE.MeshStandardMaterial({ color: materialColor('cloth', '#77928b'), roughness: .98, metalness: 0 }));
     const cloth = new THREE.Mesh(geometry(width * .965, height * .96, 1.6, 23), clothMaterial);
     cloth.rotation.x = -Math.PI / 2; cloth.position.set(width / 2, .8, height / 2); cloth.receiveShadow = true; scene.add(cloth);
-    const clothTop = new THREE.Mesh(geometry(width * .965, height * .96, 0, 23, 'face'), own(new THREE.MeshStandardMaterial({ color: surfaceTint('cloth', '#315b5b', clothMap), map: clothMap, roughness: .98, metalness: 0, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 })));
+    const clothTop = new THREE.Mesh(geometry(width * .965, height * .96, 0, 23, 'face'), own(new THREE.MeshStandardMaterial({ color: surfaceTint('cloth', '#315b5b', clothMap), map: clothMap, bumpMap: clothBump, bumpScale: (config.surfaces?.feltBumpMm ?? .07) * perMm, roughness: .98, metalness: 0, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 })));
     clothTop.rotation.x = -Math.PI / 2; clothTop.position.set(width / 2, 1.8, height / 2); clothTop.receiveShadow = true; scene.add(clothTop);
     // The cloth's sewn border is geometry, not a bright painted UI frame.
     const seamPoints = roundedShape(width * .965 - 12, height * .96 - 12, 20).getPoints(64).map(p => new THREE.Vector3(p.x + width / 2, 1.83, -p.y + height / 2));

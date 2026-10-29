@@ -6,114 +6,251 @@
   "captions": "intro.ko.vtt",
   "chapterFile": "intro.chapters.json",
   "format": {
-    "programs": [],
-    "stream_groups": [],
     "streams": [
       {
         "index": 0,
         "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
         "codec_type": "video",
-        "width": 1280,
-        "height": 720,
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "mime_codec_string": "avc1.640028",
+        "width": 1920,
+        "height": 1080,
+        "coded_width": 1920,
+        "coded_height": 1080,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "16:9",
         "pix_fmt": "yuv420p",
+        "level": 40,
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
         "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "time_base": "1/12288",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 1081344,
         "duration": "88.000000",
-        "nb_frames": "2112"
+        "bit_rate": "1329979",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "2112",
+        "extradata_size": 48,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler"
+        }
       },
       {
         "index": 1,
         "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
         "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "mime_codec_string": "mp4a.40.2",
+        "sample_fmt": "fltp",
         "sample_rate": "48000",
         "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
         "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 4224000,
         "duration": "88.000000",
-        "nb_frames": "4125"
+        "bit_rate": "156890",
+        "nb_frames": "4125",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler"
+        }
       }
     ],
     "format": {
+      "filename": "intro.mp4",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
       "duration": "88.000000",
-      "size": "4095511"
+      "size": "16418420",
+      "bit_rate": "1492583",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "encoder": "Lavf62.12.100"
+      }
     }
   },
   "production": {
-    "method": "Offline SVG and Sharp image composition with generated product mockup wide shots, native large card/document layouts and physical component movement. Frames are streamed to FFmpeg without browser rendering.",
+    "method": "Native Godot offline 3D material/lighting render of the actual physical-kit faces, camera movement and component manipulation, with local fontkit typography and FFmpeg encode.",
+    "browserRendererUsed": false,
     "livePhysicalProductPhotography": false,
-    "frames": "PNG buffers streamed through stdin; repeated hold frames reused in memory; no complete frame sequence stored",
-    "encoder": "H264 1280x720 yuv420p 24fps faststart; original AAC stream copied without encoding",
-    "workers": "Sharp concurrency 1; FFmpeg encoder threads 2; full decode threads 1",
-    "temporaryOutput": "Encoded and fully validated in an audit output directory before atomic asset replacement",
-    "usesLegacyChapterCameraMetadata": false
+    "generatedProductMockupUsed": false,
+    "resolution": "1920x1080",
+    "frames": "JPEG92 only for moving camera/objects; static holds reuse the last source; temporary source frames deleted after candidate encode/verification.",
+    "encoder": "H264 High1080p24 yuv420p faststart; original AAC stream copied",
+    "workers": "One game at a time; Sharp1 and FFmpeg2 threads"
   },
   "credits": {
     "studentConcept": "손예령, 한효원",
-    "tableTexture": "Existing Ulleung Marble table-walnut.png asset",
-    "illustration": "Existing shared-art/*.webp assets generated with built-in ImageGen for this project",
-    "music": "Original intro.mp4 AAC packets preserved by stream copy; music.mp3 unchanged",
-    "font": "Existing PretendardVariable.woff2 rendered as glyph paths",
-    "productPhoto": "Built-in ImageGen generated product layout mockup tabletop-showcase-v2.webp; not live physical product photography",
-    "paperTexture": "Existing assets/last-screening/media/paper.webp, blank central paper material only"
+    "printedFaces": "Current physical-kit native atlas, no reconstructed card typography",
+    "font": "Existing PretendardVariable and NanumMyeongjoBold",
+    "music": "Original intro.mp4 AAC stream copied byte-for-byte; music.mp3 unchanged",
+    "textures": "Existing scene-assets walnut/felt albedo"
   },
-  "artworkFingerprints": {},
+  "nativeFaceManifest": {
+    "qaReference": "native-face-manifest",
+    "sha256": "8e1d624a8bad91c9079c04281e4425edd00f846cf3e57763c6a85277fc890300",
+    "printedFaceCount": 309,
+    "source": "Current native physical-kit and tabletop3d atlas. Full extraction evidence retained with production QA."
+  },
+  "sourceFingerprints": {
+    "physical-kit.mjs": "5fdf36271619b4f38b0c7c683076bf0628187dfe030aa36e07b25b960a2e28b6",
+    "physical-kit.css": "01f008911ead445213b20594fc3db97a364e8a0f4dae14edb89ed1d392a8e6bc",
+    "assets/tabletop3d/atlas.json": "b481effb4fff058e2b343741cdfdfbe01cc60c20ba6f62d941072dbfd967bbeb"
+  },
   "hashes": {
-    "video": "351e309e81eff707158a3a152fe86851f4a406f70f6daed5f988039c4d273ba4",
-    "poster": "8d66cad341d7c880d156b7841a766f8789ff3223892f95cccb97bdda00ea7a3b",
-    "captions": "b46cdfea99eccd00db82acf6dc7bf494ffce71e3a2fdd074a56b5d307ecdeb3a",
-    "chapters": "48b5c8db49d99d07f99d52f6dd2678e90f30142e3c3af9cdcf01b09012f8dcfb",
+    "video": "7e7db142eb2156e6b95db4a9c1119aeb41b9027e9182c8ef07f65f451761399b",
+    "poster": "6e581fa71f532b51ba901a28c6df84b921bd9dd17882d7f563fef6ce8dc96326",
+    "captions": "93738036f3deb2e0723bdde7b304d087a3fdeb4cb42f7c5c74b2e2f60ca002ef",
+    "chapters": "d4b04634c7036e041cc98f461d0a36ebad946c3b7ec30aaffaa43a10ac944dc1",
     "preservedMusic": "0e93a7954e60ed821bf1a0c9452ea4e866c276b4a48ebd83c2d16262b0741619",
     "originalAudioADTS": "2a3451604b31bf73d953ba1de187efe948e8d2c1a6d418f518685b956cd97660",
-    "productLayout": "4fbb285082e8f2f808f5b38eea274ebf9956e04f3659e2e95f5158e17343c1dc",
-    "renderer": "cd8cac9558bb1d84fe66205cccb548aaf88ffdb7dc64f75fe4d864dc7ff6afab"
+    "thumbnails": {
+      "intro-scenes/01.webp": "49a24285eddc0c8b13cea8a0827921d21736894757829693bab68acd6cb83937",
+      "intro-scenes/02.webp": "b0183b5386d5be1503262fbbe05dd95f2c7979e17787f2d8983975c435cae751",
+      "intro-scenes/03.webp": "0ddfa7517e103c89dab2e1e62457aa56e357406ec44078f89a8466d99ee6bf61",
+      "intro-scenes/04.webp": "c1dae8907e8dd4d34de2072c895e8602100b5344a0bb42b51ee93225d54c661f",
+      "intro-scenes/05.webp": "6b31872a4aac4f6624c5323a80b43933b9fa97283d72d8d901c151cf2d0f26d8",
+      "intro-scenes/06.webp": "bf9424efdd27524d2a92b4689a1948a523e8ee2da73b9b48895de91169c02741",
+      "intro-scenes/07.webp": "d464f207bbfae80f8706cae26df88e915bd507f6e5f836132f4ffeab4a1c4099",
+      "intro-scenes/08.webp": "9e77943acb7b62cbf39c9320d6f386ead1aa41abafe393a06371835b0a5e8a05"
+    }
   },
   "validation": {
     "ffprobe": true,
     "fullAudioVideoDecode": true,
     "decodedVideoFrames": 2112,
     "audioTrackUnchanged": true,
-    "musicFileUnchanged": true,
-    "chaptersAndVttUnchanged": true,
+    "audioPacketDataAndTimingUnchanged": true,
+    "audioPackets": 4125,
     "aacSha256": "2a3451604b31bf73d953ba1de187efe948e8d2c1a6d418f518685b956cd97660",
+    "musicFileUnchanged": true,
     "eightContinuousChapters": true,
     "eightVttCues": true,
-    "burnedInCaptionFontPx": 26,
+    "chapterThumbnails": 8,
+    "burnedInCaptionFontPx": 40,
     "maxCaptionLines": 2,
-    "closeupDocumentBodyPx": 28,
-    "closeupPrimaryCardTitlePx": 36,
-    "componentBoundsCheckedEveryFrame": true,
-    "stageSafety": {
-      "left": 40,
-      "right": 1242,
-      "top": 116,
-      "bottom": 590
-    },
-    "cardOpacity": "opaque throughout movement",
-    "sourceRulesReview": "Engine/source checked; independent agent reviewed all storyboard sample frames and rechecked three text collisions and D08 sold/refill state",
-    "renderedCopyLedger": ".design-audit/student-games-video-v2/copy-ledger.json",
     "encodedSampleFrames": [
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-01.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-14.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-25.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-36.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-38.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-44.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-50.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-61.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-73.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-80.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-85.jpg"
+      {
+        "chapter": 1,
+        "time": 3.5,
+        "thumbnail": "intro-scenes/01.webp"
+      },
+      {
+        "chapter": 2,
+        "time": 13,
+        "thumbnail": "intro-scenes/02.webp"
+      },
+      {
+        "chapter": 3,
+        "time": 24.5,
+        "thumbnail": "intro-scenes/03.webp"
+      },
+      {
+        "chapter": 4,
+        "time": 36.5,
+        "thumbnail": "intro-scenes/04.webp"
+      },
+      {
+        "chapter": 5,
+        "time": 50,
+        "thumbnail": "intro-scenes/05.webp"
+      },
+      {
+        "chapter": 6,
+        "time": 60.5,
+        "thumbnail": "intro-scenes/06.webp"
+      },
+      {
+        "chapter": 7,
+        "time": 74.7,
+        "thumbnail": "intro-scenes/07.webp"
+      },
+      {
+        "chapter": 8,
+        "time": 81.5,
+        "thumbnail": "intro-scenes/08.webp"
+      }
     ],
     "encodedSamplesActuallyViewed": true,
-    "cleanPosterActuallyViewed": true,
-    "browserRendererUsed": false,
-    "humanPlaytest": "Not part of media production",
-    "actuallyViewedEncodedFrames": [
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-38.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-61.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/missing-log-80.jpg"
-    ],
-    "visualReviewScope": "Full-size encoded critical frames listed here; all 46 source storyboard samples reviewed, and independent source/sample review completed. All audio/video streams fully decoded.",
-    "middleDotCount": 0,
-    "renderedStringCount": 269
+    "sourceGeometry": "All widths/heights/depths originate in the actual kit, in mm; camera projection does not change print proportions",
+    "visualReview": {
+      "representativeFrames": 8,
+      "corePrintFacesAndCaptionsReadable": true,
+      "nativeDimensionsPreserved": true,
+      "review": "Actual ffmpeg-encoded representative frames directly inspected; full24 reviewed independently. Final Snap01 and Market03/04/07 corrections reviewed separately."
+    },
+    "independentReview": "24 chapter frames visually reviewed; native-face pixels, all audio packets and timing, continuous captions, final stream decode and thumbnails independently verified."
   },
-  "checkedAt": "2026-10-27T13:19:46.367Z"
+  "checkedAt": "2026-10-29T14:39:52.560Z"
 }

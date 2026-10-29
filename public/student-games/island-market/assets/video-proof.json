@@ -6,139 +6,266 @@
   "captions": "intro.ko.vtt",
   "chapterFile": "intro.chapters.json",
   "format": {
-    "programs": [],
-    "stream_groups": [],
     "streams": [
       {
         "index": 0,
         "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
         "codec_type": "video",
-        "width": 1280,
-        "height": 720,
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "mime_codec_string": "avc1.640028",
+        "width": 1920,
+        "height": 1080,
+        "coded_width": 1920,
+        "coded_height": 1080,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "16:9",
         "pix_fmt": "yuv420p",
+        "level": 40,
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
         "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "time_base": "1/12288",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 1105920,
         "duration": "90.000000",
-        "nb_frames": "2160"
+        "bit_rate": "1289299",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "2160",
+        "extradata_size": 48,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler"
+        }
       },
       {
         "index": 1,
         "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
         "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "mime_codec_string": "mp4a.40.2",
+        "sample_fmt": "fltp",
         "sample_rate": "48000",
         "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
         "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 4320000,
         "duration": "90.000000",
-        "nb_frames": "4219"
+        "bit_rate": "155773",
+        "nb_frames": "4219",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler"
+        }
       }
     ],
     "format": {
+      "filename": "intro.mp4",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
       "duration": "90.000000",
-      "size": "4455181"
+      "size": "16320859",
+      "bit_rate": "1450743",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "encoder": "Lavf62.12.100"
+      }
     }
   },
   "production": {
-    "method": "Offline SVG and Sharp image composition with generated product mockup wide shots, native large card/document layouts and physical component movement. Frames are streamed to FFmpeg without browser rendering.",
+    "method": "Native Godot offline 3D material/lighting render of the actual physical-kit faces, camera movement and component manipulation, with local fontkit typography and FFmpeg encode.",
+    "browserRendererUsed": false,
     "livePhysicalProductPhotography": false,
-    "frames": "PNG buffers streamed through stdin; repeated hold frames reused in memory; no complete frame sequence stored",
-    "encoder": "H264 1280x720 yuv420p 24fps faststart; original AAC stream copied without encoding",
-    "workers": "Sharp concurrency 1; FFmpeg encoder threads 2; full decode threads 1",
-    "temporaryOutput": "Encoded and fully validated in an audit output directory before atomic asset replacement",
-    "usesLegacyChapterCameraMetadata": false
+    "generatedProductMockupUsed": false,
+    "resolution": "1920x1080",
+    "frames": "JPEG92 only for moving camera/objects; static holds reuse the last source; temporary source frames deleted after candidate encode/verification.",
+    "encoder": "H264 High1080p24 yuv420p faststart; original AAC stream copied",
+    "workers": "One game at a time; Sharp1 and FFmpeg2 threads"
   },
   "credits": {
     "studentConcept": "이신우, 정순혁",
-    "tableTexture": "Existing Ulleung Marble table-walnut.png asset",
-    "illustration": "Existing shared-art/*.webp assets generated with built-in ImageGen for this project",
-    "music": "Original intro.mp4 AAC packets preserved by stream copy; music.mp3 unchanged",
-    "font": "Existing PretendardVariable.woff2 rendered as glyph paths",
-    "productPhoto": "Built-in ImageGen generated product layout mockup tabletop-showcase-v2.webp; not live physical product photography",
-    "paperTexture": "Existing assets/last-screening/media/paper.webp, blank central paper material only"
+    "printedFaces": "Current physical-kit native atlas, no reconstructed card typography",
+    "font": "Existing PretendardVariable and NanumMyeongjoBold",
+    "music": "Original intro.mp4 AAC stream copied byte-for-byte; music.mp3 unchanged",
+    "textures": "Existing scene-assets walnut/felt albedo"
   },
-  "artworkFingerprints": {
-    "squid": "5b7fade9b5f91676c9fa2860191b72b641aa5cf9090deb5b808e9b35ff7cc6a6",
-    "leaves": "fab1171b0a176e5876dfef1be2b9d3de23c95996fb19ed574d5aaadec4237995",
-    "mussel": "b70c65f8949681b0f6e810b4b420a81fca55c7cefc26e67f02b0c638b83ee87d",
-    "potato": "c7661f5b8fbcc18ced709e150eae0a75e3c6eb03b9c52bdc6a195e9db8bcf765",
-    "shrimp": "8800a3bb2c7fc5b8f2d2739bdb8dc5e99ab418aa0c7bd13400fba7f8dfc096de",
-    "rice": "54a3cb76728b89c472adb4f155d1e6515d4ddaf170cd2298f4da5faa60c6dc2f",
-    "D01": "210246043d5add7c7be4b55f7ac5d95b58865b125eeedc786de52c5cd786b4ce",
-    "D02": "7224542e7d4dc9d61492e9da5f2f39b14113b6495d7866c2d5da2ba7138246a8",
-    "D03": "28bc4ab1c0b64856a7e5075f6516971bb7ed139431b2bd0190df3e829098b78d",
-    "D04": "33f4920aa71d911aa8df2bc5fa0d05d6c6a906605d5b7d66ddb4c6b9f92154c7",
-    "D05": "a0a1c314a1dc227947fea1f3ad8959459cbddd4933ec08c8a91fca87ba4d9b86",
-    "D06": "3911a510d0f873360bd12ed67f76c7d536466a0f6b1d0242a0d6e735829f298a",
-    "D07": "39e1e7f79c8434ae20902b9bc775f19fccd493edcede75a3e7a0156ddac66ed0",
-    "D08": "1bbe2bfaf07e67f9e01368e1130c75bb1c8bf81c80c67d18a21e9e995422074e",
-    "D09": "55851531b858263b6ea2345b88306f9e7c0ef5bdd38f025faa324490591e3afc",
-    "D10": "cf8b7cbbf69cb328af88e72955df4cceb53cde21695cdf3e02fde21bf80a0222",
-    "D11": "23a3ae9cc5575bd00a04a0f9a171a87af7d3f050a07b611cef6e70b296aebacb",
-    "D12": "7d0d287fa4dd54b9d7a8918c958c6bde87a40d4a2c67a3ba7a9a3e67b65c8dc9"
+  "nativeFaceManifest": {
+    "qaReference": "native-face-manifest",
+    "sha256": "8e1d624a8bad91c9079c04281e4425edd00f846cf3e57763c6a85277fc890300",
+    "printedFaceCount": 309,
+    "source": "Current native physical-kit and tabletop3d atlas. Full extraction evidence retained with production QA."
+  },
+  "sourceFingerprints": {
+    "physical-kit.mjs": "9b95264e5f29674979fbd72d929eb496408894728020112de50bb78e722c2e93",
+    "physical-kit.css": "f3b33955b9cf66d015349aaf388aedcf6259c032abb448ea40dffe0fee73012f",
+    "assets/tabletop3d/atlas.json": "d999b8857b04ace267429700200bce40632daa52970385c0d6ae239600d736cf"
   },
   "hashes": {
-    "video": "37fbd7e545c5df312261425ed2ddd38bcd5d5b38893ab362944d8f51d6f52b02",
-    "poster": "efe990d9aa15398e7f948da673eec0f0dc7632d538fa881593a8b39fafa2e87c",
+    "video": "fdae671ec68d6eb51d4b168a0f363f0f1c14c9283f566471323013e9c45b2781",
+    "poster": "6910dab480f22da8e8bdda47d1b6f09f42858b9947dad50fbaf271690de4231e",
     "captions": "faee658c556183425ea738e500fa82be079eacaab201cc0307bcc7a0c3fa4c84",
-    "chapters": "629d0c42e64e35829c3ec9e3c8a1b7f5eddf1adf8ea91692a81333e92bf799fe",
+    "chapters": "4890c1dfa92a6ca58c8b84f5ea46a9b9743278afb813f4fc998f0392f953216b",
     "preservedMusic": "832d9eba242da2a35a1c34154ec3b8e1ab88ff4cff5b50d007d5538dfdd233c1",
     "originalAudioADTS": "e87d4d83aed0a51b6f01b5968653d446b2ae211b04f3d978b114612560c2460e",
-    "productLayout": "dabe55ffdb6b7dc91fef8f572c2e7f366c96aa5639699150d0318720438ffb21",
-    "renderer": "cd8cac9558bb1d84fe66205cccb548aaf88ffdb7dc64f75fe4d864dc7ff6afab"
+    "thumbnails": {
+      "intro-scenes/01.webp": "60d6fa43b3607f818de581622d14dae9f7958e8a71de3e771a27a9d94654c19f",
+      "intro-scenes/02.webp": "dd9ff5775ad32075161ab5042d65ba63013e8bb4057808bb648bbd4a2cb4f192",
+      "intro-scenes/03.webp": "5d44e118a33137d7cac1f296e3b1f023877abe247d4e9d362abbabd2f6f686c0",
+      "intro-scenes/04.webp": "baa1d34b1f2c1a4584a0ba7ecd06fa205bed22dfe2035d3dcab9ce4709103f87",
+      "intro-scenes/05.webp": "2c9f2c3e394041986061aaf239950d9294dec1ffc95a6313ae638239b55e7dad",
+      "intro-scenes/06.webp": "9de26b8f5409a7421bc9f94520db7270ae8b2f6236d779d706504e1c9d2c794c",
+      "intro-scenes/07.webp": "57fd1f0a63ea2eee06a31ca5c6370816957b72d4f30d7bb4d5c1c4b6e4dd7a3d",
+      "intro-scenes/08.webp": "56fd0b008a8c0f0a7938c55ada0082c4b62e8105eae0ff0fabbc3eee4418a2a7"
+    }
   },
   "validation": {
     "ffprobe": true,
     "fullAudioVideoDecode": true,
     "decodedVideoFrames": 2160,
     "audioTrackUnchanged": true,
-    "musicFileUnchanged": true,
-    "chaptersAndVttUnchanged": true,
+    "audioPacketDataAndTimingUnchanged": true,
+    "audioPackets": 4219,
     "aacSha256": "e87d4d83aed0a51b6f01b5968653d446b2ae211b04f3d978b114612560c2460e",
+    "musicFileUnchanged": true,
     "eightContinuousChapters": true,
     "eightVttCues": true,
-    "burnedInCaptionFontPx": 26,
+    "chapterThumbnails": 8,
+    "burnedInCaptionFontPx": 40,
     "maxCaptionLines": 2,
-    "closeupDocumentBodyPx": null,
-    "closeupPrimaryCardTitlePx": 38,
-    "componentBoundsCheckedEveryFrame": true,
-    "stageSafety": {
-      "left": 40,
-      "right": 1242,
-      "top": 116,
-      "bottom": 590
-    },
-    "cardOpacity": "opaque throughout movement",
-    "sourceRulesReview": "Engine/source checked; independent agent reviewed all storyboard sample frames and rechecked three text collisions and D08 sold/refill state",
-    "renderedCopyLedger": ".design-audit/student-games-video-v2/copy-ledger.json",
     "encodedSampleFrames": [
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-01.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-21.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-26.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-37.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-42.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-48.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-49.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-50.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-51.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-52.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-54.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-59.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-65.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-76.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-83.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-88.jpg"
+      {
+        "chapter": 1,
+        "time": 3.5,
+        "thumbnail": "intro-scenes/01.webp"
+      },
+      {
+        "chapter": 2,
+        "time": 13.5,
+        "thumbnail": "intro-scenes/02.webp"
+      },
+      {
+        "chapter": 3,
+        "time": 25.9,
+        "thumbnail": "intro-scenes/03.webp"
+      },
+      {
+        "chapter": 4,
+        "time": 38,
+        "thumbnail": "intro-scenes/04.webp"
+      },
+      {
+        "chapter": 5,
+        "time": 49.3,
+        "thumbnail": "intro-scenes/05.webp"
+      },
+      {
+        "chapter": 6,
+        "time": 64.5,
+        "thumbnail": "intro-scenes/06.webp"
+      },
+      {
+        "chapter": 7,
+        "time": 79.4,
+        "thumbnail": "intro-scenes/07.webp"
+      },
+      {
+        "chapter": 8,
+        "time": 84.5,
+        "thumbnail": "intro-scenes/08.webp"
+      }
     ],
     "encodedSamplesActuallyViewed": true,
-    "cleanPosterActuallyViewed": true,
-    "browserRendererUsed": false,
-    "humanPlaytest": "Not part of media production",
-    "actuallyViewedEncodedFrames": [
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-42.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-48.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-52.jpg",
-      ".design-audit/student-games-video-v2/encoded-qa/island-market-54.jpg"
-    ],
-    "visualReviewScope": "Full-size encoded critical frames listed here; all 46 source storyboard samples reviewed, and independent source/sample review completed. All audio/video streams fully decoded.",
-    "middleDotCount": 0,
-    "renderedStringCount": 269
+    "sourceGeometry": "All widths/heights/depths originate in the actual kit, in mm; camera projection does not change print proportions",
+    "boundedCorrection": {
+      "chapters": [
+        3,
+        4,
+        7
+      ],
+      "unchangedDecodedFrames": 1272,
+      "untouchedFramesPixelIdentical": true,
+      "originalAacDataAndTimestampsPreserved": true,
+      "reasons": [
+        "Personal materials remain face up.",
+        "Public materials compact before replenishment.",
+        "Used reservation is recovered to shop."
+      ]
+    },
+    "visualReview": {
+      "representativeFrames": 8,
+      "corePrintFacesAndCaptionsReadable": true,
+      "nativeDimensionsPreserved": true,
+      "review": "Actual ffmpeg-encoded representative frames directly inspected; full24 reviewed independently. Final Snap01 and Market03/04/07 corrections reviewed separately."
+    },
+    "independentReview": "24 chapter frames visually reviewed; native-face pixels, all audio packets and timing, continuous captions, final stream decode and thumbnails independently verified."
   },
-  "checkedAt": "2026-10-27T13:19:51.106Z"
+  "checkedAt": "2026-10-29T14:59:25.875Z"
 }

@@ -28,13 +28,14 @@ const coinOverrides = {};
 for (const [value, total, edgeColor] of [[1, 120, '#bc9349'], [5, 100, '#b38a3e'], [10, 80, '#9d7532']]) {
   for (let serial = 1; serial <= total; serial++) {
     coinOverrides[`coin-${value}-${serial}`] = {
-      shape: 'cylinder', depthMm: 1.5, edgeColor, metalness: .72, roughness: .4,
+      shape: 'cylinder', depthMm: 1.5, edgeColor, metalness: .08, roughness: .82,
     };
   }
 }
 
 export const scenePresentation = {
   worldPerMm: WORLD_PER_MM,
+  surfaces: { feltContrast: .4, feltBumpMm: .03, feltPreserveColor: true },
   depthMm: {
     card: .35,
     board: 2,
@@ -48,7 +49,7 @@ export const scenePresentation = {
     wood: '#705034',
     paper: '#fff5df',
     cardEdge: '#dfd2b4',
-    token: { color: '#bf974d', metalness: .72, roughness: .4 },
+    token: { color: '#bf974d', metalness: .08, roughness: .82 },
   },
   roughnessByType: {
     card: .86,
@@ -56,7 +57,7 @@ export const scenePresentation = {
     book: .84,
     paper: .94,
     envelope: .95,
-    token: .4,
+    token: .82,
   },
   // New banks are real ten-coin stacks. The renderer caps a legacy hundred-coin
   // pile visually without changing saved IDs, membership, money or placement.

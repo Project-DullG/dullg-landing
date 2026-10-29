@@ -2,169 +2,253 @@
   "title": "오징어 호박엿 명이나물 독도 성인봉",
   "duration": 84,
   "fps": 24,
-  "width": 1280,
-  "height": 720,
-  "approach": "actual printed-component artwork on an animated physical tabletop",
+  "width": 1920,
+  "height": 1080,
+  "approach": "Offline 3D physical components using the exact native printed faces and physical dimensions",
   "chapters": [
     {
       "time": 0,
       "end": 8,
       "title": "카드 60장을 한 테이블에",
-      "caption": "카드 60장, 3–6명이 함께하는 순발력 카드 놀이입니다."
+      "caption": "카드 60장, 3–6명이 함께하는 순발력 카드 놀이입니다.",
+      "thumbnail": "intro-scenes/01.webp",
+      "thumbnailTime": 3.5
     },
     {
       "time": 8,
       "end": 17,
       "title": "카드를 고르게 나누기",
-      "caption": "카드를 보지 않고, 내 앞에 뒷면으로 쌓아 두세요."
+      "caption": "카드를 보지 않고, 내 앞에 뒷면으로 쌓아 두세요.",
+      "thumbnail": "intro-scenes/02.webp",
+      "thumbnailTime": 11.5
     },
     {
       "time": 17,
       "end": 28,
       "title": "이름 하나, 카드 한 장",
-      "caption": "오징어 → 호박엿 → 명이나물 → 독도 → 성인봉. 이름 순서는 계속 이어집니다."
+      "caption": "오징어 → 호박엿 → 명이나물 → 독도 → 성인봉. 이름 순서는 계속 이어집니다.",
+      "thumbnail": "intro-scenes/03.webp",
+      "thumbnailTime": 20.5
     },
     {
       "time": 28,
       "end": 40,
       "title": "이름과 그림이 같을 때",
-      "caption": "모두 가운데 더미에 손! 가장 늦게 반응을 끝낸 사람이 더미를 가져갑니다."
+      "caption": "모두 가운데 더미에 손! 가장 늦게 반응을 끝낸 사람이 더미를 가져갑니다.",
+      "thumbnail": "intro-scenes/04.webp",
+      "thumbnailTime": 34.8
     },
     {
       "time": 40,
       "end": 50,
       "title": "갈매기는 양팔 두 번",
-      "caption": "갈매기 카드는 외친 이름과 상관없이 양팔을 두 번 퍼덕입니다."
+      "caption": "갈매기 카드는 외친 이름과 상관없이 양팔을 두 번 퍼덕입니다.",
+      "thumbnail": "intro-scenes/05.webp",
+      "thumbnailTime": 43.5
     },
     {
       "time": 50,
       "end": 60,
       "title": "배 출항은 탁자 두 번",
-      "caption": "배 출항 카드에서는 탁자를 두 번 두드립니다."
+      "caption": "배 출항 카드에서는 탁자를 두 번 두드립니다.",
+      "thumbnail": "intro-scenes/06.webp",
+      "thumbnailTime": 53.5
     },
     {
       "time": 60,
       "end": 70,
       "title": "다를 때 손을 댔다면",
-      "caption": "잘못 반응한 사람이 가운데 더미를 자기 카드 아래에 넣고, 다음 카드를 공개합니다."
+      "caption": "잘못 반응한 사람이 가운데 더미를 자기 카드 아래에 넣고, 다음 카드를 공개합니다.",
+      "thumbnail": "intro-scenes/07.webp",
+      "thumbnailTime": 66.8
     },
     {
       "time": 70,
       "end": 84,
       "title": "마지막 카드까지",
-      "caption": "반응 없는 마지막 카드는 즉시 승리. 반응 카드라면 행동을 마친 뒤에도 카드가 없어야 승리합니다."
+      "caption": "반응 없는 마지막 카드는 즉시 승리. 반응 카드라면 행동을 마친 뒤에도 카드가 없어야 승리합니다.",
+      "thumbnail": "intro-scenes/08.webp",
+      "thumbnailTime": 73.5
     }
   ],
-  "sourceArt": "art.mjs + engine.mjs",
+  "sourceArt": "physical-kit.mjs + physical-kit.css + current tabletop3d/atlas.json",
   "camera": [
-    [
-      0,
-      640,
-      340,
-      1
-    ],
-    [
-      7,
-      640,
-      340,
-      1
-    ],
-    [
-      11,
-      280,
-      253,
-      1.9
-    ],
-    [
-      16,
-      640,
-      340,
-      1
-    ],
-    [
-      21,
-      640,
-      353,
-      2
-    ],
-    [
-      27,
-      640,
-      353,
-      2
-    ],
-    [
-      31,
-      640,
-      353,
-      2
-    ],
-    [
-      35,
-      640,
-      353,
-      2
-    ],
-    [
-      39,
-      879,
-      447,
-      1.65
-    ],
-    [
-      43,
-      640,
-      350,
-      2
-    ],
-    [
-      49,
-      640,
-      350,
-      2
-    ],
-    [
-      53,
-      703,
-      351,
-      2
-    ],
-    [
-      59,
-      703,
-      351,
-      2
-    ],
-    [
-      64,
-      640,
-      350,
-      2
-    ],
-    [
-      69,
-      445,
-      425,
-      1.6
-    ],
-    [
-      73,
-      507,
-      320,
-      1.6
-    ],
-    [
-      78,
-      640,
-      340,
-      1
-    ],
-    [
-      84,
-      640,
-      340,
-      1
-    ]
+    {
+      "chapter": 1,
+      "start": {
+        "size": 455,
+        "x": 0,
+        "z": -8,
+        "elevation": 68,
+        "azimuth": -4
+      },
+      "end": {
+        "size": 440,
+        "x": 0,
+        "z": -8,
+        "elevation": 72,
+        "azimuth": 2
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 2,
+      "start": {
+        "size": 340,
+        "x": 0,
+        "z": 35,
+        "elevation": 72,
+        "azimuth": 0
+      },
+      "end": {
+        "size": 328.09999999999997,
+        "x": 0,
+        "z": 35,
+        "elevation": 72,
+        "azimuth": 0
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 3,
+      "start": {
+        "size": 280,
+        "x": 0,
+        "z": 5,
+        "elevation": 78,
+        "azimuth": 0
+      },
+      "end": {
+        "size": 270.2,
+        "x": 0,
+        "z": 5,
+        "elevation": 78,
+        "azimuth": 0
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 4,
+      "start": {
+        "size": 365,
+        "x": 0,
+        "z": 50,
+        "elevation": 68,
+        "azimuth": -4
+      },
+      "end": {
+        "size": 352.22499999999997,
+        "x": 0,
+        "z": 50,
+        "elevation": 68,
+        "azimuth": -4
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 5,
+      "start": {
+        "size": 139,
+        "x": 0,
+        "z": 8,
+        "elevation": 74,
+        "azimuth": 9
+      },
+      "end": {
+        "size": 139,
+        "x": -6,
+        "z": 5,
+        "elevation": 77,
+        "azimuth": -4
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 6,
+      "start": {
+        "size": 142,
+        "x": 0,
+        "z": 7,
+        "elevation": 81,
+        "azimuth": -5
+      },
+      "end": {
+        "size": 138,
+        "x": 5,
+        "z": 8,
+        "elevation": 76,
+        "azimuth": 5
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 7,
+      "start": {
+        "size": 400,
+        "x": 0,
+        "z": 40,
+        "elevation": 72,
+        "azimuth": 4
+      },
+      "end": {
+        "size": 386,
+        "x": 0,
+        "z": 40,
+        "elevation": 72,
+        "azimuth": 4
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    },
+    {
+      "chapter": 8,
+      "start": {
+        "size": 260,
+        "x": 0,
+        "z": -5,
+        "elevation": 74,
+        "azimuth": -3
+      },
+      "end": {
+        "size": 250.9,
+        "x": 0,
+        "z": -5,
+        "elevation": 74,
+        "azimuth": -3
+      },
+      "transition": [
+        0,
+        2
+      ],
+      "unit": "mm"
+    }
   ],
-  "music": "existing music.mp3; loop, 2s fade-in, 4s fade-out"
+  "music": "Original intro AAC packet stream preserved without encoding; music.mp3 unchanged"
 }

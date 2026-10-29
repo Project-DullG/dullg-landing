@@ -1,0 +1,100 @@
+
+/* Publisher edition: large exhibits, one primary film, and optional deeper reading. */
+.publication-page .pub-feature-film{scroll-margin-top:24px}
+.publication-page .pub-film-action{display:flex;justify-content:flex-end;margin-top:20px}
+.publication-page .pub-film-action a{display:inline-flex;align-items:center;gap:28px;min-height:52px;padding:13px 20px;border:1px solid currentColor;border-radius:4px;font-size:17px;font-weight:700;line-height:1.5;text-decoration:none}
+.publication-page .pub-film-action a:hover{background:#819a7d14}
+.publication-page .pub-optional{width:min(1312px,calc(100% - 80px));margin:24px auto;border-top:1px solid #bbc9bf;border-bottom:1px solid #bbc9bf;background:#fffdf380}
+.publication-page .pub-optional>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:100px;padding:22px 26px;cursor:pointer;color:#234c54}
+.publication-page .pub-optional>summary::-webkit-details-marker{display:none}
+.publication-page .pub-optional>summary b{display:block;font-size:24px;font-weight:750;line-height:1.5;letter-spacing:-.035em}
+.publication-page .pub-optional>summary small{display:block;margin-top:5px;font-size:16px;font-weight:400;line-height:1.7;color:#56716a}
+.publication-page .pub-optional-mark{display:grid;place-items:center;flex:none;width:44px;height:44px;font-size:27px;line-height:1;transition:transform .15s}
+.publication-page .pub-optional[open]>summary .pub-optional-mark{transform:rotate(45deg)}
+.publication-page .pub-optional>summary:focus-visible{outline:3px solid #a7753d;outline-offset:4px}
+.publication-page .pub-optional-content{border-top:1px solid #bbc9bf}
+.publication-page .pub-optional-content .shell,.publication-page .pub-optional-content .mp-shell,.publication-page .pub-optional-content .ml-shell{width:calc(100% - 64px)}
+.publication-page .intro-transcript{margin-top:24px}
+.publication-page .intro-transcript summary{font-size:16px;min-height:50px}
+@media(max-width:760px){.publication-page .pub-optional{width:calc(100% - 40px);margin:18px auto}.publication-page .pub-optional>summary{padding:20px 18px;gap:14px;min-height:96px}.publication-page .pub-optional>summary b{font-size:21px}.publication-page .pub-optional>summary small{font-size:16px}.publication-page .pub-optional-content .shell,.publication-page .pub-optional-content .mp-shell,.publication-page .pub-optional-content .ml-shell{width:calc(100% - 32px)}.publication-page .pub-film-action{justify-content:flex-start}.publication-page .pub-film-action a{font-size:16px;min-height:50px}}
+@media(max-width:360px){.publication-page .pub-optional{width:calc(100% - 32px)}.publication-page .pub-optional>summary{padding:18px 14px}.publication-page .pub-optional>summary b{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.publication-page .pub-optional-mark{transition:none}}
+
+.publication-page .ml-nav{min-height:84px}
+.publication-page .ml-hero{grid-template-columns:.9fr 1.1fr;gap:44px;padding-top:60px;padding-bottom:55px;min-height:690px}
+.publication-page .ml-hero h1{font-size:clamp(64px,6.1vw,92px);line-height:1.18;letter-spacing:-.045em}
+.publication-page .ml-place{font-size:29px;margin-bottom:13px}
+.publication-page .ml-hero-description{font-size:18px;line-height:1.85;max-width:470px}
+.publication-page .ml-student-credit{font-size:16px;line-height:1.7;margin-top:20px!important;color:#c3d3d1}
+.publication-page .ml-student-credit b{font-size:16px;font-weight:700}
+.publication-page .ml-facts dt{font-size:14px}
+.publication-page .ml-facts dd{font-size:18px}
+.publication-page .pub-log-stage{position:relative;min-width:0;width:100%;height:570px;max-width:660px;margin:0;isolation:auto;background:none}
+.publication-page .pub-log-stage:before{content:none}
+.publication-page .pub-log-book,.publication-page .pub-log-envelope{position:absolute;min-width:0}
+.publication-page .pub-log-book{top:17px;right:0;width:48%;max-width:296px;transform:rotate(2deg);z-index:1;box-shadow:2px 0 0 #9ca891,4px 4px 0 #173640,6px 7px 0 #b3b39b,9px 14px 20px #05161f60}
+.publication-page .pub-log-envelope{left:0;bottom:55px;width:48%;max-width:324px;transform:rotate(-4deg);z-index:2;box-shadow:1px 3px 2px #0002,4px 9px 14px #04171f55}
+.publication-page .pub-native-original{position:absolute;left:0;top:0;transform:scale(var(--public-piece-scale,1));transform-origin:0 0;pointer-events:none}
+.publication-page .pub-log-stage figcaption{position:absolute;left:0;right:0;bottom:2px;font-size:16px;line-height:1.8;color:#c6d4d0;text-align:right}
+.publication-page .ml-opening-line>.ml-shell{font-size:15px;min-height:72px}
+.publication-page .ml-opening-line a{font-size:15px;min-height:44px}
+.publication-page .ml-brief{padding-top:76px;padding-bottom:48px;grid-template-columns:1.25fr .75fr;gap:24px 65px}
+.publication-page .ml-section-number{grid-column:1/-1;width:auto;border:0;font-size:14px;color:#6f623c;padding:0}
+.publication-page .ml-brief h2{font-family:ArchiveMyeongjo,serif;font-size:38px;line-height:1.5;margin-bottom:23px;letter-spacing:-.035em}
+.publication-page .ml-brief>div>p{font-size:18px;line-height:1.9}
+.publication-page .ml-task-note{align-self:center;margin:0;padding-left:30px;border-left:2px solid #b09259}
+.publication-page .ml-task-note strong{font-family:ArchiveMyeongjo,serif;font-size:27px;line-height:1.65}
+.publication-page .pub-public-exhibit{padding-top:35px;padding-bottom:80px}
+.publication-page .pub-exhibit-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;max-width:1000px;margin:0 auto 36px}
+.publication-page .pub-exhibit-heading h2{font-family:ArchiveMyeongjo,serif;font-size:36px;line-height:1.5;letter-spacing:-.035em;color:#24434b;margin:0}
+.publication-page .pub-exhibit-heading>p{max-width:390px;font-size:18px;line-height:1.85;color:#546d63;margin:0}
+.publication-page .pub-evidence-papers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px;max-width:940px;margin:0 auto;padding:10px 9px 18px}
+.publication-page .pub-evidence-papers .pub-evidence-paper{position:relative;inset:auto;width:100%;min-height:0;aspect-ratio:148/210;padding:32px;background:#fffaf0;border:1px solid #c7c6af;box-shadow:1px 4px 0 #d6ccb1,0 10px 22px #2d45331a;transform:rotate(-.8deg)}
+.publication-page .pub-evidence-papers .pub-evidence-paper:nth-child(2){transform:rotate(1deg)}
+.publication-page .pub-evidence-paper .ml-document-top{font-size:14px;line-height:1.6;margin-bottom:25px;color:#6a785e}
+.publication-page .pub-evidence-paper h2{font-family:ArchiveMyeongjo,serif;font-size:28px;line-height:1.55;letter-spacing:-.03em;color:#26464a;margin:0 0 25px}
+.publication-page .pub-evidence-paper .ml-public-body p{font-size:18px;line-height:1.85;color:#475f55;margin:0 0 19px}
+.publication-page .pub-evidence-paper:first-child .ml-public-body p:first-child{font-family:ArchiveMyeongjo,serif;font-size:20px;line-height:1.85;color:#285158;border-left:2px solid #b79657;padding-left:15px;margin-bottom:24px}
+.publication-page .pub-feature-film{padding-top:65px;padding-bottom:68px;background:#102c38}
+.publication-page .pub-feature-film .ml-film-layout{display:block}
+.publication-page .pub-feature-film .ml-film-copy{display:grid;grid-template-columns:1.15fr 1fr;gap:10px 60px;align-items:end;margin-bottom:28px}
+.publication-page .pub-feature-film .ml-film-copy>.ml-label{grid-column:1/-1;font-size:14px;margin:0}
+.publication-page .pub-feature-film .ml-film-copy h2{font-family:ArchiveMyeongjo,serif;font-size:37px;line-height:1.5;letter-spacing:-.025em;margin:0}
+.publication-page .pub-feature-film .ml-film-copy>p:not(.ml-label){font-size:18px;line-height:1.85;margin:0}
+.publication-page .pub-feature-film .ml-caption-note{grid-column:2;display:none}
+.publication-page .pub-feature-film .ml-film-player{width:100%;max-width:none}
+.publication-page .pub-feature-film .ml-film-frame{max-width:none;padding:0;border:0;border-radius:10px;overflow:hidden;background:#0a202a}
+.publication-page .pub-feature-film video{width:100%;height:auto}
+.publication-page .pub-film-action{color:#ead9ac}
+.publication-page .ml-table-overview{padding-top:65px;padding-bottom:0}
+.publication-page .ml-table-overview-heading{align-items:end;gap:40px;margin-bottom:30px}
+.publication-page .ml-table-overview-heading h2{font-size:35px;line-height:1.5}
+.publication-page .ml-table-overview-heading p{font-size:18px;line-height:1.8}
+.publication-page .ml-inside{padding-top:68px;padding-bottom:64px}
+.publication-page .ml-inside .ml-section-heading h2{font-size:36px;line-height:1.5}
+.publication-page .ml-contents-display{padding-top:25px;gap:35px;grid-template-columns:1.4fr .78fr .6fr}
+.publication-page .ml-envelope-set{gap:19px}
+.publication-page .ml-mini-envelope{border-radius:1px;background:#ecdebd;border-color:#c7b58e;box-shadow:1px 4px 0 #cabb99,0 6px 13px #31442e14}
+.publication-page .ml-mini-envelope>b{font-family:ArchiveMyeongjo,serif;color:#344e45}
+.publication-page .ml-small-worksheet{background:#fffaf0;border-color:#c5c6ae;box-shadow:1px 4px 0 #d0c7aa,0 9px 16px #354b3120}
+.publication-page .ml-small-worksheet strong{font-family:ArchiveMyeongjo,serif}
+.publication-page .ml-component-counts dt{font-size:16px}
+.publication-page .ml-component-counts dd{font-family:ArchiveMyeongjo,serif;font-size:42px;color:#274d50}
+.publication-page .pub-log-training .ml-training{padding-block:37px;background:#edf0e1}
+.publication-page .pub-log-comic .ml-scenes{padding-block:37px}
+.publication-page .ml-information{padding-block:70px;gap:100px}
+.publication-page .ml-information h2{font-size:34px;line-height:1.5}
+.publication-page .ml-product-info dl>div{font-size:17px}
+.publication-page .ml-faq details>p{font-size:18px;line-height:1.85}
+.publication-page .ml-closing{padding-block:70px;background:#163b46}
+.publication-page .ml-closing h2{font-family:ArchiveMyeongjo,serif;font-size:43px;line-height:1.45;letter-spacing:-.025em}
+@media(max-width:1180px){.publication-page .ml-hero{grid-template-columns:.9fr 1.1fr;gap:25px;min-height:660px}.publication-page .pub-log-stage{height:535px}.publication-page .ml-hero h1{font-size:75px}.publication-page .pub-exhibit-heading{gap:30px}.publication-page .pub-exhibit-heading h2{font-size:32px}}
+@media(max-width:960px){.publication-page .ml-hero{grid-template-columns:1fr;padding-top:40px;gap:30px}.publication-page .ml-hero-copy{max-width:650px}.publication-page .ml-hero h1{font-size:79px}.publication-page .ml-hero h1 br{display:none}.publication-page .pub-log-stage{height:565px;align-self:center;margin:auto;max-width:630px}.publication-page .ml-brief{gap:25px 45px}.publication-page .ml-brief h2{font-size:32px}.publication-page .pub-exhibit-heading{display:block}.publication-page .pub-exhibit-heading>p{max-width:600px;margin-top:15px}.publication-page .pub-evidence-papers{gap:25px;padding-inline:0}.publication-page .pub-evidence-papers .pub-evidence-paper{padding:26px}.publication-page .pub-evidence-paper h2{font-size:25px}.publication-page .pub-feature-film .ml-film-copy{grid-template-columns:1fr;gap:16px}.publication-page .pub-feature-film .ml-film-copy h2{font-size:32px}.publication-page .ml-contents-display{grid-template-columns:1.2fr .8fr}.publication-page .ml-information{gap:45px}}
+@media(max-width:650px){.publication-page .ml-nav{min-height:76px}.publication-page .ml-hero{padding-top:31px;padding-bottom:28px;gap:25px}.publication-page .ml-place{font-size:25px;margin-top:20px!important}.publication-page .ml-hero h1{font-size:61px;line-height:1.22;letter-spacing:-.035em}.publication-page .ml-hero h1 br{display:block}.publication-page .ml-hero-description{font-size:16px;line-height:1.85}.publication-page .ml-student-credit,.publication-page .ml-student-credit b{font-size:16px}.publication-page .ml-facts dt{font-size:13px}.publication-page .ml-facts dd{font-size:17px}.publication-page .pub-log-stage{height:auto;aspect-ratio:.69;max-width:420px;margin-top:6px}.publication-page .pub-log-book{width:62%;max-width:none;top:4px;right:0;transform:rotate(2deg)}.publication-page .pub-log-envelope{width:65%;max-width:none;left:0;bottom:33px;transform:rotate(-3deg)}.publication-page .pub-log-stage figcaption{font-size:14px;line-height:1.75;text-align:left;bottom:0}.publication-page .ml-opening-line>.ml-shell{font-size:14px;gap:5px 20px;min-height:92px}.publication-page .ml-opening-line a{font-size:14px}.publication-page .ml-brief{padding-top:45px;padding-bottom:35px;grid-template-columns:1fr;gap:20px}.publication-page .ml-section-number{grid-column:auto}.publication-page .ml-brief h2{font-size:29px;line-height:1.5}.publication-page .ml-brief>div>p{font-size:16px;line-height:1.85}.publication-page .ml-task-note{padding:20px 0 0;border-left:0;border-top:1px solid #b09259}.publication-page .ml-task-note strong{font-size:25px}.publication-page .pub-public-exhibit{padding-top:23px;padding-bottom:48px}.publication-page .pub-exhibit-heading{margin-bottom:25px}.publication-page .pub-exhibit-heading h2{font-size:29px;line-height:1.55}.publication-page .pub-exhibit-heading>p{font-size:16px;line-height:1.85}.publication-page .pub-evidence-papers{grid-template-columns:1fr;gap:28px;max-width:420px;padding:0}.publication-page .pub-evidence-papers .pub-evidence-paper{padding:27px;transform:none!important}.publication-page .pub-evidence-paper .ml-document-top{font-size:14px;margin-bottom:22px}.publication-page .pub-evidence-paper h2{font-size:26px;line-height:1.5}.publication-page .pub-evidence-paper .ml-public-body p{font-size:17px;line-height:1.85}.publication-page .pub-evidence-paper:first-child .ml-public-body p:first-child{font-size:19px;line-height:1.8}.publication-page .pub-feature-film{padding-block:43px}.publication-page .pub-feature-film .ml-film-copy{gap:15px;margin-bottom:24px}.publication-page .pub-feature-film .ml-film-copy h2{font-size:29px;line-height:1.5}.publication-page .pub-feature-film .ml-film-copy>p:not(.ml-label){font-size:16px;line-height:1.85}.publication-page .pub-feature-film .ml-film-frame{border-radius:6px}.publication-page .ml-table-overview{padding-top:43px}.publication-page .ml-table-overview-heading{gap:14px;margin-bottom:25px}.publication-page .ml-table-overview-heading h2{font-size:29px;line-height:1.5}.publication-page .ml-table-overview-heading p{font-size:16px;line-height:1.8}.publication-page .ml-inside{padding-block:44px}.publication-page .ml-inside .ml-section-heading h2{font-size:29px}.publication-page .ml-contents-display{grid-template-columns:1.15fr .85fr;gap:20px 16px}.publication-page .ml-envelope-set{gap:13px}.publication-page .ml-component-counts dd{font-size:36px}.publication-page .ml-component-counts dt{font-size:14px}.publication-page .pub-log-training .ml-training,.publication-page .pub-log-comic .ml-scenes{padding-block:28px}.publication-page .ml-information{padding-block:48px;gap:42px}.publication-page .ml-information h2{font-size:29px}.publication-page .ml-product-info dl>div{font-size:16px}.publication-page .ml-faq details>p{font-size:16px;line-height:1.85}.publication-page .ml-closing{padding-block:48px}.publication-page .ml-closing h2{font-size:33px;line-height:1.5}}
+@media(max-width:360px){.publication-page .ml-hero h1{font-size:56px}.publication-page .pub-evidence-papers .pub-evidence-paper{padding:23px}.publication-page .pub-evidence-paper h2{font-size:24px}.publication-page .pub-evidence-paper .ml-public-body p{font-size:16px}.publication-page .pub-evidence-paper:first-child .ml-public-body p:first-child{font-size:18px}.publication-page .pub-log-stage figcaption{font-size:13px}}
+
+/* On a narrow reading surface the full public copy reflows rather than leaving its paper. */
+@media(max-width:650px){.publication-page .pub-evidence-papers .pub-evidence-paper{aspect-ratio:auto;min-height:0;height:auto}}
+
+/* Keep the title, students and actual kit together in the first mobile exhibit. */
+@media(max-width:960px){.publication-page .ml-hero{display:flex;flex-direction:column;align-items:stretch;gap:0}.publication-page .ml-hero-copy{display:contents}.publication-page .ml-hero-copy>.ml-place{order:0;margin-top:0!important;margin-bottom:8px!important}.publication-page .ml-hero-copy>h1{order:1}.publication-page .ml-hero-copy>.ml-student-credit{order:2;margin-top:16px!important}.publication-page .pub-log-stage{order:3;margin-top:30px;margin-bottom:0}.publication-page .ml-hero-copy>.ml-label{order:4;margin-top:28px}.publication-page .ml-hero-copy>.ml-hero-description{order:5;max-width:650px;margin-top:14px!important}.publication-page .ml-hero-copy>.ml-facts{order:6;align-self:flex-start;margin-top:24px}.publication-page .ml-hero-copy>.ml-hero-actions{order:7;margin-top:24px}.publication-page .ml-hero-copy>.intro-start-note{order:8}}

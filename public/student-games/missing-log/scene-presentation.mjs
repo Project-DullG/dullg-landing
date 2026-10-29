@@ -2,6 +2,7 @@
 // These settings change surfaces and volume only; the printed faces stay intact.
 export const scenePresentation = {
   worldPerMm: 2,
+  surfaces: { feltContrast: .75, feltBumpMm: .08 },
   depthMm: {
     card: 0.32,
     paper: 0.15,

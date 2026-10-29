@@ -1,4 +1,4 @@
-import scenePresentation from './scene-presentation.mjs?v=tabletop3d-20261029-v1';
+import scenePresentation from './scene-presentation.mjs?v=premium-20261029-v1';
 import { LOCATIONS, LOCATION_BY_ID, ROLES, SOLUTION, ENDING } from './content.mjs?v=deep-review-20261027';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));

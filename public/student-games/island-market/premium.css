@@ -21,7 +21,7 @@
 @media(prefers-reduced-motion:reduce){.market-product .pub-optional-mark{transition:none}}
 
 .market-product{background:#fbf6e9;color:#294b40}
-.market-product .island-coast{--coast-image:url('assets/hero.webp')}
+.market-product .island-coast{--coast-image:url('/student-games/island-market/assets/hero.webp')}
 .market-product .mp-nav{background:#fbf6e9;height:84px}
 .market-product .mp-shell{width:min(1472px,calc(100% - 96px))}
 .market-product .mp-hero{grid-template-columns:.78fr 1.62fr;gap:48px;align-items:center;min-height:730px;padding-top:58px;padding-bottom:62px}

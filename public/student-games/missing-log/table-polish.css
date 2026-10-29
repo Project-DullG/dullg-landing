@@ -26,3 +26,4 @@
 .physical-log .table-document,.physical-log .table-document:nth-child(n){background-color:#fff7e4;background-image:linear-gradient(#fff7e444,#fff7e444),url('assets/envelope-c6.webp');background-size:auto,400% 400%;background-position:center;background-repeat:no-repeat;box-shadow:0 1px 0 #ccb993,1px 3px 5px #14252255,2px 6px 10px #2b20192e}
 @media(max-width:760px){.physical-log .log-table-caption .tabletop-scale{display:none}.physical-log .log-table-caption .tabletop-controls [data-tabletop-action]{font-size:12px;padding:8px 10px}.physical-log .log-table-caption{min-height:80px}}
 .physical-log .dialog-notice{position:sticky;z-index:2;margin:0;padding:12px 25px;background:#f1dfae;border-bottom:1px solid #bda575;color:#665027;font-size:16px;line-height:1.65;box-shadow:0 3px 5px #7a592412}.physical-log .dialog-notice[hidden]{display:none}
+.physical-log{min-height:0}

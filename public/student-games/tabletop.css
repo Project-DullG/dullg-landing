@@ -1,0 +1,261 @@
+/* Shared camera shell. Individual games own the arrangement and their readers. */
+.tabletop-shell {
+  --tabletop-navy: #102a38;
+  --tabletop-paper: #fffaf0;
+  --tabletop-brass: #d8b46c;
+  --tabletop-mat: #315448;
+  --tabletop-edge: #b5c1b8;
+  --tabletop-card-shadow: 0 2px 1px #1f160f40, 0 5px 7px #19140e30, 0 13px 20px #19140e1f;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #b4c1bb;
+  border-radius: 18px;
+  background: var(--tabletop-navy);
+  box-shadow: 0 16px 36px #102a3824;
+}
+
+.tabletop-viewport {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: clamp(380px, 68dvh, 820px);
+  overflow: hidden;
+  overflow: clip;
+  touch-action: none;
+  overscroll-behavior: contain;
+  cursor: grab;
+  background-color: #75533d;
+  background-image: linear-gradient(#211b1721, #211b1747), url('/ulleung-marble/race/assets/table-walnut.png');
+  background-size: auto, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: inset 0 0 32px #20160e42;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tabletop-viewport:focus-visible {
+  z-index: 1;
+  outline: 3px solid var(--tabletop-brass, #d8b46c);
+  outline-offset: -4px;
+}
+
+.tabletop-world {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: var(--tabletop-width, 1360px);
+  height: var(--tabletop-height, 920px);
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  transform-origin: 0 0;
+  contain: layout style;
+}
+
+.tabletop-world *,
+.tabletop-world *::before,
+.tabletop-world *::after {
+  box-sizing: border-box;
+}
+
+.tabletop-panning,
+.tabletop-panning * {
+  cursor: grabbing !important;
+  user-select: none !important;
+}
+
+.tabletop-world :is(button, a, input, select, textarea, summary, [role='button'], [data-tabletop-no-pan], [data-tabletop-interactive]) {
+  touch-action: manipulation;
+}
+
+.tabletop-world :is(button, a, summary, [role='button'], [data-tabletop-interactive]) { cursor: pointer; }
+.tabletop-world :is(input, textarea, [contenteditable='true']) { cursor: text; }
+.tabletop-world :is(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 4px solid #f3c972;
+  outline-offset: 4px;
+}
+
+.tabletop-controls {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  border-top: 1px solid #ffffff1f;
+  color: #f4ebdd;
+  background: var(--tabletop-navy, #102a38);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.tabletop-control-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+.tabletop-controls [data-tabletop-action] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-sizing: border-box;
+  min-width: 44px;
+  min-height: 44px;
+  margin: 0;
+  padding: 9px 13px;
+  border: 1px solid #ffffff47;
+  border-radius: 7px;
+  color: #f4ebdd;
+  background: #ffffff0b;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.35;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tabletop-controls [data-tabletop-action='fit'] {
+  border-color: #d8b46c;
+  color: #102a38;
+  background: #d8b46c;
+}
+
+.tabletop-controls [data-tabletop-action]:hover:not(:disabled) { border-color: #f4ebdd; background: #ffffff20; }
+.tabletop-controls [data-tabletop-action='fit']:hover:not(:disabled) { border-color: #f3d79e; background: #f3d79e; }
+.tabletop-controls [data-tabletop-action]:disabled { opacity: .4; cursor: default; }
+.tabletop-controls [data-tabletop-action]:focus-visible { outline: 3px solid #fffaf0; outline-offset: 3px; }
+.tabletop-controls [data-tabletop-action][hidden] { display: none; }
+.tabletop-controls [data-tabletop-action] > span[aria-hidden] { font-size: 20px; line-height: 1; }
+.tabletop-scale { min-width: 48px; color: #d8b46c; font-size: 15px; font-weight: 750; font-variant-numeric: tabular-nums; text-align: center; }
+.tabletop-instructions { max-width: 35em; margin: 0; color: #d1ddd9; font-size: 15px; line-height: 1.55; word-break: keep-all; overflow-wrap: anywhere; }
+
+/* Optional physical surfaces. Their size and placement belong to each game. */
+.tabletop-mat {
+  position: absolute;
+  border: 2px solid #ffffff38;
+  border-radius: 30px;
+  background-color: var(--tabletop-mat, #315448);
+  background-image: repeating-linear-gradient(0deg, #ffffff04 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, #00000005 0 1px, transparent 1px 3px);
+  box-shadow: inset 0 0 0 5px #00000013, 0 4px 6px #20170f42;
+}
+
+.tabletop-card,
+.tabletop-paper,
+.tabletop-envelope {
+  color: #233b37;
+  background: var(--tabletop-paper, #fffaf0);
+  border: 1px solid #c8c1b0;
+  box-shadow: var(--tabletop-card-shadow, 0 2px 1px #1f160f40, 0 5px 7px #19140e30, 0 13px 20px #19140e1f);
+}
+
+.tabletop-card { border-radius: 10px; }
+.tabletop-paper { border-radius: 2px; }
+.tabletop-envelope { border-radius: 5px; background: #e5cf9d; }
+.tabletop-deck {
+  border-radius: 10px;
+  box-shadow: 1px 2px 0 #fffaf0, 2px 3px 0 #b8af9e, 3px 5px 0 #fffaf0, 4px 6px 0 #b8af9e, 5px 8px 0 #fffaf0, 6px 9px 0 #b8af9e, 7px 11px 0 #fffaf0, 8px 12px 0 #9d927f, 9px 15px 11px #1f160f42;
+}
+.tabletop-token {
+  border: 1px solid #8e672c;
+  border-radius: 50%;
+  color: #33291a;
+  background: #e0ba68;
+  box-shadow: inset 0 0 0 3px #f2d799, inset 0 0 0 4px #9e793d, 0 3px 0 #8e672c, 0 6px 7px #1f160f35;
+}
+
+.tabletop-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.tabletop-shell:fullscreen {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+.tabletop-shell:fullscreen .tabletop-viewport { flex: 1; min-height: 0; height: auto; }
+.tabletop-viewport:fullscreen { height: 100dvh; max-height: none; border-radius: 0; }
+
+/* Browser policies may reject native fullscreen. The same component container
+   can fill the window without moving DOM nodes or making native dialogs inert. */
+.tabletop-expanded {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 10000 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: var(--tabletop-navy, #102a38);
+}
+.tabletop-expanded > :not(.tabletop-expanded-bridge):not(.tabletop-viewport) { flex-shrink: 0; }
+.tabletop-expanded .tabletop-expanded-bridge {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 0% !important;
+  width: 100% !important;
+  height: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+.tabletop-expanded .tabletop-viewport {
+  flex: 1 1 0% !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  border-radius: 0 !important;
+}
+
+@media (max-width: 600px) {
+  .tabletop-shell { border-radius: 12px; }
+  .tabletop-viewport { height: clamp(330px, 57dvh, 540px); }
+  .tabletop-controls { gap: 8px; padding: 10px; }
+  .tabletop-control-buttons { gap: 6px; width: 100%; }
+  .tabletop-controls [data-tabletop-action] { padding: 9px 10px; }
+  .tabletop-instructions { font-size: 15px; }
+}
+
+@media (max-width: 359px) {
+  .tabletop-controls [data-tabletop-action='fullscreen'] { flex-basis: auto; }
+  .tabletop-scale { margin-left: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabletop-world { scroll-behavior: auto; }
+}

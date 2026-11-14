@@ -1,0 +1,249 @@
+/* First-time guide: written for readers who prefer larger, calmer text. */
+.guide {
+  padding-block: clamp(64px, 8vw, 96px);
+  background: #f7f6f2;
+  border-block: 1px solid rgba(17, 20, 18, 0.06);
+}
+.shell {
+  width: min(100% - 80px, 1120px);
+  margin-inline: auto;
+}
+.kicker {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 500;
+}
+.head h2 {
+  margin: 0;
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+  word-break: keep-all;
+}
+.lead {
+  max-width: 720px;
+  margin: 20px 0 0;
+  color: #2f3532;
+  font-size: 18px;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+.guide h3 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* This work at a glance */
+.workCard {
+  margin-top: 40px;
+  padding: 28px 32px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(17, 20, 18, 0.08);
+}
+.workCard dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 40px;
+  margin: 0;
+}
+.workCard dl > div {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+.workCard dt {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+.workCard dd {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+.workCard .caution {
+  grid-column: 1 / -1;
+}
+.caution dd {
+  color: #8d4237;
+  font-weight: 400;
+}
+
+/* Evening flow */
+.flow {
+  margin-top: 48px;
+}
+.flow ol {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+.flow li {
+  position: relative;
+  padding: 24px 20px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(17, 20, 18, 0.07);
+}
+.flow li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  right: -16px;
+  width: 16px;
+  height: 1.5px;
+  background: var(--pencil);
+}
+.step {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+.flow strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.flow p {
+  margin: 0;
+  color: #3f4541;
+  font-size: 16px;
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+/* Questions and terms */
+.bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 48px;
+  margin-top: 56px;
+}
+.faq details {
+  border-top: 1px solid var(--line);
+}
+.faq details:last-of-type {
+  border-bottom: 1px solid var(--line);
+}
+.faq summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: 60px;
+  padding: 12px 0;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+.faq summary::after {
+  content: "+";
+  flex-shrink: 0;
+  color: var(--pencil);
+  font-size: 24px;
+  font-weight: 400;
+  transition: transform 200ms var(--ease-out);
+}
+.faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+.faq details p {
+  margin: 0;
+  padding: 0 32px 20px 0;
+  color: #3f4541;
+  font-size: 17px;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+.faq details[open] p {
+  animation: answer-in 260ms var(--ease-out);
+}
+@keyframes answer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+.terms dl {
+  margin: 0;
+}
+.terms dl > div {
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+.terms dt {
+  font-size: 17px;
+  font-weight: 600;
+}
+.terms dd {
+  margin: 4px 0 0;
+  color: #3f4541;
+  font-size: 16px;
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+@media (max-width: 1000px) {
+  .flow ol {
+    grid-template-columns: 1fr;
+  }
+  .flow li {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: 12px;
+  }
+  .flow li .step {
+    grid-row: span 2;
+  }
+  .flow li:not(:last-child)::after {
+    top: auto;
+    bottom: -16px;
+    right: auto;
+    left: 35px;
+    width: 1.5px;
+    height: 16px;
+  }
+  .bottom,
+  .workCard dl {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .shell {
+    width: calc(100% - 36px);
+  }
+  .workCard {
+    padding: 20px;
+  }
+  .workCard dl > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .lead {
+    font-size: 17px;
+  }
+}

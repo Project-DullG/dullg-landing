@@ -9,6 +9,7 @@ import { SectionHead } from "@/components/section-head";
 import { PageIntro } from "@/components/page-intro";
 import { fundingSummaryPeriod, getFundingProject, getFundingStatus } from "@/lib/funding";
 import { CountUp } from "@/components/count-up";
+import { MysteryGuide } from "@/components/mystery-guide";
 import { pageMetadata } from "@/lib/metadata";
 import { currentWorks, getWorkStatus, publishedWorks } from "@/lib/works";
 import { StudentGameShowcase } from "@/components/student-game-showcase";
@@ -143,6 +144,8 @@ export default function WorksPage() {
           )}
         </div>
       </section>
+
+      <MysteryGuide />
 
       <StudentGameShowcase />
 

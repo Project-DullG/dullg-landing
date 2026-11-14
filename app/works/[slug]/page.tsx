@@ -12,6 +12,7 @@ import landings from "@/lib/work-landings.json";
 import { OfficialWorkIntroduction } from "@/components/official-work-introduction";
 import { WorkTrailer } from "@/components/work-trailer";
 import { SourceLanguageNote } from "@/components/i18n/source-language-note";
+import { MysteryGuide } from "@/components/mystery-guide";
 type Props = {
   params: Promise<{
     slug: string;
@@ -141,6 +142,8 @@ export default async function WorkDetailPage({ params }: Props) {
             ),
           )}
         </div>
+
+        {work.platform === "실물 보드게임" && <MysteryGuide work={work} />}
 
         <section className="work-detail-record shell" aria-labelledby="work-record-title">
           <div>

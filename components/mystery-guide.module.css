@@ -1,80 +1,15 @@
-/* First-time guide: written for readers who prefer larger, calmer text. */
-.guide {
-  padding-block: clamp(64px, 8vw, 96px);
-  background: #f7f6f2;
-  border-block: 1px solid rgba(17, 20, 18, 0.06);
+/* Long version of the first-time guide (folded). */
+.details {
+  padding-bottom: 16px;
 }
-.shell {
-  width: min(100% - 80px, 1120px);
-  margin-inline: auto;
-}
-.kicker {
-  margin: 0 0 12px;
-  color: var(--accent);
-  font-size: 15px;
-  font-weight: 500;
-}
-.head h2 {
-  margin: 0;
-  font-size: clamp(28px, 3.2vw, 38px);
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: -0.03em;
-  word-break: keep-all;
-}
-.lead {
-  max-width: 720px;
-  margin: 20px 0 0;
-  color: #2f3532;
-  font-size: 18px;
-  line-height: 1.85;
-  word-break: keep-all;
-}
-.guide h3 {
+.details h3 {
   margin: 0 0 20px;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
-
-/* This work at a glance */
-.workCard {
-  margin-top: 40px;
-  padding: 28px 32px;
-  border-radius: 16px;
-  background: #fff;
-  border: 1px solid rgba(17, 20, 18, 0.08);
-}
-.workCard dl {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 40px;
-  margin: 0;
-}
-.workCard dl > div {
-  display: grid;
-  grid-template-columns: 120px minmax(0, 1fr);
-  gap: 16px;
-  padding: 14px 0;
-  border-top: 1px solid var(--line);
-}
-.workCard dt {
-  color: var(--text-muted);
-  font-size: 16px;
-}
-.workCard dd {
-  margin: 0;
-  font-size: 17px;
-  font-weight: 500;
-  line-height: 1.6;
-  word-break: keep-all;
-}
-.workCard .caution {
-  grid-column: 1 / -1;
-}
-.caution dd {
-  color: #8d4237;
-  font-weight: 400;
+.details .compareCard {
+  margin-top: 8px;
 }
 
 /* Evening flow */
@@ -227,34 +162,14 @@
     width: 1.5px;
     height: 16px;
   }
-  .bottom,
-  .workCard dl {
+  .bottom {
     grid-template-columns: 1fr;
   }
 }
 @media (max-width: 760px) {
-  .shell {
-    width: calc(100% - 36px);
-  }
-  .workCard {
-    padding: 20px;
-  }
-  .workCard dl > div {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-  .lead {
-    font-size: 17px;
-  }
 }
 
 /* Familiar comparisons */
-.compare {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 40px;
-}
 .compareCard {
   display: flex;
   flex-direction: column;
@@ -277,8 +192,7 @@
   object-fit: cover;
   transition: transform 600ms var(--ease-out);
 }
-.compareCard:hover .compareImage img,
-.living:hover .compareImage img {
+.compareCard:hover .compareImage img {
   transform: scale(1.03);
 }
 .compareCard figcaption {
@@ -327,52 +241,10 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.living {
-  margin: 24px 0 0;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(17, 20, 18, 0.08);
-}
-.living .compareImage {
-  aspect-ratio: 16 / 9;
-}
-.living figcaption {
-  display: grid;
-  gap: 4px;
-  padding: 20px 28px 24px;
-}
-.living strong {
-  font-size: 20px;
-  font-weight: 600;
-}
-.living span {
-  color: #3f4541;
-  font-size: 17px;
-  line-height: 1.8;
-  word-break: keep-all;
-}
-:global(.is-revealed) .compareCard,
-:global(.is-revealed) .living {
-  animation: card-up 640ms var(--ease-out) backwards;
-}
-:global(.is-revealed) .compareCard + .compareCard {
-  animation-delay: 120ms;
-}
-@keyframes card-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-}
 @media (max-width: 1000px) {
-  .compare {
-    grid-template-columns: 1fr;
-  }
 }
 @media (max-width: 760px) {
-  .compareCard figcaption,
-  .living figcaption {
+  .compareCard figcaption {
     padding: 20px;
   }
   .compareCard dl > div {

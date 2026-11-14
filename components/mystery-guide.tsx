@@ -1,7 +1,5 @@
 import Image from "next/image";
 import { useText } from "@/lib/i18n/use-text";
-import type { Work } from "@/lib/works";
-import { workGuides } from "@/lib/work-guides";
 import styles from "./mystery-guide.module.css";
 
 const steps = [
@@ -89,151 +87,70 @@ const terms = [
   ["스포일러", "아직 하지 않은 사람에게 범인이나 결말을 미리 알려 주는 일입니다. 한 번뿐인 놀이라 특히 조심합니다."],
 ] as const;
 
-/** A plain-language guide for first-time players. With a work, it adds that work's own card. */
-export function MysteryGuide({ work }: { work?: Work }) {
+/** The long version, shown folded under the picture-first guide. */
+export function MysteryGuideDetails() {
   const t = useText();
-  const guide = work ? workGuides[work.slug] : undefined;
+  const escape = comparisons[1];
   return (
-    <section className={styles.guide} id="first-time" aria-labelledby="mystery-guide-title">
-      <div className={styles.shell}>
-        <div className={styles.head}>
-          <p className={styles.kicker}>{t("머더미스터리가 처음이신가요")}</p>
-          <h2 id="mystery-guide-title">
-            {t("추리 드라마 속 인물이 되어,")}
-            <br />
-            {t("대화로 범인을 찾는 놀이입니다")}
-          </h2>
-          <p className={styles.lead}>
-            {t(
-              "텔레비전 추리 드라마를 보며 범인을 짐작해 본 적이 있다면 이미 절반은 아십니다. 머더미스터리에서는 그 드라마 속 용의자 한 명을 내가 맡습니다. 둘러앉아 서로 묻고 답하며, 그날 무슨 일이 있었는지 함께 맞춰 갑니다. 판 위에서 말을 옮기거나 주사위를 굴리는 게임과 달리, 대화가 곧 게임입니다.",
-            )}
-          </p>
-        </div>
+    <div className={styles.details}>
+      <figure className={styles.compareCard}>
+        <span className={styles.compareImage}>
+          <Image src={escape.image} alt={t(escape.alt)} width={escape.width} height={escape.height} sizes="(max-width: 760px) 100vw, 50vw" />
+        </span>
+        <figcaption>
+          <p className={styles.compareKicker}>{t(escape.kicker)}</p>
+          <h3>{t(escape.title)}</h3>
+          <dl>
+            <div>
+              <dt>{t("같은 점")}</dt>
+              <dd>{t(escape.same)}</dd>
+            </div>
+            <div>
+              <dt>{t("다른 점")}</dt>
+              <dd>{t(escape.differ)}</dd>
+            </div>
+          </dl>
+          <a className={styles.credit} href={escape.creditHref!} target="_blank" rel="noopener noreferrer">
+            {t(escape.credit)}
+          </a>
+        </figcaption>
+      </figure>
 
+      <div className={styles.flow}>
+        <h3>{t("하룻저녁은 이렇게 흘러갑니다")}</h3>
+        <ol>
+          {steps.map((step, index) => (
+            <li key={step.title}>
+              <span className={styles.step}>{index + 1}</span>
+              <strong>{t(step.title)}</strong>
+              <p>{t(step.body)}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
 
-        <div className={styles.compare}>
-          {comparisons.map((item) => (
-            <figure key={item.title} className={styles.compareCard}>
-              <span className={styles.compareImage}>
-                <Image
-                  src={item.image}
-                  alt={t(item.alt)}
-                  width={item.width}
-                  height={item.height}
-                  sizes="(max-width: 760px) 100vw, 50vw"
-                />
-              </span>
-              <figcaption>
-                <p className={styles.compareKicker}>{t(item.kicker)}</p>
-                <h3>{t(item.title)}</h3>
-                <dl>
-                  <div>
-                    <dt>{t("같은 점")}</dt>
-                    <dd>{t(item.same)}</dd>
-                  </div>
-                  <div>
-                    <dt>{t("다른 점")}</dt>
-                    <dd>{t(item.differ)}</dd>
-                  </div>
-                </dl>
-                {item.creditHref ? (
-                  <a className={styles.credit} href={item.creditHref} target="_blank" rel="noopener noreferrer">
-                    {t(item.credit)}
-                  </a>
-                ) : (
-                  <span className={styles.credit}>{t(item.credit)}</span>
-                )}
-              </figcaption>
-            </figure>
+      <div className={styles.bottom}>
+        <div className={styles.faq}>
+          <h3>{t("처음 하시는 분들이 자주 묻는 것")}</h3>
+          {questions.map((item) => (
+            <details key={item.q}>
+              <summary>{t(item.q)}</summary>
+              <p>{t(item.a)}</p>
+            </details>
           ))}
         </div>
-
-        <figure className={styles.living}>
-          <span className={styles.compareImage}>
-            <Image
-              src="/assets/genre-guide/living-room-play.webp"
-              alt={t("거실 탁자에 둘러앉아 인물 책자와 단서 카드로 머더미스터리를 하는 두 부부")}
-              width={1600}
-              height={900}
-              sizes="(max-width: 1160px) 100vw, 1120px"
-            />
-          </span>
-          <figcaption>
-            <strong>{t("실제로는 이렇게 합니다")}</strong>
-            <span>
-              {t(
-                "차 한 잔 놓인 거실 탁자에 둘러앉아, 내 책자를 가슴에 꼭 안은 채 서로를 의심합니다. 지목당한 사람은 웃으며 손사래를 칩니다. (게임하는 모습을 그린 일러스트입니다.)",
-              )}
-            </span>
-          </figcaption>
-        </figure>
-
-        {work && guide && (
-          <div className={styles.workCard}>
-            <h3>{t(`「${work.title}」로 하면`)}</h3>
-            <dl>
-              <div>
-                <dt>{t("함께할 사람")}</dt>
-                <dd>{t(work.players)}</dd>
+        <div className={styles.terms}>
+          <h3>{t("낯선 말 풀이")}</h3>
+          <dl>
+            {terms.map(([term, meaning]) => (
+              <div key={term}>
+                <dt>{t(term)}</dt>
+                <dd>{t(meaning)}</dd>
               </div>
-              <div>
-                <dt>{t("걸리는 시간")}</dt>
-                <dd>{t(work.duration)}</dd>
-              </div>
-              <div>
-                <dt>{t("내가 맡는 사람")}</dt>
-                <dd>{t(guide.role)}</dd>
-              </div>
-              <div>
-                <dt>{t("함께 밝힐 것")}</dt>
-                <dd>{t(guide.goal)}</dd>
-              </div>
-              {guide.caution && (
-                <div className={styles.caution}>
-                  <dt>{t("미리 알아 두세요")}</dt>
-                  <dd>{t(guide.caution)}</dd>
-                </div>
-              )}
-            </dl>
-          </div>
-        )}
-
-        <div className={styles.flow}>
-          <h3>{t("하룻저녁은 이렇게 흘러갑니다")}</h3>
-          <ol data-stagger>
-            {steps.map((step, index) => (
-              <li key={step.title}>
-                <span className={styles.step}>{index + 1}</span>
-                <strong>{t(step.title)}</strong>
-                <p>{t(step.body)}</p>
-              </li>
             ))}
-          </ol>
-        </div>
-
-        <div className={styles.bottom}>
-          <div className={styles.faq}>
-            <h3>{t("처음 하시는 분들이 자주 묻는 것")}</h3>
-            {questions.map((item) => (
-              <details key={item.q}>
-                <summary>{t(item.q)}</summary>
-                <p>{t(item.a)}</p>
-              </details>
-            ))}
-          </div>
-          <div className={styles.terms}>
-            <h3>{t("낯선 말 풀이")}</h3>
-            <dl>
-              {terms.map(([term, meaning]) => (
-                <div key={term}>
-                  <dt>{t(term)}</dt>
-                  <dd>{t(meaning)}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+          </dl>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

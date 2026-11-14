@@ -10,6 +10,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { BRAND } from "@/lib/site-config";
 import { didimterResidency, riseAward } from "@/lib/recognition";
 import styles from "./recognition.module.css";
+import { PressKit, TeamPillars, TeamProof, TeamTimeline } from "@/components/team-story";
 export async function generateMetadata() {
   return localizeMetadata(pageMetadata("/about"));
 }
@@ -21,6 +22,8 @@ export default function AboutPage() {
         title={t("브랜드 소개")}
         description={t(BRAND.description)}
       />
+
+      <TeamProof />
 
       <section id="team-history" className="about-brand shell" aria-labelledby="about-brand-title">
         <figure>
@@ -90,6 +93,9 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <TeamPillars />
+      <TeamTimeline />
+
       <section className={`shell ${styles.section}`} aria-labelledby="recognition-title">
         <div>
           <Kicker>{t("수상 이력")}</Kicker>
@@ -128,6 +134,8 @@ export default function AboutPage() {
         />
         <ClueProcess />
       </section>
+
+      <PressKit />
 
       <section className={`shell ${styles.related}`} aria-label={t("작품과 교육 더 보기")}>
         <div>

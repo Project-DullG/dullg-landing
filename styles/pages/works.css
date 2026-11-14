@@ -503,3 +503,39 @@
     align-items: center;
   }
 }
+.funding-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 0 32px;
+  border-block: 1px solid var(--line);
+}
+.funding-summary > div {
+  padding: 24px 20px;
+}
+.funding-summary > div + div {
+  border-left: 1px solid var(--line);
+}
+.funding-summary dt {
+  margin-bottom: 4px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.funding-summary dd {
+  margin: 0;
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 760px) {
+  .funding-summary {
+    grid-template-columns: 1fr;
+  }
+  .funding-summary > div + div {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .funding-summary > div {
+    padding: 16px 4px;
+  }
+}

@@ -113,8 +113,8 @@ export default function EpisodePage() {
               sizes="(max-width: 760px) 100vw, 50vw"
             />
             <div className="ep-map-label">
-              <span>3F / FLOOR MAP</span>
-              <span>INCIDENT LOCATION</span>
+              <span>{t("3층 평면도")}</span>
+              <span>{t("사건 장소")}</span>
             </div>
           </div>
         </div>

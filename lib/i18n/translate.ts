@@ -121,6 +121,7 @@ export function translateText(text: string, locale: string): string {
         `Move ${({ 왼쪽: "left", 오른쪽: "right", 위: "up", 아래: "down" } as Record<string, string>)[d]}`,
     ],
     [/^레벨 (\d+)$/, (n) => `Level ${n}`],
+    [/^(\d+)회 모두 성공$/, (n) => `${n} of ${n} funded`],
     [/^(\d+)줄 뒤 속도 증가$/, (n) => `Speed increases in ${n} lines`],
     [/^(\d+)줄 삭제$/, (n) => `${n} lines cleared`],
     [/^남은 공 (\d+)개 · 다시 발사하세요$/, (n) => `${n} balls left · Launch again`],

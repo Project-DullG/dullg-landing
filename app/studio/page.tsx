@@ -37,10 +37,10 @@ export default function Studio() {
               <>
                 {t("함께 푸는 추리 게임,")}
                 <br />
-                <em>{t("직접 만드는 콘텐츠 수업")}</em>
+                <em>{t("토론으로 배우는 수업")}</em>
               </>,
             )}
-            lead="머더미스터리를 제작하고, 게임·AI를 활용한 콘텐츠 제작 수업을 진행합니다."
+            lead="머더미스터리를 만들고, 단서를 두고 토론하는 영어 수업과 게임·AI 제작 수업을 진행합니다."
           />
           <div className="brand-hero-actions">
             <Link className="button button-dark" href="/works">
@@ -125,11 +125,11 @@ export default function Studio() {
               <h2 id="brand-education-title">
                 {t("영어 단서를 읽고")}
                 <br />
-                {t("사건을 해결하는 수업")}
+                <span className="pencil-mark">{t("근거를 대며")}</span> {t("토론하는 수업")}
               </h2>
               <p>
                 {t(
-                  "네 학생의 가방 속 단서를 영어로 읽고, 질문과 토론으로 사라진 열쇠를 찾습니다. 수업에서는 선택한 인물과 그 근거를 영어 사건보고서로 정리합니다.",
+                  "네 학생의 가방 속 단서를 영어로 읽고, 근거를 들어 토론하며 사라진 열쇠를 찾습니다. 토론하는 동안 문해력·추론력·사고력·창의력을 쓰고, 마지막에는 자기 판단과 근거를 영어 사건보고서로 정리합니다.",
                 )}
               </p>
               <dl>
@@ -157,9 +157,9 @@ export default function Studio() {
             <div>
               <Kicker>{t("작품\u00B7교육\u00B7협업 문의")}</Kicker>
               <h2 id="brand-contact-title">
-                {t("함께 만들고 싶은")}
+                {t("수업이나 작품 제작을")}
                 <br />
-                {t("프로젝트가 있나요?")}
+                {t("맡기고 싶으신가요?")}
               </h2>
             </div>
             <div>

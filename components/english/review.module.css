@@ -18,7 +18,7 @@
 }
 .heading > span {
   font-family: var(--font-mono), monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.15em;
   color: #809375;
 }
@@ -49,7 +49,7 @@
   font-weight: 500;
 }
 .summary span {
-  font-size: 11px;
+  font-size: 12px;
   color: #809075;
 }
 .dailyNote {
@@ -87,7 +87,7 @@
   display: flex;
   justify-content: space-between;
   font-family: var(--font-mono), monospace;
-  font-size: 11px;
+  font-size: 12px;
   color: #758967;
 }
 .cardTop > span:first-child {
@@ -98,7 +98,7 @@
 .from {
   display: block;
   margin: 28px 0 12px;
-  font-size: 11px;
+  font-size: 12px;
   color: #9b977d;
 }
 .card h2 {
@@ -128,7 +128,7 @@
   border-radius: 5px;
 }
 .note {
-  font-size: 11px;
+  font-size: 12px;
   color: #8b907e;
   line-height: 1.8;
 }
@@ -152,7 +152,7 @@
   font-size: 18px;
 }
 .feedback > span {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.8;
 }
 .cardBottom {
@@ -236,7 +236,7 @@
   font-size: 13px;
 }
 .collection summary small {
-  font-size: 10px;
+  font-size: 12px;
   color: #97a188;
 }
 .collection details > p {
@@ -247,7 +247,7 @@
   padding-top: 10px;
 }
 .collection details > span {
-  font-size: 10px;
+  font-size: 12px;
   color: #829573;
 }
 .error {
@@ -292,7 +292,7 @@
     font-size: 19px;
   }
   .cardTop {
-    font-size: 9px;
+    font-size: 11px;
   }
   .empty {
     padding: 45px 22px;

@@ -37,10 +37,9 @@ export const fundingProjects: FundingProject[] = [
     startsOn: "2026-08-28",
     endsOn: "2026-09-11",
     url: "https://tumblbug.com/projectdg2",
-    amount: "11,080,000원",
-    backers: "171명",
-    achievement: "1,108%",
-    checkedAt: "2026년 9월 4일",
+    amount: "11,129,000원",
+    backers: "172명",
+    achievement: "1,112%",
   },
 ];
 

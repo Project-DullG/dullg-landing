@@ -21,10 +21,9 @@
 .eyebrow {
   display: block;
   color: #6b7d69;
-  font:
-    10px var(--font-mono),
-    monospace;
-  letter-spacing: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 .sidebar h2 {
   font:
@@ -82,7 +81,7 @@
 }
 .filterBar > span {
   margin-left: auto;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
 }
 .empty {
@@ -118,17 +117,17 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
 }
 .category {
-  font-size: 10px;
+  font-size: 12px;
   padding: 4px 7px;
   border: 1px solid #cdd4c3;
   color: #466242;
 }
 .growth {
-  font-size: 9px;
+  font-size: 11px;
 }
 .postMeta time {
   margin-left: auto;
@@ -185,7 +184,7 @@
   background: none;
   padding: 3px 0;
   color: #66705e;
-  font-size: 11px;
+  font-size: 12px;
   cursor: pointer;
 }
 .postActions .quietAction:first-of-type {
@@ -220,7 +219,7 @@
 }
 .replyForm label,
 .reportForm label {
-  font-size: 11px;
+  font-size: 12px;
 }
 .replyForm input {
   width: 180px;
@@ -235,7 +234,7 @@
   color: #f6f5ec;
   border: 0;
   padding: 9px 15px;
-  font-size: 11px;
+  font-size: 12px;
   cursor: pointer;
 }
 .reportForm {
@@ -246,7 +245,7 @@
   border: 0;
   background: none;
   color: #65725f;
-  font-size: 11px;
+  font-size: 12px;
   justify-self: end;
   cursor: pointer;
 }
@@ -267,7 +266,7 @@
   letter-spacing: -0.5px;
 }
 .composeHeading > p {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
   margin-bottom: 28px;
 }
@@ -275,7 +274,7 @@
 .formRow > label {
   display: grid;
   gap: 9px;
-  font-size: 11px;
+  font-size: 12px;
   margin-bottom: 20px;
   color: #53634b;
 }
@@ -369,7 +368,7 @@
   background: transparent;
   text-decoration: underline;
   cursor: pointer;
-  font-size: 11px;
+  font-size: 12px;
 }
 .message {
   color: #466242;
@@ -391,7 +390,7 @@
   border: 0;
   background: transparent;
   color: #745648;
-  font-size: 11px;
+  font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -431,7 +430,7 @@
     gap: 14px;
   }
   .filterBar button {
-    font-size: 11px;
+    font-size: 12px;
   }
   .empty {
     padding: 50px 5px;

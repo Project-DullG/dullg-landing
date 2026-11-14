@@ -35,10 +35,9 @@
   min-width: 0;
 }
 .eyebrow {
-  font:
-    10px var(--font-mono),
-    monospace;
-  letter-spacing: 0.1em;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
   color: var(--accent);
   margin: 0 0 12px;
 }
@@ -199,7 +198,7 @@
   cursor: pointer;
 }
 .kinds button span {
-  font-size: 11px;
+  font-size: 12px;
 }
 .kinds button:hover {
   color: var(--accent);
@@ -320,7 +319,7 @@
 .categoryMeta {
   margin-top: auto;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.9;
 }
 .categoryAction {
@@ -401,7 +400,7 @@
   gap: 4px 12px;
   margin: 0;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.8;
 }
 .cardGoal {
@@ -416,7 +415,7 @@
   display: block;
   margin: 0 0 13px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.8;
 }
 .cardAction {
@@ -612,7 +611,7 @@
 .castEntry span {
   margin-left: 8px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
 }
 .levelPicker {
   margin: 20px 0 12px;
@@ -736,7 +735,7 @@
     line-height: 1.8;
   }
   .categoryMeta {
-    font-size: 10px;
+    font-size: 12px;
   }
   .sectionHeading h2,
   .resultHeader h2,
@@ -785,7 +784,7 @@
     padding-inline: 12px;
   }
   .note {
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 .results .grid {

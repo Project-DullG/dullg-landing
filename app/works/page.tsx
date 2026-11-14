@@ -8,6 +8,7 @@ import { Kicker, PageFrame } from "@/components/site";
 import { SectionHead } from "@/components/section-head";
 import { PageIntro } from "@/components/page-intro";
 import { fundingSummaryPeriod, getFundingProject, getFundingStatus } from "@/lib/funding";
+import { CountUp } from "@/components/count-up";
 import { pageMetadata } from "@/lib/metadata";
 import { currentWorks, getWorkStatus, publishedWorks } from "@/lib/works";
 import { StudentGameShowcase } from "@/components/student-game-showcase";
@@ -15,6 +16,7 @@ export async function generateMetadata() {
   return localizeMetadata(pageMetadata("/works", { title: "작품과 펀딩" }));
 }
 export const revalidate = 3600;
+const toNumber = (text: string) => Number(text.replace(/[^\d]/g, ""));
 export default function WorksPage() {
   const t = useText();
   const currentFunding = getFundingProject("projectdg2");
@@ -151,6 +153,24 @@ export default function WorksPage() {
           id="funding-archive-title"
           title={t("펀딩 기록")}
         />
+        <dl className="funding-summary" data-stagger>
+          <div>
+            <dt>{t("펀딩")}</dt>
+            <dd>{t(`${fundingArchive.length}회 모두 성공`)}</dd>
+          </div>
+          <div>
+            <dt>{t("모인 금액 합계")}</dt>
+            <dd>
+              <CountUp value={fundingArchive.reduce((sum, p) => sum + toNumber(p.amount), 0)} suffix="원" />
+            </dd>
+          </div>
+          <div>
+            <dt>{t("펀딩별 후원자 합계")}</dt>
+            <dd>
+              <CountUp value={fundingArchive.reduce((sum, p) => sum + toNumber(p.backers), 0)} suffix="명" />
+            </dd>
+          </div>
+        </dl>
         <div className="funding-archive-list">
           {t(
             fundingArchive.map((project) => (

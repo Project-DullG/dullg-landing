@@ -20,7 +20,7 @@ test("studio keeps the portfolio path with real work and education evidence", as
   const html = await readFile(routeHtml("studio.html"), "utf8");
 
   assert.match(html, /함께 푸는 추리 게임/);
-  assert.match(html, /직접 만드는 콘텐츠 수업/);
+  assert.match(html, /토론으로 배우는 수업/);
   assert.match(html, /공개한 머더미스터리/);
   assert.match(html, /영어 단서를 읽고/);
   assert.match(html, /집에가고 싶어! · 영어 미스터리 수업팩/);

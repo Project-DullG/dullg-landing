@@ -6,6 +6,7 @@ import { Kicker, PageFrame } from "@/components/site";
 import { pageMetadata } from "@/lib/metadata";
 import { BRAND, emailHref } from "@/lib/site-config";
 import { PageIntro } from "@/components/page-intro";
+import { ContactActions } from "@/components/contact-actions";
 export async function generateMetadata() {
   return localizeMetadata(
     pageMetadata("/contact", {
@@ -19,7 +20,7 @@ export default function ContactPage() {
     <PageFrame>
       <PageIntro
         title={t("작품\u00B7교육\u00B7협업 문의")}
-        description="작품 제작, 교육 의뢰, 수업 자료에 관해 이메일로 문의해 주세요."
+        description="수업 의뢰나 작품 제작을 이메일로 알려 주세요. 아래 버튼을 누르면 필요한 항목이 적힌 메일 창이 열립니다."
       />
 
       {/* ── MAIN CONTACT ── */}
@@ -33,6 +34,7 @@ export default function ContactPage() {
             {t("제목에는 ‘교육 문의’ 또는 ‘작품 제작 문의’처럼 문의할 내용을 적어주세요.")}
           </p>
           <p className="contact-response">{t(BRAND.responseTime)}</p>
+          <ContactActions />
           <Link className="text-link" href="/academy/pilot">
             {t("영어 수업팩 검토 요청")}
             <ArrowRight size={17} weight="bold" aria-hidden="true" />

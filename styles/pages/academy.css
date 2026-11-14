@@ -239,11 +239,11 @@
   font-style: italic;
   font-weight: 500;
 }
-.mini-label,
 .sample-label {
-  font: 9px var(--font-mono);
-  letter-spacing: 0.08em;
-  color: var(--orange);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: #a24f33;
 }
 .curriculum-detail {
   border-top: 1px solid var(--line);
@@ -273,8 +273,9 @@
 .output-pill {
   display: inline-block;
   background: #dfeadd;
-  padding: 10px 13px;
-  font: 9px var(--font-mono);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
 }
 .detail-art-2 {
   background: #c4ded1;
@@ -591,9 +592,9 @@
 }
 .detail-art span {
   background: var(--cream);
-  padding: 9px 11px;
-  font-size: 10px;
-  letter-spacing: 0.08em;
+  padding: 8px 12px;
+  font-size: 14px;
+  letter-spacing: 0;
   box-shadow: 4px 5px 0 rgba(17, 20, 18, 0.1);
   transform: rotate(-4deg);
 }
@@ -615,14 +616,11 @@
   font-family: var(--font-noto-serif), var(--font-playfair), serif;
 }
 .detail-index,
-.mini-label,
 .sample-label,
 .output-pill {
   font-family: var(--font-noto-sans), sans-serif;
 }
-.detail-index,
-.mini-label,
-.sample-label {
+.detail-index {
   letter-spacing: 0.08em;
 }
 .detail-row h2,

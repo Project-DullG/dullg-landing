@@ -27,7 +27,7 @@ export function RemakeGuide() {
     <section className={`shell ${styles.section}`} id="play-guide" aria-labelledby="remake-guide-title">
       <div className={styles.heading}>
         <p className={styles.label}>{t("리메이크 구성")}</p>
-        <h2 id="remake-guide-title">{t("게임 소개부터 진행 방법까지, 영상으로 확인하세요.")}</h2>
+        <h2 id="remake-guide-title">{t("사건 소개와 게임 규칙을 영상으로 확인하세요")}</h2>
         <p>
           {t(
             "게임은 4명이 한 팀으로 약 40~50분 이상 진행합니다. 영어 수업에서는 읽기·토론·보고서 작성을 4차시로 나누어 운영할 계획입니다.",

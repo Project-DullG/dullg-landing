@@ -17,7 +17,7 @@ export default async function EnglishLearningAboutPage() {
     <PageFrame>
       <div className={styles.hub}>
         <article className={styles.about}>
-          <p className={styles.eyebrow}>BEHIND THE ENGLISH JOURNAL</p>
+          <p className={styles.eyebrow}>학습 설계</p>
           <h1>
             이야기에 목적을,
             <br />

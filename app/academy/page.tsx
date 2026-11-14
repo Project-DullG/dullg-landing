@@ -8,6 +8,7 @@ import { PageFrame } from "@/components/site";
 import { educationFacts, episodeFullTitle, episodeTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
 import { RemakeGuide } from "@/components/remake-guide";
+import { DebateScene } from "@/components/debate-scene";
 import styles from "./overview.module.css";
 export async function generateMetadata() {
   return localizeMetadata(pageMetadata("/academy", { title: "영어 미스터리 수업팩" }));
@@ -42,12 +43,12 @@ export default function AcademyPage() {
           <h1 id="academy-title">
             {t("영어 단서를 읽고")}
             <br />
-            {t("사건을 해결하는 수업")}
+            <span className="pencil-mark">{t("근거를 대며")}</span> {t("토론하는 수업")}
           </h1>
           <p className={styles.workTitle}>{t(episodeTitle)}</p>
           <p className={styles.lead}>
             {t(
-              "네 학생 중 한 명을 맡아 영어 단서를 읽고 서로 질문합니다. 공개된 소지품과 증언을 비교하고, 마지막에는 자신의 판단과 근거를 영어로 정리합니다.",
+              "네 학생 중 한 명을 맡아 영어 단서를 읽고 서로 질문합니다. 카드 내용을 근거로 친구의 추리를 따지고, 마지막에는 자신의 판단과 근거를 영어로 정리합니다.",
             )}
           </p>
           <p className={styles.notice}>
@@ -78,7 +79,7 @@ export default function AcademyPage() {
           </figcaption>
         </figure>
       </section>
-      <section className={`shell ${styles.facts}`} aria-label={t("수업팩 운영 조건")}>
+      <section className={`shell ${styles.facts}`} aria-label={t("수업팩 운영 조건")} data-stagger>
         {t(
           educationFacts.map(([value, label]) => (
             <div key={value}>
@@ -88,10 +89,11 @@ export default function AcademyPage() {
           )),
         )}
       </section>
+      <DebateScene />
       <RemakeGuide />
       <section className={`shell ${styles.details}`} aria-labelledby="academy-details-title">
-        <h2 id="academy-details-title">{t("수업팩 상세 안내")}</h2>
-        <div className={styles.paths}>
+        <h2 id="academy-details-title">{t("수업 자료와 4차시 운영안")}</h2>
+        <div className={styles.paths} data-stagger>
           {t(
             pathways.map((item) => (
               <Link href={item.href} key={item.href}>

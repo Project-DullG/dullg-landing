@@ -1,9 +1,9 @@
 .page {
-  --ink: #17233b;
+  --ink: #1a1f1c;
   --muted: #65718a;
-  --accent: #5364db;
-  --line: #dce0ef;
-  background: #f6f7fb;
+  --accent: #286350;
+  --line: #deded6;
+  background: #f7f6f2;
   color: var(--ink);
   padding: 32px 0 64px;
   min-height: 65vh;
@@ -87,12 +87,12 @@
 }
 .primary:hover,
 .searchButton:hover {
-  background: #4051c5;
-  border-color: #4051c5;
+  background: #1f4d3e;
+  border-color: #1f4d3e;
 }
 .secondary:hover {
-  background: #edf0ff;
-  border-color: #b8c0f2;
+  background: #ebf2ee;
+  border-color: #b3cfc0;
 }
 .primary svg,
 .secondary svg,
@@ -122,7 +122,7 @@
   overflow-wrap: anywhere;
 }
 .note a {
-  color: #4051c5;
+  color: #1f4d3e;
   text-underline-offset: 3px;
 }
 .status {
@@ -203,7 +203,7 @@
 }
 .kinds button:hover {
   color: var(--accent);
-  border-color: #b8c0f2;
+  border-color: #b3cfc0;
 }
 .kinds .activeKind,
 .kinds button[aria-pressed="true"] {
@@ -336,7 +336,7 @@
   position: relative;
   min-width: 0;
   aspect-ratio: 3/2;
-  background: #e9ecf5;
+  background: #ebebe5;
   overflow: hidden;
 }
 .artwork img {
@@ -348,7 +348,7 @@
   height: 100%;
   min-height: 100px;
   color: var(--accent);
-  background: #e9ecf5;
+  background: #ebebe5;
 }
 .categoryArt {
   aspect-ratio: auto;
@@ -434,8 +434,8 @@
 }
 .categoryCard:hover,
 .card:hover {
-  border-color: #b8c0f2;
-  box-shadow: 0 6px 20px rgba(23, 35, 59, 0.05);
+  border-color: #b3cfc0;
+  box-shadow: 0 6px 20px rgba(26, 31, 28, 0.05);
 }
 .page .cardLink:focus-visible,
 .page .categoryCard:focus-visible {
@@ -477,7 +477,7 @@
   padding: 8px 3px;
   border: 0;
   background: none;
-  color: #4051c5;
+  color: #1f4d3e;
   font: inherit;
   font-size: 12px;
   line-height: 1.6;
@@ -579,7 +579,7 @@
 .sampleTranslation > summary {
   min-height: 44px;
   padding: 11px 0;
-  color: #4051c5;
+  color: #1f4d3e;
   font-size: 12px;
   line-height: 1.8;
   list-style-position: inside;
@@ -645,7 +645,7 @@
 }
 .levels button[aria-pressed="true"] {
   color: var(--accent);
-  background: #edf0ff;
+  background: #ebf2ee;
   border-color: #bac3f4;
   font-weight: 600;
 }

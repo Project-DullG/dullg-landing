@@ -6,6 +6,7 @@ import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import { localizeMetadata } from "@/lib/i18n/server";
+import { MotionRoot } from "@/components/motion-root";
 
 const dmMono = DM_Mono({
   weight: "400",
@@ -83,6 +84,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <NextIntlClientProvider locale={locale} messages={{}}>
           {children}
         </NextIntlClientProvider>
+        <MotionRoot />
       </body>
     </html>
   );

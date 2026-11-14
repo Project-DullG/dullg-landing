@@ -17,12 +17,12 @@ export default function CurriculumPage() {
           kicker="하나의 사건, 네 번의 수업"
           title={t(
             <>
-              {t("사건을 따라 읽고,")}
+              {t("사건을 읽고 토론해,")}
               <br />
-              <em>{t("판단을 남기는 네 장면.")}</em>
+              <em>{t("근거를 적는 네 번의 수업")}</em>
             </>,
           )}
-          lead="한 번의 이야기 안에서 읽기·질문·토론·쓰기가 이어집니다. 학생은 매 차시 작은 기록을 남기고, 마지막에는 자신의 근거로 사건을 설명합니다."
+          lead="사건을 읽고 서로 질문한 뒤, 단서를 놓고 토론합니다. 차시마다 기록을 남기고, 마지막에는 근거를 적어 사건을 설명합니다."
         />
       </section>
 
@@ -35,7 +35,6 @@ export default function CurriculumPage() {
                 <span>0{t(index + 1)} / 04</span>
               </div>
               <div>
-                <span className="mini-label">{t(item.label)}</span>
                 <h2>{t(item.title)}</h2>
                 <p>{t(item.body)}</p>
                 <div className="output-pill">
@@ -47,12 +46,12 @@ export default function CurriculumPage() {
                 <span>
                   {t(
                     index === 0
-                      ? "READ"
+                      ? "읽기"
                       : index === 1
-                        ? "CONNECT"
+                        ? "연결"
                         : index === 2
-                          ? "COMPARE"
-                          : "REPORT",
+                          ? "토론"
+                          : "보고",
                   )}
                 </span>
               </div>
@@ -66,9 +65,9 @@ export default function CurriculumPage() {
           kicker="실제 운영을 위한 구성"
           title={t(
             <>
-              {t("교사는 진행에 집중하고,")}
+              {t("교사는 카드 공개 순서를 안내하고,")}
               <br />
-              <span>{t("학생은 장면을 완성합니다.")}</span>
+              <span>{t("학생은 단서와 판단을 적습니다")}</span>
             </>,
           )}
           lead="조별 자리 배치, 출력물, 필기구만 있으면 시작할 수 있도록 교사용 진행안과 체크리스트를 함께 제공합니다."

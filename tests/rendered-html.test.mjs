@@ -55,7 +55,7 @@ test("renders detailed product routes with working navigation targets", async ()
   assert.match(academy, /학원생·반·성적 관리/);
   assert.match(academy, /class="dash-preview"/);
   assert.match(academy, /href="\/login"/);
-  assert.match(curriculum, /판단을 남기는 네 장면/);
+  assert.match(curriculum, /근거를 적는 네 번의 수업/);
   assert.match(sample, /수업용 시제품/);
   assert.match(pilot, /파일럿/);
   assert.match(activity, /제작·활동 기록/);

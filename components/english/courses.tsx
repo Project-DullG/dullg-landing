@@ -36,7 +36,7 @@ export function EnglishCourses(
         <StudyNavigation level={level} />
         <header className={styles.heading}>
           <div>
-            <p className={styles.eyebrow}>A PATH THROUGH YOUR LIBRARY</p>
+            <p className={styles.eyebrow}>학습 코스</p>
             <h1>어디서 시작할지 고민된다면</h1>
             <p>
               목적에 맞는 순서로 이야기와 짧은 연습을 함께 골랐어요. 원하는 활동부터 자유롭게
@@ -94,7 +94,7 @@ export function EnglishCourses(
           ))}
         </nav>
         <section className={styles.courseHeader} aria-labelledby="course-title">
-          <p className={styles.eyebrow}>YOUR NEXT STEP</p>
+          <p className={styles.eyebrow}>다음 차례</p>
           <h2 id="course-title">{course.title.ko}</h2>
           <p>{course.purpose.ko}</p>
           <label className={styles.meta} htmlFor="course-level">

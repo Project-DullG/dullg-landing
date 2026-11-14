@@ -42,7 +42,7 @@ export default async function EnglishCommunityPage() {
             color: "#75876c",
           }}
         >
-          ENGLISH JOURNEY / COMMUNITY
+          영어 학습 · 커뮤니티
         </span>
         <h1
           style={{

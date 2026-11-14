@@ -105,10 +105,10 @@ export function EnglishCommunity() {
   return localizeEnglishTree(<section className={styles.community} aria-label="영어 학습 커뮤니티">
     <div className={styles.layout}>
       <aside className={styles.sidebar}>
-        <span className={styles.eyebrow}>THE READING CLUB</span>
+        <span className={styles.eyebrow}>함께 읽는 사람들</span>
         <h2>한 문장도<br />함께라면.</h2>
         <p>막혔던 표현을 묻고,<br />오늘의 배움을 나눠요.</p>
-        <div className={styles.sidebarNote}><span>OUR LITTLE RULES</span><p>서로의 속도를 존중해요.<br />작품의 결말은 제목에 쓰지 말아 주세요. 개인 연락처는 공개하지 않는 것이 좋아요.</p></div>
+        <div className={styles.sidebarNote}><span>함께 지킬 약속</span><p>서로의 속도를 존중해요.<br />작품의 결말은 제목에 쓰지 말아 주세요. 개인 연락처는 공개하지 않는 것이 좋아요.</p></div>
         <Link href="/english" className={styles.backLink}>← 이야기 서재로</Link>
       </aside>
 

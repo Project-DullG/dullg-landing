@@ -24,9 +24,9 @@ export default function SamplePage() {
           }
           title={t(
             <>
-              {t("어떤 자료를 받고,")}
+              {t("단서 카드와 인물 시트를")}
               <br />
-              <em>{t("어떻게 쓰는지 살펴보세요.")}</em>
+              <em>{t("실제 인쇄본으로 확인하세요")}</em>
             </>,
           )}
           lead="리메이크한 인물 시트, 영어 단서 카드와 8쪽 룰북을 살펴보세요. 학생별 비밀과 사건의 정답은 이 페이지에 공개하지 않습니다."
@@ -46,7 +46,7 @@ export default function SamplePage() {
             sizes="(max-width: 760px) 100vw, 33vw"
           />
           <div>
-            <span className="sample-label">ITEM CARD / 01</span>
+            <span className="sample-label">{t("소지품 카드 · 뒷면")}</span>
             <h2>
               {t("학생이 처음 받는")}
               <br />
@@ -63,7 +63,7 @@ export default function SamplePage() {
             sizes="(max-width: 760px) 100vw, 33vw"
           />
           <div>
-            <span className="sample-label">EVIDENCE / READ</span>
+            <span className="sample-label">{t("단서 카드 · 앞면")}</span>
             <h2>
               {t("읽고 비교하는")}
               <br />
@@ -80,7 +80,7 @@ export default function SamplePage() {
             sizes="(max-width: 760px) 100vw, 33vw"
           />
           <div>
-            <span className="sample-label">CHARACTER / BOOKLET</span>
+            <span className="sample-label">{t("인물 시트 · 8쪽")}</span>
             <h2>
               {t("각자 맡아서 읽는")}
               <br />
@@ -98,7 +98,7 @@ export default function SamplePage() {
               <>
                 {t("수업에서 사용하는")}
                 <br />
-                <span>{t("사건 자료와 규칙서.")}</span>
+                <span>{t("사건 자료와 규칙서")}</span>
               </>,
             )}
             lead="최신 인쇄 PDF에서 추출한 실제 페이지입니다. 인물 시트는 각 8쪽, 룰북은 표지 포함 8쪽입니다."
@@ -154,9 +154,9 @@ export default function SamplePage() {
             kicker="무료 검토팩 구성"
             title={t(
               <>
-                {t("도입 전에 확인할")}
+                {t("검토팩에 들어 있는")}
                 <br />
-                <span>{t("핵심 자료.")}</span>
+                <span>{t("자료 다섯 가지")}</span>
               </>,
             )}
           />

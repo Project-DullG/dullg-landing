@@ -257,7 +257,7 @@ export function PracticePlayer({
         >
           <ArrowLeft size={16} aria-hidden="true" /> {course ? "코스 목차" : "연습 목록"}
         </Link>
-        <span>THE PRACTICE JOURNAL</span>
+        <span>집중 연습</span>
         <span>
           Lv.{growth.level} · {progress.xp} XP
         </span>

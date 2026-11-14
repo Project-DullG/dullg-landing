@@ -1,6 +1,6 @@
 .page {
-  background: #f6f7fb;
-  color: #17233b;
+  background: #f7f6f2;
+  color: #1a1f1c;
   padding: 38px 0 64px;
   min-height: 65vh;
 }
@@ -32,7 +32,7 @@
 }
 .heading p:last-child {
   margin: 12px 0 0;
-  color: #66728a;
+  color: #5c635e;
   line-height: 1.9;
   font-size: 14px;
   max-width: 650px;
@@ -60,13 +60,13 @@
   flex-shrink: 0;
 }
 .primary {
-  background: #17233b;
+  background: #1a1f1c;
   color: #fff;
-  border: 1px solid #17233b;
+  border: 1px solid #1a1f1c;
 }
 .secondary {
-  border: 1px solid #dbe0ef;
-  color: #17233b;
+  border: 1px solid #deded6;
+  color: #1a1f1c;
   background: transparent;
 }
 .page a:focus-visible,
@@ -77,8 +77,8 @@
   outline-offset: 3px;
 }
 .status {
-  background: #eef0ff;
-  border: 1px solid #e0e4ef;
+  background: #ebf2ee;
+  border: 1px solid #e3e3dc;
   padding: 18px 22px;
   margin-bottom: 22px;
   border-radius: 14px;
@@ -109,24 +109,24 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-  border: 1px solid #e0e4ef;
+  border: 1px solid #e3e3dc;
   border-radius: 14px;
   padding: 20px;
   background: #fff;
-  color: #17233b;
+  color: #1a1f1c;
   text-align: left;
   text-decoration: none;
   line-height: 1.8;
   min-width: 0;
 }
 .courseTab[aria-current] {
-  border-color: #5364db;
-  background: #eef0ff;
-  box-shadow: inset 0 0 0 1px #5364db;
+  border-color: #286350;
+  background: #ebf2ee;
+  box-shadow: inset 0 0 0 1px #286350;
 }
 .courseTab small {
   font-size: 12px;
-  color: #66728a;
+  color: #5c635e;
   overflow-wrap: anywhere;
 }
 .courseTab strong {
@@ -138,7 +138,7 @@
 .courseHeader,
 .panel {
   background: white;
-  border: 1px solid #e0e4ef;
+  border: 1px solid #e3e3dc;
   border-radius: 14px;
   padding: 28px;
 }
@@ -153,9 +153,9 @@
   min-width: 160px;
   margin: 4px 0 4px 8px;
   padding: 10px 12px;
-  border: 1px solid #dbe0ef;
+  border: 1px solid #deded6;
   border-radius: 14px;
-  color: #17233b;
+  color: #1a1f1c;
   background: #fff;
   font: inherit;
   font-size: 13px;
@@ -181,7 +181,7 @@
 .note {
   font-size: 13px;
   line-height: 1.9;
-  color: #727c95;
+  color: #6b716c;
   margin: 8px 0;
 }
 .progress {
@@ -191,21 +191,21 @@
   border: 0;
   border-radius: 999px;
   appearance: none;
-  accent-color: #5364db;
-  background: #eef0ff;
+  accent-color: #286350;
+  background: #ebf2ee;
   overflow: hidden;
   margin: 14px 0 4px;
 }
 .progress::-webkit-progress-bar {
-  background: #eef0ff;
+  background: #ebf2ee;
   border-radius: 999px;
 }
 .progress::-webkit-progress-value {
-  background: #5364db;
+  background: #286350;
   border-radius: 999px;
 }
 .progress::-moz-progress-bar {
-  background: #5364db;
+  background: #286350;
   border-radius: 999px;
 }
 .units {
@@ -223,7 +223,7 @@
   align-items: center;
   padding: 22px;
   background: white;
-  border: 1px solid #e0e4ef;
+  border: 1px solid #e3e3dc;
   border-radius: 14px;
 }
 .number {
@@ -231,26 +231,26 @@
   place-items: center;
   width: 32px;
   height: 32px;
-  border: 1px solid #cbd2f4;
+  border: 1px solid #c9ddd2;
   border-radius: 50%;
   font:
     12px var(--font-mono),
     monospace;
-  color: #5364db;
+  color: #286350;
 }
 .thumbnail {
   width: 100px;
   height: 72px;
   border-radius: 5px;
   object-fit: cover;
-  background: #f1f3fb;
+  background: #f2f1ec;
 }
 .practiceArt {
   display: grid;
   place-items: center;
   width: 100px;
   height: 72px;
-  background: #f1f3fb;
+  background: #f2f1ec;
   border-radius: 5px;
 }
 .unit > div {
@@ -268,7 +268,7 @@
 }
 .unit p {
   font-size: 13px;
-  color: #66728a;
+  color: #5c635e;
   line-height: 1.85;
   margin: 0;
   overflow-wrap: anywhere;
@@ -276,7 +276,7 @@
 }
 .meta {
   font-size: 11px;
-  color: #66728a;
+  color: #5c635e;
   line-height: 1.9;
   overflow-wrap: anywhere;
 }
@@ -319,7 +319,7 @@
 }
 .summary span {
   font-size: 11px;
-  color: #727c95;
+  color: #6b716c;
 }
 .week {
   display: grid;
@@ -329,7 +329,7 @@
 }
 .day {
   text-align: center;
-  color: #66728a;
+  color: #5c635e;
   min-width: 0;
 }
 .barTrack {
@@ -338,18 +338,18 @@
   align-items: flex-end;
   justify-content: center;
   gap: 3px;
-  border-bottom: 1px solid #e0e4ef;
+  border-bottom: 1px solid #e3e3dc;
 }
 .bar {
   flex-shrink: 0;
   width: 11px;
   height: 0;
   min-height: 0;
-  background: #5364db;
+  background: #286350;
   border-radius: 3px 3px 0 0;
 }
 .reviewBar {
-  background: #cbd2f4;
+  background: #c9ddd2;
 }
 .day time {
   display: block;
@@ -383,14 +383,14 @@
 .legend i {
   width: 9px;
   height: 9px;
-  background: #5364db;
+  background: #286350;
 }
 .legend span:last-child i {
-  background: #cbd2f4;
+  background: #c9ddd2;
 }
 .continue {
   padding: 14px 0;
-  border-bottom: 1px solid #e0e4ef;
+  border-bottom: 1px solid #e3e3dc;
   display: flex;
   justify-content: space-between;
   gap: 12px;
@@ -415,7 +415,7 @@
 .continue small {
   font-size: 11px;
   line-height: 1.7;
-  color: #66728a;
+  color: #5c635e;
   overflow-wrap: anywhere;
 }
 .sectionHead {
@@ -433,7 +433,7 @@
 }
 .sectionHead p {
   font-size: 12px;
-  color: #727c95;
+  color: #6b716c;
   margin: 8px 0 0;
   line-height: 1.8;
 }
@@ -448,7 +448,7 @@
   flex-direction: column;
   gap: 8px;
   font-size: 11px;
-  color: #727c95;
+  color: #6b716c;
 }
 .filters input,
 .filters select {
@@ -457,9 +457,9 @@
   line-height: 1.5;
   min-height: 44px;
   padding: 10px 12px;
-  border: 1px solid #dbe0ef;
+  border: 1px solid #deded6;
   border-radius: 14px;
-  color: #17233b;
+  color: #1a1f1c;
   background: white;
   width: 100%;
   min-width: 0;
@@ -483,7 +483,7 @@
 }
 .expression {
   background: white;
-  border: 1px solid #e0e4ef;
+  border: 1px solid #e3e3dc;
   border-radius: 14px;
   padding: 24px;
 }
@@ -491,13 +491,13 @@
   font:
     20px/1.65 Georgia,
     serif;
-  color: #17233b;
+  color: #1a1f1c;
   margin: 13px 0 10px;
   overflow-wrap: anywhere;
 }
 .meaning {
   font-size: 12px;
-  color: #66728a;
+  color: #5c635e;
   line-height: 1.85;
   margin: 0 0 16px;
 }
@@ -507,7 +507,7 @@
   gap: 14px;
   align-items: center;
   font-size: 10px;
-  color: #727c95;
+  color: #6b716c;
   margin-top: 20px;
 }
 .expression footer a {
@@ -518,7 +518,7 @@
   max-width: 100%;
   font-size: 12px;
   line-height: 1.6;
-  color: #5364db;
+  color: #286350;
 }
 .expression footer a svg {
   flex-shrink: 0;
@@ -529,7 +529,7 @@
   align-items: center;
   background: none;
   padding: 8px 2px;
-  color: #5364db;
+  color: #286350;
   border: 0;
   font: inherit;
   font-size: 12px;
@@ -540,11 +540,11 @@
 .empty {
   padding: 35px 25px;
   text-align: center;
-  border: 1px dashed #dbe0ef;
+  border: 1px dashed #deded6;
   border-radius: 14px;
   font-size: 13px;
   line-height: 1.9;
-  color: #727c95;
+  color: #6b716c;
 }
 @media (max-width: 900px) {
   .courseTabs {
@@ -664,14 +664,14 @@
   letter-spacing: -0.045em;
 }
 .primary {
-  background: #5364db;
-  border: 1px solid #5364db;
+  background: #286350;
+  border: 1px solid #286350;
 }
 .primary:hover {
-  background: #4051c2;
+  background: #1f4d3e;
 }
 .courseTab[aria-current="page"] {
-  background: #eef0ff;
+  background: #ebf2ee;
   border-color: #aeb8f0;
 }
 .courseHeader {

@@ -45,7 +45,7 @@ export default function PilotPage() {
             <>
               {t("우리 학원에 맞는지,")}
               <br />
-              <em>{t("자료부터 천천히 확인해보세요.")}</em>
+              <em>{t("검토팩부터 받아 보세요")}</em>
             </>,
           )}
           lead="현재 영어학원용 수업 시제품의 파일럿을 준비하고 있습니다. 무료 검토팩을 먼저 살펴본 뒤 학년·인원·운영 시기와 조건을 확인합니다."
@@ -58,9 +58,9 @@ export default function PilotPage() {
             kicker="파일럿에서 확인할 것"
             title={t(
               <>
-                {t("효과를 단정하기보다,")}
+                {t("성적 향상을 약속하기보다,")}
                 <br />
-                <span>{t("실제로 운영되는지 먼저 봅니다.")}</span>
+                <span>{t("수업이 토론과 보고까지 가는지 봅니다")}</span>
               </>,
             )}
             lead="첫 파일럿은 영어 성적이나 문해력 향상을 증명하는 실험이 아닙니다. 수업 시제품이 교실에서 작동하는지 진단하는 과정입니다."
@@ -81,7 +81,7 @@ export default function PilotPage() {
 
       <section className="pilot-section shell">
         <div className="pilot-info">
-          <Kicker>PILOT PROCESS</Kicker>
+          <Kicker>파일럿 진행 순서</Kicker>
           <ol>
             <li>
               <b>{t("검토팩 확인")}</b>

@@ -4,6 +4,7 @@ import { localizeEnglishTree } from "@/lib/i18n/english-tree";
 import Link from "@/components/i18n/link";
 import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { EnglishHub } from "@/components/english/hub";
+import { DebateScene } from "@/components/debate-scene";
 import { Header, Footer } from "@/components/site";
 import { englishLibrary } from "@/lib/english/library";
 import { featuredGames } from "@/lib/featured-games";
@@ -30,19 +31,20 @@ export default async function Home() {
       <Header />
       <main id="main-content">
         <EnglishHub episodes={englishLibrary()} home />
+        <DebateScene variant="home" />
         <section className={styles.studio} aria-labelledby="home-studio-title">
           <div className={styles.shell}>
             <div className={styles.studioHead}>
               <div>
-                <p className={styles.eyebrow}>FROM THE STUDIO</p>
-                <h2 id="home-studio-title">게임과 교육을 만드는 트위즈덤</h2>
+                <p className={styles.eyebrow}>트위즈덤 스튜디오</p>
+                <h2 id="home-studio-title">추리 게임과 영어 수업을 만드는 트위즈덤</h2>
               </div>
               <p>
-                twisdom은 Twist와 Wisdom을 합친 이름입니다. 이야기의 반전을 통해 이해가
-                깊어진다는 뜻으로, 추리 게임과 교육 콘텐츠를 함께 만듭니다.
+                twisdom은 Twist와 Wisdom을 합친 이름입니다. 반전을 알고 나면 앞서 읽은
+                단서를 다시 보게 됩니다. 그 순간을 만드는 추리 게임과 수업을 만듭니다.
               </p>
             </div>
-            <div className={styles.studioCards}>
+            <div className={styles.studioCards} data-stagger>
               <article className={styles.studioCard}>
                 <Image
                   src={echo.image.src}

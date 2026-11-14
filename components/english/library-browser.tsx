@@ -309,7 +309,7 @@ export function EnglishLibraryBrowser(
         <StudyNavigation level={activeLevel} />
         <header className={styles.heading}>
           <div>
-            <p className={styles.eyebrow}>CHOOSE YOUR ENGLISH MOMENT</p>
+            <p className={styles.eyebrow}>콘텐츠 찾기</p>
             <h1>오늘은 어떤 영어를 해볼까요?</h1>
             <p>이야기에 빠져들어도, 필요한 표현부터 연습해도 좋아요.</p>
           </div>

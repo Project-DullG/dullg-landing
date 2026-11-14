@@ -1,9 +1,9 @@
 .player {
-  --ink: #17233b;
-  --muted: #647189;
-  --point: #5364db;
-  --line: #dfe4ef;
-  --paper: #f6f7fb;
+  --ink: #1a1f1c;
+  --muted: #5c635e;
+  --point: #286350;
+  --line: #e1e1da;
+  --paper: #f7f6f2;
   background: var(--paper);
   color: var(--ink);
   min-height: 70vh;
@@ -135,9 +135,9 @@
 .actionCue {
   margin: 0 0 20px;
   padding: 12px 15px;
-  background: #eff1fe;
+  background: #ebf2ee;
   border-radius: 10px;
-  color: #3545a3;
+  color: #1f4d3e;
   font-size: 14px;
   line-height: 1.7;
   font-weight: 500;
@@ -196,7 +196,7 @@
 .difficulty .selected {
   color: var(--point);
   border-color: var(--point);
-  background: #eff1fe;
+  background: #ebf2ee;
 }
 .pace {
   padding: 16px 20px;
@@ -225,11 +225,11 @@
   border-radius: 10px;
   overflow: hidden;
   appearance: none;
-  background: #e8ecf5;
+  background: #ebebe5;
   accent-color: var(--point);
 }
 .pace progress::-webkit-progress-bar {
-  background: #e8ecf5;
+  background: #ebebe5;
   border-radius: 10px;
 }
 .pace progress::-webkit-progress-value {
@@ -314,7 +314,7 @@
 .options button[aria-pressed="true"],
 .options .selected {
   border-color: var(--point);
-  background: #f0f2ff;
+  background: #ebf2ee;
 }
 .options button[aria-pressed="true"] > span:first-child {
   color: #fff;
@@ -333,7 +333,7 @@
   resize: vertical;
   min-height: 126px;
   padding: 14px;
-  border: 1px solid #cbd3e5;
+  border: 1px solid #d3d4cc;
   border-radius: 12px;
   background: #fff;
   color: var(--ink);
@@ -342,11 +342,11 @@
   line-height: 1.75;
 }
 .textarea::placeholder {
-  color: #7d899d;
+  color: #6b716c;
 }
 .speakArea {
   padding: 18px;
-  background: #f6f7fc;
+  background: #f7f6f2;
   border: 1px solid var(--line);
   border-radius: 12px;
 }
@@ -403,16 +403,16 @@
 }
 .secondary {
   padding: 10px 16px;
-  border: 1px solid #cbd3e5;
+  border: 1px solid #d3d4cc;
   border-radius: 12px;
   background: #fff;
   color: var(--ink);
 }
 .audioButton {
   padding: 12px 17px;
-  background: #eef0ff;
-  color: #3545a3;
-  border: 1px solid #d4dafa;
+  background: #ebf2ee;
+  color: #1f4d3e;
+  border: 1px solid #cfe0d6;
   border-radius: 12px;
   font-weight: 600;
 }
@@ -461,8 +461,8 @@
   background: #fffaf0;
 }
 .feedback.correct {
-  border-color: #c9d2fa;
-  background: #f1f4ff;
+  border-color: #c9ddd2;
+  background: #edf3ef;
 }
 .feedback > .sectionLabel {
   margin: 0 0 7px;
@@ -524,7 +524,7 @@
   width: 48px;
   height: 48px;
   margin: 8px 0 18px;
-  background: #eef1ff;
+  background: #ebf2ee;
   color: var(--point);
   border-radius: 16px;
 }
@@ -547,7 +547,7 @@
   margin: 10px 0;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: #fafbff;
+  background: #fbfaf7;
 }
 .expression p {
   margin: 0 0 7px;
@@ -759,7 +759,7 @@
   width: 100%;
   min-height: 50px;
   text-align: left;
-  background: #fafbff;
+  background: #fbfaf7;
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 10px;
@@ -785,7 +785,7 @@
 }
 .chapterSteps button[aria-current="step"] {
   border-color: var(--point);
-  background: #eff1ff;
+  background: #ebf2ee;
 }
 .chapterSteps .chapterDone > span {
   color: var(--point);
@@ -809,7 +809,7 @@
   padding: 0 12px;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: #fafbff;
+  background: #fbfaf7;
 }
 .notebook[open],
 .cast[open] {
@@ -826,7 +826,7 @@
   width: 23px;
   height: 23px;
   border-radius: 7px;
-  background: #e9edfd;
+  background: #ebf2ee;
   color: var(--point);
   font-size: 11px;
 }
@@ -892,7 +892,7 @@
 }
 .storyDialogue article {
   border-left: 3px solid var(--episode-accent, var(--point));
-  background: #f6f7fb;
+  background: #f7f6f2;
   border-radius: 0 12px 12px 0;
   padding: 14px 17px;
 }
@@ -942,7 +942,7 @@
   border: 1px solid var(--line);
   border-left: 3px solid var(--episode-accent, var(--point));
   border-radius: 0 12px 12px 0;
-  background: #f7f8fc;
+  background: #f8f7f3;
 }
 .documentLabel {
   display: block;
@@ -970,7 +970,7 @@
   padding: 15px;
   border: 1px dashed #ccd4e7;
   border-radius: 10px;
-  background: #fafbff;
+  background: #fbfaf7;
 }
 .model > span {
   font-size: 11px;
@@ -982,7 +982,7 @@
   line-height: 1.8;
 }
 .feedbackExpression {
-  color: #3545a3;
+  color: #1f4d3e;
   font-weight: 500;
 }
 .ending > h2 {
@@ -998,7 +998,7 @@
   padding: 18px 20px;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: #fafbff;
+  background: #fbfaf7;
 }
 .storyResolution h3 {
   margin: 0 0 8px;
@@ -1037,7 +1037,7 @@
   padding: 0 16px;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: #fafbff;
+  background: #fbfaf7;
 }
 .transfer > summary {
   padding: 11px 0;

@@ -1,9 +1,9 @@
 .player {
-  --ink: #17233b;
-  --muted: #647189;
-  --point: #5364db;
-  --line: #dfe4ef;
-  --paper: #f6f7fb;
+  --ink: #1a1f1c;
+  --muted: #5c635e;
+  --point: #286350;
+  --line: #e1e1da;
+  --paper: #f7f6f2;
   background: var(--paper);
   color: var(--ink);
   min-height: 70vh;
@@ -135,9 +135,9 @@
 .actionCue {
   margin: 0 0 20px;
   padding: 12px 15px;
-  background: #eff1fe;
+  background: #ebf2ee;
   border-radius: 10px;
-  color: #3545a3;
+  color: #1f4d3e;
   font-size: 14px;
   line-height: 1.7;
   font-weight: 500;
@@ -196,7 +196,7 @@
 .difficulty .selected {
   color: var(--point);
   border-color: var(--point);
-  background: #eff1fe;
+  background: #ebf2ee;
 }
 .pace {
   padding: 16px 20px;
@@ -225,11 +225,11 @@
   border-radius: 10px;
   overflow: hidden;
   appearance: none;
-  background: #e8ecf5;
+  background: #ebebe5;
   accent-color: var(--point);
 }
 .pace progress::-webkit-progress-bar {
-  background: #e8ecf5;
+  background: #ebebe5;
   border-radius: 10px;
 }
 .pace progress::-webkit-progress-value {
@@ -314,7 +314,7 @@
 .options button[aria-pressed="true"],
 .options .selected {
   border-color: var(--point);
-  background: #f0f2ff;
+  background: #ebf2ee;
 }
 .options button[aria-pressed="true"] > span:first-child {
   color: #fff;
@@ -333,7 +333,7 @@
   resize: vertical;
   min-height: 126px;
   padding: 14px;
-  border: 1px solid #cbd3e5;
+  border: 1px solid #d3d4cc;
   border-radius: 12px;
   background: #fff;
   color: var(--ink);
@@ -342,11 +342,11 @@
   line-height: 1.75;
 }
 .textarea::placeholder {
-  color: #7d899d;
+  color: #6b716c;
 }
 .speakArea {
   padding: 18px;
-  background: #f6f7fc;
+  background: #f7f6f2;
   border: 1px solid var(--line);
   border-radius: 12px;
 }
@@ -403,16 +403,16 @@
 }
 .secondary {
   padding: 10px 16px;
-  border: 1px solid #cbd3e5;
+  border: 1px solid #d3d4cc;
   border-radius: 12px;
   background: #fff;
   color: var(--ink);
 }
 .audioButton {
   padding: 12px 17px;
-  background: #eef0ff;
-  color: #3545a3;
-  border: 1px solid #d4dafa;
+  background: #ebf2ee;
+  color: #1f4d3e;
+  border: 1px solid #cfe0d6;
   border-radius: 12px;
   font-weight: 600;
 }
@@ -461,8 +461,8 @@
   background: #fffaf0;
 }
 .feedback.correct {
-  border-color: #c9d2fa;
-  background: #f1f4ff;
+  border-color: #c9ddd2;
+  background: #edf3ef;
 }
 .feedback > .sectionLabel {
   margin: 0 0 7px;
@@ -524,7 +524,7 @@
   width: 48px;
   height: 48px;
   margin: 8px 0 18px;
-  background: #eef1ff;
+  background: #ebf2ee;
   color: var(--point);
   border-radius: 16px;
 }
@@ -547,7 +547,7 @@
   margin: 10px 0;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: #fafbff;
+  background: #fbfaf7;
 }
 .expression p {
   margin: 0 0 7px;
@@ -721,7 +721,7 @@
   border: 1px solid var(--line);
   border-radius: 10px;
   color: var(--muted);
-  background: #fafbff;
+  background: #fbfaf7;
 }
 .outline li > span {
   display: grid;
@@ -750,7 +750,7 @@
 .outline li[aria-current="step"] {
   border-color: var(--point);
   color: var(--ink);
-  background: #eff1ff;
+  background: #ebf2ee;
 }
 .outline li[aria-current="step"] > span {
   background: var(--point);
@@ -777,7 +777,7 @@
   border: 1px solid var(--line);
   border-left: 3px solid var(--point);
   border-radius: 0 12px 12px 0;
-  background: #f7f8fc;
+  background: #f8f7f3;
 }
 .material > span {
   display: block;
@@ -802,7 +802,7 @@
   margin: 0 0 13px;
 }
 .sentence {
-  border: 1px solid #cbd3e5;
+  border: 1px solid #d3d4cc;
   border-radius: 12px;
   background: #fff;
   padding: 15px;
@@ -826,10 +826,10 @@
   align-items: center;
   gap: 8px;
   min-height: 44px;
-  background: #eef1ff;
-  color: #3545a3;
+  background: #ebf2ee;
+  color: #1f4d3e;
   padding: 9px 12px;
-  border: 1px solid #ccd4fa;
+  border: 1px solid #c9ddd2;
   border-radius: 9px;
   font-size: 14px;
   line-height: 1.6;
@@ -848,7 +848,7 @@
   min-height: 44px;
   padding: 10px 13px;
   background: #fff;
-  border: 1px solid #cbd3e5;
+  border: 1px solid #d3d4cc;
   border-radius: 9px;
   color: var(--ink);
   font: inherit;
@@ -880,7 +880,7 @@
 .help {
   margin-top: 14px;
   padding: 0 14px;
-  border: 1px dashed #cbd3e5;
+  border: 1px dashed #d3d4cc;
   border-radius: 10px;
 }
 .help .passage {
@@ -928,8 +928,8 @@
   overflow-wrap: anywhere;
 }
 .subject {
-  background: #eef1ff;
-  border-color: #ccd4fa;
+  background: #ebf2ee;
+  border-color: #c9ddd2;
   border-radius: 999px;
 }
 .action {

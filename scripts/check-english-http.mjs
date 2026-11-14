@@ -30,7 +30,7 @@ const checks = [
   ["/english/about", "Ellis"],
   ["/english/community", "COMMUNITY"],
   ["/english/review", "MY FIELD NOTES"],
-  ["/english/courses", "A PATH THROUGH YOUR LIBRARY"],
+  ["/english/courses", "어디서 시작할지 고민된다면"],
   ["/english/journal", "MY ENGLISH JOURNAL"],
   ["/en/english/courses", "One step at a time"],
   ["/en/english/courses?course=clues-and-english&level=challenge", "Follow the clues in English"],

@@ -462,10 +462,10 @@
 }
 
 .community {
-  --ink: #17233b;
-  --muted: #66728a;
-  --line: #e0e4ef;
-  --paper: #f6f7fb;
+  --ink: #1a1f1c;
+  --muted: #5c635e;
+  --line: #e3e3dc;
+  --paper: #f7f6f2;
 }
 .sidebar h2,
 .composeHeading h2,
@@ -488,14 +488,14 @@
 .community button:focus-visible,
 .community a:focus-visible,
 .community summary:focus-visible {
-  outline: 3px solid #5364db;
+  outline: 3px solid #286350;
   outline-offset: 3px;
 }
 .smallSubmit {
-  background: #5364db;
+  background: #286350;
   border-radius: 10px;
 }
 .discussion {
-  background: #f6f7fb;
+  background: #f7f6f2;
   border-radius: 12px;
 }

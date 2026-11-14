@@ -36,9 +36,14 @@ export default function AboutPage() {
         </figure>
         <div>
           <Kicker>{BRAND.meaning}</Kicker>
-          <h2 id="about-brand-title">{t("트위즈덤, 게임과 교육을 함께 만듭니다")}</h2>
+          <h2 id="about-brand-title">{t("추리 게임과 토론 수업을 만드는 트위즈덤")}</h2>
           <p>
-            {t("twisdom은 반전을 뜻하는 Twist와 지혜를 뜻하는 Wisdom을 합친 이름입니다. 이야기의 반전을 통해 이해가 깊어진다는 의미를 담았습니다.")}
+            {t("twisdom은 반전을 뜻하는 Twist와 지혜를 뜻하는 Wisdom을 합친 이름입니다. 반전을 알고 나면 앞서 읽은 단서를 다시 보게 된다는 뜻입니다.")}
+          </p>
+          <p>
+            {t(
+              "수업에서 학생들은 단서를 두고 토론합니다. 읽은 내용을 근거로 말하고, 친구의 추리를 따지고, 다른 설명을 새로 세웁니다. 이 과정에서 문해력·추론력·사고력·창의력을 씁니다.",
+            )}
           </p>
           <p>
             {t(

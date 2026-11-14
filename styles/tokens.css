@@ -20,4 +20,6 @@
   --button-radius: 999px;
   --control-border: #bbc5c0;
   --accent: #286350;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --pencil: #c96645;
 }

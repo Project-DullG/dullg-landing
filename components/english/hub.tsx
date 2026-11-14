@@ -205,14 +205,14 @@ export function EnglishHub({
   const levels = englishLevels.find((item) => item.id === level)!;
   const planLabel =
     plan.reason === "continue"
-      ? "멈춘 곳부터, 가볍게 이어가요"
+      ? "멈춘 곳부터 이어서"
       : plan.reason === "course-next"
-        ? "배운 영어를 다음 장면으로"
+        ? "코스의 다음 차례"
         : plan.reason === "first-step"
-          ? "부탁 한마디부터 시작해요"
+          ? "부탁 한마디부터"
           : plan.reason === "replay"
-            ? "다른 난이도로 다시 만나봐요"
-            : "영어로 여는 첫 번째 이야기";
+            ? "다른 난이도로 다시 하기"
+            : "처음 읽기 좋은 이야기";
   const groups = [
     {
       kind: "conversation",
@@ -252,9 +252,9 @@ export function EnglishHub({
         <StudyNavigation level={level} />
         <header className={styles.welcome}>
           <div>
-            <p className={styles.eyebrow}>YOUR DAILY ENGLISH</p>
-            <h1 id="english-title">오늘도, 영어 한 장면.</h1>
-            <p>마음에 드는 이야기를 즐기고, 배운 영어를 내 말로 써 보세요.</p>
+            <p className={styles.eyebrow}>트위즈덤 영어</p>
+            <h1 id="english-title">이야기 속 단서를 풀며 배우는 영어</h1>
+            <p>인물의 말을 듣고 읽은 뒤, 배운 표현으로 내 문장을 씁니다.</p>
           </div>
           <details className={styles.levelSettings}>
             <summary>
@@ -483,15 +483,15 @@ export function EnglishHub({
         <section className={styles.storySection} aria-labelledby="library-title" id="library">
           <div className={styles.sectionHead}>
             <div>
-              <span className={styles.kicker}>PLAY A STORY</span>
-              <h2 id="library-title">다음 장면이 궁금해지는 영어</h2>
-              <p>단서를 따라가고, 마음을 전하고, 작은 문제를 함께 해결해요.</p>
+              <span className={styles.kicker}>이야기 모험</span>
+              <h2 id="library-title">단서를 따라가는 영어 이야기</h2>
+              <p>인물의 부탁을 듣고 단서를 골라 다음 장면으로 넘어갑니다.</p>
             </div>
             <Link className={styles.textLink} href={"/english/library?kind=story&level=" + level}>
               이야기 모험 모두 보기 <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
-          <div className={styles.storyGrid}>
+          <div className={styles.storyGrid} data-stagger>
             {episodes.map((episode) => {
               const episodeGuide = getEnglishContentGuide(episode.id)!;
               return (
@@ -542,12 +542,12 @@ export function EnglishHub({
         >
           <div className={styles.sectionHead}>
             <div>
-              <span className={styles.kicker}>ENGLISH FOR REAL LIFE</span>
-              <h2 id="practice-library-title">짧게 배워, 바로 써먹는 영어</h2>
-              <p>오늘 필요한 연습만 골라서 가볍게 시작해도 좋아요.</p>
+              <span className={styles.kicker}>집중 연습</span>
+              <h2 id="practice-library-title">필요한 표현만 골라 연습하기</h2>
+              <p>회화·문장·읽기 가운데 오늘 필요한 연습을 고르세요.</p>
             </div>
           </div>
-          <div className={styles.practiceGrid}>
+          <div className={styles.practiceGrid} data-stagger>
             {groups.map((group) => {
               const Icon = group.icon;
               return (
@@ -583,15 +583,15 @@ export function EnglishHub({
         <section className={styles.courseSection} aria-labelledby="course-home-title">
           <div className={styles.sectionHead}>
             <div>
-              <span className={styles.kicker}>KEEP YOUR MOMENTUM</span>
-              <h2 id="course-home-title">꾸준히 배우고 싶다면, 코스를 따라</h2>
-              <p>짧은 연습에서 익힌 영어를 이야기 속에서 다시 써 봐요.</p>
+              <span className={styles.kicker}>학습 코스</span>
+              <h2 id="course-home-title">연습한 표현을 이야기에서 다시 쓰는 코스</h2>
+              <p>짧은 연습과 이야기를 순서대로 묶었습니다.</p>
             </div>
             <Link className={styles.textLink} href={"/english/courses?level=" + level}>
               코스 목차 보기 <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
-          <div className={styles.courseGrid}>
+          <div className={styles.courseGrid} data-stagger>
             {englishCourses.map((course, index) => {
               const start = getEnglishCourseStart(course.id, ready ? progress : null, level)!;
               return (
@@ -618,8 +618,8 @@ export function EnglishHub({
           <div>
             <MessageCircle size={24} aria-hidden="true" />
             <p>
-              <strong>혼자 배워도, 함께 꾸준히.</strong>
-              <span>배운 표현과 작은 성취를 커뮤니티에 나눠보세요.</span>
+              <strong>배운 표현 나누기</strong>
+              <span>오늘 쓴 문장을 커뮤니티에 올리고 다른 사람의 문장도 읽어 보세요.</span>
             </p>
           </div>
           <Link href="/english/community">

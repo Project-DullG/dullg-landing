@@ -46,7 +46,7 @@ export function PracticeLibrary({
     <section className={styles.library} aria-labelledby="practice-library-title" id="practice">
       <header className={styles.heading}>
         <div>
-          <p>THE PRACTICE JOURNAL</p>
+          <p>집중 연습</p>
           <h2 id="practice-library-title">짧게 연습하는 영어</h2>
         </div>
         <p>

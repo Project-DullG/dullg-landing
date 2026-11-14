@@ -9,6 +9,7 @@ import { educationFacts, episodeFullTitle, episodeTitle } from "@/lib/education"
 import { pageMetadata } from "@/lib/metadata";
 import { RemakeGuide } from "@/components/remake-guide";
 import { DebateScene } from "@/components/debate-scene";
+import { AcademyReasons, ClassroomRecord, StudentArtifacts } from "@/components/academy-appeal";
 import styles from "./overview.module.css";
 export async function generateMetadata() {
   return localizeMetadata(pageMetadata("/academy", { title: "영어 미스터리 수업팩" }));
@@ -89,7 +90,10 @@ export default function AcademyPage() {
           )),
         )}
       </section>
+      <AcademyReasons />
       <DebateScene />
+      <StudentArtifacts />
+      <ClassroomRecord />
       <RemakeGuide />
       <section className={`shell ${styles.details}`} aria-labelledby="academy-details-title">
         <h2 id="academy-details-title">{t("수업 자료와 4차시 운영안")}</h2>

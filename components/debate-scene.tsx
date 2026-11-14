@@ -87,7 +87,7 @@ export function DebateScene({ variant = "academy" }: { variant?: "home" | "acade
           </h2>
           <p className={styles.lead}>
             {t(
-              "단서 카드 한 장을 두고 네 학생이 말을 주고받습니다. 아래 네 가지를 눌러 각 발언에서 무엇을 연습하는지 보세요.",
+              "단서 카드 한 장을 두고 네 학생이 말을 주고받습니다. 네 가지 힘을 하나씩 눌러, 각 발언에서 무엇이 자라는지 보세요.",
             )}
           </p>
         </div>

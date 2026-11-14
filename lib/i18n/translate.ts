@@ -121,6 +121,7 @@ export function translateText(text: string, locale: string): string {
         `Move ${({ 왼쪽: "left", 오른쪽: "right", 위: "up", 아래: "down" } as Record<string, string>)[d]}`,
     ],
     [/^레벨 (\d+)$/, (n) => `Level ${n}`],
+    [/^게임과 AI로 진행한 학교·지역 수업 (\d+)회$/, (n) => `${n} school and community classes taught with games and AI`],
     [/^(\d+)회 모두 성공$/, (n) => `${n} of ${n} funded`],
     [/^(\d+)줄 뒤 속도 증가$/, (n) => `Speed increases in ${n} lines`],
     [/^(\d+)줄 삭제$/, (n) => `${n} lines cleared`],

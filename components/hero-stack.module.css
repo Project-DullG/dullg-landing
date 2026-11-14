@@ -1,0 +1,94 @@
+.figure {
+  margin: 0;
+}
+.figure figcaption {
+  margin-top: 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+  text-align: center;
+}
+.stage {
+  --rx: 0deg;
+  --ry: 0deg;
+  perspective: 900px;
+  padding: 24px 32px 8px;
+}
+.stack {
+  position: relative;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition: transform 500ms var(--ease-out);
+}
+.sheet {
+  display: block;
+  height: auto;
+  border-radius: 6px;
+  box-shadow:
+    0 1px 2px rgba(17, 20, 18, 0.08),
+    0 18px 40px rgba(17, 20, 18, 0.14);
+}
+.cover {
+  position: relative;
+  width: 100%;
+  animation: cover-in 700ms var(--ease-out) 120ms backwards;
+}
+.back,
+.clue {
+  position: absolute;
+  top: 10%;
+  width: 56%;
+  background: #fffdf8;
+}
+.back {
+  left: -18%;
+  transform: rotate(-11deg) translateZ(-40px);
+  animation: fan-left 900ms var(--ease-out) 320ms backwards;
+}
+.clue {
+  right: -22%;
+  top: 22%;
+  transform: rotate(9deg) translateZ(-20px);
+  animation: fan-right 900ms var(--ease-out) 420ms backwards;
+}
+@keyframes cover-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+@keyframes fan-left {
+  from {
+    opacity: 0;
+    transform: translate(40%, 6%) rotate(0deg);
+  }
+}
+@keyframes fan-right {
+  from {
+    opacity: 0;
+    transform: translate(-40%, -6%) rotate(0deg);
+  }
+}
+.stage:hover .back {
+  transform: rotate(-14deg) translate(-6px, -4px) translateZ(-40px);
+}
+.stage:hover .clue {
+  transform: rotate(12deg) translate(8px, -6px) translateZ(-20px);
+}
+.back,
+.clue {
+  transition: transform 500ms var(--ease-out);
+}
+@media (max-width: 760px) {
+  .stage {
+    max-width: 240px;
+    margin-inline: auto;
+    padding: 16px 40px 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stack,
+  .back,
+  .clue {
+    transition: none;
+  }
+}

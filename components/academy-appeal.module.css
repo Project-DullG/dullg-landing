@@ -318,3 +318,82 @@
     transition: none;
   }
 }
+
+/* Sheets are dealt from one pile, then the pencil marks are drawn. */
+.sheet:nth-child(1) {
+  --deal: 0%;
+}
+.sheet:nth-child(2) {
+  --deal: -105%;
+}
+.sheet:nth-child(3) {
+  --deal: -210%;
+}
+.sheet:nth-child(4) {
+  --deal: -315%;
+}
+:global(.is-revealed) .sheet {
+  animation: deal 820ms var(--ease-out) backwards;
+}
+:global(.is-revealed) .sheet:nth-child(2) {
+  animation-delay: 90ms;
+}
+:global(.is-revealed) .sheet:nth-child(3) {
+  animation-delay: 180ms;
+}
+:global(.is-revealed) .sheet:nth-child(4) {
+  animation-delay: 270ms;
+}
+@keyframes deal {
+  from {
+    opacity: 0;
+    transform: translate(var(--deal), 24px) rotate(0deg);
+  }
+}
+:global(.is-revealed) .mark {
+  animation: mark-draw 700ms var(--ease-out) 1100ms backwards;
+}
+@keyframes mark-draw {
+  from {
+    background-size: 0% 0.5em;
+  }
+}
+/* Reasons: the top rule draws across, photos open upward. */
+.reasonList {
+  position: relative;
+}
+:global(.is-revealed) .reasonList::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--ink);
+  transform-origin: left;
+  animation: rule-draw 900ms var(--ease-out) 200ms both;
+}
+@keyframes rule-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(0.25);
+  }
+}
+:global(.is-revealed) .photo {
+  animation: photo-open 760ms var(--ease-out) backwards;
+}
+@keyframes photo-open {
+  from {
+    clip-path: inset(100% 0 0 0 round 10px);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 10px);
+  }
+}
+@media (max-width: 1000px) {
+  .sheet:nth-child(n) {
+    --deal: 0%;
+  }
+}

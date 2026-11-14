@@ -251,7 +251,7 @@ export function EnglishHub({
       <div className={styles.shell}>
         <StudyNavigation level={level} />
         <header className={styles.welcome}>
-          <div>
+          <div data-hero>
             <p className={styles.eyebrow}>트위즈덤 영어</p>
             <h1 id="english-title">이야기 속 단서를 풀며 배우는 영어</h1>
             <p>인물의 말을 듣고 읽은 뒤, 배운 표현으로 내 문장을 씁니다.</p>

@@ -28,7 +28,7 @@ export default function Studio() {
       <Header />
 
       <main className="brand-home" id="main-content">
-        <section className="brand-hero shell" aria-labelledby="home-title">
+        <section className="brand-hero shell" aria-labelledby="home-title" data-hero>
           <SectionHead
             as="h1"
             id="home-title"

@@ -382,3 +382,65 @@
     transition: none;
   }
 }
+
+/* Autoplay: a pencil-coloured timer fills under the active skill, and the
+   student who speaks steps forward. */
+.skill {
+  position: relative;
+  overflow: hidden;
+}
+.timer {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 8px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(201, 102, 69, 0.18);
+  opacity: 0;
+}
+.timer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--pencil);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.playing .timer {
+  opacity: 1;
+}
+.playing .timer::after {
+  animation: debate-timer 4200ms linear forwards;
+}
+@keyframes debate-timer {
+  to {
+    transform: scaleX(1);
+  }
+}
+.speaking {
+  animation: speak-in 420ms var(--ease-out) both;
+  box-shadow: 0 8px 24px rgba(17, 20, 18, 0.07);
+}
+@keyframes speak-in {
+  from {
+    transform: translateX(-8px) scale(0.985);
+    opacity: 0.5;
+  }
+}
+.speaking p {
+  animation: line-in 520ms var(--ease-out) 80ms backwards;
+}
+@keyframes line-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+.card {
+  transition: transform 400ms var(--ease-out);
+}
+.board:hover .card {
+  transform: rotate(-0.4deg) translateY(-2px);
+}

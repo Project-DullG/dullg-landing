@@ -4,6 +4,7 @@ import Link from "@/components/i18n/link";
 import { useText } from "@/lib/i18n/use-text";
 import { activityRecords, formatActivityDate } from "@/lib/activities";
 import styles from "./academy-appeal.module.css";
+import { ClassroomPlay } from "./going-home-scenes";
 
 const reasons = [
   {
@@ -39,6 +40,7 @@ export function AcademyReasons() {
             </li>
           ))}
         </ol>
+        <ClassroomPlay />
       </div>
     </section>
   );
@@ -64,7 +66,7 @@ export function StudentArtifacts() {
           </p>
         </div>
 
-        <ol className={styles.sheets} data-stagger>
+        <ol className={styles.sheets}>
           <li className={styles.sheet}>
             <header>
               <span>{t("1차시 · 단서 기록지")}</span>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "@phosphor-icons/react";
 import Link from "@/components/i18n/link";
 import { useText } from "@/lib/i18n/use-text";
@@ -67,11 +67,36 @@ const talk: { skill: Skill; name: string; image: string; line: string }[] = [
 export function DebateScene({ variant = "academy" }: { variant?: "home" | "academy" }) {
   const t = useText();
   const [active, setActive] = useState<Skill>("literacy");
+  // Autoplay walks through the four skills while the scene is on screen,
+  // and stops for good once the reader chooses a skill.
+  const [auto, setAuto] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const sceneRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = sceneRef.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const observer = new IntersectionObserver(([entry]) => setAuto(entry.isIntersecting), {
+      threshold: 0.35,
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  const [stopped, setStopped] = useState(false);
+  const playing = auto && !paused && !stopped;
+  useEffect(() => {
+    if (!playing) return;
+    const timer = window.setTimeout(() => {
+      const index = skills.findIndex((skill) => skill.id === active);
+      setActive(skills[(index + 1) % skills.length].id);
+    }, 4200);
+    return () => window.clearTimeout(timer);
+  }, [playing, active]);
   const current = skills.find((skill) => skill.id === active)!;
   const hit = (key: Evidence) => (current.evidence.includes(key) ? styles.hit : undefined);
   return (
     <section
-      className={`${styles.scene} ${variant === "home" ? styles.home : ""}`}
+      ref={sceneRef}
+      className={`${styles.scene} ${variant === "home" ? styles.home : ""} ${playing ? styles.playing : ""}`}
       id="debate"
       aria-labelledby={`${variant}-debate-title`}
     >
@@ -92,7 +117,13 @@ export function DebateScene({ variant = "academy" }: { variant?: "home" | "acade
           </p>
         </div>
 
-        <div className={styles.board}>
+        <div
+          className={styles.board}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onFocus={() => setPaused(true)}
+          onBlur={() => setPaused(false)}
+        >
           <div className={styles.skills} role="group" aria-label={t("토론에서 쓰는 네 가지 힘")}>
             {skills.map((skill, index) => (
               <button
@@ -100,9 +131,13 @@ export function DebateScene({ variant = "academy" }: { variant?: "home" | "acade
                 type="button"
                 className={styles.skill}
                 aria-pressed={active === skill.id}
-                onClick={() => setActive(skill.id)}
+                onClick={() => {
+                  setStopped(true);
+                  setActive(skill.id);
+                }}
               >
                 <span className={styles.skillIndex}>{String(index + 1).padStart(2, "0")}</span>
+                {active === skill.id && <i className={styles.timer} key={skill.id} aria-hidden="true" />}
                 <strong>{t(skill.name)}</strong>
                 <span className={styles.skillAction}>{t(skill.action)}</span>
               </button>
@@ -145,7 +180,10 @@ export function DebateScene({ variant = "academy" }: { variant?: "home" | "acade
 
             <ol className={styles.talk} data-stagger aria-live="polite">
               {talk.map((turn) => (
-                <li key={turn.name} className={turn.skill === active ? styles.speaking : styles.quiet}>
+                <li
+                  key={turn.skill === active ? `${turn.name}-on` : turn.name}
+                  className={turn.skill === active ? styles.speaking : styles.quiet}
+                >
                   <span className={styles.avatar}>
                     <Image
                       src={`/assets/academy-remake/${turn.image}.webp`}

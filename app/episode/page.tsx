@@ -5,6 +5,7 @@ import Link from "@/components/i18n/link";
 import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 import { SectionHead } from "@/components/section-head";
 import { EpisodeTrailer } from "@/components/episode-trailer";
+import { GoingHomeScenes } from "@/components/going-home-scenes";
 import trailerStyles from "@/components/episode-trailer.module.css";
 import { curriculum, episodeFullTitle, episodeSubtitle, episodeTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
@@ -83,6 +84,8 @@ export default function EpisodePage() {
           {t("시놉시스·룰 설명 영상 보기")}
         </Link>
       </div>
+
+      <GoingHomeScenes />
       {/* ── SETTING — large floor map ── */}
       <section className="ep-setting">
         <div className="shell ep-setting-inner">

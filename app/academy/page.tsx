@@ -1,7 +1,6 @@
 import { useText } from "@/lib/i18n/use-text";
 import { localizeMetadata } from "@/lib/i18n/server";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
-import Image from "next/image";
 import Link from "@/components/i18n/link";
 import { DashboardPreview } from "@/components/dashboard-preview";
 import { PageFrame } from "@/components/site";
@@ -9,6 +8,8 @@ import { educationFacts, episodeFullTitle, episodeTitle } from "@/lib/education"
 import { pageMetadata } from "@/lib/metadata";
 import { RemakeGuide } from "@/components/remake-guide";
 import { DebateScene } from "@/components/debate-scene";
+import { HeroStack } from "@/components/hero-stack";
+import { GoingHomeScenes } from "@/components/going-home-scenes";
 import { AcademyReasons, ClassroomRecord, StudentArtifacts } from "@/components/academy-appeal";
 import styles from "./overview.module.css";
 export async function generateMetadata() {
@@ -39,7 +40,7 @@ export default function AcademyPage() {
   return (
     <PageFrame>
       <section className={`shell ${styles.hero}`} aria-labelledby="academy-title">
-        <div>
+        <div data-hero>
           <p className={styles.status}>{t("파일럿 준비 중")}</p>
           <h1 id="academy-title">
             {t("영어 단서를 읽고")}
@@ -65,20 +66,10 @@ export default function AcademyPage() {
             <Link href="/academy/pilot">{t("파일럿 안내 →")}</Link>
           </div>
         </div>
-        <figure className={styles.cover}>
-          <Image
-            src="/assets/academy-remake/cover.webp"
-            width={944}
-            height={1330}
-            alt={t(`${episodeFullTitle} 규칙서 표지`)}
-            sizes="(max-width: 760px) 220px, 280px"
-            priority
-          />
-          <figcaption>
-            {t(episodeTitle)}
-            {t("\u00B7 수업용 규칙서")}
-          </figcaption>
-        </figure>
+        <HeroStack
+          coverAlt={t(`${episodeFullTitle} 규칙서 표지`)}
+          caption={`${t(episodeTitle)} ${t("\u00B7 수업용 규칙서")}`}
+        />
       </section>
       <section className={`shell ${styles.facts}`} aria-label={t("수업팩 운영 조건")} data-stagger>
         {t(
@@ -90,6 +81,7 @@ export default function AcademyPage() {
           )),
         )}
       </section>
+      <GoingHomeScenes />
       <AcademyReasons />
       <DebateScene />
       <StudentArtifacts />

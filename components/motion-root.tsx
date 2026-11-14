@@ -16,7 +16,14 @@ export function MotionRoot() {
   const pathname = usePathname();
   useEffect(() => {
     const header = document.querySelector(".site-header");
-    const onScroll = () => header?.classList.toggle("is-scrolled", window.scrollY > 8);
+    const onScroll = () => {
+      header?.classList.toggle("is-scrolled", window.scrollY > 8);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      (header as HTMLElement | null)?.style.setProperty(
+        "--progress",
+        max > 0 ? Math.min(1, window.scrollY / max).toFixed(4) : "0",
+      );
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     const cleanup = () => window.removeEventListener("scroll", onScroll);

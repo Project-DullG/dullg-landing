@@ -19,11 +19,11 @@ export const workGuides: Record<string, WorkGuide> = {
   },
   "professor-rest": {
     role: "청람대학교 연구실 구성원 한 명",
-    goal: "호숫가 계단 아래에서 발견된 박정호 교수의 죽음",
+    goal: "호숫가 계단 아래에서 발견된 박정호 교수의 죽음에 얽힌 진실",
   },
   "snake-carnival": {
     role: "지하 예배실에 있던, 가면을 쓴 네 사람 중 한 명",
-    goal: "제단 위에서 숨진 교주를 죽인 진짜 범인",
+    goal: "제단 위에서 교주를 죽인 진짜 범인",
     caution:
       "살인, 폭력, 고어, 오컬트, 종교적 상징, 사회적 위선, 강한 심리 압박 같은 요소가 들어 있습니다.",
   },

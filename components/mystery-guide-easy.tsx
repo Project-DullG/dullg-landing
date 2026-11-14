@@ -64,7 +64,7 @@ export function MysteryGuideEasy({ work, children }: { work?: Work; children?: R
             </span>
             <figcaption>
               <strong>{t("우리 집에서는")}</strong>
-              <span>{t("상자 하나로, 내가 출연자가 됩니다")}</span>
+              <span>{t("상자 하나로 내가 출연자가 돼요")}</span>
             </figcaption>
           </figure>
         </div>
@@ -91,7 +91,7 @@ export function MysteryGuideEasy({ work, children }: { work?: Work; children?: R
             <div className={styles.role}>
               <dt>
                 <MaskHappy size={28} aria-hidden="true" />
-                {t("나는 누가 되나")}
+                {t("내가 맡는 사람")}
               </dt>
               <dd>{t(guide.role)}</dd>
             </div>

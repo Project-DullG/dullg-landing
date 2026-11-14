@@ -71,9 +71,14 @@ export function ClueProcess() {
   const [active, setActive] = useState(false);
   useEffect(() => {
     if (!root.current) return;
-    const observer = new IntersectionObserver(([entry]) => setActive(entry.isIntersecting), {
-      threshold: 0.2,
-    });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setActive(true);
+        observer.disconnect();
+      },
+      { threshold: 0.2 },
+    );
     observer.observe(root.current);
     return () => observer.disconnect();
   }, []);

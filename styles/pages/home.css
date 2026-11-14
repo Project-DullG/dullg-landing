@@ -134,9 +134,10 @@
     background-color 0.3s ease,
     opacity 0.3s ease;
 }
-.process-grid.is-active .process-cell {
-  animation: processCell 10s ease-in-out infinite;
-  animation-delay: calc(var(--cell-index) * 7ms);
+.process-grid.is-active .process-cell:is(.is-green, .is-amber, .is-red) {
+  background: var(--cell-color);
+  opacity: 1;
+  transition-delay: calc(var(--cell-index) * 6ms);
 }
 .process-cell.is-green {
   --cell-color: #8fbdaa;
@@ -146,20 +147,6 @@
 }
 .process-cell.is-red {
   --cell-color: #b96858;
-}
-@keyframes processCell {
-  0%,
-  8%,
-  92%,
-  100% {
-    background: #eff1ef;
-    opacity: 0.85;
-  }
-  20%,
-  80% {
-    background: var(--cell-color, #eff1ef);
-    opacity: 1;
-  }
 }
 .brand-education {
   padding: 80px 0;

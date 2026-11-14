@@ -102,18 +102,18 @@
     transform 260ms var(--ease-out),
     box-shadow 260ms var(--ease-out);
 }
-.sheet:nth-child(1) {
+.sheets > li:nth-child(1) .sheet {
   --tilt: -1.4deg;
 }
-.sheet:nth-child(2) {
+.sheets > li:nth-child(2) .sheet {
   --tilt: 0.8deg;
   margin-top: 16px;
 }
-.sheet:nth-child(3) {
+.sheets > li:nth-child(3) .sheet {
   --tilt: -0.6deg;
   margin-top: 4px;
 }
-.sheet:nth-child(4) {
+.sheets > li:nth-child(4) .sheet {
   --tilt: 1.2deg;
   margin-top: 20px;
 }
@@ -282,7 +282,7 @@
   .classes {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .sheet:nth-child(n) {
+  .sheets > li .sheet {
     margin-top: 0;
   }
 }
@@ -320,28 +320,28 @@
 }
 
 /* Sheets are dealt from one pile, then the pencil marks are drawn. */
-.sheet:nth-child(1) {
+.sheets > li:nth-child(1) .sheet {
   --deal: 0%;
 }
-.sheet:nth-child(2) {
+.sheets > li:nth-child(2) .sheet {
   --deal: -105%;
 }
-.sheet:nth-child(3) {
+.sheets > li:nth-child(3) .sheet {
   --deal: -210%;
 }
-.sheet:nth-child(4) {
+.sheets > li:nth-child(4) .sheet {
   --deal: -315%;
 }
 :global(.is-revealed) .sheet {
   animation: deal 820ms var(--ease-out) backwards;
 }
-:global(.is-revealed) .sheet:nth-child(2) {
+:global(.is-revealed) .sheets > li:nth-child(2) .sheet {
   animation-delay: 90ms;
 }
-:global(.is-revealed) .sheet:nth-child(3) {
+:global(.is-revealed) .sheets > li:nth-child(3) .sheet {
   animation-delay: 180ms;
 }
-:global(.is-revealed) .sheet:nth-child(4) {
+:global(.is-revealed) .sheets > li:nth-child(4) .sheet {
   animation-delay: 270ms;
 }
 @keyframes deal {
@@ -393,7 +393,7 @@
   }
 }
 @media (max-width: 1000px) {
-  .sheet:nth-child(n) {
+  .sheets > li .sheet {
     --deal: 0%;
   }
 }

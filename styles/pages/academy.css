@@ -144,8 +144,8 @@
 }
 .pilot-checks h2 {
   margin: 0;
-  font-size: clamp(32px, 3.8vw, 48px);
-  line-height: 1.16;
+  font-size: clamp(26px, 2.6vw, 34px);
+  line-height: 1.35;
   letter-spacing: -0.045em;
 }
 .pilot-checks h2 span {
@@ -277,19 +277,6 @@
   border-radius: 6px;
   font-size: 13px;
 }
-.detail-art-2 {
-  background: #c4ded1;
-}
-.detail-art-3 {
-  background: #f4c0a4;
-}
-.detail-art-4 {
-  background: var(--ink);
-}
-.detail-art-4 span {
-  color: var(--cream);
-  border-color: var(--cream);
-}
 .note-section {
   padding: 130px 0;
   text-align: center;
@@ -388,27 +375,26 @@
   color: rgba(17, 20, 18, 0.6);
 }
 .sample-gallery {
-  padding: 125px 0;
+  padding: clamp(64px, 8vw, 96px) 0;
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-  gap: clamp(28px, 5vw, 70px);
+  grid-template-columns: 1fr;
+  gap: 40px;
   border-top: 1px solid var(--line);
 }
 .sample-gallery h2 {
-  font-size: clamp(38px, 4.8vw, 61px);
-  line-height: 1.08;
-  letter-spacing: -0.065em;
+  font-size: clamp(28px, 3.2vw, 38px);
+  line-height: 1.35;
+  letter-spacing: -0.035em;
   margin: 0;
 }
 .sample-gallery h2 span {
-  font-family: var(--font-playfair);
-  font-style: italic;
-  font-weight: 500;
+  color: #5c635e;
 }
 .gallery-images {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 24px;
+  align-items: start;
 }
 @media (max-width: 760px) {
   .gallery-images {
@@ -417,9 +403,16 @@
 }
 .gallery-images figure {
   margin: 0;
-  background: var(--cream);
-  padding: 10px;
-  box-shadow: 10px 12px 0 rgba(17, 20, 18, 0.1);
+  background: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow:
+    0 1px 2px rgba(17, 20, 18, 0.06),
+    0 12px 28px rgba(17, 20, 18, 0.08);
+  transition: transform 300ms var(--ease-out);
+}
+.gallery-images figure:hover {
+  transform: translateY(-6px) rotate(-0.6deg);
 }
 .gallery-images img {
   width: 100%;
@@ -427,8 +420,8 @@
   display: block;
 }
 .gallery-images figcaption {
-  font: 9px var(--font-mono);
-  padding: 10px 3px 2px;
+  font-size: 13px;
+  padding: 10px 4px 2px;
   color: rgba(17, 20, 18, 0.65);
 }
 @media (max-width: 760px) {
@@ -443,9 +436,6 @@
   }
   .detail-row h2 {
     font-size: 30px;
-  }
-  .detail-art {
-    margin-top: 30px;
   }
   .sample-grid {
     padding-bottom: 90px;
@@ -551,7 +541,7 @@
 }
 .detail-row {
   display: grid;
-  grid-template-columns: 78px 1fr 280px;
+  grid-template-columns: 78px 1fr 300px;
   gap: 42px;
   padding: 50px 0;
   border-bottom: 1px solid var(--line);
@@ -560,55 +550,6 @@
 .detail-row h2 {
   font-size: 38px;
   margin: 8px 0 13px;
-}
-.detail-art {
-  height: 176px;
-  padding: 18px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  background: #e5d8ac;
-  border: 1px solid rgba(17, 20, 18, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-.detail-art:before {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  width: 126px;
-  height: 126px;
-  right: 28px;
-  top: 25px;
-  border: 1px solid rgba(17, 20, 18, 0.2);
-}
-.detail-art:after {
-  content: "";
-  position: absolute;
-  left: 18px;
-  top: 18px;
-  width: 52px;
-  border-top: 1px solid rgba(17, 20, 18, 0.35);
-}
-.detail-art span {
-  background: var(--cream);
-  padding: 8px 12px;
-  font-size: 14px;
-  letter-spacing: 0;
-  box-shadow: 4px 5px 0 rgba(17, 20, 18, 0.1);
-  transform: rotate(-4deg);
-}
-.detail-art-2 {
-  background: #c4ded1;
-}
-.detail-art-3 {
-  background: #f4c0a4;
-}
-.detail-art-4 {
-  background: #1b2b25;
-}
-.detail-art-4 span {
-  background: var(--surface);
 }
 .sample-card h2 em,
 .note-section h2 span,
@@ -647,16 +588,6 @@
   }
   .detail-row h2 {
     font-size: 31px;
-  }
-  .detail-art {
-    height: 150px;
-    margin-top: 28px;
-  }
-  .detail-art:before {
-    width: 105px;
-    height: 105px;
-    top: 22px;
-    right: 22px;
   }
   .sample-gallery > div:first-child p {
     margin-top: 24px;
@@ -1215,5 +1146,17 @@ html body .ep-hero-chips span {
 @media (max-width: 760px) {
   html body .ep-hero-copy h1 {
     font-size: 38px;
+  }
+}
+.detail-sheet {
+  min-width: 0;
+}
+.detail-sheet > div {
+  min-height: 0;
+}
+@media (max-width: 760px) {
+  .detail-sheet {
+    max-width: 360px;
+    margin-top: 8px;
   }
 }

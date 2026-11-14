@@ -416,11 +416,13 @@ export function EnglishHub({
               </>
             ) : (
               <div className={styles.guestGoal}>
-                <span className={styles.goalDots}>
-                  <i />
-                  <i />
-                  <i />
-                </span>
+                <div className={styles.goalNumber}>
+                  <strong>
+                    0<small> / 3</small>
+                  </strong>
+                  <span>장면 풀이와 표현 복습</span>
+                </div>
+                <progress value={0} max={3} aria-label="오늘의 학습 목표" />
                 <h3>{account === "loading" ? "학습 기록 확인 중" : "오늘의 첫 장면을 열어봐요"}</h3>
                 <p>로그인하면 진도와 배운 표현이 쌓여요. 로그인 없이도 먼저 체험할 수 있습니다.</p>
                 <Link className={styles.secondaryButton} href="/login?next=%2Fenglish">

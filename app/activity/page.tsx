@@ -24,7 +24,7 @@ export default function ActivityPage() {
       </PageIntro>
 
       <section className={`shell ${styles.ledger}`} aria-label={t("날짜별 활동 목록")}>
-        <div className="activity-ledger-list">
+        <div className="activity-ledger-list" data-stagger>
           {t(
             activityRecords.map((record) => {
               const upcoming = isUpcoming(record);

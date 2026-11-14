@@ -363,19 +363,6 @@
   align-items: flex-start;
   padding-top: 22px;
 }
-.goalDots {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-.goalDots i {
-  display: block;
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  background: #ebf2ee;
-  border: 1px dashed #b6c0f0;
-}
 .guestGoal h3 {
   font-size: 17px;
   margin: 0 0 10px;

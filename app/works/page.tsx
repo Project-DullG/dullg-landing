@@ -110,7 +110,7 @@ export default function WorksPage() {
 
       <section className="work-ledger shell" aria-labelledby="work-list-title">
         <SectionHead className="work-ledger-head" id="work-list-title" title={t("작품 목록")} />
-        <div className="portfolio-list">
+        <div className="portfolio-list" data-stagger>
           {t(
             publishedWorks().map((work) => (
               <article key={work.slug}>

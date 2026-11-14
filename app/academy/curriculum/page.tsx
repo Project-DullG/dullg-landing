@@ -3,6 +3,7 @@ import { localizeMetadata } from "@/lib/i18n/server";
 import { ArrowButton, PageFrame } from "@/components/site";
 import { SectionHead } from "@/components/section-head";
 import { curriculum } from "@/lib/education";
+import { LessonSheet } from "@/components/academy-appeal";
 import { pageMetadata } from "@/lib/metadata";
 export async function generateMetadata() {
   return localizeMetadata(pageMetadata("/academy/curriculum"));
@@ -42,18 +43,8 @@ export default function CurriculumPage() {
                   {t(item.output)}
                 </div>
               </div>
-              <div className={`detail-art detail-art-${index + 1}`}>
-                <span>
-                  {t(
-                    index === 0
-                      ? "읽기"
-                      : index === 1
-                        ? "연결"
-                        : index === 2
-                          ? "토론"
-                          : "보고",
-                  )}
-                </span>
+              <div className="detail-sheet">
+                <LessonSheet lesson={(index + 1) as 1 | 2 | 3 | 4} />
               </div>
             </article>
           )),

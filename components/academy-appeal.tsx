@@ -46,6 +46,89 @@ export function AcademyReasons() {
   );
 }
 
+/** One of the four sheets a student fills in, lesson 1 to 4. Example content only. */
+export function LessonSheet({ lesson, className = "" }: { lesson: 1 | 2 | 3 | 4; className?: string }) {
+  const t = useText();
+  const body = [
+    <>
+      <header>
+        <span>{t("1차시 · 단서 기록지")}</span>
+        <b>{t("읽기")}</b>
+      </header>
+      <dl className={styles.rows} lang="en">
+        <div>
+          <dt>Who</dt>
+          <dd>Sejun</dd>
+        </div>
+        <div>
+          <dt>When</dt>
+          <dd>
+            <span className={styles.mark}>this Saturday</span>
+          </dd>
+        </div>
+        <div>
+          <dt>Where</dt>
+          <dd>board game café</dd>
+        </div>
+      </dl>
+    </>,
+    <>
+      <header>
+        <span>{t("2차시 · 팀 추론 보드")}</span>
+        <b>{t("연결")}</b>
+      </header>
+      <div className={styles.board}>
+        <span>{t("생일 모임 · 토요일")}</span>
+        <i aria-hidden="true" />
+        <span>{t("토요일 오후 보충반")}</span>
+      </div>
+      <p className={styles.note}>
+        <span className={styles.mark}>{t("겹치는 날")}</span>
+        {t(" · 쪽지는 지원이 영어책 사이에")}
+      </p>
+    </>,
+    <>
+      <header>
+        <span>{t("3차시 · 주장과 근거")}</span>
+        <b>{t("토론")}</b>
+      </header>
+      <dl className={styles.rows}>
+        <div>
+          <dt>{t("주장")}</dt>
+          <dd>
+            <i className={styles.blank} />
+            {t("이(가) 열쇠를 가져갔다")}
+          </dd>
+        </div>
+        <div>
+          <dt>{t("근거")}</dt>
+          <dd>{t("카드 2 · ‘this Saturday’")}</dd>
+        </div>
+        <div>
+          <dt>{t("반론")}</dt>
+          <dd>
+            <span className={styles.mark}>{t("넷 다 재시험 대상")}</span>
+          </dd>
+        </div>
+      </dl>
+    </>,
+    <>
+      <header>
+        <span>{t("4차시 · 개인 영작")}</span>
+        <b>{t("쓰기")}</b>
+      </header>
+      <p className={styles.essay} lang="en">
+        I think <i className={styles.blank} /> took the keys. First, card 2 says{" "}
+        <span className={styles.mark}>“this Saturday”</span>. Second,{" "}
+        <i className={styles.blank} />.
+      </p>
+    </>,
+  ][lesson - 1];
+  return (
+    <div className={`${styles.sheet} ${lesson === 4 ? styles.final : ""} ${className}`}>{body}</div>
+  );
+}
+
 /** What a student keeps: one sheet per lesson, the last one in English. */
 export function StudentArtifacts() {
   const t = useText();
@@ -67,79 +150,11 @@ export function StudentArtifacts() {
         </div>
 
         <ol className={styles.sheets}>
-          <li className={styles.sheet}>
-            <header>
-              <span>{t("1차시 · 단서 기록지")}</span>
-              <b>{t("읽기")}</b>
-            </header>
-            <dl className={styles.rows} lang="en">
-              <div>
-                <dt>Who</dt>
-                <dd>Sejun</dd>
-              </div>
-              <div>
-                <dt>When</dt>
-                <dd>
-                  <span className={styles.mark}>this Saturday</span>
-                </dd>
-              </div>
-              <div>
-                <dt>Where</dt>
-                <dd>board game café</dd>
-              </div>
-            </dl>
-          </li>
-          <li className={styles.sheet}>
-            <header>
-              <span>{t("2차시 · 팀 추론 보드")}</span>
-              <b>{t("연결")}</b>
-            </header>
-            <div className={styles.board}>
-              <span>{t("생일 모임 · 토요일")}</span>
-              <i aria-hidden="true" />
-              <span>{t("토요일 오후 보충반")}</span>
-            </div>
-            <p className={styles.note}>
-              <span className={styles.mark}>{t("겹치는 날")}</span>
-              {t(" · 쪽지는 지원이 영어책 사이에")}
-            </p>
-          </li>
-          <li className={styles.sheet}>
-            <header>
-              <span>{t("3차시 · 주장과 근거")}</span>
-              <b>{t("토론")}</b>
-            </header>
-            <dl className={styles.rows}>
-              <div>
-                <dt>{t("주장")}</dt>
-                <dd>
-                  <i className={styles.blank} />
-                  {t("이(가) 열쇠를 가져갔다")}
-                </dd>
-              </div>
-              <div>
-                <dt>{t("근거")}</dt>
-                <dd>{t("카드 2 · ‘this Saturday’")}</dd>
-              </div>
-              <div>
-                <dt>{t("반론")}</dt>
-                <dd>
-                  <span className={styles.mark}>{t("넷 다 재시험 대상")}</span>
-                </dd>
-              </div>
-            </dl>
-          </li>
-          <li className={`${styles.sheet} ${styles.final}`}>
-            <header>
-              <span>{t("4차시 · 개인 영작")}</span>
-              <b>{t("쓰기")}</b>
-            </header>
-            <p className={styles.essay} lang="en">
-              I think <i className={styles.blank} /> took the keys. First, card 2 says{" "}
-              <span className={styles.mark}>“this Saturday”</span>. Second,{" "}
-              <i className={styles.blank} />.
-            </p>
-          </li>
+          {([1, 2, 3, 4] as const).map((lesson) => (
+            <li key={lesson}>
+              <LessonSheet lesson={lesson} />
+            </li>
+          ))}
         </ol>
         <p className={styles.caption}>
           {t("예시로 채운 기록지입니다. 수업에서는 학생이 직접 적으며, 사건의 정답은 담지 않았습니다.")}

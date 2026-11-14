@@ -28,7 +28,7 @@ export const workGuides: Record<string, WorkGuide> = {
       "살인, 폭력, 고어, 오컬트, 종교적 상징, 사회적 위선, 강한 심리 압박 같은 요소가 들어 있습니다.",
   },
   "red-lab": {
-    role: "비밀 연구소에 남은 네 레인저 중 한 명",
+    role: "비밀 연구소에 남은 네 명의 대원(레인저) 중 한 명",
     goal: "잠긴 방에서 숨진 레드에게 그날 밤 일어난 일",
   },
   "gourmet-master": {

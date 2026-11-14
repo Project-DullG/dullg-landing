@@ -32,7 +32,7 @@ export default function WorksPage() {
     <PageFrame>
       <PageIntro
         title={t("머더미스터리 작품")}
-        description="여럿이 둘러앉아 대본을 나눠 읽고 범인을 찾는 추리 연극 키트입니다. 작품마다 인원과 시간, 줄거리를 확인하세요."
+        description="여럿이 둘러앉아 대본을 나눠 읽고 범인을 찾는 추리 연극 상자입니다. 작품마다 인원과 시간, 줄거리를 확인하세요."
       >
         <a href="#work-list-title">{t("작품 목록")}</a>
         <a href="#funding-archive-title">{t("펀딩 기록")}</a>

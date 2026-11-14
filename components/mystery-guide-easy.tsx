@@ -10,7 +10,7 @@ const base = "/assets/genre-guide/";
 /** Numbered items in the kit picture; x and y are percentages of the image. */
 const kitItems = [
   { label: "대본", note: "사람 수만큼 들어 있습니다", x: 47, y: 12 },
-  { label: "단서 카드", note: "물건이나 기록이 그려진 카드", x: 6, y: 60 },
+  { label: "단서 카드", note: "사건 현장의 물건이나 기록이 그려져 있습니다", x: 6, y: 60 },
   { label: "진행 안내서", note: "무엇을 먼저 할지 적혀 있습니다", x: 35, y: 50 },
   { label: "해설", note: "맨 마지막에 함께 읽습니다", x: 80, y: 60 },
 ];
@@ -18,14 +18,14 @@ const kitItems = [
 const steps = [
   { image: "step-1-read.webp", title: "대본을 받아 혼자 읽습니다", note: "내가 누구인지, 무엇을 숨기는지 적혀 있습니다" },
   { image: "step-2-talk.webp", title: "그 사람이 되어 이야기합니다", note: "단서 카드를 보며 서로 묻고 답합니다" },
-  { image: "step-3-accuse.webp", title: "범인을 가리키고, 해설을 읽습니다", note: "그날 무슨 일이 있었는지 모두 밝혀집니다" },
+  { image: "step-3-accuse.webp", title: "누가 범인인지 각자 고른 뒤, 해설을 읽습니다", note: "그날 무슨 일이 있었는지 모두 밝혀집니다" },
 ];
 
 const worries = [
   ["연기를 해야 하나요?", "아닙니다. 대본에 적힌 내용을 평소 말투로 전하면 됩니다."],
   ["추리를 잘 못하는데요?", "괜찮습니다. 혼자 푸는 시험이 아니라 다 같이 이야기하는 놀이입니다."],
   ["범인을 못 맞히면요?", "마지막 해설에서 모든 이야기를 알게 됩니다."],
-  ["여러 번 할 수 있나요?", "한 이야기는 한 번입니다. 다 하고 나면 다른 모임에 빌려줄 수 있습니다."],
+  ["여러 번 할 수 있나요?", "범인과 결말을 알게 되므로, 한 작품은 한 번만 즐길 수 있습니다. 다 하고 나면 다른 모임에 빌려줄 수 있습니다."],
 ] as const;
 
 /** The first-time guide, written so that anyone from their 40s to their 70s can follow it. */
@@ -41,9 +41,9 @@ export function MysteryGuideEasy({ work, children }: { work?: Work; children?: R
           {t("입니다")}
         </h2>
         <div className={styles.plain}>
-          <p>{t("상자를 열면 사람 수만큼 대본이 들어 있습니다.")}</p>
+          <p>{t("이 연극 상자를 열면 사람 수만큼 대본이 들어 있습니다.")}</p>
           <p>{t("한 사람이 한 인물을 맡아, 그 사람이 된 듯 이야기합니다.")}</p>
-          <p>{t("대본 속에는 범인이 한 명 숨어 있고, 누가 범인인지는 범인 본인만 압니다.")}</p>
+          <p>{t("참가자 가운데 한 사람이 범인 역할을 맡고, 누가 범인인지는 그 사람만 압니다.")}</p>
           <p>{t("이야기를 나누며 범인을 찾아내면 연극이 끝납니다.")}</p>
         </div>
 
@@ -52,7 +52,7 @@ export function MysteryGuideEasy({ work, children }: { work?: Work; children?: R
           <span className={styles.frame}>
             <Image
               src={base + "kit-contents.webp"}
-              alt={t("탁자 위에 펼쳐 놓은 상자, 대본 네 권, 단서 카드, 진행 안내서, 봉인된 해설 봉투")}
+              alt={t("탁자 위에 펼쳐 놓은 상자, 대본 네 권, 단서 카드, 진행 안내서, 해설")}
               width={1400}
               height={788}
               sizes="(max-width: 1160px) 100vw, 1120px"
@@ -92,7 +92,7 @@ export function MysteryGuideEasy({ work, children }: { work?: Work; children?: R
             <div>
               <dt>
                 <Clock size={28} aria-hidden="true" />
-                {t("얼마나")}
+                {t("걸리는 시간")}
               </dt>
               <dd>{t(work.duration)}</dd>
             </div>
@@ -126,7 +126,7 @@ export function MysteryGuideEasy({ work, children }: { work?: Work; children?: R
           ))}
         </ol>
 
-        <h3 className={styles.sub}>{t("TV 「크라임씬」을 보셨다면")}</h3>
+        <h3 className={styles.sub}>{t("TV 추리 예능 「크라임씬」을 보셨다면")}</h3>
         <div className={styles.versus}>
           <figure>
             <span className={styles.frame}>
@@ -178,7 +178,7 @@ export function MysteryGuideEasy({ work, children }: { work?: Work; children?: R
 
         {guide?.caution && (
           <p className={styles.caution}>
-            <strong>{t("미리 알아 두세요")}</strong> {t(guide.caution)}
+            <strong>{t("미리 알려 드립니다")}</strong> {t(guide.caution)}
           </p>
         )}
 

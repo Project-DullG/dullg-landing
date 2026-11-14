@@ -247,3 +247,141 @@
     font-size: 17px;
   }
 }
+
+/* Familiar comparisons */
+.compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+.compareCard {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(17, 20, 18, 0.08);
+}
+.compareImage {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #e9e6dd;
+}
+.compareImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--ease-out);
+}
+.compareCard:hover .compareImage img,
+.living:hover .compareImage img {
+  transform: scale(1.03);
+}
+.compareCard figcaption {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px 28px 20px;
+}
+.compareKicker {
+  margin: 0 0 6px;
+  color: var(--pencil);
+  font-size: 15px;
+  font-weight: 500;
+}
+.compareCard h3 {
+  margin: 0 0 16px;
+  font-size: 22px;
+}
+.compareCard dl {
+  flex: 1;
+  margin: 0;
+}
+.compareCard dl > div {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.compareCard dt {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+.compareCard dd {
+  margin: 0;
+  color: #2f3532;
+  font-size: 17px;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+.credit {
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.living {
+  margin: 24px 0 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(17, 20, 18, 0.08);
+}
+.living .compareImage {
+  aspect-ratio: 16 / 9;
+}
+.living figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 20px 28px 24px;
+}
+.living strong {
+  font-size: 20px;
+  font-weight: 600;
+}
+.living span {
+  color: #3f4541;
+  font-size: 17px;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+:global(.is-revealed) .compareCard,
+:global(.is-revealed) .living {
+  animation: card-up 640ms var(--ease-out) backwards;
+}
+:global(.is-revealed) .compareCard + .compareCard {
+  animation-delay: 120ms;
+}
+@keyframes card-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+@media (max-width: 1000px) {
+  .compare {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .compareCard figcaption,
+  .living figcaption {
+    padding: 20px;
+  }
+  .compareCard dl > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .compareImage img {
+    transition: none;
+  }
+}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useText } from "@/lib/i18n/use-text";
 import type { Work } from "@/lib/works";
 import { workGuides } from "@/lib/work-guides";
@@ -53,6 +54,33 @@ const questions = [
   },
 ];
 
+const comparisons = [
+  {
+    kicker: "TV 예능으로 치면",
+    title: "「크라임씬」을 거실 테이블에서",
+    same: "출연자마다 용의자 한 명을 맡고, 그중 한 명이 진짜 범인입니다. 서로 캐묻고 단서를 맞춰 본 뒤 마지막에 범인을 지목합니다.",
+    differ: "촬영 세트와 의상 대신 인물 책자와 단서 카드가 든 상자 하나면 됩니다. 이번에는 내가 출연자입니다.",
+    image: "/assets/genre-guide/crime-scene-zero-netflix.webp",
+    alt: "용의자 역할의 한복 차림으로 다른 출연자에게 따져 묻는 크라임씬 출연자",
+    width: 1200,
+    height: 800,
+    credit: "넷플릭스 「크라임씬 제로」(2025) 스틸 · 사진 넷플릭스 제공",
+    creditHref: null,
+  },
+  {
+    kicker: "방탈출과 비교하면",
+    title: "자물쇠 대신 사람의 말을 풉니다",
+    same: "여럿이 머리를 맞대고 단서를 이어 답을 찾는다는 점은 같습니다.",
+    differ: "방탈출은 자물쇠와 장치를 풀어 방을 빠져나오고, 머더미스터리는 사람들의 말 속 앞뒤가 안 맞는 곳을 찾습니다. 함께 푸는 사람 가운데 범인이 숨어 있고, 매장 예약 없이 집에서 할 수 있습니다.",
+    image: "/assets/genre-guide/escape-room-hudson-bloom.webp",
+    alt: "벽에 걸린 오래된 지도를 짚으며 단서를 찾는 방탈출 참가자",
+    width: 1200,
+    height: 900,
+    credit: "방탈출 「The Expedition」 · 사진 Hudson Bloom, CC BY-SA 4.0",
+    creditHref: "https://commons.wikimedia.org/wiki/File:Escape_Room_-_%22The_Expedition%22_(Escape_Quest_Bethesda).jpg",
+  },
+] as const;
+
 const terms = [
   ["인물 책자", "내가 맡은 인물의 이야기와 비밀이 적힌 작은 책입니다. 캐릭터 시트라고도 합니다."],
   ["단서 카드", "사건 현장이나 소지품에서 찾은 물건, 기록이 적힌 카드입니다."],
@@ -81,6 +109,64 @@ export function MysteryGuide({ work }: { work?: Work }) {
             )}
           </p>
         </div>
+
+
+        <div className={styles.compare}>
+          {comparisons.map((item) => (
+            <figure key={item.title} className={styles.compareCard}>
+              <span className={styles.compareImage}>
+                <Image
+                  src={item.image}
+                  alt={t(item.alt)}
+                  width={item.width}
+                  height={item.height}
+                  sizes="(max-width: 760px) 100vw, 50vw"
+                />
+              </span>
+              <figcaption>
+                <p className={styles.compareKicker}>{t(item.kicker)}</p>
+                <h3>{t(item.title)}</h3>
+                <dl>
+                  <div>
+                    <dt>{t("같은 점")}</dt>
+                    <dd>{t(item.same)}</dd>
+                  </div>
+                  <div>
+                    <dt>{t("다른 점")}</dt>
+                    <dd>{t(item.differ)}</dd>
+                  </div>
+                </dl>
+                {item.creditHref ? (
+                  <a className={styles.credit} href={item.creditHref} target="_blank" rel="noopener noreferrer">
+                    {t(item.credit)}
+                  </a>
+                ) : (
+                  <span className={styles.credit}>{t(item.credit)}</span>
+                )}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <figure className={styles.living}>
+          <span className={styles.compareImage}>
+            <Image
+              src="/assets/genre-guide/living-room-play.webp"
+              alt={t("거실 탁자에 둘러앉아 인물 책자와 단서 카드로 머더미스터리를 하는 두 부부")}
+              width={1600}
+              height={900}
+              sizes="(max-width: 1160px) 100vw, 1120px"
+            />
+          </span>
+          <figcaption>
+            <strong>{t("실제로는 이렇게 합니다")}</strong>
+            <span>
+              {t(
+                "차 한 잔 놓인 거실 탁자에 둘러앉아, 내 책자를 가슴에 꼭 안은 채 서로를 의심합니다. 지목당한 사람은 웃으며 손사래를 칩니다. (게임하는 모습을 그린 일러스트입니다.)",
+              )}
+            </span>
+          </figcaption>
+        </figure>
 
         {work && guide && (
           <div className={styles.workCard}>

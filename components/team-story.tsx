@@ -228,7 +228,7 @@ const logos = [
 
 const shortcuts = [
   {
-    who: "학원·학교 담당자",
+    who: "학원·학교에서 오셨다면",
     links: [
       { label: "영어 미스터리 수업팩", href: "/academy" },
       { label: "수업 자료 미리보기", href: "/academy/sample" },
@@ -237,7 +237,7 @@ const shortcuts = [
     ],
   },
   {
-    who: "행사·기관·언론 담당자",
+    who: "행사·기관·언론에서 오셨다면",
     links: [
       { label: "제작·활동 기록과 사진", href: "/activity" },
       { label: "작품과 펀딩 기록", href: "/works" },
@@ -246,7 +246,7 @@ const shortcuts = [
     ],
   },
   {
-    who: "함께 만들고 싶은 분",
+    who: "함께 만들고 싶으시다면",
     links: [
       { label: "작품·교육·협업 문의", href: "/contact" },
       { label: "웹게임", href: "/mini-projects" },
@@ -255,41 +255,14 @@ const shortcuts = [
   },
 ];
 
-/** Logo files and the pages each kind of visitor usually needs. */
+/** Where to go next for each kind of visitor, then the official logo files. */
 export function PressKit() {
   const t = useText();
   return (
     <section className={styles.kit} id="press-kit" aria-labelledby="press-kit-title">
       <div className={styles.shell}>
-        <p className={styles.kicker}>{t("소개 자료")}</p>
-        <h2 id="press-kit-title">{t("트위즈덤을 소개할 때 필요한 자료")}</h2>
-        <p className={styles.kitLead}>
-          {t("로고 파일과, 담당자별로 자주 찾는 페이지를 모았습니다. SVG는 인쇄용, PNG는 문서·발표용입니다.")}
-        </p>
-        <ul className={styles.logos}>
-          {logos.map((logo) => {
-            const base = `/assets/brand/${logo.file}-${logo.tone}`;
-            return (
-              <li key={logo.name} className={logo.tone === "white" ? styles.dark : undefined}>
-                <span className={styles.logoPreview}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`${base}.svg`} alt={t(`트위즈덤 ${logo.name}`)} />
-                </span>
-                <span className={styles.logoName}>{t(logo.name)}</span>
-                <span className={styles.logoFiles}>
-                  <a href={`${base}.svg`} download>
-                    <DownloadSimple size={14} aria-hidden="true" />
-                    SVG
-                  </a>
-                  <a href={`${base}.png`} download>
-                    <DownloadSimple size={14} aria-hidden="true" />
-                    PNG
-                  </a>
-                </span>
-              </li>
-            );
-          })}
-        </ul>
+        <p className={styles.kicker}>{t("바로 가기")}</p>
+        <h2 id="press-kit-title">{t("어떤 일로 오셨나요")}</h2>
         <div className={styles.shortcuts}>
           {shortcuts.map((group) => (
             <div key={group.who}>
@@ -314,6 +287,34 @@ export function PressKit() {
             </div>
           ))}
         </div>
+        <div className={styles.logoHead}>
+          <h3>{t("공식 로고")}</h3>
+          <p>{t("기사나 행사 자료에 쓸 수 있습니다. SVG는 인쇄용, PNG는 문서·발표용입니다.")}</p>
+        </div>
+        <ul className={styles.logos}>
+          {logos.map((logo) => {
+            const base = `/assets/brand/${logo.file}-${logo.tone}`;
+            return (
+              <li key={logo.name} className={logo.tone === "white" ? styles.dark : undefined}>
+                <span className={styles.logoPreview}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`${base}.svg`} alt={t(`트위즈덤 ${logo.name}`)} />
+                </span>
+                <span className={styles.logoName}>{t(logo.name)}</span>
+                <span className={styles.logoFiles}>
+                  <a href={`${base}.svg`} download>
+                    <DownloadSimple size={14} aria-hidden="true" />
+                    SVG
+                  </a>
+                  <a href={`${base}.png`} download>
+                    <DownloadSimple size={14} aria-hidden="true" />
+                    PNG
+                  </a>
+                </span>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

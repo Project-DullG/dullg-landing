@@ -147,9 +147,6 @@
   "보드게임 동아리에서 시작해": "From a board game club",
   "펀딩과 교실까지": "to crowdfunding and classrooms",
   " · 진행 중": " · ongoing",
-  "소개 자료": "Press kit",
-  "트위즈덤을 소개할 때 필요한 자료": "Everything you need to introduce twisdom",
-  "로고 파일과, 담당자별로 자주 찾는 페이지를 모았습니다. SVG는 인쇄용, PNG는 문서·발표용입니다.": "Logo files, plus the pages each kind of visitor usually looks for. Use SVG for print and PNG for documents and slides.",
   "가로형 로고": "Horizontal logo",
   "가로형 로고 · 흰색": "Horizontal logo · white",
   "한글 로고": "Korean logo",
@@ -158,9 +155,6 @@
   "트위즈덤 가로형 로고 · 흰색": "twisdom horizontal logo, white",
   "트위즈덤 한글 로고": "twisdom Korean logo",
   "트위즈덤 심볼": "twisdom symbol",
-  "학원·학교 담당자": "For academies and schools",
-  "행사·기관·언론 담당자": "For events, institutions and press",
-  "함께 만들고 싶은 분": "For collaborators",
   "수업 자료 미리보기": "Preview the lesson materials",
   "4차시 수업 흐름": "Four-lesson outline",
   "무료 검토팩 요청": "Request a free review pack",
@@ -168,5 +162,12 @@
   "수상 기록 (한동대학교 공식 뉴스)": "Award record (Handong Global University news)",
   "청년디딤터 입주기업 소개": "Youth Didimter resident company listing",
   "웹게임": "Web games",
-  "수강생 자료실": "Course resources"
+  "수강생 자료실": "Course resources",
+  "바로 가기": "Where to next",
+  "어떤 일로 오셨나요": "What brings you here?",
+  "학원·학교에서 오셨다면": "From an academy or school",
+  "행사·기관·언론에서 오셨다면": "From an event, institution or the press",
+  "함께 만들고 싶으시다면": "If you'd like to work with us",
+  "공식 로고": "Official logos",
+  "기사나 행사 자료에 쓸 수 있습니다. SVG는 인쇄용, PNG는 문서·발표용입니다.": "Free to use in articles and event materials. Use SVG for print and PNG for documents and slides."
 }

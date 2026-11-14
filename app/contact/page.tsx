@@ -20,7 +20,7 @@ export default function ContactPage() {
     <PageFrame>
       <PageIntro
         title={t("작품\u00B7교육\u00B7협업 문의")}
-        description="수업 의뢰나 작품 제작을 이메일로 알려 주세요. 아래 버튼을 누르면 필요한 항목이 적힌 메일 창이 열립니다."
+        description="수업이나 작품 제작 문의는 이메일로 보내 주세요. 아래 버튼을 누르면 작성할 항목이 담긴 메일 창이 열립니다."
       />
 
       {/* ── MAIN CONTACT ── */}

@@ -17,7 +17,7 @@ export default function CurriculumPage() {
           kicker="하나의 사건, 네 번의 수업"
           title={t(
             <>
-              {t("사건을 읽고 토론해,")}
+              {t("사건을 읽고 토론해")}
               <br />
               <em>{t("근거를 적는 네 번의 수업")}</em>
             </>,
@@ -65,7 +65,7 @@ export default function CurriculumPage() {
           kicker="실제 운영을 위한 구성"
           title={t(
             <>
-              {t("교사는 카드 공개 순서를 안내하고,")}
+              {t("교사는 카드 공개 순서를 안내하고")}
               <br />
               <span>{t("학생은 단서와 판단을 적습니다")}</span>
             </>,

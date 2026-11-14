@@ -49,7 +49,7 @@ export default function AcademyPage() {
           <p className={styles.workTitle}>{t(episodeTitle)}</p>
           <p className={styles.lead}>
             {t(
-              "네 학생 중 한 명을 맡아 영어 단서를 읽고 서로 질문합니다. 카드 내용을 근거로 친구의 추리를 따지고, 마지막에는 자신의 판단과 근거를 영어로 정리합니다.",
+              "네 학생 중 한 명을 맡아 영어 단서를 읽고 서로 질문합니다. 카드 내용을 근거로 친구의 추리를 따지고, 마지막에는 자기 판단과 근거를 영어로 정리합니다.",
             )}
           </p>
           <p className={styles.notice}>

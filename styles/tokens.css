@@ -22,4 +22,8 @@
   --accent: #286350;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --pencil: #c96645;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+  --font-noto-sans: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic";
+  --font-noto-serif: "Noto Serif KR", "AppleMyungjo", "Batang";
+  --font-playfair: "Playfair Display", Georgia;
 }

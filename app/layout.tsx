@@ -1,38 +1,13 @@
 import type { Metadata } from "next";
-import { DM_Mono, Noto_Sans_KR, Noto_Serif_KR, Playfair_Display } from "next/font/google";
 import { SITE_URL } from "@/lib/site";
 import { BRAND } from "@/lib/site-config";
+import "./fonts.css";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import { localizeMetadata } from "@/lib/i18n/server";
 import { MotionRoot } from "@/components/motion-root";
 
-const dmMono = DM_Mono({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
-const notoSansKR = Noto_Sans_KR({
-  weight: ["400", "500", "700"],
-  preload: false,
-  variable: "--font-noto-sans",
-  display: "swap",
-});
-const notoSerifKR = Noto_Serif_KR({
-  weight: ["500", "600"],
-  preload: false,
-  variable: "--font-noto-serif",
-  display: "swap",
-});
-const playfair = Playfair_Display({
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
 
 const baseMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -74,9 +49,8 @@ export async function generateMetadata() {
 }
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const locale = await getLocale();
-  const fontVars = `${dmMono.variable} ${notoSansKR.variable} ${notoSerifKR.variable} ${playfair.variable}`;
   return (
-    <html lang={locale} className={fontVars} data-scroll-behavior="smooth">
+    <html lang={locale} data-scroll-behavior="smooth">
       <body>
         <a className="skip-link" href="#main-content">
           {locale === "en" ? "Skip to content" : "본문으로 바로가기"}

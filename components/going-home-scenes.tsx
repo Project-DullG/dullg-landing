@@ -15,7 +15,7 @@ export function GoingHomeScenes({ cluesOnly = false }: { cluesOnly?: boolean }) 
       <div className={styles.shell}>
         {cluesOnly && (
           <h2 id="going-home-clues-title" className={styles.cluesTitle}>
-            {t("두 열쇠가 있어야 할 곳")}
+            {t("사라진 두 열쇠")}
           </h2>
         )}
         {!cluesOnly && (
@@ -73,7 +73,7 @@ export function GoingHomeScenes({ cluesOnly = false }: { cluesOnly?: boolean }) 
             </span>
             <figcaption>
               <strong>{t("잠긴 핸드폰함")}</strong>
-              <span>{t("휴대폰은 바로 저기 있는데 꺼낼 수 없습니다. 아직 확인하지 못한 곳은 네 학생의 가방입니다.")}</span>
+              <span>{t("핸드폰은 바로 저기 있는데 꺼낼 수 없습니다. 핸드폰함 열쇠도 함께 사라졌기 때문입니다.")}</span>
             </figcaption>
           </figure>
         </div>

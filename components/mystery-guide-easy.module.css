@@ -209,9 +209,10 @@
 .steps li {
   display: grid;
   gap: 4px;
+  align-content: start;
 }
 .steps .frame {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   margin-bottom: 12px;
 }
 .number {

@@ -803,9 +803,7 @@
   flex-wrap: wrap;
 }
 .ep-hero-chips span {
-  font-family: var(--font-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.07em;
+  font-size: 15px;
   padding: 7px 14px;
   background: rgba(17, 20, 18, 0.06);
   color: rgba(17, 20, 18, 0.7);
@@ -1159,4 +1157,8 @@ html body .ep-hero-chips span {
     max-width: 360px;
     margin-top: 8px;
   }
+}
+.ep-hero-cta {
+  margin-top: 28px;
+  align-self: flex-start;
 }

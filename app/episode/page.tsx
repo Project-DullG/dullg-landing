@@ -66,6 +66,9 @@ export default function EpisodePage() {
               )),
             )}
           </div>
+          <Link className="button button-dark ep-hero-cta" href="/academy#remake-guide-title">
+            {t("시놉시스·룰 설명 영상 보기")}
+          </Link>
         </div>
         <div className="ep-hero-visual">
           <Image
@@ -76,19 +79,11 @@ export default function EpisodePage() {
             sizes="(max-width: 760px) 82vw, 38vw"
             priority
           />
-          <span className="ep-case-stamp">{t("첫 번째 사건")}</span>
         </div>
       </section>
 
-      <div className="shell" style={{ marginBottom: 32 }}>
-        <Link className="button button-dark" href="/academy#remake-guide-title">
-          {t("시놉시스·룰 설명 영상 보기")}
-        </Link>
-      </div>
-
       <EpisodeDeadline />
       <GoingHomeScenes cluesOnly />
-      <EpisodeRounds />
       {/* ── SETTING — large floor map ── */}
       <section className="ep-setting">
         <div className="shell ep-setting-inner">
@@ -101,12 +96,12 @@ export default function EpisodePage() {
             </h2>
             <p>
               {t(
-                "열쇠가 없다는 사실을 확인했습니다. 자료함 열쇠와 핸드폰함 열쇠는 원래 원장실 입구 쪽 공용 볼펜 선반 안쪽에 함께 걸려 있었습니다.",
+                "네 학생은 3층 자습실에서 재시험을 기다리고 있었습니다. 두 열쇠가 걸려 있던 원장실 입구도 같은 층에 있습니다.",
               )}
             </p>
             <p>
               {t(
-                "오늘 재시험을 치르지 못하면 토요일 오후 보충반에 다시 나와야 합니다. 아직 확인하지 못한 곳은 네 학생의 가방입니다. 공개되는 소지품을 비교하며 열쇠의 행방을 추리합니다.",
+                "평면도로 두 곳의 자리를 확인하고, 가방에서 나오는 소지품을 비교하며 열쇠가 어디로 갔는지 추리합니다.",
               )}
             </p>
           </div>
@@ -162,6 +157,8 @@ export default function EpisodePage() {
         </div>
       </section>
 
+      <EpisodeRounds />
+
       {/* ── LESSON FLOW ── */}
       <section className="ep-flow shell">
         <SectionHead
@@ -169,9 +166,9 @@ export default function EpisodePage() {
           kicker="네 번의 수업으로 푸는 사건"
           title={t(
             <>
-              {t("4차시 동안")}
+              {t("한 차시에")}
               <br />
-              <em>{t("사건이 풀립니다.")}</em>
+              <em>{t("한 단계씩 풉니다.")}</em>
             </>,
           )}
         />
@@ -212,7 +209,7 @@ export default function EpisodePage() {
                 <span>{t("직접 확인하세요.")}</span>
               </>,
             )}
-            lead="단서 카드, 교사용 진행안과 결과물 예시 시제품을 묶어 보내드립니다. 현재 검토용 샘플은 무료입니다."
+            lead="단서 카드와 교사용 진행안, 결과물 예시를 시제품으로 묶어 보내드립니다. 현재 검토용 샘플은 무료입니다."
           />
         </div>
         <div className="ep-cta-actions">

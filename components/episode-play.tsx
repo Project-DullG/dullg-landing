@@ -31,7 +31,7 @@ export function EpisodeDeadline() {
   return (
     <section className={styles.deadline} aria-labelledby="episode-deadline-title">
       <div className={styles.shell}>
-        <p className={styles.kicker}>{t("남은 시간")}</p>
+        <p className={styles.kicker}>{t("금요일 저녁")}</p>
         <h2 id="episode-deadline-title">{t("여덟 시까지 두 열쇠를 찾아야 합니다")}</h2>
         <span className={`${styles.clip} ${shown ? styles.drift : ""}`}>
           <img

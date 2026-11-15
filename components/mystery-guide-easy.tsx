@@ -4,6 +4,7 @@ import { useText } from "@/lib/i18n/use-text";
 import type { Work } from "@/lib/works";
 import { workGuides } from "@/lib/work-guides";
 import styles from "./mystery-guide-easy.module.css";
+import { StepClip } from "./step-clip";
 
 const base = "/assets/genre-guide/";
 
@@ -111,13 +112,7 @@ export function MysteryGuideEasy({ work, children }: { work?: Work; children?: R
           {steps.map((step, index) => (
             <li key={step.title}>
               <span className={styles.frame}>
-                <Image
-                  src={base + step.image}
-                  alt=""
-                  width={900}
-                  height={675}
-                  sizes="(max-width: 760px) 100vw, 33vw"
-                />
+                <StepClip src={base + step.image.replace(".webp", ".mp4")} poster={base + step.image} />
                 <span className={styles.number}>{index + 1}</span>
               </span>
               <strong>{t(step.title)}</strong>

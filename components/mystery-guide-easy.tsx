@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "@/components/i18n/link";
 import { ArrowRight, Clock, MaskHappy, UsersThree } from "@phosphor-icons/react/dist/ssr";
 import { useText } from "@/lib/i18n/use-text";
 import type { Work } from "@/lib/works";
@@ -29,10 +30,12 @@ const worries = [
   ["여러 번 할 수 있나요?", "범인과 결말을 알게 되므로, 한 작품은 한 번만 즐길 수 있습니다. 다 하고 나면 다른 모임에 빌려줄 수 있습니다."],
 ] as const;
 
-/** The first-time guide, written so that anyone from their 40s to their 70s can follow it. */
-export function MysteryGuideEasy({ work, children }: { work?: Work; children?: React.ReactNode }) {
+/**
+ * The first-time guide, written so that anyone from their 40s to their 70s can follow it.
+ * It lives once, on the works page; each box's page links to it with MysteryGuideLink.
+ */
+export function MysteryGuideEasy({ children }: { children?: React.ReactNode }) {
   const t = useText();
-  const guide = work ? workGuides[work.slug] : undefined;
   return (
     <section className={styles.guide} id="first-time" aria-labelledby="mystery-guide-title">
       <div className={styles.shell}>
@@ -80,32 +83,6 @@ export function MysteryGuideEasy({ work, children }: { work?: Work; children?: R
           </ol>
           <figcaption>{t("그림은 예시입니다. 작품마다 들어 있는 것이 조금씩 다릅니다.")}</figcaption>
         </figure>
-
-        {work && guide && (
-          <dl className={styles.facts}>
-            <div>
-              <dt>
-                <UsersThree size={28} aria-hidden="true" />
-                {t("몇 명이서")}
-              </dt>
-              <dd>{t(work.players)}</dd>
-            </div>
-            <div>
-              <dt>
-                <Clock size={28} aria-hidden="true" />
-                {t("걸리는 시간")}
-              </dt>
-              <dd>{t(work.duration)}</dd>
-            </div>
-            <div className={styles.role}>
-              <dt>
-                <MaskHappy size={28} aria-hidden="true" />
-                {t("내가 맡는 사람")}
-              </dt>
-              <dd>{t(guide.role)}</dd>
-            </div>
-          </dl>
-        )}
 
         <h3 className={styles.sub}>{t("하는 방법은 세 단계입니다")}</h3>
         <ol className={styles.steps} data-stagger>
@@ -171,18 +148,63 @@ export function MysteryGuideEasy({ work, children }: { work?: Work; children?: R
           ))}
         </ul>
 
-        {guide?.caution && (
-          <p className={styles.caution}>
-            <strong>{t("미리 알려 드립니다")}</strong> {t(guide.caution)}
-          </p>
-        )}
-
         {children && (
           <details className={styles.more}>
             <summary>{t("더 자세히 알고 싶다면")}</summary>
             {children}
           </details>
         )}
+      </div>
+    </section>
+  );
+}
+
+/** On a box's own page: who plays, for how long, as whom, and a way to the general first-time guide. */
+export function MysteryGuideLink({ work }: { work: Work }) {
+  const t = useText();
+  const guide = workGuides[work.slug];
+  return (
+    <section className={styles.link} aria-labelledby="mystery-guide-link-title">
+      <div className={styles.shell}>
+        <p className={styles.kicker}>{t("이 작품 한눈에")}</p>
+        <h2 id="mystery-guide-link-title">{t("인원과 시간, 내가 맡는 사람")}</h2>
+        {guide && (
+          <dl className={styles.facts}>
+            <div>
+              <dt>
+                <UsersThree size={28} aria-hidden="true" />
+                {t("몇 명이서")}
+              </dt>
+              <dd>{t(work.players)}</dd>
+            </div>
+            <div>
+              <dt>
+                <Clock size={28} aria-hidden="true" />
+                {t("걸리는 시간")}
+              </dt>
+              <dd>{t(work.duration)}</dd>
+            </div>
+            <div className={styles.role}>
+              <dt>
+                <MaskHappy size={28} aria-hidden="true" />
+                {t("내가 맡는 사람")}
+              </dt>
+              <dd>{t(guide.role)}</dd>
+            </div>
+          </dl>
+        )}
+        {guide?.caution && (
+          <p className={styles.caution}>
+            <strong>{t("미리 알려 드립니다")}</strong> {t(guide.caution)}
+          </p>
+        )}
+        <Link className={styles.linkCard} href="/works#first-time">
+          <span>
+            <strong>{t("머더미스터리가 처음이신가요?")}</strong>
+            {t("상자에 무엇이 들었는지, 어떻게 하는지 그림으로 보여 드립니다.")}
+          </span>
+          <ArrowRight size={24} weight="bold" aria-hidden="true" />
+        </Link>
       </div>
     </section>
   );

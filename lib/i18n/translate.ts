@@ -121,6 +121,7 @@ export function translateText(text: string, locale: string): string {
         `Move ${({ 왼쪽: "left", 오른쪽: "right", 위: "up", 아래: "down" } as Record<string, string>)[d]}`,
     ],
     [/^레벨 (\d+)$/, (n) => `Level ${n}`],
+    [/^꺼낸 짐 (\d+)장 · 숨은 짐 (\d+)장$/, (a, b) => `${a} shown · ${b} hidden`],
     [/^「(.*)」로 하면$/, (name) => `Playing ${translateText(name, locale)}`],
     [/^실물 보드게임 (\d+)편 · 앱 수록 (\d+)편$/, (a, b) => `${a} tabletop · ${b} in an app`],
     [/^모인 금액 합계 ([\d,]+)원$/, (n) => `₩${n} raised in total`],

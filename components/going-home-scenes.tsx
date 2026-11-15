@@ -5,11 +5,20 @@ import styles from "./going-home-scenes.module.css";
 const base = "/assets/going-home-scenes/";
 
 /** What the game feels like: the Friday-evening scene and the two places the keys should be. */
-export function GoingHomeScenes() {
+export function GoingHomeScenes({ cluesOnly = false }: { cluesOnly?: boolean }) {
   const t = useText();
   return (
-    <section className={styles.section} aria-labelledby="going-home-scene-title">
+    <section
+      className={styles.section}
+      aria-labelledby={cluesOnly ? "going-home-clues-title" : "going-home-scene-title"}
+    >
       <div className={styles.shell}>
+        {cluesOnly && (
+          <h2 id="going-home-clues-title" className={styles.cluesTitle}>
+            {t("두 열쇠가 있어야 할 곳")}
+          </h2>
+        )}
+        {!cluesOnly && (
         <figure className={styles.hero}>
           <span className={styles.frame}>
             <Image
@@ -34,6 +43,7 @@ export function GoingHomeScenes() {
             </p>
           </figcaption>
         </figure>
+        )}
 
         <div className={styles.clues}>
           <figure className={styles.clue}>

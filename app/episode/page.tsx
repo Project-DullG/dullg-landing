@@ -6,6 +6,7 @@ import { ArrowButton, Kicker, PageFrame } from "@/components/site";
 import { SectionHead } from "@/components/section-head";
 import { EpisodeTrailer } from "@/components/episode-trailer";
 import { GoingHomeScenes } from "@/components/going-home-scenes";
+import { EpisodeDeadline, EpisodeRounds } from "@/components/episode-play";
 import trailerStyles from "@/components/episode-trailer.module.css";
 import { curriculum, episodeFullTitle, episodeSubtitle, episodeTitle } from "@/lib/education";
 import { pageMetadata } from "@/lib/metadata";
@@ -75,7 +76,7 @@ export default function EpisodePage() {
             sizes="(max-width: 760px) 82vw, 38vw"
             priority
           />
-          <span className="ep-case-stamp">OPEN CASE</span>
+          <span className="ep-case-stamp">{t("첫 번째 사건")}</span>
         </div>
       </section>
 
@@ -85,16 +86,18 @@ export default function EpisodePage() {
         </Link>
       </div>
 
-      <GoingHomeScenes />
+      <EpisodeDeadline />
+      <GoingHomeScenes cluesOnly />
+      <EpisodeRounds />
       {/* ── SETTING — large floor map ── */}
       <section className="ep-setting">
         <div className="shell ep-setting-inner">
           <div className="ep-setting-copy">
             <Kicker>{t("사건이 시작된 장소")}</Kicker>
             <h2>
-              {t("금요일 저녁 7시 10분,")}
+              {t("네 사람이 있던")}
               <br />
-              <span>{t("학원 3층에서 시작됩니다.")}</span>
+              <span>{t("학원 3층입니다.")}</span>
             </h2>
             <p>
               {t(

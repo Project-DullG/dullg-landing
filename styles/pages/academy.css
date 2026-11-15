@@ -207,25 +207,6 @@
     border-right: 0;
   }
 }
-.case-stamp {
-  position: absolute;
-  right: 35px;
-  top: 35px;
-  border: 2px solid var(--orange);
-  border-radius: 50%;
-  width: 92px;
-  height: 92px;
-  color: var(--orange);
-  font: 12px/1.1 var(--font-mono);
-  display: grid;
-  place-content: center;
-  text-align: center;
-  transform: rotate(11deg);
-}
-.case-stamp b {
-  font-size: 8px;
-  margin-top: 4px;
-}
 .note-section h2,
 .sample-bottom h2 {
   font-size: clamp(38px, 4.8vw, 61px);
@@ -816,18 +797,6 @@
   width: 100%;
   display: block;
 }
-.ep-case-stamp {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  font-family: var(--font-mono), monospace;
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  background: var(--orange);
-  color: #fff;
-  padding: 5px 9px;
-}
 .ep-setting {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -1132,12 +1101,7 @@ html body .sample-card {
 html body .sample-card > div:first-child {
   background: #f4f5f2;
 }
-html body .ep-case-stamp {
-  background: var(--cream);
-  color: #555b57;
-  border: 1px solid var(--line);
-}
-html body .ep-hero-chips span {
+html body html body .ep-hero-chips span {
   background: #f4f5f2;
   border-radius: 0;
 }

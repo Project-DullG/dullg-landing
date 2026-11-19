@@ -350,7 +350,7 @@ export default function VietnamBriefing() {
           <Image src="/assets/briefing/cover.jpg" alt="" fill sizes="36vw" />
         </div>
         <div className={s.pad}>
-          <h2>베트남의 기념품과 말하기 수업 이야기를 듣고 싶습니다</h2>
+          <h2>현지에서 지내며 보신 이야기를 듣고 싶습니다</h2>
           <p className={`${s.explain} ${s.askText}`}>
             한국에 다녀간 분들이 어떤 물건을 사 가는지, 학교와 학원에서 말하기 수업을 어떻게 하는지 궁금합니다. 카드에 베트남어만 적을지, 한국어와 영어를 함께 적을지도 여쭙고 싶습니다.
           </p>

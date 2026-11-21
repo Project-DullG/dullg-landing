@@ -1067,3 +1067,68 @@
   font-size: 13px;
   text-decoration: none;
 }
+
+.first {
+  background: #fff;
+  padding: 48px 0 8px;
+}
+.firstCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  border: 1px solid rgba(17, 20, 18, 0.14);
+  border-radius: 9px;
+  overflow: hidden;
+  background: #f8f6f0;
+}
+.firstCard > img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+}
+.firstCard > div {
+  padding: 36px 40px;
+  align-self: center;
+}
+.firstCard span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #286350;
+}
+.firstCard h2 {
+  font-size: 28px;
+  line-height: 1.5;
+  margin: 8px 0 14px;
+  font-weight: 500;
+}
+.firstCard p {
+  word-break: keep-all;
+  font-size: 17px;
+  line-height: 1.85;
+  color: #3b403d;
+  margin: 0 0 16px;
+}
+.firstCard a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #286350;
+}
+@media (max-width: 760px) {
+  .firstCard {
+    grid-template-columns: 1fr;
+  }
+  .firstCard > img {
+    min-height: 200px;
+    height: 220px;
+  }
+  .firstCard > div {
+    padding: 24px 22px 18px;
+  }
+  .firstCard h2 {
+    font-size: 24px;
+  }
+}

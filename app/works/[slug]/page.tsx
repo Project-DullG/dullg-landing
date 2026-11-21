@@ -13,6 +13,8 @@ import { OfficialWorkIntroduction } from "@/components/official-work-introductio
 import { WorkTrailer } from "@/components/work-trailer";
 import { SourceLanguageNote } from "@/components/i18n/source-language-note";
 import { MysteryGuideLink } from "@/components/mystery-guide-easy";
+import { getWorkRetailer } from "@/lib/work-retailers";
+import { INSTAGRAM } from "@/lib/site-config";
 type Props = {
   params: Promise<{
     slug: string;
@@ -33,8 +35,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: work.title,
       description: work.synopsis,
       url: `/works/${work.slug}`,
-      images: [{ url: work.image, alt: work.alt }],
+      images: [{ url: `/assets/og/work-${work.slug}.png`, width: 1200, height: 630, alt: work.alt }],
     },
+    twitter: { card: "summary_large_image", images: [`/assets/og/work-${work.slug}.png`] },
   });
 }
 export default async function WorkDetailPage({ params }: Props) {
@@ -75,6 +78,14 @@ export default async function WorkDetailPage({ params }: Props) {
               </div>
             </dl>
             <WorkPurchase slug={work.slug} />
+            {work.fundingId && !getWorkRetailer(work.slug) && (
+              <p className="work-detail-closed">
+                {t("텀블벅 펀딩은 2026년 9월 11일에 끝났습니다. 살 수 있는 곳이 확인된 작품에만 구매 링크를 두었습니다.")}{" "}
+                <a href={INSTAGRAM.url} target="_blank" rel="noopener noreferrer">
+                  {t("인스타그램 @twisdom_official ↗")}
+                </a>
+              </p>
+            )}
             <div className="work-detail-actions">
               <a href={work.externalUrl} target="_blank" rel="noopener noreferrer">
                 {work.externalUrl.includes("tumblbug.com") ? t("텀블벅 펀딩 기록") : <>{t(work.externalLabel)}{t("보기")}</>}

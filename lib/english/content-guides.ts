@@ -91,8 +91,8 @@ export const englishContentGuides: EnglishContentGuide[] = [
       "Read the recipient and destination, check the directions you hear, and deliver an invitation.",
     ],
     [
-      "동화 속 여정을 즐기며 주소 쓰기와 길 묻기를 연습하고 싶은 분께 맞아요.",
-      "For learners who enjoy a fairy-tale journey and want to practise addresses and directions.",
+      "동화 속 길을 따라가며 주소 쓰기와 길 묻기를 연습하고 싶은 분께 맞아요.",
+      "For learners who want to follow a fairy-tale route while practising addresses and directions.",
     ],
     ["reading", "listening", "writing", "speaking"],
     [

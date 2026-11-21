@@ -4,7 +4,7 @@ import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "@/components/i18n/link";
 import type { ReactNode } from "react";
 import { primaryNavigation } from "@/lib/navigation";
-import { BRAND, emailHref } from "@/lib/site-config";
+import { BRAND, INSTAGRAM, emailHref } from "@/lib/site-config";
 import { Header } from "./header";
 export { Header };
 export function Footer() {
@@ -63,6 +63,9 @@ export function Footer() {
           <strong>{t("문의")}</strong>
           <a href={emailHref}>{t(BRAND.email)}</a>
           <p>{t(BRAND.responseTime)}</p>
+          <a href={INSTAGRAM.url} target="_blank" rel="noopener noreferrer">
+            {t("인스타그램 @twisdom_official ↗")}
+          </a>
           <Link className="site-footer-sample" href="/contact">
             {t("프로젝트 문의 →")}
           </Link>

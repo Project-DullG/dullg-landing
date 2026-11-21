@@ -10,3 +10,8 @@ export const BRAND = {
 } as const;
 
 export const emailHref = `mailto:${BRAND.email}`;
+
+export const INSTAGRAM = {
+  handle: "@twisdom_official",
+  url: "https://www.instagram.com/twisdom_official/",
+} as const;

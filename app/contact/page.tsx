@@ -4,7 +4,7 @@ import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "@/components/i18n/link";
 import { Kicker, PageFrame } from "@/components/site";
 import { pageMetadata } from "@/lib/metadata";
-import { BRAND, emailHref } from "@/lib/site-config";
+import { BRAND, INSTAGRAM, emailHref } from "@/lib/site-config";
 import { PageIntro } from "@/components/page-intro";
 import { ContactActions } from "@/components/contact-actions";
 export async function generateMetadata() {
@@ -35,6 +35,13 @@ export default function ContactPage() {
           </p>
           <p className="contact-response">{t(BRAND.responseTime)}</p>
           <ContactActions />
+          <div className="contact-social">
+            <Kicker>{t("인스타그램")}</Kicker>
+            <p>{t("트위즈덤의 공식 인스타그램 계정입니다.")}</p>
+            <a className="text-link" href={INSTAGRAM.url} target="_blank" rel="noopener noreferrer">
+              {t("@twisdom_official 바로가기 ↗")}
+            </a>
+          </div>
           <Link className="text-link" href="/academy/pilot">
             {t("영어 수업팩 검토 요청")}
             <ArrowRight size={17} weight="bold" aria-hidden="true" />

@@ -204,7 +204,7 @@ export const publicRoutes: PublicRoute[] = [
     path: "/",
     title: "홈",
     description:
-      "트위즈덤은 이야기의 반전을 통해 이해가 깊어지는 게임과 교육 콘텐츠를 만듭니다. 추리 게임과 이야기 속 영어 학습, 교육 활동을 만나보세요.",
+      "트위즈덤은 반전이 있는 추리 게임과 교육 콘텐츠를 만듭니다. 추리 게임, 이야기로 배우는 영어, 교육 활동을 둘러보세요.",
     group: "learning",
     priority: 1,
     changeFrequency: "weekly",

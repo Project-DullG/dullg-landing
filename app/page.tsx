@@ -17,7 +17,7 @@ export async function generateMetadata() {
   return localizeMetadata(
     pageMetadata("/", {
       absoluteTitle: "트위즈덤 | 게임과 이야기로 배우는 곳",
-      ogImage: "/assets/english/bookshop.webp",
+      ogImage: "/assets/og/twisdom-site.png",
     }),
   );
 }
@@ -31,6 +31,31 @@ export default async function Home() {
       <Header />
       <main id="main-content">
         <EnglishHub episodes={englishLibrary()} home />
+        <section className={styles.first} aria-labelledby="home-first-title">
+          <div className={styles.shell}>
+            <div className={styles.firstCard}>
+              <Image
+                src="/assets/genre-guide/living-room-play.webp"
+                alt="거실 탁자에 둘러앉아 웃으며 이야기하는 네 사람"
+                width={720}
+                height={480}
+                sizes="(max-width: 760px) 100vw, 560px"
+              />
+              <div>
+                <span>처음 해 보는 분께</span>
+                <h2 id="home-first-title">머더미스터리는 어떻게 하는 놀이인가요?</h2>
+                <p>
+                  각자 대본을 받아 자기 역할을 읽고, 이야기를 나누다 범인을 고릅니다.
+                  집에서 하는 작은 연극처럼 하시면 됩니다.
+                </p>
+                <Link href="/works#first-time">
+                  처음 하는 법 보기
+                  <ArrowRight size={18} aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
         <DebateScene variant="home" />
         <section className={styles.studio} aria-labelledby="home-studio-title">
           <div className={styles.shell}>

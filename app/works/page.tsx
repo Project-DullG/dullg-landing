@@ -15,7 +15,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { currentWorks, getWorkStatus, publishedWorks } from "@/lib/works";
 import { StudentGameShowcase } from "@/components/student-game-showcase";
 export async function generateMetadata() {
-  return localizeMetadata(pageMetadata("/works", { title: "작품과 펀딩" }));
+  return localizeMetadata(pageMetadata("/works", { title: "작품과 펀딩", ogImage: "/assets/og/twisdom-site.png" }));
 }
 export const revalidate = 3600;
 const toNumber = (text: string) => Number(text.replace(/[^\d]/g, ""));
